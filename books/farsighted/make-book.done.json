@@ -1,0 +1,32 @@
+{
+  "status": "done",
+  "startedAt": "2026-10-26T10:48:57.586Z",
+  "at": "2026-10-26T10:59:59.764Z",
+  "config": "config.antidote.json",
+  "configSha256": "6fb16eab384bf876010814e75493e4bd7da62877a7d0fc4c7de30b8b15ce4237",
+  "inputs": {
+    "storyboard": {
+      "path": "books/farsighted/art.json",
+      "sha256": "66c9bf5ce4a53db7488a6739a2d45a3497f7b8013296dcd182ddcb3f29de0f70"
+    },
+    "storyBible": {
+      "path": "books/farsighted/story-bible.json",
+      "sha256": "60bba085efe548a11ff897696359e45fcc2831c34ea227b91a4f8fee7df2df72"
+    },
+    "motifs": {
+      "path": "books/farsighted/motifs.json",
+      "sha256": "f89ce04b465d4412d49ccecf7e4745c7158cca72803f923e964308f1e673f596"
+    },
+    "vtt": {
+      "path": "public/captions/farsighted.vtt",
+      "sha256": "7cf512dc38ce8e884bb8535e602ca5334fe5861f4371bd80b2fe96b6710a3567"
+    },
+    "audio": {
+      "path": "public/audio/farsighted.m4a",
+      "sha256": "bde2a688babb6065544a78ad84b3fcfe5855b6c4f12aa1b11e67583073fe8c6a"
+    }
+  },
+  "head": "a84ceacb19c89df36dce544979b62ce4c1e6bbf0",
+  "previewOnly": true,
+  "skipPack": false
+}

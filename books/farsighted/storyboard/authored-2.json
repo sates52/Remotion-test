@@ -1,0 +1,899 @@
+[
+  {
+    "i": 44,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Expel the tanneries by law",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "lenfant",
+      "alderman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "idle",
+    "explainedBy": "L'Enfant proposes to the city council that they use the law: the architect pitching, the alderman listening, the law icon naming his tool.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "L'Enfant proposed a visionary plan: use the law.",
+      "concreteVisual": "L'Enfant talking to the alderman beside a law icon.",
+      "onScreenText": "Let's use the law",
+      "relationToPrevious": "L'Enfant, introduced in context, now makes his proposal to the city.",
+      "addedInformation": "Who proposes to whom, and that the law is his first lever."
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Expel tanneries",
+        "Clean the water"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The plan as steps: expel the tanneries, then dredge and clean the water.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Expel the tanneries, dredge and clean the water, and turn the area into a park.",
+      "concreteVisual": "A flow diagram drawing the first two steps of the plan.",
+      "onScreenText": "Expel tanneries -> Clean the water",
+      "relationToPrevious": "The proposal from 44 broken into its steps.",
+      "addedInformation": "The concrete sequence of L'Enfant's plan."
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Expel tanneries",
+        "Clean the water",
+        "Public park"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The plan's result joins the chain: the cleaned land becomes a permanent public park.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The area becomes a permanent public park; the genius was the funding.",
+      "concreteVisual": "The same flow gains its last step, 'Public park'.",
+      "onScreenText": "Public park",
+      "relationToPrevious": "One more label: the result of the plan.",
+      "addedInformation": "The end state of the plan; the funding question is set up for 47."
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Park lifts values",
+        "Sell bordering land",
+        "Park pays for itself"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The funding mechanism as cause -> effect: the park raises nearby values, the city sells the bordering land to speculators, and that pays for the park.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The city would fund the park by selling the bordering real estate, whose value the park would raise.",
+      "concreteVisual": "A new flow: park lifts values -> sell bordering land -> park paid for.",
+      "onScreenText": "Park lifts values -> Sell bordering land -> Park paid for",
+      "relationToPrevious": "From what the plan does to how it pays for itself.",
+      "addedInformation": "The public-private funding loop, which talk alone would leave abstract."
+    }
+  },
+  {
+    "i": 48,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "Central Park, half a century early",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "lenfant"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "L'Enfant points to the green park he imagined decades before Central Park existed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He basically invented Central Park half a century before it was built.",
+      "concreteVisual": "L'Enfant pointing to a tree: the green park he foresaw.",
+      "onScreenText": "Central Park, half a century early",
+      "relationToPrevious": "The verdict on the plan.",
+      "addedInformation": "Links the 1802 plan to a park every viewer knows."
+    }
+  },
+  {
+    "i": 49,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They couldn't see it",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "alderman",
+      "lenfant"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "partnerExpression": "happy",
+    "partnerAction": "hold",
+    "holds": "notes",
+    "explainedBy": "The relationship: L'Enfant holds out his plan while the alderman stares at it blankly, unable to imagine it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The short-sighted establishment could not imagine the future geometry of New York.",
+      "concreteVisual": "The alderman blank-faced, L'Enfant eager beside him.",
+      "onScreenText": "They couldn't see it",
+      "relationToPrevious": "Turn from the plan to the people who must approve it.",
+      "addedInformation": "weak: the incomprehension is carried by the blank face against the eager one."
+    }
+  },
+  {
+    "i": 50,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "just a small commercial hub",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The alderman points at the small town he thinks New York is, unable to picture people living farther north.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In their minds the city was just a small commercial hub; nobody would live that far north.",
+      "concreteVisual": "The alderman pointing at a small city.",
+      "onScreenText": "just a small commercial hub",
+      "relationToPrevious": "What they saw instead of the future.",
+      "addedInformation": "Their picture of the city, which limited their imagination."
+    }
+  },
+  {
+    "i": 51,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "They tossed the idea",
+      "style": "strike"
+    },
+    "set": "street",
+    "cast": [
+      "lenfant",
+      "alderman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "partnerExpression": "blank",
+    "partnerAction": "idle",
+    "explainedBy": "Rejection between two people: L'Enfant slumps, plan dismissed, while the alderman stays unmoved.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They couldn't see the long-term value of green space, so they tossed the idea.",
+      "concreteVisual": "L'Enfant slumped and sad beside the blank alderman.",
+      "onScreenText": "They tossed the idea",
+      "relationToPrevious": "The incomprehension turns into rejection.",
+      "addedInformation": "The outcome for L'Enfant's plan: dismissed."
+    }
+  },
+  {
+    "i": 52,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "They chose option B",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The choice as two options side by side: L'Enfant's plan, rejected, and option B, the narrow destructive one they took.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They rejected L'Enfant's plan and took the narrow, destructive option B.",
+      "concreteVisual": "A sorter with two buckets: L'Enfant's plan and option B.",
+      "onScreenText": "L'Enfant's plan | Option B",
+      "relationToPrevious": "The rejection framed as a choice between two options.",
+      "addedInformation": "Names the choice the council actually made."
+    }
+  },
+  {
+    "i": 53,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Flatten Bunker Hill",
+        "Dump dirt in pond"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Option B as a chain of deeds: flatten Bunker Hill, then dump its dirt into the toxic pond.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They flattened Bunker Hill and dumped the dirt into the pond to pave over it.",
+      "concreteVisual": "A flow: flatten Bunker Hill -> dump dirt in pond.",
+      "onScreenText": "Flatten Bunker Hill -> Dump dirt in pond",
+      "relationToPrevious": "What option B physically was.",
+      "addedInformation": "The two steps of the fill-in."
+    }
+  },
+  {
+    "i": 54,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Flatten Bunker Hill",
+        "Dump dirt in pond",
+        "Pond erased"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The chain's result: Collect Pond is erased from the map.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They erased Collect Pond from the map; then, to recoup costs...",
+      "concreteVisual": "The same flow gains 'Pond erased'.",
+      "onScreenText": "Pond erased",
+      "relationToPrevious": "One more label: the result of the fill.",
+      "addedInformation": "The pond is gone."
+    }
+  },
+  {
+    "i": 55,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "luxury homes on the packed dirt",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "The developer points proudly at the luxury homes built on top of the filled pond: out of sight, out of mind.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They built luxury homes on the packed dirt; the smell is gone.",
+      "concreteVisual": "The alderman, smug, pointing at a new home.",
+      "onScreenText": "luxury homes on the packed dirt",
+      "relationToPrevious": "What was built where the pond had been.",
+      "addedInformation": "The houses that will sink later."
+    }
+  },
+  {
+    "i": 56,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "the problem was just buried",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "The developer celebrates 'problem solved' beside the house while the callout says the problem was only buried beneath it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Problem solved, except the problem was just buried beneath the floorboards.",
+      "concreteVisual": "The alderman now celebrating beside the same home.",
+      "onScreenText": "the problem was just buried",
+      "relationToPrevious": "Same house and man; his pose changes from pointing to celebrating.",
+      "addedInformation": "weak: 'buried' is carried by the callout against his premature celebration."
+    }
+  },
+  {
+    "i": 57,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Buried rot",
+        "Microbes feed"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The mechanism under the houses: buried decaying matter, and microorganisms working on it without oxygen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Without oxygen, anaerobic microorganisms went to work on the buried biomass.",
+      "concreteVisual": "A flow: buried rot -> microbes feed.",
+      "onScreenText": "Buried rot -> Microbes feed",
+      "relationToPrevious": "What happened under the buried problem.",
+      "addedInformation": "The hidden mechanism of the disaster."
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Buried rot",
+        "Microbes feed",
+        "Gases released"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The chain continues: as the organic matter decomposes it releases gases.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The carcasses, hemlock and marsh rot decomposed and released gases.",
+      "concreteVisual": "The same flow gains 'Gases released'.",
+      "onScreenText": "Gases released",
+      "relationToPrevious": "One more label: the product of the decay.",
+      "addedInformation": "The next link in the cause chain."
+    }
+  },
+  {
+    "i": 59,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "physically sinking into the ground",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [],
+    "explainedBy": "The effect of the gases: the earth hollows out and the house sinks into the swamp.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The earth hollowed out and the neighborhood started physically sinking.",
+      "concreteVisual": "A tilted house sinking into dark marsh water.",
+      "onScreenText": "physically sinking into the ground",
+      "relationToPrevious": "The chain's result made visible: the homes from 55 now sinking.",
+      "addedInformation": "The literal outcome of the buried problem."
+    }
+  },
+  {
+    "i": 60,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "methane rose through the floorboards",
+      "style": "stack"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "The sinking house leaks methane and floods; a resident stands in front of it in fear.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Toxic methane rose through the floorboards; basements flooded with marsh water.",
+      "concreteVisual": "The same sinking house, now with a frightened resident in front of it.",
+      "onScreenText": "methane rose through the floorboards",
+      "relationToPrevious": "Same house; a person now reacts to it.",
+      "addedInformation": "The smell and flooding the residents lived with."
+    }
+  },
+  {
+    "i": 61,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "Typhus and cholera broke out",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Disease follows: the resident slumps in front of the sinking house as typhus and cholera break out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Typhus and cholera broke out constantly; the environment was reclaiming the land.",
+      "concreteVisual": "The resident slumps, worried, before the sinking house.",
+      "onScreenText": "Typhus and cholera broke out",
+      "relationToPrevious": "Same stage; fear turns into exhausted worry.",
+      "addedInformation": "weak: the diseases are named in text; no icon reads as epidemic."
+    }
+  },
+  {
+    "i": 62,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "The wealthy residents fled",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "afraid",
+    "action": "walk",
+    "continue": true,
+    "explainedBy": "The social fallout begins: the resident walks away from the sinking house, the wealthy fleeing.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The socioeconomic fallout was immediate: the wealthy residents fled.",
+      "concreteVisual": "The resident walking away from the same sinking house.",
+      "onScreenText": "The wealthy residents fled",
+      "relationToPrevious": "Same house; the resident now leaves.",
+      "addedInformation": "The first social consequence: flight."
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Wealthy flee",
+        "Values hit zero"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The chain of fallout: the wealthy flee, so property values plummet to zero and the abandoned buildings draw the desperate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Property values plummeted to zero; the abandoned buildings drew the poorest.",
+      "concreteVisual": "A flow: wealthy flee -> values hit zero.",
+      "onScreenText": "Wealthy flee -> Values hit zero",
+      "relationToPrevious": "The flight from 62 becomes the first link of an economic chain.",
+      "addedInformation": "The economic collapse."
+    }
+  },
+  {
+    "i": 64,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Wealthy flee",
+        "Values hit zero",
+        "Five Points slum"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The end of the chain: the area becomes the Five Points slum.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The area devolved into the most infamous slum in US history: Five Points.",
+      "concreteVisual": "The flow ends at 'Five Points slum'.",
+      "onScreenText": "Five Points slum",
+      "relationToPrevious": "Last label: the final result.",
+      "addedInformation": "Names the historic outcome."
+    }
+  },
+  {
+    "i": 65,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "instead of inventing an option C",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [],
+    "explainedBy": "The lesson: the third path straight ahead, option C, that the city never took the time to invent.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "All because they chose a narrow option B instead of inventing an option C.",
+      "concreteVisual": "A fork in the road with a third dotted path to a star.",
+      "onScreenText": "instead of inventing an option C",
+      "relationToPrevious": "The moral of the whole Collect Pond story.",
+      "addedInformation": "The book's central idea: the missing third option."
+    }
+  },
+  {
+    "i": 66,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Everyday decisions with high stakes",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The lesson turns to the listener: a modern person facing a big everyday decision.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This connects to the everyday high-stakes decisions of the listener.",
+      "concreteVisual": "The modern listener, weighed down by a choice.",
+      "onScreenText": "everyday high-stakes decisions",
+      "relationToPrevious": "From 1802 New York to today.",
+      "addedInformation": "weak: introduces the modern parallel; the decision itself comes next."
+    }
+  },
+  {
+    "i": 67,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "buying a house",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The listener's decision made concrete: he points at a house he might buy.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Think about buying a house or relocating your family.",
+      "concreteVisual": "The listener pointing at a house.",
+      "onScreenText": "buying a house",
+      "relationToPrevious": "Same listener; the decision gets its object.",
+      "addedInformation": "The concrete example the next beats use."
+    }
+  },
+  {
+    "i": 68,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "gorgeous marble countertops",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "At the open house the listener points delightedly at the countertops: a big call made on a narrow aesthetic slice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At an open house you make a massive call based on countertops and the listing price.",
+      "concreteVisual": "The listener in a kitchen, delighted, pointing at the counters.",
+      "onScreenText": "gorgeous marble countertops",
+      "relationToPrevious": "Inside the house he was considering.",
+      "addedInformation": "What the narrow slice of reality is."
+    }
+  },
+  {
+    "i": 69,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "the option B equivalent",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "wallet",
+    "continue": true,
+    "explainedBy": "The narrow call in action: still smiling at the countertops, the buyer has his wallet out, the option B equivalent, ignoring the long-term pathways.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The open-house call is the option B equivalent: it ignores the deep long-term impact pathways.",
+      "concreteVisual": "Same buyer in the kitchen, now holding his wallet out, still delighted.",
+      "onScreenText": "the option B equivalent",
+      "relationToPrevious": "Same kitchen and buyer; he goes from pointing to holding his wallet.",
+      "addedInformation": "He is ready to pay on the narrow slice; the hidden pathways follow."
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Countertops",
+        "Zoning changes"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "What actually decides life in the house: beside the countertops the buyer saw, the first unseen variable, proposed commercial zoning changes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are not factoring in proposed commercial zoning changes three blocks away.",
+      "concreteVisual": "A sorter: countertops beside zoning changes.",
+      "onScreenText": "Countertops | Zoning changes",
+      "relationToPrevious": "What the countertops hid.",
+      "addedInformation": "The first hidden variable next to the visible one."
+    }
+  },
+  {
+    "i": 71,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Countertops",
+        "Zoning changes",
+        "Local taxes",
+        "+40 min commute"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "More unseen variables join: the shifting local tax economy and traffic adding 40 minutes to the commute.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or the shifting local tax economy, or traffic that adds 40 minutes to your commute.",
+      "concreteVisual": "The sorter gains Local taxes and +40 min commute.",
+      "onScreenText": "Local taxes | +40 min commute",
+      "relationToPrevious": "Two more variables added to the same sorter.",
+      "addedInformation": "The concrete hidden costs, including the 40-minute figure."
+    }
+  },
+  {
+    "i": 72,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "for the next decade",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Those variables, not the countertops, shape the buyer's life in the house: the same listener now slumped and worried in his kitchen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Those unseen variables will define your lived experience in that house for the next decade.",
+      "concreteVisual": "The listener, once delighted in the kitchen, now slumped and worried beside the house.",
+      "onScreenText": "for the next decade",
+      "relationToPrevious": "Back to the buyer from 68: delight has turned to worry.",
+      "addedInformation": "The contrast with 68 shows the cost of the narrow view."
+    }
+  },
+  {
+    "i": 73,
+    "concept": "boulder",
+    "diagram": null,
+    "callout": {
+      "text": "like the city council of 1802",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "everyman",
+      "alderman"
+    ],
+    "expression": "blank",
+    "action": "slump",
+    "partnerExpression": "blank",
+    "partnerAction": "idle",
+    "explainedBy": "Comparison: the modern buyer and the 1802 alderman side by side, both tired and blank, both paving over complex variables.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Like the 1802 council, we pave over complex variables because dealing with them is exhausting.",
+      "concreteVisual": "The modern listener beside the 1802 alderman, both blank.",
+      "onScreenText": "like the city council of 1802",
+      "relationToPrevious": "The modern buyer is linked back to the council.",
+      "addedInformation": "The parallel between the two eras."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "let me stop you there",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A host interrupts to push back; plain commentary, so the line carries it.",
+    "noVisual": "A host interrupting the other has no character in the cast; a text card marks the turn into the objection.",
+    "storyboard": {
+      "claim": "We want a quick fix. Now, let me stop you there.",
+      "concreteVisual": "A text card: the interruption.",
+      "onScreenText": "let me stop you there",
+      "relationToPrevious": "A pivot from the argument to an objection.",
+      "addedInformation": "weak: signals a counterargument is coming."
+    }
+  },
+  {
+    "i": 75,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Monday morning quarterback",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "everyman",
+      "alderman"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "explainedBy": "The objection staged as a relationship: a modern man smugly points at the 1802 alderman, judging him from the 21st century.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Calling Collect Pond a failure of imagination is Monday-morning quarterbacking from the 21st century.",
+      "concreteVisual": "The smug modern listener pointing at the worried alderman.",
+      "onScreenText": "Monday morning quarterback",
+      "relationToPrevious": "The same two eras, now one judging the other.",
+      "addedInformation": "Who judges whom, and from when."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "no environmental studies in 1802",
+      "style": "box"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "The defence: the 1802 alderman holds only an old book; he had no environmental impact studies.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This is hindsight bias: they had no environmental impact studies in 1802.",
+      "concreteVisual": "The alderman alone, worried, holding a book.",
+      "onScreenText": "no environmental studies in 1802",
+      "relationToPrevious": "From the accuser to the accused's side.",
+      "addedInformation": "weak: the missing studies are carried mostly by the callout."
+    }
+  },
+  {
+    "i": 77,
+    "concept": "sinkingHouse",
+    "diagram": null,
+    "callout": {
+      "text": "How could they have known?",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "alderman"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "explainedBy": "What the merchants could not foresee: the alderman stares in surprise at a house sinking into a methane swamp.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "How could 19th-century merchants have known the houses would sink into a methane swamp?",
+      "concreteVisual": "The alderman surprised before the sinking house.",
+      "onScreenText": "How could they have known?",
+      "relationToPrevious": "The defence shows the outcome they could not predict.",
+      "addedInformation": "Recalls the sinking houses as the unforeseeable result."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "missing scientific data",
+      "style": "strike"
+    },
+    "set": "library",
+    "cast": [
+      "johnson"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Johnson rejects the excuse: the failure was not missing scientific data (struck through).",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Johnson argues it was not a failure of missing scientific data.",
+      "concreteVisual": "The author speaking; 'missing scientific data' is struck out.",
+      "onScreenText": "missing scientific data",
+      "relationToPrevious": "The author answers the hindsight objection.",
+      "addedInformation": "Which explanation the book rejects."
+    }
+  },
+  {
+    "i": 79,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Framed as one or the other",
+      "style": "highlight"
+    },
+    "set": "library",
+    "cast": [
+      "johnson"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Johnson points at a two-sided scale: the real failure was framing the decision as only two options.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It was a structural failure of process: the decision was framed entirely as an either-or.",
+      "concreteVisual": "Johnson pointing at a two-pan scale.",
+      "onScreenText": "framed as an either-or",
+      "relationToPrevious": "Same author; from what it was not to what it was.",
+      "addedInformation": "The book's diagnosis: binary framing."
+    }
+  },
+  {
+    "i": 80,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Dump or dirt",
+        "Inquiry shut down"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause -> effect: once the choice is only 'toxic dump or fill it with dirt', all creative inquiry shuts down.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Once you say we either leave it a toxic dump or fill it with dirt, you shut down creative inquiry.",
+      "concreteVisual": "A flow: dump or dirt -> inquiry shut down.",
+      "onScreenText": "Dump or dirt -> Inquiry shut down",
+      "relationToPrevious": "The either-or from 79 and what it causes.",
+      "addedInformation": "The mechanism by which binary framing blocks option C; the next beat can add the missed third option."
+    }
+  }
+]

@@ -1,0 +1,1071 @@
+[
+  {
+    "i": 146,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "The EPA phosphate rule",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The influence diagram starts: the EPA requires New York to add phosphate to its drinking water — the first cause in the chain behind the algae.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The EPA required New York to add phosphate to the drinking water.",
+      "concreteVisual": "A flow diagram opens with its first box: EPA phosphate rule.",
+      "onScreenText": "EPA phosphate rule",
+      "relationToPrevious": "The hidden web traced in 145 begins to be drawn.",
+      "addedInformation": "Names the first hidden variable as the start of a chain."
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EPA phosphate rule",
+        "Lead kept out"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause -> intended effect: the phosphate keeps lead from leaching out of old pipes — a sound public health measure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The phosphate stops lead leaching from aging pipes — a vital health measure.",
+      "concreteVisual": "The same flow gains its second box: Lead kept out.",
+      "onScreenText": "Lead kept out",
+      "relationToPrevious": "One label added: the rule's intended effect.",
+      "addedInformation": "Shows the rule had a good reason."
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EPA phosphate rule",
+        "Lead kept out",
+        "Algae fertilizer"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Cause -> hidden effect: the same phosphate water runs through the sewers into Meadow Lake and fertilizes the algae.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The phosphate water overflowed into Meadow Lake and fed the algae.",
+      "concreteVisual": "The flow gains its third box: Algae fertilizer.",
+      "onScreenText": "Algae fertilizer",
+      "relationToPrevious": "The unintended effect is added at the end of the chain.",
+      "addedInformation": "The good rule's hidden consequence."
+    }
+  },
+  {
+    "i": 149,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Phosphate",
+        "Highway nitrogen"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The map shows a second input: nitrogen running off the highways joins the phosphate in the lake.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The phosphate mixed with nitrogen running off nearby highways.",
+      "concreteVisual": "A sorter of what feeds the lake: Phosphate, Highway nitrogen.",
+      "onScreenText": "Phosphate / Highway nitrogen",
+      "relationToPrevious": "From one chain to the several inputs the map uncovers.",
+      "addedInformation": "Adds the highway runoff as a separate source."
+    }
+  },
+  {
+    "i": 150,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Phosphate",
+        "Highway nitrogen",
+        "Barbecue coal"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "A third input: coal particles from Sunday barbecues in the park settle on the water and add carbon.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Coal from family barbecues in the park settled on the lake, providing carbon.",
+      "concreteVisual": "The same sorter gains a third bucket: Barbecue coal.",
+      "onScreenText": "Barbecue coal",
+      "relationToPrevious": "One more input added.",
+      "addedInformation": "The most surprising hidden variable."
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Stop lead poisoning",
+        "Highways and barbecues",
+        "Fish suffocate"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause -> effect summary: a well-meant rule against lead, combined with highways and barbecues, suffocates the fish in Queens.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The EPA's good intentions combined with traffic and barbecues to suffocate the fish.",
+      "concreteVisual": "A flow: Stop lead poisoning -> Highways and barbecues -> Fish suffocate.",
+      "onScreenText": "Fish suffocate",
+      "relationToPrevious": "The inputs collapse into one outcome.",
+      "addedInformation": "Names the final consequence for the lake."
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Exposes the hidden connections",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "A true map is a close look that reveals what is hidden — the listener inspects his own decision the same way.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A true map exposes hidden connections; now apply it to a hiring decision.",
+      "concreteVisual": "The listener in an office holding a magnifier, surprised.",
+      "onScreenText": "Exposes the hidden connections",
+      "relationToPrevious": "From the lake to the listener's own office.",
+      "addedInformation": "weak: the magnifier stands for close inspection."
+    }
+  },
+  {
+    "i": 153,
+    "concept": "key",
+    "diagram": null,
+    "callout": {
+      "text": "A senior leadership role",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "happy",
+    "partnerAction": "idle",
+    "explainedBy": "A job interview: the listener (hiring) faces a candidate for a senior role.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are hiring for a senior leadership role and the candidate is in front of you.",
+      "concreteVisual": "The listener talks to a smiling candidate across the office.",
+      "onScreenText": "A senior leadership role",
+      "relationToPrevious": "Opens the hiring example.",
+      "addedInformation": "Shows the interviewer-candidate relationship."
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Just the satellite photo",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "letter",
+    "partnerExpression": "happy",
+    "continue": true,
+    "explainedBy": "The listener reads the candidate's resume — a flat overview, like a satellite photo of the lake.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The resume, skills and revenue numbers are only the satellite photo.",
+      "concreteVisual": "The listener now holds the resume page in front of the candidate.",
+      "onScreenText": "Just the satellite photo",
+      "relationToPrevious": "Same interview; the listener now holds the resume.",
+      "addedInformation": "The resume as the flat, surface view."
+    }
+  },
+  {
+    "i": 155,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "More than a resume",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The influence diagram of the office begins with the candidate's personality traits as the first cause.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You need an influence diagram of your office, not a list of skills.",
+      "concreteVisual": "A new flow opens: Candidate's traits.",
+      "onScreenText": "Candidate's traits",
+      "relationToPrevious": "The lake's map is redrawn for the office.",
+      "addedInformation": "Starts the office's cause chain."
+    }
+  },
+  {
+    "i": 156,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Candidate's traits",
+        "Junior team morale"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Trait -> ripple: an aggressive communication style affects the morale of the junior design team.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "How will their aggressive style affect the junior design team's morale?",
+      "concreteVisual": "The flow gains: Junior team morale.",
+      "onScreenText": "Junior team morale",
+      "relationToPrevious": "One ripple added.",
+      "addedInformation": "First hidden effect in the office."
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Candidate's traits",
+        "Junior team morale",
+        "Oldest client ties"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "A further ripple: their ambition could alter the delicate relationship with the oldest legacy client.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Map how their ambition alters your oldest legacy relationship — the unseen ecosystem.",
+      "concreteVisual": "The flow gains its third box: Oldest client ties.",
+      "onScreenText": "Oldest client ties",
+      "relationToPrevious": "One more ripple added.",
+      "addedInformation": "The political side of the hire."
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Phosphates in your own office",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The listener searches his own office for hidden variables, as the planners searched the lake for phosphate and coal.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Look for the phosphates and barbecue coal in your own office — but is mapping efficient?",
+      "concreteVisual": "The listener in the office with the magnifier again.",
+      "onScreenText": "Phosphates in your own office",
+      "relationToPrevious": "Closes the hiring analogy; the challenge follows.",
+      "addedInformation": "Ties the lake back to the office."
+    }
+  },
+  {
+    "i": 159,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Wild ways to identify them",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Back at the Abbottabad compound model, the CIA analysts are ordered to brainstorm wild ways to identify its occupants.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In the divergence phase the CIA ordered analysts to find wild ways to identify the occupants.",
+      "concreteVisual": "The analyst with notes beside the walled compound model.",
+      "onScreenText": "Wild ways to identify them",
+      "relationToPrevious": "From the office back to Abbottabad.",
+      "addedInformation": "Returns to the compound as the object of the brainstorm."
+    }
+  },
+  {
+    "i": 160,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "37 different schemes",
+      "style": "stack"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The analysts brainstorm 37 schemes around the compound model.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They spent time brainstorming 37 crazy schemes.",
+      "concreteVisual": "Same analyst and model; she now talks, animated.",
+      "onScreenText": "37 different schemes",
+      "relationToPrevious": "The brainstorm gets its number.",
+      "addedInformation": "The count of schemes."
+    }
+  },
+  {
+    "i": 161,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Throwing stink bombs",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "One scheme: throw stink bombs over the compound wall — the analyst points at the model's wall.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Someone proposed throwing stink bombs over the wall to watch the reaction.",
+      "concreteVisual": "The analyst points at the walled model with a wry smile.",
+      "onScreenText": "Throwing stink bombs",
+      "relationToPrevious": "First of the crazy schemes.",
+      "addedInformation": "Points to the wall the idea targets."
+    }
+  },
+  {
+    "i": 162,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Massive directional loudspeakers",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Another scheme for the same compound: loudspeakers broadcasting a voice at it.",
+    "noVisual": "No loudspeaker in the vocabulary; the callout names it beside the compound.",
+    "storyboard": {
+      "claim": "Someone else proposed loudspeakers broadcasting a voice at the compound.",
+      "concreteVisual": "Same model; the analyst surprised, talking.",
+      "onScreenText": "Massive directional loudspeakers",
+      "relationToPrevious": "Second scheme.",
+      "addedInformation": "weak: the loudspeaker lives in text."
+    }
+  },
+  {
+    "i": 163,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "It sounds absurd",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The hosts judge the scheme absurd, like a bad spy movie — the analyst's wry face beside the model.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The voice-demanding-surrender plan sounds like a bad spy movie.",
+      "concreteVisual": "Same model; the analyst smirks.",
+      "onScreenText": "It sounds absurd",
+      "relationToPrevious": "Reaction to the scheme.",
+      "addedInformation": "weak: the judgment is commentary."
+    }
+  },
+  {
+    "i": 164,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "A ridiculous waste of time?",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The skeptic's objection: time runs out while analysts chase crazy ideas.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Isn't this a massive waste of time and taxpayer money?",
+      "concreteVisual": "The listener slumps, worried, beside a running hourglass.",
+      "onScreenText": "A ridiculous waste of time?",
+      "relationToPrevious": "The challenge to the brainstorm.",
+      "addedInformation": "Time draining away as the cost."
+    }
+  },
+  {
+    "i": 165,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "A ticking clock scenario",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The deadline pressure: a target might flee at any moment, so there is no time for 37 wild goose chases.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "With a ticking clock and a target who might flee, you cannot diagram 37 goose chases.",
+      "concreteVisual": "The listener under a clock, worried.",
+      "onScreenText": "A ticking clock scenario",
+      "relationToPrevious": "From wasted time to the deadline.",
+      "addedInformation": "The pressure that argues against divergence."
+    }
+  },
+  {
+    "i": 166,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Make a call and execute",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The skeptic demands that leadership stop mapping and decide now.",
+    "noVisual": "Commentary; the impatience is carried by the face and pointing gesture.",
+    "storyboard": {
+      "claim": "Leadership just has to make a call — isn't mapping just analysis paralysis?",
+      "concreteVisual": "The listener points firmly, impatient.",
+      "onScreenText": "Make a call and execute",
+      "relationToPrevious": "The objection reaches its demand.",
+      "addedInformation": "weak: impatience as a face."
+    }
+  },
+  {
+    "i": 167,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Our brains crave closure",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "A feeling: under pressure the mind wants it over — the listener slumps under the strain.",
+    "noVisual": "A feeling, not an event; face and callout carry it.",
+    "storyboard": {
+      "claim": "Under pressure our brains crave closure.",
+      "concreteVisual": "The listener slumped and worried.",
+      "onScreenText": "Our brains crave closure",
+      "relationToPrevious": "The hosts explain the reaction.",
+      "addedInformation": "weak: the craving is text-carried."
+    }
+  },
+  {
+    "i": 168,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "No idea is too crazy",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The rule of the divergence room: every idea about the compound gets written down.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The divergence phase is crucial; its rule is that no idea is too crazy to write down.",
+      "concreteVisual": "The analyst, happy, holding her notes by the compound model.",
+      "onScreenText": "No idea is too crazy",
+      "relationToPrevious": "Answers the skeptic with the room's rule.",
+      "addedInformation": "Back to the brainstorm room as the example."
+    }
+  },
+  {
+    "i": 169,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Even stink bombs",
+      "style": "stack"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Even the stink-bomb idea goes on the list — the goal is not to execute it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Even stink bombs — the goal is not to execute the crazy idea.",
+      "concreteVisual": "Same model; the analyst points at it with a wry smile.",
+      "onScreenText": "Even stink bombs",
+      "relationToPrevious": "The rule applied to the craziest idea.",
+      "addedInformation": "Recalls the earlier scheme."
+    }
+  },
+  {
+    "i": 170,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Out of the cognitive rut",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "lightbulb",
+    "explainedBy": "The purpose of crazy ideas: jolt the mind out of its default rut so a new idea appears.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The goal is to break the brain out of its narrowband default rut.",
+      "concreteVisual": "The listener surprised, holding a lit lightbulb.",
+      "onScreenText": "Out of the cognitive rut",
+      "relationToPrevious": "The why behind the crazy ideas.",
+      "addedInformation": "weak: the lightbulb as the new idea."
+    }
+  },
+  {
+    "i": 171,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Only obvious answers",
+        "Deeply flawed solutions"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause -> effect: permitting only obvious answers yields only obvious, often flawed solutions.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Only sensible answers in the room lead to sensible, deeply flawed solutions.",
+      "concreteVisual": "A flow: Only obvious answers -> Deeply flawed solutions.",
+      "onScreenText": "Only obvious answers -> Deeply flawed solutions",
+      "relationToPrevious": "The cost of skipping divergence.",
+      "addedInformation": "Makes the mechanism explicit."
+    }
+  },
+  {
+    "i": 172,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "37 crazy paths",
+        "Hidden variable loose"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The opposite mechanism: exploring 37 crazy paths creates friction that knocks a hidden variable loose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Exploring 37 useless paths knocks a hidden variable loose.",
+      "concreteVisual": "A flow: 37 crazy paths -> Hidden variable loose.",
+      "onScreenText": "37 crazy paths -> Hidden variable loose",
+      "relationToPrevious": "The contrasting chain.",
+      "addedInformation": "Why the wild ideas pay off."
+    }
+  },
+  {
+    "i": 173,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "37 crazy paths",
+        "Hidden variable loose",
+        "The path that works"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Result: the loosened variable reveals the one unconventional path that actually works.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It leads to the one brilliant unconventional path that works.",
+      "concreteVisual": "The flow gains: The path that works.",
+      "onScreenText": "The path that works",
+      "relationToPrevious": "The chain's result added.",
+      "addedInformation": "Completes the mechanism."
+    }
+  },
+  {
+    "i": 174,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "Dirt roads, not the interstate",
+      "style": "highlight"
+    },
+    "set": "forest",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "The analogy: walking the dirt road instead of the interstate to see the real landscape.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is like taking the dirt roads instead of the interstate to see the landscape.",
+      "concreteVisual": "The listener walking a country road through woods.",
+      "onScreenText": "Dirt roads, not the interstate",
+      "relationToPrevious": "An image for divergence.",
+      "addedInformation": "Shows the slower, exploring route."
+    }
+  },
+  {
+    "i": 175,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "the first plausible plan",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "take",
+    "holds": "notes",
+    "explainedBy": "The deed the narrator warns against: grabbing the first plausible plan and running with it leads to failure.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If you grab the first plausible plan and run with it, you fail; endure divergence.",
+      "concreteVisual": "The listener grabs a plan page; the phrase is struck out.",
+      "onScreenText": "the first plausible plan (struck)",
+      "relationToPrevious": "The failure mode of locking in early.",
+      "addedInformation": "Shows the premature grab being rejected."
+    }
+  },
+  {
+    "i": 176,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Widen your map",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Widening the map: beyond the two obvious roads a third path appears before you choose.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You must widen your map before you choose.",
+      "concreteVisual": "A fork in the road with a third dotted path to a star.",
+      "onScreenText": "Widen your map",
+      "relationToPrevious": "The lesson of the divergence argument.",
+      "addedInformation": "The book's signature image of a wider map."
+    }
+  },
+  {
+    "i": 177,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "Getting people to disagree",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Getting a group to actually disagree is rare and hard — the listener's concern.",
+    "noVisual": "Commentary; face and callout carry it.",
+    "storyboard": {
+      "claim": "Getting a group to disagree and brainstorm is incredibly difficult and rare.",
+      "concreteVisual": "The listener slumped, worried, in the office.",
+      "onScreenText": "Getting people to disagree",
+      "relationToPrevious": "Turns to the room where divergence happens.",
+      "addedInformation": "weak: text-carried."
+    }
+  },
+  {
+    "i": 178,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A new strategic plan",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "notes",
+    "partnerExpression": "neutral",
+    "partnerAction": "sit",
+    "explainedBy": "The CEO at the head of the table presents a plan while the listener sits and listens.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In a conference room the CEO outlines a new strategic plan.",
+      "concreteVisual": "The confident CEO talks with notes; the listener sits.",
+      "onScreenText": "A new strategic plan",
+      "relationToPrevious": "Opens the conference-room scene.",
+      "addedInformation": "Sets up the boss and the room."
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Great idea, boss",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "notes",
+    "partnerExpression": "happy",
+    "partnerAction": "talk",
+    "continue": true,
+    "explainedBy": "The listener agrees with the boss at once — praise flows back to the CEO.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Everyone nods along: great idea, boss.",
+      "concreteVisual": "Same room; the listener now smiles and speaks up in agreement.",
+      "onScreenText": "Great idea, boss",
+      "relationToPrevious": "The listener's face and body change to agreement.",
+      "addedInformation": "Shows instant agreement."
+    }
+  },
+  {
+    "i": 180,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The echo chamber",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "holds": "notes",
+    "partnerExpression": "happy",
+    "partnerAction": "celebrate",
+    "continue": true,
+    "explainedBy": "The boss's idea is echoed straight back: the room only repeats him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "'I totally agree. Perfect sense.' The echo chamber.",
+      "concreteVisual": "The CEO points to his plan; the listener cheers it.",
+      "onScreenText": "The echo chamber",
+      "relationToPrevious": "Agreement escalates to cheering.",
+      "addedInformation": "Names the dynamic."
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "On the exact same page",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "notes",
+    "partnerExpression": "happy",
+    "partnerAction": "celebrate",
+    "continue": true,
+    "explainedBy": "The warm bonding: boss and listener celebrate together, fully aligned.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A warm, intoxicating bonding feeling: everyone on the same page.",
+      "concreteVisual": "Both the CEO and the listener celebrate.",
+      "onScreenText": "On the exact same page",
+      "relationToPrevious": "The CEO now celebrates too.",
+      "addedInformation": "The shared warm feeling."
+    }
+  },
+  {
+    "i": 182,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It feels like alignment",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "holds": "notes",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "continue": true,
+    "explainedBy": "Consensus feels like alignment — but the listener's face turns as the hosts warn it is terrifying.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Consensus feels like alignment — but here the psychology gets terrifying.",
+      "concreteVisual": "The CEO still celebrating; the listener stops and looks worried.",
+      "onScreenText": "It feels like alignment",
+      "relationToPrevious": "The listener's face turns from happy to worried.",
+      "addedInformation": "Signals the turn."
+    }
+  },
+  {
+    "i": 183,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Actively, provably dangerous",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "notes",
+    "partnerExpression": "afraid",
+    "partnerAction": "slump",
+    "continue": true,
+    "explainedBy": "The warm feeling of instant consensus is dangerous: the boss talks on, unaware, while the listener sees the danger.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That warm feeling of immediate consensus is provably dangerous.",
+      "concreteVisual": "The happy CEO keeps talking; the listener slumps, afraid.",
+      "onScreenText": "Actively, provably dangerous",
+      "relationToPrevious": "The listener's worry deepens to fear.",
+      "addedInformation": "Contrast between the cheerful boss and the danger."
+    }
+  },
+  {
+    "i": 184,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "Rapid consensus is an illusion",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "idle",
+    "explainedBy": "Fast agreement is a false face: rapid consensus masks hidden profiles.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Rapid consensus is almost always an illusion that masks hidden profiles.",
+      "concreteVisual": "A mask beside the smirking CEO.",
+      "onScreenText": "Rapid consensus is an illusion",
+      "relationToPrevious": "From feeling to the explanation.",
+      "addedInformation": "The agreement as a false surface."
+    }
+  },
+  {
+    "i": 185,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Cognitively central"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Hidden profiles: a group's knowledge splits into kinds of people — first, the cognitively central.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In any group there are two types of knowledge distribution; some are cognitively central.",
+      "concreteVisual": "A sorter opens with one bucket: Cognitively central.",
+      "onScreenText": "Cognitively central",
+      "relationToPrevious": "Begins the explanation of hidden profiles.",
+      "addedInformation": "Names the first group."
+    }
+  },
+  {
+    "i": 186,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Cognitively central",
+        "Same assumptions"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "What makes them central: the same background and the same assumptions as the majority.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They share the same education, culture and assumptions as the majority.",
+      "concreteVisual": "The sorter gains: Same assumptions.",
+      "onScreenText": "Same assumptions",
+      "relationToPrevious": "One label added describing the central group.",
+      "addedInformation": "Their defining trait."
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Cognitively central",
+        "Same assumptions",
+        "Cognitively peripheral"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The other side: besides the central people with shared information, there are the cognitively peripheral.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They hold shared information; but there are also cognitively peripheral people.",
+      "concreteVisual": "The sorter gains: Cognitively peripheral.",
+      "onScreenText": "Cognitively peripheral",
+      "relationToPrevious": "The second group added.",
+      "addedInformation": "Introduces the outsiders of the room."
+    }
+  },
+  {
+    "i": 188,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Cognitively peripheral",
+        "Unshared information"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "What the peripheral people hold: unique, unshared information no one else has.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They hold unique, unshared information no one else has.",
+      "concreteVisual": "The sorter gains its fourth bucket: Unshared information.",
+      "onScreenText": "Unshared information",
+      "relationToPrevious": "The peripheral group's asset added.",
+      "addedInformation": "Completes the hidden-profile split."
+    }
+  }
+]

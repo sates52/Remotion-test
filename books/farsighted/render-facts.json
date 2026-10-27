@@ -1,0 +1,73 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-10-26T11:22:35.725Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "a84ceacb",
+      "configHash": "6fb16eab384bf876",
+      "renderInputHash": "53f9432e8e506acb",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 629
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator decision 2026-10-26: preview-ready READY; fresh holdout run3 PASS (WRONG 1/30, dead 5/30, ADDS 47% text-carried); 0 BLOCK, 629 REVIEW accepted as known quality debt for this config.",
+        "covered": 52,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-26T12:00:24.604Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "a84ceacb",
+      "configHash": "6fb16eab384bf876",
+      "renderInputHash": "53f9432e8e506acb",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 629
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT",
+        "ok": true,
+        "accepted": false,
+        "reason": "Operator decision 2026-10-26: preview-ready READY; fresh holdout run3 PASS (WRONG 1/30, dead 5/30, ADDS 47% text-carried); 0 BLOCK, 629 REVIEW accepted as known quality debt for this config.",
+        "covered": 52,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "technical": "NOT_RUN"
+    },
+    {
+      "at": "2026-10-26T15:28:50.495Z",
+      "kind": "technical",
+      "technical": "FAIL",
+      "file": "out\\farsighted.mp4",
+      "frames": 99435,
+      "expectedFrames": 99435,
+      "decodes": false,
+      "problems": [
+        "decode errors: exit 143"
+      ]
+    },
+    {
+      "at": "2026-10-26T16:25:58.333Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\farsighted.mp4",
+      "frames": 99435,
+      "expectedFrames": 99435,
+      "decodes": true,
+      "problems": []
+    }
+  ]
+}

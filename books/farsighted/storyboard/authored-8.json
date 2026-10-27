@@ -1,0 +1,970 @@
+[
+  {
+    "i": 265,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Write why it failed",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "The premortem as a deed: the listener writes down, in advance, the story of why the decision failed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Assume total failure, then write the history of why it failed.",
+      "concreteVisual": "The listener, worried, holding the page he is writing the failure story on.",
+      "onScreenText": "Write why it failed",
+      "relationToPrevious": "From defining the premortem to doing it.",
+      "addedInformation": "Shows the premortem is a written exercise."
+    }
+  },
+  {
+    "i": 266,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A deep loving relationship",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "expression": "happy",
+    "action": "embrace",
+    "partnerExpression": "happy",
+    "actionCue": "deep loving",
+    "explainedBy": "Darwin married Emma and they loved each other: the two of them embrace.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Darwin married Emma Wedgwood; they had a deep, loving relationship.",
+      "concreteVisual": "Darwin and Emma embrace, both smiling.",
+      "onScreenText": "A deep loving relationship",
+      "relationToPrevious": "From the premortem to a human example: Darwin's marriage.",
+      "addedInformation": "Introduces Emma and the bond that is about to be tested."
+    }
+  },
+  {
+    "i": 267,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "A profound tragedy",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "partnerExpression": "sad",
+    "partnerAction": "slump",
+    "explainedBy": "Years later the couple loses their daughter: the two grieving adults beside a grave.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Years later they suffered a profound tragedy: the death of their daughter.",
+      "concreteVisual": "A grave; Darwin and Emma slumped and sad beside it.",
+      "onScreenText": "A profound tragedy",
+      "relationToPrevious": "The loving couple now grieves.",
+      "addedInformation": "The grave shows a death in the family without staging it."
+    }
+  },
+  {
+    "i": 268,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "The loss of their daughter",
+      "style": "reveal"
+    },
+    "set": "library",
+    "continue": true,
+    "cast": [
+      "emma",
+      "darwin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "partnerExpression": "sad",
+    "partnerAction": "slump",
+    "explainedBy": "The grave is their 10-year-old Annie's; Emma, in front now, grieves while Darwin stands behind her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Their bright 10-year-old Annie died of illness; the loss fractured their lives.",
+      "concreteVisual": "The same grave; Emma now in front, sad, Darwin behind.",
+      "onScreenText": "Annie, 10 years old",
+      "relationToPrevious": "Names whose grave it is; Emma moves to the front.",
+      "addedInformation": "weak: the name and age come from the callout."
+    }
+  },
+  {
+    "i": 269,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Destroyed his faith",
+      "style": "reveal"
+    },
+    "set": "library",
+    "continue": true,
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "expression": "angry",
+    "action": "slump",
+    "partnerExpression": "sad",
+    "explainedBy": "Annie's death destroys Darwin's faith: Darwin at the grave, angry at a God who let his child suffer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Annie's death destroyed what was left of Darwin's faith.",
+      "concreteVisual": "The same grave; Darwin in front with a bitter, angry face.",
+      "onScreenText": "Destroyed his faith",
+      "relationToPrevious": "From shared grief to Darwin's own reaction.",
+      "addedInformation": "weak: loss of faith is carried by the callout and the bitter face."
+    }
+  },
+  {
+    "i": 270,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "He lost faith, she held on",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "explainedBy": "The same loss splits the couple in opposite directions: Charles to non-belief, Emma to faith.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Darwin became a materialist non-believer; Emma went the opposite way.",
+      "concreteVisual": "A two-bucket sorter: Charles non-believer, Emma deeper faith.",
+      "onScreenText": "Charles: non-believer / Emma: deeper faith",
+      "relationToPrevious": "From Darwin alone to the split between the two.",
+      "addedInformation": "Shows the two opposite responses side by side."
+    },
+    "expression": "sad",
+    "action": "idle"
+  },
+  {
+    "i": 271,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "She clung to her faith",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "emma"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "photo",
+    "explainedBy": "Emma survives her grief by holding on: she clutches her daughter's photo by the grave, trusting she will see her again.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To survive the grief Emma clung tighter to faith and the hope of seeing Annie again.",
+      "concreteVisual": "Emma, sad, holding a photo beside the grave.",
+      "onScreenText": "She clung to her faith",
+      "relationToPrevious": "Zooms into Emma's side of the split.",
+      "addedInformation": "The held photo shows she holds on to the lost daughter."
+    }
+  },
+  {
+    "i": 272,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Her only raft",
+      "style": "reveal"
+    },
+    "set": "library",
+    "continue": true,
+    "cast": [
+      "emma",
+      "darwin"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "photo",
+    "partnerExpression": "worried",
+    "explainedBy": "Emma's faith is the only thing keeping her afloat, and Darwin, beside her, now faces a decision that could take it away.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Faith was her only raft; in this fragile peace Darwin faced a career decision.",
+      "concreteVisual": "Emma still holding the photo; Darwin enters beside her, worried.",
+      "onScreenText": "Her only raft",
+      "relationToPrevious": "Darwin joins the kept stage: the decision is about to land on her.",
+      "addedInformation": "weak: the raft metaphor is text only."
+    }
+  },
+  {
+    "i": 273,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Beyond a pro-con list",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Darwin holds his drafted manuscript, a decision his old two-column list cannot settle.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "No pro-con list could resolve it: he had the drafted manuscript of his theory of evolution.",
+      "concreteVisual": "Darwin, worried, holding the manuscript pages beside the pros-and-cons list.",
+      "onScreenText": "Beyond a pro-con list",
+      "relationToPrevious": "From Emma's grief to Darwin's decision.",
+      "addedInformation": "Brings back his marriage list and the manuscript."
+    }
+  },
+  {
+    "i": 274,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "Idea of the millennium",
+      "style": "highlight"
+    },
+    "set": "library",
+    "continue": true,
+    "cast": [
+      "darwin"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Darwin knows the manuscript he holds is the most important scientific idea of the millennium.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He knew it was the most important scientific idea of the millennium.",
+      "concreteVisual": "Darwin, proud, still holding the manuscript; a lightbulb for the big idea.",
+      "onScreenText": "Idea of the millennium",
+      "relationToPrevious": "Same manuscript; his face turns to pride in the idea.",
+      "addedInformation": "Shows the weight of the idea in his hands."
+    }
+  },
+  {
+    "i": 275,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A fatal blow to doctrine",
+      "style": "reveal"
+    },
+    "set": "library",
+    "continue": true,
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "partnerExpression": "sad",
+    "partnerAction": "slump",
+    "explainedBy": "Publishing the manuscript would wound the faith his grieving wife lives on: Darwin holds it while Emma slumps beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Publishing would strike a fatal blow to the doctrines his grieving wife relied on.",
+      "concreteVisual": "Darwin, worried, holding the manuscript; Emma beside him, sad and slumped.",
+      "onScreenText": "A fatal blow to doctrine",
+      "relationToPrevious": "Emma enters: the cost of the idea he holds.",
+      "addedInformation": "Puts the manuscript and the wife it would hurt in one frame."
+    }
+  },
+  {
+    "i": 276,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Publish his theory",
+        "Wife's universe shattered"
+      ]
+    },
+    "callout": null,
+    "set": "library",
+    "cast": [],
+    "explainedBy": "Cause and effect: his professional triumph would shatter his wife's personal universe.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "His professional triumph would shatter his wife's personal universe.",
+      "concreteVisual": "A flow: Publish his theory -> Wife's universe shattered.",
+      "onScreenText": "Publish his theory -> Wife's universe shattered",
+      "relationToPrevious": "From the picture of the couple to the causal chain.",
+      "addedInformation": "States the trade-off as cause and effect."
+    }
+  },
+  {
+    "i": 277,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Publish his theory",
+        "Wife's universe shattered",
+        "Marriage destroyed"
+      ]
+    },
+    "callout": null,
+    "set": "library",
+    "continue": true,
+    "cast": [],
+    "explainedBy": "Darwin's premortem extends the chain: publishing could end in a destroyed marriage.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A premortem on publishing meant facing the real possibility of destroying his marriage.",
+      "concreteVisual": "The same flow gains a third step: Marriage destroyed.",
+      "onScreenText": "Marriage destroyed",
+      "relationToPrevious": "One more step added to the kept flow.",
+      "addedInformation": "Shows the premortem's worst-case end point."
+    }
+  },
+  {
+    "i": 278,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "Dying alienated",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin",
+      "emma"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "partnerExpression": "sad",
+    "partnerAction": "slump",
+    "explainedBy": "The feared outcome: Darwin reaches toward Emma, who has turned away traumatized, and he dies estranged from her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Traumatizing Emma and dying alienated from the person he loved most.",
+      "concreteVisual": "Darwin sadly reaching toward Emma, who slumps away.",
+      "onScreenText": "Dying alienated",
+      "relationToPrevious": "From the chain to the couple living its end.",
+      "addedInformation": "Shows the estrangement as one reaching, one withdrawn."
+    }
+  },
+  {
+    "i": 279,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A 10-year commercial lease",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "The listener's own big commitment: he holds the 10-year lease he is about to sign.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Say you are about to sign a 10-year lease or a 50/50 partnership with your oldest friend.",
+      "concreteVisual": "The listener, uneasy, holding the lease document.",
+      "onScreenText": "A 10-year commercial lease",
+      "relationToPrevious": "From Darwin to the listener's life.",
+      "addedInformation": "Makes the high-stakes commitment a document in hand."
+    }
+  },
+  {
+    "i": 280,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "3 years into the future",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "The premortem jumps ahead in time: the listener, lease still in hand, looks three years forward.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A premortem makes you mentally time travel 3 years into the future.",
+      "concreteVisual": "Same listener with the lease; a clock appears for the jump in time.",
+      "onScreenText": "3 years into the future",
+      "relationToPrevious": "Adds the clock: the time jump.",
+      "addedInformation": "The clock marks the move forward in time."
+    }
+  },
+  {
+    "i": 281,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "A bitter screaming lawsuit",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "angry",
+    "partnerAction": "talk",
+    "explainedBy": "The imagined failure: the partnership ends in a lawsuit, the two partners angry at each other.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Imagine the partnership ended in a bitter lawsuit; now name the clashes and missing boundaries.",
+      "concreteVisual": "The listener and his partner angrily facing each other under a law icon.",
+      "onScreenText": "A bitter screaming lawsuit",
+      "relationToPrevious": "The imagined future arrives: the failure itself.",
+      "addedInformation": "Shows the failed partnership as a legal fight between two people."
+    }
+  },
+  {
+    "i": 282,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Personality clashes",
+        "No boundaries",
+        "Market forces"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The premortem sorts the causes of the failure: personality clashes, missing boundaries, macroeconomic forces.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Identify the clashes, the lack of boundaries, or the macroeconomic forces that caused it.",
+      "concreteVisual": "A sorter of three causes of failure.",
+      "onScreenText": "Personality clashes / No boundaries / Market forces",
+      "relationToPrevious": "From the failure to its listed causes.",
+      "addedInformation": "Lays out the premortem's output as parts."
+    }
+  },
+  {
+    "i": 283,
+    "concept": "crash",
+    "diagram": null,
+    "callout": {
+      "text": "It feels incredibly toxic",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The objection: asking a team to picture the startup crashing feels toxic, so the listener slumps at the picture of the crash.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Imagining our startup crashing on the eve of launch feels toxic and pessimistic.",
+      "concreteVisual": "The listener slumped and worried beside a crash icon.",
+      "onScreenText": "It feels incredibly toxic",
+      "relationToPrevious": "From the method to the objection to it.",
+      "addedInformation": "Shows the imagined crash and its deflating effect."
+    }
+  },
+  {
+    "i": 284,
+    "concept": "crash",
+    "diagram": null,
+    "callout": {
+      "text": "It kills the momentum",
+      "style": "reveal"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The objection continues: dwelling on the crash drains the belief and energy a venture needs.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It kills the momentum, belief and positive energy a venture needs.",
+      "concreteVisual": "Same crash icon; the listener's worry sinks to sadness.",
+      "onScreenText": "It kills the momentum",
+      "relationToPrevious": "Same stage; the face drops from worried to sad.",
+      "addedInformation": "weak: the loss of momentum is carried by the face and callout."
+    }
+  },
+  {
+    "i": 285,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Pessimistic buzzkill",
+        "Strategic optimism"
+      ],
+      "values": [
+        0.85
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The reframe: the premortem looks pessimistic but sits at the optimism end of the scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It feels like a buzzkill, but the premortem is the ultimate form of strategic optimism.",
+      "concreteVisual": "A spectrum from pessimistic buzzkill to strategic optimism, marker near optimism.",
+      "onScreenText": "Pessimistic buzzkill / Strategic optimism",
+      "relationToPrevious": "From the objection to the rebuttal.",
+      "addedInformation": "Places the premortem on the scale against first impressions."
+    }
+  },
+  {
+    "i": 286,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Find failure points",
+        "Downstream flexibility"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Why it is optimistic: finding the failure points in advance leads to downstream flexibility.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Discovering failure points in advance gives you downstream flexibility.",
+      "concreteVisual": "A flow: Find failure points -> Downstream flexibility.",
+      "onScreenText": "Find failure points -> Downstream flexibility",
+      "relationToPrevious": "Explains the optimism as a mechanism.",
+      "addedInformation": "States the cause and its payoff."
+    }
+  },
+  {
+    "i": 287,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Find failure points",
+        "Downstream flexibility",
+        "Shock absorbers"
+      ]
+    },
+    "callout": null,
+    "set": "office",
+    "continue": true,
+    "cast": [],
+    "explainedBy": "Downstream flexibility means building shock absorbers into the plan, such as against a lease that could bankrupt you.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Downstream flexibility means building in shock absorbers, e.g. against a ruinous 10-year lease.",
+      "concreteVisual": "The same flow gains a third step: Shock absorbers.",
+      "onScreenText": "Shock absorbers",
+      "relationToPrevious": "One more step added to the kept flow.",
+      "addedInformation": "Defines what the flexibility looks like."
+    }
+  },
+  {
+    "i": 288,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A three-year lease",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "The fail-safe in action: the listener now holds a shorter three-year lease with a break option instead of cancelling.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You don't cancel; you negotiate a three-year lease with an option to break it.",
+      "concreteVisual": "The listener, relieved, holding the new shorter lease.",
+      "onScreenText": "A three-year lease",
+      "relationToPrevious": "Back to the lease from 279, now renegotiated.",
+      "addedInformation": "weak: the shorter term is in the callout; the relieved face shows the fail-safe works."
+    }
+  },
+  {
+    "i": 289,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Build an escape hatch",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "key",
+    "explainedBy": "Personal fail-safe: moving for love, the listener holds a rental key instead of buying a house.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Moving for a romance, rent a small apartment for a year instead of buying a house: an escape hatch.",
+      "concreteVisual": "The listener holding a key in front of a home.",
+      "onScreenText": "Build an escape hatch",
+      "relationToPrevious": "From business lease to personal life.",
+      "addedInformation": "weak: rent vs buy is carried by the callout; the key shows the new place."
+    }
+  },
+  {
+    "i": 290,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "You survive the bad move",
+      "style": "reveal"
+    },
+    "set": "street",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "explainedBy": "The premortem does not stop you: the listener walks forward, protected if the move goes wrong.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The premortem doesn't paralyze you; it ensures you survive if the move goes wrong.",
+      "concreteVisual": "The listener walking forward with a shield beside him.",
+      "onScreenText": "You actually survive",
+      "relationToPrevious": "From the fail-safe to its effect.",
+      "addedInformation": "Shows moving forward while protected."
+    }
+  },
+  {
+    "i": 291,
+    "concept": "ledge",
+    "diagram": null,
+    "callout": {
+      "text": "Include the cliffs",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "compass",
+    "explainedBy": "Widen the map: the listener, compass in hand, looks at the cliff edge instead of only the sunny path.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Don't map only the sunny path; widen the map to include the cliffs and the abyss.",
+      "concreteVisual": "The listener with a compass beside a cliff ledge.",
+      "onScreenText": "Include the cliffs",
+      "relationToPrevious": "Sums up the premortem as a wider map.",
+      "addedInformation": "The ledge shows the danger the map must include."
+    }
+  },
+  {
+    "i": 292,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Mapped the variables",
+        "Diverse voices"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A recap of the steps so far: the variables are mapped and diverse voices broke the consensus trap.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We've mapped the variables and broken the consensus trap with diverse voices.",
+      "concreteVisual": "A sorter of the finished steps.",
+      "onScreenText": "Mapped the variables / Diverse voices",
+      "relationToPrevious": "Recap of the divergence phase.",
+      "addedInformation": "Lists the steps covered so far."
+    }
+  },
+  {
+    "i": 293,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Mapped the variables",
+        "Diverse voices",
+        "Multiple futures"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "continue": true,
+    "cast": [],
+    "explainedBy": "The recap adds predicting multiple futures; then the divergence phase must end.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We've predicted multiple futures and done a premortem; the divergence phase has to end.",
+      "concreteVisual": "The same sorter gains a third bucket: Multiple futures.",
+      "onScreenText": "Multiple futures",
+      "relationToPrevious": "One more step added to the recap.",
+      "addedInformation": "Completes the list of divergence steps."
+    }
+  },
+  {
+    "i": 294,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Make the choice",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "explainedBy": "Now the decision has to be made: a tense living-room conversation between the author and his wife.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You have to make the choice; let's drop into a tense living-room conversation.",
+      "concreteVisual": "Johnson talking, worried; his wife slumped and worried in their living room.",
+      "onScreenText": "Make the choice",
+      "relationToPrevious": "From the recap to the decision phase.",
+      "addedInformation": "Introduces the couple and the tension."
+    }
+  },
+  {
+    "i": 295,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Move from Brooklyn?",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "briefcase",
+    "partnerExpression": "worried",
+    "explainedBy": "The choice is whether to uproot the family home: Johnson stands with a packed bag beside their home.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Johnson and his wife agonize over uprooting the family and moving from Brooklyn.",
+      "concreteVisual": "The same couple; a home icon and Johnson holding a packed briefcase.",
+      "onScreenText": "Move from Brooklyn?",
+      "relationToPrevious": "Same couple; the move enters as the home and the bag.",
+      "addedInformation": "Shows the question: leave home or stay."
+    }
+  },
+  {
+    "i": 296,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "Gorgeous weather, hiking",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "worried",
+    "explainedBy": "Johnson's side of the stalemate: he points to the nature and weather of Marin while his wife looks unconvinced.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They are stuck; Steven focuses on the weather, hiking and natural beauty.",
+      "concreteVisual": "Johnson, happy, pointing at a tree; his wife worried.",
+      "onScreenText": "Gorgeous weather, hiking",
+      "relationToPrevious": "Johnson states his side.",
+      "addedInformation": "The tree shows what pulls him to California."
+    }
+  },
+  {
+    "i": 297,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "The density of New York",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "wife",
+      "johnson"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "worried",
+    "explainedBy": "Her side: the wife points to the walkable city of New York while Johnson looks doubtful.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "His wife focuses on the pedestrian density of New York and its culture.",
+      "concreteVisual": "The wife, happy, pointing at a city; Johnson worried.",
+      "onScreenText": "The density of New York",
+      "relationToPrevious": "Mirror of 296: the other side, the other icon.",
+      "addedInformation": "City vs tree shows the two pulls."
+    }
+  },
+  {
+    "i": 298,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Lifelong friendships",
+      "style": "reveal"
+    },
+    "set": "room",
+    "continue": true,
+    "cast": [
+      "wife",
+      "johnson"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "photo",
+    "partnerExpression": "worried",
+    "explainedBy": "What she would lose: she holds a photo of the friends they would leave behind.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Crucially, the tight-knit network of lifelong friendships they'd be leaving.",
+      "concreteVisual": "The wife, sad, holding a photo; Johnson worried.",
+      "onScreenText": "Lifelong friendships",
+      "relationToPrevious": "Same wife; her face turns sad and she holds the photo.",
+      "addedInformation": "The photo makes the friendships a thing she holds."
+    }
+  },
+  {
+    "i": 299,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Asymmetrical things",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "explainedBy": "They are deadlocked weighing unlike things on one scale: both slumped beside the balance.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They are deadlocked weighing fundamentally asymmetrical things against each other.",
+      "concreteVisual": "A balance; Johnson and his wife both slumped and worried.",
+      "onScreenText": "Asymmetrical things",
+      "relationToPrevious": "From the two sides to the deadlock between them.",
+      "addedInformation": "The balance shows the weighing that cannot settle."
+    }
+  },
+  {
+    "i": 300,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Sunshine versus a best friend",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The impossible comparison: sunshine in one bucket, a best friend in the other.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "How do you compare sunshine to a best friend? This is where linear value modeling comes in.",
+      "concreteVisual": "A sorter: Sunshine / A best friend.",
+      "onScreenText": "Sunshine / A best friend",
+      "relationToPrevious": "Names the two things that cannot be weighed.",
+      "addedInformation": "Shows the asymmetry concretely."
+    }
+  },
+  {
+    "i": 301,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Bentham's utilitarianism",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "Where the tool comes from: Jeremy Bentham's 19th-century philosophy of utilitarianism, shown as the book it came from.",
+    "noVisual": "No figure for Bentham in the cast; the origin is carried by a book and the callout.",
+    "storyboard": {
+      "claim": "Linear value modeling is the mathematical offspring of Bentham's utilitarianism.",
+      "concreteVisual": "A book with the label Bentham's utilitarianism.",
+      "onScreenText": "Bentham's utilitarianism",
+      "relationToPrevious": "From the problem to the tool's origin.",
+      "addedInformation": "weak: the lineage is carried by the callout."
+    }
+  },
+  {
+    "i": 302,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The greatest happiness",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "partnerExpression": "neutral",
+    "explainedBy": "Johnson takes up a sheet to apply the method to their own choice, his wife beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Greatest happiness for the greatest number; applied to a personal choice it works like this.",
+      "concreteVisual": "Johnson holding a sheet of notes, ready to work it out with his wife.",
+      "onScreenText": "The greatest happiness",
+      "relationToPrevious": "Back to the couple, now with a sheet to calculate on.",
+      "addedInformation": "Sets up the worked method on the next beats."
+    }
+  }
+]

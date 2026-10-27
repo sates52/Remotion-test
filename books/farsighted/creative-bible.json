@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "generatedAt": "2026-10-26T05:53:13.136Z",
+    "generator": "Antidote/Vox Unified Art Director v5.0",
+    "book": {
+      "title": "Farsighted",
+      "author": "Steven Johnson",
+      "genre": "nonfiction"
+    }
+  },
+  "world": {
+    "universeKey": "contemporary_general",
+    "label": "Contemporary General Non-Fiction",
+    "recommendedEngine": "antidote",
+    "engineConfidence": 0.7,
+    "engineRationale": "Balanced narrative pace suited for expressive vector characters and kinetic callouts.",
+    "palette": {
+      "primary": "#2563EB",
+      "secondary": "#1E293B",
+      "accent": "#F97316",
+      "paper": "#FAFAF9",
+      "ink": "#18181B"
+    }
+  },
+  "antidote": {
+    "preferredSets": [
+      "office",
+      "room",
+      "stage"
+    ],
+    "activeCustomMotifs": {},
+    "gaps": []
+  },
+  "vox": {
+    "primaryDocType": "newspaper",
+    "suggestedLocations": [
+      {
+        "name": "New York",
+        "lat": 40.7128,
+        "lng": -74.006
+      },
+      {
+        "name": "London",
+        "lat": 51.5074,
+        "lng": -0.1278
+      },
+      {
+        "name": "Washington",
+        "lat": 38.9072,
+        "lng": -77.0369
+      }
+    ],
+    "photoPromptStyle": "Contemporary General Non-Fiction, archival editorial lighting, documentary realism, tactile paper texture, 35mm photograph"
+  }
+}

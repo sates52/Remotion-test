@@ -1,0 +1,1011 @@
+[
+  {
+    "i": 223,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "He pushes back hard",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "brennan",
+      "analyst"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "explainedBy": "Brennan confronts his own analyst across the table: he points and pushes back, she sinks under it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Brennan is the friction; he pushes back on his own team.",
+      "concreteVisual": "Brennan pointing angrily at the analyst, who slumps worried.",
+      "onScreenText": "He pushes back hard",
+      "relationToPrevious": "After the room tilts toward a strike, one man pushes against it.",
+      "addedInformation": "Who pushes against whom: the adviser against his own analyst."
+    }
+  },
+  {
+    "i": 224,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "What's not right about our theory?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "brennan",
+      "analyst"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "continue": true,
+    "explainedBy": "Brennan demands the analysts attack their own theory, the compound model between them; she is taken aback.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He demands they disprove their own theory.",
+      "concreteVisual": "Same pair, now with the compound model between them; Brennan talks, the analyst is surprised.",
+      "onScreenText": "What's not right about our theory?",
+      "relationToPrevious": "Kept stage: the model of the theory appears, the analyst's face turns to surprise.",
+      "addedInformation": "The theory under attack (the compound model) is on screen."
+    }
+  },
+  {
+    "i": 225,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "A red team exercise",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst",
+      "brennan"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "partnerExpression": "neutral",
+    "partnerAction": "idle",
+    "explainedBy": "The analyst now hunts for contrary evidence with a magnifier over the compound model.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Forced to look for contrary evidence, the analysts find a tiny detail.",
+      "concreteVisual": "The analyst holding a magnifier over the compound model, Brennan watching.",
+      "onScreenText": "A red team exercise",
+      "relationToPrevious": "The demand turns into the analysts searching.",
+      "addedInformation": "The search itself: looking closely at the compound for what does not fit."
+    }
+  },
+  {
+    "i": 226,
+    "concept": "dog",
+    "diagram": null,
+    "callout": {
+      "text": "A dog pacing the grounds",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "explainedBy": "The overlooked detail: a dog on the compound grounds, which the analyst points to.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Satellite imagery shows a dog pacing the compound.",
+      "concreteVisual": "The analyst pointing, surprised, at the dog icon.",
+      "onScreenText": "A dog pacing the grounds",
+      "relationToPrevious": "The tiny detail the search turned up.",
+      "addedInformation": "Names the detail: a dog."
+    }
+  },
+  {
+    "i": 227,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Dog on the grounds",
+        "Devout: rarely dogs"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause chain starts: a dog on the grounds versus devout households rarely keeping dogs.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Strictly devout Muslims of his interpretation rarely keep dogs.",
+      "concreteVisual": "Flow: Dog on the grounds -> Devout: rarely dogs.",
+      "onScreenText": "Dog on the grounds | Devout: rarely dogs",
+      "relationToPrevious": "The dog becomes the first link of an argument.",
+      "addedInformation": "Why the dog matters: it clashes with who should live there."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Dog on the grounds",
+        "Devout: rarely dogs",
+        "Theory contradicted"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The chain ends in its result: the dog contradicts the theory of who lives there.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A red flag that contradicted the whole theory.",
+      "concreteVisual": "Same flow gains the result label: Theory contradicted.",
+      "onScreenText": "Dog on the grounds | Devout: rarely dogs | Theory contradicted",
+      "relationToPrevious": "Kept flow, one more label: the effect.",
+      "addedInformation": "The consequence: the foundational theory is in doubt."
+    }
+  },
+  {
+    "i": 229,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "The dog almost derailed it",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "brennan"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The mission nearly derails: Brennan slumps worried beside the compound model.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Did the dog derail the mission? It almost did.",
+      "concreteVisual": "Brennan slumping, worried, by the compound model.",
+      "onScreenText": "It almost did",
+      "relationToPrevious": "From the argument back to the room it shakes.",
+      "addedInformation": "The cost of the red flag: the mission almost stopped."
+    }
+  },
+  {
+    "i": 230,
+    "concept": "dog",
+    "diagram": null,
+    "callout": {
+      "text": "Decades on the Middle East",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "brennan"
+    ],
+    "expression": "surprised",
+    "action": "think",
+    "explainedBy": "Brennan's decades of Middle East study surface a memory: he holds the book of that knowledge, struck by it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Brennan, fluent in Arabic and a Middle East veteran, remembers a detail.",
+      "concreteVisual": "Brennan holding a book, surprised face.",
+      "onScreenText": "Decades on the Middle East",
+      "relationToPrevious": "The same man who doubted now supplies the answer.",
+      "addedInformation": "weak: the expertise is carried by the book and callout."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Dog in compound",
+        "Dogs in Sudan, 1990s"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The new chain: the dog in the compound links to bin Laden keeping dogs in Sudan in the 1990s.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Bin Laden did have dogs in exile in Sudan in the 1990s.",
+      "concreteVisual": "Flow: Dog in compound -> Dogs in Sudan, 1990s.",
+      "onScreenText": "Dog in compound | Dogs in Sudan, 1990s",
+      "relationToPrevious": "The contradiction is answered by history.",
+      "addedInformation": "The historical fact that resolves the dog."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Dog in compound",
+        "Dogs in Sudan, 1990s",
+        "Theory stronger"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Result of the chain: trying to disprove the theory made it stronger.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Disproving their theory made the final theory far stronger.",
+      "concreteVisual": "Same flow gains: Theory stronger.",
+      "onScreenText": "Dog in compound | Dogs in Sudan, 1990s | Theory stronger",
+      "relationToPrevious": "Kept flow, one more label: the result.",
+      "addedInformation": "The payoff of friction, as cause -> effect."
+    }
+  },
+  {
+    "i": 233,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Predict multiple futures",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Instead of one road, the analyst points at a fork with several paths: multiple futures.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The team stopped predicting one sunny outcome and predicted multiple futures.",
+      "concreteVisual": "The analyst pointing at the branching-road icon.",
+      "onScreenText": "Predict multiple futures",
+      "relationToPrevious": "From one theory to many possible outcomes.",
+      "addedInformation": "One future vs several: the branching paths."
+    }
+  },
+  {
+    "i": 234,
+    "concept": "helicopter",
+    "diagram": null,
+    "callout": {
+      "text": "Lift capacity of the rotors",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "One future modelled: what heat and altitude do to the helicopter's lift; the analyst weighs it, worried.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If we send Black Hawks, what do heat and altitude do to rotor lift?",
+      "concreteVisual": "The helicopter icon beside the worried analyst.",
+      "onScreenText": "Lift capacity of the rotors",
+      "relationToPrevious": "The first specific future.",
+      "addedInformation": "The concrete risk: the helicopter itself."
+    }
+  },
+  {
+    "i": 235,
+    "concept": "helicopter",
+    "diagram": null,
+    "callout": {
+      "text": "Black Hawks or B-2 bombers?",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The futures sorted side by side: the helicopter raid versus bombers that leave no DNA proof.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Bombers would flatten the compound and leave no DNA evidence.",
+      "concreteVisual": "Sorter: Black Hawk raid | B-2 bombers.",
+      "onScreenText": "Black Hawk raid | B-2 bombers",
+      "relationToPrevious": "A second option is laid beside the first.",
+      "addedInformation": "The options as separate timelines."
+    }
+  },
+  {
+    "i": 236,
+    "concept": "helicopter",
+    "diagram": null,
+    "callout": {
+      "text": "What if Pakistan retaliates?",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "One more timeline joins: Pakistan treats the raid as war and shuts airspace.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They planned for Pakistan retaliating by shutting American airspace.",
+      "concreteVisual": "Same sorter gains: Pakistan retaliates.",
+      "onScreenText": "Black Hawk raid | B-2 bombers | Pakistan retaliates",
+      "relationToPrevious": "Kept sorter, one more future.",
+      "addedInformation": "The dark future they also modelled."
+    }
+  },
+  {
+    "i": 237,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Airspace shut",
+        "Alternate route"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Preparing for that future: airspace shut leads to building an alternate supply route.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The military spent months building an alternate supply route.",
+      "concreteVisual": "Flow: Airspace shut -> Alternate route.",
+      "onScreenText": "Airspace shut | Alternate route",
+      "relationToPrevious": "From modelling the future to preparing for it.",
+      "addedInformation": "The concrete preparation for the bad future."
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Airspace shut",
+        "Alternate route",
+        "Via Russia"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The route completed: the Northern Distribution Network through the Baltic and Russia.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The Northern Distribution Network routed supplies through Russia.",
+      "concreteVisual": "Same flow gains: Via Russia.",
+      "onScreenText": "Airspace shut | Alternate route | Via Russia",
+      "relationToPrevious": "Kept flow, one more label.",
+      "addedInformation": "Where the backup route actually ran."
+    }
+  },
+  {
+    "i": 239,
+    "concept": "hedgehog",
+    "diagram": null,
+    "callout": {
+      "text": "Hedgehogs and foxes",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Tetlock's two camps of forecasters, sorted: hedgehogs and foxes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This maps onto Tetlock's research: foxes and hedgehogs.",
+      "concreteVisual": "Sorter: Hedgehogs | Foxes.",
+      "onScreenText": "Hedgehogs | Foxes",
+      "relationToPrevious": "From the raid to a research frame.",
+      "addedInformation": "The two types the next beats explain."
+    }
+  },
+  {
+    "i": 240,
+    "concept": "hedgehog",
+    "diagram": null,
+    "callout": {
+      "text": "One big theory of the world",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The hedgehog: one big theory of the world.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hedgehogs have one big unifying theory.",
+      "concreteVisual": "The hedgehog icon alone.",
+      "onScreenText": "One big unifying theory",
+      "relationToPrevious": "The first camp, defined.",
+      "addedInformation": "What a hedgehog is."
+    }
+  },
+  {
+    "i": 241,
+    "concept": "fox",
+    "diagram": null,
+    "callout": {
+      "text": "They know many little things",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The fox: many small things, constantly updated, against the hedgehog's one binary future.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Hedgehogs predict one binary future; foxes know many things and update.",
+      "concreteVisual": "The fox icon alone.",
+      "onScreenText": "Know many little things",
+      "relationToPrevious": "The second camp, in contrast to the hedgehog.",
+      "addedInformation": "What a fox is."
+    }
+  },
+  {
+    "i": 242,
+    "concept": "fox",
+    "diagram": null,
+    "callout": {
+      "text": "A team of foxes",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The analyst points to the fox: the 2011 intelligence team worked like foxes.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The intelligence community in 2011 acted like a team of foxes.",
+      "concreteVisual": "The analyst pointing at the fox icon, pleased.",
+      "onScreenText": "A team of foxes",
+      "relationToPrevious": "The fox is tied back to the CIA team.",
+      "addedInformation": "Links the type to the people of the case."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Only the sunshine scenario",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "briefcase",
+    "explainedBy": "The listener leading a launch smiles at only the best case.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Leading a launch, we only model the sunshine scenario.",
+      "concreteVisual": "The everyman holding a briefcase, smiling.",
+      "onScreenText": "Only the sunshine scenario",
+      "relationToPrevious": "From the CIA to the listener's office.",
+      "addedInformation": "weak: the one-sided optimism is in face and words."
+    }
+  },
+  {
+    "i": 244,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "Revenue will spike 40%",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "The dream at the whiteboard: revenue up 40%, promotions all round - the listener celebrates.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At the whiteboard we promise love, 40% revenue, promotions.",
+      "concreteVisual": "The everyman celebrating.",
+      "onScreenText": "Revenue will spike 40%",
+      "relationToPrevious": "The optimism peaks.",
+      "addedInformation": "The sunshine scenario as a celebration."
+    }
+  },
+  {
+    "i": 245,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Sunshine launch",
+        "Rival cuts its price"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Futures side by side: the sunshine launch and a rival halving its price the day before.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Model the future where the competitor cuts price 50%.",
+      "concreteVisual": "Sorter: Sunshine launch | Rival cuts price 50%.",
+      "onScreenText": "Sunshine launch | Rival cuts price 50%",
+      "relationToPrevious": "The dream gets a rival future beside it.",
+      "addedInformation": "A second, conflicting future."
+    }
+  },
+  {
+    "i": 246,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Sunshine launch",
+        "Rival cuts its price",
+        "Market crashes"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "A third future joins: the market crashes and budgets evaporate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Model the future where the market crashes.",
+      "concreteVisual": "Same sorter gains: Market crashes.",
+      "onScreenText": "Sunshine launch | Rival cuts price 50% | Market crashes",
+      "relationToPrevious": "Kept sorter, one more future.",
+      "addedInformation": "Another conflicting future."
+    }
+  },
+  {
+    "i": 247,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Sunshine launch",
+        "Rival cuts its price",
+        "Market crashes",
+        "Conflicting stories"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The sorter is the point: several conflicting stories held at once.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Tell yourself multiple conflicting stories.",
+      "concreteVisual": "Same sorter closes with: Conflicting stories.",
+      "onScreenText": "Sunshine launch | Rival cuts price 50% | Market crashes | Conflicting stories",
+      "relationToPrevious": "Kept sorter, the summary bucket.",
+      "addedInformation": "weak: names the lesson of the three futures."
+    }
+  },
+  {
+    "i": 248,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Disprove my own theories",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "The objection: the listener obsessively inspecting his own plan with a magnifier.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If I keep trying to disprove my own theories...",
+      "concreteVisual": "The everyman holding a magnifier, worried.",
+      "onScreenText": "Disprove my own theories",
+      "relationToPrevious": "The host pushes back on the method.",
+      "addedInformation": "The obsessive checking, as a deed."
+    }
+  },
+  {
+    "i": 249,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "Never going to launch",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "All that modelling means the launch never happens: the listener slumps.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Modelling every disaster, I will never launch.",
+      "concreteVisual": "The everyman slumping, sad.",
+      "onScreenText": "Never going to launch",
+      "relationToPrevious": "From checking to being stuck.",
+      "addedInformation": "The cost of over-planning."
+    }
+  },
+  {
+    "i": 250,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Total paralyzing inaction",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "explainedBy": "Waiting for 100% certainty: the listener sits while the hourglass runs out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Waiting to be 100% sure brings paralyzing inaction.",
+      "concreteVisual": "The everyman sitting worried beside a running hourglass.",
+      "onScreenText": "Total paralyzing inaction",
+      "relationToPrevious": "The stuck state, with time draining.",
+      "addedInformation": "Time lost to waiting."
+    }
+  },
+  {
+    "i": 251,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Bounded rationality",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "idle",
+    "explainedBy": "Commentary: we can never know everything.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Startups die from delay; bounded rationality means we never know everything.",
+      "concreteVisual": "The everyman, sad, the term on screen.",
+      "onScreenText": "Bounded rationality",
+      "relationToPrevious": "The answer to the objection begins.",
+      "addedInformation": "weak: text-carried concept."
+    }
+  },
+  {
+    "i": 252,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Limited time",
+        "Limited power",
+        "Limited data"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The parts of bounded rationality: limited time, cognitive power and data.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We have limited time, cognitive power and data.",
+      "concreteVisual": "Sorter: Limited time | Limited power | Limited data.",
+      "onScreenText": "Limited time | Limited power | Limited data",
+      "relationToPrevious": "The concept broken into its parts.",
+      "addedInformation": "What bounded rationality consists of."
+    }
+  },
+  {
+    "i": 253,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Guessing",
+        "Certain"
+      ],
+      "values": [
+        0.9
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Bezos's rule on a certainty scale: waiting until 90% certain.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Waiting for 90% certainty is too slow.",
+      "concreteVisual": "Spectrum Guessing-Certain, marker at 90%.",
+      "onScreenText": "Guessing | Certain",
+      "relationToPrevious": "A new frame: the 70% rule.",
+      "addedInformation": "Where the slow decider waits."
+    }
+  },
+  {
+    "i": 254,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Rivals will outpace you",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The cost of waiting: the clock runs while rivals pass.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At 90% you move too slowly; rivals outpace you.",
+      "concreteVisual": "The everyman slumping, worried, beside a clock.",
+      "onScreenText": "Rivals will outpace you",
+      "relationToPrevious": "The consequence of the 90% wait.",
+      "addedInformation": "The deadline pressure."
+    }
+  },
+  {
+    "i": 255,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Map the outer boundaries",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "Probe the uncertainty just enough: the listener examines with a magnifier, calmly now.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The goal is to probe uncertainty enough to map the boundaries.",
+      "concreteVisual": "The everyman holding a magnifier, calm.",
+      "onScreenText": "Map the outer boundaries",
+      "relationToPrevious": "Probing replaces obsessing (face calm, not worried).",
+      "addedInformation": "weak: probing shown by the magnifier."
+    }
+  },
+  {
+    "i": 256,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Guessing",
+        "Certain"
+      ],
+      "values": [
+        0.7
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "On the same scale, the marker sits at 70%: decide there and adjust.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At roughly 70% confidence you pull the trigger.",
+      "concreteVisual": "Spectrum Guessing-Certain, marker at 70%.",
+      "onScreenText": "Guessing | Certain",
+      "relationToPrevious": "The marker moves from 90% to 70%.",
+      "addedInformation": "Where to decide."
+    }
+  },
+  {
+    "i": 257,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Several possible futures",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Prediction as several paths, not one: the branching road.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Telling several possible futures prepares the mind.",
+      "concreteVisual": "The branching-road icon.",
+      "onScreenText": "Several possible futures",
+      "relationToPrevious": "From the rule to the general lesson.",
+      "addedInformation": "Many futures as many paths."
+    }
+  },
+  {
+    "i": 258,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Tell several futures",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The book's refrain: widen the map before you choose - the listener points to the third path.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You have to widen the map before you choose.",
+      "concreteVisual": "Same branching-road icon; the everyman enters and points at it.",
+      "onScreenText": "Widen the map",
+      "relationToPrevious": "Kept icon; the listener steps in to take up the lesson.",
+      "addedInformation": "Ties to the book's option-C idea."
+    }
+  },
+  {
+    "i": 259,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "Smoking crater of disaster",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "Imagine the disaster: the listener stands afraid before smoke and fire.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Imagine standing in the smoking crater of a total disaster.",
+      "concreteVisual": "The everyman afraid beside the fire icon.",
+      "onScreenText": "Smoking crater of disaster",
+      "relationToPrevious": "The premortem exercise begins.",
+      "addedInformation": "The imagined disaster."
+    }
+  },
+  {
+    "i": 260,
+    "concept": "helicopter",
+    "diagram": null,
+    "callout": {
+      "text": "The helicopters crashed",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "One imagined failure: the raid helicopters crashed and the target escaped.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The launch failed; the helicopters crashed and the target escaped.",
+      "concreteVisual": "The helicopter icon with the label.",
+      "onScreenText": "The helicopters crashed",
+      "relationToPrevious": "weak: the crash is in the label; no violence staged.",
+      "addedInformation": "Recalls the raid as a failed future."
+    }
+  },
+  {
+    "i": 261,
+    "concept": "crash",
+    "diagram": null,
+    "callout": {
+      "text": "The restaurant went bankrupt",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "ceo"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "partnerExpression": "angry",
+    "partnerAction": "idle",
+    "explainedBy": "The listener explains the failure to a stern board member.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You stand before your board explaining why it failed.",
+      "concreteVisual": "Everyman sad, talking; the CEO angry.",
+      "onScreenText": "The restaurant went bankrupt",
+      "relationToPrevious": "From the imagined failure to the explanation.",
+      "addedInformation": "The accounting before a board."
+    }
+  },
+  {
+    "i": 262,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A premortem",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "ceo"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "notes",
+    "partnerExpression": "angry",
+    "partnerAction": "idle",
+    "continue": true,
+    "explainedBy": "The explanation written out: the listener holds the notes of what went wrong.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "This is what decision theorists call a premortem.",
+      "concreteVisual": "Same pair; the everyman now holds notes.",
+      "onScreenText": "A premortem",
+      "relationToPrevious": "Kept stage: the explanation becomes a document.",
+      "addedInformation": "Names the exercise."
+    }
+  },
+  {
+    "i": 263,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "A premortem comes first",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Post-mortem after the failure versus premortem before the decision.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A post-mortem examines what went wrong after the fact.",
+      "concreteVisual": "Sorter: Post-mortem: after | Premortem: before.",
+      "onScreenText": "Post-mortem: after | Premortem: before",
+      "relationToPrevious": "The term contrasted with the familiar one.",
+      "addedInformation": "The timing difference."
+    }
+  },
+  {
+    "i": 264,
+    "concept": "grave",
+    "diagram": null,
+    "callout": {
+      "text": "Assume it already failed",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "The leader tells the team to assume the decision has already failed; a colleague is taken aback.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Klein's premortem: assume the decision already failed.",
+      "concreteVisual": "Everyman talking to a surprised colleague.",
+      "onScreenText": "Assume it already failed",
+      "relationToPrevious": "From the definition to running it with a team.",
+      "addedInformation": "The instruction given to a team."
+    }
+  }
+]

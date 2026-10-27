@@ -1365,3 +1365,11 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Quality provenance:** Sealed final WRONG 1/30, dead 5/30, ADDS 60% (PASS). Firewall 0 BLOCK, 607 REVIEW carried as operator-accepted quality debt for config 6cc082ecdc1dc911 (render-decision.json). Production firewall status stays FAIL.
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-26: GitHub 18 artifacts + 18 runs (render-github-cleanup.js); remote refs purged on 10 workers (purge-render-branches.js); local film, thumbnails, out/the-new-one-minute-manager/ bundle, public/audio/*.m4a (render-purge.js, ~3.19 GB).
 - **Kept:** books/the-new-one-minute-manager/ source, public/captions/the-new-one-minute-manager.clean.vtt.
+
+## Farsighted: How We Make the Decisions That Matter the Most — Steven Johnson (`farsighted`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-27).
+- **Length:** 55.5 min (3,314.5 s); 99,435/99,435 frames; 1920×1080 30 fps; technical VERIFIED (cloud assembly run 40335857885 + local `verify-render-output.js`: frames match config, full decode clean). 10-worker GitHub split render, bundle 86dfb635, production SHA a84ceacb, config sha256 6fb16eab384bf876.
+- **Quality provenance:** Production render with operator-accepted quality debt (firewall 0 BLOCK / 629 REVIEW). Blind mute tests kept as recorded: sealed final W0 · dead 10 · ADDS 14/30 (FAIL); run2 W1 · dead 7 · ADDS 15/30 (FAIL); run3 (fresh, after 2 fix rounds) W1 · dead 5 · ADDS 14/30 (47 %, text-carried) · EXPLAINS 1/30 → PASS. Readcheck 369 beats, 0 WRONG.
+- **YouTube metadata:** Hand-refined in English (`books/farsighted/youtube.md`): 5 titles (`lint-titles` PASS, 3 titleAngles), 22 chapters, 18 tags, thumbnail A/B/C (hook "WIDEN THE MAP").
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-27: GitHub 19 artifacts + 20 runs (~2 GB) across 10 workers (render-github-cleanup.js, 3 timed-out workers finished by run id; verified 0 left); 11 `render/farsighted-*` refs purged (purge-render-branches.js); local film, thumbnails, cloud zip, raw/mastered audio, raw/clean VTT and .orig.bak removed from the production worktree and the main checkout; worktree `../wt-book-farsighted` unlinked and removed.
+- **Kept:** books/farsighted/ source.

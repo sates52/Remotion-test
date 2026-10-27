@@ -1,0 +1,829 @@
+[
+  {
+    "i": 81,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "The imaginative third option",
+      "style": "highlight"
+    },
+    "set": "shore",
+    "cast": [
+      "lenfant",
+      "alderman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "blank",
+    "partnerAction": "idle",
+    "explainedBy": "Comparison: L'Enfant points at the third path (the park) while the council man stares blankly past it: the binary blinded them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Locked in the binary, the council ignored L'Enfant's third option, the park.",
+      "concreteVisual": "Fork-in-the-road icon with the dotted third path; L'Enfant points at it, the alderman blank.",
+      "onScreenText": "The imaginative third option",
+      "relationToPrevious": "Moves from the critique of the either-or to the option they missed.",
+      "addedInformation": "The third path is literally drawn as the road they did not take."
+    }
+  },
+  {
+    "i": 82,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "The National Mall survives",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "lenfant"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Event: L'Enfant's plan was built in Washington and the capital still stands shaped by it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In Washington, L'Enfant's vision was implemented and the National Mall still shapes the capital.",
+      "concreteVisual": "L'Enfant points proudly at an intact city.",
+      "onScreenText": "The National Mall survives",
+      "relationToPrevious": "Contrast: where his vision was built, it lasted.",
+      "addedInformation": "Shows the proof case: the same architect's plan, realized."
+    }
+  },
+  {
+    "i": 83,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Narrow framing",
+        "Pond buried"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "abstract",
+    "explainedBy": "Cause -> effect: the narrow framing led to the pond being buried under rock instead of becoming a lasting park.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Collect Pond could have been New York's Boston Common, but once buried under rock it is gone.",
+      "concreteVisual": "A flow diagram builds: Narrow framing -> Pond buried.",
+      "onScreenText": "Narrow framing -> Pond buried",
+      "relationToPrevious": "Starts the cause chain of the Collect Pond lesson.",
+      "addedInformation": "The chain from framing to the buried pond is laid out."
+    }
+  },
+  {
+    "i": 84,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Narrow framing",
+        "Pond buried",
+        "Never get it back"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "abstract",
+    "continue": true,
+    "explainedBy": "Cause -> effect completed: narrow framing -> pond buried -> it can never come back; irreversibility is what makes the framing deadly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The irreversibility of the choice is what makes narrow framing deadly.",
+      "concreteVisual": "The same flow gains its third label: Never get it back.",
+      "onScreenText": "Never get it back",
+      "relationToPrevious": "Kept flow; adds the irreversible result.",
+      "addedInformation": "weak: the 500-year mistake / house / company examples stay in the audio."
+    }
+  },
+  {
+    "i": 85,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Discover the terrain first",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Comparison: instead of the two obvious roads, the listener points to the third path: widen the map before choosing.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Don't pick between the two obvious paths; resist resolving the tension fast and widen the map first.",
+      "concreteVisual": "The listener points at the fork icon's third dotted path.",
+      "onScreenText": "Widen the map",
+      "relationToPrevious": "From the 1802 case to the advice for the listener.",
+      "addedInformation": "Applies the third-option icon to the viewer's own decision."
+    }
+  },
+  {
+    "i": 86,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Darwin's notebook",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Darwin in his study holds the notebook with the two-column list, trying to resolve his tension over marriage.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Back to Darwin in his smoky room, resolving his own tension in a notebook.",
+      "concreteVisual": "Darwin, worried, holds his notes beside the two-column list icon.",
+      "onScreenText": "Darwin's notebook",
+      "relationToPrevious": "Returns to the opening case.",
+      "addedInformation": "Re-establishes Darwin and his two-column list."
+    }
+  },
+  {
+    "i": 87,
+    "concept": "dog",
+    "diagram": null,
+    "callout": {
+      "text": "Better than a dog anyhow",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Under Marry he writes a wife would be better than a dog: the dog is drawn as the thing he compares her to.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Under Marry: a nice soft wife on a sofa, better than a dog anyhow.",
+      "concreteVisual": "Darwin keeps his notes; the dog icon replaces the list.",
+      "onScreenText": "Better than a dog anyhow",
+      "relationToPrevious": "Kept Darwin; the icon changes to the dog he names.",
+      "addedInformation": "The dog literally shows the comparison he wrote."
+    }
+  },
+  {
+    "i": 88,
+    "concept": "dog",
+    "diagram": null,
+    "callout": {
+      "text": "Basic mammalian warmth",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Commentary: his bar for marriage is set at the warmth a dog gives; the dog stays beside him.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "As romance, this leaves much to be desired: the bar is basic mammalian warmth.",
+      "concreteVisual": "Darwin with the dog still beside him, now just talking.",
+      "onScreenText": "Basic mammalian warmth",
+      "relationToPrevious": "Kept stage; his smirk drops to a plain face.",
+      "addedInformation": "weak: the joke is carried by the hosts' words."
+    }
+  },
+  {
+    "i": 89,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Music and female chit-chat",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Another entry on the Marry side: the charms of music and conversation; he smiles over the list.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He also lists the charms of music and female chit-chat.",
+      "concreteVisual": "Darwin smiles, the two-column list back on screen.",
+      "onScreenText": "Music and female chit-chat",
+      "relationToPrevious": "Kept Darwin; back to the list, face happy.",
+      "addedInformation": "Marks this as one more pro in the left column."
+    }
+  },
+  {
+    "i": 90,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "The Not Marry column",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Change: he turns to the Not Marry column and the anxiety pours out; his face falls over the list.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In the Not Marry column the anxiety pours out: fatness, idleness, expense.",
+      "concreteVisual": "Darwin slumps, worried, over the same list.",
+      "onScreenText": "The Not Marry column",
+      "relationToPrevious": "Kept list; the face turns from happy to worried.",
+      "addedInformation": "The switch from pros to cons is shown as a change of mood over the same page."
+    }
+  },
+  {
+    "i": 91,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Clever men at clubs",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "More cons: the expense of children and missing the conversation of clever men at clubs; he is sadder still.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He fears the expense of children and losing the conversation of clever men at clubs.",
+      "concreteVisual": "Darwin sad, slumped over the list.",
+      "onScreenText": "Clever men at clubs",
+      "relationToPrevious": "Kept list; worried -> sad.",
+      "addedInformation": "weak: the specific con is named by the callout."
+    }
+  },
+  {
+    "i": 92,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Banished to the countryside",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "His biggest fear on the list: a wife who dislikes London would banish him to the countryside; he is afraid.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is terrified a wife who dislikes London would banish him to the countryside, idle.",
+      "concreteVisual": "Darwin afraid, clutching his notes by the list.",
+      "onScreenText": "Banished to the countryside",
+      "relationToPrevious": "Kept list; the face peaks at fear.",
+      "addedInformation": "The fear is shown on his face, the cause in the label."
+    }
+  },
+  {
+    "i": 93,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Fears on a scrap of paper",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "darwin"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Summary: he is putting his fears and hopes onto the paper he holds, making the abstract concrete.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He is externalizing his fears and hopes on a scrap of paper.",
+      "concreteVisual": "Darwin calm again, holding the notes beside the list.",
+      "onScreenText": "Fears on a scrap of paper",
+      "relationToPrevious": "Kept list; fear settles into a neutral face, the paper holds it now.",
+      "addedInformation": "The paper in hand is the point: the list externalizes the feelings."
+    }
+  },
+  {
+    "i": 94,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A letter in 1772",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "franklin"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "Origin: the two-column method goes back to Benjamin Franklin writing a letter in 1772; Franklin holds the letter.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The two-column method has a pedigree going back to Franklin's 1772 letter.",
+      "concreteVisual": "Franklin holds a letter in his study.",
+      "onScreenText": "A letter in 1772",
+      "relationToPrevious": "New case: the method's origin.",
+      "addedInformation": "Introduces Franklin and the letter that carries the method."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Priestley discovered oxygen",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "priestley",
+      "franklin"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "partnerExpression": "happy",
+    "explainedBy": "Relationship: the letter's recipient is Franklin's friend Joseph Priestley, the scientist who discovered oxygen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Franklin wrote to his friend Joseph Priestley, who discovered oxygen.",
+      "concreteVisual": "Priestley in front, Franklin beside him with a friendly face.",
+      "onScreenText": "Priestley discovered oxygen",
+      "relationToPrevious": "Adds the recipient of the letter.",
+      "addedInformation": "weak: oxygen itself cannot be drawn; the label carries it."
+    },
+    "holds": "letter"
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A massive career decision",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "priestley"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "briefcase",
+    "explainedBy": "Priestley, briefcase in hand, slumps worried over a big career decision.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At the time, Priestley was agonizing over a massive career decision.",
+      "concreteVisual": "Priestley alone, worried, holding a briefcase.",
+      "onScreenText": "A massive career decision",
+      "relationToPrevious": "Focus moves to Priestley's dilemma.",
+      "addedInformation": "The briefcase marks the choice as a job decision."
+    }
+  },
+  {
+    "i": 97,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Librarian to the Earl",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "priestley"
+    ],
+    "expression": "worried",
+    "action": "think",
+    "continue": true,
+    "explainedBy": "The offer: a prestigious post as librarian to the Earl of Shelburne; he holds a book, still worried about uprooting his family.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Whether to uproot his family to become librarian and companion to the Earl of Shelburne.",
+      "concreteVisual": "Priestley, still worried, now holds a book.",
+      "onScreenText": "Librarian to the Earl",
+      "relationToPrevious": "Kept Priestley; the briefcase becomes a book (the librarian post).",
+      "addedInformation": "The book names the job on offer."
+    }
+  },
+  {
+    "i": 98,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "How to process the choice",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "franklin",
+      "priestley"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "letter",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "continue": true,
+    "explainedBy": "Relationship: paralyzed Priestley asks for advice; Franklin, letter in hand, answers not what to choose but how to process the choice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Paralyzed, Priestley asked Franklin; Franklin answered he could not say what to choose, only how to process the choice.",
+      "concreteVisual": "Franklin joins, holding the letter out; Priestley slumped and worried.",
+      "onScreenText": "How to process the choice",
+      "relationToPrevious": "Kept room; Franklin enters with his reply.",
+      "addedInformation": "Shows who advises whom."
+    }
+  },
+  {
+    "i": 99,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Moral algebra",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "priestley",
+      "franklin"
+    ],
+    "expression": "surprised",
+    "action": "take",
+    "holds": "letter",
+    "actionCue": "outlines a system",
+    "partnerAction": "reach",
+    "continue": true,
+    "explainedBy": "Hand-over: Priestley takes Franklin's letter as Franklin outlines his system, 'moral algebra'.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Franklin outlines a system he calls moral or prudential algebra.",
+      "concreteVisual": "Priestley takes the letter from Franklin's outstretched hand.",
+      "onScreenText": "Moral algebra",
+      "relationToPrevious": "Kept pair; the letter passes from Franklin to Priestley.",
+      "addedInformation": "The hand-over shows the method traveling in the letter."
+    }
+  },
+  {
+    "i": 100,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Divide it into two columns",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "priestley"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "letter",
+    "continue": true,
+    "explainedBy": "Mechanism step one: take a sheet, divide it into two columns, write pros and cons; the two-column page appears beside Priestley reading the letter.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Franklin told Priestley to divide a sheet into two columns of pros and cons.",
+      "concreteVisual": "Priestley holds the letter; the two-column list icon appears.",
+      "onScreenText": "Divide it into two columns",
+      "relationToPrevious": "Kept Priestley holding the letter; the method itself appears.",
+      "addedInformation": "Shows the exact layout the letter prescribes."
+    }
+  },
+  {
+    "i": 101,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "The forgotten second step",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Contrast: the modern listener knows the list but has forgotten Franklin's second step; he holds the page blankly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Everyone knows the list, but society has forgotten the crucial second step.",
+      "concreteVisual": "The modern listener with notes, blank, beside the list.",
+      "onScreenText": "The forgotten second step",
+      "relationToPrevious": "From Franklin's era to today's half-remembered method.",
+      "addedInformation": "weak: forgetting is carried by the blank face and the label."
+    }
+  },
+  {
+    "i": 102,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Write the list",
+        "Let it sit"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "abstract",
+    "explainedBy": "Mechanism: write the list, then let it sit a few days for the subconscious to work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Step two: after writing the list, let it sit for a few days.",
+      "concreteVisual": "Flow: Write the list -> Let it sit.",
+      "onScreenText": "Write the list -> Let it sit",
+      "relationToPrevious": "Starts drawing Franklin's procedure as steps.",
+      "addedInformation": "The forgotten step is shown in its place in the sequence."
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Write the list",
+        "Let it sit",
+        "Weigh the items"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "set": "abstract",
+    "continue": true,
+    "explainedBy": "Mechanism continued: come back and weigh the items by their relative importance.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Then you return and weigh each item's relative importance.",
+      "concreteVisual": "The flow gains a third step: Weigh the items.",
+      "onScreenText": "Weigh the items",
+      "relationToPrevious": "Kept flow; adds step three.",
+      "addedInformation": "Completes the three-step procedure."
+    }
+  },
+  {
+    "i": 104,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Strike through all three",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "franklin"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Mechanism: one pro equal to two cons balances out, so all three are struck; Franklin points to the scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If one pro equals two cons, strike all three out.",
+      "concreteVisual": "Franklin points at a balance scale.",
+      "onScreenText": "Strike through all three",
+      "relationToPrevious": "From steps to how weighing cancels items.",
+      "addedInformation": "The scale shows equal weights cancelling."
+    }
+  },
+  {
+    "i": 105,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Cross all five out",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "franklin"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Same rule again: two pros equal to three cons cancel, cross all five out.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Two pros equal to three cons: cross all five out.",
+      "concreteVisual": "Franklin, pleased, keeps the scale.",
+      "onScreenText": "Cross all five out",
+      "relationToPrevious": "Kept scale; second example of the rule.",
+      "addedInformation": "weak: the numbers ride on the label."
+    }
+  },
+  {
+    "i": 106,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Balance the equation",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "franklin"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Result of the mechanism: keep balancing until a surplus remains on one side of the scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You balance the equation algebraically until a surplus remains on one side.",
+      "concreteVisual": "Franklin now holds the notes by the scale.",
+      "onScreenText": "Balance the equation",
+      "relationToPrevious": "Kept scale; Franklin takes up the page to finish the sums.",
+      "addedInformation": "Ties the algebra to the paper list."
+    }
+  },
+  {
+    "i": 107,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "The surplus side wins",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Result: the items left uncrossed on the two-column list are taken as the correct choice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Whatever remains standing is the 'objectively correct' choice; now to the real world.",
+      "concreteVisual": "The two-column list alone.",
+      "onScreenText": "Whatever remains standing",
+      "relationToPrevious": "End of the method: the list decides.",
+      "addedInformation": "weak: the 'objectively' irony is left to the hosts."
+    }
+  },
+  {
+    "i": 108,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A massive new job offer",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "take",
+    "holds": "letter",
+    "actionCue": "handed",
+    "explainedBy": "Event: the listener is handed a big job offer from a competitor; he takes the offer letter at midnight.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Imagine you've just been handed a massive job offer from a competitor; it's midnight.",
+      "concreteVisual": "The listener takes an offer letter, surprised, in the kitchen.",
+      "onScreenText": "A massive new job offer",
+      "relationToPrevious": "From Franklin to a modern listener at a crossroads.",
+      "addedInformation": "Shows the trigger of the decision as an event."
+    }
+  },
+  {
+    "i": 109,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "The old job or the new one",
+      "style": "reveal"
+    },
+    "cast": [],
+    "set": "abstract",
+    "explainedBy": "Structure: on the legal pad the left column is 'current job', the right column 'new job'.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At the kitchen table you write 'current job' on the left, 'new job' on the right.",
+      "concreteVisual": "A two-bucket sorter: Current job | New job.",
+      "onScreenText": "Current job | New job",
+      "relationToPrevious": "The listener sets up Franklin's two columns.",
+      "addedInformation": "The columns are named as the narration names them."
+    }
+  },
+  {
+    "i": 110,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "30% salary vs. the commute",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Weighing: the 30% salary bump on one side against the 45-minute longer commute on the other; the listener holds the pad by the scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You weigh the 30% salary bump against a 45-minute longer commute, the title against your friend.",
+      "concreteVisual": "The listener with the legal pad beside a balance scale.",
+      "onScreenText": "30% salary vs. the commute",
+      "relationToPrevious": "From columns to weighing items.",
+      "addedInformation": "Pairs the two items on a scale."
+    }
+  },
+  {
+    "i": 111,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Leaving your work best friend",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Weighing continues: the new title against leaving your work best friend; his face falls.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The prestigious title weighs against leaving your work best friend; you do the Franklin algebra.",
+      "concreteVisual": "Same scale; the listener slumps, sad.",
+      "onScreenText": "Leaving your work best friend",
+      "relationToPrevious": "Kept scale; the face turns sad at the personal cost.",
+      "addedInformation": "Shows the emotional item on the scale."
+    }
+  },
+  {
+    "i": 112,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Cross out the commute",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Result: the salary outweighs the commute, he crosses it out and arrives at a 'mathematical' answer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You cross out the commute because the salary is so good and reach a mathematical answer.",
+      "concreteVisual": "Same scale; the listener happy with his pad.",
+      "onScreenText": "Cross out the commute",
+      "relationToPrevious": "Kept scale; sad -> relieved at the answer.",
+      "addedInformation": "Ends the worked example with its verdict."
+    }
+  },
+  {
+    "i": 113,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "On a legal pad",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Commentary: the host learned this two-column list from his dad on a legal pad when choosing a college.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The host loves the method; his dad taught him the legal-pad list when picking a college.",
+      "concreteVisual": "The two-column list icon alone.",
+      "onScreenText": "On a legal pad",
+      "relationToPrevious": "Shift from example to personal endorsement.",
+      "addedInformation": "weak: the dad and college are in the audio only."
+    }
+  }
+]

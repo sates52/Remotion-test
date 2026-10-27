@@ -1,0 +1,644 @@
+{
+  "slug": "farsighted",
+  "world": {
+    "era": "1772-2011 (cases) told to a contemporary listener",
+    "worldId": "decision-making-cases-and-everyday-life",
+    "approxYear": 2018,
+    "setting": "Cases across time - Darwin's London study (1838), Franklin's letter (1772), Collect Pond in 1802 Manhattan, the CIA and White House rooms of 2010-2011, Meadow Lake in Queens, George Eliot's Victorian desk - set against a modern listener's kitchen table, office and conference room.",
+    "register": "curious, analytical, practical, warm",
+    "forbid": [
+      "sword",
+      "thirtyTyrants",
+      "kallipolis",
+      "ringOfGyges",
+      "fiveRegimes",
+      "mythOfEr",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "rocketLaunch",
+      "codeWindow"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "farsighted",
+    "worldId": "decision-making-cases-and-everyday-life",
+    "allowedMotifs": [
+      "prosConsList",
+      "compoundModel",
+      "optionC",
+      "sinkingHouse",
+      "dog",
+      "helicopter",
+      "hedgehog",
+      "fox",
+      "water",
+      "city",
+      "home",
+      "family",
+      "notes",
+      "book",
+      "balance",
+      "road",
+      "clock",
+      "hourglass",
+      "grave",
+      "lightbulb",
+      "star",
+      "crack",
+      "storm",
+      "compass",
+      "law",
+      "heart",
+      "coin",
+      "phone",
+      "target",
+      "medical",
+      "tree",
+      "photo",
+      "door",
+      "key",
+      "crash",
+      "ledge",
+      "mask",
+      "fire",
+      "war",
+      "game",
+      "shield",
+      "boulder",
+      "chains",
+      "puppeteer",
+      "food"
+    ],
+    "forbiddenMotifs": [
+      "sword",
+      "thirtyTyrants",
+      "kallipolis",
+      "ringOfGyges",
+      "fiveRegimes",
+      "mythOfEr",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "rocketLaunch",
+      "codeWindow"
+    ],
+    "allowedCharacters": [
+      "everyman",
+      "darwin",
+      "emma",
+      "franklin",
+      "priestley",
+      "lenfant",
+      "alderman",
+      "brennan",
+      "analyst",
+      "ceo",
+      "colleague",
+      "johnson",
+      "wife",
+      "eliot",
+      "dorothea",
+      "casaubon"
+    ],
+    "allowedLocations": [
+      "room",
+      "office",
+      "street",
+      "shore",
+      "court",
+      "library",
+      "kitchen",
+      "horizon",
+      "sky",
+      "abstract",
+      "forest",
+      "highway",
+      "workstation"
+    ],
+    "allowedProps": [
+      "notes",
+      "book",
+      "letter",
+      "phone",
+      "laptop",
+      "coin",
+      "photo",
+      "compass",
+      "magnifier",
+      "briefcase",
+      "cup",
+      "hourglass",
+      "lightbulb",
+      "key",
+      "target",
+      "wallet"
+    ]
+  },
+  "cast": {
+    "everyman": {
+      "name": "The Listener",
+      "role": "the contemporary listener facing a big choice: a job offer, a house, a hire, a launch, a partnership",
+      "look": "A 34-year-old American professional with short dark brown hair, wearing a teal casual button-up shirt and grey chinos.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#4A5560",
+        "shirt": "#2A8C8C",
+        "skin": "#D9A47E",
+        "hair": "#3A2A20",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "darwin": {
+      "name": "Charles Darwin",
+      "role": "naturalist who weighs marriage on a two-column list in 1838, and later weighs publishing his theory against his wife's faith",
+      "look": "A Victorian English gentleman of about 30 with a receding hairline, brown muttonchop sideburns, a black frock coat and white high collar.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#1F2328",
+        "shirt": "#F2EEE4",
+        "skin": "#EBC8A8",
+        "hair": "#6B4A2E",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "muttonchops",
+        "glasses": false,
+        "accessory": "bowtie"
+      }
+    },
+    "emma": {
+      "name": "Emma Darwin",
+      "role": "Darwin's wife, whose faith after their daughter's death his theory would wound",
+      "look": "A Victorian Englishwoman in her thirties with dark hair parted in the middle in a low bun, wearing a deep plum high-necked dress.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "dress",
+        "suit": "#5B2A4A",
+        "shirt": "#5B2A4A",
+        "skin": "#F0CFB4",
+        "hair": "#3B2618",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "necklace"
+      }
+    },
+    "franklin": {
+      "name": "Benjamin Franklin",
+      "role": "invents 'moral algebra' in a 1772 letter to Priestley",
+      "look": "An elderly 18th-century American statesman, balding with long grey hair at the sides, small round spectacles, brown wool coat.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "coat",
+        "suit": "#7A4E2D",
+        "shirt": "#EFE6D2",
+        "skin": "#EBC3A0",
+        "hair": "#B9B4AC",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "scarf"
+      }
+    },
+    "priestley": {
+      "name": "Joseph Priestley",
+      "role": "scientist agonizing over a job offer from the Earl of Shelburne; Franklin's friend",
+      "look": "An 18th-century English clergyman-scientist of about 40 with short brown hair, a plain black coat and a white clerical neckband.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "average",
+        "outfit": "coat",
+        "suit": "#16181C",
+        "shirt": "#FFFFFF",
+        "skin": "#F2D2B6",
+        "hair": "#8A6A48",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "collar"
+      }
+    },
+    "lenfant": {
+      "name": "Pierre L'Enfant",
+      "role": "French architect who proposes cleaning Collect Pond and making it a public park",
+      "look": "A French architect of about 50 in 1802, dark hair tied back, navy blue tailcoat with a rolled plan under his arm.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#1E3A6B",
+        "shirt": "#F5F1E6",
+        "skin": "#E6BC98",
+        "hair": "#2B1E16",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "scarf"
+      }
+    },
+    "alderman": {
+      "name": "The City Council",
+      "role": "the 1802 New York council and developers who reduce Collect Pond to a binary and fill it in",
+      "look": "A stout New York merchant-alderman of 1802 with grey sideburns, black top hat and a mustard waistcoat under a dark coat.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "vest",
+        "suit": "#2A2420",
+        "shirt": "#C9A227",
+        "skin": "#E8B994",
+        "hair": "#8F8A84",
+        "hairStyle": "short",
+        "headwear": "topHat",
+        "beard": "muttonchops",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "brennan": {
+      "name": "John Brennan",
+      "role": "counterterrorism adviser who demands the analysts disprove their own theory",
+      "look": "A balding American official in his fifties with short grey hair at the sides, a charcoal suit, white shirt and dark red tie.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#33373D",
+        "shirt": "#FFFFFF",
+        "skin": "#EDC6A6",
+        "hair": "#9A9690",
+        "hairStyle": "bald",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "tie"
+      }
+    },
+    "analyst": {
+      "name": "The CIA Analyst",
+      "role": "intelligence analyst mapping the Abbottabad compound and building the case",
+      "look": "A 38-year-old woman analyst with a dark brown ponytail, glasses, a light blue blouse under a navy cardigan and an ID badge.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#1F3B5C",
+        "shirt": "#8FB7DA",
+        "skin": "#C88F6A",
+        "hair": "#2E1E14",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "badge"
+      }
+    },
+    "ceo": {
+      "name": "The CEO",
+      "role": "the boss at the head of the table whom everyone agrees with too quickly",
+      "look": "A confident man of 55 with slicked silver hair in a navy three-piece suit and light blue tie.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "heavy",
+        "outfit": "suit",
+        "suit": "#1C2A44",
+        "shirt": "#DDE6F2",
+        "skin": "#E4B48E",
+        "hair": "#C2C2C2",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "tie"
+      }
+    },
+    "colleague": {
+      "name": "The Dissenting Colleague",
+      "role": "the cognitively peripheral voice in the room: holds the unshared fact, a juror from a different background",
+      "look": "A 30-year-old Black woman with natural curly hair, wearing a mustard yellow blazer over a black top.",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#D9A21B",
+        "shirt": "#151515",
+        "skin": "#7A4A2E",
+        "hair": "#1A1210",
+        "hairStyle": "afro",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "johnson": {
+      "name": "Steven Johnson",
+      "role": "the author, weighing a move from Brooklyn to Marin County with his wife",
+      "look": "An American writer around 45 with short sandy-brown hair, light stubble and glasses, wearing a green flannel shirt.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#3A4A3A",
+        "shirt": "#4E7A4A",
+        "skin": "#EFC9A8",
+        "hair": "#9C7A50",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "stubble",
+        "glasses": true,
+        "accessory": "none"
+      }
+    },
+    "wife": {
+      "name": "Johnson's Wife",
+      "role": "weighs her Brooklyn friendships against California",
+      "look": "A woman around 45 with shoulder-length auburn hair, wearing a burgundy sweater and dark jeans.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#2A2E3A",
+        "shirt": "#8C2A3A",
+        "skin": "#F2CFB0",
+        "hair": "#8A3E1E",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "eliot": {
+      "name": "George Eliot",
+      "role": "Victorian novelist writing Middlemarch at her desk",
+      "look": "A Victorian Englishwoman of about 50 with brown hair parted in the centre over the ears, wearing a dark grey dress with a white lace collar.",
+      "variant": {
+        "gender": "f",
+        "age": "old",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#4A4A50",
+        "shirt": "#4A4A50",
+        "skin": "#EBCBB0",
+        "hair": "#6E5034",
+        "hairStyle": "bun",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "collar"
+      }
+    },
+    "dorothea": {
+      "name": "Dorothea Brooke",
+      "role": "Middlemarch's idealistic heroine choosing whether to marry Casaubon",
+      "look": "A young Victorian woman of 19 with dark chestnut hair in braids, wearing a plain pale lavender dress.",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "dress",
+        "suit": "#B9A6D6",
+        "shirt": "#B9A6D6",
+        "skin": "#F5D8C0",
+        "hair": "#5A3220",
+        "hairStyle": "braids",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      }
+    },
+    "casaubon": {
+      "name": "Mr. Casaubon",
+      "role": "the dry, pedantic old scholar Dorothea is drawn to marry",
+      "look": "A gaunt Victorian scholar of about 50 with thin white hair, a black scholar's coat and a book always in hand.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "build": "slight",
+        "outfit": "cloak",
+        "suit": "#0F0F12",
+        "shirt": "#E8E2D4",
+        "skin": "#E6CDB6",
+        "hair": "#E2E0DA",
+        "hairStyle": "receding",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": true,
+        "accessory": "none"
+      }
+    }
+  },
+  "places": {
+    "room": {
+      "set": "room",
+      "look": "A Victorian study with a wooden desk, ink and a notebook under a sooty window (Darwin, Franklin, Priestley).",
+      "mentions": 20
+    },
+    "office": {
+      "set": "office",
+      "look": "A secure modern meeting room: a long table, a scale model in the middle, screens on the wall (CIA, White House, corporate meetings).",
+      "mentions": 30
+    },
+    "kitchen": {
+      "set": "kitchen",
+      "look": "A quiet modern kitchen at midnight with a yellow legal pad on the table.",
+      "mentions": 8
+    },
+    "shore": {
+      "set": "shore",
+      "look": "The edge of a pond or lake: Collect Pond in 1802 Manhattan, Meadow Lake in Queens choked with algae.",
+      "mentions": 14
+    },
+    "street": {
+      "set": "street",
+      "look": "A city street: old lower Manhattan, the Five Points slum, a Brooklyn block.",
+      "mentions": 10
+    },
+    "court": {
+      "set": "court",
+      "look": "A jury room or courtroom where mock juries deliberate.",
+      "mentions": 6
+    },
+    "library": {
+      "set": "library",
+      "look": "A book-lined study for George Eliot writing Middlemarch and Casaubon's scholarship.",
+      "mentions": 6
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "An open landscape for futures, California hills and the long view.",
+      "mentions": 8
+    },
+    "sky": {
+      "set": "sky",
+      "look": "A night sky for messages to the stars and people not yet born.",
+      "mentions": 3
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "A clean canvas for maps, lists, diagrams and options A, B and C.",
+      "mentions": 40
+    }
+  },
+  "objects": [
+    {
+      "concept": "prosConsList",
+      "mentions": 20,
+      "why": "Darwin's Marry / Not Marry page, Franklin's moral algebra, the midnight legal pad - the two-column list the book calls an evaluation tool, not a discovery tool."
+    },
+    {
+      "concept": "optionC",
+      "mentions": 30,
+      "why": "The recurring 'widen the map before you choose': two obvious roads and the invented third path (L'Enfant's park, the counter-offer, the two-year experiment)."
+    },
+    {
+      "concept": "compoundModel",
+      "mentions": 8,
+      "why": "The table-sized scale model of the Abbottabad compound the CIA studied for months."
+    },
+    {
+      "concept": "sinkingHouse",
+      "mentions": 6,
+      "why": "The luxury houses built on filled-in Collect Pond that sank, flooded and became Five Points."
+    },
+    {
+      "concept": "dog",
+      "mentions": 3,
+      "why": "The dog in the compound - the contrary evidence the red team found."
+    },
+    {
+      "concept": "helicopter",
+      "mentions": 3,
+      "why": "The Black Hawk raid option whose lift in heat and altitude had to be modelled."
+    },
+    {
+      "concept": "hedgehog",
+      "mentions": 2,
+      "why": "Tetlock's hedgehog: one big theory, one predicted future."
+    },
+    {
+      "concept": "fox",
+      "mentions": 2,
+      "why": "Tetlock's fox: many small ideas, multiple futures."
+    },
+    {
+      "concept": "water",
+      "mentions": 12,
+      "why": "Collect Pond and Meadow Lake."
+    },
+    {
+      "concept": "balance",
+      "mentions": 10,
+      "why": "Weighing values: Franklin's cancelling, linear value modelling."
+    },
+    {
+      "concept": "grave",
+      "mentions": 5,
+      "why": "The premortem - the plan imagined already dead."
+    },
+    {
+      "concept": "star",
+      "mentions": 3,
+      "why": "Messages to the stars; the far future."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "prosConsList",
+      "name": "The two-column pros and cons list",
+      "why": "Darwin's and Franklin's list is the book's foil; the shared 'notes' icon is a generic page and loses the two columns."
+    },
+    {
+      "key": "optionC",
+      "name": "Option C - the third path",
+      "why": "The book's core mechanism (widen the map): no shared icon shows two roads plus an invented third."
+    },
+    {
+      "key": "compoundModel",
+      "name": "The Abbottabad compound model",
+      "why": "The CIA's scale model is the book's image of mapping; no shared icon depicts it."
+    },
+    {
+      "key": "sinkingHouse",
+      "name": "The sinking houses of Collect Pond",
+      "why": "The consequence of filling the pond: houses sinking into marsh, the birth of Five Points."
+    },
+    {
+      "key": "dog",
+      "name": "The dog in the compound",
+      "why": "The red-team detail that nearly broke the theory."
+    },
+    {
+      "key": "helicopter",
+      "name": "The raid helicopters",
+      "why": "The scenario the planners modelled (lift, heat, altitude) and the premortem's crash."
+    },
+    {
+      "key": "hedgehog",
+      "name": "Tetlock's hedgehog",
+      "why": "One-big-idea forecaster."
+    },
+    {
+      "key": "fox",
+      "name": "Tetlock's fox",
+      "why": "Many-small-ideas forecaster who models multiple futures."
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Our worst decisions fail at the moment we accept only two options - Darwin's two-column list and the city that filled in Collect Pond instead of building L'Enfant's park."
+    },
+    {
+      "act": "development",
+      "fromFrame": 22440,
+      "claim": "A pros-and-cons list only evaluates; mapping hidden variables, a messy divergence phase and diverse rooms that surface hidden profiles discover the real terrain."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 58470,
+      "claim": "Predicting means telling several futures - Brennan's red team, scenario planning, foxes over hedgehogs, the 70% rule and the premortem that builds escape hatches."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 78840,
+      "claim": "Deciding means weighing values openly - Johnson's Brooklyn-or-California deadlock became an invented option C - and fiction like Middlemarch rehearses choices numbers cannot."
+    },
+    {
+      "act": "close",
+      "fromFrame": 93600,
+      "claim": "We rarely have nine months, so we train on the big choices until seeing wider is reflex: farsightedness is seeing wider, not further."
+    }
+  ],
+  "authored": true
+}

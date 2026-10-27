@@ -1,0 +1,281 @@
+{
+  "date": "2026-10-26T08:37:35.534Z",
+  "n": 369,
+  "total": 369,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2",
+    "recheck-3",
+    "recheck-4",
+    "recheck-5",
+    "recheck-6"
+  ],
+  "totals": {
+    "CORRECT": 342,
+    "NEUTRAL": 27,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "people": 3,
+    "icon": 9,
+    "words": 12,
+    "diagram": 3
+  },
+  "iconBlame": {
+    "boulder": 1,
+    "optionC": 1,
+    "balance": 1,
+    "key": 1,
+    "heart": 1,
+    "dog": 1,
+    "hourglass": 1,
+    "tree": 1
+  },
+  "beats": [
+    {
+      "i": 69,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "The wallet suggests spending on another house rather than the narrow, option-B-style choice.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "the option B equivalent"
+    },
+    {
+      "i": 73,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "The viewer got the gist of people defeated by a complex problem (boulder obstacle), but missed the meaning that people pave over complexity to avoid the effort of dealing with it.",
+      "from": "recheck-4",
+      "concept": "boulder",
+      "callout": "like the city council of 1802"
+    },
+    {
+      "i": 78,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Viewer got the not-missing-data point but the third-path icon added an invented idea and missed the structural failure.",
+      "from": "recheck-3",
+      "concept": "optionC",
+      "callout": "missing scientific data"
+    },
+    {
+      "i": 105,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess gets the cancel-out idea but garbles the two-versus-three ratio.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "Cross all five out"
+    },
+    {
+      "i": 153,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Key icon reads as being offered the role rather than interviewing a candidate.",
+      "from": "recheck-3",
+      "concept": "key",
+      "callout": "A senior leadership role"
+    },
+    {
+      "i": 154,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Guess is close but loses the satellite-photo-is-flat metaphor.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Just the satellite photo"
+    },
+    {
+      "i": 155,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The words 'More than a resume' steer toward hiring generally and miss the influence-diagram mapping point.",
+      "from": "recheck-6",
+      "concept": "notes",
+      "callout": "More than a resume"
+    },
+    {
+      "i": 196,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess captures all-white juries but omits the contrast with diverse juries.",
+      "from": "recheck-5",
+      "concept": "law",
+      "callout": "Some juries were all white"
+    },
+    {
+      "i": 204,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Narration warns against homogeneous teams; guess only says form a tiger team.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Forming a tiger team"
+    },
+    {
+      "i": 211,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Heart icon steers toward caring rather than discomfort being the point of disagreement.",
+      "from": "recheck-3",
+      "concept": "heart",
+      "callout": "The friction is the point"
+    },
+    {
+      "i": 213,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess only restates the labels, not that dissent shifts you to system two.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 230,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Dog icon is unrelated and viewer missed the remembered historical detail.",
+      "from": "recheck-3",
+      "concept": "dog",
+      "callout": "Decades on the Middle East"
+    },
+    {
+      "i": 251,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Hourglass suggests time limits, not that we can never know everything.",
+      "from": "recheck-3",
+      "concept": "hourglass",
+      "callout": "Bounded rationality"
+    },
+    {
+      "i": 253,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess describes a guessing-to-certain scale, missing that waiting for 90% certainty is too slow.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 256,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Scale reading misses the point of acting at about 70% confidence.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 258,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "'Tell several futures' with the third-path icon suggests exploring options but misses the narration's transition into a specific powerful technique and the widen-the-map point.",
+      "from": "recheck-2",
+      "concept": "optionC",
+      "callout": "Tell several futures"
+    },
+    {
+      "i": 259,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess frames the crater as a consequence rather than an imagined exercise.",
+      "from": "readcheck",
+      "concept": "fire",
+      "callout": "Smoking crater of disaster"
+    },
+    {
+      "i": 261,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Staging reads as blame rather than imagining the failed restaurant.",
+      "from": "recheck-3",
+      "concept": "crash",
+      "callout": "The restaurant went bankrupt"
+    },
+    {
+      "i": 288,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess captures the lease but misses the option to break it / fail-safe point.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A three-year lease"
+    },
+    {
+      "i": 309,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is accurate but vague about what the zero compares or which place.",
+      "from": "recheck-5",
+      "concept": "heart",
+      "callout": "Zero on the friendship scale"
+    },
+    {
+      "i": 318,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague; carries no content of what was realized.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Realized something profound"
+    },
+    {
+      "i": 326,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess gives uneasiness, not that some decisions defy modeling.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Even with all the modeling"
+    },
+    {
+      "i": 334,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Only a place name is read; the fish-as-stakeholders point is lost.",
+      "from": "readcheck",
+      "concept": "water",
+      "callout": "Meadow Lake, Queens"
+    },
+    {
+      "i": 335,
+      "verdict": "NEUTRAL",
+      "blame": "icon",
+      "why": "Reads as an ecological question, not that such value cannot be quantified.",
+      "from": "readcheck",
+      "concept": "tree",
+      "callout": "A fish or a forest"
+    },
+    {
+      "i": 337,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "Viewer attributes the treatment to a parent, carrying over the prior beat, rather than the listener themself.",
+      "from": "readcheck",
+      "concept": "medical",
+      "callout": "A risky experimental treatment"
+    },
+    {
+      "i": 355,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "The 'Not for lunch' text and plate icon convey that lunch is excluded, but the guess frames it as long-term versus quick fix and misses that heavy decision tools are for big decisions only.",
+      "from": "recheck-1",
+      "concept": "food",
+      "callout": "Not for lunch"
+    },
+    {
+      "i": 363,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess captures an object but not the recap-of-journey meaning.",
+      "from": "readcheck",
+      "concept": "compoundModel",
+      "callout": "A toy jeep in a model"
+    }
+  ]
+}

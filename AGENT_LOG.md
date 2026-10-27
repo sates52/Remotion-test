@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ render-farsighted | `books/farsighted/` | ✅ PUBLISHED & CLEANED 2026-10-27 | Antidote; 55.5 min (99,435 frames), 10-way split; YouTube live; GitHub runs/artifacts + 11 render refs purged; local film, thumbnails, audio, captions, worktree removed. |
 | _(done)_ deliver-nobody-wants-to-read-your-sh-t | `books/nobody-wants-to-read-your-sh-t/` | ✅ PUBLISHED & CLEANED 2026-10-24 | Antidote; 41:19 (74,067 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~1.9 GB) + 10 render refs purged; local film, upload folder, thumbnails, audio/captions, worktree + render clone removed. |
 | _(done)_ thinking-in-systems | `books/thinking-in-systems/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Antidote; 43:54 (78,692 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.0 GB) + 10 render refs purged; local film, thumbnails, audio, worktree and render clone removed |
 | _(done)_ the-crucible | `books/the-crucible/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Vox; 24:37 (44,170 frames), 10-way split; YouTube live; 11 GitHub runs/artifacts (~1.95 GB) + 10 render refs purged; local film, thumbnails, audio, captions, worktree and render clone removed. Sealed mute PASS (W0 · dead 1 · ADDS 73%). |
@@ -1315,6 +1316,28 @@ Operator decision: NOT published; no third fix round. Kept as the test book for 
 - books/burn-of-the-everflame/creative-bible.json has world.universeKey "behavioral_psychology" and label "Cognitive Science & Behavioral Psychology". This book is fantasy, so the Creative Bible stage mislabelled it (same class as Red Rising). Wardrobe was not verified against the label. For-review.
 
 **Status:** not READY (mute test FAIL run5); not published; parked for engine work.
+
+### 📕 2026-10-27 — farsighted — PUBLISHED & CLEANED (Antidote)
+
+- Operator confirmed the video is live on YouTube (2026-10-27) and ordered cleanup. Ran the full post-upload order: render-github-cleanup.js (3 workers hit TLS timeouts; finished by run id; verified 0 farsighted runs/artifacts left on all 10), purge-render-branches.js (11 refs incl. `render/farsighted-assemble`), render-purge.js --force (film 1.45 GB, thumbnails). Raw/mastered audio, raw/clean VTT and .orig.bak removed from the worktree and the main checkout (this slug only). Recorded in PUBLISHED_BOOKS.md. Kept: `books/farsighted/` (committed with this entry).
+
+### ✅ 2026-10-26 — preview-farsighted — READY → rendered → published (Antidote)
+
+- **Where:** production worktree `../wt-book-farsighted` (pinned a84ceacb; the shared checkout was dirty and 39 commits behind, operator-approved move). Removed after publishing.
+- **Engine:** Antidote (book-profile, nonfiction argument). 55.2 min / 99,435 frames, 369 beats, config sha256 `6fb16eab384bf876`.
+- **Bible & icons:** 16 cast (look + variant), 10 places, 8 own icons (`prosConsList`, `optionC`, `compoundModel`, `sinkingHouse`, `dog`, `helicopter`, `hedgehog`, `fox`), all blind-named as intended. VTT: 181 ASR fixes (`names.json`).
+- **Readcheck:** 369 beats · 342 CORRECT · 27 NEUTRAL · 0 WRONG.
+- **Gates:** Authorship PASS, firewall 0 BLOCK / 629 REVIEW (accepted debt), screen-text PASS, composition/continuity PASS.
+- **Mute tests:** sealed `final` W0 · dead 10 · ADDS 14 → FAIL; round 1 (bare-figure class, 46 beats got a subject icon) → `run2` W1 · dead 7 · ADDS 15 → FAIL; round 2 (22 comparison sorters → icon + callout, 3 wrong-subject beats, Priestley re-dressed) → `run3` W1 · dead 5 · ADDS 14 (47 %) · EXPLAINS 1 → PASS. preview-ready ✅ READY.
+- **Render:** production with operator-accepted debt; bundle 86dfb635; all 10 original segment runs success; cloud assembly run 40335857885 CLOUD-VERIFIED; local verify VERIFIED (99,435/99,435, decode clean). YouTube pack: 5 titles (lint PASS, 3 titleAngles), 22 chapters, 18 tags, thumbnails A/B/C.
+- **for-review: Flow diagram crashes with ONE label** (`Diagram.tsx` `Flow`: `interpolate(i, [0, n-1])` with n = 1; scene-303) — worked around in the storyboard (146/155/190/303).
+- **for-review: sorter diagram reads as "identical empty buckets with dots"** — text-only in all three mute runs; list sorters keep ADDS under 60 %.
+- **for-review: a man with `hairStyle: "ponytail"` reads as a woman** (Priestley in run2, L'Enfant in run3).
+- **for-review: cause-ledger `icon-not-rendered` false positives** (run2 scenes 224, 367 — the describer did see those icons).
+- **for-review: raw audio over 100 MB is rejected by GitHub (GH001)** — NotebookLM m4a was 101.77 MB; every bundle push failed while render.js printed only "Command failed" + a misleading 422 "No ref found". Worked around with the -14 LUFS AAC-192k master (80.3 MB) as render input. Suggest: render-bundle checks each file < 100 MB and uses/creates the master, and render.js prints git's stderr.
+- **for-review: render.js `--wait` heal loop re-dispatched finished segments again** (seg1–9 duplicate runs after all originals succeeded; stopped by hand, then cloud assembly). Dispatch also reported "HTTP 204 ✓ (retry 2)" on seg2–10.
+- **for-review: render-github-cleanup.js `--slug` + `--worker` together prints "Ne temizlenecek belli değil"** once the split state is gone (cloud-assemble deletes it), so a timed-out worker can only be finished with `--run=<id>`.
+- **for-review (low): thumbnail C (scene-still, sceneRank 1) showed a large empty black rectangle.**
 
 ### ✅ 2026-10-16 — preview-learned-optimism — PREVIEW READY
 

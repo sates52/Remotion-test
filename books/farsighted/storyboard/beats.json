@@ -1,0 +1,3678 @@
+{
+  "book": {
+    "slug": "farsighted",
+    "title": "Farsighted",
+    "author": "Steven Johnson",
+    "genre": "nonfiction"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, we're dropping right into July of We're in this um rather cramped smoky room in London",
+      "callout": {
+        "text": "SMOKY ROOM",
+        "style": "box"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and the air is just thick with that early industrial soot. You know, the kind that just completely coats the windows. Oh, yeah. That gross gritty feeling.",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And sitting at a wooden desk is a 29-year-old Charles Darwin. He has this blank leatherbound notebook open right in front of him.",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He takes a pen, dips it in ink, and he rules a hard line straight down the middle of the page. I love this visual.",
+      "callout": null
+    },
+    {
+      "i": 4,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's so good. On the left side, he writes the heading, \"Not Marry.\" And on the right side, he writes, \"Marry.\" Yeah.",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And he just sits there in the quiet, literally calculating the trajectory of his entire life, item by item. Exactly. Item by agonizing item, telling up his future on this single piece of",
+      "callout": {
+        "text": "ENTIRE LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a profoundly intimate image, isn't it? I mean, when you really think about it, here is arguably one of the greatest analytical minds in human history, This is the man who is actively",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "working out the mechanisms that will map the entire evolutionary tree of biological A literal genius. Yes. And yet when he is confronted with the most fundamental, permanent, deeply",
+      "callout": null
+    },
+    {
+      "i": 8,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "personal decision of his own existence, he is reduced to like drawing a line on a page and trying to do a sort of emotional accounting.",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, he's stuck. He is totally stuck. And that paralysis, you know, that reliance on such a rudimentary tool when the stakes are at their absolute highest, that's exactly what we are unpacking",
+      "callout": {
+        "text": "HE'S STUCK",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 10,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "today. I'm so excited for this. We are exploring Steven Johnson's brilliant work on how we make the decisions that matter most.",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But uh we are looking at this through a very specific slightly unconventional lens. Right. We're not doing the usual thing.",
+      "callout": null
+    },
+    {
+      "i": 12,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. So if you're listening to this deep dive, you might expect a breakdown of like clinical probabilities, algorithms, or dry mathematical decision",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Throw that expectation right out. Totally. We are exploring this material as a masterclass",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "in human imagination which is really the only way to truly understand it because the core dilemma we face as a species is this massive The decisions that permanently shape a human life or dictate",
+      "callout": {
+        "text": "HUMAN LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 15,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the physical geography of a city or alter the course of a business so often get the absolute least deliberate imaginative thought.",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's crazy how that happens. It really is. We tend to rely on incredibly fast intuitive gut instincts or",
+      "callout": {
+        "text": "FAST INTUITIVE GUT",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 17,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "and this is the big one. We artificially narrow our choices down to just two things. Option A or option B. Right. And we do this because the sheer volume of variables in a major life choice is terrifying.",
+      "callout": {
+        "text": "MAJOR LIFE CHOICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 18,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's cognitively There's just too much data. Exactly. We simply cannot hold all the cascading consequences in our working memory at once.",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So we shrink the universe down to something manageable. and we shrink it down to, like you said, option A or option B, which really brings us to the central thesis we're operating on today.",
+      "callout": null
+    },
+    {
+      "i": 20,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. Lay it out. Our absolute worst, most catastrophic,",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "life-altering decisions usually fail long before we even actually make the choice.",
+      "callout": {
+        "text": "MAKE THE CHOICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 22,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Long before. Long before. They fail at the exact moment we falsely accept that there are only two options on the table in the first place.",
+      "callout": null
+    },
+    {
+      "i": 23,
+      "shot": "medium",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Marry or not marry? Stay or go? Buy or sell. Exactly. Precisely. The failure happens in the framing.",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And you know, if there is one conceptual tool you take away from our time together today, it's the absolute necessity to widen the map",
+      "callout": null
+    },
+    {
+      "i": 25,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "before you choose. Widen the map before you choose. I love that. It's crucial.",
+      "callout": {
+        "text": "CHOOSE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 26,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "If your map of the situation only has two roads on it, you are almost certainly walking into a trap of your own making because you're completely blind to the terrain around you.",
+      "callout": null
+    },
+    {
+      "i": 27,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. So, I want to look at one of those traps, a massive historical one, to see what happens when an entire city fails to draw a bigger map.",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, this is a great story. It's wild. I want you to picture Manhattan, but we are going way back to the early 1800s.",
+      "callout": {
+        "text": "GREAT STORY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 29,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, getting in the time machine. We are standing over a body of water called Collect Pond. Now, if you rewind even further, this was a pristine 60 foot deep freshwater oasis near the southern tip of the island.",
+      "callout": null
+    },
+    {
+      "i": 30,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was gorgeous. The local Lenape tribes relied on it. The early Dutch settlers revered it.",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "People actually ice skated on it during the harsh winters. It was this tranquil, beautiful, essential It was really the ecological heart of lower Manhattan.",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. But by the time we are looking at it, right around the turn of the 19th century, the smell hitting your nose is just atrocious.",
+      "callout": null
+    },
+    {
+      "i": 33,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, I can only imagine. It's awful. The city has grown and tanneries have set up shop all along the edge of the pond, right? And they are operating completely unregulated.",
+      "callout": null
+    },
+    {
+      "i": 34,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are dumping massive amounts of tannins including highly poisonous hemlock directly into the drinking water into their own drinking water.",
+      "callout": null
+    },
+    {
+      "i": 35,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. And the wetlands around the pond have become a literal dumping ground for animal carcasses from the slaughter houses and uh occasionally murder",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wow. Okay. So things escalated quickly. They really did. The local newspapers are openly referring to it as a shocking A shocking hole.",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, the rapidly growing city of New York is suddenly facing this massive municipal crisis.",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "What do we do with this toxic, stinking, disease-ridden mess right in the middle of our island?",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "And this is where we see a colossal failure of imagination, leading to what urban historians might call a 500year Because the city council basically looked at the problem and immediately reduced it",
+      "callout": {
+        "text": "SEE A COLOSSAL FAILURE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 40,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "to a binary choice. Option A, leave it alone and let the disease spread. Option B, get rid of it.",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "which seems logical if you're panicking, right? But there was an alternative path that wasn't taken.",
+      "callout": null
+    },
+    {
+      "i": 42,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "A group of concerned citizens actually brought in Pierre Charles L'Enfant. Wait, this is the same L'Enfant who designed Washington DC, right?",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The very same a brilliant French architect and civil engineer. L'Enfant looked at Collect Pond and he didn't e a binary problem.",
+      "callout": null
+    },
+    {
+      "i": 44,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He saw a He proposed something incredibly visionary for the time. He told the city like, \"Let's use the law",
+      "callout": null
+    },
+    {
+      "i": 45,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to expel the tanneries. Let's dredge and clean the water and let's turn this entire area including the surrounding rolling hills",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "into a permanent beautiful public park. And the absolute genius of his proposal was the funding mechanism. It was an early version of a public private How did that work?",
+      "callout": null
+    },
+    {
+      "i": 47,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The city would fund the preservation by selling the real estate immediately bordering this new green space to wealthy speculators knowing the park would drive up the property value. Oh wow.",
+      "callout": null
+    },
+    {
+      "i": 48,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So he basically invented the concept of Central Park half a century before Central Park was actually built. He did. He really did.",
+      "callout": null
+    },
+    {
+      "i": 49,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the short-sighted developers in the political establishment of New York just couldn't fathom it. They couldn't see it. They literally lacked the capacity to imagine the future geometry of New York.",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "In their minds, the city was just a small commercial hub, They couldn't imagine people wanting to live that far north or, you know, valuing a public park in that way.",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They couldn't conceptualize the long-term compounding value of green space. So, they just tossed the idea completely.",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "They rejected L'Enfant's plan entirely. They took the narrow, immediate, highly destructive choice, which was option B.",
+      "callout": null
+    },
+    {
+      "i": 53,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Option B. They passed a decree to flatten a nearby bluff called Bunker Hill. Took all that loose dirt and literally dumped it into the toxic pond to pave over it.",
+      "callout": null
+    },
+    {
+      "i": 54,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh my god. They erased Collect Pond from the map of the earth. And then to recoup their costs,",
+      "callout": {
+        "text": "RECOUP THEIR COSTS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 55,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "they built a new neighborhood of luxury residential homes right on top of the freshly packed dirt. Just out of sight, out of mind. The smell is gone.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Problem solved. Except the problem was just buried. Beneath the floorboards of those new luxury homes, in the dark, without any oxygen,",
+      "callout": null
+    },
+    {
+      "i": 57,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "anaerobic microorganisms went to work on all that buried, decaying biomass. the animal carcasses and the",
+      "callout": {
+        "text": "WENT TO WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 58,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The carcasses, the hemlock, the marsh land rot. And as that organic matter decomposed, it released gases and the earth literally began",
+      "callout": null
+    },
+    {
+      "i": 59,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to hollow out and No way. The neighborhood started physically sinking into the ground. You're kidding. Nope. Putrid toxic",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "methane smells rose up through the floorboards of these expensive houses. Basements flooded with dank black marsh water every single time it rained.",
+      "callout": {
+        "text": "EVERY SINGLE TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is disgusting. Typhus and cholera broke out constantly. It's like the environment was",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "violently reclaiming the land. Exactly. And the socioeconomic fallout was immediate. The wealthy residents who had bought those homes fled almost I mean, I would too.",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Property values plummeted to zero. The abandoned sinking buildings became a magnet for the most marginalized, impoverished, and desperate populations in the city.",
+      "callout": null
+    },
+    {
+      "i": 64,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, I see where this is going. The area rapidly devolved into the most infamous crime-ridden, disease-infested slum in the history of the United States. It became the legendary Five Points",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "neighborhood. Five Points. Wow. All because they chose a narrow option B instead of taking the time to invent an option C.",
+      "callout": {
+        "text": "TAKING THE TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 66,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. which you know connects so perfectly to the kind of everyday highstakes decisions you",
+      "callout": null
+    },
+    {
+      "i": 67,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "listening to this deep dive right now might be Oh absolutely. Think about something like buying a house or relocating your family to a new state.",
+      "callout": {
+        "text": "YOUR FAMILY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 68,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You walk into an open house. You see the gorgeous marble countertops. You look at the immediate listing price and you make a massive financial and life call based on that incredibly narrow aesthetic slice of reality.",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. The option B equivalent. Exactly. But what you are often ignoring because it's hard to visualize are the deep long-term",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "environmental or neighborhood impact pathways. The unseen variables. Yes, you aren't factoring in the proposed commercial zoning changes three blocks away or",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "the shifting local tax economy or the specific traffic patterns that will add 40 minutes of friction to your daily commute which will drive you crazy.",
+      "callout": {
+        "text": "ADD 40 MINUTES",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 72,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? Those are the unseen variables that will actually define your lived experience in that house for the next decade.",
+      "callout": null
+    },
+    {
+      "i": 73,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And just like the city council of 1802, we tend to pave over those complex variables because dealing with them is exhausting.",
+      "callout": {
+        "text": "1802",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We want a quick Now, I hear you, but let me stop you there for a second.",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because if we are looking at collect pond, calling it a failure of imagination feels a little bit like we are playing Monday morning quarterback from the 21st century. How so?",
+      "callout": null
+    },
+    {
+      "i": 76,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, this is pure hindsight bias, isn't it? They didn't have environmental impact studies in 1802.",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Fair point. They didn't have microbiology textbooks explaining anaerobic decay. How on earth could a bunch of 19th century merchants have known these houses were going to physically sink into a methane swamp?",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a completely fair critique. They didn't have the scientific data we have today. But Johnson's argument is that it wasn't a failure of missing scientific It was a structural",
+      "callout": null
+    },
+    {
+      "i": 79,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "failure of the decision-making process itself. The city leaders suffered from a classic tragedy of the commons because they allowed the decision to be framed entirely as a The either-or.",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Once you say we either leave it a toxic dump or we fill it with dirt, you shut down all creative inquiry.",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "By locking into that artificial binary, they completely blinded themselves to the imaginative third option that L'Enfant put right in front of their faces, which was the park. Right? Look at Washington DC.",
+      "callout": null
+    },
+    {
+      "i": 82,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The National Mall survives today. shaping the entire character of the American capital because L'Enfant's vision was implemented there.",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, that's such a good point. Collect Pond Park could have been New York's equivalent of the Boston Common, lasting for centuries, but once you bury a pond under tons of rock, you",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "can never get it back. The irreversibility of the choice is what makes the narrow framing so deadly. Exactly. Okay. To avoid making your own 500-year mistake, whether it's buying a house or steering a company,",
+      "callout": {
+        "text": "500",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 85,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "you cannot just pick between the two most obvious paths presenting themselves in the moment of crisis. you have to actively fight the urge to resolve the tension quickly. You have to widen the map before you choose. Which brings us right back to",
+      "callout": {
+        "text": "YOU CANNOT JUST PICK",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 86,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Charles Darwin sitting in that smoky room trying to resolve his own massive tension. Right. Let's actually look at what he wrote in that notebook because it is endlessly tragically",
+      "callout": null
+    },
+    {
+      "i": 87,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "funny and human. It really is. Under the Marry column, he writes things like nice soft wife on a sofa with good fire. Better than a dog anyhow.",
+      "callout": {
+        "text": "GOOD FIRE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 88,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which uh as a romantic overture leaves quite a bit to be desired. Just a little bit. He's setting the bar for marital bliss somewhere around",
+      "callout": null
+    },
+    {
+      "i": 89,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "basic mamalian warmth. Truly. But then he also writes about the charms of music and female chitchat.",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then you look over at the Not Marry column and the anxiety is just pouring out of him. That's so visceral. He is fretting about fatness and idleness. He writes about the expense and anxiety",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "of children. He's worried about missing out on the conversation of clever men at clubs.",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The horror. And my personal favorite, he is utterly terrified that if he marries and his future wife happens to dislike London, he will be banished to the countryside and become an indolent idle It",
+      "callout": null
+    },
+    {
+      "i": 93,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is so incredibly relatable. It is. He is externalizing his deepest fears and his quietest hopes on a scrap of paper trying to make the abstract And",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "this specific two column method he's using, it actually has a very distinguished intellectual pedigree. It didn't just come out of nowhere. Oh, really? Yeah. We can trace this directly back to 1772. Benjamin Franklin wrote a letter",
+      "callout": {
+        "text": "1772",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 95,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to his close friend, the scientist and radical theologian Joseph Priestley. Oh, wait. Priestley was the one who discovered oxygen.",
+      "callout": {
+        "text": "CLOSE FRIEND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 96,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. Exactly. The very same. But at the time of this letter, Priestley was agonizing over a massive career decision.",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "He was trying to decide whether to uproot his entire family to accept a very lucrative, prestigious position as the librarian and intellectual companion to the Earl of Shelburne. That's a huge move.",
+      "callout": {
+        "text": "MOVE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 98,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was. and he was paralyzed by the choice. So he writes to Franklin for advice and Franklin writes back and essentially says, \"I cannot tell you what the right choice is, but I can tell you how to process the choice.\" Giving him a",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "framework. Exactly. Franklin then outlines a system he calls his moral or prudential Moral algebra. I love that phrasing.",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It sounds so definitive. It does, right? Franklin instructed Priestley to take a sheet of paper, divide it into two columns, and write the pros and cons.",
+      "callout": null
+    },
+    {
+      "i": 101,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Classic. We all know that part, but there is a crucial second step to Franklin's method that modern society has almost entirely forgotten.",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "What's the second step? Franklin said you must write the list and then you have to let it sit for a few days. You let your subconscious work on it.",
+      "callout": {
+        "text": "YOUR SUBCONSCIOUS WORK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 103,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then you come back to the paper and you wait the items. Wait, how do you weight a feeling? You estimate their relative importance.",
+      "callout": null
+    },
+    {
+      "i": 104,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Franklin said, \"If you find one pro that is morally or emotionally equal to two cons, you strike a line through all three of them.\" Oh, I see. You cancel them out.",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you find two pros that equal three cons, you cross all five out.",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You literally balance the equation algebraically until you are left with a surplus on one side or the",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "And whatever remains standing is your objectively correct choice. Exactly. [clears throat] Okay, let's bring this into the real world for a second.",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Imagine you were facing a major crossroads right now. You've just been handed a massive new job offer from a competitor. it's midnight.",
+      "callout": {
+        "text": "MASSIVE NEW JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 109,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You're sitting at your kitchen table. The house is quiet and you pull out a yellow legal pad. On the left side, you write current job. On the right side, new job.",
+      "callout": {
+        "text": "WRITE CURRENT JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 110,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Setting up the columns. You start tallying. You weigh the 30% salary bump on the right against the 45minute longer commute on the left. You weigh the prestigious new title",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "against the fact that you'd be leaving your work best friend behind, You do the Franklin algebra.",
+      "callout": {
+        "text": "YOUR WORK BEST FRIEND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 112,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "SALARY IS JUST THAT GOOD",
+          "CROSS OUT THE COMMUTE"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "You cross out the commute because the salary is just that good. And you arrive at a mathematical",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? And honestly, I kind of love this method. My dad actually taught me to do this on a legal pad when I was a teenager trying to pick a college.",
+      "callout": {
+        "text": "TRYING TO PICK",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 114,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "A lot of people use it. It is incredibly therapeutic. When you have all that swirling, nebulous anxiety in your head, putting it concretely on paper forces you to be objective. It does.",
+      "callout": {
+        "text": "YOUR HEAD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "It clears up your mental ram. Why are we knocking the procon list? It's survived since 1772 for a reason. I will concede that the procon list is an excellent anxiety reduction tool.",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It really does clear the mental ram. And is it better than just flipping a coin or acting on a blind emotional whim?",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Absolutely. But Johnson argues, and the science of decision-making backs him up, that relying on the procon list as your ultimate tool is a dangerous trap. Why? If the math works out,",
+      "callout": {
+        "text": "MATH WORKS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 118,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "why is it a Because it forces your brain to evaluate a completely static binary choice.",
+      "callout": {
+        "text": "FORCES YOUR BRAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 119,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "think about your yellow legal pad. The very structure of the two columns assumes that the options currently on the table are the only options available in the universe.",
+      "callout": null
+    },
+    {
+      "i": 120,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Hm. The moral algebra does absolutely nothing to help you generate new options. It assumes the map of your decision is already entirely finished and your only job as a human",
+      "callout": {
+        "text": "YOUR ONLY JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 121,
+      "shot": "diorama",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "being is to just do the math to find the most efficient route. It keeps you locked in that narrow band thinking. Ah, I see. Because if you are spending all your mental energy carefully weighing option A against option",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "B, you are completely blind to the fact that you could invent option C. Exactly. You could go back to your current boss,",
+      "callout": {
+        "text": "YOUR CURRENT BOSS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 123,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "leverage the competitor's offer, and negotiate a 20% raise while keeping your work best friend and your short commute. but the legal pad doesn't have a column for that. A procon",
+      "callout": null
+    },
+    {
+      "i": 124,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "list is narrow by its very architectural design. It is an evaluation tool, not a discovery tool.",
+      "callout": {
+        "text": "DISCOVERY TOOL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 125,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Before you sit down to do the algebra, you have to do the hard work of discovering the terrain. You have to widen your map before you choose. Okay, so this is the million-dollar question.",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If the legal pad isn't enough, how do we actually build a better map? How do we discover that hidden terrain?",
+      "callout": {
+        "text": "PAD ISN'T ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 127,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's the key. To answer that, we are going to drastically shift gears in environments.",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "I want to transport you to a highly secure room in Langley, Virginia in the year 2010.",
+      "callout": {
+        "text": "2010",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 129,
+      "shot": "overShoulder",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "The stakes go up considerably here, exponentially. Imagine a group of senior intelligence officials, military commanders, and analysts. They are standing around a massive physical 3D model sitting in",
+      "callout": null
+    },
+    {
+      "i": 130,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the middle of a conference table. It's roughly the size of a car table. It is a meticulously detailed, painstakingly crafted replica of a mysterious residential compound",
+      "callout": {
+        "text": "CAR TABLE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 131,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "located in Abbottabad, Pakistan. This is wild. They're staring down at these tiny toy walls.",
+      "callout": null
+    },
+    {
+      "i": 132,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "walls that they know in reality are 15 feet high and topped with barbed wire. They're looking at miniature courtyards.",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "There is even a little white toy Jeep parked in one of the driveways. The level of detail is insane.",
+      "callout": null
+    },
+    {
+      "i": 134,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are pouring over this miniature architecture week after week trying to answer one single world-altering question. Is Osama bin Laden hiding inside? What is truly fascinating about this historical moment",
+      "callout": {
+        "text": "TRYING TO ANSWER",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 135,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the methodology of the intelligence community. How so? They didn't just look at a grainy satellite photo, take a quick vote, and launch a raid. They spent upwards of nine months",
+      "callout": null
+    },
+    {
+      "i": 136,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "deliberately building maps. Nine months. Nine months. And we need to define what mapping means in this context.",
+      "callout": null
+    },
+    {
+      "i": 137,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mapping a decision isn't just about building physical 3D dioramas of buildings, It is about mapping unseen",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "variables. It is about tracing hidden impact pathways that aren't immediately obvious.",
+      "callout": null
+    },
+    {
+      "i": 139,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay. To explain how this works, the book brings up a seemingly unrelated but brilliant example.",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Meadow Lake in Queens, New York, which sounds like quite a detour from a CIA war room, but the underlying logic is identical.",
+      "callout": {
+        "text": "CIA WAR ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 141,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Completely identical. For years, Meadow Lake was suffering from a severe ecological crisis. It was choking under this massive thick yellow green super bloom of algae.",
+      "callout": null
+    },
+    {
+      "i": 142,
+      "shot": "illustration",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. It was suffocating the fish, ruining the water quality, and destroying the local ecosystem. Which, you know, to the untrained eye seems like a simple isolated problem.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have dirty water, so you bring in some chemicals or filters, and you clean the lake. Option A or option B? Exactly. The Narrow View says treat the lake.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But to actually fix it permanently, urban planners and ecologists had to build something called an influence diagram. What's that? They had to map the hidden variables feeding the lake. And what they uncovered was a",
+      "callout": {
+        "text": "MAP THE HIDDEN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 145,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "wild invisible web of cause and effect. Oh boy. They traced the algae bloom back to a seemingly unrelated 1992 regulation by the Environmental Protection Agency.",
+      "callout": {
+        "text": "1992",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 146,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wait, what? The EPA had required the city of New York to add phosphate to the municipal drinking water. Why would they add phosphate to drinking",
+      "callout": null
+    },
+    {
+      "i": 147,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "To prevent lead from leeching out of the city's aging pipes and poisoning people. It was a vital public health measure. Oh, that makes sense.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "But that phosphate laced water eventually ran through the plumbing into the sewers and overflowed into Meadow Lake. The phosphate acted as a massive super nutrient fertilizer for the algae.",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh no. But that wasn't all. The map showed that this phosphate mixed with nitrogen running off the nearby highways from car It just gets worse. And incredibly, the map showed that",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "particles of coal blowing over from families having Sunday barbecues in the adjacent park were settling on the water providing carbon. That is absolutely unbelievable.",
+      "callout": null
+    },
+    {
+      "i": 151,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The EPA, acting with the best of intentions to stop lead poisoning, accidentally collaborated with highway traffic and family barbecues to suffocate the fish in Queens because variables and complex systems",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 152,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "never act in isolation. And that is what a true map does. It exposes the hidden connections. So, let's relate this mapping concept to a major hiring decision you might be making at your Great",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "application. Say you are hiring for a senior leadership role. You have a candidate in front of you.",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are looking at their resume, their listed skills, their past revenue numbers. That resume is just the satellite photo.",
+      "callout": null
+    },
+    {
+      "i": 155,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's flat. But you aren't just dropping a list of skills into a vacuum. No, not at all. To map the decision, you need an influence diagram of your office. You need to map how this",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "specific human being's distinct personality traits will ripple out through your organization's This is so important. How will their aggressive communication style impact the morale of your junior design team?",
+      "callout": {
+        "text": "JUNIOR DESIGN TEAM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 157,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How will their specific brand of ambition alter your delicate relationship with your oldest legacy You have to map the unseen emotional and political ecosystem of the workplace, not just the physical presence of",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "the new employee. You have to look for the phosphates and the barbecue coal in your own office. I love that. I really do. But I have to challenge the efficiency of this mapping process, especially when we go back to the",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Abbottabad compound. Okay, lay it on me. Because the book points out that during this massive divergence phase, the CIA ordered their analysts to come up with completely out ofthe- box, wild ways",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "to identify the occupants of that compound without alerting them. Right, the divergence phase. They spent valuable time brainstorming 37 different",
+      "callout": {
+        "text": "SPENT VALUABLE TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 161,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "crazy schemes. I mean, someone literally proposed throwing specialized stink bombs over the 15t wall to see how the occupants reacted.",
+      "callout": null
+    },
+    {
+      "i": 162,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, that was a real proposal. And someone else seriously proposed setting up massive directional loudspeakers and broadcasting the voice of a law,",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "demanding the occupants come outside and surrender. The voice of Allah plan. It sounds like something out of a bad spy movie. It sounds absurd.",
+      "callout": {
+        "text": "VOICE OF ALLAH PLAN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 164,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And my question is, isn't this a massive, ridiculous waste of time and taxpayer money? It's a fair question.",
+      "callout": null
+    },
+    {
+      "i": 165,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "When you are dealing with a highstakes ticking clock scenario where a target might flee at any moment, you can't sit around diagramming 37 wild goose chases.",
+      "callout": null
+    },
+    {
+      "i": 166,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "At some point, leadership just has to make a call and execute. Isn't mapping just a fancy word for analysis It's a very natural reaction to feel that way.",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the pressure is on, our brains crave closure. We just want it But decision theorists argue that this specific period, the divergence phase,",
+      "callout": null
+    },
+    {
+      "i": 168,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "is arguably the single most crucial part of any deliberative decision-making During a proper divergence phase, the explicit rule in the room is that no idea is too crazy to",
+      "callout": {
+        "text": "RULE IN THE ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 169,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "write on the Even stink bombs. Even stink bombs. Because the entire goal isn't necessarily to execute the crazy idea.",
+      "callout": null
+    },
+    {
+      "i": 170,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The goal is to violently break the human brain out of its narrowband default cognitive rut.",
+      "callout": {
+        "text": "BREAK THE HUMAN BRAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 171,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "If you only permit sensible, obvious traditional answers in the room, you will only ever find sensible, obvious, and often deeply flawed solutions because the obvious solution to a complex problem is usually",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "a trap. Yes, you intentionally explore 37 useless, crazy paths because the friction and creativity of that brainstorm process is what eventually knocks a hidden variable loose.",
+      "callout": null
+    },
+    {
+      "i": 173,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It leads you to uncover the one brilliant unconventional path that actually works.",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's like forcing your brain to take the dirt roads instead of the interstate just to see what the actual landscape looks like. Exactly. If you lock into a tactical execution too early, if you just grab the first plausible",
+      "callout": {
+        "text": "YOUR BRAIN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 175,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "plan and run with it, you fail, You must intentionally endure the messy, uncomfortable, time-consuming",
+      "callout": {
+        "text": "YOU FAIL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 176,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "divergence phase. You must widen your map before you choose. Okay, let's talk about the room where this divergence is supposed to happen.",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Cuz getting a group of people to actually disagree and brainstorm is incredibly difficult. It's incredibly rare, honestly.",
+      "callout": null
+    },
+    {
+      "i": 178,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I want you to picture this. You are sitting in a typical corporate conference room. The CEO is at the head of the long table outlining a new strategic plan for the quarter.",
+      "callout": {
+        "text": "LONG TABLE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 179,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And as they speak, everyone around the table is nodding along. You hear murmurs of great idea, boss.",
+      "callout": null
+    },
+    {
+      "i": 180,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I totally agree with that direction. That makes perfect sense. The echo chamber. There is this incredibly warm,",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "closeUp",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "comfortable, almost intoxicating bonding feeling in the air. Everyone is on the exact same page.",
+      "callout": null
+    },
+    {
+      "i": 182,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Consensus has been achieved. It feels great, doesn't it? It feels like alignment. Yeah. But here is where the psychology gets really fascinating and a bit terrifying.",
+      "callout": null
+    },
+    {
+      "i": 183,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That warm fuzzy feeling of immediate consensus. It is actively provably dangerous to the health of your Hold on.",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are always taught to seek consensus. How is everyone agreeing a bad thing? When it happens too quickly, it is almost always an illusion because rapid consensus usually masks a psychological phenomenon called hidden",
+      "callout": {
+        "text": "CALLED HIDDEN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 185,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Explain hidden profiles for me. In any group setting, you have two types of knowledge distribution. You have people who are cognitively central.",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "closeUp",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "These are people who share the same educational background, the same cultural baseline, the same assumptions as the majority of the room.",
+      "callout": null
+    },
+    {
+      "i": 187,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "They possess shared information, right? But you also have people who are cognitively peripheral.",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "They hold unique unshared localized information that no one else has.",
+      "callout": null
+    },
+    {
+      "i": 189,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay, I follow what happens in that warm cozy conference room is a subconscious evolutionary dynamic. Humans are social creatures.",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We survive by belonging to the tribe So people naturally instinctively suppress their unique contradictory information because they desperately want to fit in. Oh wow. They want to maintain that bonding",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "feeling with the leader. They do not want to be the squeaky wheel that ruins the vibe.",
+      "callout": null
+    },
+    {
+      "i": 192,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Wow. So, the most valuable unique information in the room is actively buried by our own evolutionary desire to be liked.",
+      "callout": null
+    },
+    {
+      "i": 193,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. The hidden profile stays hidden. And the only known antidote to this conformity trap is diversity. And I don't just mean diversity as a corporate buzzword.",
+      "callout": {
+        "text": "STAYS HIDDEN",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 194,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean it in the most literal, empirical, scientifically measurable sense. Can you give an example? Yeah. Steven Johnson highlights the work of a social psychologist named Samuel Sommers who conducted these",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "absolutely brilliant mock jury experiments to prove How did the experiments work? Sommers set up dozens of mock juries and gave them a highly complex sexual assault case to deliberate on. He manipulated the composition of the",
+      "callout": null
+    },
+    {
+      "i": 196,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Some of the juries were completely homogeneous, specifically all white. Other juries were racially diverse, mixing white and black jurors.",
+      "callout": null
+    },
+    {
+      "i": 197,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And what happened? The results of the deliberations were stunning. By every conceivable metric of critical thinking, the diverse juries performed vastly better than the homogeneous ones. Better in what way?",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Did they just argue more with each other? They did debate longer. Yes. But it wasn't just noise.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They remembered the specific granular facts of the trial transcript far more accurately.",
+      "callout": null
+    },
+    {
+      "i": 200,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. They entertained a much wider range of interpretations of the evidence. But here is the most crucial finding. In the homogeneous groups, everyone settled on a most likely narrative almost immediately and just",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "stopped thinking. They felt that warm consensus and clocked out. Exactly. But in the diverse rooms, the mere physical presence of people with different lived experiences forced",
+      "callout": null
+    },
+    {
+      "i": 202,
+      "shot": "closeUp",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "everyone, even the cognitively central shared information members, to be more That's fascinating. The white jurors in the diverse rooms actually made fewer factual errors than the white jurors in the",
+      "callout": null
+    },
+    {
+      "i": 203,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "all-white rooms. The diversity elevated everyone's cognitive baseline. That is staggering.",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "So connecting this to your daily life, if you are forming a tiger team at work to launch a product or you are putting together a community HOA board and you only invite people who went",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to your specific college or who share your exact socioeconomic background or who speak your specific industry jargon, you are actively choosing to fly blind. You are you are intentionally",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "building a homogeneous jury for your own life choices. You are guaranteeing that hidden profiles will remain hidden.",
+      "callout": {
+        "text": "YOUR OWN LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 207,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let me play devil's advocate here Because theory is great, but practice is messy.",
+      "callout": null
+    },
+    {
+      "i": 208,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Adding outsiders and peripheral voices to a tight team creates massive It definitely does. It makes meetings drag on for an extra hour.",
+      "callout": {
+        "text": "TIGHT TEAM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 209,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It makes people defensive. It creates interpersonal conflict. Yep. Sometimes, especially in a fast-paced startup environment, you don't have time for a seminar on rigorous debate. You just need a specialized team of",
+      "callout": {
+        "text": "YOU DON'T HAVE TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 210,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "people who speak the exact same shorthand so you can execute rapidly. You are absolutely right that it creates friction. It is rarely a pleasant experience to have your core assumptions It's awful.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But the friction isn't a side effect. The friction is the entire point of the What do you mean? That literal feeling of discomfort you get in your chest when someone vehemently disagrees with your worldview. That is the physical sensation of your",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "brain being forced out of what the Nobel laurate Daniel Kahneman calls system one thinking. System one being our fast intuitive autopilot mode.",
+      "callout": null
+    },
+    {
+      "i": 213,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. System one is lazy and relies on heuristics and stereotypes. The discomfort of a dissenting voice forces your brain to shift gears into system two, which is deliberative, analytical,",
+      "callout": null
+    },
+    {
+      "i": 214,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "slow, rigorous thinking. Ah, I see. The social discomfort of diversity literally jolts group think to a halt.",
+      "callout": {
+        "text": "SLOW",
+        "style": "box"
+      }
+    },
+    {
+      "i": 215,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It acts as a speed bump that prevents you from taking the easy flawed cognitive shortcut. So, the discomfort is the medicine.",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot draw an accurate map of a complex world with a room full of people who have only ever lived in one No.",
+      "callout": null
+    },
+    {
+      "i": 217,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "To see the whole terrain, you have to embrace the friction. You have to widen the map before you choose. Exactly. So now we've mapped the current terrain. We've brought in diverse voices to",
+      "callout": null
+    },
+    {
+      "i": 218,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "expose the hidden profiles and break the consensus trap. The next step is dealing with the future.",
+      "callout": {
+        "text": "BREAK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 219,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "We have to predict what happens And prediction is notoriously where experts fail the hardest. Oh, massively. To look at how to do this correctly, let's jump back to the White House situation room in early 2011.",
+      "callout": {
+        "text": "2011",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 220,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Back to the 3D model. Exactly. The intelligence analysts are presenting their sprawling mapped out findings to President Obama and his cabinet. They are becoming increasingly confident that",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the tall man pacing the courtyard of that Abbottabad compound is in fact Osama bin Laden.",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The momentum in the room is heavily tilting toward a strike. But the counterterrorism adviser, a man named John Brennan, refuses to ride the wave of consensus.",
+      "callout": null
+    },
+    {
+      "i": 223,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's the friction. He is the friction. He pushes back incredibly hard on his own intelligence team. He looks at them and says, \"I'm tired of hearing why everything you see confirms your",
+      "callout": null
+    },
+    {
+      "i": 224,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "case. I want you to tell us what's not right about our theory. I want you to actively disprove your own Which is such a brilliant contrarian leadership move.",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is forcing a red team exercise. And it works. When the analysts are forced to stop defending their pet theory and actively look for contrary evidence, someone points out a tiny,",
+      "callout": null
+    },
+    {
+      "i": 226,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "easily overlooked detail. What was it? Satellite imagery shows there is a dog pacing the grounds of the compound.",
+      "callout": null
+    },
+    {
+      "i": 227,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And strictly devout Muslims, particularly of Bin Laden's extremist interpretation, rarely keep dogs as domestic pets.",
+      "callout": null
+    },
+    {
+      "i": 228,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh wow. I never knew that detail. It was a massive glaring red flag that contradicted the entire foundational theory of who was living there.",
+      "callout": null
+    },
+    {
+      "i": 229,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, did the presence of the dog prove it wasn't him? Did it derail the mission? It almost did. But then Brennan, who had spent",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "decades focused on the Middle East and was fluent in Arabic, remembered an obscure historical detail from his own He recalled that bin Laden",
+      "callout": null
+    },
+    {
+      "i": 231,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "actually did have dogs when he was living in exile in Sudan in the 1990s. right? So what started as an agonizing exercise in",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "disproving their own theory actually generated a hidden profile of historical evidence that made the final theory infinitely stronger and more That is the perfect illustration of why the friction matters.",
+      "callout": null
+    },
+    {
+      "i": 233,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And this demand to challenge assumptions forced the team to stop predicting one single sunny outcome and start predicting multiple futures.",
+      "callout": null
+    },
+    {
+      "i": 234,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "they stopped acting like soldiers and started acting like meteorologists. They had to ask, \"If we send in Blackhawk helicopters, what will the specific desert heat and altitude do to the lift capacity of the",
+      "callout": null
+    },
+    {
+      "i": 235,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "rotors?\" If we decide not to use helicopters and instead use B2 bombers to flatten the compound to dust, what is the geopolitical fallout when we have no DNA evidence to prove to the world",
+      "callout": {
+        "text": "NO DNA EVIDENCE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 236,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "we actually got him? They were spinning out every possible timeline. They even planned for a dark future where the Pakistani government considered the covert raid an act of war and retaliated by shutting down all American airspace",
+      "callout": {
+        "text": "ACT OF WAR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 237,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "and supply lines, which was a very real possibility. Exactly. To prepare for that specific disastrous future, the military spent months quietly negotiating and building a completely alternate logistical supply route",
+      "callout": null
+    },
+    {
+      "i": 238,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "into Afghanistan, the Northern Distribution Network, routing supplies all the way through the Baltic Sea in Russia. Wow. Just in case option A went to hell. This is scenario planning at its absolute",
+      "callout": null
+    },
+    {
+      "i": 239,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "finest and it maps perfectly onto the research of Philip Tetlock who studies expert forecasters. Oh, the foxes and hedgehogs, right?",
+      "callout": null
+    },
+    {
+      "i": 240,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Tetlock divides thinkers into two camps, hedgehogs and foxes. Hedgehogs have one big unifying theory of the world.",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are highly confident. They speak in sound bites and they predict one binary future. Foxes on the other hand know many little things. They are constantly updating their probabilities based on new messy data.",
+      "callout": {
+        "text": "NEW MESSY DATA",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 242,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "They don't predict one future. They model multiple futures. The intelligence community in 2011 was acting like a team of foxes. Bringing this to your world,",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "imagine you were leading the launch of a massive new software product at your company or you're rolling out a major marketing It is deeply ingrained in human nature to only model the sunshine scenario.",
+      "callout": null
+    },
+    {
+      "i": 244,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "We stand to the whiteboard and say the customers will love the UI. Our recurring revenue will spike 40% and all get a promotion to VP.",
+      "callout": null
+    },
+    {
+      "i": 245,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The dream. But you shouldn't just model the sunshine. You need to model the future where your biggest competitor drops their subscription price by 50% the day before you launch.",
+      "callout": null
+    },
+    {
+      "i": 246,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You need to model the macroeconomic future where the broader market crashes and client budgets evaporate.",
+      "callout": null
+    },
+    {
+      "i": 247,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have to tell yourself multiple conflicting stories about the You really do.",
+      "callout": {
+        "text": "TELL YOURSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 248,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But hold on, let me jump in. If I spend all my time acting like John Brennan, obsessively trying to disprove my own theories,",
+      "callout": null
+    },
+    {
+      "i": 249,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "building alternate supply routes through Russia, and modeling every conceivable disastrous economic future, I am never going to actually launch the product.",
+      "callout": null
+    },
+    {
+      "i": 250,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's the fear. If you wait to be 100% sure about which future is going to happen, you will suffer from total paralyzing inaction.",
+      "callout": {
+        "text": "100",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 251,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Startups die from that kind of delay. You're absolutely right to call that out because bounded rationality means we can never know everything.",
+      "callout": null
+    },
+    {
+      "i": 252,
+      "shot": "overShoulder",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We have limited time, limited cognitive power, and limited data. Which is why when dealing with multiple futures, we look to a framework like Jeff Bezos's",
+      "callout": {
+        "text": "POWER AND LIMITED DATA",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 253,
+      "shot": "lowAngle",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "famous 70% rule. How does that work? Bezos argues that if you wait until you have 90% certainty on a decision, you are moving",
+      "callout": null
+    },
+    {
+      "i": 254,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "far too slowly. Rivals will outpace you, You don't need perfect clairvoyance. The goal of scenario planning isn't to achieve 100%",
+      "callout": null
+    },
+    {
+      "i": 255,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "certainty about the future. That's literally impossible. Of course, the goal is to aggressively probe the uncertainty just enough to map the outer boundaries of what's possible.",
+      "callout": {
+        "text": "COURSE THE GOAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 256,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the moment you hit roughly 70% confidence in your map, you pull the trigger and adjust on the fly. So predicting isn't about perfectly guessing the one true future through a crystal ball.",
+      "callout": null
+    },
+    {
+      "i": 257,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's about vividly telling several possible futures to prepare your mind for the shock of reality.",
+      "callout": {
+        "text": "PREPARE YOUR MIND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 258,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "you have to widen the map before you which perfectly transitions us. Well, not transitions. It actively builds into one of the most powerful",
+      "callout": {
+        "text": "TRANSITIONS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 259,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "specific exercises for telling those multiple Yes. I want you to try this mentally right now. Imagine you are standing in the smoking crater of a total disaster.",
+      "callout": null
+    },
+    {
+      "i": 260,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "A cheery thought, right? The product launch you spent a year on completely failed. The helicopters crashed in the Abbottabad courtyard and the target escaped.",
+      "callout": null
+    },
+    {
+      "i": 261,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Uh the restaurant you opened went bankrupt in 6 Okay. You are standing in front of the press or your board of directors or your spouse",
+      "callout": {
+        "text": "YOUR BOARD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 262,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "explaining exactly why it all went wrong. You are performing what decision theorists call a premortem.",
+      "callout": null
+    },
+    {
+      "i": 263,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I absolutely love the premortem. We are all familiar with a post-mortem. The doctors stand around examining the body after the patient has already died to figure out what killed them, right? A premortem created by psychologist",
+      "callout": null
+    },
+    {
+      "i": 264,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Gary Klein is an exercise in perspective hindsight. You ask your team to assume that the decision you are about to make has already catastrophically failed in the future.",
+      "callout": {
+        "text": "ASK YOUR TEAM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 265,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is a total loss and then what? Now write the historical narrative of why it failed. And this brings us to a",
+      "callout": null
+    },
+    {
+      "i": 266,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "deeply emotional, very human example from Johnson's book. We talked about Charles Darwin earlier doing his awkward moral algebra about marriage, He did end up marrying Emma Wedgwood and they had a deep loving",
+      "callout": null
+    },
+    {
+      "i": 267,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "relationship, but years later they suffered a profound earthshattering tragedy. The death of their beloved,",
+      "callout": null
+    },
+    {
+      "i": 268,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "bright 10-year-old daughter, Annie, to illness. A loss that completely fractured the internal architecture of their lives. It did.",
+      "callout": null
+    },
+    {
+      "i": 269,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because Annie's brutal death destroyed whatever fragile remnants of religious faith Charles had left. He couldn't reconcile a benevolent God with the suffering of his child.",
+      "callout": {
+        "text": "BRUTAL DEATH",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 270,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He became a hardened materialist non-believer. But Emma went the exact opposite direction",
+      "callout": null
+    },
+    {
+      "i": 271,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "to survive the unimaginable suffocating grief of losing her daughter. She clung even tighter to her faith in God and the promise of a heavenly afterlife where she would see Annie again.",
+      "callout": {
+        "text": "GRIEF OF LOSING",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 272,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was the only psychological raft keeping her afloat. Exactly. And in the wake of this fragile domestic peace, Darwin faced a career decision that",
+      "callout": null
+    },
+    {
+      "i": 273,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "no procon list could ever possibly resolve. Oh, this is the big one. He had the drafted manuscript for his theory of evolution by natural selection.",
+      "callout": null
+    },
+    {
+      "i": 274,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He knew intellectually that it was the most important scientific idea of the millennium.",
+      "callout": null
+    },
+    {
+      "i": 275,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. But he also knew intimately that publishing it would strike a fatal public blow to the literalist religious doctrines that his grieving wife relied on to survive the day.",
+      "callout": null
+    },
+    {
+      "i": 276,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He knew his professional triumph would shatter his wife's personal universe. Exactly. This wasn't just about facing public backlash from the church.",
+      "callout": null
+    },
+    {
+      "i": 277,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was about the threat of intimate domestic Right. Doing a psychological premortem on publishing on the origin of species meant Darwin had to look at the very real possibility of destroying his marriage,",
+      "callout": null
+    },
+    {
+      "i": 278,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "traumatizing Emma, and dying alienated from the person he loved most. Let's link this heavy concept to your life right now.",
+      "callout": {
+        "text": "YOUR LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 279,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Say you are about to sign a massive 10-year commercial lease for a new business, or you're entering into a 50/50 equity partnership with your oldest friend.",
+      "callout": {
+        "text": "YOUR OLDEST FRIEND",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 280,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Good examples. Doing a premortem forces you to mentally time travel 3 years into the future.",
+      "callout": null
+    },
+    {
+      "i": 281,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You sit down and say, \"Okay, the partnership has ended in a bitter screaming lawsuit. We no longer speak.\" Now, identify the exact personality clashes, the lack of boundary setting,",
+      "callout": null
+    },
+    {
+      "i": 282,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "or the specific macroeconomic forces that caused it to explode. But I can hear people rejecting this Oh, of course.",
+      "callout": null
+    },
+    {
+      "i": 283,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If I ask my team to sit in a room on the eve of a big launch and vividly imagine our startup crashing and burning, it feels incredibly toxic. It's deeply pessimistic.",
+      "callout": {
+        "text": "ASK MY TEAM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 284,
+      "shot": "diorama",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "It kills the exact momentum, the blind belief, and the positive energy you absolutely need to get a difficult venture off the ground.",
+      "callout": null
+    },
+    {
+      "i": 285,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It absolutely feels pessimistic in the moment. It feels like a buzzkill. But decision theorists argue that the premortem is actually the ultimate form of strategic optimism.",
+      "callout": null
+    },
+    {
+      "i": 286,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "How is imagining failure optimistic? Because discovering those specific failure points in advance gives you a superpower called downstream Explain",
+      "callout": null
+    },
+    {
+      "i": 287,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "downstream flexibility. It means building in shock absorbers. If your premortem reveals that being tied to a 10-year commercial lease will instantly bankrupt you if the local market dips even slightly.",
+      "callout": {
+        "text": "LOCAL MARKET",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 288,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You don't cancel the business, You build a fail safe. You negotiate fiercely for a three-year lease with an option to break it.",
+      "callout": {
+        "text": "BUILD A FAIL SAFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 289,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Or in your personal life, if you are moving across the country for a romance, you choose to rent a small apartment for a year. Instead of selling all your assets and buying a house immediately, you intentionally build an escape hatch.",
+      "callout": {
+        "text": "BUILD AN ESCAPE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 290,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. The premortem doesn't paralyze you for moving forward. It ensures you actually survive if the move goes",
+      "callout": null
+    },
+    {
+      "i": 291,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, you can't just draw a map of the sunny path to success. You have to widen the map before you choose to include the cliffs and the abyss.",
+      "callout": null
+    },
+    {
+      "i": 292,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay. So, we've mapped the variables. We've broken the consensus trap with diverse voices.",
+      "callout": {
+        "text": "WE'VE BROKEN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 293,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've predicted multiple futures and we've done a rigorous Eventually, the divergence phase has to end.",
+      "callout": null
+    },
+    {
+      "i": 294,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have to actually make the The rubber has to meet the road. Let's drop into a very tense, emotionally fraught living room conversation to see how this is done.",
+      "callout": {
+        "text": "LIVING ROOM",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 295,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The author of the book, Steven Johnson, and his wife are agonizing over a massive life choice of their own. whether to uproot their family, pull their kids out of school, and move from Brooklyn,",
+      "callout": {
+        "text": "PULL THEIR KIDS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 296,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "New York to a town in Marin County, California. A huge move. And they are completely hopelessly stuck. Steven is focusing heavily on the gorgeous weather, the access to hiking and natural beauty,",
+      "callout": null
+    },
+    {
+      "i": 297,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the relaxed lifestyle of the Bay Area. Sure. His wife is focusing heavily on the pedestrian density of New York, the culture,",
+      "callout": null
+    },
+    {
+      "i": 298,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and crucially the tight-knit it takes a village network of deep lifelong friendships they would be leaving",
+      "callout": null
+    },
+    {
+      "i": 299,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are deadlocked because they are trying to weigh fundamentally asymmetrical things against each other.",
+      "callout": null
+    },
+    {
+      "i": 300,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "How do you compare sunshine to a best You can't. And this is where a tool called linear value modeling comes in, which sounds like something out of a economics textbook.",
+      "callout": null
+    },
+    {
+      "i": 301,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is essentially it's the modern mathematical offspring of Jeremy Bentham's utilitarianism, the 19th century philosophy of calculating the",
+      "callout": null
+    },
+    {
+      "i": 302,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "greatest happiness for the greatest But when applied to a deeply personal choice, linear value modeling works like this.",
+      "callout": null
+    },
+    {
+      "i": 303,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "First, you don't list pros and cons. You explicitly list out your core values.",
+      "callout": null
+    },
+    {
+      "i": 304,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then you assign a mathematical weight to each value, usually from 0 to one, based on how important it is to your core identity.",
+      "callout": null
+    },
+    {
+      "i": 305,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, we're actually grading our soul. Beautiful weather gets a weight. Deep friendships gets a weight. Exactly. Let's walk through it.",
+      "callout": null
+    },
+    {
+      "i": 306,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Say Steven decides access to nature and beautiful weather gets a point four. It's nice, but not existential. Okay. But his wife says, \"Daily",
+      "callout": null
+    },
+    {
+      "i": 307,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "proximity to my closest friends and support network gets a nine. It is vital to her happiness.\"",
+      "callout": null
+    },
+    {
+      "i": 308,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then you grade your two scenarios. Option A, stay in Brooklyn. Option B, move to California against those weighted values.",
+      "callout": null
+    },
+    {
+      "i": 309,
+      "shot": "diorama",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "California scores high on the point four nature scale, but scores a zero on the 0.9 friendship scale.",
+      "callout": null
+    },
+    {
+      "i": 310,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You multiply the scores, add them up, and see which scenario yields the highest total value score. Let's relate this to a classic dilemma you might face. The ultimate work life balance choice.",
+      "callout": {
+        "text": "WORK LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 311,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are offered a massive promotion. It pays 40% more which secures your family's financial future. But it requires constant travel",
+      "callout": null
+    },
+    {
+      "i": 312,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "pulling you away from your kids bedtimes, soccer games, and weekend mornings. You have to wait financial security against daily presence as a parent.",
+      "callout": {
+        "text": "YOUR KIDS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 313,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's a tough one. And honestly, I am getting actively frustrated just talking about this. Why? This feels completely psychopathic.",
+      "callout": null
+    },
+    {
+      "i": 314,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "You cannot put a .75 math score on missing my closest friends. You can't put a 0.9 on tucking my six-year-old in at night and run it through a spreadsheet against a 6 for stock options.",
+      "callout": {
+        "text": "75 MATH SCORE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 315,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is way too robotic. It feels cold. It strips all the humanity, all the poetry, and all the organic emotion out of a deeply human choice.",
+      "callout": null
+    },
+    {
+      "i": 316,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I completely agree with your frustration. And honestly, the specific decimal points of the math are slightly absurd. It is a fiction.",
+      "callout": null
+    },
+    {
+      "i": 317,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But Johnson argues that the final mathematical score is actually the least important part of the exercise. The true value is in the What do you mean? By forcing themselves to sit down and openly,",
+      "callout": null
+    },
+    {
+      "i": 318,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "explicitly map their conflicting values with numbers. Johnson and his wife realized something profound.",
+      "callout": null
+    },
+    {
+      "i": 319,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "A binary stay or go choice was never going to work because they were trying to solve for mutually exclusive, highly weighted values.",
+      "callout": {
+        "text": "GO CHOICE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 320,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Brooklyn could never offer year- round hiking and California could never instantly replicate a 20-year Exactly.",
+      "callout": null
+    },
+    {
+      "i": 321,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "By looking at the weighted values on paper, the tension broke. They realized they needed a third undiscovered path that honored both sets of values.",
+      "callout": null
+    },
+    {
+      "i": 322,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "They needed option C. Yes. They decided to rent out their Brooklyn home and move to California for exactly two years as a bounded experiment with a hard contractual promise",
+      "callout": null
+    },
+    {
+      "i": 323,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to move back to New York if she was miserable. Oh, that's smart. And eventually they transitioned to a by coastal life, carving out time and maintaining roots in both places.",
+      "callout": {
+        "text": "LIFE CARVING OUT TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 324,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "The linear value modeling didn't give them a magic number that commanded them what to do. It gave them the analytical clarity to invent a new path that honored their highest weighted values.",
+      "callout": null
+    },
+    {
+      "i": 325,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the deep values are irreconcilable, don't force a binary choice that crushes one of them. Let the conflict of values force you to widen the map before you choose.",
+      "callout": null
+    },
+    {
+      "i": 326,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which leads us to a fascinating final beat. Because even with all the modeling in the world, some things just defy They do.",
+      "callout": null
+    },
+    {
+      "i": 327,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've talked about CIA war rooms, urban planning, and mathematical value models. But to explore the truly unquantifiable decisions, I want to take you to a writing desk in 19th century I love",
+      "callout": {
+        "text": "CIA WAR",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 328,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "this transition. Imagine the great novelist George Eliot, sitting there scratching away with a pen, crafting her absolute masterpiece,",
+      "callout": null
+    },
+    {
+      "i": 329,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the novel Middlemarch, one of the greatest psychological novels ever written, without question.",
+      "callout": null
+    },
+    {
+      "i": 330,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And what she is doing at that desk is something cognitive scholars call exploring narrativeness.",
+      "callout": null
+    },
+    {
+      "i": 331,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's putting her brilliant, passionate, idealistic character Dorothea through the agonizing choice of whether to marry the dry, pedantic, emotionally stunted scholar Casaubon. And",
+      "callout": null
+    },
+    {
+      "i": 332,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "George Eliot is showing us page by page, internal monologue by internal monologue how pure, rigid, utilitarian calculus completely shatters when it comes into contact with actual messy",
+      "callout": null
+    },
+    {
+      "i": 333,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "human emotion and complex psychology. Because some variables simply cannot be weighted on a spreadsheet no matter how hard you try.",
+      "callout": null
+    },
+    {
+      "i": 334,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think back to Meadow Lake in Queens. The fish that were suffocating under the algae bloom, they were living stakeholders in that urban planning decision.",
+      "callout": null
+    },
+    {
+      "i": 335,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "But how do you mathematically value a species intrinsic right to You can't. How do you put a zero to one decimal weight on the survival of a fish or a forest? You just can't.",
+      "callout": null
+    },
+    {
+      "i": 336,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about the everyday decisions you make that have zero math involved. Think about making the agonizing choice of how to care for an aging parent whose cognitive health is slowly declining",
+      "callout": null
+    },
+    {
+      "i": 337,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "or deciding whether to undergo a risky experimental medical treatment that might extend your life but destroy your quality of life. Right.",
+      "callout": {
+        "text": "EXTEND YOUR LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 338,
+      "shot": "diorama",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "A procon list or a linear value model will feel entirely hollow, almost insulting in those profoundly human But hold on, I have to ask.",
+      "callout": null
+    },
+    {
+      "i": 339,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "So after spending an hour talking about 3D intelligence models, cognitive diversity,",
+      "callout": null
+    },
+    {
+      "i": 340,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Samuel Sommers's mock juries, and Benjamin Franklin, your ultimate tool for complex decision-making is telling me to go read a Victorian fiction novel.",
+      "callout": null
+    },
+    {
+      "i": 341,
+      "shot": "illustration",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "I know it sounds like a pivot, but absolutely yes. Because great immersive realist fiction is the ultimate cognitive rehearsal space for the choices we only ever get to make once",
+      "callout": null
+    },
+    {
+      "i": 342,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "in real life. Oh, that makes sense. You cannot practice deciding to care for an aging parent. You cannot practice deciding to marry.",
+      "callout": {
+        "text": "YOU CANNOT PRACTICE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 343,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You only get one shot. But when you read Middlemarch, your brain literally simulates those complex human It's a rehearsal.",
+      "callout": null
+    },
+    {
+      "i": 344,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It acts as a flight simulator for your moral imagination. It scales up our capacity for empathy. And this is vital.",
+      "callout": null
+    },
+    {
+      "i": 345,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Why? If we as a civilization want to make truly far-sighted global choices, decisions about combating global climate change or deciding whether to send broadcast messages to the stars or making",
+      "callout": {
+        "text": "CHANGE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 346,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "infrastructural choices that will directly impact people who will not be born for another 200 years. We have to rely on profound empathy because those future people aren't in the conference room to vote",
+      "callout": {
+        "text": "200",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 347,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "on the Exactly. Okay. We have to be able to vividly simulate human complexity in our minds to advocate for them. Empathy generated by narrative is the ultimate tool to widen the map before you choose.",
+      "callout": null
+    },
+    {
+      "i": 348,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is the capstone of far-sightedness. Okay, as we bring this all together, I have to issue one honest overarching push back on this entire premise.",
+      "callout": {
+        "text": "ISSUE ONE HONEST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 349,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's hear it. Look, we have talked about nine months of patient, well-funded CIA deliberation for the Abbottabad raid.",
+      "callout": null
+    },
+    {
+      "i": 350,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "We've talked about L'Enfant city planning taking years to conceptualize and Steven Johnson's years of leisurely marital debate over which coast to live on.",
+      "callout": {
+        "text": "TAKING YEARS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 351,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "A luxury of time, a massive luxury. Let's be real about your world right now.",
+      "callout": null
+    },
+    {
+      "i": 352,
+      "shot": "insert",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "Most of us do not get a team of intelligence analysts, a secure war room, and nine months of calm deliberation to make our choices.",
+      "callout": {
+        "text": "SECURE WAR ROOM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 353,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, we definitely don't. What good is a premortem or an influence diagram or reading Middlemarch when you are a small business owner who has to make a midnight decision about making payroll tomorrow with no sleep, a",
+      "callout": null
+    },
+    {
+      "i": 354,
+      "shot": "wide",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "screaming toddler in the next room, and a bank deadline looming at 8 a.m. It is the most vital practical question we can ask. And the answer is a crucial reframe of everything we've discussed You do not use these",
+      "callout": {
+        "text": "NEXT ROOM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 355,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "elaborate tools for every single decision. You don't build an influence diagram to decide what to eat for lunch or how to handle a midnight crisis, You use the divergence phase,",
+      "callout": null
+    },
+    {
+      "i": 356,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the values mapping, and the scenario planning on the massive choices when you do have the luxury of time precisely so that you train your neural pathways in peace You're building the muscle.",
+      "callout": {
+        "text": "LUXURY OF TIME",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 357,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. You are training your brain to see hidden profiles and invent third options instinctively.",
+      "callout": {
+        "text": "SEE HIDDEN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 358,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It becomes cognitive muscle memory. So, it's so that when the midnight crisis hits and the toddler is screaming and you have no",
+      "callout": null
+    },
+    {
+      "i": 359,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "time, your brain's default setting is no longer to panic and immediately lock into a narrow binary option A or option B.",
+      "callout": {
+        "text": "NO LONGER TO PANIC",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 360,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Your brain has been rewired to automatically default to seeking a wider perspective, even in a split second. So, the real payoff here is a shift in definition. Far-sightedness isn't actually",
+      "callout": null
+    },
+    {
+      "i": 361,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "about possessing some magical predictive telescope that lets you peer further into the future with perfect 100% accuracy. the future is inherently chaotic and uncertain. Far-sightedness is simply",
+      "callout": null
+    },
+    {
+      "i": 362,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the daily discipline to see wider in the present moment. It's trading the telescope for a wide-angle lens. What a journey this has been.",
+      "callout": null
+    },
+    {
+      "i": 363,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We started at a stinking toxic pond in 19th century Manhattan. We traveled to a tense secure room looking at a toy jeep in a 3D model of Pakistan.",
+      "callout": {
+        "text": "TENSE SECURE ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 364,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "And we sat quietly at the writing desks of Charles Darwin and George Eliot. And every single one of these moments is linked by the profound world-altering power of deliberative choice. Thank you so much for joining us and",
+      "callout": null
+    },
+    {
+      "i": 365,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "doing the deep work It has been a true pleasure. And I want to leave you with one final thought as you go back to your day.",
+      "callout": {
+        "text": "DEEP WORK",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 366,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "What is it? We spend so much of our finite lives absolutely terrified of making the wrong choice. We agonize over the columns on",
+      "callout": {
+        "text": "WRONG CHOICE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 367,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "the legal pad. But what if the greatest, most beautiful, most defining decisions you will ever make in your lifetime aren't about picking the right option at all? What if they are the moments where you",
+      "callout": {
+        "text": "GREATEST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 368,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "finally summon the courage to throw out option A and option B entirely, look at the terrifying blank space on the map, and invent option C?",
+      "callout": null
+    }
+  ]
+}

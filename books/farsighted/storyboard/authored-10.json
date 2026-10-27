@@ -1,0 +1,492 @@
+[
+  {
+    "i": 349,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Nine months of deliberation",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst",
+      "brennan"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "The analyst points at the compound model while Brennan weighs it: the CIA had nine months to deliberate over Abbottabad.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The pushback: the Abbottabad decision had nine months of patient, funded deliberation.",
+      "concreteVisual": "The analyst pointing at the walled compound model, Brennan watching, worried.",
+      "onScreenText": "Nine months of deliberation",
+      "relationToPrevious": "Opens the honest pushback announced in the previous beat.",
+      "addedInformation": "The model and the room show what that slow deliberation looked like."
+    }
+  },
+  {
+    "i": 350,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "Years of marital debate",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "Johnson argues the coast question with his wife, who is unconvinced: his own choice took years of debate.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "L'Enfant's planning took years, and Johnson's coast debate with his wife took years too.",
+      "concreteVisual": "Johnson talking to his worried wife at the kitchen table.",
+      "onScreenText": "Years of marital debate",
+      "relationToPrevious": "Second example of a decision with plenty of time.",
+      "addedInformation": "Shows the debate as two people, one making the case and one doubting."
+    }
+  },
+  {
+    "i": 351,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "A massive luxury of time",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "A clock beside the listener: what all those cases had was time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "All of those cases had a massive luxury of time.",
+      "concreteVisual": "The listener beside a clock.",
+      "onScreenText": "A massive luxury of time",
+      "relationToPrevious": "Names what the previous examples share.",
+      "addedInformation": "weak: the clock shows time; 'luxury' is carried by the text."
+    }
+  },
+  {
+    "i": 352,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "No war room for most of us",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "The listener alone in his kitchen, slumped: no analyst team, no war room, no nine months.",
+    "noVisual": "There is no way to draw the absence of a team and a war room; the lone, slumped listener contrasts with the staffed room of 349.",
+    "storyboard": {
+      "claim": "Most of us do not get analysts, a war room and nine months.",
+      "concreteVisual": "The listener alone and slumped, worried.",
+      "onScreenText": "Most of us do not get",
+      "relationToPrevious": "Turns from the cases to the viewer's real situation.",
+      "addedInformation": "weak: the contrast with 349's room is carried by being alone."
+    }
+  },
+  {
+    "i": 353,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Making payroll tomorrow",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "The small business owner holds his wallet at midnight, worried: he must decide how to make payroll tomorrow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What good are these tools to a small business owner deciding about payroll at midnight?",
+      "concreteVisual": "The listener holding a wallet, worried, in the kitchen.",
+      "onScreenText": "Making payroll tomorrow",
+      "relationToPrevious": "Puts the listener into a concrete crisis.",
+      "addedInformation": "The wallet names the money problem behind the decision."
+    }
+  },
+  {
+    "i": 354,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Bank deadline at 8 a.m.",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "holds": "wallet",
+    "continue": true,
+    "explainedBy": "The same owner, still holding the wallet, now faces the clock: the bank deadline looms at 8 a.m.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A screaming toddler, no sleep, and a bank deadline at 8 a.m.",
+      "concreteVisual": "The clock appears beside the owner, whose face turns afraid.",
+      "onScreenText": "Bank deadline at 8 a.m.",
+      "relationToPrevious": "Same stage; the deadline clock is added and worry turns to fear.",
+      "addedInformation": "The clock makes the deadline pressure visible."
+    }
+  },
+  {
+    "i": 355,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "Not for lunch",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "A lunch plate in front of the relaxed listener: you do not build an influence diagram to decide what to eat for lunch.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You do not use the elaborate tools for every decision, like lunch or a midnight crisis.",
+      "concreteVisual": "The listener at ease beside a dinner plate.",
+      "onScreenText": "Not for lunch",
+      "relationToPrevious": "The reframe: the tools are not for everyday choices.",
+      "addedInformation": "The plate is the narrator's own example of a choice too small for the tools."
+    }
+  },
+  {
+    "i": 356,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Massive choices",
+        "Building the muscle"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A flow: use the tools on massive choices when there is time, and that practice builds the muscle.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Use divergence, values mapping and scenarios on massive choices so you train your brain in peace.",
+      "concreteVisual": "Flow: Massive choices -> Building the muscle.",
+      "onScreenText": "Massive choices -> Building the muscle",
+      "relationToPrevious": "States the mechanism behind the reframe.",
+      "addedInformation": "Shows cause and effect: big decisions are the training ground."
+    }
+  },
+  {
+    "i": 357,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Invent third options",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The listener points to the third path in the fork: the training teaches the brain to invent third options.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are training your brain to see hidden profiles and invent third options instinctively.",
+      "concreteVisual": "The listener pointing at the fork with a third path straight ahead.",
+      "onScreenText": "Invent third options",
+      "relationToPrevious": "What the muscle is trained to do.",
+      "addedInformation": "The third path shows what a 'third option' is."
+    }
+  },
+  {
+    "i": 358,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Cognitive muscle memory",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "Back in the midnight kitchen with the wallet and the clock: the training is for the moment the crisis hits.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It becomes muscle memory, for when the midnight crisis hits and there is no time.",
+      "concreteVisual": "The owner again with the wallet and the clock, worried.",
+      "onScreenText": "Cognitive muscle memory",
+      "relationToPrevious": "Returns to the crisis scene from 353-354 to test the training.",
+      "addedInformation": "Ties the training back to the concrete crisis."
+    }
+  },
+  {
+    "i": 359,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Panic into two options",
+      "style": "strike"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "think",
+    "explainedBy": "The same owner under the same clock stays calm instead of panicking: he no longer locks into a narrow A-or-B binary.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Your brain's default is no longer to panic and lock into option A or option B.",
+      "concreteVisual": "Same stage; the worried face turns calm while 'Option A or option B' is struck.",
+      "onScreenText": "Option A or option B (struck)",
+      "relationToPrevious": "Same stage; the face calms and the binary is rejected.",
+      "addedInformation": "The calm face under the deadline shows panic did not come."
+    }
+  },
+  {
+    "i": 360,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Seeking a wider perspective",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "In the same crisis the owner now points to the third path: his rewired brain defaults to a wider view.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The brain defaults to seeking a wider perspective even in a split second.",
+      "concreteVisual": "Same kitchen; the clock gives way to the fork with a third path, the owner points at it.",
+      "onScreenText": "Seeking a wider perspective",
+      "relationToPrevious": "Result of the sequence: from crisis to the wider option.",
+      "addedInformation": "The third path replaces the A/B binary on screen."
+    }
+  },
+  {
+    "i": 361,
+    "concept": "storm",
+    "diagram": null,
+    "callout": {
+      "text": "Magical predictive telescope",
+      "style": "strike"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "idle",
+    "explainedBy": "The listener faces a storm on the horizon: the future is chaotic, so no telescope can predict it.",
+    "noVisual": "No telescope in the vocabulary; the storm carries 'chaotic future' and the struck text carries the rejected telescope.",
+    "storyboard": {
+      "claim": "Far-sightedness is not a magical telescope that sees the future with perfect accuracy; the future is chaotic.",
+      "concreteVisual": "The listener before a storm on the horizon; the telescope phrase is struck.",
+      "onScreenText": "Magical predictive telescope (struck)",
+      "relationToPrevious": "Begins the redefinition.",
+      "addedInformation": "The storm shows why prediction fails."
+    }
+  },
+  {
+    "i": 362,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Trade the telescope for a wide lens",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "A two-bucket sort: trading the telescope (see further) for the wide-angle lens (see wider now).",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Far-sightedness is the daily discipline to see wider in the present; trade the telescope for a wide-angle lens.",
+      "concreteVisual": "Sorter: The telescope | Wide-angle lens.",
+      "onScreenText": "The telescope | Wide-angle lens",
+      "relationToPrevious": "Completes the redefinition from 361.",
+      "addedInformation": "Sets the two ideas side by side as the trade."
+    }
+  },
+  {
+    "i": 363,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "A toy jeep in a model",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "The analyst points at the compound model: the journey went from the toxic pond to the secure room and its model of Pakistan.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We started at a toxic pond in Manhattan and went to a secure room with a toy jeep in a 3D model.",
+      "concreteVisual": "The analyst pointing at the walled compound model.",
+      "onScreenText": "A toy jeep in a model",
+      "relationToPrevious": "Recap of the journey begins.",
+      "addedInformation": "weak: the pond is not drawn; the model recalls the Abbottabad case."
+    }
+  },
+  {
+    "i": 364,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "The power of deliberative choice",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "darwin",
+      "eliot"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "partnerExpression": "neutral",
+    "partnerAction": "sit",
+    "explainedBy": "Darwin and George Eliot seated at their desks with Darwin's two-column list: every case is linked by deliberative choice.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We sat at the desks of Darwin and Eliot; all these moments are linked by deliberative choice.",
+      "concreteVisual": "Darwin and Eliot seated, with the pros and cons list.",
+      "onScreenText": "The power of deliberative choice",
+      "relationToPrevious": "Continues the recap and names the thread.",
+      "addedInformation": "The list recalls Darwin's marriage decision at his desk."
+    }
+  },
+  {
+    "i": 365,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "One final thought",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The listener, warm and talking: a thank-you and one last thought before going back to the day.",
+    "noVisual": "Pure sign-off commentary; no event to show.",
+    "storyboard": {
+      "claim": "Thanks for doing the deep work; one final thought.",
+      "concreteVisual": "The listener talking, happy.",
+      "onScreenText": "One final thought",
+      "relationToPrevious": "Transition to the closing idea.",
+      "addedInformation": "weak: commentary only."
+    }
+  },
+  {
+    "i": 366,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Terrified of the wrong choice",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "The listener slumps afraid beside the two-column list: we agonize over the columns, terrified of choosing wrong.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We spend our lives terrified of the wrong choice, agonizing over the columns on the legal pad.",
+      "concreteVisual": "The listener afraid and slumped beside the pros and cons list.",
+      "onScreenText": "Terrified of the wrong choice",
+      "relationToPrevious": "Opens the closing thought.",
+      "addedInformation": "The list is the literal columns the narration names."
+    }
+  },
+  {
+    "i": 367,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Not about the right option",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "idle",
+    "continue": true,
+    "explainedBy": "Still before the list, the listener looks up surprised: maybe the defining decisions are not about picking a column at all.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What if the greatest decisions are not about picking the right option at all?",
+      "concreteVisual": "Same stage; the afraid slump lifts into a surprised face.",
+      "onScreenText": "Not about the right option",
+      "relationToPrevious": "Same stage; the face changes as the question turns.",
+      "addedInformation": "The list stays, so the question is about it."
+    }
+  },
+  {
+    "i": 368,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Invent option C",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "The list gives way to the fork with a third path, and the listener points at it: throw out A and B and invent option C.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Throw out option A and B, look at the blank space on the map, and invent option C.",
+      "concreteVisual": "Same stage; the pros and cons list is replaced by the fork with a third path; the listener points.",
+      "onScreenText": "Invent option C",
+      "relationToPrevious": "Result of the closing sequence: from two columns to the third path.",
+      "addedInformation": "The third path shows option C replacing the binary."
+    }
+  }
+]

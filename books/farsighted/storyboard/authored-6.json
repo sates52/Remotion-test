@@ -1,0 +1,842 @@
+[
+  {
+    "i": 189,
+    "concept": "family",
+    "diagram": null,
+    "callout": {
+      "text": "Humans are social creatures",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "colleague",
+      "ceo"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "partnerExpression": "happy",
+    "partnerAction": "talk",
+    "explainedBy": "In the cozy conference room the boss talks warmly while the peripheral colleague sinks back: the social pull to belong at work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What happens in the warm conference room is a subconscious social dynamic.",
+      "concreteVisual": "The dissenting colleague slumping quietly while the smiling CEO holds the room.",
+      "onScreenText": "Humans are social creatures",
+      "relationToPrevious": "Returns to the conference room from the shared/unshared information setup.",
+      "addedInformation": "Shows who holds back (the peripheral colleague) and who sets the mood (the boss)."
+    }
+  },
+  {
+    "i": 190,
+    "concept": "family",
+    "diagram": null,
+    "callout": {
+      "text": "We survive by belonging",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The mechanism starts: the desire to belong to the tribe is the cause of what follows.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "We survive by belonging, so people suppress contradictory information to fit in.",
+      "concreteVisual": "A flow begins with its first cause: desire to belong.",
+      "onScreenText": "Desire to belong",
+      "relationToPrevious": "Turns the room into the mechanism behind it.",
+      "addedInformation": "Names the cause of suppression as a structure."
+    }
+  },
+  {
+    "i": 191,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Desire to belong",
+        "Stay quiet"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Desire to belong leads to staying quiet: nobody wants to be the squeaky wheel that ruins the vibe with the leader.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "People keep the bond with the leader and avoid being the squeaky wheel.",
+      "concreteVisual": "The flow gains its second step: stay quiet.",
+      "onScreenText": "Stay quiet",
+      "relationToPrevious": "Adds the effect of the desire to belong.",
+      "addedInformation": "Cause -> behaviour now visible."
+    }
+  },
+  {
+    "i": 192,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Desire to belong",
+        "Stay quiet",
+        "Best info buried"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The chain ends: belonging -> staying quiet -> the most valuable unique information is buried.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The most valuable unique information is buried by our desire to be liked.",
+      "concreteVisual": "The flow completes with its result: best info buried.",
+      "onScreenText": "Best info buried",
+      "relationToPrevious": "Adds the result to the chain.",
+      "addedInformation": "The full cause -> effect chain of the conformity trap."
+    }
+  },
+  {
+    "i": 193,
+    "concept": "key",
+    "diagram": null,
+    "callout": {
+      "text": "The antidote is diversity",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "colleague",
+      "ceo"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "The hidden profile stays hidden unless a different voice speaks up: the peripheral colleague talks and the boss is surprised.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The only known antidote to the conformity trap is diversity, not as a buzzword.",
+      "concreteVisual": "The colleague from a different background speaking up while the CEO reacts.",
+      "onScreenText": "The antidote is diversity",
+      "relationToPrevious": "Moves from the trap to its cure.",
+      "addedInformation": "Shows the cure as the outsider voice actually speaking."
+    }
+  },
+  {
+    "i": 194,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Samuel Sommers",
+      "style": "reveal"
+    },
+    "set": "court",
+    "cast": [],
+    "explainedBy": "The empirical example comes from a courtroom: social psychologist Samuel Sommers's jury research.",
+    "noVisual": "Sommers is not in the cast; the law icon and court set carry the jury setting, his name rides on the callout.",
+    "storyboard": {
+      "claim": "Johnson highlights social psychologist Samuel Sommers's experiments.",
+      "concreteVisual": "A courtroom with the law icon; Sommers's name.",
+      "onScreenText": "Samuel Sommers",
+      "relationToPrevious": "From the general claim to a measured example.",
+      "addedInformation": "weak: sets up the jury context; the name is text."
+    }
+  },
+  {
+    "i": 195,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Dozens of mock juries",
+      "style": "reveal"
+    },
+    "set": "court",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Sommers set up dozens of mock juries to deliberate a complex case, varying who sat on them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Sommers gave dozens of mock juries a complex case and manipulated their composition.",
+      "concreteVisual": "The court stage kept; the callout names the mock juries.",
+      "onScreenText": "Dozens of mock juries",
+      "relationToPrevious": "Kept court stage; the label moves from the man to the method.",
+      "addedInformation": "weak: method is text-carried; the court keeps it a jury."
+    }
+  },
+  {
+    "i": 196,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Some juries were all white",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The experiment's two conditions side by side: homogeneous all-white juries versus racially diverse juries.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Some juries were all white; others mixed white and Black jurors.",
+      "concreteVisual": "A sorter with the two jury types.",
+      "onScreenText": "All-white juries | Diverse juries",
+      "relationToPrevious": "Splits the experiment into its two groups.",
+      "addedInformation": "The comparison the whole experiment rests on."
+    }
+  },
+  {
+    "i": 197,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "The diverse juries did better",
+      "style": "highlight"
+    },
+    "set": "court",
+    "cast": [
+      "colleague",
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "Result: in the diverse jury, a Black juror and a white juror deliberating together did vastly better at critical thinking.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "By every metric the diverse juries performed vastly better.",
+      "concreteVisual": "Two clearly different jurors deliberating in court.",
+      "onScreenText": "Diverse juries performed better",
+      "relationToPrevious": "Gives the outcome of the two-group comparison.",
+      "addedInformation": "Shows the winning group as mixed people actually deliberating."
+    }
+  },
+  {
+    "i": 198,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Debated longer"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "What 'better' meant, part one: the diverse juries debated longer, and it was not just noise.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They did debate longer, but it wasn't just noise.",
+      "concreteVisual": "A sorter of findings starts: debated longer.",
+      "onScreenText": "Debated longer",
+      "relationToPrevious": "Begins breaking down how they were better.",
+      "addedInformation": "First measured difference."
+    }
+  },
+  {
+    "i": 199,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Debated longer",
+        "Remembered facts"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Part two: they remembered the specific facts of the trial transcript far more accurately.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They remembered the granular facts of the transcript far more accurately.",
+      "concreteVisual": "The findings sorter gains: remembered facts.",
+      "onScreenText": "Remembered facts",
+      "relationToPrevious": "Adds the second finding.",
+      "addedInformation": "Second measured difference."
+    }
+  },
+  {
+    "i": 200,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Debated longer",
+        "Remembered facts",
+        "Wider interpretations"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Part three: they entertained a much wider range of interpretations of the evidence.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They entertained a much wider range of interpretations; homogeneous groups settled on one narrative at once.",
+      "concreteVisual": "The findings sorter gains: wider interpretations.",
+      "onScreenText": "Wider interpretations",
+      "relationToPrevious": "Adds the third finding.",
+      "addedInformation": "Third measured difference, completing the list."
+    }
+  },
+  {
+    "i": 201,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "Clocked out",
+      "style": "highlight"
+    },
+    "set": "court",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "blank",
+    "action": "sit",
+    "explainedBy": "In the homogeneous room the juror feels the warm consensus and stops thinking: he sits with a blank face.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Homogeneous groups felt warm consensus and clocked out.",
+      "concreteVisual": "A juror sitting blank-faced, mentally checked out.",
+      "onScreenText": "Clocked out",
+      "relationToPrevious": "Contrasts the diverse findings with the homogeneous room.",
+      "addedInformation": "The face shows the stopping of thought."
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Fewer factual errors",
+      "style": "highlight"
+    },
+    "set": "court",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "In the diverse room the same white juror, next to a Black juror who talks, examines the evidence with a magnifier and makes fewer errors.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "White jurors in diverse rooms made fewer factual errors than in all-white rooms.",
+      "concreteVisual": "The white juror scrutinizing evidence beside the Black juror.",
+      "onScreenText": "Fewer factual errors",
+      "relationToPrevious": "Same juror as 201, now in a diverse room and engaged.",
+      "addedInformation": "Shows the presence of the other juror changing his effort."
+    }
+  },
+  {
+    "i": 203,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Elevated everyone's baseline",
+      "style": "reveal"
+    },
+    "set": "court",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "lightbulb",
+    "partnerExpression": "happy",
+    "partnerAction": "talk",
+    "explainedBy": "Diversity raised everyone's thinking: both jurors now engaged, the white juror holding the lightbulb of understanding.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The diversity elevated everyone's cognitive baseline.",
+      "concreteVisual": "Both jurors engaged and pleased, a lightbulb in hand.",
+      "onScreenText": "Elevated everyone's baseline",
+      "relationToPrevious": "From fewer errors to the general lesson.",
+      "addedInformation": "weak: the lightbulb stands for sharper thinking."
+    }
+  },
+  {
+    "i": 204,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Forming a tiger team",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Applied to daily life: the listener drawing up the invite list for a team to launch a product.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If you form a team at work or an HOA board and only invite people like you...",
+      "concreteVisual": "The listener holding a list of whom to invite.",
+      "onScreenText": "Forming a tiger team",
+      "relationToPrevious": "Moves from the jury study to the listener's own life.",
+      "addedInformation": "The invite list makes the choice of members concrete."
+    }
+  },
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Same background",
+        "Flying blind"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Inviting only people with the same college, class or jargon leads straight to flying blind.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Choosing only people with your background means actively choosing to fly blind.",
+      "concreteVisual": "A flow: same background -> flying blind.",
+      "onScreenText": "Same background -> Flying blind",
+      "relationToPrevious": "States the consequence of the invite list.",
+      "addedInformation": "Cause -> effect as a structure."
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Same background",
+        "Flying blind",
+        "Profiles stay hidden"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The chain ends: a homogeneous jury for your own choices guarantees hidden profiles stay hidden.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You build a homogeneous jury for your life and guarantee hidden profiles stay hidden.",
+      "concreteVisual": "The flow gains its result: profiles stay hidden.",
+      "onScreenText": "Profiles stay hidden",
+      "relationToPrevious": "Adds the final consequence.",
+      "addedInformation": "Ties the application back to the hidden-profile idea."
+    }
+  },
+  {
+    "i": 207,
+    "concept": "storm",
+    "diagram": null,
+    "callout": {
+      "text": "Practice is messy",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "The listener pushes back as devil's advocate: theory is great, practice is messy.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Devil's advocate: theory is great, but practice is messy.",
+      "concreteVisual": "The listener raising a skeptical objection.",
+      "onScreenText": "Practice is messy",
+      "relationToPrevious": "Turns from argument to objection.",
+      "addedInformation": "weak: the objection is mostly text."
+    }
+  },
+  {
+    "i": 208,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "An extra hour",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Adding outsiders makes the meeting drag on: the clock beside a weary team member.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Adding outsiders makes meetings drag on for an extra hour.",
+      "concreteVisual": "A clock beside the listener slumping in a long meeting.",
+      "onScreenText": "An extra hour",
+      "relationToPrevious": "First cost of the objection.",
+      "addedInformation": "The clock shows the lost time."
+    }
+  },
+  {
+    "i": 209,
+    "concept": "crack",
+    "diagram": null,
+    "callout": {
+      "text": "Interpersonal conflict",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo",
+      "colleague"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "The friction in the room: the boss gets defensive and points angrily at the dissenting colleague.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It makes people defensive and creates interpersonal conflict.",
+      "concreteVisual": "The CEO angrily pointing at the dissenting colleague.",
+      "onScreenText": "Interpersonal conflict",
+      "relationToPrevious": "Second cost: the conflict itself.",
+      "addedInformation": "Shows who gets defensive and at whom."
+    }
+  },
+  {
+    "i": 210,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "It creates friction",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "colleague",
+      "ceo"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "explainedBy": "Having your core assumptions challenged is unpleasant: the colleague speaks and the boss sags under it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Yes, it creates friction; having your core assumptions challenged is rarely pleasant.",
+      "concreteVisual": "The colleague talking while the CEO slumps, uncomfortable.",
+      "onScreenText": "It creates friction",
+      "relationToPrevious": "Reverses roles from 209: now the boss is on the receiving end.",
+      "addedInformation": "Shows the discomfort of being challenged."
+    }
+  },
+  {
+    "i": 211,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "The friction is the point",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman",
+      "colleague"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "partnerExpression": "neutral",
+    "partnerAction": "point",
+    "explainedBy": "When someone disagrees with your worldview you feel discomfort: the colleague points and the listener feels it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The friction is the entire point; that discomfort is your brain being pushed out of a mode.",
+      "concreteVisual": "The colleague disagreeing, the listener uncomfortable.",
+      "onScreenText": "The friction is the point",
+      "relationToPrevious": "Reframes the friction as the purpose.",
+      "addedInformation": "The discomfort is visible on the listener."
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "System one",
+        "System two"
+      ],
+      "values": [
+        0.12
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Kahneman's two modes as a scale: the marker sits at System one, the fast intuitive autopilot.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Kahneman's System one is our fast intuitive autopilot.",
+      "concreteVisual": "A spectrum System one <-> System two, marker on System one.",
+      "onScreenText": "System one | System two",
+      "relationToPrevious": "Names the mode the discomfort pushes us out of.",
+      "addedInformation": "Shows where we start on the scale."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "System one",
+        "System two"
+      ],
+      "values": [
+        0.88
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The dissenting voice forces the brain to shift gears: the marker moves to System two, slow and analytical.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The discomfort of dissent shifts the brain into System two: deliberative, analytical.",
+      "concreteVisual": "The marker slides over to System two.",
+      "onScreenText": "System two",
+      "relationToPrevious": "Marker moves from one pole to the other.",
+      "addedInformation": "The shift of gears is the visible change."
+    }
+  },
+  {
+    "i": 214,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Social discomfort",
+        "Groupthink halted"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Cause and effect: the social discomfort of diversity jolts groupthink to a halt.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The social discomfort of diversity jolts groupthink to a halt.",
+      "concreteVisual": "A flow: social discomfort -> groupthink halted.",
+      "onScreenText": "Social discomfort -> Groupthink halted",
+      "relationToPrevious": "Generalizes the gear shift into the group effect.",
+      "addedInformation": "Cause -> effect as structure."
+    }
+  },
+  {
+    "i": 215,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Social discomfort",
+        "Groupthink halted",
+        "Shortcut blocked"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "It acts as a speed bump: the easy flawed cognitive shortcut is blocked, so the discomfort is the medicine.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is a speed bump that prevents the easy flawed shortcut; the discomfort is the medicine.",
+      "concreteVisual": "The flow gains: shortcut blocked.",
+      "onScreenText": "Shortcut blocked",
+      "relationToPrevious": "Adds the final effect.",
+      "addedInformation": "Completes why discomfort helps."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Only ever lived in one place",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "ceo"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "A room full of people with the same experience cannot map a complex world: the confident boss alone talking.",
+    "noVisual": "No map icon in the vocabulary; the narration's map metaphor rides on the callout.",
+    "storyboard": {
+      "claim": "You cannot draw an accurate map of a complex world with a room of people from one place.",
+      "concreteVisual": "The confident boss talking, no other voice present.",
+      "onScreenText": "Only ever lived in one place",
+      "relationToPrevious": "Summarizes the argument as a metaphor.",
+      "addedInformation": "weak: the map metaphor is text-carried."
+    }
+  },
+  {
+    "i": 217,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Widen the map",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "colleague",
+      "ceo"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "idle",
+    "explainedBy": "To see the whole terrain you embrace the friction: the boss now lets the different voice speak.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Embrace the friction; widen the map before you choose.",
+      "concreteVisual": "The colleague speaking while the CEO listens.",
+      "onScreenText": "Widen the map",
+      "relationToPrevious": "From the closed room in 216 to one that includes the outsider.",
+      "addedInformation": "Shows widening as letting the other voice in."
+    }
+  },
+  {
+    "i": 218,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "Dealing with the future",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "walk",
+    "explainedBy": "Having mapped the present, the next step is the future: the listener walks toward the horizon.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "With the terrain mapped and hidden profiles exposed, the next step is the future.",
+      "concreteVisual": "The listener walking toward the horizon.",
+      "onScreenText": "Dealing with the future",
+      "relationToPrevious": "Transition from mapping to predicting.",
+      "addedInformation": "weak: the horizon stands for what lies ahead."
+    }
+  },
+  {
+    "i": 219,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Back to early 2011",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Prediction is where experts fail hardest; the story returns to the analyst in the 2011 White House deliberations.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Prediction is where experts fail; back to the White House Situation Room in early 2011.",
+      "concreteVisual": "The CIA analyst, weighed down by the coming prediction.",
+      "onScreenText": "Back to early 2011",
+      "relationToPrevious": "Returns to the Abbottabad case from the everyday application.",
+      "addedInformation": "weak: the date is text; the analyst re-anchors the case."
+    }
+  },
+  {
+    "i": 220,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Back to the 3D model",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The analysts present their findings to the President's cabinet around the scale model of the compound.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The analysts present their mapped findings to Obama and his cabinet.",
+      "concreteVisual": "The analyst presenting beside the compound model.",
+      "onScreenText": "Back to the 3D model",
+      "relationToPrevious": "Brings the signature object back.",
+      "addedInformation": "The model makes 'the case being presented' concrete."
+    }
+  },
+  {
+    "i": 221,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "The tall man pacing",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "analyst"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "continue": true,
+    "explainedBy": "Growing confidence: the analyst points at the courtyard of the model where the tall man paces.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They grow confident the tall man pacing the courtyard is bin Laden.",
+      "concreteVisual": "The analyst pointing at the model, now confident.",
+      "onScreenText": "The tall man pacing",
+      "relationToPrevious": "Kept model; the analyst moves from presenting to pointing with confidence.",
+      "addedInformation": "Shows the confidence and its focus: the compound courtyard."
+    }
+  },
+  {
+    "i": 222,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "Refuses the consensus",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "brennan",
+      "analyst"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "continue": true,
+    "explainedBy": "The room tilts toward a strike, but John Brennan pushes back at the analyst beside the model, refusing to ride the consensus.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The room tilts toward a strike, but John Brennan refuses to ride the wave of consensus.",
+      "concreteVisual": "Brennan sternly pointing at the analyst beside the model; she is taken aback.",
+      "onScreenText": "Refuses the consensus",
+      "relationToPrevious": "Kept model; Brennan enters and confronts the confident analyst.",
+      "addedInformation": "Shows who resists and against whom."
+    }
+  }
+]

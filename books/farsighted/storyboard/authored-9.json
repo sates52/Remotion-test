@@ -1,0 +1,1122 @@
+[
+  {
+    "i": 303,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Not a list of pros and cons",
+      "style": "strike"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Mechanism step one: instead of pros and cons, you write out your core values — the first step of a flow the next beats build.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Linear value modeling starts by listing core values, not pros and cons.",
+      "concreteVisual": "A flow diagram opens with its first step: List core values.",
+      "onScreenText": "List core values",
+      "relationToPrevious": "Starts the walk-through promised in 302.",
+      "addedInformation": "Shows the method as a sequence of steps, step one drawn."
+    }
+  },
+  {
+    "i": 304,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "List core values",
+        "Weight each 0 to 1"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Mechanism step two: each listed value gets a weight from 0 to 1 — the flow gains its second step.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Each value is given a weight from 0 to 1 by importance.",
+      "concreteVisual": "The same flow, now with a second step: Weight each 0 to 1.",
+      "onScreenText": "Weight each 0 to 1",
+      "relationToPrevious": "Kept flow; one step added.",
+      "addedInformation": "The weighting range from the narration."
+    }
+  },
+  {
+    "i": 305,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Grading our soul",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Reaction: the listener, holding the sheet of values, is struck that this means grading his soul — weather and friendships each get a number.",
+    "noVisual": "A reaction to the method; the held sheet carries the values, the face carries the surprise.",
+    "storyboard": {
+      "claim": "The host reacts: this is grading our soul, giving weather and friendship a weight.",
+      "concreteVisual": "The listener holds a sheet of notes, surprised.",
+      "onScreenText": "Grading our soul",
+      "relationToPrevious": "From the method diagram to a person reacting to it.",
+      "addedInformation": "weak: the surprise is the reaction; the values themselves come next."
+    }
+  },
+  {
+    "i": 306,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Nature and weather: 0.4"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Johnson's own weight: nature and weather get 0.4 — nice but not existential; the first bucket of the couple's value sheet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Steven weights nature and good weather at 0.4.",
+      "concreteVisual": "A sorter with one bucket: Nature and weather: 0.4.",
+      "onScreenText": "Nature and weather: 0.4",
+      "relationToPrevious": "Moves from the method to the couple's actual numbers.",
+      "addedInformation": "The specific weight from the narration."
+    }
+  },
+  {
+    "i": 307,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Nature and weather: 0.4",
+        "Her close friends: 0.9"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "His wife's weight: daily nearness to close friends gets 0.9 — the second bucket sits beside his 0.4, showing hers weighs far more.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "His wife weights proximity to her closest friends at 0.9.",
+      "concreteVisual": "The same sorter gains a second bucket: Close friends: 0.9.",
+      "onScreenText": "Close friends: 0.9",
+      "relationToPrevious": "Kept sorter; her value added beside his.",
+      "addedInformation": "The contrast 0.4 vs 0.9 is visible side by side."
+    }
+  },
+  {
+    "i": 308,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Brooklyn or California?",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "Next step: the two scenarios, A stay in Brooklyn and B move to California, are graded against those weighted values.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Then grade Option A (Brooklyn) and Option B (California) against the weighted values.",
+      "concreteVisual": "A sorter with two options: A: Stay in Brooklyn, B: Move to California.",
+      "onScreenText": "A: Stay in Brooklyn / B: Move to California",
+      "relationToPrevious": "From the values to the options they grade.",
+      "addedInformation": "Names the two scenarios being scored."
+    }
+  },
+  {
+    "i": 309,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "Zero on the friendship scale",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The grading result: California scores high on nature but zero on the 0.9 friendship value — the third label shows the zero.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "California scores high on nature but zero on the heavily weighted friendship value.",
+      "concreteVisual": "The options sorter gains: California: 0 on friends.",
+      "onScreenText": "California: 0 on friends",
+      "relationToPrevious": "Kept sorter; the decisive score added.",
+      "addedInformation": "Shows where Option B fails."
+    }
+  },
+  {
+    "i": 310,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Multiply the scores",
+        "Add them up",
+        "Highest total"
+      ]
+    },
+    "callout": null,
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The arithmetic: multiply each score by its weight, add them up, and the scenario with the highest total wins.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Multiply, add up, and pick the scenario with the highest total value score.",
+      "concreteVisual": "A flow: Multiply the scores -> Add them up -> Highest total.",
+      "onScreenText": "Multiply the scores / Add them up / Highest total",
+      "relationToPrevious": "Finishes the method after the grading.",
+      "addedInformation": "The final calculation steps; the turn to a work-life example is carried next beat."
+    }
+  },
+  {
+    "i": 311,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "Pays 40% more",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "briefcase",
+    "explainedBy": "The dilemma's first side: the listener, briefcase in hand, is offered a promotion that pays 40% more — literal money for his family's security.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You are offered a big promotion paying 40% more, securing your family's finances.",
+      "concreteVisual": "The listener with a briefcase, happy, beside a coin.",
+      "onScreenText": "Pays 40% more",
+      "relationToPrevious": "New example: the work-life balance choice.",
+      "addedInformation": "The pay rise is concrete money."
+    }
+  },
+  {
+    "i": 312,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Money or being there",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "briefcase",
+    "continue": true,
+    "explainedBy": "The weighing: constant travel takes him from bedtimes and games, so he must weigh financial security against daily presence as a parent — the scale shows two sides.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The job's travel pulls you from your kids, so you weigh security against presence.",
+      "concreteVisual": "The same listener, now worried and slumped, beside a balance scale.",
+      "onScreenText": "Security vs. daily presence",
+      "relationToPrevious": "Kept listener; the coin becomes a scale and the face turns worried.",
+      "addedInformation": "The two sides of the trade-off."
+    }
+  },
+  {
+    "i": 313,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "Completely psychopathic",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "explainedBy": "Reaction: the host gets actively frustrated — weighing this with numbers feels psychopathic.",
+    "noVisual": "A reaction; the angry face carries it.",
+    "storyboard": {
+      "claim": "The host is frustrated: this feels completely psychopathic.",
+      "concreteVisual": "The listener talking angrily.",
+      "onScreenText": "Completely psychopathic",
+      "relationToPrevious": "From the dilemma to an angry objection to the method.",
+      "addedInformation": "weak: the anger is the point."
+    }
+  },
+  {
+    "i": 314,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Run it through a spreadsheet?",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "angry",
+    "action": "hold",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The objection: you cannot put a decimal on missing friends or tucking a child in and run it through a spreadsheet — he holds the scoring sheet and rejects it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You cannot score friends or bedtime and run it through a spreadsheet against stock options.",
+      "concreteVisual": "The same angry listener now holds the scoring sheet; the spreadsheet phrase is struck.",
+      "onScreenText": "Run it through a spreadsheet?",
+      "relationToPrevious": "Kept listener; he now holds the sheet he objects to.",
+      "addedInformation": "The rejected act: scoring love with numbers."
+    }
+  },
+  {
+    "i": 315,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It feels cold",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "Why it hurts: the method strips the humanity and emotion out of a human choice — he slumps over the cold sheet.",
+    "noVisual": "A feeling about the method; the slumped figure with the sheet carries it.",
+    "storyboard": {
+      "claim": "It is robotic and cold; it strips the humanity out of a human choice.",
+      "concreteVisual": "The listener sad and slumped, still holding the sheet.",
+      "onScreenText": "It feels cold",
+      "relationToPrevious": "Kept listener; anger turns to sadness.",
+      "addedInformation": "weak: names the coldness."
+    }
+  },
+  {
+    "i": 316,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "It is a fiction",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "johnson",
+      "everyman"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "explainedBy": "Concession: the other host agrees the exact decimals are absurd, a fiction — the author concedes to the frustrated listener, who is surprised.",
+    "noVisual": "A concession in dialogue; the two faces carry it.",
+    "storyboard": {
+      "claim": "The co-host agrees: the specific decimal points are absurd, a fiction.",
+      "concreteVisual": "Johnson talks with a wry smile to the surprised listener.",
+      "onScreenText": "It is a fiction",
+      "relationToPrevious": "From the objection to an agreeing answer.",
+      "addedInformation": "weak: the concession is in the words."
+    }
+  },
+  {
+    "i": 317,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The score is least important",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "holds": "notes",
+    "partnerExpression": "neutral",
+    "explainedBy": "Johnson's point: the final number matters least; the value is in the couple sitting down together over the value sheet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Johnson argues the final score is the least important part; the value is in the process of sitting down.",
+      "concreteVisual": "Johnson sits at the kitchen table with the value sheet, his wife beside him.",
+      "onScreenText": "The score is least important",
+      "relationToPrevious": "Returns to the couple from the method critique.",
+      "addedInformation": "Shows the act of sitting down together with the sheet."
+    }
+  },
+  {
+    "i": 318,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Realized something profound",
+      "style": "highlight"
+    },
+    "set": "kitchen",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "surprised",
+    "action": "sit",
+    "holds": "notes",
+    "partnerExpression": "surprised",
+    "continue": true,
+    "explainedBy": "The moment of insight: mapping their conflicting values openly with numbers, both of them realize something.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Mapping their values explicitly, Johnson and his wife realized something profound.",
+      "concreteVisual": "The same couple at the table, both faces now surprised.",
+      "onScreenText": "Realized something profound",
+      "relationToPrevious": "Kept stage; both faces change to surprise.",
+      "addedInformation": "The realization lands on both."
+    }
+  },
+  {
+    "i": 319,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Stay or go could never work",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "What they realized: a binary stay-or-go choice could never work, because each side gives up a highly weighted value.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A binary stay-or-go choice was never going to work with mutually exclusive values.",
+      "concreteVisual": "A sorter of the binary: Stay in Brooklyn | Go to California.",
+      "onScreenText": "Stay in Brooklyn / Go to California",
+      "relationToPrevious": "The content of the realization.",
+      "addedInformation": "Shows the binary as two boxes."
+    }
+  },
+  {
+    "i": 320,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Neither place has it all",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "Why the binary fails: Brooklyn can never offer year-round hiking and California can never replace 20-year friendships — each side loses something.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Brooklyn can't offer year-round hiking; California can't replicate a 20-year friendship.",
+      "concreteVisual": "The binary sorter gains what each side lacks.",
+      "onScreenText": "Brooklyn: no hiking / California: no old friends",
+      "relationToPrevious": "Kept sorter; the loss under each option added.",
+      "addedInformation": "Shows each option sacrificing one value."
+    }
+  },
+  {
+    "i": 321,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "A third path",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "surprised",
+    "explainedBy": "The tension breaks: Johnson points to a third, undiscovered path that honors both sets of values — the fork with a road straight ahead.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Seeing the weights on paper, they realized they needed a third path honoring both values.",
+      "concreteVisual": "Johnson points at a fork in the road with a third path straight ahead; his wife looks surprised.",
+      "onScreenText": "A third path",
+      "relationToPrevious": "From the two-box binary to a third path.",
+      "addedInformation": "The third option is drawn as a road."
+    }
+  },
+  {
+    "i": 322,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Two-year experiment",
+      "style": "box"
+    },
+    "set": "horizon",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "partnerExpression": "neutral",
+    "continue": true,
+    "explainedBy": "Option C made concrete: they rent out the Brooklyn home and move to California for exactly two years as a bounded experiment — Johnson sets off down the third path.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Option C: rent out Brooklyn, move to California for exactly two years as an experiment.",
+      "concreteVisual": "Same fork; Johnson now walks onto the third path.",
+      "onScreenText": "Two-year experiment",
+      "relationToPrevious": "Kept stage; pointing becomes walking.",
+      "addedInformation": "The bounded experiment."
+    }
+  },
+  {
+    "i": 323,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Roots in both places",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "wife",
+      "johnson"
+    ],
+    "expression": "happy",
+    "action": "walk",
+    "partnerExpression": "happy",
+    "continue": true,
+    "explainedBy": "The promise and the result: a promise to return if she was miserable, then a bicoastal life with roots in both places — now she walks the path too, both content.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "With a promise to move back if she was miserable, they ended up bicoastal with roots in both places.",
+      "concreteVisual": "Same fork; the wife now leads, both happy.",
+      "onScreenText": "Roots in both places",
+      "relationToPrevious": "Kept stage; the wife joins and both faces turn happy.",
+      "addedInformation": "Her consent and the bicoastal outcome."
+    }
+  },
+  {
+    "i": 324,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Invent a new path",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "johnson",
+      "wife"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "notes",
+    "partnerExpression": "happy",
+    "continue": true,
+    "explainedBy": "The lesson of the model: not a magic number, but the clarity to invent a new path — Johnson holds the value sheet that led them to the third road.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The model gave no magic number; it gave clarity to invent a new path.",
+      "concreteVisual": "Same fork; Johnson now holds the value sheet.",
+      "onScreenText": "Invent a new path",
+      "relationToPrevious": "Kept stage; the sheet reappears in his hand.",
+      "addedInformation": "Links the sheet to the new path."
+    }
+  },
+  {
+    "i": 325,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Let the conflict invent option C",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The takeaway for the listener: when values conflict, don't force a binary — widen the map until a third path appears.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "When values are irreconcilable, don't force a binary; widen the map first.",
+      "concreteVisual": "The listener points at the third path past the fork.",
+      "onScreenText": "Widen the map",
+      "relationToPrevious": "From the couple's story to the listener's lesson.",
+      "addedInformation": "The general rule."
+    }
+  },
+  {
+    "i": 326,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Even with all the modeling",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "notes",
+    "explainedBy": "Turn: even with all the modeling, some things defy it — the listener's sheet of numbers is not enough.",
+    "noVisual": "A transition line; the slumped figure with the sheet carries the limit.",
+    "storyboard": {
+      "claim": "Even with all the modeling in the world, some things defy it.",
+      "concreteVisual": "The listener worried and slumped, holding his sheet.",
+      "onScreenText": "Even with all the modeling",
+      "relationToPrevious": "Transition to the final section.",
+      "addedInformation": "weak: sets up the limit."
+    }
+  },
+  {
+    "i": 327,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A 19th-century writing desk",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "eliot"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "holds": "notes",
+    "explainedBy": "For truly unquantifiable decisions the hosts take us to a 19th-century writing desk — a Victorian novelist seated at work.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "To explore unquantifiable decisions, go to a 19th-century writing desk.",
+      "concreteVisual": "George Eliot seated at her desk with pages.",
+      "onScreenText": "A 19th-century writing desk",
+      "relationToPrevious": "From the modern listener to the Victorian desk.",
+      "addedInformation": "Sets the era and place."
+    }
+  },
+  {
+    "i": 328,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "George Eliot",
+      "style": "highlight"
+    },
+    "set": "library",
+    "cast": [
+      "eliot"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The novelist George Eliot scratches away with her pen, crafting her masterpiece — she writes at the desk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "George Eliot sits writing her masterpiece.",
+      "concreteVisual": "Same desk; Eliot now absorbed and pleased in her writing.",
+      "onScreenText": "George Eliot",
+      "relationToPrevious": "Kept stage; she is named and her face changes.",
+      "addedInformation": "Names the novelist."
+    }
+  },
+  {
+    "i": 329,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Middlemarch",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "eliot"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "holds": "notes",
+    "continue": true,
+    "explainedBy": "The work: the novel Middlemarch, one of the greatest psychological novels — the book appears beside her.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The novel is Middlemarch, one of the greatest psychological novels.",
+      "concreteVisual": "Same desk; a book appears beside Eliot.",
+      "onScreenText": "Middlemarch",
+      "relationToPrevious": "Kept stage; the novel itself enters.",
+      "addedInformation": "Names the book."
+    }
+  },
+  {
+    "i": 330,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Exploring narrativeness",
+      "style": "box"
+    },
+    "set": "library",
+    "cast": [
+      "eliot"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "What she is doing, in scholars' terms: exploring narrativeness — working through a choice inside a story; she now holds the book.",
+    "noVisual": "An academic term; the book and the callout carry it.",
+    "storyboard": {
+      "claim": "Scholars call what she is doing exploring narrativeness.",
+      "concreteVisual": "Eliot now holds the book.",
+      "onScreenText": "Exploring narrativeness",
+      "relationToPrevious": "Kept stage; she lifts the book instead of writing.",
+      "addedInformation": "weak: the term is text-carried."
+    }
+  },
+  {
+    "i": 331,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "Should she marry Casaubon?",
+      "style": "reveal"
+    },
+    "set": "library",
+    "cast": [
+      "dorothea",
+      "casaubon"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "partnerExpression": "blank",
+    "explainedBy": "The novel's choice: the passionate young Dorothea agonizes over whether to marry the dry old scholar Casaubon, who stands by blank, book in hand.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Eliot puts Dorothea through the agonizing choice of whether to marry Casaubon.",
+      "concreteVisual": "Young Dorothea worried beside the gaunt, blank-faced Casaubon.",
+      "onScreenText": "Whether to marry Casaubon",
+      "relationToPrevious": "From the author to her characters.",
+      "addedInformation": "The two people in the choice and their contrast."
+    }
+  },
+  {
+    "i": 332,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "Utilitarian calculus shatters",
+      "style": "highlight"
+    },
+    "set": "library",
+    "cast": [
+      "dorothea",
+      "casaubon"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "partnerExpression": "blank",
+    "continue": true,
+    "explainedBy": "Eliot shows rigid calculation breaking against messy emotion: Dorothea's sadness against Casaubon's blankness.",
+    "noVisual": "The breaking of a calculation is abstract; the two faces carry the human side.",
+    "storyboard": {
+      "claim": "Eliot shows how utilitarian calculus shatters on messy human emotion.",
+      "concreteVisual": "Same pair; Dorothea now sad, Casaubon still blank.",
+      "onScreenText": "Utilitarian calculus shatters",
+      "relationToPrevious": "Kept stage; her face turns from worry to sadness.",
+      "addedInformation": "weak: the idea is text-carried."
+    }
+  },
+  {
+    "i": 333,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Weighted on a spreadsheet",
+      "style": "strike"
+    },
+    "set": "library",
+    "cast": [
+      "dorothea",
+      "casaubon"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "partnerExpression": "blank",
+    "continue": true,
+    "explainedBy": "The reason: some variables simply cannot be weighted on a spreadsheet — the spreadsheet phrase is rejected while Dorothea's fear stands.",
+    "noVisual": "A negated claim; the struck phrase and the face carry it.",
+    "storyboard": {
+      "claim": "Some variables cannot be weighted on a spreadsheet.",
+      "concreteVisual": "Same pair; Dorothea afraid; the spreadsheet phrase struck through.",
+      "onScreenText": "Weighted on a spreadsheet",
+      "relationToPrevious": "Kept stage; her face changes again.",
+      "addedInformation": "The rejected method."
+    }
+  },
+  {
+    "i": 334,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Meadow Lake, Queens",
+      "style": "reveal"
+    },
+    "set": "shore",
+    "cast": [],
+    "explainedBy": "Callback: the fish suffocating under the algae bloom in Meadow Lake were living stakeholders — the lake itself on screen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The fish suffocating in Meadow Lake were stakeholders in the planning decision.",
+      "concreteVisual": "The lake water on the shore, nobody on screen.",
+      "onScreenText": "Meadow Lake, Queens",
+      "relationToPrevious": "From the novel back to an earlier case.",
+      "addedInformation": "Recalls the lake."
+    }
+  },
+  {
+    "i": 335,
+    "concept": "tree",
+    "diagram": null,
+    "callout": {
+      "text": "A fish or a forest",
+      "style": "reveal"
+    },
+    "set": "forest",
+    "cast": [],
+    "explainedBy": "The unanswerable question: how do you put a 0-to-1 weight on the survival of a fish or a forest — you can't.",
+    "noVisual": "The impossibility is in the words; the tree shows the thing that resists weighting.",
+    "storyboard": {
+      "claim": "You can't put a decimal weight on the survival of a fish or a forest.",
+      "concreteVisual": "A tree in a forest.",
+      "onScreenText": "A fish or a forest",
+      "relationToPrevious": "From the lake to living things in general.",
+      "addedInformation": "weak: the forest names the thing; the impossibility stays text."
+    }
+  },
+  {
+    "i": 336,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Caring for an aging parent",
+      "style": "reveal"
+    },
+    "set": "kitchen",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "explainedBy": "An everyday choice with no math: how to care for an aging parent whose mind is declining — the listener slumps over the phone call.",
+    "noVisual": "No icon reads as an aging parent; the worried listener and the callout carry it.",
+    "storyboard": {
+      "claim": "Think of the agonizing choice of how to care for an aging parent.",
+      "concreteVisual": "The listener at the kitchen table, worried, holding his phone.",
+      "onScreenText": "Caring for an aging parent",
+      "relationToPrevious": "From nature to everyday human decisions.",
+      "addedInformation": "weak: the parent is not drawn."
+    }
+  },
+  {
+    "i": 337,
+    "concept": "medical",
+    "diagram": null,
+    "callout": {
+      "text": "A risky experimental treatment",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "afraid",
+    "action": "idle",
+    "explainedBy": "Another such choice: whether to undergo a risky experimental medical treatment — the listener faces the medical sign, afraid.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or whether to undergo a risky treatment that may extend life but ruin its quality.",
+      "concreteVisual": "The listener, afraid, beside a medical cross.",
+      "onScreenText": "A risky experimental treatment",
+      "relationToPrevious": "Second example of an unquantifiable choice.",
+      "addedInformation": "The medical setting."
+    }
+  },
+  {
+    "i": 338,
+    "concept": "prosConsList",
+    "diagram": null,
+    "callout": {
+      "text": "Entirely hollow",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "In those moments a pros-and-cons list feels hollow, almost insulting — the list beside a dejected listener, not a helpful one.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A pro-con list or value model will feel hollow, almost insulting, in such choices.",
+      "concreteVisual": "The pros-and-cons list beside the sad, slumped listener.",
+      "onScreenText": "Entirely hollow",
+      "relationToPrevious": "From the examples to the tool failing them.",
+      "addedInformation": "The list named by the narration is shown and rejected by the face."
+    }
+  },
+  {
+    "i": 339,
+    "concept": "compoundModel",
+    "diagram": null,
+    "callout": {
+      "text": "3D intelligence models",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "Recap of the hour: the 3D intelligence model of the compound and cognitive diversity — the model itself on screen.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "After an hour of 3D intelligence models and cognitive diversity...",
+      "concreteVisual": "The walled compound scale model on its table.",
+      "onScreenText": "3D intelligence models",
+      "relationToPrevious": "The pushback begins by listing the tools discussed.",
+      "addedInformation": "Recalls the CIA model."
+    }
+  },
+  {
+    "i": 340,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A Victorian fiction novel?",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "The pushback: after mock juries and Franklin, the ultimate tool is to read a Victorian novel? The listener holds up the book, surprised.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "After all of that, the ultimate tool is reading a Victorian novel?",
+      "concreteVisual": "The listener holds a book, surprised.",
+      "onScreenText": "A Victorian fiction novel?",
+      "relationToPrevious": "From the tools to the surprising recommendation.",
+      "addedInformation": "The book in hand is the tool named."
+    }
+  },
+  {
+    "i": 341,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A cognitive rehearsal space",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "holds": "book",
+    "explainedBy": "The answer: realist fiction is a rehearsal space for choices we only make once — the listener sits down to read.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Immersive realist fiction is a cognitive rehearsal space for once-in-a-life choices.",
+      "concreteVisual": "The listener seated, reading a book.",
+      "onScreenText": "A cognitive rehearsal space",
+      "relationToPrevious": "From surprise to reading.",
+      "addedInformation": "Shows reading as the practice."
+    }
+  },
+  {
+    "i": 342,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "You cannot practice",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "Why it matters: you cannot practice caring for an aging parent or deciding to marry in real life — his face turns to worry over the book.",
+    "noVisual": "The point is about real life having no practice runs; the face carries the weight.",
+    "storyboard": {
+      "claim": "You cannot practice caring for a parent or deciding to marry.",
+      "concreteVisual": "Same reader, now worried.",
+      "onScreenText": "You cannot practice",
+      "relationToPrevious": "Kept stage; face changes to worry.",
+      "addedInformation": "weak: the examples are text-carried."
+    }
+  },
+  {
+    "i": 343,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It's a rehearsal",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "surprised",
+    "action": "sit",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "You get one shot in life, but reading Middlemarch lets the brain simulate those choices — a rehearsal; his face lights up.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Reading Middlemarch, your brain simulates those choices: a rehearsal.",
+      "concreteVisual": "Same reader, now surprised and engaged.",
+      "onScreenText": "It's a rehearsal",
+      "relationToPrevious": "Kept stage; worry turns to discovery.",
+      "addedInformation": "The rehearsal idea."
+    }
+  },
+  {
+    "i": 344,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A flight simulator for empathy",
+      "style": "reveal"
+    },
+    "set": "room",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "sit",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "Fiction as a flight simulator for the moral imagination, scaling up empathy — the reader, content, keeps reading.",
+    "noVisual": "No vocabulary icon reads as a simulator or empathy; the reader and the callout carry it.",
+    "storyboard": {
+      "claim": "It acts as a flight simulator for the moral imagination and scales empathy.",
+      "concreteVisual": "Same reader, now happy.",
+      "onScreenText": "A flight simulator for empathy",
+      "relationToPrevious": "Kept stage; face turns happy.",
+      "addedInformation": "weak: the metaphor is text-carried."
+    }
+  },
+  {
+    "i": 345,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "Choices for the far future",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "explainedBy": "The far-sighted global choices that need it: combating climate change, deciding whether to broadcast messages to the stars.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Civilization's far-sighted choices: climate change, messages to the stars, infrastructure.",
+      "concreteVisual": "A sorter of global choices: Global climate change | Messages to the stars.",
+      "onScreenText": "Global climate change / Messages to the stars",
+      "relationToPrevious": "From personal reading to civilization's choices.",
+      "addedInformation": "Names the global decisions."
+    }
+  },
+  {
+    "i": 346,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "People not yet born",
+      "style": "reveal"
+    },
+    "set": "abstract",
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The problem these share: they affect people not born for 200 years, who are not in the room to vote — the third bucket names them.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Infrastructure choices affect people not born for 200 years, who can't vote in the room.",
+      "concreteVisual": "The sorter gains: Not born for 200 years.",
+      "onScreenText": "Not born for 200 years",
+      "relationToPrevious": "Kept sorter; the absent stakeholders added.",
+      "addedInformation": "Who is affected but absent."
+    }
+  },
+  {
+    "i": 347,
+    "concept": "optionC",
+    "diagram": null,
+    "callout": {
+      "text": "Widen the map",
+      "style": "reveal"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Empathy from narrative lets us simulate future people and advocate for them — the reader with his book before the widened map's third path.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Empathy generated by narrative is the ultimate tool to widen the map before choosing.",
+      "concreteVisual": "The listener holding a book beside the fork with a third path.",
+      "onScreenText": "Widen the map",
+      "relationToPrevious": "Ties the book back to the widened-map idea.",
+      "addedInformation": "Links reading to the third path."
+    }
+  },
+  {
+    "i": 348,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The capstone of far-sightedness",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "everyman"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "Empathy is the capstone of far-sightedness — then the host signals one last honest pushback; the reader still holds the book.",
+    "noVisual": "A summary line; the kept reader and the callout carry it.",
+    "storyboard": {
+      "claim": "It is the capstone of far-sightedness; now one honest pushback on the whole premise.",
+      "concreteVisual": "Same listener with his book; the fork icon is gone.",
+      "onScreenText": "The capstone of far-sightedness",
+      "relationToPrevious": "Kept listener; the callout names the conclusion.",
+      "addedInformation": "weak: the pushback starts next beat."
+    }
+  }
+]
