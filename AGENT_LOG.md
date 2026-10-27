@@ -2087,6 +2087,30 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-27 — Antidote REFUTE chain: the screen rejects a claim only when the narration does (P2); scorecard P3 not shipped (antidote-10x)
+- **P2 — new diagram type `refute`.** The chain is Claim → Contradiction → Rejection → Correct model.
+  - Each step is bound to the narration word that says it: `cues` → `at` through a strict word anchor
+    (`scripts/lib/word-anchor.js`). The rejection lags its word by 3 frames.
+  - A missing stance cue is fatal at plan time, so the screen can never reject before the narration does.
+  - After the rejection, the claim shrinks into a corner and the truth model takes the spotlight.
+  - Code: `src/engines/antidote/refute.ts`, `refuteSchema`, the Diagram.tsx Refute archetype, and the plan-antidote cue
+    chain.
+  - Merge: `refuteProblems` checks that cues are spoken, that verdict ≠ claim, and that the claim reads as a sentence.
+    The author rule is in the Negation section.
+  - v2 (the early ✗) is NOT shipped.
+- **Blind test.** Unlimited-memory 56–62, unpublished, in a sandbox copy, 3 fresh readers per arm, moving sequence.
+  - Baseline polarity was UNCLEAR 3/3, with WRONG 3/21, ADDS 10/21, EXPLAINS 0/21.
+  - Refute polarity was CORRECT 3/3, with WRONG 0/21, ADDS 19/21, EXPLAINS 8/21.
+  - Single frames: 59 went from WRONG 2/2 to CORRECT; 58 stayed neutral in both arms.
+  - Schema compatibility: re-planning 56 configs gives 0 differences.
+- **Known cosmetic issue.** At scale 1.35, the owner tag sits partly under the HUD.
+- **P3 — scorecard "known + open span" totals: NOT shipped.** It stays on `dev/scorecard`.
+  - Blind result: C2 (production) had WRONG 0/18 and EXPLAINS 5/18; P3 had WRONG 2/18 and EXPLAINS 3/18.
+  - Row 5 was still misread ("California's total is low").
+- **Type fixes for P1 code:** `continuity.ts` inState annotation, and the kept place in `Scene.tsx` no longer passes
+  `undefined` arc/motion. No behaviour change.
+- New books only: published books are frozen and pinned books keep their SHA.
+
 ### 2026-10-27 — Antidote CARRIED STATE across beats (P1) + agent autonomy (P4) + Vox image/Flux/SHA checks (P5) (antidote-10x)
 - **P1 — carried state.** A deed's end state is the next `continue` beat's starting state:
   - a lift leaves her IN the destination and the lifter beside it;

@@ -567,7 +567,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       {place ? (
         // already there: no draw-in, no pop — the kept destination at the deed's end position (reframed for this shot)
         <AbsoluteFill style={camPlane((place.prop as (typeof props)[number]).depth ?? 0.72)}>
-          <Motif spec={{ ...(place.prop as (typeof props)[number]), at: 0, enter: "none", arc: undefined, motion: undefined, x: place.dest.x, y: place.dest.y, scale: place.dest.scale }} accent={accent} ink={ink} />
+          <Motif spec={{ ...(place.prop as (typeof props)[number]), at: 0, enter: "none", arc: "none", motion: undefined, x: place.dest.x, y: place.dest.y, scale: place.dest.scale }} accent={accent} ink={ink} />
         </AbsoluteFill>
       ) : null}
       {texts.map((tx, i) => {

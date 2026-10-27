@@ -343,7 +343,7 @@ function applyCarriedState(scenes: AnyScene[], plans: ScenePlan[], drawsCast: (s
     const scene = scenes[i];
     if (isCard(scene)) { out = null; continue; }
     const stamped = isAuthoredContinuation(scene, i) && scene.carryState === true;
-    const inState = stamped ? out : null;
+    const inState: CarriedState | null = stamped ? out : null;
     const drawn = drawnChars(scene, drawsCast);
     const shot = scene.shot ?? "medium";
     const next: CarriedState = { rests: {} };

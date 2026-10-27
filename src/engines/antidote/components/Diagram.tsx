@@ -5,6 +5,7 @@ import { fitLabel, DIAGRAM_VW as VW, DIAGRAM_VH as VH, type FittedLabel } from "
 import { builtFrame, shellFrame, SETTLED_FRAME, type DiagramCarry } from "../continuity";
 import { flowNodeXs, flowHasToken } from "../flowLayout";
 import { scorecardState, type Scorecard } from "../scorecard";
+import { refuteState, type Refute } from "../refute";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -622,6 +623,112 @@ const Funnel: React.FC<ArchProps> = ({ spec, accent, ink, paper, frame, fps, car
   );
 };
 
+// ── refute — a claim put forward, rejected ON the narration's word, explained, replaced (10x P2, refute.ts) ──
+// Everything drawn comes from refuteState(spec, frame): the claim bubble (in colour until the rejecting word, then grey,
+// stamped and moved to the corner — still labelled), the WHY (a one-slot gate on the hub) and the correct model in the
+// same parts (a single spotlight hopping input to input). No strike-through anywhere.
+const mixHex = (a: string, b: string, t: number) => {
+  const h = (c: string) => { const m = c.replace("#", ""); const f = m.length === 3 ? m.split("").map((x) => x + x).join("") : m; return [0, 2, 4].map((i) => parseInt(f.slice(i, i + 2), 16)); };
+  const x = h(a), y = h(b);
+  if ([...x, ...y].some((v) => Number.isNaN(v))) return a;
+  return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * t)).join(",")})`;
+};
+const REJ = "#C62D3F";
+const Refute: React.FC<ArchProps> = ({ spec, accent, ink, frame }) => {
+  const r = spec.refute as Refute | undefined;
+  if (!r || !r.inputs || !r.inputs.length) return <Title text={spec.title ?? "CLAIM"} ink={ink} show={1} />;
+  const st = refuteState(r, frame);
+  const P = st.p;
+  const GREY = "#9C988F";
+  const cAccent = mixHex(accent.startsWith("#") ? accent : "#E8572A", GREY, st.grey);
+  const cInk = mixHex(ink.startsWith("#") ? ink : "#1E1E22", "#77746D", st.grey);
+  const n = r.inputs.length;
+  // ── the claim panel (bubble 140..1060 x 70..470); after the rejection it shrinks into the top-left corner ──
+  const k = 1 - 0.5 * st.corner;
+  const ox = 140 - 120 * st.corner, oy = 70 - 40 * st.corner; // where the bubble's top-left lands
+  const inY = (i: number) => 160 + (i * 260) / Math.max(1, n - 1);
+  const outH = 230 * P.result * (1 - st.grey);
+  const claim = (
+    <g transform={`translate(${ox} ${oy}) scale(${k}) translate(-140 -70)`}>
+      <rect x={140} y={70} width={920} height={400} rx={36} fill="#FFFFFF" fillOpacity={0.55} stroke={cInk} strokeWidth={5} strokeDasharray="22 14" />
+      <path d="M210,470 L180,530 L270,470 Z" fill="#FFFFFF" fillOpacity={0.55} stroke={cInk} strokeWidth={5} />
+      <FitText fit={fitLabel(r.owner.toUpperCase(), { maxW: 560, baseSize: 34, minSize: 20, maxLines: 1 })} x={170} y={44} anchor="start" fill={cAccent} letterSpacing={2} />
+      <rect x={860} y={18} width={190} height={50} rx={25} fill={st.chip === "REJECTED" ? REJ : st.chip === "?" ? "#E0A33A" : cInk} />
+      <text x={955} y={53} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={st.chip === "REJECTED" ? 26 : 30} fill="#FFFFFF">{st.chip}</text>
+      {r.inputs.map((lab, i) => (
+        <g key={`ci${i}`}>
+          <rect x={180} y={inY(i) - 34} width={200} height={68} rx={16} fill={cAccent} opacity={0.92} />
+          <FitText fit={fitLabel(lab.toUpperCase(), { maxW: 180, baseSize: 30, minSize: 16, maxLines: 1 })} x={280} y={inY(i)} fill="#FFFFFF" />
+          {/* all inputs flow into the hub AT ONCE: the claim's own model */}
+          <line x1={380} y1={inY(i)} x2={380 + (530 - 380) * P.links} y2={inY(i) + (290 - inY(i)) * P.links} stroke={cInk} strokeWidth={8} strokeLinecap="round" opacity={P.links > 0 ? 1 : 0} />
+        </g>
+      ))}
+      <circle cx={600} cy={290} r={78} fill={cInk} />
+      <FitText fit={fitLabel(r.hub.toUpperCase(), { maxW: 130, baseSize: 30, minSize: 16, maxLines: 1 })} x={600} y={290} fill="#FFFFFF" />
+      {P.doubt > 0 && st.grey === 0 ? <text x={600} y={190} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={900} fontSize={84 * P.doubt} fill="#E0A33A">?</text> : null}
+      <line x1={678} y1={290} x2={840} y2={290} stroke={cInk} strokeWidth={8} opacity={P.links} />
+      {/* the claimed output: a bar that rises; after the rejection it empties to a dashed outline */}
+      <rect x={850} y={180} width={150} height={230} rx={14} fill="none" stroke={cInk} strokeWidth={5} strokeDasharray={st.grey > 0 ? "14 10" : undefined} opacity={P.result} />
+      <rect x={850} y={410 - outH} width={150} height={outH} rx={14} fill={cAccent} />
+      <FitText fit={fitLabel((r.output || "OUTPUT").toUpperCase(), { maxW: 190, baseSize: 26, minSize: 16, maxLines: 1 })} x={925} y={440} fill={cInk} />
+      {P.result > 0 ? <FitText fit={fitLabel(r.claim.toUpperCase(), { maxW: 860, baseSize: 40, minSize: 22, maxLines: 1 })} x={600} y={520} fill={cInk} /> : null}
+      {P.illusion > 0 && r.illusion ? <FitText fit={fitLabel(r.illusion.toUpperCase(), { maxW: 240, baseSize: 24, minSize: 14, maxLines: 2 })} x={925} y={150} fill={REJ} /> : null}
+      {/* the verdict: a stamp ON the claim — readable words, no strike-through */}
+      {st.grey > 0 ? (
+        <g transform={`translate(600 270) rotate(-8) scale(${0.6 + 0.4 * st.grey})`} opacity={st.grey}>
+          <rect x={-330} y={-58} width={660} height={116} rx={18} fill="#FFFFFF" fillOpacity={0.9} stroke={REJ} strokeWidth={10} />
+          <FitText fit={fitLabel(r.verdict.toUpperCase(), { maxW: 600, baseSize: 56, minSize: 26, maxLines: 1 })} x={0} y={0} fill={REJ} />
+        </g>
+      ) : null}
+      {P.reason > 0 && st.grey > 0 ? <FitText fit={fitLabel(`WHY: ${r.reason}`.toUpperCase(), { maxW: 880, baseSize: 40, minSize: 22, maxLines: 1 })} x={600} y={575} fill={REJ} /> : null}
+    </g>
+  );
+  // ── the correct model (right side, after the rejection): the same parts, ONE input at a time ──
+  const tIn = (i: number) => 200 + (i * 300) / Math.max(1, n - 1);
+  const hubX = 1000, hubY = 350;
+  const shown = Math.max(P.truth, P.reason);
+  const truth = shown > 0 ? (
+    <g opacity={shown}>
+      {P.truth > 0 ? <FitText fit={fitLabel(r.truth.toUpperCase(), { maxW: 700, baseSize: 40, minSize: 22, maxLines: 2 })} x={840} y={110} fill={ink} /> : null}
+      {r.inputs.map((lab, i) => {
+        const lit = st.spot === i ? st.spotOn : 0;
+        return (
+          <g key={`ti${i}`} opacity={P.off > 0 && i === 0 ? 1 - 0.65 * P.off : 1}>
+            <rect x={560} y={tIn(i) - 34} width={210} height={68} rx={16} fill={lit > 0 ? accent : "#FFFFFF"} stroke={ink} strokeWidth={5} />
+            <FitText fit={fitLabel(lab.toUpperCase(), { maxW: 190, baseSize: 30, minSize: 16, maxLines: 1 })} x={665} y={tIn(i)} fill={lit > 0 ? "#FFFFFF" : ink} />
+          </g>
+        );
+      })}
+      <circle cx={hubX} cy={hubY} r={78} fill={ink} />
+      <FitText fit={fitLabel(r.hub.toUpperCase(), { maxW: 130, baseSize: 30, minSize: 16, maxLines: 1 })} x={hubX} y={hubY} fill="#FFFFFF" />
+      {/* ONE beam from the hub to the input it is on (it rests on the hub until the run starts) */}
+      {st.spot >= 0 ? <path d={`M${hubX - 70},${hubY - 22} L770,${tIn(st.spot) - 34} L770,${tIn(st.spot) + 34} L${hubX - 70},${hubY + 22} Z`} fill="#FFD75E" opacity={0.55 * st.spotOn} /> : P.truth > 0 ? <circle cx={hubX} cy={hubY} r={104} fill="none" stroke="#FFD75E" strokeWidth={14} opacity={0.8 * P.truth} /> : null}
+      {/* WHY: a one-slot gate on the hub — one input passes, the others bounce off */}
+      {P.reason > 0 ? (
+        <g opacity={P.reason}>
+          <rect x={hubX - 120} y={hubY - 120} width={22} height={240} rx={8} fill={REJ} />
+          <rect x={hubX - 124} y={hubY - 18} width={30} height={36} rx={6} fill="#FFFFFF" />
+          <FitText fit={fitLabel(r.reason.toUpperCase(), { maxW: 360, baseSize: 30, minSize: 18, maxLines: 2 })} x={hubX - 10} y={hubY + 150} fill={REJ} />
+        </g>
+      ) : null}
+      {P.bounce > 0 && P.run === 0 ? r.inputs.map((_, i) => {
+        const pass = i === 0, t = Math.min(1, P.bounce * 1.4);
+        const x2 = 770 + (hubX - 130 - 770) * (pass ? t : Math.min(t, 0.85));
+        const back = pass ? 0 : Math.max(0, P.bounce * 1.4 - 0.85) * 120;
+        return <line key={`b${i}`} x1={770} y1={tIn(i)} x2={x2 - back} y2={tIn(i) + (hubY - tIn(i)) * t * 0.9} stroke={pass ? accent : GREY} strokeWidth={7} strokeLinecap="round" />;
+      }) : null}
+      {P.ring > 0 ? (
+        <g>
+          <circle cx={665} cy={tIn(0)} r={74} fill="none" stroke={accent} strokeWidth={8} strokeDasharray={`${465 * P.ring} 465`} transform={`rotate(-90 665 ${tIn(0)})`} />
+          <text x={790} y={tIn(0) - 44} fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={26} fill={accent}>2 SEC</text>
+        </g>
+      ) : null}
+      {P.off > 0 ? <text x={665} y={tIn(0) + 70} textAnchor="middle" fontFamily="Poppins, Arial, sans-serif" fontWeight={800} fontSize={26} fill="#77746D" opacity={P.off}>DISENGAGE</text> : null}
+    </g>
+  ) : null;
+  return <g>{claim}{truth}</g>;
+};
+
 const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   sorter: Sorter,
   matchWave: MatchWave,
@@ -631,6 +738,7 @@ const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   tree: Tree,
   funnel: Funnel,
   scorecard: Scorecard,
+  refute: Refute,
 };
 
 /**

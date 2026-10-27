@@ -62,7 +62,7 @@ t("weightText (the narration's '×0.4') is printed and checked like any label", 
 // wiring: merge authors it, readcheck describes it
 const fs = require("fs"), path = require("path");
 const sb = fs.readFileSync(path.join(__dirname, "storyboard.js"), "utf8");
-t("merge: scorecard is an authorable diagram type, validated against the renderer schema, its words label-checked", /"matchWave", "scorecard"\]/.test(sb) && /function scorecardProblems/.test(sb) && /scorecardSchema\.safeParse/.test(sb) && /\(scoreWords \|\| a\.diagram\.labels \|\| \[\]\)/.test(sb));
+t("merge: scorecard is an authorable diagram type, validated against the renderer schema, its words label-checked", /"matchWave", "scorecard"/.test(sb) && /function scorecardProblems/.test(sb) && /scorecardSchema\.safeParse/.test(sb) && /\(scoreWords \|\| a\.diagram\.labels \|\| \[\]\)/.test(sb));
 t("rules text tells authors how to build it and never to invent a number or a winner", /SCORECARD — a weighted decision/.test(sb) && /Grade an option ONLY on the beat whose narration grades it/.test(sb) && /carry a grade or a result from a LATER beat/.test(sb) && /set `winner` only when/.test(sb.replace(/\\`/g, "`")));
 const rc = fs.readFileSync(path.join(__dirname, "readcheck.js"), "utf8");
 t("readcheck: the blind text reader is told what the scorecard draws at its stage", /function scorecardSeen/.test(rc) && /b\.diagram\.type === "scorecard"/.test(rc));
