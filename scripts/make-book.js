@@ -499,6 +499,7 @@ console.log(`\n📺 ÖNİZLE (Studio):`);
 console.log(`   npm run dev   →   http://localhost:3000/Vox-${SLUG}`);
 console.log(`\n🖼️  THUMBNAIL: out/thumbnail-${SLUG}.png ${fs.existsSync(path.join(ROOT, THUMB_PNG)) ? "✓" : "(adım 8 atlandıysa: node scripts/render-thumbnails.js --slug=" + SLUG + ")"}`);
 console.log(`\n🎬 RENDER:`);
+console.log(`   (operatör kararı — preview akışında çalıştırma)`);
 console.log(`   • Yerel (varsayılan): node scripts/render.js --slug=${SLUG}  (veya: npm run render -- --slug=${SLUG})`);
 console.log(`   • AWS Lambda        : node scripts/render.js --slug=${SLUG} --method=lambda`);
 console.log(`   • GitHub Actions    : node scripts/render.js --slug=${SLUG} --method=github`);

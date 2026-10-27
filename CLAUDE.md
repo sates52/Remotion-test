@@ -72,6 +72,7 @@
   current config (authored storyboard, every gate, blind mute test PASS). Report to the operator in Turkish using the
   skill's report template. A new book starts only on current `origin/god-mode` code in its own worktree (enforced).
 - The full video render is NOT part of this request — it is a separate, operator-approved step.
+- Autonomy (what needs no approval vs real gates): preview-hazirla §3.
 
 ## 🧱 Storyboard invariants — what the first 7 books taught (STRICT, 2026-09-28)
 

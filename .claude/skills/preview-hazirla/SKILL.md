@@ -60,6 +60,9 @@ make-book → sealed mute test → preview-ready → hand-off. What you do witho
 | seal / mute (§4) | Seal right after the first make-book; then the verdict prep, a FRESH sonnet describer, `judge`, a FRESH sonnet judge, `tally`. Blind agents never authored the storyboard and are never told the book. The prep renders 30 stills in one bundle — tens of minutes on a busy PC: start it ONCE in the background and wait for its completion notification; do not poll, cancel or restart it (a restart pays the bundle again; a second prep of the same label is refused while one runs, exit 3). If it was killed anyway, run the same command again: stills already rendered from the same config are kept. |
 | fixRound (§4) | cause-ledger + similar-candidates, then the fix-round protocol: fix only CONFIRMED authoring classes on their REVIEW beats (soft cap ~25), merge, readcheck the changed beats, make-book, a fresh holdout (`status` names the label). ENGINE / VOCABULARY → `AGENT_LOG.md` `for-review`; RATER → noted. |
 
+Duration is never a reason to ask: a long step (prep, bundle, make-book, image generation on a configured free
+provider) is started and waited for — never "this will take long, continue?".
+
 `status` already enforces the order: resume is automatic (a finished, current step is never redone; a step whose
 inputs changed is shown stale), the sealed sample is never re-drawn, an unchanged film never gets a new holdout.
 
@@ -79,7 +82,17 @@ inputs changed is shown stale), the sealed sample is never re-drawn, an unchange
 | `ENGINE_LIMIT` (or your own finding) | a gate or mute failure that no storyboard change can clear: the cause-ledger attributes every failure to ENGINE / VOCABULARY / RATER, or you looked at the stills and found no authoring class — after `prep` refreshed the vocabulary (never report a limit that was already fixed). Log it as `for-review: <slug> — <problem>` (scene id, file, what you saw); work around it in the storyboard where you can |
 | operator authority | a full render, accepting quality debt, the YouTube pack upload, publishing, any cleanup — never yours |
 
-Everything else is yours: routine technical progress needs no approval.
+**Autonomy (canonical — what needs no approval vs the real gates).** Routine, proceed without asking: story bible,
+own icons, prep, authoring, merge and its fixes, readcheck, make-book, Screen-Text / gate fixes in the storyboard,
+missing images ONLY on providers already configured AND known free to the operator, the whole mute test (seal, prep,
+blind, judge, tally, sealed verdict runs), fix rounds up to the allowed limit, preview-ready, the hand-off, and —
+after READY — the YouTube pack text / meta / thumbnails (no upload). Duration is never a reason to ask: start it and
+wait. Real gates, stop and ask: any new or uncertain cost (Flux/NVIDIA image generation is NOT assumed free — a new,
+paid or unknown-cost provider, and re-generating filtered images, need operator approval); deleting or overwriting
+data you do not own; input or commit mismatches the tools cannot resolve (the `status` OPERATOR codes above, VTT
+pre-flight, `ENGINE_CONTRADICTION`, `PRODUCTION_ALLOW_*`); accepting quality debt or ending at the fix-round /
+holdout limits; a full / final render, upload, publishing; any cleanup; any credential change. If unsure: if
+`node scripts/preview-state.js status --slug=<slug>` prints CONTINUE, continue.
 
 ## 4. Errors: transient vs real
 
@@ -101,7 +114,8 @@ Everything else is yours: routine technical progress needs no approval.
 
 - `node scripts/gen-books-registry.js`; Antidote: collect the facts with `antidote-quality-handoff`.
 - The book stays in its production worktree — Studio, the YouTube pack and any later render run there. Do not copy
-  it into the shared checkout, and commit or push its files only if the operator asks.
+  it into the shared checkout, and commit or push its files only if the operator asks — except the routine commits this
+  procedure itself requires (e.g. a new `data/icon-readings.json` row, §2 readcheck), which you make without asking.
 - The main checkout's `AGENT_LOG.md`: mark your WIP row done; one changelog entry (preview-ready output, every mute
   run's totals, for-review items, the worktree path).
 - **HAZIR is a quote, not a judgement.** Write "preview HAZIR" only when `preview-state.js status` prints `READY` (it
@@ -118,7 +132,7 @@ Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, ölü kare <n>/30, 
 Gate'ler: authorship ✓ · firewall ✓ (<n> REVIEW) · screen-text ✓ · dead-air <en uzun boşluk>
 Gözden geçirilecekler: <for-review maddeleri, yoksa "yok">
 Durma nedeni: <yalnızca HAZIR DEĞİL ise: preview-state kodu + kanıt>
-Sıradaki adım: <önizlemeyi izle → onaylarsan YouTube paketi / render — operatör kararı>
+Sıradaki adım: <HAZIR ise YouTube paketi (metin/meta/thumbnail, yükleme yok) hazırlanıyor/hazır; render ve yükleme — operatör kararı>
 ```
 
 ## 6. Hard rules (runbook §7, contract §3)

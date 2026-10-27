@@ -44,9 +44,9 @@ node scripts/make-prompt.js --title="<title>" --author="<author>" --genre=<genre
 ```
 It refuses to run without a profile (or an explicit `--engine=… --engine-why="…"`). It records
 `engine`, `engineRationale`, `engineDecidedBy`, `engineProfile` in `books/<slug>/book.json`.
-Tell the operator in one line: **"Motor: <VOX|ANTIDOTE> — <gerekçe>; risk: <varsa>"**. If the
-result surprises you (it contradicts your reading of the book), stop and discuss before writing
-the prompt — do not override silently.
+Tell the operator in one line: **"Motor: <VOX|ANTIDOTE> — <gerekçe>; risk: <varsa>"**. Stop only if
+make-prompt's engine contradicts your profile reading (then discuss — do not override silently);
+otherwise state the engine line and continue.
 
 ## 3. Author the prompt (Claude-first)
 Rewrite the block in `books/<slug>/prompt.notebooklm.md` exactly as make-prompt instructs:

@@ -196,7 +196,8 @@ node scripts/make-book.js --slug=<slug> --title="<title>" --author="<author>" --
 - Antidote: must end with `Authorship Gate … → PASS` (step 1.898).
 - Vox: the Authorship Gate runs **before Flux** (step 1.9) — an unauthored beat never costs an image.
 - A gate FAIL is information, not an obstacle: read its report in `books/<slug>/*.report.json`.
-  Content problems → fix the storyboard (step 2). Engine problems → **stop and log** (see §7).
+  Content problems → fix the storyboard (step 2). Engine problems → log `for-review` (see §7) and work around them in
+  the storyboard; stop only on `ENGINE_LIMIT` (preview-state).
 
 ### 3b. Framecheck — a blind look at the REAL frame of every beat (Antidote; optional, report-only)
 Readcheck reads text; the misreads that fail mute tests come from the drawing (a face, an icon, a twin).
@@ -320,7 +321,7 @@ node scripts/render.js --slug=<s> --method=github --accept-quality-debt="<why th
 **Retries:** transient causes only (network error, HTTP 429, 5xx), at most 3 attempts. Any other HTTP code
 (401/403/404/422 …) is one BLOCKER line: fix the cause and dispatch again. Never switch mode between attempts.
 
-## 6. YouTube pack (after the operator likes the preview)
+## 6. YouTube pack (after READY; no approval needed — upload and render stay the operator's)
 `make-book` without `--skip-pack`, then hand-refine the meta from the VTT (titles per the SEO
 strategy, chapters, description; English only). Rendering is a separate, operator-approved step.
 Titles follow the **title contract** (SKILL.md §9.6b): write `titleAngles` (≥ 2 × myth / what the book
