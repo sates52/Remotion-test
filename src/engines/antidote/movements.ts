@@ -176,6 +176,9 @@ export const ACTION_CUE_MIN = 24;
 export const LEAVE_LEN = 80, FLEE_LEN = 42, TURN_LEN = 6;
 /** Frames from an authored `take` cue to the object being held at the chest. */
 export const TAKE_BRING = 24;
+/** PLACE (Action 3.0): the held object goes out to the rest position (PLACE_OUT), is let go, the empty hand stays a
+ *  moment (PLACE_HOLD) and comes back (PLACE_BACK) — the object stays where it was set down */
+export const PLACE_OUT = 22, PLACE_HOLD = 10, PLACE_BACK = 20;
 // `drink` (10x P2): up to the lips, the sip held, back down to the chest
 export const DRINK_UP = 18, DRINK_SIP = 42, DRINK_DOWN = 20;
 /** Frames before an `embrace` cue in which the lead closes the gap (contact lands ON the cue). */
@@ -288,6 +291,29 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         headY: lerp(at.headY, bob(frame, 2, 140), k), blink,
         gazeX: lerp(at.gazeX, 0.3, k), gazeY: lerp(at.gazeY ?? 0, 0.35, k),
         take: 1, bring: k,
+      };
+    }
+    case "place": {
+      // Action 3.0 (2026-10-28): SETTING SOMETHING DOWN — take in reverse. START: the object in hand at the chest
+      // (take's end pose). MOMENT (cue): the arm carries it out to the rest position and lets go (take -> 0: the rig
+      // draws it resting there). RESULT: the empty hand comes back; the object STAYS (a continued beat repeating the
+      // place keeps it settled). Blind: "sets it down", "put the tool down", "crumpled on the floor" read as a person
+      // holding / standing next to it (lightning-thief 71 WRONG, don't-believe 79 NONE, wonder 220 WRONG).
+      const at = pose("reach", cue, fps);
+      const held = { ...BASE, armR: -6, elbowR: 82, armL: 12, lean: -2, headY: bob(frame, 2, 140), blink, gazeX: 0.3, gazeY: 0.35 };
+      if (frame < cue) return { ...held, take: 1, bring: 1 };
+      const out = easeInOut((frame - cue) / PLACE_OUT);
+      const back = easeInOut((frame - cue - PLACE_OUT - PLACE_HOLD) / PLACE_BACK);
+      const ext = out * (1 - back); // 0 at the chest / back at the side, 1 at full reach
+      const armTo = (from: number, reachTo: number, side: number) => (back > 0 ? lerp(reachTo, side, back) : lerp(from, reachTo, out));
+      return {
+        ...BASE,
+        armR: armTo(-6, at.armR, -8), elbowR: armTo(82, at.elbowR ?? 0, 0),
+        armL: armTo(12, at.armL, 8), lean: armTo(-2, at.lean, 0),
+        legL: lerp(0, at.legL ?? 0, ext), legR: lerp(0, at.legR ?? 0, ext),
+        headY: lerp(held.headY, at.headY, ext), blink,
+        gazeX: lerp(0.3, at.gazeX, out), gazeY: lerp(0.35, at.gazeY ?? 0.4, out),
+        take: out < 1 ? 1 : 0, bring: 1 - out,
       };
     }
     case "lift": {

@@ -1076,7 +1076,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       }
       // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
       // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
-      if ((L.action === "take" || L.action === "drink" || L.action === "embrace" || L.action === "lift" || L.action === "leave" || L.action === "flee") && a.actionCue) {
+      if ((L.action === "take" || L.action === "drink" || L.action === "embrace" || L.action === "lift" || L.action === "leave" || L.action === "flee" || L.action === "place") && a.actionCue) {
         const cueAt = anchorAt(s, a.actionCue, null, durationFrames + MIN_HOLD);
         if (cueAt == null) warn(`actionCue "${a.actionCue}" is not spoken in this beat — the ${L.action} happens at 40% of the beat`);
         else {

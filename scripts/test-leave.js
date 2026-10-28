@@ -40,6 +40,11 @@ L = LL.leaveLayout(lead, partner, "flee", true);
 t("flee + icon: the exit is AWAY from the partner", L.dir === -1 && L.dest.x < lead.x - 200, JSON.stringify(L));
 L = LL.leaveLayout(lead, partner, "flee", false);
 t("flee, no icon: off the frame (fully out)", L.dest.x < -100 && L.exitDx < 0);
+L = LL.leaveLayout({ x: 700, y: 560, scale: 1 }, null, "flee", true, 1300);
+t("flee alone from an icon: the icon is the THREAT - runs away from it, off the frame (never toward it)", L.dir === -1 && L.dest.x < 0, JSON.stringify(L));
+L = LL.leaveLayout({ x: 1300, y: 560, scale: 1 }, null, "flee", true, 600);
+t("flee alone from an icon on the left: runs off the right edge", L.dir === 1 && L.dest.x > 1920, JSON.stringify(L));
+t("renderer: a lone flee keeps the icon where it is (the threat), a leave draws it at the exit", /fleeFromIcon/.test(require("fs").readFileSync(require("path").join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8")));
 L = LL.leaveLayout({ x: 1600, y: 560, scale: 1 }, null, "leave", false);
 t("alone: towards the farther edge, off the frame", L.dir === -1 && L.dest.x < 0);
 L = LL.leaveLayout({ x: 1500, y: 560, scale: 1 }, { x: 1700, y: 560, scale: 1 }, "leave", true);
@@ -52,7 +57,7 @@ t("a continued beat that still lists them idle keeps them gone (no teleport back
 t("an authored new action means they came back (the author decides)", !ES.keepsRest("gone", "talk") && !ES.keepsRest("gone", "sit"));
 const SC = fs.readFileSync(path.join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8");
 t("renderer: a carried 'gone' body is not drawn", /rest && rest\.posture === "gone"\) return null/.test(SC));
-t("renderer: the body moves by the path and faces its exit; the icon is drawn where the path ends", /exitShift/.test(SC) && /faceFlip/.test(SC) && /leave0 && props\.length \? leave0\.dest/.test(SC));
+t("renderer: the body moves by the path and faces its exit; the icon is drawn where the path ends", /exitShift/.test(SC) && /faceFlip/.test(SC) && /leave0 && props\.length && !fleeFromIcon \? leave0\.dest/.test(SC));
 const RC = fs.readFileSync(path.join(__dirname, "readcheck.js"), "utf8");
 t("readcheck: the blind text reader is told the person goes away and is gone", /walks out/.test(RC) && /runs away/.test(RC) && /gone — left the scene/.test(RC));
 

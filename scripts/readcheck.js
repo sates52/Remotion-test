@@ -118,6 +118,8 @@ function visible(b, bible, own, mech, causal) {
   }
   // LEAVE / FLEE (Action 2.0, leaveLayout.ts): the person goes away and is gone — say where, as the renderer draws it
   if ((b.action === "leave" || b.action === "flee") && framed && cast.length) v.motion = `the first person ${b.action === "flee" ? "runs away" : "walks out"}${cast.length === 2 ? (b.action === "flee" ? " from the second" : ", past the second,") : ""} ${b.concept ? `through the ${b.concept}` : "off the edge of the picture"} and is gone`;
+  // PLACE (Action 3.0): the object goes from the hand to a rest in front of the person and stays there
+  if (b.action === "place" && b.holds && framed && cast.length) v.motion = `the first person sets the ${b.holds} down in front of them; their hand comes back empty and the ${b.holds} stays there`;
   // a lift is the one action that MOVES people: say where they go, as the renderer draws it (liftLayout.ts)
   if (b.action === "lift" && cast.length === 2 && framed) v.motion = "the first person picks the second up, carries them to the icon and sets them down in it; they stay there";
   if (b.concept) v.icon = own[b.concept] ? (own[b.concept].reads || own[b.concept].title || b.concept) : (DRAWN[b.concept] || `an icon of ${b.concept}`);

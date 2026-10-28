@@ -203,9 +203,9 @@ const CharacterLayer: React.FC<{
   }
   // A HELD OBJECT clears the burned-in captions (groundFit.ts holdLift): one lift per scene from the settled hold
   // on this staging; a take lifts with its bring-in, so the take's end and a continued hold meet in the same pose.
-  if (spec.holds && (spec.action === "hold" || (spec.action === "take" && p.take === 1))) {
+  if (spec.holds && (spec.action === "hold" || ((spec.action === "take" || spec.action === "place") && p.take === 1))) {
     const lift = holdLift(st, pose("hold", 100000, fps), body, variant);
-    if (lift > 0) p = liftHold(p, spec.action === "take" ? lift * (p.bring ?? 1) : lift);
+    if (lift > 0) p = liftHold(p, spec.action === "take" || spec.action === "place" ? lift * (p.bring ?? 1) : lift);
   }
   const scale = st.scale * e.scale;
   // TRAVEL — the figure actually crosses the set over the beat. Without it a
@@ -388,10 +388,13 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     const c = bodies[k];
     if (scene.diagram || !c || (c.action !== "leave" && c.action !== "flee")) return null;
     const st = (j: number) => stageChar(scene.shot, bodies[j], plan && plan.chars[j] ? plan.chars[j].slot : j);
-    return leaveLayout(st(k), bodies.length > 1 ? st(k === 0 ? 1 : 0) : null, c.action, props.length > 0);
+    const iconSlot = embraceMotifSlot(scene.shot, bodies, preset.motif);
+    return leaveLayout(st(k), bodies.length > 1 ? st(k === 0 ? 1 : 0) : null, c.action, props.length > 0, props.length ? (props[0].x ?? iconSlot.x) : undefined);
   };
   const leave0 = lift ? null : leaveOf(0);
-  const motifSlot = lift ? lift.dest : leave0 && props.length ? leave0.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
+  // the icon is the EXIT of a leave (drawn where the path ends) — but the THREAT of a lone flee (it stays where it is)
+  const fleeFromIcon = !!(leave0 && bodies[0] && bodies[0].action === "flee" && bodies.length === 1);
+  const motifSlot = lift ? lift.dest : leave0 && props.length && !fleeFromIcon ? leave0.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
   // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
   // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
   // Only when the two FACE each other (the planner's twoShot): on an authored shot that turns them apart the object

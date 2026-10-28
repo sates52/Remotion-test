@@ -35,6 +35,15 @@ const Phone: G = ({ ink, accent }) => (
   </g>
 );
 
+const Wrench: G = ({ ink, accent }) => (
+  // an open-end wrench, big enough to read as a TOOL at a glance (v1 at 1x read as a stick)
+  <g transform="rotate(-30) scale(1.5)">
+    <rect x={-48} y={-7} width={66} height={14} rx={6} fill={accent} stroke={ink} strokeWidth={4} />
+    <path d="M40,-12 A17,17 0 1 0 40,12" fill="none" stroke={ink} strokeWidth={11} strokeLinecap="round" />
+    <circle cx={-40} cy={0} r={3.5} fill={ink} />
+  </g>
+);
+
 const Key: G = ({ ink, accent }) => (
   <g>
     <circle cx={-28} cy={0} r={22} fill="none" stroke={accent} strokeWidth={11} />
@@ -301,6 +310,7 @@ export const HAND_PROPS: Record<HandProp, G> = {
   shield: Shield, trophy: Trophy, hourglass: Hourglass, sword: Sword,
   target: Target, magnifier: Magnifier, wallet: Wallet, gift: Gift, zap: Zap,
   laptop: Laptop, creditCard: CreditCard, smartphone: Smartphone,
+  wrench: Wrench,
 };
 
 /**

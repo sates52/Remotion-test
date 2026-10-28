@@ -43,6 +43,7 @@ export const charAction = z.enum([
   "grabbing", // lunging, arm straight out at shoulder height — seizing someone or something
   // ── authored ACTIONS with a start, a moment and a result (2026-10-20) ────────
   // Both happen on the author's cue word (`actionAt`, from art.json `actionCue`) and keep their result.
+  "place", // Action 3.0: the reverse of take — holds `holds` at the chest; on the cue sets it down in front (it stays there), the empty hand comes back
   "take", // reaches for `holds` resting in front of them; on the cue the hand closes on it and brings it in — it stays in hand
   "embrace", // two people: the lead closes the gap and they hold each other from the cue (the partner embraces back)
   "lift", // two people (2026-10-26): the lead lifts the partner on the cue, carries her to the beat's icon and sets her down in it
@@ -147,6 +148,8 @@ export const handProp = z.enum([
   "laptop", "creditCard", "smartphone",
   // 10x P1 (2026-10-27): a lit cigarette held out (inside-out 197)
   "cigarette",
+  // Action 3.0 (2026-10-28): a tool that is picked up and put down (don-t-believe 79: "put the tool down")
+  "wrench",
 ]);
 export type HandProp = z.infer<typeof handProp>;
 
