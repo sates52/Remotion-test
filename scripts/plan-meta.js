@@ -17,7 +17,9 @@ const { rel, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 const { TITLE_RULES } = require("./lib/title-lint");
 
-const cfgPath = process.argv[2] || rel.voxConfig("single-dad-dilemma");
+const ARGV = process.argv.slice(2);
+const MD_ONLY = ARGV.includes("--md-only"), FORCE = ARGV.includes("--force");
+const cfgPath = ARGV.find((a) => !a.startsWith("--")) || rel.voxConfig("single-dad-dilemma");
 const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
 const { title, author, genre, slug, fps } = cfg.meta;
 // Claude-first: default produces the deterministic scaffold + needsClaudeRefine,
@@ -192,7 +194,59 @@ function fallbackMeta() {
   };
 }
 
+// youtube.md = what the operator pastes; rendered from youtube-meta.json only, so a refined meta and its md never
+// disagree (2026-10-28: Margery Kempe's md kept the scaffold's "TODO" titles after only the JSON was refined).
+function renderMd(meta) {
+  return `# YouTube pack — ${title}${author ? " (" + author + ")" : ""}
+
+> Title limit = **100 chars** (front-load the hook in the first ~45). Description first ~157 chars show above the fold. Tags cap = 500 chars. First 3 hashtags render above the title.
+${meta.needsClaudeRefine !== false ? "> ⚠ SCAFFOLD (deterministic) — hand-refine youtube-meta.json from the narration, set needsClaudeRefine:false, then `node scripts/plan-meta.js <config> --md-only` and `node scripts/lint-titles.js --slug=" + slug + " --pack`." : "> ✓ refined (" + (meta.metaSource || "refined") + ")"}
+
+## Title options (pick 1, A/B test top two)
+${(meta.titles || []).map((t, i) => `${i + 1}. ${t}  _(${[...t].length} chars)_`).join("\n")}
+
+**Primary keyword:** ${meta.primaryKeyword}
+
+## Description
+
+\`\`\`
+${meta.description}
+\`\`\`
+
+## Tags (≤500 chars — paste comma-separated)
+
+\`\`\`
+${(meta.tags || []).join(", ")}
+\`\`\`
+
+## Thumbnail
+- File: \`out/thumbnail-${slug}.png\` (1280×720)
+- Overlay hook (3–4 words, huge/bold/high-contrast, don't repeat the title): **${(meta.thumbnail && meta.thumbnail.hook) || ""}**
+- Subject: ${(meta.thumbnail && meta.thumbnail.subject) || ""}
+
+## Upload checklist
+- [ ] Upload \`out/${slug}.mp4\`
+- [ ] Title: paste option 1 (or A/B option 2)
+- [ ] Description: paste block (chapters auto-become clickable)
+- [ ] Tags: paste block
+- [ ] Thumbnail: \`out/thumbnail-${slug}.png\` + Test & compare B/C (\`-b.png\`, \`-c.png\`)
+- [ ] Captions: upload \`public/captions/${slug}.clean.vtt\` as English CC → choose **"With timing"** (NOT the raw ${slug}.vtt — YouTube rejects its inline word-timing markup)
+- [ ] Category: Education · add to a "Book Breakdowns" playlist
+- [ ] Pin a comment with the single sharpest line from the video
+`;
+}
+
 (async () => {
+  // A refined pack (needsClaudeRefine === false) is what will be uploaded: never replaced by the scaffold
+  // (--force regenerates). --md-only re-renders youtube.md from the meta as it is — run it after every hand-refine.
+  let existing = null;
+  try { existing = JSON.parse(fs.readFileSync(rel.youtubeMeta(slug), "utf8")); } catch { /* no meta yet */ }
+  if (existing && (MD_ONLY || (existing.needsClaudeRefine === false && !FORCE))) {
+    fs.writeFileSync(rel.youtubeMd(slug), renderMd(existing));
+    console.log(`✓ ${MD_ONLY ? "" : "kept refined " + rel.youtubeMeta(slug) + "; "}re-rendered ${rel.youtubeMd(slug)} from the meta${MD_ONLY ? "" : " (--force to regenerate)"}`);
+    return;
+  }
+  if (MD_ONLY) { console.error(`✗ --md-only: ${rel.youtubeMeta(slug)} missing`); process.exit(1); }
   const chapters = buildChapters();
   let m, metaSource = USE_LLM ? "llm" : "fallback";
   try { m = USE_LLM ? await llmMeta(chapters) : fallbackMeta(); }
@@ -266,42 +320,7 @@ function fallbackMeta() {
     console.warn(`  ⚠ bölümler config.vox.json'a yazılamadı: ${e.message}`);
   }
 
-  const md = `# YouTube pack — ${title}${author ? " (" + author + ")" : ""}
-
-> Title limit = **100 chars** (front-load the hook in the first ~45). Description first ~157 chars show above the fold. Tags cap = 500 chars. First 3 hashtags render above the title.
-
-## Title options (pick 1, A/B test top two)
-${(m.titles || []).map((t, i) => `${i + 1}. ${t}  _(${t.length} chars)_`).join("\n")}
-
-**Primary keyword:** ${m.primaryKeyword}
-
-## Description
-
-\`\`\`
-${description}
-\`\`\`
-
-## Tags (≤500 chars — paste comma-separated)
-
-\`\`\`
-${(m.tags || []).join(", ")}
-\`\`\`
-
-## Thumbnail
-- File: \`out/thumbnail-${slug}.png\` (1280×720)
-- Overlay hook (3–4 words, huge/bold/high-contrast, don't repeat the title): **${m.thumbnailHook}**
-- Subject: ${m.thumbnailSubject}
-
-## Upload checklist
-- [ ] Upload \`out/${slug}.mp4\`
-- [ ] Title: paste option 1 (or A/B option 2)
-- [ ] Description: paste block (chapters auto-become clickable)
-- [ ] Tags: paste block
-- [ ] Thumbnail: \`out/thumbnail-${slug}.png\` + Test & compare B/C (\`-b.png\`, \`-c.png\`)
-- [ ] Captions: upload \`public/captions/${slug}.clean.vtt\` as English CC → choose **"With timing"** (NOT the raw ${slug}.vtt — YouTube rejects its inline word-timing markup)
-- [ ] Category: Education · add to a "Book Breakdowns" playlist
-- [ ] Pin a comment with the single sharpest line from the video
-`;
+  const md = renderMd(meta);
   // Everything for a book — machine JSONs (config.vox.json, youtube-meta.json) and
   // the human-facing upload pack (youtube.md) — lives in the self-contained hub
   // folder books/<slug>/. The registry imports the JSONs from there.

@@ -16,6 +16,10 @@ const raw = fs.readFileSync(inPath, "utf8").replace(/\r\n/g, "\n");
 const blocks = raw.split(/\n\n+/);
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const cues = [];
+// Rolling ASR format (YouTube auto-captions): each cue repeats the previous line and adds a word-tagged new one, and a
+// ~10 ms "carry" block holds the finished line alone. Joining a block's lines (the old fallback) printed every
+// sentence twice — YouTube showed/rejected it (2026-10-28, TFS). In that format only the NEW line of a block counts.
+const ROLLING = /<\d\d:\d\d:\d\d\.\d+>/.test(raw);
 for (const b of blocks) {
   const lines = b.split("\n");
   const tl = lines.find((l) => l.includes("-->"));
@@ -26,7 +30,9 @@ for (const b of blocks) {
   // fall back to the last non-empty payload line.
   const payload = lines.slice(lines.indexOf(tl) + 1);
   const tagged = payload.filter((l) => /<\d\d:\d\d:\d\d\.\d+>/.test(l));
-  const src = tagged.length ? tagged.join(" ") : payload.join(" ");
+  const lastLine = payload.filter((l) => l.trim()).slice(-1);
+  if (ROLLING && !tagged.length && toSec(m[2]) - toSec(m[1]) < 0.05) continue; // the carry block: nothing new
+  const src = tagged.length ? tagged.join(" ") : ROLLING ? lastLine.join(" ") : payload.join(" ");
   const text = stripTags(src);
   if (!text) continue;
   cues.push({ start: m[1], end: m[2], startN: toSec(m[1]), endN: toSec(m[2]), text });
@@ -46,7 +52,8 @@ function fmt(sec) {
 const clean = [];
 let prevEnd = 0;
 for (const c of cues) {
-  if (c.text === (clean[clean.length - 1]?.text)) continue;
+  const prev = clean[clean.length - 1]?.text;
+  if (prev && (c.text === prev || prev.endsWith(" " + c.text))) continue;
   let start = Math.max(c.startN, prevEnd);
   let end = Math.max(c.endN, start + 0.4);
   if (end - start < 0.4) end = start + 0.4;
@@ -58,4 +65,6 @@ clean.forEach((c, i) => {
   out += `${i + 1}\n${fmt(c.start)} --> ${fmt(c.end)}\n${c.text}\n\n`;
 });
 fs.writeFileSync(outPath, out);
-console.log(`✓ ${outPath} — ${clean.length} clean cues (from ${cues.length} raw)`);
+const v = require("./lib/vtt-validate").validateUploadVtt(out);
+if (!v.ok) { console.error(`✗ ${outPath} — written, but NOT an upload file:\n  ${v.errors.join("\n  ")}`); process.exit(1); }
+console.log(`✓ ${outPath} — ${clean.length} clean cues (from ${cues.length} raw), upload-valid`);

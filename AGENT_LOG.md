@@ -2087,6 +2087,52 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — YouTube READY: one gate for the whole publishing pack, Vox and Antidote (P1)
+- **Incidents.**
+  - *The Book of Margery Kempe* shipped a youtube.md with "… Explained — TODO counter-narrative angle 1
+    (lint-titles.js)". Only youtube-meta.json's titles had been refined, `needsClaudeRefine` stayed true and the md was
+    never re-rendered. The description ("No fluff, no ending spoilers"), the ASR-snippet chapter labels ("Sobbing Is So
+    Loud He") and the self-improvement tags on a medieval classic were all the scaffold.
+  - *Thinking Fast and Slow*: YouTube rejected the first caption upload. post-render had accepted the raw VTT, and
+    clean-vtt.js joined the carried-over line in rolling blocks, so 86 cues printed a sentence twice. The same defect is
+    in the shipped clean.vtt of Margery, The New One Minute Manager and Create Space.
+- **Gate:** `node scripts/lint-titles.js --slug=<slug> --pack` → `books/<slug>/youtube-ready.json` (READY / NOT_READY +
+  sha of meta / md / clean.vtt). `lintPack` (title-lint.js) checks:
+  - the title contract;
+  - not the scaffold (NOT_REFINED, SCAFFOLD_DESCRIPTION), and PLACEHOLDER anywhere in the pack;
+  - description: book, author, above the fold;
+  - chapters: 0:00, ≥ 3, ≥ 10 s apart, present in the description, not cut-off fragments;
+  - tags: ≤ 500, genre-true, carry the book title;
+  - hook: present, not only the title, visible, not stale;
+  - youtube.md = the refined meta (STALE_MD);
+  - clean.vtt is an upload file.
+  - The same function serves both engines.
+- **Title rules:**
+  - placeholder = hard fail;
+  - lengths in code points;
+  - MODIFIER_SWAP (more than 2 titles that are only book + author + a modifier);
+  - source-grounded `{kind:"insight", book, quote}` angles, so a book with no honest misreading needs no fake
+    counter-narrative;
+  - SENSATIONAL warning;
+  - TITLE_RULES text updated.
+- **Command-level:**
+  - `package-youtube.js` refuses a NOT READY pack (exit 3; the operator's `--allow-unready="<reason>"`) and never packages
+    an invalid clean.vtt.
+  - `post-render.js` accepts only an upload-valid clean.vtt (it builds one from the raw VTT if missing, and keeps the raw
+    file until the clean one is valid). It also reports YouTube READY.
+  - `plan-meta.js` keeps a refined pack and both planners have `--md-only`.
+  - `render-thumbnails.js` regenerates a stale registry, passes the current hook explicitly and pixel-checks every
+    variant (with vs without the hook → `thumbnail-check.json`). The threshold is a first setting, **not calibrated on a
+    real render yet**.
+- **VTT:** `scripts/lib/vtt-validate.js` (INLINE_TAGS, ROLLING_CUES, DUPLICATE, OVERLAP, ORDER) + `check-clean-vtt.js`.
+  clean-vtt.js uses only the new line of a rolling block and validates its own output; rebuild-clean-vtt.js validates
+  too. On the 5 raw VTTs on disk, the old cleaner's TFS output fails and the new output is valid (1703 cues).
+- **Channel report (read-only, published books frozen):** 6 of 34 packs pass the full gate. Rule hits: fragments 6 books,
+  scaffold description 9, stale md 9, chapters ≠ description 3, wrong-genre tags 4.
+- Metadata never blocks a render, only the upload. Tests: `scripts/test-youtube-gate.js` (fixtures
+  `scripts/fixtures/youtube/`: Margery = NOT_READY on every shipped defect; farsighted/Antidote + the-crucible/Vox =
+  READY), test-title-lint, test-package-youtube, test-thumbnail-grammar, test-gate-routing.
+
 ### 2026-10-28 — RENDER-DELIVER: one standard for every harness, cloud assembly only (cross-agent P0)
 - **Incident (The Book of Margery Kempe).** An Antigravity agent planned to download all 10 segments and join them with
   ffmpeg on this PC. Cause: the book was rendered from the main checkout at 24d7186d (76 commits behind), whose render.js

@@ -59,20 +59,49 @@ const describe = (g) =>
 
 (async () => {
   fs.mkdirSync(path.join(ROOT, "out"), { recursive: true });
+  // The Thumb composition reads the hook from the registry's youtube-meta import and falls back to the config's
+  // thumbnail when the registry has no meta for the book — a stale registry rendered another hook (2026-10-28).
+  // Regenerate it when this book or its meta is missing, and pass the CURRENT hook explicitly on every render.
+  const reg = (() => { try { return fs.readFileSync(path.join(ROOT, "src", "books.generated.ts"), "utf8"); } catch { return ""; } })();
+  const hasMeta = fs.existsSync(path.join(ROOT, "books", SLUG, "youtube-meta.json"));
+  if (!reg.includes(`slug: '${SLUG}'`) || (hasMeta && !reg.includes(`books/${SLUG}/youtube-meta.json`))) {
+    console.log(`Registry has no current entry for ${SLUG} — node scripts/gen-books-registry.js`);
+    require("child_process").execFileSync(process.execPath, [path.join(ROOT, "scripts", "gen-books-registry.js")], { cwd: ROOT, stdio: "inherit" });
+  }
+  const hook = String(thumb.hook || "").trim();
+  if (!hook) console.warn("  ⚠ youtube-meta.thumbnail.hook is empty — the thumbnails carry no hook");
   console.log(`Bundling Thumb-${SLUG} (slim registry)…`);
   const serveUrl = await bundleFor([SLUG]);
   const done = [];
+  const { grayOf, hookVisibility } = require("./lib/thumb-hook-check");
+  const checks = [];
   for (const j of jobs) {
     try {
-      // A renders with its stored grammar (no override) so it is byte-for-byte
-      // what `npx remotion still Thumb-<slug>` gives; B/C override it.
-      await renderThumb(serveUrl, SLUG, j.file, j.letter === "A" || !j.grammar ? {} : { grammar: j.grammar, layout: j.grammar.layout });
+      // A renders with its stored grammar (no override) so it is what `npx remotion still Thumb-<slug>` gives
+      // with a current registry; B/C override it. The hook is always the meta's current one.
+      const props = { ...(j.letter === "A" || !j.grammar ? {} : { grammar: j.grammar, layout: j.grammar.layout }), ...(hook ? { hook } : {}) };
+      await renderThumb(serveUrl, SLUG, j.file, props);
       console.log(`  ✓ ${j.letter}  ${path.relative(ROOT, j.file)}  (${describe(j.grammar)})`);
       done.push(j);
+      if (hook && !args["no-hook-check"]) {
+        // the same still without the hook: what the hook adds is what a viewer can read
+        const bare = path.join(ROOT, "out", "_thumbpreview", `${SLUG}-${j.letter}-nohook.png`);
+        fs.mkdirSync(path.dirname(bare), { recursive: true });
+        await renderThumb(serveUrl, SLUG, bare, { ...props, hook: "" });
+        const v = hookVisibility(grayOf(j.file), grayOf(bare));
+        fs.rmSync(bare, { force: true });
+        checks.push({ letter: j.letter, file: path.relative(ROOT, j.file).replace(/\\/g, "/"), ...v });
+        console.log(`    ${v.hookVisible ? "✓" : v.hookVisible === false ? "✗" : "?"} hook ${v.hookVisible ? "visible" : v.hookVisible === false ? "NOT VISIBLE" : "unchecked"} — ${v.detail}`);
+      }
     } catch (e) {
       console.error(`  ✗ ${j.letter} failed: ${String(e.message).split("\n")[0]}`);
       if (j.letter === "A") process.exitCode = 1;
     }
+  }
+  if (checks.length) {
+    // read by lint-titles.js --pack (YouTube READY): HOOK_NOT_VISIBLE / HOOK_STALE_THUMBNAIL
+    fs.writeFileSync(path.join(ROOT, "books", SLUG, "thumbnail-check.json"), JSON.stringify({ slug: SLUG, hook, at: new Date().toISOString(), variants: checks }, null, 2) + "\n");
+    if (checks.some((c) => c.hookVisible === false)) { console.error(`  ✗ the hook is not visible in ${checks.filter((c) => c.hookVisible === false).map((c) => c.letter).join(", ")} — YouTube NOT READY`); process.exitCode = 1; }
   }
 
   // youtube.md: replace (or append) the Test & Compare block.

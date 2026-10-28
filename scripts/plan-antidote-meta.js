@@ -203,12 +203,15 @@ ${(meta.tags || []).join(", ")}
   // it with the scaffold. Keep it and only re-render youtube.md (--force regenerates).
   try {
     const existing = JSON.parse(fs.readFileSync(rel.youtubeMeta(SLUG), "utf8"));
-    if (existing && existing.needsClaudeRefine === false && !args.force) {
+    // --md-only: re-render youtube.md from the meta as it is — run it after every hand-refine (2026-10-28, Margery
+    // Kempe: only the JSON was refined and the md kept the scaffold's "TODO" titles)
+    if (existing && (args["md-only"] || (existing.needsClaudeRefine === false && !args.force))) {
       fs.writeFileSync(rel.youtubeMd(SLUG), renderMd(existing));
-      console.log(`✓ kept refined ${rel.youtubeMeta(SLUG)}; re-rendered ${rel.youtubeMd(SLUG)} (--force to regenerate)`);
+      console.log(`✓ ${args["md-only"] ? "" : `kept refined ${rel.youtubeMeta(SLUG)}; `}re-rendered ${rel.youtubeMd(SLUG)} from the meta${args["md-only"] ? "" : " (--force to regenerate)"}`);
       return;
     }
   } catch { /* no meta yet */ }
+  if (args["md-only"]) { console.error(`✗ --md-only: ${rel.youtubeMeta(SLUG)} missing or unreadable`); process.exit(1); }
   const chapters = buildChapters();
   const m = fallbackMeta();
   const needsClaudeRefine = true; // deterministic scaffold — Claude refines from the VTT

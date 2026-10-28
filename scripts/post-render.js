@@ -95,6 +95,15 @@ console.log(`✅ MP4 DOĞRULANDI — ${durMin} dk · ${sizeMB} MB · baş/son de
 // ── 2. YouTube Pack Check ───────────────────────────────────────────────────
 console.log(`\n📦 YouTube Pack kontrolü:`);
 
+// Captions = the clean upload file ONLY (2026-10-28: TFS was accepted here with the raw rolling VTT, and YouTube
+// rejected it). No clean file but a raw one → build it now (deterministic); then it must pass the upload validator.
+const cleanVttPath = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
+const rawVttPath = path.join(ROOT, "public", "captions", `${slug}.vtt`);
+if (!fs.existsSync(cleanVttPath) && fs.existsSync(rawVttPath)) {
+  spawnSync(process.execPath, [path.join(ROOT, "scripts", "clean-vtt.js"), rawVttPath, cleanVttPath], { cwd: ROOT, stdio: "inherit" });
+}
+const vttCheck = require("./lib/vtt-validate").validateUploadVttFile(cleanVttPath);
+
 const checks = [
   {
     label: "Thumbnail",
@@ -105,10 +114,8 @@ const checks = [
   },
   {
     label: "Captions (clean.vtt)",
-    paths: [
-      path.join(ROOT, "public", "captions", `${slug}.clean.vtt`),
-      path.join(ROOT, "public", "captions", `${slug}.vtt`),
-    ],
+    paths: vttCheck.ok ? [cleanVttPath] : [],
+    why: vttCheck.ok ? "" : vttCheck.errors.join(" · "),
   },
   {
     label: "YouTube meta",
@@ -138,14 +145,25 @@ for (const c of checks) {
   } else {
     allReady = false;
     missing.push(c.label);
-    console.log(`   ❌ ${c.label}: YOK`);
+    console.log(`   ❌ ${c.label}: ${c.why || "YOK"}`);
   }
 }
 
+// YouTube READY (titles, description, chapters, tags, hook, youtube.md, captions) — reported, never blocks the film.
+const pack = require("./lib/title-lint").lintPack(slug, ROOT);
+if (pack.status === "READY") console.log(`   ✅ YouTube READY (lint-titles.js --pack)`);
+else {
+  allReady = false;
+  missing.push("YouTube READY");
+  console.log(`   ❌ YouTube NOT READY — ${pack.errors.length} problem(s): ${pack.errors.slice(0, 4).map((e) => e.split(":")[0]).join(", ")}${pack.errors.length > 4 ? " …" : ""}`);
+  console.log(`      details: node scripts/lint-titles.js --slug=${slug} --pack`);
+}
+
 // ── 3. Local cleanup ────────────────────────────────────────────────────────
-const cleanVtt = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
-const rawVtt = path.join(ROOT, "public", "captions", `${slug}.vtt`);
-if (fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
+const cleanVtt = cleanVttPath;
+const rawVtt = rawVttPath;
+// the raw VTT is the only source to rebuild the upload file from — removed only once the clean file is valid
+if (vttCheck.ok && fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
   fs.unlinkSync(rawVtt);
   console.log(`\n🧹 Temizlik: ${slug}.vtt silindi (clean.vtt mevcut)`);
 }

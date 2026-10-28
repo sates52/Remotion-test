@@ -17,6 +17,23 @@ if (!slug) {
   process.exit(1);
 }
 
+// YouTube READY gate (2026-10-28): the upload bundle is built only from a pack that passed lint-titles.js --pack —
+// never "TODO" titles, a scaffold description, cut-off chapter labels or a rolling raw VTT (Margery Kempe, TFS).
+// The film is never affected. --allow-unready="<the operator's reason>" packages anyway and says so on every line.
+const { lintPack } = require('./lib/title-lint');
+const pack = lintPack(slug, ROOT);
+const allowUnready = typeof args['allow-unready'] === 'string' && args['allow-unready'].trim();
+if (pack.status !== 'READY') {
+  console.error(`\n❌ YouTube NOT READY — ${slug} (${pack.errors.length} problem(s)):`);
+  for (const e of pack.errors) console.error(`   ✗ ${e}`);
+  if (!allowUnready) {
+    console.error(`\n   Fix the pack, then: node scripts/lint-titles.js --slug=${slug} --pack`);
+    console.error(`   (only the operator may package it anyway: --allow-unready="<reason>")`);
+    process.exit(3);
+  }
+  console.warn(`\n⚠ packaging an UNREADY pack on the operator's reason: "${allowUnready}"`);
+}
+
 const outDir = path.join(ROOT, 'out', slug);
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
@@ -64,7 +81,12 @@ if (fs.existsSync(srcThumb)) {
 // copy, and never the raw word-timed VTT under the clean name: make-book writes public/captions/<slug>.clean.vtt.
 const srcVtt = path.join(ROOT, 'public', 'captions', `${slug}.clean.vtt`);
 
-if (fs.existsSync(srcVtt)) {
+const vttCheck = fs.existsSync(srcVtt) ? require('./lib/vtt-validate').validateUploadVttFile(srcVtt) : null;
+if (vttCheck && !vttCheck.ok) {
+  // never hand over a caption file YouTube rejects / shows twice, even on --allow-unready
+  console.error(`  ❌ ${slug}.clean.vtt is not an upload file — NOT packaged:\n     ${vttCheck.errors.join('\n     ')}`);
+  console.error(`     fix: node scripts/clean-vtt.js public/captions/${slug}.vtt public/captions/${slug}.clean.vtt`);
+} else if (vttCheck) {
   fs.copyFileSync(srcVtt, path.join(outDir, `${slug}.clean.vtt`));
   console.log(`  ✅ Captions: ${slug}.clean.vtt (the only caption file — upload this one)`);
 } else {

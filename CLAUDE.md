@@ -116,8 +116,16 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   It So Wrong" on 7 — that is spam/repetitive content (YPP risk). Angles come from
   `youtube-meta.titleAngles` = `[{myth, book, quote}]` × ≥ 2 (quote = ≥ 5 words verbatim from the narration);
   no 3-word angle run may repeat another book's titles.
-- Gate: **`node scripts/lint-titles.js --slug=<slug>` must PASS before upload** (preview-ready shows it).
-  Rules: `scripts/lib/title-lint.js` → `TITLE_RULES`; details SKILL.md §9.6b. Published books are frozen
+- **No fake counter-narrative.** When the book has no honest misreading to overturn, an angle may be a
+  source-grounded surprising idea: `{kind: "insight", book, quote}` (no myth). Five titles = five angles: at most
+  2 may be only book + author + a modifier (`MODIFIER_SWAP`). Placeholders (TODO / TBD / template slots / lint
+  instructions) are a hard fail anywhere in the pack.
+- Gate: **`node scripts/lint-titles.js --slug=<slug> --pack` must print YouTube READY before upload** (2026-10-28) —
+  titles + description + chapters (in the description, not ASR fragments) + tags (genre-true, ≤ 500) + thumbnail
+  hook (visible: `thumbnail-check.json` from render-thumbnails) + youtube.md = the refined meta (after hand-refining
+  the JSON: `plan-meta.js <config> --md-only` / `plan-antidote-meta.js --slug=<slug> --md-only`) + an upload-valid
+  `clean.vtt` (`check-clean-vtt.js`). `package-youtube.js` refuses a NOT READY pack. Metadata never blocks a render.
+  Rules: `scripts/lib/title-lint.js` (`TITLE_RULES`, `lintPack`); details SKILL.md §9.6b. Published books are frozen
   (`--all` is a report only).
 
 ## 🖼️ Thumbnails — the grammar system is the ONLY way (STRICT, 2026-09-24)

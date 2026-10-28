@@ -90,3 +90,5 @@ console.log(`✓ ${path.relative(ROOT, dest)} — ${out.length} cues`);
 console.log(`  duration: ${(durs.reduce((a, b) => a + b, 0) / 60).toFixed(2)} min of caption time`);
 console.log(`  cue length: min ${Math.min(...durs).toFixed(2)}s · max ${Math.max(...durs).toFixed(2)}s · avg ${(durs.reduce((a, b) => a + b, 0) / durs.length).toFixed(2)}s`);
 console.log(`  last cue ends: ${ts(out[out.length - 1].e)} (video ${(cfg.meta.durationInFrames / FPS).toFixed(1)}s)`);
+const v = require("./lib/vtt-validate").validateUploadVtt(vtt);
+if (!v.ok) { console.error(`✗ not an upload file:\n  ${v.errors.join("\n  ")}`); process.exit(1); }
