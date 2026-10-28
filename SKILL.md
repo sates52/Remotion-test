@@ -108,7 +108,8 @@ Rules (see also [`LOCAL_RENDER_RULES.md`](LOCAL_RENDER_RULES.md)):
 2. **Micro-chunk long renders.** Never render a 20–40 min video in one Chromium session (memory leak → `Exit Code 1` / `Maximum call stack size exceeded`). Use `local_chunk_renderer.js`.
    - Flag: **always `--frames=start-end`** (e.g. `--frames=0-399`). **Never** `--from/--to` (deprecated, causes OOM).
    - Chunk size: **~400 frames** per chunk is the tested safe limit for this asset density.
-   - Merge chunks with `ffmpeg` concat (copy mode).
+   - Merge chunks with `ffmpeg` concat (copy mode). LEGACY LOCAL RENDER PATH ONLY — a GitHub split render is joined in
+     the cloud (`.claude/skills/render-deliver/SKILL.md`); never ffmpeg-concat GitHub segments locally.
 3. **Concurrency = physical CPU cores** for 2D work (raise it once 3D is gone). Use `1` only for very heavy/legacy scenes or <16 GB RAM.
 4. **React 19 crash:** no async `fetch` in `useEffect` on mount/unmount-churning components (Lottie JSON loading) → fatal `recursivelyTraversePassiveMountEffects`. Use procedural SVG instead of fetched Lottie.
 5. **Fallback:** if a local render dies >50% through, switch to **Lambda** (`--memory=2048 --timeout=900 --region=us-east-1`; pin `zod@4.3.6`). See `SYSTEM_ARCHITECTURE.md` §Lambda.
@@ -235,8 +236,10 @@ Then preview → render → upload:
 ```bash
 npm run dev                                                    # → http://localhost:3000/Vox-<slug>
 node scripts/render-thumbnails.js --slug=<slug>                # thumbnail A + Test & Compare B/C (one slim bundle)
-node local_chunk_renderer.js vox-config.<slug>.json            # local chunked render (400f chunks)
-ffmpeg -f concat -safe 0 -i out_Vox-<slug>_chunks/parts.txt -c copy out/<slug>.mp4
+# production render + assembly: skill render-deliver (GitHub workers → CLOUD assembly → verified film)
+node scripts/render.js --slug=<slug> --method=github
+# LEGACY local path (operator-only):
+# node local_chunk_renderer.js vox-config.<slug>.json && ffmpeg -f concat … (never for GitHub segments)
 ```
 
 > **Render locally, not on Lambda.** A 43-min render on Lambda cost ~$3 and died at 87% with

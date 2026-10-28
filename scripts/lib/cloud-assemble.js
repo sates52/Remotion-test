@@ -3,7 +3,8 @@
  *
  * Why: render-github-assemble.js downloads every segment (GBs) to the operator's PC and runs ffmpeg there.
  * The cloud path does the same work inside one GitHub Actions run, so the PC only dispatches and (optionally)
- * downloads the single verified film. render-github-assemble.js stays the local fallback.
+ * downloads the single verified film. It is THE standard (2026-10-28, .claude/skills/render-deliver/SKILL.md);
+ * render-github-assemble.js is a LEGACY, operator-only fallback (refuses without --operator-approved="<reason>").
  *
  * Least privilege: the worker repos are PUBLIC, so the assembling run reads the other workers' segment artifacts
  * with ITS OWN short-lived GITHUB_TOKEN (job permissions: contents read, actions read). No PAT reaches a runner and
@@ -68,6 +69,63 @@ function pickSegmentRun({ runs, artifacts, ref, bundleSha, slug, seg }) {
   return { run: withArtifact[0], reason: withArtifact.length > 1 ? `newest of ${withArtifact.length} duplicate successful runs` : "the one successful run" };
 }
 
+// ── idempotency (2026-10-28, render-deliver) ────────────────────────────────
+// A rerun of render-github-cloud-assemble.js (an agent that lost its terminal, a second harness, render-status's
+// "next command") must never start a SECOND full assembly of the same render. Three pure decisions, tested in
+// scripts/test-render-deliver.js; the CLI only does the I/O around them.
+const ACTIVE = new Set(["queued", "in_progress", "waiting", "requested", "pending"]);
+const cloudStateFile = (root, slug) => path.join(root, `.render-github-cloud.${slug}.json`);
+const assembleRef = (slug) => `render/${slug}-assemble`;
+
+/** The newest dispatch time a split state records (the render's own stamp or a resumed segment's), or 0 (legacy). */
+function dispatchedAtOf(split) {
+  return Math.max(0, Date.parse((split && split.dispatchedAt) || 0) || 0, ...((split && split.segments) || []).map((g) => Date.parse(g.dispatchedAt) || 0));
+}
+
+/** Is THIS render (same bundle commit) already joined and verified in the cloud? A verified film of an older bundle is not. */
+function verifiedFor(cloudState, split) {
+  return !!(cloudState && cloudState.verified && split && split.bundleSha && cloudState.bundleSha === split.bundleSha);
+}
+
+/**
+ * The queued / in-progress assemble run on render/<slug>-assemble that belongs to this render, or null. A run created
+ * before this render was dispatched is another render's (60 s clock slack); a legacy state without a stamp takes any.
+ */
+function activeAssembleRun(runs, { slug, split }) {
+  const ref = assembleRef(slug), since = dispatchedAtOf(split) - 60000;
+  return (runs || []).filter((r) => r.head_branch === ref && ACTIVE.has(r.status) && !(Date.parse(r.created_at) < since))
+    .sort((a, b) => b.id - a.id)[0] || null;
+}
+
+/**
+ * What a (re)run must do: { action: "skip" } when this render is already cloud-verified (→ fetch / post-render only);
+ * { action: "attach", run } when its assembly is already queued or running (→ wait for THAT run); else
+ * { action: "dispatch" }. `assembleRuns` = the host's runs on render/<slug>-assemble (REST shape).
+ */
+function planCloudAssemble({ slug, split, cloudState, assembleRuns }) {
+  if (verifiedFor(cloudState, split)) return { action: "skip", reason: `already cloud-verified for bundle ${String(split.bundleSha).slice(0, 8)} (run ${cloudState.run && cloudState.run.url})` };
+  const run = activeAssembleRun(assembleRuns, { slug, split });
+  if (run) return { action: "attach", run, reason: `assemble run ${run.id} is already ${run.status} — attaching, not dispatching a second one` };
+  return { action: "dispatch", reason: "no verified assembly and none in progress" };
+}
+
+/**
+ * Before any dispatch: the manifest covers exactly the frames the render was split from AND the frames the book's
+ * config asks for. manifest total = last end + 1 (parseManifest already proved 0..n contiguous). `splitTotal` may be
+ * missing on very old states (then only the config is compared); `expected` null = the config is unreadable → refuse.
+ */
+function checkManifestTotal({ manifest, splitTotal, expected }) {
+  const problems = [];
+  let total = null;
+  try { const e = parseManifest(manifest); total = e[e.length - 1].end + 1; } catch (err) { problems.push(err.message); }
+  if (total !== null) {
+    if (splitTotal !== undefined && splitTotal !== null && Number(splitTotal) !== total) problems.push(`manifest covers ${total} frames, the split state says ${splitTotal}`);
+    if (expected === null || expected === undefined) problems.push("the book's config gives no frame count (books/<slug>/config.*.json unreadable under the book root)");
+    else if (Number(expected) !== total) problems.push(`manifest covers ${total} frames, the book's config says ${expected}`);
+  }
+  return { ok: !problems.length, total, problems };
+}
+
 // ── runner side ─────────────────────────────────────────────────────────────
 function probeFrames(file) {
   const r = spawnSync("ffprobe", ["-v", "error", "-select_streams", "v:0", "-count_packets", "-show_entries", "stream=nb_read_packets", "-of", "csv=p=0", file], { encoding: "utf8" });
@@ -125,4 +183,7 @@ function sha256File(file) {
   });
 }
 
-module.exports = { buildManifest, parseManifest, pickSegmentRun, segArtifact, FINAL_ARTIFACT, VERIFY_ARTIFACT, verifySegment, concatAndVerify, probeFrames, sha256File };
+module.exports = {
+  buildManifest, parseManifest, pickSegmentRun, segArtifact, FINAL_ARTIFACT, VERIFY_ARTIFACT, verifySegment, concatAndVerify, probeFrames, sha256File,
+  cloudStateFile, assembleRef, dispatchedAtOf, verifiedFor, activeAssembleRun, planCloudAssemble, checkManifestTotal, ACTIVE_STATUSES: ACTIVE,
+};

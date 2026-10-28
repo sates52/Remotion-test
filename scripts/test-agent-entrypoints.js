@@ -20,7 +20,7 @@ const lines = (txt) => txt.split(/\r?\n/).filter((l) => l.trim()).length;
 
 // ── 1. structure ─────────────────────────────────────────────────────────────
 const CANON = fs.readdirSync(path.join(ROOT, ".claude", "skills")).filter((d) => fs.existsSync(path.join(ROOT, ".claude", "skills", d, "SKILL.md")));
-const PROCS = ["notebooklm-prompt", "preview-hazirla", "antidote-visual-authoring", "antidote-quality-handoff"];
+const PROCS = ["notebooklm-prompt", "preview-hazirla", "antidote-visual-authoring", "antidote-quality-handoff", "render-deliver"];
 t("every shared procedure has its canonical text in .claude/skills/", PROCS.every((p) => CANON.includes(p)), CANON.join(","));
 const ENTRY = {
   "Claude Code": { file: "CLAUDE.md", reach: (p) => `.claude/skills/${p}/SKILL.md` },

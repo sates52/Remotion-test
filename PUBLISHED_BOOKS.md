@@ -75,7 +75,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 61 | `the-new-one-minute-manager` | **The New One Minute Manager** — Kenneth H. Blanchard, Spencer Johnson | 2026-10-26 | 51:07 | *Antidote; 92,017 frames; operator-confirmed upload (detailed record below; row added 2026-10-27 — the record existed, the table row did not)* | see books/the-new-one-minute-manager/youtube.md |
 | 62 | `farsighted` | **Farsighted: How We Make the Decisions That Matter the Most** — Steven Johnson | 2026-10-27 | 55:14 | *Antidote; 99,435 frames; operator-confirmed upload (detailed record below; row added 2026-10-27)* | see books/farsighted/youtube.md |
 | 63 | `their-eyes-were-watching-god` | **Their Eyes Were Watching God** — Zora Neale Hurston | 2026-10-27 | 40:57 | *Vox; 73,721 frames; operator-confirmed upload (detailed record below; row added 2026-10-27)* | see books/their-eyes-were-watching-god/youtube.md |
-| 64 | `inside-out` | **Inside Out** — Demi Moore | 2026-10-22 | 33:38 | *Antidote; config 60,553 frames. Recorded ONLY as "PUBLISHED & CLEANED 2026-10-22" in an uncommitted Active WIP row of the main checkout's AGENT_LOG (that row says 60,832 frames / 33.8 min — not reconciled); YouTube URL, live title and render SHA NOT recorded* | not recorded |
+| 64 | `inside-out` | **Inside Out** — Demi Moore | 2026-10-22 | 33:38 | *Antidote; config 60,553 frames. Publication OPERATOR-CONFIRMED 2026-10-28; date from the main checkout's WIP record "PUBLISHED & CLEANED 2026-10-22" (that row says 60,832 frames / 33.8 min — not reconciled); YouTube URL, live title and render SHA NOT recorded* | not recorded |
 ---
 
 ## 📖 Detailed Book Records
@@ -1389,7 +1389,7 @@ ready player one, ready player one summary, ready player one explained, ready pl
 
 ## Inside Out — Demi Moore (`inside-out`, Antidote)
 
-- **Status:** Published on YouTube per the repo's only record: an Active WIP row in the main checkout's `AGENT_LOG.md` (never committed) — "render-inside-out | PUBLISHED & CLEANED 2026-10-22 | Antidote; 33.8 min (60,832 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~836 MB) + 10 remote bundle branches purged; local out/ MP4, thumbnails, raw audio/captions cleaned." Registered 2026-10-27 so the frozen-book guard protects it.
+- **Status:** Published on YouTube — **operator-confirmed 2026-10-28** ("Bu kitabı youtube da yayınladım"). Date and details from the repo's only record: an Active WIP row in the main checkout's `AGENT_LOG.md` (never committed) — "render-inside-out | PUBLISHED & CLEANED 2026-10-22 | Antidote; 33.8 min (60,832 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~836 MB) + 10 remote bundle branches purged; local out/ MP4, thumbnails, raw audio/captions cleaned." Registered 2026-10-27 so the frozen-book guard protects it.
 - **Length:** `books/inside-out/config.antidote.json` = 60,553 frames at 30 fps (33:38); the WIP row says 60,832 frames / 33.8 min — the two are not reconciled.
 - **Not recorded:** the YouTube URL / video id, the live title, the render SHA, whether 2026-10-22 is the upload or the cleanup date. Only the operator can supply them; nothing here is inferred.
 - **Source:** `books/inside-out/` exists only, untracked, in the main checkout (`test/`); it is not on origin.

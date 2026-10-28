@@ -31,6 +31,7 @@ operating rules (start reading, your WIP row with role / worktree / base SHA, pr
 | "preview hazırla", "dosyalar hazır", "önizlemeyi hazırla", "prepare the preview" | `.claude/skills/preview-hazirla/SKILL.md` (procedure: `STORYBOARD_RUNBOOK.md`) | skill `preview-hazirla` | `.agents/workflows/preview-hazirla.md` (pointer) | read the canonical file |
 | writing / revising an Antidote storyboard chunk | `.claude/skills/antidote-visual-authoring/SKILL.md` + the book's generated `storyboard/rules.md` (wins) | skill | `.agents/skills/antidote-visual-authoring/SKILL.md` (pointer) | read the canonical file |
 | a preview or render is finished: the report | `.claude/skills/antidote-quality-handoff/SKILL.md` | skill | `.agents/skills/antidote-quality-handoff/SKILL.md` (pointer) | read the canonical file |
+| final render, assembly, downloading the film, a render interrupted or picked up — "render et", "birleştir" | `.claude/skills/render-deliver/SKILL.md` (CLOUD assembly only; next step = `node scripts/render-status.js --slug=<slug>`) | skill `render-deliver` | `.agents/skills/render-deliver/SKILL.md` + `.agents/workflows/render-deliver.md` (pointers) | read the canonical file |
 
 `.cursor/rules/antidote-agents.mdc` makes Cursor load this file. A per-harness entry never restates a procedure; if it
 seems to differ from the canonical file, the canonical file wins (`scripts/test-agent-entrypoints.js` checks this).

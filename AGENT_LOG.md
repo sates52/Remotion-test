@@ -2087,6 +2087,41 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — RENDER-DELIVER: one standard for every harness, cloud assembly only (cross-agent P0)
+- **Incident (The Book of Margery Kempe).** An Antigravity agent planned to download all 10 segments and join them with
+  ffmpeg on this PC. Cause: the book was rendered from the main checkout at 24d7186d (76 commits behind), whose render.js
+  still ran the LOCAL `render-github-assemble.js` by default. Current code also still printed the local join as a next
+  step in several messages, had no guard on it, and no skill described the final render.
+- **The standard:** GitHub workers → CLOUD assembly (`render-github-cloud-assemble.js`) → cloud verification (each
+  segment's frames + full decode + audio, the joined film's frames vs config) → download ONLY the verified film (sha256)
+  → `post-render.js` → YouTube pack. Canonical text: `.claude/skills/render-deliver/SKILL.md`; pointers from CLAUDE.md,
+  AGENTS.md (routing row), `.agents/skills/render-deliver/`, `.agents/workflows/render-deliver.md`, the agent contract.
+- **One command decides:** `node scripts/render-status.js --slug=<slug> [--book-root=<checkout>]` (read-only) prints one
+  verdict + one next command: NO_RENDER / RENDERING / SEGMENT_FAILED (redispatch only seg k) / CLOUD_ASSEMBLE / ASSEMBLING
+  (a rerun attaches) / FETCH / VERIFIED / UNKNOWN (API unreadable → no guess) / LEGACY_NO_BUNDLE (operator).
+- **Command-level guards, not just text:**
+  - `render-github-assemble.js` = LEGACY, operator-only: exit 2 without `--operator-approved="<reason>"`, after a cloud
+    verification of the same bundle, or while a cloud assembly lock is alive; own run lock; the reason is recorded.
+  - `render.js`: `--local-assemble` / `--local-fallback` need the operator's reason string; a failed cloud assembly
+    stops (segments kept on the workers) and prints render-status — never a local join on its own.
+  - Cloud assembly is idempotent: verified for this bundle → skip; a queued/running assemble run of this render → attach;
+    else dispatch. Frame total of the manifest checked against the book's config before dispatch. Run lock per book.
+  - `--book-root=<checkout>`: an old pinned render state is assembled by current code without re-rendering anything.
+  - One-off local joiners archived (`scripts/_archive/fast-assemble.js`, `fast_assemble.py`, `download-and-monitor.js`).
+- **Tests:** `scripts/test-render-deliver.js` (verdicts, a Margery-shaped legacy state → CLOUD_ASSEMBLE with --book-root,
+  manifest total, skip/attach/dispatch, the three refusals, a static scan that no render script prints the local join
+  without the reason, every harness routes to the canonical skill); `test-cloud-assemble`, `test-agent-entrypoints`,
+  `test-render-dispatch`, `test-render-preflight`, `test-run-lock` pass.
+- **Not verified on the platform:** no GitHub call was made (fixtures only). Margery itself is published and cleaned.
+- Also: Inside Out recorded as published (operator-confirmed 2026-10-28) in `PUBLISHED_BOOKS.md`.
+
+### 2026-10-28 — Production render needs preview READY or the operator's decision for THIS render input (P2, 3de4cf54)
+- A technical GO is not the operator's final-render authorization. `render-preflight` now reads `preview-ready.json`
+  (READY / NOT_READY / STALE / MISSING, bound to `renderInputHash`); a production render without READY needs an operator
+  decision recorded for the same render-input hash. A BLOCK is never covered; a new config needs a new decision.
+  Vox and Antidote alike. The runner does not re-judge the preview (authorized before dispatch).
+- `render-decision.js` shows the preview; `preview-ready.js` writes renderInputHash + the mute summary.
+
 ### 2026-10-28 — Antidote `drink`: the new action on a carried state reads (antidote-10x P2)
 - **Gap.** P1's carried state left a gap: a NEW action on top of a kept state read only partly. The measured case is "takes a drink" on under-the-dome 52, authored as `take` + `hold`, which blind readers saw as "holding a mug". `offer` holds an object out to SOMEONE ELSE's face. Nothing in the rig brought an object to the person's own mouth.
 - **New action: `drink`**, timed on the author's `actionCue` word; upper body only, so a carried seat is kept:

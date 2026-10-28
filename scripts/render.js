@@ -89,9 +89,10 @@ Seçenekler:
                               AND (preview-ready READY for this config or an operator decision covering it) — Vox too.
   (github split, DEFAULT)     the segments are joined + verified ON A RUNNER and only the verified film is downloaded
                               to out/ (no local ffmpeg); a failure stops with the retry / local commands.
-  --local-assemble            (github split) skip the cloud: download every segment and join locally (old behaviour)
-  --local-fallback            (github split) if the cloud assembly fails, join locally automatically (default: stop and
-                              print the commands — the local join downloads every segment to this PC)
+  --local-assemble="<reason>" (github split) LEGACY, OPERATOR-ONLY: skip the cloud, download every segment and join
+                              locally. The reason is the operator's and is recorded (render-facts.json).
+  --local-fallback="<reason>" (github split) OPERATOR-ONLY: if the cloud assembly fails, join locally (default: stop —
+                              node scripts/render-status.js prints the safe next command; segments stay on the workers)
   --cloud-no-download         (github split) leave the verified film in the run's artifact (no download)
   --semantic-review=<dosya>   (Antidote) post-render frame review JSON; absent = delivery FAIL
   --skip-narrative-firewall   Emergency escape hatch; never use for production delivery
@@ -812,23 +813,27 @@ async function dispatchSplit(safeMax) {
         console.log(`\n4. Otomatik birleştirme başlatılıyor...`);
         // DEFAULT since 2026-10-24 (proven on a real 10-segment book, under-the-dome): join + verify on a runner
         // (render-github-cloud-assemble.js) and download ONLY the verified film to out/ — no segment downloads, no
-        // local ffmpeg. Any failure falls back to the local stream-copy assembly below; --local-assemble forces it.
+        // local ffmpeg. A cloud failure STOPS (segments stay on the workers); the local join below is LEGACY and runs only
+        // with the operator's explicit reason (--local-assemble="<reason>" / --local-fallback="<reason>", 2026-10-28,
+        // .claude/skills/render-deliver/SKILL.md) — render-github-assemble.js itself refuses without it.
+        const localReason = typeof args["local-assemble"] === "string" ? args["local-assemble"] : typeof args["local-fallback"] === "string" ? args["local-fallback"] : "";
         if (!args["local-assemble"]) {
           const ca = spawnSync(process.execPath, ["scripts/render-github-cloud-assemble.js", `--slug=${slug}`, ...(args["cloud-no-download"] ? [] : ["--download"])], { cwd: ROOT, stdio: "inherit" });
           if (ca.status === 0) return;
           // The local fallback downloads EVERY segment (GBs) and joins them on this PC. It no longer starts by itself
           // (operator, 2026-10-24: no heavy local work without consent): print the command and stop, unless the run
           // was started with --local-fallback. The segments stay on the workers; nothing is lost by waiting.
-          if (!args["local-fallback"]) {
+          if (!args["local-fallback"] || !localReason) {
             console.error(`❌ cloud assembly ${ca.status === 3 ? "is not possible for this render" : "failed"} (exit ${ca.status}). The local fallback downloads every segment and joins them on this PC — it was NOT started.`);
-            console.error(`   retry the cloud: node scripts/render-github-cloud-assemble.js --slug=${slug} --download`);
-            console.error(`   or, with the operator's OK, locally: node scripts/render-github-assemble.js --slug=${slug}`);
+            console.error(`   next (retry / attach / fetch — never a second assembly): node scripts/render-status.js --slug=${slug}`);
+            console.error(`   a local join is operator-only: node scripts/render-github-assemble.js --slug=${slug} --operator-approved="<reason>"`);
             process.exit(1);
           }
           console.warn(`⚠ cloud assembly ${ca.status === 3 ? "not possible for this render" : "failed"} (exit ${ca.status}) — local fallback (--local-fallback)`);
         }
+        if (!localReason) { console.error(`❌ --local-assemble needs the operator's reason: --local-assemble="<reason>" (the local join downloads every segment).`); process.exit(2); }
         try {
-          execSync(`node scripts/render-github-assemble.js --slug=${slug}`, { cwd: ROOT, stdio: STDIO });
+          require("child_process").execFileSync(process.execPath, ["scripts/render-github-assemble.js", `--slug=${slug}`, `--operator-approved=${localReason}`], { cwd: ROOT, stdio: STDIO });
         } catch (e) {
           console.error(`❌ Birleştirme hatası: ${e.message}`);
           process.exit(1);
@@ -838,9 +843,9 @@ async function dispatchSplit(safeMax) {
       process.stdout.write(`\r⏳ Bekleniyor... (${elapsedStr}) | Segmentler render ediliyor...   `);
       await sleep(pollSec * 1000);
     }
-    console.error(`\n⏰ Zaman aşımı (${maxMs / 60000} dk). Manuel birleştir: node scripts/render-github-assemble.js --slug=${slug}`);
+    console.error(`\n⏰ Zaman aşımı (${maxMs / 60000} dk). Next: node scripts/render-status.js --slug=${slug} (cloud assembly; never a local join without the operator)`);
   } else {
-    console.log(`   [--no-wait] Dispatch tamamlandı. Manuel birleştir:\n   node scripts/render-github-assemble.js --slug=${slug}`);
+    console.log(`   [--no-wait] Dispatch tamamlandı. Next: node scripts/render-status.js --slug=${slug} (prints the one next command: wait / cloud assembly / fetch)`);
   }
 }
 

@@ -25,13 +25,15 @@ Active pipeline scripts. Run from repo root: `node scripts/<name>.js`
   `--slug=<slug>` · `--all` · `--soft` · `--json`
 
 ## Rendering
+Canonical procedure for the final render, assembly and delivery: `.claude/skills/render-deliver/SKILL.md` (every harness).
 - **render.js** — unified render orchestrator (local/github/lambda)
+- **render-status.js --slug=** — read-only: where a split render stands and the ONE next command (wait / cloud assembly / fetch / operator)
+- **render-github-cloud-assemble.js --slug= --download** — THE standard join: segments joined + verified on a runner, only the verified film downloaded (`--fetch` re-downloads a verified film; idempotent)
 - **render-github-download.js** — pull finished render from GitHub Actions worker
 - **render-github-cleanup.js** — free worker repo Actions storage after approval
-- **render-github-assemble.js** — download + concat split GitHub render segments
+- **render-github-assemble.js** — LEGACY, OPERATOR-ONLY local join (refuses without `--operator-approved="<reason>"`)
 - **auto-chain-render.js** — hands-free overnight multi-book render chain
 - **render-queue.js** — sequential render queue manager
-- **fast-assemble.js** — FFmpeg concat of rendered chunks
 - **dl-render.js** — download finished Lambda render from S3
 
 ## Post-Render Finalization

@@ -37,6 +37,7 @@ the same answer: `preview-state.js` (state, next action, READY), `production-gua
 | `preview-hazirla` | "preview hazırla": audio + VTT on disk → verified preview, autonomously (state: `scripts/preview-state.js`) | `.claude/skills/preview-hazirla/SKILL.md` (Antigravity: `.agents/workflows/preview-hazirla.md`, a pointer) |
 | `antidote-visual-authoring` | writing or revising an Antidote storyboard chunk | `.claude/skills/antidote-visual-authoring/SKILL.md` |
 | `antidote-quality-handoff` | a preview is finished: the standard report + production decision | `.claude/skills/antidote-quality-handoff/SKILL.md` |
+| `render-deliver` | final render → CLOUD assembly → verified film → delivery files (never a local segment join) | `.claude/skills/render-deliver/SKILL.md` (Antigravity: `.agents/skills/render-deliver/SKILL.md`, `.agents/workflows/render-deliver.md`, pointers) |
 
 ## 2. Declare yourself before you work
 

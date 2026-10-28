@@ -177,13 +177,18 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   - Don't go back to pushing a shared branch (`--legacy-push` exists only as a fallback);
     see the 2026-09-04 entry in [`AGENT_LOG.md`](AGENT_LOG.md) for what it broke.
 - **Rendering is unattended.** The `--wait` loop (on by default) heals a segment whose
-  workflow never started — it re-pushes the ref and re-dispatches — then assembles,
-  verifies and runs the post-render check. Don't babysit it.
+  workflow never started — it re-pushes the ref and re-dispatches — then joins + verifies the
+  segments ON A RUNNER (cloud assembly) and downloads only the verified film, then runs the
+  post-render check. Don't babysit it.
+- **Final render / assembly / delivery: skill `render-deliver`** (`.claude/skills/render-deliver/SKILL.md`, every
+  harness). Cloud assembly only — never download segments or ffmpeg-concat locally; the local join
+  (`render-github-assemble.js`) refuses without the operator's `--operator-approved="<reason>"`. Interrupted or
+  picked-up render → `node scripts/render-status.js --slug=<slug>` and run only the command it prints.
 - Manual rescue, if you ever need it:
   `node scripts/render-github-redispatch.js --slug=<slug>` (pushes missing refs too).
 - **End to end in one command** once `public/audio/<slug>.mp3` (or `.m4a`) + `public/captions/<slug>.vtt`
   are on disk: `node scripts/make-book.js --slug=<slug> --title="..." --author="..." --genre=<g> --render`
-- `node scripts/render-github-download.js --slug=<slug>` → pull + ffprobe-verify the mp4.
+- `node scripts/render-github-download.js --slug=<slug>` → pull + ffprobe-verify a SINGLE-job mp4 (a split render: cloud assembly).
 - `node scripts/render-github-cleanup.js --slug=<slug>` → after you approve the download,
   delete that repo's artifacts + run logs to free Actions storage for the next render.
   **It also deletes this book's upload captions + audio — so it is a POST-UPLOAD step,

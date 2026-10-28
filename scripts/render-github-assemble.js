@@ -1,23 +1,33 @@
 #!/usr/bin/env node
 /**
- * render-github-assemble.js — download all segments of a split GitHub render and
- * concat them into the final out/<slug>.mp4, verified.
+ * render-github-assemble.js — LEGACY / OPERATOR-ONLY local join: download all segments of a split GitHub render to
+ * this PC and concat them into the final out/<slug>.mp4, verified.
  *
- * render.js --method=github auto-splits a long video into worker-sized frame
- * segments (each under the 6h Actions cap) and records .render-github-split.json.
- * This pulls each segment's artifact (video-<slug>-seg<k>) from its worker, verifies
- * each piece, concatenates them in frame order, and decode-verifies the result.
+ * The standard is the CLOUD join (render-github-cloud-assemble.js; canonical procedure
+ * .claude/skills/render-deliver/SKILL.md). This script downloads every segment (GBs) and runs ffmpeg here, so since
+ * 2026-10-28 it REFUSES (exit 2):
+ *   - without --operator-approved="<reason>" (the operator's explicit reason; recorded in books/<slug>/render-facts.json
+ *     as a {kind:'local-assemble', reason} fact);
+ *   - when .render-github-cloud.<slug>.json already says this render (same bundle) is cloud-verified — fetch it instead
+ *     (render-github-cloud-assemble.js --fetch);
+ *   - while a cloud assembly of this book is running (its run lock is alive).
+ * An approved run takes a run lock (.local-assemble-lock.<slug>.json, lib/run-lock.js) so it cannot run twice.
  *
- * Usage: node scripts/render-github-assemble.js --slug=<slug>
+ * Usage: node scripts/render-github-assemble.js --slug=<slug> --operator-approved="<reason>" [--book-root=<checkout>]
+ *   --book-root: the checkout that holds the split state / books/<slug> / out/ (default: this one)
  */
 const fs = require("fs");
 const path = require("path");
 const { execSync, spawnSync } = require("child_process");
-const { ROOT, loadAccounts, gh, walk, parseArgs } = require("./lib/render-pool");
+const { loadAccounts, walk, parseArgs } = require("./lib/render-pool");
+const CA = require("./lib/cloud-assemble");
+const { takeRunLock, pidAlive } = require("./lib/run-lock");
 
 const args = parseArgs(process.argv.slice(2));
 const SLUG = args.slug;
-if (!SLUG) { console.error("Kullanım: node scripts/render-github-assemble.js --slug=<slug>"); process.exit(1); }
+const ROOT = typeof args["book-root"] === "string" && args["book-root"] ? path.resolve(args["book-root"]) : path.join(__dirname, "..");
+const BR = path.resolve(ROOT) === path.resolve(__dirname, "..") ? "" : ` --book-root=${ROOT}`;
+if (!SLUG) { console.error("Kullanım: node scripts/render-github-assemble.js --slug=<slug> --operator-approved=\"<reason>\" (LEGACY / operator-only)"); process.exit(2); }
 
 // Prefer the per-slug state file (multi-agent safe); fall back to the shared one.
 const perSlug = path.join(ROOT, `.render-github-split.${SLUG}.json`);
@@ -25,6 +35,31 @@ const splitPath = fs.existsSync(perSlug) ? perSlug : path.join(ROOT, ".render-gi
 if (!fs.existsSync(splitPath)) { console.error(`❌ .render-github-split.${SLUG}.json yok — bu slug bölünmüş bir render değil. Tek-parça için render-github-download.js kullan.`); process.exit(1); }
 const split = JSON.parse(fs.readFileSync(splitPath, "utf8"));
 if (split.slug !== SLUG) { console.error(`❌ split state slug'ı '${split.slug}', istenen '${SLUG}'. (Başka bir agent .render-github-split.json'u ezmiş olabilir — .render-github-split.${SLUG}.json bekleniyordu.)`); process.exit(1); }
+
+// ── guards (2026-10-28): the cloud is the standard; this local join is the operator's explicit, recorded exception ──
+const readJson = (f) => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return null; } };
+const cloud = readJson(CA.cloudStateFile(ROOT, SLUG));
+if (CA.verifiedFor(cloud, split) || (cloud && cloud.verified && !split.bundleSha)) {
+  console.error(`❌ ${SLUG}: this render is already CLOUD-VERIFIED (${cloud.run && cloud.run.url}) — nothing to join locally.`);
+  console.error(`   download the verified film: node scripts/render-github-cloud-assemble.js --slug=${SLUG} --fetch${BR}`);
+  process.exit(2);
+}
+const cloudLock = readJson(path.join(ROOT, `.cloud-assemble-lock.${SLUG}.json`));
+if (cloudLock && pidAlive(cloudLock.pid)) {
+  console.error(`❌ ${SLUG}: a cloud assembly is running (pid ${cloudLock.pid}, since ${cloudLock.at}) — not joining locally at the same time. Status: node scripts/render-status.js --slug=${SLUG}${BR}`);
+  process.exit(2);
+}
+const reason = typeof args["operator-approved"] === "string" ? args["operator-approved"].trim() : "";
+if (!reason) {
+  console.error(`❌ ${SLUG}: the local join is LEGACY / operator-only — it downloads every segment (GBs) and runs ffmpeg on this PC.`);
+  console.error(`   standard (cloud): node scripts/render-github-cloud-assemble.js --slug=${SLUG} --download${BR}`);
+  console.error(`   where it stands : node scripts/render-status.js --slug=${SLUG}${BR}`);
+  console.error(`   only with the operator's explicit reason: --operator-approved="<reason>"`);
+  process.exit(2);
+}
+takeRunLock(path.join(ROOT, `.local-assemble-lock.${SLUG}.json`), `local assembly ${SLUG}`);
+require("./lib/render-preflight").appendFacts(ROOT, SLUG, { kind: "local-assemble", reason, bundleSha: split.bundleSha || null, segments: (split.segments || []).length });
+console.log(`⚠ LOCAL join (operator-approved: ${reason}) — recorded in books/${SLUG}/render-facts.json`);
 
 const acc = loadAccounts();
 const segsSorted = [...split.segments].sort((a, b) => a.seg - b.seg);

@@ -41,8 +41,10 @@ if (splitState && !args.segment) {
   const st = JSON.parse(fs.readFileSync(splitState, "utf8"));
   console.error(`❌ ${SLUG} BÖLÜNMÜŞ bir render (${(st.segments || []).length} segment, ${path.basename(splitState)}).`);
   console.error("   Bu script tek worker'dan tek artifact indirir — yani filmin sadece bir parçasını.");
-  console.error("   Tümünü indirip kare sırasına göre birleştirmek için:");
-  console.error(`     node scripts/render-github-assemble.js --slug=${SLUG}`);
+  console.error("   Standart (2026-10-28, .claude/skills/render-deliver): segmentler BULUTTA birleştirilir, yalnız doğrulanmış film indirilir:");
+  console.error(`     node scripts/render-github-cloud-assemble.js --slug=${SLUG} --download   (zaten doğrulandıysa: --fetch)`);
+  console.error(`     nerede olduğunu gösterir: node scripts/render-status.js --slug=${SLUG}`);
+  console.error("   (Yerel birleştirme yalnız operatör gerekçesiyle: render-github-assemble.js --operator-approved=\"<reason>\".)");
   console.error("   (Tek bir segmenti bilerek incelemek istiyorsan: --segment ekle.)");
   process.exit(1);
 }

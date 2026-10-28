@@ -103,7 +103,7 @@ t("workflow: the render job keeps its steps (master audio, render, upload)", /Ma
 
 { // render.js: the heavy local fallback never starts by itself (operator, 2026-10-24)
   const rj = fs.readFileSync(path.join(__dirname, "render.js"), "utf8").replace(/\r\n/g, "\n");
-  t("render.js: a failed cloud assembly stops with the commands unless --local-fallback", /if \(!args\["local-fallback"\]\) \{[\s\S]{0,600}it was NOT started[\s\S]{0,400}process\.exit\(1\);/.test(rj));
+  t("render.js: a failed cloud assembly stops with the commands unless --local-fallback=\"<the operator's reason>\"", /if \(!args\["local-fallback"\] \|\| !localReason\) \{[\s\S]{0,600}it was NOT started[\s\S]{0,400}process\.exit\(1\);/.test(rj));
 }
 
 function finish() { console.log(failed ? `\n${failed} FAILED` : "\nall cloud-assemble tests passed"); process.exit(failed ? 1 : 0); }
