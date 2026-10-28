@@ -27,6 +27,8 @@ export const charAction = z.enum([
   "hold", // forearm raised in front, hand presenting whatever `holds` names
   "reach", // arm extended toward the motif — the figure touches its subject
   "offer", // 10x P1: the hand (with `holds`) held out to someone's face, a little below the shoulder (feeding, a sip, a cigarette)
+  "leave", // Action 2.0: on the `actionCue` word the person turns and WALKS OUT — past the partner to the beat's icon (a door) or off the frame — and is gone (stays gone on a `continue` beat)
+  "flee", // Action 2.0: on the cue the person RUNS AWAY from the partner (fast gait, forward lean, motion streaks) — out through the icon or off the frame, gone
   "drink", // 10x P2: the held object (`holds`) brought to ONE'S OWN mouth on the `actionCue` word — a sip; the cup tips, the head tips back
   // ── physical situations (2026-09-28) ──────────────────────────────────────
   // Lolita / SBC failed the mute test on dead frames partly because "lies on the

@@ -9,7 +9,7 @@
  */
 import type { Pose } from "./movements";
 
-export type Posture = "standing" | "seated" | "seatedIn" | "lying" | "down";
+export type Posture = "standing" | "seated" | "seatedIn" | "lying" | "down" | "gone";
 /** where the body stands: on its shot slot, IN the deed's destination, or BESIDE it */
 export type Anchor = "slot" | "inPlace" | "besidePlace";
 
@@ -23,6 +23,10 @@ export const END_STATES: Record<string, EndState> = {
   lying: { posture: "lying", anchor: "slot", restAction: "lying" },
   collapsed: { posture: "down", anchor: "slot", restAction: "collapsed" },
   falling: { posture: "down", anchor: "slot", restAction: "collapsed" },
+  // Action 2.0: whoever walked out / ran away is GONE — a continued beat that still lists them does not draw them
+  // (no teleport back to the slot); an authored new action (not idle) means they came back
+  leave: { posture: "gone", anchor: "slot", restAction: "idle" },
+  flee: { posture: "gone", anchor: "slot", restAction: "idle" },
 };
 
 /** actions a seated body can do with its upper body (arms, head, face) — it stays seated */
@@ -36,6 +40,7 @@ export const STATE_SHOTS = new Set(["wide", "lowAngle", "twoShot", "medium"]);
 export function keepsRest(posture: Posture, action: string | undefined): boolean {
   const a = action || "idle";
   if (posture === "standing") return true;
+  if (posture === "gone") return a === "idle" || a === "leave" || a === "flee";
   if (posture === "seated" || posture === "seatedIn") return UPPER_BODY.has(a);
   return FACE_ONLY.has(a) || a === "lying" || a === "collapsed";
 }
@@ -65,5 +70,5 @@ export function composeRest(rest: Pose, act: Pose, posture: Posture, action: str
 
 /** one line saying what a continued beat carries in (readcheck / rules): "mother: seated IN bathtub · demi: beside it" */
 export function stateLine(rests: { who: string; posture: Posture; anchor: Anchor; place?: string }[]): string {
-  return rests.map((r) => `${r.who}: ${r.anchor === "inPlace" ? `seated IN ${r.place || "it"}` : r.anchor === "besidePlace" ? `beside ${r.place || "it"}` : r.posture}`).join(" · ");
+  return rests.map((r) => `${r.who}: ${r.posture === "gone" ? "gone (left)" : r.anchor === "inPlace" ? `seated IN ${r.place || "it"}` : r.anchor === "besidePlace" ? `beside ${r.place || "it"}` : r.posture}`).join(" · ");
 }

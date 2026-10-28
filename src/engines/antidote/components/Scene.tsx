@@ -12,6 +12,7 @@ import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
 import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
 import { embraceMotifSlot } from "../safeArea";
 import { liftLayout, isLift } from "../liftLayout";
+import { leaveLayout, pathOf } from "../leaveLayout";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax } from "../movements";
 import { interpolate } from "remotion";
@@ -138,9 +139,13 @@ const CharacterLayer: React.FC<{
   /** CARRIED STATE (10x P1, continuity.ts): the end state of an earlier deed — the body keeps it (seated in the tub,
    *  seated, down) under this beat's action, at the place the deed left it (rest.stage) */
   rest?: RestCarry;
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest }) => {
+  /** LEAVE / FLEE (Action 2.0, leaveLayout.ts): px from the slot to the exit (the icon, or off the frame) */
+  exitDx?: number;
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  // whoever walked out / ran away on an earlier beat is GONE (endState.ts): never drawn back on their slot
+  if (rest && rest.posture === "gone") return null;
   const variant = resolveVariant(spec, cast);
   const body = rest && rest.body ? rest.body : resolveBody(shot, spec);
   // a COLLAPSED body lies on the slot's floor line — re-staged so the whole body is
@@ -160,6 +165,12 @@ const CharacterLayer: React.FC<{
   // the carried rest (settled: the deed is over) under this beat's own action — seated keeps its seat, down keeps its body
   if (rest) p = composeRest(pose(rest.restAction as CharacterSpec["action"], SETTLED_FRAME, fps), p, rest.posture, spec.action);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
+  // LEAVE / FLEE: the body moves along its path to the exit, faces the way it goes from the turn on, and is gone at
+  // the end (through the door / off the frame) — the deed is the movement, never a walk cycle on the spot
+  const leaving = (spec.action === "leave" || spec.action === "flee") && exitDx != null;
+  const exitShift = leaving ? exitDx! * pathOf(p.exit ?? 0) : 0;
+  const goneOpacity = leaving ? 1 - (p.gone ?? 0) : 1;
+  const faceFlip = leaving && (p.turned ?? 0) >= 0.5 ? exitDx! < 0 : st.flip;
   const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) + (liftDx.back ?? 0) * (p.back ?? 0) : 0;
   // a receiver steps in over the first frames, takes it, and steps back to its slot as it brings the object in — so it
   // stands on its slot at both cuts (a carried figure never jumps; a take carried past its moment is already back)
@@ -170,7 +181,7 @@ const CharacterLayer: React.FC<{
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
   // be negated back into rig space when the figure is flipped.
-  if (lookAtPoint) {
+  if (lookAtPoint && !(leaving && (p.turned ?? 0) > 0)) {
     const eyeY = st.y - 120 * st.scale;
     const screenGx = Math.max(-1, Math.min(1, (lookAtPoint.x - st.x) / 520));
     const screenGy = Math.max(-1, Math.min(1, (lookAtPoint.y - eyeY) / 420));
@@ -212,9 +223,9 @@ const CharacterLayer: React.FC<{
         position: "absolute",
         left: st.x,
         top: st.y,
-        opacity: e.opacity,
+        opacity: e.opacity * goneOpacity,
         filter: "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
-        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach + liftShift}px, ${e.ty}px) scale(${scale}) scaleX(${st.flip ? -1 : 1})`,
+        transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach + liftShift + exitShift}px, ${e.ty}px) scale(${scale}) scaleX(${faceFlip ? -1 : 1})`,
         transformOrigin: "center",
       }}
     >
@@ -371,7 +382,16 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // deed left it — this scene's own icon of the same object IS that place (drawn once, never twice)
   const place = plan && plan.place ? plan.place : null;
   const placeIdx = place ? props.findIndex((p) => sameObject(p as Parameters<typeof sameObject>[0], place.prop)) : -1;
-  const motifSlot = lift ? lift.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
+  // LEAVE / FLEE (Action 2.0): the leaver's path — past the partner (leave) or away from them (flee) — to the beat's icon
+  // (drawn where the path ends: the door they go through) or off the frame
+  const leaveOf = (k: number) => {
+    const c = bodies[k];
+    if (scene.diagram || !c || (c.action !== "leave" && c.action !== "flee")) return null;
+    const st = (j: number) => stageChar(scene.shot, bodies[j], plan && plan.chars[j] ? plan.chars[j].slot : j);
+    return leaveLayout(st(k), bodies.length > 1 ? st(k === 0 ? 1 : 0) : null, c.action, props.length > 0);
+  };
+  const leave0 = lift ? null : leaveOf(0);
+  const motifSlot = lift ? lift.dest : leave0 && props.length ? leave0.dest : embraceMotifSlot(scene.shot, bodies, preset.motif);
   // A HAND-OVER (continuity.ts handOffFrame): before its moment the object is in the giver's outstretched hand and the
   // receiver reaches with an empty hand; from it, in the receiver's. Any other beat: null, drawn as before.
   // Only when the two FACE each other (the planner's twoShot): on an authored shot that turns them apart the object
@@ -557,6 +577,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 embraceRole={c.action === "embrace" && bodies.length === 2 && ci === 1 ? "partner" : "lead"}
                 liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry, back: ci === 0 ? lift.stepBack : 0 } : undefined}
                 rest={cc && cc.rest ? cc.rest : undefined}
+                exitDx={(() => { const L = leaveOf(ci); return L ? L.exitDx : undefined; })()}
               />
             )}
           </AbsoluteFill>

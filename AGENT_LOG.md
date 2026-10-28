@@ -2087,6 +2087,39 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — CHARACTER ACTION 2.0: `leave` / `flee` (antidote-10x P4)
+- **Class chosen by data.** Run / escape / walk-out was the commonest failed physical action in the 2026-10-28 sweep:
+  18 beats, WRONG 6, dead 9. Hit/strike had 16 beats, WRONG 9, dead 7, but staging harm is restricted (minorHarm).
+  The failure was a `walk` drawn in place, often in a closeUp: no path, no exit, nobody gone (the-second-mountain 185,
+  long-way-down 190, unhinged 95, flowers-in-the-attic 162, wonder 167).
+- **New actions:**
+  - `leave`: on the `actionCue` word the person turns, walks along a path PAST the partner to the beat's icon (a door,
+    the stairs — drawn where the path ends, person-sized) or off the frame, and fades through it.
+  - `flee`: runs AWAY from the partner (double cadence, wider stride, forward lean, pumping arms, motion streaks).
+  - Code: `leaveLayout.ts` (pure), `movements.ts` (exit / gone / turned), `Scene.tsx` (path, facing, the icon at the
+    exit).
+- **Persistent result.** End state `gone` (`endState.ts`): a continued beat that still lists them does not draw them (no
+  teleport back); an authored new action means they came back. readcheck tells the blind text reader.
+- **Planner and merge:**
+  - The planner forces a full-body `wide` shot (a waist-up twoShot showed no stride, v1) and anchors `actionCue`.
+  - Merge refuses a leave in a closeUp or with a diagram.
+  - Merge now also accepts `actionCue` on `drink`, which the planner already read but merge refused.
+  - The rules.md recipe is added.
+- **Blind A/B** on the-second-mountain 184-186 (McClellan walks right past the waiting Lincoln and goes upstairs). Sandbox,
+  25.5 s, fresh sonnet readers on a 15-moment sequence (3 per arm) plus key frames, strict judges:
+
+  | arm | WRONG | DEAD | ADDS | doer / action / past whom / destination / result kept | invented | mid-walk frame |
+  |---|---|---|---|---|---|---|
+  | as authored (`walk`, closeUp) | 2/9 | 0/9 | 1/9 | PPN / PPP / PPP / NNN / NNN | 3/3 (roles reversed) | NEUTRAL/ADDS |
+  | `leave` + door, continue | 0/9 | 0/9 | 4/9 | YYY / YYY / YYY / YYP / YYY | 1/3 (sandbox intro row, identical in both arms) | CORRECT/ADDS |
+
+  Still weak: the frame AFTER the exit alone (Lincoln seated by the door) reads NEUTRAL/TEXT_ONLY. The state carries in
+  the sequence, not in a single still. Only one action class was measured.
+- **Status:** production for NEW books; published books untouched. `scripts/test-leave.js` covers the pose (nothing before
+  the cue, turn, monotonic path, gone), the layout (past / away / off-frame / clamped), the end state, the renderer
+  wiring, readcheck, and merge + planner on a word-timed fixture. The full suite is 83/88, the same 5 pre-existing
+  failures as origin.
+
 ### 2026-10-28 — MECHANISM 2.0: the CAUSAL CHAIN diagram (antidote-10x P3)
 - **Class chosen by data.** The 2026-10-28 sweep of 202 mechanism beats (identity-chain mapped):
   - psychological cause→effect: n80 (WRONG 12, dead 29, TEXT_ONLY 49);

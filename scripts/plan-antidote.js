@@ -1000,6 +1000,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         if (want.length === 2 && !own && a.action === "embrace") d.shot = "twoShot";
         // an authored LIFT (2026-10-26) is a full-body physical action: both people standing on the floor, room to carry
         if (want.length === 2 && !own && a.action === "lift") d.shot = "wide";
+        // LEAVE / FLEE (Action 2.0): a walk or run OUT needs the legs, the path and the exit in frame — full-body wide
+        // (a waist-up twoShot showed no stride: the leaver just vanished, the-second-mountain 185 v1)
+        if (want.length >= 1 && !own && (a.action === "leave" || a.action === "flee")) d.shot = "wide";
         // CARRIED STATE (10x P1): the beats that continue a lift keep the lift's framing unless the author picks a shot
         // (a closer STATE shot is reframed like a camera move, continuity.ts) — never the twoShot coercion above,
         // which would re-slot the pair the lift just placed
@@ -1067,7 +1070,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       }
       // AUTHORED ACTION MOMENT (take / embrace): the author's `actionCue` phrase, word-timed (same anchor as the
       // callouts); else the movement's own default (40% of the beat). Both figures of an embrace share it.
-      if ((L.action === "take" || L.action === "drink" || L.action === "embrace" || L.action === "lift") && a.actionCue) {
+      if ((L.action === "take" || L.action === "drink" || L.action === "embrace" || L.action === "lift" || L.action === "leave" || L.action === "flee") && a.actionCue) {
         const cueAt = anchorAt(s, a.actionCue, null, durationFrames + MIN_HOLD);
         if (cueAt == null) warn(`actionCue "${a.actionCue}" is not spoken in this beat — the ${L.action} happens at 40% of the beat`);
         else {

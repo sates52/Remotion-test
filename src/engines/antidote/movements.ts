@@ -149,6 +149,12 @@ export type Pose = {
   back?: number;
   /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
   noStool?: boolean;
+  /** `leave` / `flee` (Action 2.0, leaveLayout.ts): 0..1 progress along the path to the exit (Scene moves the body) */
+  exit?: number;
+  /** `leave` / `flee`: 0..1 the body goes into the exit (fades as it passes through the door / off the frame) */
+  gone?: number;
+  /** `leave` / `flee`: 1 from the turn on — the body faces the way it goes */
+  turned?: number;
 };
 /** LIFT phases on the pose clock, relative to the author's cue (the lifting word): the lifter closes the gap and bends
  *  BEFORE the cue; on the cue the body rises; then the carry; then the setting-down; then the lifter straightens. */
@@ -166,6 +172,8 @@ export const TAKE_REST_ELBOW = -12;
 /** Earliest scene frame for an action cue (the reach / approach needs time). Same value as continuity.ts ACTION_CUE_MIN
  *  (kept import-free so node can load this file; test-authored-actions checks they are equal). */
 export const ACTION_CUE_MIN = 24;
+/** LEAVE / FLEE (Action 2.0): frames from the cue to the exit — a walk out takes ~2.7 s, a run ~1.4 s */
+export const LEAVE_LEN = 80, FLEE_LEN = 42, TURN_LEN = 6;
 /** Frames from an authored `take` cue to the object being held at the chest. */
 export const TAKE_BRING = 24;
 // `drink` (10x P2): up to the lips, the sip held, back down to the chest
@@ -235,6 +243,36 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
   const t = frame / fps;
   const blink = blinkAt(frame);
   switch (action) {
+    case "leave":
+    case "flee": {
+      // Action 2.0 (2026-10-28): GOING AWAY. Before the cue: standing. On the cue: the turn (the body faces its exit),
+      // then the path — a walk (leave) or a run (flee: double cadence, wider stride, forward lean, arms pumping, motion
+      // streaks) — and the body goes INTO the exit (door / frame edge) and is gone: endState "gone" keeps it gone on a
+      // continued beat. Scene moves the body along leaveLayout's path by `exit`. Blind: a `walk` in place next to the
+      // partner read as "standing beside him" (the-second-mountain 185, long-way-down 190, unhinged 95).
+      const run = action === "flee";
+      if (frame < cue) return { ...BASE, blink, gazeX: 0, gazeY: 0, exit: 0, gone: 0, turned: 0 };
+      const LEN = run ? FLEE_LEN : LEAVE_LEN;
+      const k = (frame - cue) / LEN;
+      const g = gait(frame - cue, fps, run ? 2.4 : 1.3);
+      const amp = run ? 1.45 : 1.05;
+      const ph = ((frame - cue) / fps) * (run ? 2.4 : 1.3) * Math.PI * 2;
+      return {
+        ...BASE,
+        legL: g.legL * amp, legR: g.legR * amp, kneeL: g.kneeL * (run ? 1.7 : 1), kneeR: g.kneeR * (run ? 1.7 : 1),
+        armL: run ? 10 - Math.sin(ph) * 38 : g.armL, armR: run ? -10 - Math.sin(ph) * 38 : g.armR,
+        elbowL: run ? 55 : 0, elbowR: run ? -55 : 0,
+        hipY: g.hipY * (run ? 1.8 : 1),
+        lean: (run ? 9 : 2) + g.lean,
+        headY: g.hipY * 0.35,
+        mouth: run ? 0.35 : 0,
+        blink, gazeX: 0.85, gazeY: 0,
+        streaks: run ? 0.55 : 0,
+        exit: Math.max(0, Math.min(1, k)),
+        gone: Math.max(0, Math.min(1, (k - 0.84) / 0.16)),
+        turned: Math.max(0, Math.min(1, (frame - cue) / TURN_LEN)),
+      };
+    }
     case "take": {
       // START: reach for the object resting at arm's length. MOMENT (cue): the hand closes on it.
       // RESULT: forearm brings it to the chest — the `hold` pose, object in hand, kept.

@@ -116,6 +116,8 @@ function visible(b, bible, own, mech, causal) {
       return p;
     });
   }
+  // LEAVE / FLEE (Action 2.0, leaveLayout.ts): the person goes away and is gone — say where, as the renderer draws it
+  if ((b.action === "leave" || b.action === "flee") && framed && cast.length) v.motion = `the first person ${b.action === "flee" ? "runs away" : "walks out"}${cast.length === 2 ? (b.action === "flee" ? " from the second" : ", past the second,") : ""} ${b.concept ? `through the ${b.concept}` : "off the edge of the picture"} and is gone`;
   // a lift is the one action that MOVES people: say where they go, as the renderer draws it (liftLayout.ts)
   if (b.action === "lift" && cast.length === 2 && framed) v.motion = "the first person picks the second up, carries them to the icon and sets them down in it; they stay there";
   if (b.concept) v.icon = own[b.concept] ? (own[b.concept].reads || own[b.concept].title || b.concept) : (DRAWN[b.concept] || `an icon of ${b.concept}`);
@@ -179,7 +181,7 @@ function carriedStates(beats, bible) {
     cast.forEach((id, n) => {
       const es = ES.endStateOf(n === 0 ? b.action : (pair ? "lifted" : null), pair);
       if (!es) return;
-      next[id] = { posture: es.posture, text: es.anchor === "inPlace" ? `still sitting IN the ${b.concept || "place"}` : es.anchor === "besidePlace" ? `standing beside the ${b.concept || "place"}` : es.posture === "seated" ? "still seated" : "still down on the ground" };
+      next[id] = { posture: es.posture, text: es.posture === "gone" ? "gone — left the scene (not drawn)" : es.anchor === "inPlace" ? `still sitting IN the ${b.concept || "place"}` : es.anchor === "besidePlace" ? `standing beside the ${b.concept || "place"}` : es.posture === "seated" ? "still seated" : "still down on the ground" };
     });
     st = next;
   }
