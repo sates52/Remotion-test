@@ -95,5 +95,15 @@ for (const [h, f] of [["Claude Code", "CLAUDE.md"], ["Cursor / AGENTS.md", "AGEN
   const s = src(f);
   t(`${h}: routes the final render to the canonical render-deliver skill`, s.includes(".claude/skills/render-deliver/SKILL.md"));
 }
+// every agent-facing skill that still documents an ffmpeg concat says, right there, that it never applies to GitHub
+// segments (2026-10-28: a blind Antigravity read found .agents/skills/remotion's concat recipe without that caveat)
+for (const f of [".agents/skills/remotion/SKILL.md", "SKILL.md"]) {
+  const L = src(f).split(/\r?\n/);
+  const bare = L.map((l, i) => ({ l, i })).filter(({ l }) => /ffmpeg concat|-f concat|Concatenate the (segments|local chunks)/i.test(l) && !/^\s*#/.test(l))
+    .filter(({ i }) => !L.slice(Math.max(0, i - 3), i + 4).some((x) => /cloud assembly|render-deliver|LEGACY|never for a GitHub/i.test(x)));
+  t(`${f}: every ffmpeg-concat recipe carries the cloud-assembly caveat`, !bare.length, bare.map((x) => `${f}:${x.i + 1}`).join(", "));
+}
+t("Antigravity remotion skill: render-deliver rule at the top", /render-deliver\/SKILL\.md/.test(src(".agents/skills/remotion/SKILL.md").slice(0, 1200)));
+t("Antigravity render-deliver skill: Turkish triggers in its description", /birleştir/.test(src(".agents/skills/render-deliver/SKILL.md")) && /videoyu indir/.test(src(".agents/skills/render-deliver/SKILL.md")));
 console.log(failed ? `\n${failed} FAILED` : "\nall render-deliver checks passed");
 process.exit(failed ? 1 : 0);

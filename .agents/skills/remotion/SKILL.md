@@ -10,6 +10,8 @@ description: >
 
 # Remotion Book-Video Project – Skill Reference
 
+> **Final render / assembly / download ("render et", "birleştir", "videoyu indir"): follow `.claude/skills/render-deliver/SKILL.md` only.** GitHub segments are joined in the CLOUD; this PC downloads only the verified film. The local/Lambda chunk recipes below are legacy and never apply to GitHub worker segments.
+
 ## Project Root
 
 ```
@@ -402,7 +404,8 @@ Rendering videos longer than 15 minutes (or with high asset density) requires sp
   # Automatically generates parts.txt for FFmpeg merging.
   node local_chunk_renderer.js
   ```
-- **Final Merge**: Use FFmpeg concat (copy mode) to assemble the fragments instantly.
+- **Final Merge** (local chunks of THIS PC only): FFmpeg concat (copy mode).
+> ⛔ **Never for a GitHub split render.** GitHub worker segments are joined ONLY by cloud assembly — `.claude/skills/render-deliver/SKILL.md`, next step `node scripts/render-status.js --slug=<slug>`. Never download segments, never ffmpeg-concat them here (2026-10-28, Margery Kempe).
 
 ---
 
@@ -680,7 +683,7 @@ node scripts/render-queue.js --slug=single-dad-dilemma --run-now --method=github
 
 ### 🎬 Single-Video Direct Render Commands
 ```bash
-# GitHub Actions with auto worker rotation and wait + auto-download:
+# GitHub Actions: workers render, the CLOUD joins + verifies, only the final film is downloaded (render-deliver skill):
 node scripts/render.js --slug=<slug> --method=github --wait
 
 # GitHub Actions background dispatch only:
@@ -707,7 +710,8 @@ For videos >15 minutes (typically 20,000+ frames), Chrome headless will leak mem
 2. **CRITICAL Remotion v4 CLI change**: Do not use `--from` and `--to`. These flags are ignored and will cause OOM crashes! ALWAYS use `--frames=start-end`.
    - Correct: `npx remotion render MyComp out.mp4 --frames=0-399 --concurrency=1`
    - Incorrect: `npx remotion render MyComp out.mp4 --from 0 --to 399`
-3. Concatenate the segments using standard `ffmpeg`.
+3. Concatenate the local chunks using standard `ffmpeg`.
+> ⛔ **Never for a GitHub split render.** GitHub worker segments are joined ONLY by cloud assembly — `.claude/skills/render-deliver/SKILL.md`, next step `node scripts/render-status.js --slug=<slug>`. Never download segments, never ffmpeg-concat them here (2026-10-28, Margery Kempe).
 
 ---
 
@@ -761,7 +765,8 @@ npx remotion lambda render <serveUrl> Vox-<slug> --function-name=<disk10240 fn> 
 ```
 - Run segments **sequentially** (each uses ~150 λ; 3× at once can exceed the account concurrency limit).
 - `lambda render` does **NOT** auto-download — output stays in S3 at `renders/<renderId>/<out-name>`. Download with the helper: `node scripts/dl-render.js <renderId> <out-name> out/<slug>-segments/segN.mp4` (uses `@aws-sdk/client-s3` from the pnpm store + `.env` creds).
-- Concat (identical codec params → stream copy, no re-encode):
+- Concat Lambda segments (identical codec params → stream copy, no re-encode):
+> ⛔ **Never for a GitHub split render.** GitHub worker segments are joined ONLY by cloud assembly — `.claude/skills/render-deliver/SKILL.md`, next step `node scripts/render-status.js --slug=<slug>`. Never download segments, never ffmpeg-concat them here (2026-10-28, Margery Kempe).
 ```powershell
 # out/<slug>-segments/parts.txt: file 'seg1.mp4' / file 'seg2.mp4' / file 'seg3.mp4'
 ffmpeg -y -f concat -safe 0 -i out/<slug>-segments/parts.txt -c copy out/<slug>.mp4

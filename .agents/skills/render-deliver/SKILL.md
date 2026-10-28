@@ -2,7 +2,8 @@
 name: render-deliver
 description: >
   Final render → CLOUD assembly → verified film → delivery files, after the operator approved the production render.
-  Never download segments or join them with ffmpeg locally.
+  Use for "render et", "final render", "birleştir", "assemble", "videoyu indir", an interrupted render or one
+  another session started. Never download segments or join them with ffmpeg locally.
 ---
 
 This is the Antigravity entry for the shared procedure. The text is `.claude/skills/render-deliver/SKILL.md`
