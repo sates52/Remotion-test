@@ -551,6 +551,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   let lastPlannedShot = null; // the previous scene's final shot: an authored `continue` keeps it
   let refuteDone = []; // REFUTE (10x P2): elements the current rejected-claim chain already reached
   let mechDone = []; // MECHANISM (10x P1): elements the current cause-model chain already reached
+  let causalDone = []; // MECHANISM 2.0 (causal.ts): elements the current causal chain already reached
   let lastPlannedBg = null; // …and its final background (2026-10-24)
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
@@ -785,6 +786,28 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       diagram.mechanism = M;
       mechDone = [...new Set([...chainDone, ...Object.keys(at)])];
     } else if (!(ART && ART[i] && ART[i].continue === true)) mechDone = [];
+    // MECHANISM 2.0 (causal.ts): a causal chain — a station, the token, its relabel, the contrast, the loop each appear ON
+    // the word that says it (strict anchor, never before); an unspoken cue stops the plan. A loop may fire several times.
+    if (diagram && diagram.type === "causal" && diagram.causal) {
+      const { anchorOnWord } = require("./lib/word-anchor");
+      const C = JSON.parse(JSON.stringify(diagram.causal));
+      const at = {};
+      for (const [el, c] of Object.entries(C.cues || {})) {
+        const fr = [];
+        for (const cc of Array.isArray(c) ? c : [c]) {
+          const phrase = typeof cc === "string" ? cc : cc.phrase, occurrence = typeof cc === "string" ? 1 : cc.occurrence || 1;
+          const f = anchorOnWord(s, phrase, { occurrence, durationFrames });
+          if (f == null) { console.error(`❌ scene ${i}: causal "${el}" cue ${JSON.stringify(cc)} is not spoken in this beat — a link of the chain appears ON the narration's word`); process.exit(1); }
+          fr.push(f);
+        }
+        at[el] = el === "loop" ? fr : Math.min(...fr);
+      }
+      const chainDone = ART && ART[i] && ART[i].continue === true ? causalDone : [];
+      C.at = at;
+      C.done = chainDone.filter((e) => !(e in at));
+      diagram.causal = C;
+      causalDone = [...new Set([...chainDone, ...Object.keys(at)])];
+    } else if (!(ART && ART[i] && ART[i].continue === true)) causalDone = [];
     if (diagram) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.

@@ -164,6 +164,39 @@ function mechanismProblems(diagram, narration, P) {
   return { labels: require("../src/engines/antidote/mechanism.ts").mechanismLabels(m).filter((l) => !texts.includes(l)), texts };
 }
 
+// MECHANISM 2.0 (src/engines/antidote/causal.ts): a causal chain as ONE diagram over continued beats. Every station, the
+// token, its relabel, the contrast and the loop appear ON the word that says them (the planner anchors strictly and stops
+// otherwise); nothing printed that the narration does not say. Returns { labels, texts } like refuteProblems.
+function causalProblems(diagram, narration, P) {
+  if (!diagram.causal) { P("causal diagram without `causal` {stations, token?, contrast?, loop?, cues}"); return null; }
+  const { causalSchema } = require("../src/engines/antidote/schema.ts");
+  const r = causalSchema.safeParse(diagram.causal);
+  if (!r.success) { P(`causal: ${r.error.issues.map((x) => `${x.path.join(".")} ${x.message}`).slice(0, 3).join("; ")}`); return null; }
+  const c = r.data;
+  if (c.at || c.done) P("causal: `at` / `done` are written by the planner from the word timings — remove them");
+  const nw = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+  const said = nw(narration);
+  const count = (q) => { const w = nw(q); if (!w) return 0; let n = 0, k = 0; while ((k = (" " + said + " ").indexOf(" " + w + " ", k)) >= 0) { n++; k += w.length; } return n; };
+  for (const [el, cv] of Object.entries(c.cues || {})) for (const cc of Array.isArray(cv) ? cv : [cv]) {
+    const phrase = typeof cc === "string" ? cc : cc.phrase, occ = typeof cc === "string" ? 1 : cc.occurrence || 1;
+    const n = count(phrase);
+    if (!n) P(`causal cue ${el} "${phrase}" is not spoken in this beat — a link of the chain appears ON the narration's word`);
+    else if (occ > n) P(`causal cue ${el} "${phrase}" occurrence ${occ} but it is spoken ${n} time(s) here`);
+    if (/^n[0-4]$/.test(el) && Number(el.slice(1)) >= c.stations.length) P(`causal cue ${el}: there is no station ${el.slice(1)}`);
+    if ((el === "token" || el === "relabel") && !c.token) P(`causal cue ${el} without a \`token\``);
+    if (el === "relabel" && c.token && !c.token.tagTo) P("causal cue relabel without token.tagTo (the new name)");
+    if (el === "contrast" && !c.contrast) P("causal cue contrast without a `contrast`");
+    if (el === "loop" && !c.loop) P("causal cue loop without a `loop`");
+  }
+  // a chain is causal ORDER: two stations with the same label (or glyph + label) say nothing new
+  const seen = new Set();
+  for (const st of c.stations) { const k = nw(st.label); if (seen.has(k)) P(`causal: station "${st.label}" twice`); seen.add(k); }
+  // no invented precision: a number on screen only if the narration says it
+  for (const l of require("../src/engines/antidote/causal.ts").causalLabels(c)) for (const d of String(l).match(/\d+/g) || []) if (!said.includes(d)) P(`causal label "${l}" prints ${d}, which the narration does not say`);
+  const texts = [c.token && c.token.tagTo, c.contrast && c.contrast.result].filter(Boolean);
+  return { labels: require("../src/engines/antidote/causal.ts").causalLabels(c).filter((l) => !texts.includes(l)), texts };
+}
+
 // sha256 of the book files a prep is built from (missing file = null)
 function bookInputs() {
   const sha = (p) => (fs.existsSync(p) ? crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex") : null);
@@ -353,7 +386,7 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
 \`\`\`json
 { "i": 12,
   "concept": "<icon>" | null,
-  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? } | { "type": "scorecard", "title": "..", "scorecard": {..} } | { "type": "refute", "labels": [], "refute": {..} } | { "type": "mechanism", "labels": [], "mechanism": {..} },
+  "diagram": null | { "type": "flow|sorter|spectrum|matchWave", "labels": ["..",".."], "values": [..]? } | { "type": "scorecard", "title": "..", "scorecard": {..} } | { "type": "refute", "labels": [], "refute": {..} } | { "type": "mechanism", "labels": [], "mechanism": {..} } | { "type": "causal", "labels": [], "causal": {..} },
   "callout": { "text": "2-5 words", "style": "reveal|highlight|strike|box|stack" } | null,
   "set": "<set>",                    // optional
   "shotOverride": "<shot>",          // optional, rarely
@@ -448,6 +481,27 @@ factor slides across UNCHANGED, "SAME" — on "remains the same"), redraw (the o
 rolls), average (the dashed line = the total at normal levels), settle (the arrow from the first total to the second
 and the result — on the effect's own word, never before). The engine anchors every element to the spoken word and
 stops if it is not spoken in that beat.
+
+## A chain of causes (start → trigger → mechanism → change → result)
+When the narration explains HOW one thing leads to another through steps — a psychological reaction (fear → adrenaline
+→ the brain misreads it → attraction), a reflex or habit loop (a text arrives → a social bid → the instant yes), a body
+or physical process, a decision and its consequence — do NOT show a face with the key word on it (unhinged 129:
+"MISATTRIBUTION OF AROUSAL" on a startled face read WRONG/NONE; the-art-of-saying-no 23, a worried woman with a phone,
+WRONG/NONE). Build ONE \`causal\` diagram over the beats that tell the chain, later beats \`"continue": true\` with the
+same diagram:
+\`{"type": "causal", "labels": [], "scale": 1.25, "causal": {"stations": [{"label": "<as said>", "glyph": "<glyph>"}, …2-5
+in CAUSAL order], "token": {"glyph": "<what is carried>", "tag": "<its first name, as said>", "tagTo": "<its new name,
+only if the narration renames it>", "from": <station where it starts>}, "contrast": {"label": "<the condition without
+the trigger, only if said>", "glyph": ".."}, "loop": {"to": <earlier station>, "label": ".."}, "cues": {"n0": "..", …}}}\`.
+Glyphs: bridge heart brain eye phone bolt drop danger person people coin clock speech check cross spark lock door fire
+ice water plant gift. Stations go in CAUSE order even when the narration says the result first: name each station in
+\`cues\` ONLY in the beat whose words say it — a station said early is drawn early and the stations between are dashed
+"?" until their word (the viewer sees a WHY is missing). The TOKEN is the one thing carried through the chain (the
+racing heart, the dose, the message): it is born on its word at \`from\` and travels only into stations already drawn.
+\`relabel\` (on the word of the new name) strikes the token's tag through and writes \`tagTo\` — the same object, read
+differently. \`contrast\` = what happens without the trigger (a flat line, nothing travels); \`loop\` (habit, vicious
+circle) = the result feeds back, the token rides the arc on each loop word. Labels are the narration's words; no number
+unless said. The engine anchors every element to the spoken word and stops if it is not spoken in that beat.
 
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly
@@ -884,7 +938,7 @@ function merge() {
     }
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
-    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute", "mechanism"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute", "mechanism", "causal"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
@@ -998,10 +1052,10 @@ function merge() {
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
-        const rfw = a.diagram.type === "refute" ? refuteProblems(a.diagram, narration, (m) => P(i, m)) : a.diagram.type === "mechanism" ? mechanismProblems(a.diagram, narration, (m) => P(i, m)) : null;
+        const rfw = a.diagram.type === "refute" ? refuteProblems(a.diagram, narration, (m) => P(i, m)) : a.diagram.type === "mechanism" ? mechanismProblems(a.diagram, narration, (m) => P(i, m)) : a.diagram.type === "causal" ? causalProblems(a.diagram, narration, (m) => P(i, m)) : null;
         if (rfw) rfw.texts.forEach((x) => { const vv = st.checkString(x, { kind: "text", narration, authored: true }); if (vv.length) P(i, `${a.diagram.type} line "${x}": ${vv.map((y) => y.code).join(",")}`); });
         const scoreWords = a.diagram.type === "scorecard" ? scorecardProblems(a.diagram, (m) => P(i, m)) : rfw ? rfw.labels : null;
-        if (a.diagram.type === "scorecard" || a.diagram.type === "refute" || a.diagram.type === "mechanism") { /* validated by scorecardProblems / refuteProblems / mechanismProblems */ }
+        if (a.diagram.type === "scorecard" || a.diagram.type === "refute" || a.diagram.type === "mechanism" || a.diagram.type === "causal") { /* validated by scorecardProblems / refuteProblems / mechanismProblems / causalProblems */ }
         else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }

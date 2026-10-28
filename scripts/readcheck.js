@@ -99,7 +99,7 @@ function looksOf(c) {
   return v.outfit ? `${age} in a ${v.outfit}` : age;
 }
 
-function visible(b, bible, own, mech) {
+function visible(b, bible, own, mech, causal) {
   const v = {};
   const cast = Array.isArray(b.cast) ? b.cast : [];
   const framed = !(typeof b.shotOverride === "string" && DROPS_CAST.has(b.shotOverride));
@@ -123,6 +123,7 @@ function visible(b, bible, own, mech) {
   if (b.callout && b.callout.text) v.words = b.callout.style === "strike" ? `${b.callout.text} (crossed out)` : b.callout.text;
   // only the labels the renderer draws (lib/diagram-capacity.js) — an undrawn label must not help the reader
   if (b.diagram && b.diagram.type === "scorecard" && b.diagram.scorecard) v.diagram = scorecardSeen(b.diagram.scorecard);
+  else if (b.diagram && b.diagram.type === "causal" && b.diagram.causal) v.diagram = require("../src/engines/antidote/causal.ts").causalSeen(b.diagram.causal, (causal && causal[b.i]) || new Set(Object.keys(b.diagram.causal.cues || {})));
   else if (b.diagram && b.diagram.type === "mechanism" && b.diagram.mechanism) v.diagram = require("../src/engines/antidote/mechanism.ts").mechanismSeen(b.diagram.mechanism, (mech && mech[b.i]) || new Set(Object.keys(b.diagram.mechanism.cues || {})));
   else if (b.diagram) v.diagram = `${DIAGRAM[b.diagram.type] || b.diagram.type}: ${drawnLabels(b.diagram.type, b.diagram.labels).join(" / ")}`;
   return v;
@@ -137,6 +138,21 @@ function mechanismReached(beats) {
     if (b.diagram && b.diagram.type === "mechanism" && b.diagram.mechanism) {
       if (b.continue !== true) acc = new Set();
       for (const e of Object.keys(b.diagram.mechanism.cues || {})) acc.add(e);
+      out[b.i] = new Set(acc);
+    } else if (b.continue !== true) acc = new Set();
+  }
+  return out;
+}
+
+// MECHANISM 2.0 (causal.ts): a causal chain builds over continued beats the same way — each beat shows every element its
+// chain has reached so far.
+function causalReached(beats) {
+  const out = {};
+  let acc = new Set();
+  for (const b of beats) {
+    if (b.diagram && b.diagram.type === "causal" && b.diagram.causal) {
+      if (b.continue !== true) acc = new Set();
+      for (const e of Object.keys(b.diagram.causal.cues || {})) acc.add(e);
       out[b.i] = new Set(acc);
     } else if (b.continue !== true) acc = new Set();
   }
@@ -177,6 +193,7 @@ function prep() {
   let beats = beatsOf();
   const kept = carriedStates(beats, bible); // over ALL beats, before any --beats filter
   const mech = mechanismReached(beats);
+  const causal = causalReached(beats);
   const only = args.beats ? new Set(String(args.beats).split(",").map(Number)) : null;
   if (only) beats = beats.filter((b) => only.has(b.i));
   if (OUT === BASE) fs.rmSync(OUT, { recursive: true, force: true }); // full run: start clean (drops old re-checks too)
@@ -186,7 +203,7 @@ function prep() {
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push(beats.slice(s, s + size));
   chunks.forEach((c, k) => fs.writeFileSync(path.join(OUT, `visible-${k + 1}.json`),
-    JSON.stringify(c.map((b, n) => ({ id: `b${String(k * size + n + 1).padStart(3, "0")}`, ...visible(b, bible, own, mech), ...(kept[b.i] ? { state: kept[b.i] } : {}) })), null, 1)));
+    JSON.stringify(c.map((b, n) => ({ id: `b${String(k * size + n + 1).padStart(3, "0")}`, ...visible(b, bible, own, mech, causal), ...(kept[b.i] ? { state: kept[b.i] } : {}) })), null, 1)));
   // the key maps the neutral ids back to beats — blind agents never open it
   const key = {};
   chunks.forEach((c, k) => c.forEach((b, n) => { key[`b${String(k * size + n + 1).padStart(3, "0")}`] = b.i; }));

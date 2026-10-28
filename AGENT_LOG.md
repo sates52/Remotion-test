@@ -2087,6 +2087,43 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — MECHANISM 2.0: the CAUSAL CHAIN diagram (antidote-10x P3)
+- **Class chosen by data.** The 2026-10-28 sweep of 202 mechanism beats (identity-chain mapped):
+  - psychological cause→effect: n80 (WRONG 12, dead 29, TEXT_ONLY 49);
+  - behavioural feedback loop: n33;
+  - physical/biological: n39.
+  - The existing `mechanism` (stacked factors, two trials) fits none of them. It is a different shape: start → trigger →
+    intermediate → change → result.
+- **New diagram `causal`** (`src/engines/antidote/causal.ts` pure state, `components/CausalChain.tsx`):
+  - **Stations:** 2-5 pictograms, a closed glyph set of 23, placed in CAUSAL order, each on its spoken word.
+  - **Temporal causal graph:** the result can be said first. Stations between two drawn ones are dashed "?" slots until
+    their word.
+  - **Persistent token:** the one carried thing (the racing heart). It travels arrow by arrow, only into drawn stations,
+    and the arrows it crossed stay coloured.
+  - **Relabel:** the token's tag is struck through and renamed (FEAR → SEXUAL ATTRACTION) AT its station; the token waits
+    there until the new name is written.
+  - **Contrast row:** the condition without the trigger, a flat line where nothing travels.
+  - **Loop:** the token rides an arc back to an earlier station on each loop word (feedback-loop class; unit-tested, not
+    yet blind-tested).
+- **Same chain as `mechanism`:** authoring (`rules.md` section + JSON shape) → merge (`causalProblems`: every cue spoken,
+  station / token / contrast / loop consistency, no unsaid number) → planner (strict word anchor, `at`/`done` over
+  `continue` beats, an unspoken cue stops the plan) → render → readcheck (`causalSeen`).
+- **Blind A/B** on unhinged 127-131 (misattribution of arousal, shaky-bridge experiment). Sandbox copy, 47.6 s, fresh
+  sonnet readers (3 per arm on the 15-moment sequence + 1 per key frame), strict judges:
+
+  | arm | WRONG | DEAD | ADDS | EXPLAINS | cause / mechanism / intermediate / result / contrast | invented | key frames |
+  |---|---|---|---|---|---|---|---|
+  | as authored (face + callouts + heart icon) | 0/15 | 0/15 | 7/15 | 0/15 | PPP / PPP / PPP / NNP / NNN | 1/3 | 3× NEUTRAL/TEXT_ONLY |
+  | causal chain | 0/15 | 0/15 | 14/15 | 11/15 | YYY / YYY / YYY / YYY / YYY | 0/3 | 3× CORRECT/ADDS/explains |
+
+- **Status:** production for NEW books (vocabulary, merge, planner, renderer); published books untouched. Adoption 0 so
+  far. The books currently being authored (crazy-rich-asians, the-lightning-thief) were prepped in the main checkout at
+  24d7186d, 71-78 commits behind, so their rules.md offers neither this nor scorecard / refute / mechanism / lift / drink.
+- **Tests:** `scripts/test-causal.js` (schema, temporal state swept frame by frame, token never enters an undrawn
+  station, the rename hold, loop, readcheck words, merge refusals, planner anchoring on a word-timed fixture).
+  The full suite is 83/88. The 5 failures (test-authored-actions, test-authorship-gate, test-bible-integrity,
+  test-p9a-vox, test-visual-compiler) fail identically on clean origin e6a8ae46 and are pre-existing.
+
 ### 2026-10-28 — YouTube READY: one gate for the whole publishing pack, Vox and Antidote (P1)
 - **Incidents.**
   - *The Book of Margery Kempe* shipped a youtube.md with "… Explained — TODO counter-narrative angle 1
