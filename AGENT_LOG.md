@@ -2087,6 +2087,29 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-29 — CHARACTER ACTION 3.0: `place` (an object set down, and it stays) + threat-aware flee (antidote-10x P4)
+
+- **Why place:** the most frequent physical misread among the actions not yet supported. "Sets it down", "put the tool down"
+  and "crumpled on the floor" read as a person holding / standing next to the object (lightning-thief 71 WRONG,
+  don't-believe 79 NONE, wonder 220 WRONG). push/fall: `falling`/`collapsed` already exist; authors chose `slump`.
+  That is an authoring gap, noted, not built.
+- **Engine:** `movements.ts` `place` = take in reverse. Take's end pose comes before the cue; the arm goes out to the
+  reach rest; `take` 1 -> 0 at full reach (the rig draws the object resting); the empty hand comes back.
+  The `wrench` hand prop. Merge needs `holds` + `actionCue`; the planner anchors on the cue; readcheck says "sets X down".
+- **Blind A/B** (don't-believe 77-81, moving clips, 3 sonnet sequence readers per arm + key frames, strict judges):
+  | arm | doer | action | target | path | change | kept | WRONG | DEAD | ADDS | invented |
+  |---|---|---|---|---|---|---|---|---|---|---|
+  | baseline (authored seated pose) | PPP | NNN | NNN | NNN | NNN | NNN | 1/15 | 0 | 2/15 | 3/3 |
+  | place | YYY | YYY | YYY | YYP | YYY | YPP | 1/15 | 1/15 | 6/15 | 2/3 |
+  The WRONG/DEAD row (beat 80) is identical in both arms; WRONG did not rise. The camera reframe (wide -> medium) kept
+  the action identity.
+- **Flee = a recorded LIMITATION** (f451 234-236): doer YPP, action YPN, target PNN vs baseline N. The run reads as
+  "walks out" and the still threat as a passive watcher; WRONG 3/9 vs 1/9, and 2 of those are on a row identical in
+  both arms. Fix shipped anyway: a lone flee with an icon runs AWAY from the icon, off-frame (it used to run toward
+  the Hound). Written into rules.md as a LIMIT. The idea of gazing back after the exit was tried and NOT shipped (no evidence).
+- Tests: `scripts/test-place.js` (new); `test-leave.js` has threat-flee cases. place/leave/authored-actions/drink/
+  causal/causal-loop/rules-event-first/agent-entrypoints/book-bootstrap all PASS.
+
 ### 2026-10-29 — MECHANISM 3.0: a feedback LOOP whose state changes lap by lap (the causal LEDGER) (antidote-10x P3)
 - **Class chosen by data.** Behavioural feedback loops: n33, WRONG 8, dead 18, the most hard failures among the open
   causal classes (decision → outcome is larger at n35 but 31 of it is TEXT_ONLY). The real passage is unhinged 57-64
