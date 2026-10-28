@@ -320,10 +320,7 @@ ${prompt}
 ## Sonraki adımlar
 1. Sesi **MP3** olarak indir → \`public/audio/${SLUG}.mp3\` (.m4a da çalışır, ama uzun bir kitapta GitHub'ın 100 MB dosya sınırını aşabilir; o zaman render worker'ları reddeder)
 2. Videoyu YouTube'a (unlisted) yükle → otomatik altyazıyı **kelime zaman damgalı VTT** olarak indir → \`public/captions/${SLUG}.vtt\`
-3. Tek komut:
-\`\`\`
-node scripts/make-book.js --slug=${SLUG} --title="${TITLE}" --author="${AUTHOR}" --genre=${GENRE}
-\`\`\`
+3. Bu oturumda yaz: **"dosyalar hazır, preview hazırla"** (skill \`preview-hazirla\`: kitabın kendi worktree'si, storyboard, kapılar, kör sessiz test). Final render ayrı, operatör onaylı bir adım.
 `;
 
   fs.writeFileSync(OUT, md);

@@ -67,7 +67,7 @@ Then the engine is final. Tell the operator in one line (a statement, not a ques
 Rewrite the block in `books/<slug>/prompt.notebooklm.md` exactly as make-prompt instructs:
 non-obvious lens + one arguable thesis + mid-thought cold open, 8 argued beats with concrete
 examples from the book, an honest counterpoint, a reframing closer; keep the DEPTH ENGINE and
-LENGTH blocks (45-60 min, no padding); English only; ~2.5-3.5k characters. Shape the beats for the
+LENGTH blocks (45-60 min, no padding); English only; ~3.5-5k characters (the fixed spine alone is ~2.6k; `--check` warns above 5000). Shape the beats for the
 engine:
 - **Vox** — build beats on named people, real/period places and scenes a camera could photograph.
 - **Antidote** — build beats on the characters' situations and the ideas; everyman moments.
@@ -80,5 +80,5 @@ book.json). NOT READY lists what is missing — fix it and re-check; never hand 
 
 ## 4. Hand-off
 After `--check` READY, tell the operator (Turkish): the prompt file path, the engine line from step 2, and the next step —
-record the Audio Overview, drop `public/audio/<slug>.mp3` (download the **MP3** — a .m4a of a 50-min book can pass GitHub's 100 MB file limit and every render worker refuses it) + `public/captions/<slug>.vtt`, then say
+record the Audio Overview, upload it to YouTube (unlisted) for the word-timed auto-caption VTT, drop `public/audio/<slug>.mp3` (download the **MP3** — a .m4a of a 50-min book can pass GitHub's 100 MB file limit and every render worker refuses it) + `public/captions/<slug>.vtt`, then say
 "dosyalar hazır, preview hazırla" in this session (skill `preview-hazirla`).
