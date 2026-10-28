@@ -6159,3 +6159,9 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Operator confirmed the YouTube upload is live. Accepted quality debt (2 WRONG frames, run2 holdout) recorded earlier; mute test stays FAIL and preview-ready NOT READY.
 - Cleanup per standing rule: render-github-cleanup.js (artifacts and runs), purge-render-branches.js (render/ refs), render-purge.js (local film 3079 MB, thumbnails). Worktree `render-accounts.json` copy removed.
 - Book source under `books/their-eyes-were-watching-god/` is untracked in the working checkout and was not committed here.
+
+### 2026-10-28 — thinking-fast-and-slow — published & cleaned
+- Operator confirmed the YouTube upload is live. The first caption upload was rejected by YouTube ("errors on line 7"): the raw auto-caption VTT carries inline `<c>` word-timing tags and rolling duplicate cues. Fixed by `scripts/clean-vtt.js` → `public/captions/thinking-fast-and-slow.clean.vtt` (1808 cues, 0 tags); upload that file "With timing".
+- Thumbnail: `render-thumbnails.js` produced only variant A, and the hook text was not visible in the render (defect, not fixed; the book shipped with the operator's choice).
+- Cleanup per standing rule: render-github-cleanup.js (artifacts and runs), purge-render-branches.js (11 refs deleted, render-worker-1…10), render-purge.js (film + thumbnail). Record in PUBLISHED_BOOKS.md.
+- Engine note for review: the thumbnail grammar does not draw a hook word when the layout is `cinematic-bleed` with a long "THINKING, FAST AND SLOW" title line. Investigate before the next book uses that layout.

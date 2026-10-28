@@ -1393,3 +1393,11 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Length:** `books/inside-out/config.antidote.json` = 60,553 frames at 30 fps (33:38); the WIP row says 60,832 frames / 33.8 min — the two are not reconciled.
 - **Not recorded:** the YouTube URL / video id, the live title, the render SHA, whether 2026-10-22 is the upload or the cleanup date. Only the operator can supply them; nothing here is inferred.
 - **Source:** `books/inside-out/` exists only, untracked, in the main checkout (`test/`); it is not on origin.
+
+## Thinking, Fast and Slow — Daniel Kahneman (`thinking-fast-and-slow`, Antidote)
+- **Status:** Published on YouTube (operator-confirmed, 2026-10-27/28). Captions uploaded as `thinking-fast-and-slow.clean.vtt` ("With timing").
+- **Length:** 55.3 min (3305 s); 99,152 frames; technical VERIFIED (frames = config, full decode clean, audio present).
+- **Render:** 10-worker GitHub split render, all 10 segments success; cloud assembly verified; out/thinking-fast-and-slow.mp4 (1181 MB), sha256 matches cloud report.
+- **Quality provenance:** Preview sealed mute test PASS (WRONG ≤ 1/30, dead ≤ 5/30, ADDS 50% text-carried). Firewall 0 BLOCK, 651 REVIEW carried as operator-accepted quality debt for config sha 682dcb40a3a19d9d. Production firewall status stays FAIL.
+- **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-28: GitHub artifacts + runs (render-github-cleanup.js); render/ refs purged on 10 workers (purge-render-branches.js); local film and thumbnail (render-purge.js, ~1.18 GB). Raw audio re-encoded to 81 MB (original kept outside the repo).
+- **Kept:** books/thinking-fast-and-slow/ source (untracked in the working checkout at time of publish).
