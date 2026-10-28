@@ -3,6 +3,10 @@ description: Book-summary video production — shared operating contract for eve
 alwaysApply: true
 ---
 
+**FIRST, for any book work (Step 0, preview, render), from any checkout:** `git fetch origin god-mode`, then
+`git show origin/god-mode:scripts/book-start.js | node - --slug=<slug>` (add `--check` to look first) - it creates or resumes
+the book's own `../wt-book-<slug>` on CURRENT code; work only there and read THAT worktree's files (full text: CLAUDE.md).
+
 Read `AGENTS.md` (the router) and `docs/AGENT-OPERATING-CONTRACT.md` before any work, then `CLAUDE.md` (strict
 invariants that bind every agent). Procedures live once, in `.claude/skills/<name>/SKILL.md` — read the file the
 router names and follow it; this rule never restates them.

@@ -2087,6 +2087,46 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — BOOK START from ANY checkout: `book-start.js` read from origin (production adoption P0)
+- **Root cause.** The shared main checkout sits at 24d7186d (~80 behind origin). At that SHA:
+  - `preview-state.js` has no `worktree` command;
+  - `production-guard.js` only WARNS when behind (no book-start gate);
+  - AGENTS.md has no worktree routing.
+  An agent opened there reads and runs only those copies. So crazy-rich-asians and the-lightning-thief were planned,
+  authored and rendered in main on old engine code (pipeline-record: every step @24d7186d, `linkedWorktree:false`),
+  and their rules.md offered none of the new Antidote abilities. The launcher worktree `wt-production-base` was 32
+  behind and nothing pointed to it. No code change can reach a checkout that runs old code.
+- **Fix:** `scripts/book-start.js`, self-contained (node built-ins + git, pure ASCII), run FROM ORIGIN in any checkout:
+  `git fetch origin god-mode` + `git show origin/god-mode:scripts/book-start.js | node - --slug=<slug> [--check]`.
+  - It verifies the current origin; a failed fetch refuses unless `PRODUCTION_ALLOW_BEHIND`.
+  - It finds the book's owner: its pinned worktree → RESUME (copies late audio / VTT / Step 0 files, never overwrites);
+    a book pinned in another worktree → refuse; a book STARTED elsewhere (pipeline steps, authored chunks, config,
+    film, render state) → refuse, never migrated silently. `--adopt="<owner's reason>"` makes a NEW pinned copy with
+    the whole book tree; the original is untouched.
+  - It reports an Active WIP row naming the book.
+  - It creates `../wt-book-<slug>` at origin and hands over to THAT worktree's own `preview-state.js worktree`
+    (junction, lock, inputs, pin): one implementation.
+  - `--launcher` refreshes `wt-production-base` to origin only when it has no modified tracked files (it stays locked),
+    so current tools (render-status, cloud assembly) can run against a book started in main with `--book-root`.
+- **Entry points:**
+  - The same bootstrap block is in CLAUDE.md, AGENTS.md and the Claude skills `notebooklm-prompt` / `preview-hazirla`.
+  - Cursor and Antigravity pointer files carry a 3-line inline form: `.cursor/rules/antidote-agents.mdc`,
+    `.agents/workflows/preview-hazirla.md`, `.agents/skills/notebooklm-prompt/SKILL.md`. Their ≤ 30-line pointer rule
+    still holds.
+- **Fixture:** `scripts/test-book-bootstrap.js` uses a bare origin, an OLD main clone with its own node_modules and
+  another agent's staged WIP, and a newer origin carrying the real `book-start.js` + `preview-state.js`. It checks:
+  - a current, pinned, locked worktree with node_modules linked and inputs copied;
+  - main HEAD / index / status unchanged;
+  - resume, refusal, adopt, launcher, offline;
+  - every entry file carries the command.
+  The existing `test-book-start.js` still tests the guard's own gate.
+- **Also:**
+  - `test-authored-actions` (the fifth failing test) was stale since 39b84789 (`drink` split the held-arm branch in
+    two). The assertion now requires both branches; Everyman still draws the resting object before the cue and the
+    held one after.
+  - Author prompts are engine-aware: Vox authors were sent to rules.md sections ("Sequences", "The question for every
+    beat") that a Vox rules.md does not have (the-magician-s-nephew).
+
 ### 2026-10-28 — CHARACTER ACTION 2.0: `leave` / `flee` (antidote-10x P4)
 - **Class chosen by data.** Run / escape / walk-out was the commonest failed physical action in the 2026-10-28 sweep:
   18 beats, WRONG 6, dead 9. Hit/strike had 16 beats, WRONG 9, dead 7, but staging harm is restricted (minorHarm).

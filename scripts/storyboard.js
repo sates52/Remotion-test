@@ -812,12 +812,12 @@ function prep() {
   const prompts = chunks.map(([a, z], k) => `### Author ${k + 1} (beats ${a}-${z})
 Follow ${abs("rules.md")} exactly (read it, the story bible and the reference it names first).
 Your beats: ${abs(`chunk-${k + 1}.json`)} (author every entry in \`beats\`; context entries are for continuity only).
-First read your chunk end to end and make the idea map (rules.md "Sequences", step 0): mark the passages that develop
+${ENGINE === "antidote" ? `First read your chunk end to end and make the idea map (rules.md "Sequences", step 0): mark the passages that develop
 ONE idea over several beats and author those as a sequence (one kept stage that holds the thing that changes — a
 growing diagram where the narration builds a cause -> effect, the signature object that changes; the people react to
 it — start -> change -> result, \`continue\` on kept beats); passages of separate points stay single beats. No chunk
 needs a sequence. Then
-consider every beat individually (rules.md "The question for every beat"). Write the JSON array to ${abs(`authored-${k + 1}.json`)}.
+consider every beat individually (rules.md "The question for every beat").` : `Author every beat by rules.md ("The image test" first, then "Coverage").`} Write the JSON array to ${abs(`authored-${k + 1}.json`)}.
 Validate it parses and has one entry per beat with matching \`i\`. Do not modify any other file.
 Reply with one line: count written.`).join("\n\n");
   fs.writeFileSync(path.join(SB, "PROMPTS.md"), `# Author prompts — ${SLUG} (${ENGINE}, ${beats.length} beats, ${chunks.length} authors)\n\nRun all authors in parallel, then:\n\n    node scripts/storyboard.js merge --slug=${SLUG}\n    node scripts/storyboard.js merge --slug=${SLUG} --write\n\n${prompts}\n`);

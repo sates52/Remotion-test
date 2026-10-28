@@ -7,6 +7,26 @@ description: >
   The engine chosen here is binding: the audio is recorded from a prompt written FOR it.
 ---
 
+## FIRST - book work starts in the book's own worktree on CURRENT code (every harness, 2026-10-28)
+
+Before ANY work on a book (Step 0 / NotebookLM prompt, "dosyalar hazir" / preview, storyboard, render, assembly), from
+whatever checkout you were opened in - it may be the shared main checkout, many commits behind:
+
+```
+git fetch origin god-mode
+git show origin/god-mode:scripts/book-start.js | node - --slug=<slug> --check     # then again without --check
+```
+
+It reads the CURRENT production code from origin (it needs nothing from the checkout it runs in), creates or resumes
+`../wt-book-<slug>` pinned to origin/god-mode (locked, node_modules linked, the book's inputs copied) and prints where to
+continue. Do ALL of that book's work THERE and follow THAT worktree's CLAUDE.md / AGENTS.md / skills - the copies in an
+old checkout are stale (an old checkout produced crazy-rich-asians and the-lightning-thief on 80-commit-old engine code).
+A book already started elsewhere is refused, never migrated silently: its owner decides (keep it, or
+`--adopt="<owner's reason>"` for a new pinned copy; the original stays untouched). Current tools for a book started in
+the main checkout (render status, cloud assembly): `... | node - --launcher`, then run them in `../wt-production-base`
+with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or clean the shared main checkout.
+
+
 # Step 0 — engine + NotebookLM prompt
 
 There is **no audio and no VTT yet**. The prompt you write is shaped by the engine (Vox: beats on

@@ -56,7 +56,9 @@ const fps = 30, CUE = 60;
   t("embrace: arms wrap after the cue", pose("embrace", CUE + 30, fps, CUE).elbowR > 60 && pose("embrace", CUE - 30, fps, CUE).elbowR < 10);
 }
 const motifsSrc = fs.readFileSync(path.join(REPO, "src/engines/antidote/characters/Everyman.tsx"), "utf8");
-t("wiring: Everyman draws a resting object before the cue and the held one after", /holds && pose\.take === 0 \?/.test(motifsSrc) && /holds && pose\.take !== 0 \?/.test(motifsSrc));
+// since `drink` (39b84789) the held arm has two draw places: behind the face, and in front of it while the hand is at
+// the mouth (pose.front) — both must exist, and together they cover every frame after the take (pose.take !== 0)
+t("wiring: Everyman draws a resting object before the cue and the held one after", /holds && pose\.take === 0 \?/.test(motifsSrc) && /holds && pose\.take !== 0 && !frontHand \?/.test(motifsSrc) && /holds && pose\.take !== 0 && frontHand \?/.test(motifsSrc));
 const sceneSrc = fs.readFileSync(path.join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8");
 t("wiring: the embrace step is scaled by the pose's contact", /if \(spec\.action === "embrace"\) approach \*= p\.contact \?\? 1;/.test(sceneSrc));
 t("wiring: the pose gets the cue on the pose clock (carried cue first)", /const cue = carry && carry\.cue != null \? carry\.cue : actionCueFrame\(spec, durationFrames\) \+ clockOff;/.test(sceneSrc));

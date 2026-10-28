@@ -2,6 +2,10 @@
 description: preview hazırla — take a book from audio + VTT on disk to a verified PREVIEW (Antidote or Vox), autonomously
 ---
 
+**FIRST, for any book work (Step 0, preview, render), from any checkout:** `git fetch origin god-mode`, then
+`git show origin/god-mode:scripts/book-start.js | node - --slug=<slug>` (add `--check` to look first) - it creates or resumes
+the book's own `../wt-book-<slug>` on CURRENT code; work only there and read THAT worktree's files (full text: CLAUDE.md).
+
 The procedure is the canonical skill **`.claude/skills/preview-hazirla/SKILL.md`** — read it fully and follow it
 exactly. This file only says how Antigravity runs it; it never restates the procedure (where anything here seems to
 differ, the canonical file wins). Read `AGENTS.md` and `docs/AGENT-OPERATING-CONTRACT.md` first.
