@@ -80,10 +80,13 @@ Seçenekler:
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
   --preview-only             PREVIEW-ONLY = FULL-LENGTH review render: every frame, every segment (NOT a short clip).
                               REVIEW findings allowed, BLOCK stops. Not approved for delivery.
-  --accept-quality-debt="<why>"  PRODUCTION only. Operator decision: accept the current REVIEW findings for
-                              THIS config version (sha of config file). Recorded in books/<slug>/render-decision.json.
-                              BLOCK findings are never accepted. A changed config needs a new decision.
-                              Production (no flag) = delivery: firewall PASS or an accepted decision for this config.
+  --accept-quality-debt="<why>"  PRODUCTION only. Operator decision: accept the current REVIEW findings AND, when
+                              preview-ready is NOT READY / stale / missing, authorize production anyway — for THIS
+                              render input only (lib/render-input.js hash). Recorded in books/<slug>/render-decision.json.
+                              BLOCK findings are never accepted. A changed config needs a new decision. The preview
+                              verdict itself stays NOT READY (authorization is not a quality PASS).
+                              Production (no flag) = delivery: (firewall PASS or an accepted decision for this config)
+                              AND (preview-ready READY for this config or an operator decision covering it) — Vox too.
   (github split, DEFAULT)     the segments are joined + verified ON A RUNNER and only the verified film is downloaded
                               to out/ (no local ffmpeg); a failure stops with the retry / local commands.
   --local-assemble            (github split) skip the cloud: download every segment and join locally (old behaviour)

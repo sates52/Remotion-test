@@ -129,6 +129,8 @@ if (haveFfmpeg) {
 // 8. preflight() end to end: the audio blocker reaches the result; off by default
 setCfg("audio/bk.m4a");
 fs.writeFileSync(path.join(croot, "public", "audio", "bk.m4a"), "x");
+// preview READY for this render input (2026-10-28: production also needs the preview fact) — this test is about audio
+fs.writeFileSync(path.join(croot, "books", "bk", "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: pre.inputHashOf(path.join(croot, cfgRel)) }));
 const quiet = console.log; console.log = () => {};
 const runnerPre = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel, requireMasteredAudio: true, probe: probe({ m: 1, r: 1 }) });
 const localPre = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel });
@@ -136,6 +138,17 @@ console.log = quiet;
 t("preflight on the runner: raw audio -> STOP", runnerPre.ok === false);
 t("preflight off the runner: no audio requirement (unchanged)", localPre.ok === true);
 t("facts record carries the render-input hash", !!(runnerPre.record && runnerPre.record.renderInputHash));
+// 2026-10-28: the RUNNER never re-judges the preview — a GO render whose preview-ready.json predates renderInputHash
+// (byte hash only; the runner rewrites the config bytes) must not fail on the worker. Authorization was decided before
+// the push, by the operator's preflight.
+setCfg("audio/bk.mastered.m4a"); pub("audio/bk.m4a"); pub("audio/bk.mastered.m4a", "x");
+fs.writeFileSync(path.join(croot, "books", "bk", "preview-ready.json"), JSON.stringify({ ready: true, configSha256: "0".repeat(64) }));
+console.log = () => {};
+const runnerOk = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel, requireMasteredAudio: true, probe: probe({ m: 10.02, r: 10 }) });
+const localStale = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel });
+console.log = quiet;
+t("runner: a stale/old-format preview record never stops the worker (authorization was decided before the push)", runnerOk.ok === true);
+t("operator's machine: the same stale preview record stops a production render (no automatic production on NOT READY/STALE)", localStale.ok === false);
 
 fs.rmSync(tmp, { recursive: true, force: true });
 console.log(fail ? `\n${fail} FAILED` : "\nall passed");

@@ -25,6 +25,7 @@ const readJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); }
 const engine = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? "antidote" : fs.existsSync(path.join(BOOK, "config.vox.json")) ? "vox" : null;
 
 const rows = [];
+let muteSummary = null;
 const check = (name, ok, detail = "") => rows.push({ name, ok, detail });
 
 check("config exists", !!engine, engine || `run make-book for ${slug}`);
@@ -108,12 +109,31 @@ if (engine) {
     rows.push({ name: "cause-ledger (advisory owners of each failure)", advisory: true, ok: !last || led >= lastJudged,
       detail: !last ? "no mute run yet" : led >= lastJudged ? `audit/cause-ledger/${slug}/ (newest ${new Date(led).toISOString().slice(0, 16)})` : "could not run — node scripts/cause-ledger.js --slug=" + slug });
   }
-  const meta = readJSON(path.join(BOOK, "youtube-meta.json"));
-  rows.push({ name: "youtube pack refined (for upload, not preview)", ok: meta ? meta.needsClaudeRefine === false : false, detail: meta ? "" : "no youtube-meta.json", advisory: true });
-  if (meta) {
-    const tl = require("./lib/title-lint").lintBook(slug);
-    rows.push({ name: "youtube titles: search + book-specific counter-narrative (for upload)", ok: tl.status === "PASS", advisory: true,
-      detail: tl.status === "PASS" ? "" : `${tl.errors.length} error(s) — node scripts/lint-titles.js --slug=${slug}` });
+  // the mute summary preview-ready.json records (2026-10-28): the production preflight prints it next to a NOT READY
+  const mr = verdict || last;
+  if (mr) muteSummary = { label: mr.label || null, sample: mr.sample || (mr.vs ? "reused" : "fresh"), n: mr.n, wrong: mr.totals.WRONG || 0, dead: mr.totals.NONE || 0, adds: mr.totals.ADDS || 0, pass: !!mr.pass };
+  // YouTube pack — ADVISORY, for upload, never part of the preview verdict. One row from title-lint's lintPack(slug, root)
+  // when that module offers it (2026-10-28, feature-detected: another change adds it); else the two rows below.
+  const tlMod = require("./lib/title-lint");
+  let packRow = null;
+  if (typeof tlMod.lintPack === "function") {
+    try {
+      const p = tlMod.lintPack(slug, ROOT) || {};
+      const errs = Array.isArray(p.errors) ? p.errors : [];
+      const pass = p.status ? p.status === "PASS" || p.status === "READY" : p.ok === true || p.ready === true;
+      packRow = { name: "YouTube READY (upload, not preview)", ok: pass, advisory: true,
+        detail: pass ? "" : `${errs.length ? `${errs.length} problem(s): ${errs.slice(0, 3).map((e) => (typeof e === "string" ? e : e.message || e.rule || JSON.stringify(e))).join("; ")}` : p.detail || "not ready"}` };
+    } catch (e) { packRow = { name: "YouTube READY (upload, not preview)", ok: false, advisory: true, detail: `lintPack failed: ${String(e.message || e).slice(0, 160)}` }; }
+  }
+  if (packRow) rows.push(packRow);
+  else {
+    const meta = readJSON(path.join(BOOK, "youtube-meta.json"));
+    rows.push({ name: "youtube pack refined (for upload, not preview)", ok: meta ? meta.needsClaudeRefine === false : false, detail: meta ? "" : "no youtube-meta.json", advisory: true });
+    if (meta) {
+      const tl = tlMod.lintBook(slug);
+      rows.push({ name: "youtube titles: search + book-specific counter-narrative (for upload)", ok: tl.status === "PASS", advisory: true,
+        detail: tl.status === "PASS" ? "" : `${tl.errors.length} error(s) — node scripts/lint-titles.js --slug=${slug}` });
+    }
   }
 }
 
@@ -126,7 +146,10 @@ console.log(ready ? `\n✅ READY — preview: http://localhost:3001/${engine ===
 try {
   const cfgFile = engine ? path.join(BOOK, `config.${engine}.json`) : null;
   const configSha256 = cfgFile && fs.existsSync(cfgFile) ? require("crypto").createHash("sha256").update(fs.readFileSync(cfgFile)).digest("hex") : null;
-  const head = (spawnSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, encoding: "utf8" }).stdout || "").trim() || null;
-  fs.writeFileSync(path.join(BOOK, "preview-ready.json"), JSON.stringify({ ready, at: new Date().toISOString(), head, configSha256, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) }, null, 2) + "\n");
+  // renderInputHash (2026-10-28): the production preflight binds the preview to the config AS THE RUNNER RENDERS IT
+  // (lib/render-input.js) — the runner rewrites meta.audio, so configSha256 (bytes) never matches there. Both kept.
+  let renderInputHash = null;
+  try { renderInputHash = cfgFile ? require("./lib/render-input").renderInputHash(readJSON(cfgFile)) : null; } catch {}
+  fs.writeFileSync(path.join(BOOK, "preview-ready.json"), JSON.stringify({ ready, at: new Date().toISOString(), head, configSha256, renderInputHash, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) }, null, 2) + "\n");
 } catch {}
 process.exit(ready ? 0 : 1);

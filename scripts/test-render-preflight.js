@@ -89,6 +89,74 @@ t("facts keep quality FAIL and technical separate", facts.runs.length === 2 && f
 const miss = verifyRenderOutput({ file: path.join(root, "nope.mp4"), expectedFrames: 100 });
 t("missing output -> FAIL, file missing", miss.status === "FAIL" && miss.problems[0] === "file missing");
 
+// 13. Render AUTHORIZATION separate from the quality verdict (2026-10-28): the preview decides production, Vox and
+//     Antidote alike. Fixtures in the temp root; preflight() runs for real (Vox: no firewall spawn).
+{
+  const { readPreview, inputHashOf } = pre;
+  const slug = "pv";
+  const bdir = path.join(root, "books", slug);
+  fs.mkdirSync(bdir, { recursive: true });
+  const cfgRel = `books/${slug}/config.vox.json`, cfgAbs = path.join(root, cfgRel);
+  const setCfg = (n) => fs.writeFileSync(cfgAbs, JSON.stringify({ meta: { fps: 30, audio: `audio/${slug}.mastered.m4a` }, beats: [{ id: "b", n }] }, null, 2) + "\n");
+  const mute = { label: "holdout1", sample: "fresh", n: 30, wrong: 4, dead: 2, adds: 17, pass: false };
+  const setPreview = (ready, ih = inputHashOf(cfgAbs)) => fs.writeFileSync(path.join(bdir, "preview-ready.json"), JSON.stringify({ ready, at: "2026-10-28T10:00:00.000Z", renderInputHash: ih, mute: ready ? { ...mute, wrong: 0, pass: true } : mute, failed: ready ? [] : ["blind mute test (fresh holdout sample)"] }));
+  const run = (mode, extra = {}) => { const q = console.log; let out = ""; console.log = (s = "") => { out += s + "\n"; }; try { return { ...pre.preflight({ root, slug, engine: "vox", method: "local", mode, configFile: cfgRel, ...extra }), out }; } finally { console.log = q; } };
+  setCfg(1);
+
+  t("readPreview: no preview-ready.json -> MISSING", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).state === "MISSING");
+  let r = run(MODE.PRODUCTION);
+  t("Vox production, preview MISSING, no decision -> STOP (needs operator decision)", !r.ok && /NEEDS OPERATOR DECISION/.test(r.out), r.out);
+  setPreview(true);
+  r = run(MODE.PRODUCTION);
+  t("Vox preview READY -> GO", r.ok && /preview   : READY/.test(r.out), r.out);
+  setPreview(false);
+  t("readPreview: ready:false for this input -> NOT_READY with the mute summary", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).state === "NOT_READY" && readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).mute.wrong === 4);
+  r = run(MODE.PRODUCTION);
+  t("Vox preview NOT READY, no decision -> STOP", !r.ok && r.decision === "REFUSED", r.out);
+  t("…prints 'preview   : NOT READY (mute WRONG 4/30 …)' and NEEDS OPERATOR DECISION", /preview   : NOT READY \(mute WRONG 4\/30/.test(r.out) && /authorization: NEEDS OPERATOR DECISION/.test(r.out), r.out);
+  r = run(MODE.PREVIEW_ONLY);
+  t("preview-only + preview NOT READY -> GO (fact printed, never blocks)", r.ok && /preview   : NOT READY/.test(r.out), r.out);
+  t("preview-only never records a decision", pre.loadDecisions(root, slug).length === 0);
+  r = run(MODE.PREVIEW_ONLY, { acceptReason: "x" });
+  t("--accept-quality-debt in preview-only records nothing", r.ok && pre.loadDecisions(root, slug).length === 0);
+  r = run(MODE.PRODUCTION, { acceptReason: "Operator: ship despite mute 4/30" });
+  const decs = pre.loadDecisions(root, slug);
+  t("--accept-quality-debt with preview NOT READY -> GO, preview coverage recorded for this render input", r.ok && decs.length === 1 && decs[0].preview && decs[0].preview.state === "NOT_READY" && decs[0].preview.mute.wrong === 4 && decs[0].renderInputHash === inputHashOf(cfgAbs), r.out);
+  r = run(MODE.PRODUCTION);
+  t("Vox NOT READY + decision for THIS hash -> GO, 'OPERATOR DECISION <at> covers this render input'", r.ok && /authorization: OPERATOR DECISION \S+ covers this render input/.test(r.out), r.out);
+  t("…the preview verdict stays NOT READY in the record (a decision is not READY)", /preview   : NOT READY/.test(r.out) && JSON.parse(fs.readFileSync(path.join(bdir, "preview-ready.json"), "utf8")).ready === false);
+  // the runner's rewrite (raw audio path, different formatting) keeps the same render input
+  fs.writeFileSync(cfgAbs, JSON.stringify({ meta: { fps: 30, audio: `audio/${slug}.m4a` }, beats: [{ id: "b", n: 1 }] }));
+  t("same decision + the runner's audio re-point -> still covered (render-input hash)", run(MODE.PRODUCTION).ok);
+  setCfg(2);
+  r = run(MODE.PRODUCTION);
+  t("same decision + CHANGED config -> STOP (preview STALE, decision for another input)", !r.ok && /preview   : STALE/.test(r.out), r.out);
+  setPreview(true, "0000000000000000");
+  t("STALE preview (READY recorded on another config) -> not READY, STOP", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).state === "STALE" && !run(MODE.PRODUCTION).ok);
+  fs.writeFileSync(path.join(bdir, "preview-ready.json"), JSON.stringify({ ready: true, configSha256: require("crypto").createHash("sha256").update(fs.readFileSync(cfgAbs)).digest("hex") }));
+  t("legacy record (configSha256 only, bytes match) -> READY", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs), configFile: cfgAbs }).state === "READY");
+  t("legacy record on other bytes -> STALE", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs), configFile: path.join(root, "config.json") }).state === "STALE");
+
+  // evaluate(): Antidote rules with the preview
+  const H = "ih000000000000aa";
+  const NR = { state: "NOT_READY", mute }, READY = { state: "READY" };
+  const pdec = (extra = {}) => ({ configHash: "c1", renderInputHash: H, keys: [], preview: { state: "NOT_READY", mute, at: "x" }, ...extra });
+  t("Antidote firewall PASS + preview NOT READY, no decision -> STOP (needsAccept preview)", (() => { const e = evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: NR }); return !e.ok && e.needsAccept && e.needsAcceptKinds.join() === "preview"; })());
+  t("Antidote firewall PASS + preview READY -> PASS, GO", evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: READY }).decision === "PASS");
+  t("Antidote firewall PASS + preview NOT READY + decision with preview for this input -> GO", evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: NR, decisions: [pdec()] }).ok);
+  const bl = evaluate({ mode: MODE.PRODUCTION, firewall: fw([blk("bad")]), hash: "c1", inputHash: H, preview: NR, decisions: [pdec({ keys: dec("c1", [blk("bad")]).keys })] });
+  t("Antidote BLOCK + any decision (incl. preview coverage) -> STOP, nothing to accept", !bl.ok && !bl.needsAccept);
+  t("BLOCK in preview-only with preview NOT READY -> STOP", !evaluate({ mode: MODE.PREVIEW_ONLY, firewall: fw([blk("bad")]), hash: "c1", inputHash: H, preview: NR }).ok);
+  const oldDec = { configHash: "c1", renderInputHash: H, keys: dec("c1", [r1]).keys };
+  const od = evaluate({ mode: MODE.PRODUCTION, firewall: fw([r1]), hash: "c1", inputHash: H, preview: NR, decisions: [oldDec] });
+  t("old decision (no preview coverage) still covers its REVIEW keys but never a NOT READY preview", !od.ok && od.covered.length === 1 && od.needsAcceptKinds.join() === "preview");
+  t("old decision + preview READY -> ACCEPTED_DEBT, GO (quality coverage unchanged)", evaluate({ mode: MODE.PRODUCTION, firewall: fw([r1]), hash: "c1", inputHash: H, preview: READY, decisions: [oldDec] }).decision === "ACCEPTED_DEBT");
+  const both = evaluate({ mode: MODE.PRODUCTION, firewall: fw([r1, r2]), hash: "c1", inputHash: H, preview: NR, decisions: [pdec({ keys: dec("c1", [r1]).keys })] });
+  t("preview covered but a NEW REVIEW finding -> STOP (needs quality)", !both.ok && both.needsAcceptKinds.join() === "quality");
+  t("preview decision bound to another render input -> STOP", !evaluate({ mode: MODE.PRODUCTION, firewall: null, hash: "c2", inputHash: "ih0000000000bbbb", preview: NR, decisions: [pdec()] }).ok);
+  t("byte-hash-only decision never carries preview coverage", !evaluate({ mode: MODE.PRODUCTION, firewall: null, hash: "c1", inputHash: H, preview: { state: "MISSING" }, decisions: [{ configHash: "c1", keys: [], preview: { state: "MISSING" } }] }).ok);
+}
+
 fs.rmSync(root, { recursive: true, force: true });
-console.log(fail ? `\n${fail} FAILED` : "\nall render-preflight tests passed");
+console.log(fail ?`\n${fail} FAILED` : "\nall render-preflight tests passed");
 process.exit(fail ? 1 : 0);

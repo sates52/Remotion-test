@@ -61,9 +61,17 @@ try {
   t("decision: REVIEW findings and no decision → NEEDS_DECISION (exit 2): the operator decides", r.status === 2 && /^NEEDS_DECISION/.test(r.stdout), r.stdout);
   const keys = rp.readQuality({ root: tmp, slug: "dd", preview: false }).keys.map(({ key, reasonCode, message }) => ({ key, reasonCode, message }));
   rp.recordDecision(tmp, "dd", { hash: rp.configHash(cf), inputHash: rp.inputHashOf(cf), commit: "abc12345", reason: "Operator accepted 2 REVIEW findings for this config", keys });
-  fs.writeFileSync(path.join(d, "preview-ready.json"), JSON.stringify({ ready: false }));
+  // preview READY for this render input + the quality decision → covered
+  fs.writeFileSync(path.join(d, "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: rp.inputHashOf(cf) }));
   r = node("render-decision.js", "--slug=dd");
-  t("H. decision for THIS config → COVERED (exit 0): already decided, not asked again", r.status === 0 && /^COVERED/.test(r.stdout) && /not asking|without asking again/.test(r.stdout), r.stdout);
+  t("H. preview READY + the quality decision for THIS config → COVERED (exit 0)", r.status === 0 && /^COVERED/.test(r.stdout), r.stdout);
+  // P2 (2026-10-28): a quality-only decision never covers a NOT READY preview — authorization is a separate fact
+  fs.writeFileSync(path.join(d, "preview-ready.json"), JSON.stringify({ ready: false, renderInputHash: rp.inputHashOf(cf), failed: ["blind mute test"] }));
+  r = node("render-decision.js", "--slug=dd");
+  t("P2. preview NOT READY, decision covers only the REVIEW findings → NEEDS_DECISION (exit 2)", r.status === 2 && /^NEEDS_DECISION/.test(r.stdout) && /preview NOT READY/.test(r.stdout), r.stdout);
+  rp.recordDecision(tmp, "dd", { hash: rp.configHash(cf), inputHash: rp.inputHashOf(cf), commit: "abc12345", reason: "Operator: render despite the mute FAIL", keys, preview: { state: "NOT_READY", mute: null, at: null } });
+  r = node("render-decision.js", "--slug=dd");
+  t("H. the operator's decision for THIS config incl. the NOT READY preview → COVERED (exit 0): not asked again", r.status === 0 && /^COVERED/.test(r.stdout) && /not asking|without asking again/.test(r.stdout), r.stdout);
   t("H. …and the preview verdict is reported unchanged (NOT READY stays NOT READY)", /preview: NOT READY/.test(r.stdout), r.stdout);
   t("H. …the quality stays FAIL in the record (a decision is not a PASS)", JSON.parse(node("render-decision.js", "--slug=dd", "--json").stdout).quality === "FAIL");
   writeReport([finding("scene 1 strategy a"), finding("scene 2 strategy b"), finding("scene 3 a NEW finding")]);
@@ -80,7 +88,10 @@ try {
   r = node("render-decision.js", "--slug=dd");
   t("H. a BLOCK is never covered (exit 1)", r.status === 1 && /^BLOCK/.test(r.stdout), r.stdout);
   r = node("render-decision.js", "--slug=vx");
-  t("decision: Vox → NOT_APPLICABLE (exit 2): no debt to accept, the production render is still the operator's go", r.status === 2 && /^NOT_APPLICABLE/.test(r.stdout), r.stdout);
+  t("P2. Vox without a preview verdict → NEEDS_DECISION (exit 2): no automatic production render", r.status === 2 && /^NEEDS_DECISION/.test(r.stdout), r.stdout);
+  fs.writeFileSync(path.join(vox, "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: rp.inputHashOf(path.join(vox, "config.vox.json")) }));
+  r = node("render-decision.js", "--slug=vx");
+  t("decision: Vox preview READY → no debt to accept (exit 2): the production render is still the operator's go", r.status === 2 && /^(NO_DEBT|NOT_APPLICABLE)/.test(r.stdout), r.stdout);
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }

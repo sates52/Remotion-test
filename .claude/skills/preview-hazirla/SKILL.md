@@ -100,6 +100,10 @@ render without asking; render.js still runs the real preflight and dispatches on
 NEEDS_DECISION (a new config or a new finding — an older decision never covers it), BLOCK (never acceptable),
 NO_DEBT / NOT_APPLICABLE (no debt, but the production render is still the operator's go). The preview verdict is
 reported as it is — an accepted decision never turns NOT READY into READY or a firewall FAIL into PASS.
+**Production needs preview READY or the operator's decision — Vox and Antidote alike (2026-10-28).** A NOT READY /
+stale / missing preview stops a production render (no automatic production render) until the operator records a
+decision for THIS render input (`render.js --accept-quality-debt="<why>"` — it covers the current REVIEW findings and
+the NOT READY preview, nothing else). A changed config or a new finding is never covered; a BLOCK never is.
 
 ## 4. Errors: transient vs real
 
