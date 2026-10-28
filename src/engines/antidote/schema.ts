@@ -27,6 +27,7 @@ export const charAction = z.enum([
   "hold", // forearm raised in front, hand presenting whatever `holds` names
   "reach", // arm extended toward the motif — the figure touches its subject
   "offer", // 10x P1: the hand (with `holds`) held out to someone's face, a little below the shoulder (feeding, a sip, a cigarette)
+  "drink", // 10x P2: the held object (`holds`) brought to ONE'S OWN mouth on the `actionCue` word — a sip; the cup tips, the head tips back
   // ── physical situations (2026-09-28) ──────────────────────────────────────
   // Lolita / SBC failed the mute test on dead frames partly because "lies on the
   // floor", "falls", "they fight" could only be drawn with standing people. These

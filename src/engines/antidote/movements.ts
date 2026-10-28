@@ -138,6 +138,8 @@ export type Pose = {
   // ── authored actions with a moment (2026-10-20) — undefined for every other action ──
   take?: number; // `take`: 0 = the held object still rests where the hand reaches, 1 = it is in the hand
   bring?: number; // `take` after the cue: 0..1 progress of bringing the object in (the caption lift follows it)
+  front?: number; // `drink` (10x P2): 1 = the hand is at the mouth — the rig draws the arm + object IN FRONT of the face
+  propTilt?: number; // `drink`: the held object tipped toward the lips (deg, on top of the upright counter-rotation)
   contact?: number; // `embrace`: 0..1 — how far the lead has closed the gap (1 = bodies touch)
   // `lift` / `lifted` (2026-10-26): 0..1 progress of carrying the lifted person to the destination (Scene moves both
   // bodies by it), and 0..1 progress of setting her down in it (the destination's front edge covers her from then on)
@@ -166,6 +168,8 @@ export const TAKE_REST_ELBOW = -12;
 export const ACTION_CUE_MIN = 24;
 /** Frames from an authored `take` cue to the object being held at the chest. */
 export const TAKE_BRING = 24;
+// `drink` (10x P2): up to the lips, the sip held, back down to the chest
+export const DRINK_UP = 18, DRINK_SIP = 42, DRINK_DOWN = 20;
 /** Frames before an `embrace` cue in which the lead closes the gap (contact lands ON the cue). */
 export const EMBRACE_APPROACH = 18;
 const ease = (x: number) => { const t = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - t, 3); };
@@ -385,6 +389,27 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         blink,
         gazeX: Math.sin(frame * 0.018) * 0.2,
         gazeY: 0,
+      };
+    }
+    case "drink": {
+      // 10x P2 (2026-10-28): "he takes a drink" — the object in the hand goes TO THE MOUTH. Before the cue: `hold`
+      // (cup at the chest). On the cue the shoulder swings the forearm (its 82° bend kept) up across the chest until
+      // the hand is at the lips (rig IK: armR −6 → 104, elbow 82 → 68; the cup drawn AT the hand while there), the cup tips toward the mouth, the head tips back a little,
+      // the eyes half close — a sip held ~1.4 s — then the cup comes back down to the chest. Blind: `take`+`hold`
+      // read only as "holding a mug" (under-the-dome 52); `offer` holds it out to SOMEONE ELSE's face.
+      const held = pose("hold", frame, fps);
+      if (frame < cue) return held;
+      const t = frame - cue;
+      const up = easeInOut(t / DRINK_UP);
+      const down = easeInOut((t - DRINK_UP - DRINK_SIP) / DRINK_DOWN);
+      const k = t < DRINK_UP + DRINK_SIP ? up : 1 - down;
+      const sip = t >= DRINK_UP && t < DRINK_UP + DRINK_SIP + DRINK_DOWN / 2 ? Math.min(1, (t - DRINK_UP) / 6) * k : 0;
+      return {
+        ...held,
+        armR: lerp(-6, 104, k), elbowR: lerp(82, 68, k),
+        headY: lerp(held.headY, -6, k), gazeY: lerp(0.35, -0.25, k), gazeX: lerp(0.3, -0.1, k),
+        blink: Math.max(blink, 0.7 * sip), mouth: 0,
+        front: k > 0.45 ? 1 : 0, propTilt: -38 * sip,
       };
     }
     case "hold": {

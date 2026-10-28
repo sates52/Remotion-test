@@ -26,7 +26,7 @@ export const END_STATES: Record<string, EndState> = {
 };
 
 /** actions a seated body can do with its upper body (arms, head, face) — it stays seated */
-export const UPPER_BODY = new Set(["idle", "talk", "think", "point", "hold", "reach", "offer", "take", "slump", "sit", "lifted"]);
+export const UPPER_BODY = new Set(["idle", "talk", "think", "point", "hold", "reach", "offer", "drink", "take", "slump", "sit", "lifted"]);
 /** a body that is lying / down keeps its body: only its face (mouth, eyes) follows the new action */
 export const FACE_ONLY = new Set(["idle", "talk", "think"]);
 /** shots that can show a person IN a destination with the destination (full body or a framed group) */

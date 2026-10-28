@@ -2087,6 +2087,29 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-28 — Antidote `drink`: the new action on a carried state reads (antidote-10x P2)
+- **Gap.** P1's carried state left a gap: a NEW action on top of a kept state read only partly. The measured case is "takes a drink" on under-the-dome 52, authored as `take` + `hold`, which blind readers saw as "holding a mug". `offer` holds an object out to SOMEONE ELSE's face. Nothing in the rig brought an object to the person's own mouth.
+- **New action: `drink`**, timed on the author's `actionCue` word; upper body only, so a carried seat is kept:
+  - the shoulder swings the forearm up across the chest until the hand is at the lips (rig kinematics: armR −6 → 104, elbow 82 → 68);
+  - the cup is drawn AT the hand and tipped −38° toward the mouth;
+  - the head tips back and the eyes half close;
+  - the cup comes back to the chest.
+- **Draw order.** While the hand is up, the arm and cup are drawn in front of the face (they used to vanish behind it), and the forearm gets a darker shade so it doesn't disappear against the garment.
+- **Changes:** movements.ts, Everyman.tsx, schema.ts, endState UPPER_BODY, plan-antidote actionCue, storyboard rule; `scripts/test-drink.js` (forward-kinematics hand-at-mouth, timing, draw order, carried seat).
+- **Blind A/B:** under-the-dome 51-53 sandbox (seat, cup, drink, salted water), one bundle, fresh readers.
+
+  | arm | read as | drink beat (row 2) | WRONG | sip frame f760 |
+  |---|---|---|---|---|
+  | baseline `take`+`hold` | ONLY_HOLDS ×3 | NEUTRAL ×3 | 1/9 | NEUTRAL/TEXT_ONLY + WRONG/TEXT_ONLY |
+  | `drink` | DRINKS ×3 | CORRECT + ADDS ×3 | 0/9 | CORRECT + ADDS ×2 |
+
+  Total ADDS were 5/9 vs 3/9; rows 1 and 3 are staged identically in both arms, so that difference is judge variance.
+- **Not addressed (authoring, outside this action):** the cell and bunk are not readable (they look like a stool in a room).
+- **Measured on one action class only.** push/fall, place/pickup, pour and open/close remain open.
+- **Tooling:** a fast pose preview (esbuild + react-dom/server + Remotion's headless Chrome, ~40 s per pose instead of a 25-minute bundle) was used to tune the IK. It is scratch only, not in the repo.
+- New books only.
+
+
 ### 2026-10-27 — Antidote MECHANISM diagram: cause → mechanism → effect, shown across continued beats (antidote-10x P1)
 - **What it shows.** One diagram, `type: "mechanism"`, built over the authored `continue` beats of a passage:
   - an outcome is a STACK of factors joined by "+": some PERSIST from one try to the next (skill), others are DRAWN AGAIN (luck: wind, timing; a bracket names them);

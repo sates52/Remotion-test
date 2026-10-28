@@ -247,6 +247,30 @@ export const Everyman: React.FC<{
   const streaks = tipped ? clamp(pose.streaks ?? 0, 0, 1) : 0;
   const strain = clamp(pose.strain ?? 0, 0, 1);
   const flat = Math.abs(Math.sin(rad));
+  // The hand with its object (drawn in front of the garment). `pose.front` (drink, 10x P2): the hand is AT THE MOUTH,
+  // so the same arm is drawn after the head — drawn before it, the cup disappeared behind the face. `propTilt` tips
+  // the object toward the lips (a sip), on top of the counter-rotation that otherwise keeps it upright.
+  const frontHand = (pose.front ?? 0) > 0;
+  const heldArmEl = (
+    <g transform={`rotate(${armRot} 304 322)`}>
+      <g transform={`rotate(${elbowRot} 304 410)`}>
+        {/* The forearm and hand are redrawn HERE, in front of the
+            garment. The arm proper is behind the torso — which is
+            right for a figure standing at rest and wrong the moment
+            it holds something: the object floated with no hand on it.
+            Same transform chain, so it lands exactly on the arm. */}
+        <rect x={304 - 18} y={402} width={36} height={96} rx={18} fill={frontHand ? darken(suit, 0.78) : suit} stroke={frontHand ? darken(suit, 0.5) : undefined} strokeWidth={frontHand ? 4 : undefined} />
+        {/* hand first, object raised above it: the fingers show under
+            the lower edge, which is how a hand HOLDS a thing. Drawn
+            the other way round the hand lands as a skin blob in the
+            middle of the page. */}
+        <Hand cx={304} cy={498} skin={skin} thumb={1} />
+        <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + (pose.propTilt ?? 0)}) scale(${0.82 / buildW} 0.82)`}>
+          <HeldProp prop={holds as string} ink={holdInk} accent={holdAccent} />
+        </g>
+      </g>
+    </g>
+  );
 
   return (
     <svg width={width} height={(width * boxH) / 400} viewBox={`0 0 400 ${boxH}`} style={{ overflow: "visible" }}>
@@ -344,26 +368,7 @@ export const Everyman: React.FC<{
                 </g>
               </g>
             ) : null}
-            {holds && pose.take !== 0 ? (
-              <g transform={`rotate(${armRot} 304 322)`}>
-                <g transform={`rotate(${elbowRot} 304 410)`}>
-                  {/* The forearm and hand are redrawn HERE, in front of the
-                      garment. The arm proper is behind the torso — which is
-                      right for a figure standing at rest and wrong the moment
-                      it holds something: the object floated with no hand on it.
-                      Same transform chain, so it lands exactly on the arm. */}
-                  <rect x={304 - 18} y={402} width={36} height={96} rx={18} fill={suit} />
-                  {/* hand first, object raised above it: the fingers show under
-                      the lower edge, which is how a hand HOLDS a thing. Drawn
-                      the other way round the hand lands as a skin blob in the
-                      middle of the page. */}
-                  <Hand cx={304} cy={498} skin={skin} thumb={1} />
-                  <g transform={`translate(304 462) rotate(${-(armRot + elbowRot)}) scale(${0.82 / buildW} 0.82)`}>
-                    <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
-                  </g>
-                </g>
-              </g>
-            ) : null}
+            {holds && pose.take !== 0 && !frontHand ? heldArmEl : null}
 
             {/* neck */}
             <rect x={178} y={244} width={44} height={54} rx={16} fill={darken(skin, 0.92)} />
@@ -474,6 +479,9 @@ export const Everyman: React.FC<{
             <EmotionOverlay emotion={emotion} at={emotionAt} frame={frame} fps={fps} />
            </g>
           </g>
+
+          {/* drink (10x P2): the hand with its cup at the mouth — in front of the face, same body transform as the arm */}
+          {holds && pose.take !== 0 && frontHand ? <g transform={`translate(200 0) scale(${buildW} 1) translate(-200 0)`}>{heldArmEl}</g> : null}
 
           {front.map((o, i) => <path key={`of${i}`} d={o.d} fill={o.fill} opacity={o.opacity ?? 1} />)}
 
