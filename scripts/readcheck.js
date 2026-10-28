@@ -150,13 +150,15 @@ function mechanismReached(beats) {
 // chain has reached so far.
 function causalReached(beats) {
   const out = {};
-  let acc = new Set();
+  let acc = new Set(), cnt = {};
   for (const b of beats) {
     if (b.diagram && b.diagram.type === "causal" && b.diagram.causal) {
-      if (b.continue !== true) acc = new Set();
-      for (const e of Object.keys(b.diagram.causal.cues || {})) acc.add(e);
-      out[b.i] = new Set(acc);
-    } else if (b.continue !== true) acc = new Set();
+      if (b.continue !== true) { acc = new Set(); cnt = {}; }
+      for (const [e, v] of Object.entries(b.diagram.causal.cues || {})) { acc.add(e); cnt[e] = (cnt[e] || 0) + (Array.isArray(v) ? v.length : 1); }
+      const set = new Set(acc);
+      set.counts = { ...cnt }; // MECHANISM 3.0: how many laps (loop / clap firings) the ledger has written so far
+      out[b.i] = set;
+    } else if (b.continue !== true) { acc = new Set(); cnt = {}; }
   }
   return out;
 }

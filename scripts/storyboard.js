@@ -187,6 +187,13 @@ function causalProblems(diagram, narration, P) {
     if (el === "relabel" && c.token && !c.token.tagTo) P("causal cue relabel without token.tagTo (the new name)");
     if (el === "contrast" && !c.contrast) P("causal cue contrast without a `contrast`");
     if (el === "loop" && !c.loop) P("causal cue loop without a `loop`");
+    // MECHANISM 3.0 (causalLedger.ts): the loop ledger - each element needs the data it draws
+    if (el === "meter" && !(c.ledger && c.ledger.meter)) P("causal cue meter without ledger.meter (what the bars measure, as said)");
+    if (el === "clap" && !(c.contrast && Array.isArray(c.contrast.bursts) && c.contrast.bursts.length)) P("causal cue clap without contrast.bursts (the contrast lane laps)");
+    if (el === "csolved" && !c.contrast) P("causal cue csolved without a contrast");
+    if (el === "lane" && !(c.ledger && c.ledger.label)) P("causal cue lane without ledger.label (the loop's name, as said)");
+    if (el === "lrelabel" && !(c.ledger && c.ledger.labelTo)) P("causal cue lrelabel without ledger.labelTo (the lane's new name)");
+    if ((el === "loop" || el === "clap") && Array.isArray(cv) && cv.length > 8) P("causal: more than 8 " + el + " cues in one beat");
   }
   // a chain is causal ORDER: two stations with the same label (or glyph + label) say nothing new
   const seen = new Set();
@@ -503,6 +510,28 @@ racing heart, the dose, the message): it is born on its word at \`from\` and tra
 differently. \`contrast\` = what happens without the trigger (a flat line, nothing travels); \`loop\` (habit, vicious
 circle) = the result feeds back, the token rides the arc on each loop word. Labels are the narration's words; no number
 unless said. The engine anchors every element to the spoken word and stops if it is not spoken in that beat.
+
+## A loop that repeats, with what each round leaves (feedback loops, habits, rewards)
+When the narration explains a LOOP - something done again and again whose result changes from round to round (a
+rat pressing a lever for food that comes only sometimes; a habit that pays less each time; a spike that flattens or
+stays huge) - a loop arrow alone says nothing (unhinged 57-64 as a Skinner-box icon + callouts: ADDS 3/24,
+EXPLAINS 0/24, 3 readers invented a damage story). Build the causal chain WITH A LEDGER over the beats (later beats
+\`continue\`): every round writes one permanent column, so a still frame shows the history:
+\`"causal": {"stations": [lever, food ("mark": "?" when the outcome is not known in advance), brain ...], "loop": {"to": 0},
+"token": {"glyph": "bolt", "tag": "<first name, as said>", "tagTo": ["<later names, as said: compulsively, mashing>"], "from": 0},
+"ledger": {"label": "<the schedule's name, as said>", "labelTo": "<its later name, if said>", "meter": "<what the bars
+measure, as said: DOPAMINE>", "bursts": [{"laps": [{"o": "reward|empty", "bar": "flat|stub|low|medium|high|max"}]} ...]},
+"contrast": {"label": "<the other schedule, as said>", "glyph": "..", "bursts": [...]}, "cues": {...}}\`.
+Each \`loop\` cue word fires the NEXT burst (in order over the whole passage); laps run one after another and faster
+after each \`relabel\` (the next name in tagTo). A lap: the token goes to the door - it opens on a pellet or on a
+neutral empty (never a cross: "taking away" read as damage) - on to the brain with a reward, back along the arc.
+\`meter\` (on its word) starts the bars; only laps from then on carry their authored \`bar\`, rising while the token
+approaches the door (anticipation). \`lane\` (on the schedule's word) names the row before the first lap. \`contrast\`
++ \`clap\` cues run the other schedule's lane on the SAME scale (\`csolved\`: a check when the narration says it is
+solved); \`lrelabel\` renames the row. Outcomes and levels are what the narration states (sometimes / unpredictably
+= irregular runs, never a regular ABAB rhythm; "flattens" = a staircase down; "massive" = max after empties) - no
+numbers. Measured (unhinged 57-64, blind, 3 readers): ADDS 3/24 -> 20/24, EXPLAINS 0/24 -> 15/24, WRONG 1 -> 0,
+unpredictable NNN -> YYY, flattening PNN -> YYY, invented 3/3 -> 0/3.
 
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly

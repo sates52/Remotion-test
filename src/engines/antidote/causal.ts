@@ -24,18 +24,27 @@
  */
 export type CausalGlyph =
   | "bridge" | "heart" | "brain" | "eye" | "phone" | "bolt" | "drop" | "danger" | "person" | "people" | "coin"
-  | "clock" | "speech" | "check" | "cross" | "spark" | "lock" | "door" | "fire" | "ice" | "water" | "plant" | "gift";
+  | "clock" | "speech" | "check" | "cross" | "spark" | "lock" | "door" | "fire" | "ice" | "water" | "plant" | "gift"
+  | "lever" | "pellet" | "rat";
 export const CAUSAL_GLYPHS: CausalGlyph[] = ["bridge", "heart", "brain", "eye", "phone", "bolt", "drop", "danger", "person", "people", "coin",
-  "clock", "speech", "check", "cross", "spark", "lock", "door", "fire", "ice", "water", "plant", "gift"];
+  "clock", "speech", "check", "cross", "spark", "lock", "door", "fire", "ice", "water", "plant", "gift", "lever", "pellet", "rat"];
 
-export type CausalEl = "n0" | "n1" | "n2" | "n3" | "n4" | "token" | "relabel" | "contrast" | "loop";
-export const CAUSAL_ELS: CausalEl[] = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop"];
+// meter / clap / csolved / lrelabel: MECHANISM 3.0, the loop's LEDGER (causalLedger.ts)
+export type CausalEl = "n0" | "n1" | "n2" | "n3" | "n4" | "token" | "relabel" | "contrast" | "loop" | "meter" | "clap" | "csolved" | "lrelabel" | "lane";
+export const CAUSAL_ELS: CausalEl[] = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop", "meter", "clap", "csolved", "lrelabel", "lane"];
 export type CausalCue = string | { phrase: string; occurrence?: number };
 
 export type Causal = {
-  stations: { label: string; glyph: CausalGlyph }[]; // 2..5, causal order
-  token?: { glyph: CausalGlyph; tag?: string; tagTo?: string; from: number; relabelAt?: number };
-  contrast?: { label: string; glyph: CausalGlyph; result?: string };
+  /** mark "?": an outcome not known in advance (a door that may open on nothing); figure: a small glyph beside it */
+  stations: { label: string; glyph: CausalGlyph; mark?: "?"; figure?: CausalGlyph }[]; // 2..5, causal order
+  /** tagTo: one rename (Mechanism 2.0) or a series, one per `relabel` firing (press -> compulsively -> mashing) */
+  token?: { glyph: CausalGlyph; tag?: string; tagTo?: string | string[]; from: number; relabelAt?: number };
+  /** bursts (Mechanism 3.0): the contrast lane's laps, one burst per `clap` firing */
+  contrast?: { label: string; glyph: CausalGlyph; result?: string; bursts?: import("./causalLedger").Burst[] };
+  /** MECHANISM 3.0: the loop's ledger (causalLedger.ts) */
+  ledger?: import("./causalLedger").Ledger;
+  /** planner: how many loop / clap / relabel firings earlier beats of the chain already ran */
+  before?: Partial<Record<"loop" | "clap" | "relabel", number>>;
   loop?: { to: number; label?: string };
   cues?: Partial<Record<CausalEl, CausalCue | CausalCue[]>>;
   /** planner: scene-local frame(s) per element of this beat (loop may fire several times) */
@@ -148,7 +157,9 @@ const smooth = (x: number) => { const v = Math.max(0, Math.min(1, x)); return v 
 
 /** every word a causal chain can print (screen-text / readcheck / gates read them like any label) */
 export const causalLabels = (c: Causal): string[] =>
-  [...(c.stations || []).map((s) => s.label), c.token && c.token.tag, c.token && c.token.tagTo, c.contrast && c.contrast.label, c.contrast && c.contrast.result, c.loop && c.loop.label]
+  [...(c.stations || []).map((s) => s.label), c.token && c.token.tag, ...(c.token && c.token.tagTo != null ? ([] as string[]).concat(c.token.tagTo) : []),
+    c.contrast && c.contrast.label, c.contrast && c.contrast.result, c.loop && c.loop.label,
+    c.ledger && c.ledger.label, c.ledger && c.ledger.labelTo, c.ledger && c.ledger.meter]
     .filter((x): x is string => typeof x === "string" && !!x);
 
 const GLYPH_WORDS: Record<CausalGlyph, string> = {
@@ -156,6 +167,7 @@ const GLYPH_WORDS: Record<CausalGlyph, string> = {
   drop: "a drop", danger: "a warning sign", person: "a person", people: "two people", coin: "a coin", clock: "a clock",
   speech: "a speech bubble", check: "a check mark", cross: "a cross", spark: "a spark", lock: "a lock", door: "a door",
   fire: "a flame", ice: "an ice cube", water: "water", plant: "a sprouting plant", gift: "a gift",
+  lever: "a lever", pellet: "a food pellet", rat: "a rat",
 };
 
 /** what a viewer can see once these elements are reached, in words (readcheck) — only what is drawn */
@@ -166,12 +178,29 @@ export function causalSeen(c: Causal, reached: Set<CausalEl>): string {
   const row = c.stations.map((s, k) => (drawn[k] ? `[${GLYPH_WORDS[s.glyph]} "${s.label}"]` : k > first && k < last ? "[dashed box with a big \"?\"]" : null)).filter(Boolean);
   const parts = [`a left-to-right chain of arrows: ${row.join(" → ") || "(nothing yet)"}`];
   if (c.token && has("token")) {
-    const tag = c.token.tag ? (has("relabel") && c.token.tagTo ? `label "${c.token.tag}" crossed out, now "${c.token.tagTo}"` : `labelled "${c.token.tag}"`) : "";
+    const tagTo1 = Array.isArray(c.token.tagTo) ? c.token.tagTo[c.token.tagTo.length - 1] : c.token.tagTo;
+    const tag = c.token.tag ? (has("relabel") && tagTo1 ? `label "${c.token.tag}" crossed out, now "${tagTo1}"` : `labelled "${c.token.tag}"`) : "";
     let at = c.token.from;
     while (at + 1 < c.stations.length && drawn[at + 1]) at++;
     parts.push(`${GLYPH_WORDS[c.token.glyph]}${tag ? ` (${tag})` : ""} travels along the arrows from "${c.stations[c.token.from].label}" to "${c.stations[at].label}"`);
   }
   if (c.contrast && has("contrast")) parts.push(`below, greyed: [${GLYPH_WORDS[c.contrast.glyph]} "${c.contrast.label}"] with a flat line — nothing travels${c.contrast.result ? ` → "${c.contrast.result}"` : ""}`);
+  // MECHANISM 3.0: the ledger the laps have written (reached.counts from readcheck: loop / clap firings so far)
+  const L = (c as Causal & { ledger?: { bursts: { laps: { o: "reward" | "empty"; bar?: string }[] }[] } }).ledger;
+  const counts = (reached as Set<CausalEl> & { counts?: Record<string, number> }).counts || {};
+  if (L) {
+    const mainLaps = L.bursts.slice(0, counts.loop || 0).flatMap((b) => b.laps);
+    const cb = (c.contrast as { bursts?: { laps: { o: "reward" | "empty"; bar?: string }[] }[] } | undefined)?.bursts || [];
+    const conLaps = cb.slice(0, counts.clap || 0).flatMap((b) => b.laps);
+    // (inline, not imported: node scripts load this file by type-stripping, where an extensionless import fails)
+    const tile = (o: string) => (o === "reward" ? "pellet" : "empty");
+    const lg = L as { label?: string; labelTo?: string; meter?: string };
+    const bits = [`below the loop, a row of tiles growing by one per lap (${mainLaps.map((l) => tile(l.o)).join(", ") || "none yet"})`];
+    if (lg.label) bits.push(`row name "${has("lrelabel" as CausalEl) && lg.labelTo ? `${lg.label}" crossed out, now "${lg.labelTo}` : lg.label}"`);
+    if (has("meter" as CausalEl)) bits.push(`a bar above each tile since "${lg.meter || "the meter"}" appeared (${mainLaps.filter((l) => l.bar).map((l) => l.bar).join(", ")})`);
+    if (conLaps.length) bits.push(`a greyed second row: ${conLaps.map((l) => tile(l.o)).join(", ")} with bars ${conLaps.map((l) => l.bar || "-").join(", ")}${has("csolved" as CausalEl) ? ", a check mark beside it" : ""}`);
+    parts.push(bits.join("; "));
+  }
   if (c.loop && has("loop")) parts.push(`an arrow curves back from "${c.stations[c.stations.length - 1].label}" to "${c.stations[c.loop.to].label}"${c.loop.label ? ` ("${c.loop.label}")` : ""} — the chain runs again`);
   return parts.join("; ");
 }

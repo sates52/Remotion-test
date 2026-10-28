@@ -562,13 +562,18 @@ export const mechanismSchema = z.object({
 }).refine((m) => m.trials.every((t) => t.levels.length === m.factors.length), { message: "every trial needs one level per factor" })
   .refine((m) => m.factors.some((f) => f.persists) && m.factors.some((f) => !f.persists), { message: "a mechanism needs a factor that persists and one that is drawn again" });
 /** CAUSAL CHAIN (Mechanism 2.0, causal.ts): start → trigger → mechanism → change → result over continued beats. */
-const CAUSAL_EL = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop"] as const;
+const CAUSAL_EL = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop", "meter", "clap", "csolved", "lrelabel", "lane"] as const;
 const causalGlyph = z.enum(["bridge", "heart", "brain", "eye", "phone", "bolt", "drop", "danger", "person", "people", "coin",
-  "clock", "speech", "check", "cross", "spark", "lock", "door", "fire", "ice", "water", "plant", "gift"]);
+  "clock", "speech", "check", "cross", "spark", "lock", "door", "fire", "ice", "water", "plant", "gift", "lever", "pellet", "rat"]);
+// MECHANISM 3.0 (causalLedger.ts): laps with outcomes and qualitative bars — never numbers
+const ledgerLap = z.object({ o: z.enum(["reward", "empty"]), bar: z.enum(["flat", "stub", "low", "medium", "high", "max"]).optional() });
+const ledgerBurst = z.object({ laps: z.array(ledgerLap).min(1).max(8) });
 export const causalSchema = z.object({
-  stations: z.array(z.object({ label: z.string().min(1), glyph: causalGlyph })).min(2).max(5),
-  token: z.object({ glyph: causalGlyph, tag: z.string().optional(), tagTo: z.string().optional(), from: z.number().int().min(0), relabelAt: z.number().int().min(0).optional() }).optional(),
-  contrast: z.object({ label: z.string().min(1), glyph: causalGlyph, result: z.string().optional() }).optional(),
+  stations: z.array(z.object({ label: z.string().min(1), glyph: causalGlyph, mark: z.literal("?").optional(), figure: causalGlyph.optional() })).min(2).max(5),
+  token: z.object({ glyph: causalGlyph, tag: z.string().optional(), tagTo: z.union([z.string(), z.array(z.string().min(1)).min(1).max(4)]).optional(), from: z.number().int().min(0), relabelAt: z.number().int().min(0).optional() }).optional(),
+  contrast: z.object({ label: z.string().min(1), glyph: causalGlyph, result: z.string().optional(), bursts: z.array(ledgerBurst).max(8).optional() }).optional(),
+  ledger: z.object({ label: z.string().optional(), labelTo: z.string().optional(), meter: z.string().optional(), bursts: z.array(ledgerBurst).min(1).max(16) }).optional(),
+  before: z.record(z.enum(["loop", "clap", "relabel"]), z.number().int().min(0)).optional(),
   loop: z.object({ to: z.number().int().min(0), label: z.string().optional() }).optional(),
   cues: z.record(z.enum(CAUSAL_EL), z.union([refuteCue, z.array(refuteCue)])).optional(),
   at: z.record(z.enum(CAUSAL_EL), z.union([z.number().int().min(0), z.array(z.number().int().min(0))])).optional(),

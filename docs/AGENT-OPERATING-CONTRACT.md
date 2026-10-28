@@ -46,7 +46,9 @@ work that changes files:
 
 - **agent** — a short, stable handle (`preview-<slug>`, `render-<slug>`, `engine/<topic>`, …);
 - **area / files** — the slug for production; the exact files for development;
-- **notes** — `role: production|development · worktree: <main checkout or ../wt-<name>> · base: <god-mode sha>`.
+- **notes** — `role: production|development · harness: claude-code|antigravity|cursor|<other> · worktree: <main checkout or ../wt-<name>> · base: <god-mode sha>`.
+  (`harness` since 2026-10-28: the records showed four books produced in the stale main checkout but not which harness
+  ran them — without it, cross-agent behaviour cannot be checked from real sessions.)
 
 Update the row as you go; mark it `_(done)_` when you finish (runbook §8 "clear your row" means the same). Edit only your own rows. If a row looks stale, add
 a note with evidence to your own row — the owner closes theirs.

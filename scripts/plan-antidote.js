@@ -552,6 +552,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   let refuteDone = []; // REFUTE (10x P2): elements the current rejected-claim chain already reached
   let mechDone = []; // MECHANISM (10x P1): elements the current cause-model chain already reached
   let causalDone = []; // MECHANISM 2.0 (causal.ts): elements the current causal chain already reached
+  let causalCount = {}; // MECHANISM 3.0 (causalLedger.ts): loop / clap / relabel firings the chain already ran
   let lastPlannedBg = null; // …and its final background (2026-10-24)
   const sceneSpecs = scenes.map((s, i) => {
     const next = scenes[i + 1];
@@ -800,14 +801,19 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           if (f == null) { console.error(`❌ scene ${i}: causal "${el}" cue ${JSON.stringify(cc)} is not spoken in this beat — a link of the chain appears ON the narration's word`); process.exit(1); }
           fr.push(f);
         }
-        at[el] = el === "loop" ? fr : Math.min(...fr);
+        // repeatable elements keep every firing (each loop / clap fires the next burst of laps, each relabel the next name)
+        at[el] = ["loop", "clap", "relabel"].includes(el) ? fr : Math.min(...fr);
       }
       const chainDone = ART && ART[i] && ART[i].continue === true ? causalDone : [];
       C.at = at;
       C.done = chainDone.filter((e) => !(e in at));
+      const countIn = ART && ART[i] && ART[i].continue === true ? causalCount : {};
+      if (Object.keys(countIn).length) C.before = { ...countIn };
+      causalCount = { ...countIn };
+      for (const k of ["loop", "clap", "relabel"]) if (Array.isArray(at[k])) causalCount[k] = (causalCount[k] || 0) + at[k].length;
       diagram.causal = C;
       causalDone = [...new Set([...chainDone, ...Object.keys(at)])];
-    } else if (!(ART && ART[i] && ART[i].continue === true)) causalDone = [];
+    } else if (!(ART && ART[i] && ART[i].continue === true)) { causalDone = []; causalCount = {}; }
     if (diagram) {
       // The adapter supplies atom-derived nodes/poles, while this existing
       // diagram branch remains the only planner-to-renderer transport path.

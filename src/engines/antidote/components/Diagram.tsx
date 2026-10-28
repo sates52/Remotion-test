@@ -8,6 +8,7 @@ import { scorecardState, type Scorecard } from "../scorecard";
 import { refuteState, type Refute } from "../refute";
 import { mechanismState, stackOf, averageTotal, factorEl, type Mechanism } from "../mechanism";
 import { CausalChain } from "./CausalChain";
+import { CausalLoop } from "./CausalLoop";
 
 /**
  * Diagram.tsx — Antidote 4.0 EXPLANATORY GRAPHICS.
@@ -908,7 +909,9 @@ const ARCH: Record<DiagramSpec["type"], React.FC<ArchProps>> = {
   refute: Refute,
   mechanism: Mechanism,
   // MECHANISM 2.0 (causal.ts): the causal chain — stations, the carried token, its relabel, contrast, loop
-  causal: ({ spec, accent, ink, frame }) => <CausalChain spec={spec} accent={accent} ink={ink} frame={frame} />,
+  causal: ({ spec, accent, ink, frame }) => ((spec as { causal?: { ledger?: unknown } }).causal?.ledger
+    ? <CausalLoop spec={spec} accent={accent} ink={ink} frame={frame} />   // MECHANISM 3.0: a loop with a lap ledger
+    : <CausalChain spec={spec} accent={accent} ink={ink} frame={frame} />),
 };
 
 /**

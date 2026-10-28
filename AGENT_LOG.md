@@ -2087,6 +2087,43 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-29 — MECHANISM 3.0: a feedback LOOP whose state changes lap by lap (the causal LEDGER) (antidote-10x P3)
+- **Class chosen by data.** Behavioural feedback loops: n33, WRONG 8, dead 18, the most hard failures among the open
+  causal classes (decision → outcome is larger at n35 but 31 of it is TEXT_ONLY). The real passage is unhinged 57-64
+  (variable-ratio reward, dopamine prediction error); 63 is a recorded WRONG/NONE. The design came from a 3-designer
+  panel plus a judge (process / changing state / contrast).
+- **New** (`src/engines/antidote/causalLedger.ts` pure, `components/CausalLoop.tsx`, inside the existing `causal`
+  diagram; no second engine):
+  - each `loop` cue fires the next authored burst of laps (reward / empty);
+  - a lap = lever → the food door (pellet or a neutral empty, never a cross) → the brain with a reward → back along
+    the arc;
+  - laps run one after another and faster after each rename (`tagTo` series: pressed → compulsively → mashing);
+  - every lap writes a PERMANENT ledger column: a tile, plus a bar once the `meter` is born, rising from the lap's own
+    start (anticipation), on ONE shared qualitative scale (flat … max, no numbers);
+  - the `contrast` lane gets its own ledger (the predictable staircase) and a `csolved` check;
+  - `lane` names the row before the first lap; `lrelabel` renames it;
+  - the planner keeps every loop / clap / relabel firing and carries `before` counts over `continue` beats;
+  - merge checks each element's data;
+  - readcheck words the ledger;
+  - rules.md has the recipe (section "A loop that repeats …").
+- **Blind A/B** (unhinged 57-64, sandbox, 64.7 s, fresh sonnet readers; 3 per arm on the 24-moment sequence + 3 key
+  frames each, strict judges):
+
+  | arm | WRONG | DEAD | ADDS | EXPLAINS | loop / unpredictable / compulsion / flattening / massive spike | invented | key frames |
+  |---|---|---|---|---|---|---|---|
+  | as authored (Skinner-box icon + callouts) | 1/24 | 0/24 | 3/24 | 0/24 | PPP / NNN / PPP / PNN / NNN | 3/3 ("frayed nerve") | 1 CORRECT, 2 NEUTRAL |
+  | loop ledger | 0/24 | 0/24 | 20/24 | 15/24 | YPY / YYY / PPY / YYY / PPP | 0/3 | 3× CORRECT/ADDS/explains |
+
+  Still weak: row 1 (the first ~3 s say nothing a loop can draw, so they read NEUTRAL/TEXT_ONLY); "massive after a dry
+  spell" stays PARTLY.
+- **Status:** production for NEW books; old configs render unchanged (all fields optional).
+  `scripts/test-causal-loop.js` covers schema, bursts in order, no overlap, faster after renames, no write before a
+  lap starts, bars only after the meter, anticipation before the door, settled earlier laps, the contrast staircase
+  and check, the flare, the lap legs, and merge + planner counts on a word-timed fixture. test-causal still passes.
+- **Also:** `docs/AGENT-OPERATING-CONTRACT.md` WIP notes now carry `harness:`. The records showed four books produced
+  in the stale main checkout (crazy-rich-asians, the-lightning-thief, essentialism, …) but never which harness ran
+  them.
+
 ### 2026-10-28 — BOOK START from ANY checkout: `book-start.js` read from origin (production adoption P0)
 - **Root cause.** The shared main checkout sits at 24d7186d (~80 behind origin). At that SHA:
   - `preview-state.js` has no `worktree` command;

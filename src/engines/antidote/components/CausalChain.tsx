@@ -100,6 +100,16 @@ export const CausalGlyphArt: React.FC<{ g: CausalGlyph; ink: string; accent: str
       return (<g><path d="M0,40 V-14" {...s} /><path d="M0,0 C-30,-2 -34,-26 -34,-30 C-14,-30 0,-18 0,0 M0,-14 C24,-16 32,-38 32,-42 C12,-42 0,-30 0,-14" fill={f} stroke={light ? "#FFFFFF" : ink} strokeWidth={4} /><path d="M-24,40 H24" {...s} /></g>);
     case "gift":
       return (<g><rect x={-34} y={-12} width={68} height={50} rx={4} fill={f} stroke={light ? "#FFFFFF" : ink} strokeWidth={5} /><rect x={-38} y={-26} width={76} height={16} rx={3} {...s} /><path d="M0,-26 V38 M0,-26 C-18,-48 -32,-30 0,-26 C18,-48 32,-30 0,-26" {...s} /></g>);
+    case "lever": // a lever on its base, the handle tipped (pressed)
+      return (<g><rect x={-40} y={22} width={80} height={18} rx={5} fill={f} stroke={light ? "#FFFFFF" : ink} strokeWidth={4} />
+        <path d="M-6,24 L22,-34" {...s} strokeWidth={9} /><circle cx={24} cy={-38} r={11} fill={light ? "#FFFFFF" : ink} /></g>);
+    case "pellet": // a food pellet (small brown rounded nugget with a highlight)
+      return (<g><ellipse rx={30} ry={24} fill={light ? "#FFFFFF" : "#B8763A"} stroke={light ? "#FFFFFF" : ink} strokeWidth={5} />
+        <ellipse cx={-9} cy={-8} rx={9} ry={6} fill="#FFFFFF" opacity={0.55} /></g>);
+    case "rat": // a lab rat in profile facing right
+      return (<g><path d="M-38,18 C-40,-12 -10,-26 14,-16 C30,-10 40,0 44,10 C40,18 26,22 14,22 Z" fill={light ? "#FFFFFF" : "#D9D9DE"} stroke={light ? "#FFFFFF" : ink} strokeWidth={5} strokeLinejoin="round" />
+        <circle cx={-2} cy={-20} r={9} fill={light ? "#FFFFFF" : "#D9D9DE"} stroke={light ? "#FFFFFF" : ink} strokeWidth={4} />
+        <circle cx={30} cy={2} r={4} fill={light ? accent : ink} /><path d="M-38,14 C-56,14 -60,30 -48,36" {...s} strokeWidth={4} /></g>);
     default:
       return <circle r={30} {...s} />;
   }
@@ -166,6 +176,7 @@ export const CausalChain: React.FC<{ spec: DiagramSpec; accent: string; ink: str
     }
     const tagFit = (t: string, big: boolean) => fitLabel(t.toUpperCase(), { maxW: 300, baseSize: big ? 40 : 30, minSize: 18, maxLines: 1 });
     const sh = tok.tagShift;
+    const tagTo1 = Array.isArray(c.token.tagTo) ? c.token.tagTo[0] : c.token.tagTo;
     token = (
       <g>
         {tok.back === 0 ? <line x1={tx} y1={LANE + 44} x2={tx} y2={ROW - R - 6} stroke={accent} strokeWidth={4} strokeDasharray="6 8" opacity={0.8 * tok.born} /> : null}
@@ -174,13 +185,13 @@ export const CausalChain: React.FC<{ spec: DiagramSpec; accent: string; ink: str
           <g transform="scale(0.72)"><CausalGlyphArt g={c.token.glyph} ink={ink} accent={accent} light /></g>
         </g>
         {c.token.tag && tok.back === 0 ? (
-          sh > 0 && c.token.tagTo ? (
+          sh > 0 && tagTo1 ? (
             <g>
               <g opacity={1 - 0.45 * sh}>
                 <Fit fit={tagFit(c.token.tag, false)} x={tx} y={LANE - 92} fill={ink} />
                 <line x1={tx - tagFit(c.token.tag, false).width / 2 - 6} y1={LANE - 100} x2={tx - tagFit(c.token.tag, false).width / 2 - 6 + (tagFit(c.token.tag, false).width + 12) * Math.min(1, sh * 1.6)} y2={LANE - 100} stroke={REJ} strokeWidth={6} strokeLinecap="round" />
               </g>
-              <g opacity={Math.max(0, sh * 2 - 1)}><Fit fit={tagFit(c.token.tagTo, true)} x={tx} y={LANE - 56} fill={accent} weight={900} /></g>
+              <g opacity={Math.max(0, sh * 2 - 1)}><Fit fit={tagFit(tagTo1, true)} x={tx} y={LANE - 56} fill={accent} weight={900} /></g>
             </g>
           ) : <Fit fit={tagFit(c.token.tag, true)} x={tx} y={LANE - 60} fill={ink} weight={900} />
         ) : null}
