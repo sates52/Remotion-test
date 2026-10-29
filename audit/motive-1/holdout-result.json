@@ -1,0 +1,160 @@
+{
+  "decision": "NOT SHIPPED — stays on dev/motive-1. Pre-registered rule: per holdout WRONG(new)<=WRONG(base) and ADDS(new)>=ADDS(base), AND pooled relation YES(new) >= YES(base)+2 of 6. Do-no-harm held on both; relation YES pooled new 1 vs base 1 (+0): not superior.",
+  "authoring": {
+    "HOLDOUT-1": "fresh agent, once, from the frozen rule (0c913b6d): beat 3 thought {concept: heart, cue: instinct}; nothing else",
+    "HOLDOUT-2": "fresh agent, once: beat 2 thought {concept: shield, cue: ego}; nothing else"
+  },
+  "summary": {
+    "HOLDOUT-1 the-art-of-saying-no 145-149": {
+      "new": "outward PPP inner YYY relation PPY contrast NNP WRONG 0/15 ADDS 9/15 invented 2",
+      "base": "outward PPP inner YYP relation YPP contrast PPN WRONG 0/15 ADDS 9/15 invented 3"
+    },
+    "HOLDOUT-2 learned-optimism 156-160": {
+      "new": "outward PYP inner PPP relation PPP contrast NNN WRONG 0/15 ADDS 7/15 invented 2",
+      "base": "outward PPP inner NPN relation NNN contrast NNN WRONG 1/15 ADDS 7/15 DEAD 1 invented 3"
+    }
+  },
+  "bubbleReadings": "the bubble itself was read as intended 6/6: heart -> out of care for the other person (her pain) 3/3; shield -> protecting himself 3/3. It did not move the passage measures because the callout already printed the reason on that beat (BACKPEDAL TO STOP HER PAIN / SUPERFICIALLY DEFLECT BLAME): the bubble repeated the text instead of adding to it.",
+  "learned": [
+    "the icon variant reads locally but adds little where the callout already names the reason; DEV (inner-face variant, contrast YYY vs PPY) suggests the device helps most where the inside DIFFERS from the outside and the text does not say so",
+    "next test, on NEW passages (these holdouts are spent): a beat whose callout does NOT name the reason, inner-face variant, and a passage-level question on the hidden inside"
+  ],
+  "readers": {
+    "HOLDOUT-1": [
+      {
+        "arm": "base",
+        "k": 1,
+        "rows": "CT CA CA CA CT",
+        "outward": "PARTLY",
+        "inner": "YES",
+        "relation": "YES",
+        "contrast": "PARTLY",
+        "invented": "YES",
+        "why": "The viewer gets the guilt trip, the wish to back down to stop her pain (printed 'BACKPEDAL TO STOP HER PAIN' plus the anxious face) and the separate-decision-from-feelings lesson, linked causally. The actual outward act of saying 'Fine, I'll come' is only implied as 'almost backs down', and the inner-vs-outer contrast is only partly supported."
+      },
+      {
+        "arm": "base",
+        "k": 2,
+        "rows": "NT CA CA CA CT",
+        "outward": "PARTLY",
+        "inner": "YES",
+        "relation": "PARTLY",
+        "contrast": "PARTLY",
+        "invented": "YES",
+        "why": "The viewer reads the guilt trip, the pressure, the wish to backpedal to stop the other person's pain, and the remedy of separating decision from feelings, and the images add for rows 2-4. Outward is only partly named (wants to backpedal, not actually gives in), the pain-as-cause link is stated only loosely, and the viewer adds an invented 'about to say no / holds her ground' framing and a puppet-strings control claim."
+      },
+      {
+        "arm": "base",
+        "k": 3,
+        "rows": "CT CA CA CA CT",
+        "outward": "PARTLY",
+        "inner": "PARTLY",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer correctly reads the guilt trip, the manipulation, the urge to backpedal to stop 'her' pain and the lesson of separating decision from feelings. But the viewer never shows her actually agreeing to the demand. They also invent a calm, firm ending, and see no gap between what she feels and what she does."
+      },
+      {
+        "arm": "new",
+        "k": 1,
+        "rows": "NT CA NA CA CT",
+        "outward": "PARTLY",
+        "inner": "YES",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "NO",
+        "why": "The viewer clearly names the inner motive (backpedal to stop her pain, with the heart bubble) and links it to wanting to back down, but never shows her actually saying 'Fine, I'll come' (only an urge to backpedal), so the outward giving-in and the cause relation are only partial. The inner-versus-outer contrast is not seen, since she is shown worried, not agreeing against her own decision."
+      },
+      {
+        "arm": "new",
+        "k": 2,
+        "rows": "CT CA CA CA CT",
+        "outward": "PARTLY",
+        "inner": "YES",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer gets the guilt trip, the care-for-her-pain motive ('backpedal to stop her pain'), and the separate-decision-from-feelings lesson, and links the heart to backpedaling. But giving in is only hinted ('tempted to backpedal', 'ready to give in') rather than shown as agreeing, and no inner-vs-outer contrast is seen."
+      },
+      {
+        "arm": "new",
+        "k": 3,
+        "rows": "CT CA CA CA CT",
+        "outward": "PARTLY",
+        "inner": "YES",
+        "relation": "YES",
+        "contrast": "PARTLY",
+        "invented": "YES",
+        "why": "The viewer reads the guilt-trip, the manipulation, and the motive of backpedaling to stop her pain (heart bubble) correctly, and links motive to giving in, but only says she feels pushed to backpedal rather than clearly agreeing, and adds a calm-with-note ending. The inner-versus-outer contrast is only implied."
+      }
+    ],
+    "HOLDOUT-2": [
+      {
+        "arm": "new",
+        "k": 1,
+        "rows": "NT NT CA CA CA",
+        "outward": "PARTLY",
+        "inner": "PARTLY",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer gets deflecting blame (row 3) with a shield as self-protection, plus the depression blueprint and 'stop absorbing blame'. But it never sees that the outward denial hides inner self-blame, and it misreads the 'easiest to fake' point in row 2. The shield gives partial ego-protection, but the contrast is absent."
+      },
+      {
+        "arm": "new",
+        "k": 2,
+        "rows": "CT CT CA CA CA",
+        "outward": "YES",
+        "inner": "PARTLY",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "NO",
+        "why": "The viewer names the outward deflection and a protective shield, and gets that absorbing blame leads toward depression and should be stopped. They never say the outward denial hides inner self-blame, so the contrast is missed and the ego-protection reason is only implied by the shield."
+      },
+      {
+        "arm": "new",
+        "k": 3,
+        "rows": "NT NT CA CT CT",
+        "outward": "PARTLY",
+        "inner": "PARTLY",
+        "relation": "PARTLY",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "Only the thought-bubble shield in row 3 carries the idea that deflecting blame protects the self. The viewer never sees the contrast between outward denial and still blaming oneself inside. The other rows are carried by printed words, and some are misread (optimism being faked, the pointing arm)."
+      },
+      {
+        "arm": "base",
+        "k": 1,
+        "rows": "NT CT CA CA WA",
+        "outward": "PARTLY",
+        "inner": "NO",
+        "relation": "NO",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer sees outward blame deflection, shown by the smirk. They never get the ego-protection reason or the hidden inner self-blame, so there is no contrast. Row 5 is wrong: it reads the pointing as pushing blame onto others, when the narration says to stop absorbing blame for what you do not control."
+      },
+      {
+        "arm": "base",
+        "k": 2,
+        "rows": "NT NT CA CA CT",
+        "outward": "PARTLY",
+        "inner": "PARTLY",
+        "relation": "NO",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer gets outward deflecting from the smirk and 'superficially deflect blame' text, and depression from the printed text, but never names ego protection or that inside the person still blames themselves, so relation and contrast are missing. The ending also partly inverts the advice by reading it as pushing blame out."
+      },
+      {
+        "arm": "base",
+        "k": 3,
+        "rows": "NN NT CA CT CA",
+        "outward": "PARTLY",
+        "inner": "NO",
+        "relation": "NO",
+        "contrast": "NO",
+        "invented": "YES",
+        "why": "The viewer names shallow blame deflection with a smirk, but never mentions ego protection or the hidden inner self-blame, so the outward-versus-inner contrast is missing. The smirk even implies smug confidence, the opposite of the inner state."
+      }
+    ]
+  }
+}
