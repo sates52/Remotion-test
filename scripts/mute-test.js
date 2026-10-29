@@ -230,6 +230,7 @@ function prep() {
       note: "Sealed verdict sample: no stills rendered. Development checks exclude these beats (framecheck --exclude-from=" + LABEL + "). The final prep of this label re-renders exactly these beats." }, null, 2) + "\n");
     fs.rmSync(path.join(OUT, "mute"), { recursive: true, force: true });
     console.log(`✓ sealed ${ids.length} beats in ${path.relative(ROOT, sealPath)} (sha ${idsSha(ids).slice(0, 12)}); nothing rendered. Use framecheck --exclude-from=${LABEL}; run this prep again (no --seal) for the verdict.`);
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Seal"));
     return;
   }
   // stills: render-sequence-stills takes <unitId>:<frame>; the id only names the file
@@ -281,6 +282,7 @@ Write ONLY a JSON array [{"img":"img-01.png","text":"...","sees":"...","message"
     node scripts/mute-test.js judge --slug=${SLUG} --label=${LABEL}
 `);
   console.log(`\n✓ ${path.relative(ROOT, OUT)} — ${order.length} frames. Give PROMPTS.md §1 to a fresh agent.`);
+  console.log(require("./lib/next-step").nextStepLine(SLUG, "Sample render"));
 }
 
 // Words the config prints on screen around frame f (callouts, diagram labels,
@@ -416,6 +418,7 @@ Write ONLY JSON to ${path.join(OUT, "judge-result.json")}: ${shape} (${items.len
     node scripts/mute-test.js tally --slug=${SLUG} --label=${LABEL}
 `);
   console.log(`✓ judge-input.json (${items.length} items${vs ? `, vs ${args.vs}` : ""}). Give PROMPTS.md §3 to a fresh agent.`);
+  console.log(require("./lib/next-step").nextStepLine(SLUG, "Judge input"));
 }
 
 function tally() {
@@ -514,6 +517,8 @@ function tally() {
     const line = String(r.stdout || "").split("\n").find((l) => /ENGINE|owner/i.test(l));
     console.log(r.status === 0 ? `   cause-ledger (advisory): ${line ? line.trim() : "written to audit/cause-ledger/" + SLUG}` : `   ⚠ cause-ledger did not run (${String(r.stderr || "").split("\n")[0]})`);
   }
+  // a FAIL is not a stop: the fix rounds (up to the limit) are routine; status says which
+  console.log(require("./lib/next-step").nextStepLine(SLUG, `Tally (${pass ? "PASS" : "FAIL"})`));
 }
 
 // map (read-only, 2026-10-27): print and VERIFY the identity chain of a run — item -> image -> still -> frame -> unit.

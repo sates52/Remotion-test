@@ -16,6 +16,10 @@ const t = (name, ok, info) => { console.log(`${ok ? "PASS" : "FAIL"} ${name}${!o
 const PS = path.join(__dirname, "preview-state.js");
 const run = (root, ...a) => spawnSync(process.execPath, [PS, ...a, `--root=${root}`], { encoding: "utf8" });
 const state = (root, slug = "zz-book") => JSON.parse(run(root, "status", `--slug=${slug}`, "--json").stdout);
+// what the AGENT reads (2026-10-29 preview autonomy): a CONTINUE step carries "run it now, without asking"; an
+// OPERATOR state never does (the-magician-s-nephew asked "mute test'e devam etmemi ister misiniz?" after the seal)
+const human = (root, slug = "zz-book") => run(root, "status", `--slug=${slug}`).stdout;
+const routine = (out) => /CONTINUE = routine step — run it now, without asking the operator/.test(out);
 const W = (p, v) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, typeof v === "string" ? v : JSON.stringify(v, null, 1)); };
 let clock = Date.now() / 1000 - 100000;
 const touch = (p) => { clock += 10; fs.utimesSync(p, clock, clock); };   // every write is "later" than the last
@@ -118,6 +122,7 @@ try {
   Wt(path.join(B, "narrative-visual-firewall.preview.report.json"), { counts: { blocks: 0, reviews: 9 } });
   doneMark();
   t("completion marker for this config and these inputs -> seal the verdict sample (renders nothing)", /--label=final --seal/.test(state(R).next.command || ""), JSON.stringify(state(R).stages.slice(-2)));
+  t("K. make-book PASS -> seal is a routine step: the agent is told to run it without asking", routine(human(R)) && state(R).contract === "routine: run the next command now, no operator approval");
   // the marker stands only for the inputs it was written on
   const keep = (p) => fs.readFileSync(p);
   const vttP = path.join(R, "public", "captions", "zz-book.vtt"), audP = path.join(R, "public", "audio", "zz-book.m4a"), cfgP = path.join(B, "config.antidote.json");
@@ -144,6 +149,7 @@ try {
   const F = path.join(MD, "final");
   Wt(path.join(F, "sample.json"), [{ id: "scene-1" }]); Wt(path.join(F, "seal.json"), { ids: ["scene-1"] }); Wt(path.join(F, "sample-meta.json"), { framesFrom: null });
   t("sealed, not rendered -> verdict prep (no --seal)", /--label=final$/.test(state(R).next.command || ""));
+  t("L. seal DONE -> sample render is routine (no 'shall I continue?')", routine(human(R)));
   Wt(path.join(F, "key.json"), {});
   t("rendered -> blind describer", /PROMPTS.md §1/.test(state(R).next.action));
   Wt(path.join(F, "blind.json"), []);
@@ -152,15 +158,18 @@ try {
   t("judge input -> judge agent", /§3/.test(state(R).next.action));
   Wt(path.join(F, "judge-result.json"), {});
   t("judged -> tally (exit 0 on FAIL warned)", /tally/.test(state(R).next.command || "") && /PASS AND FAIL/.test(state(R).next.action));
+  t("L. blind describer / judge / tally: every sub-step is routine", routine(human(R)));
   const runRow = (label, WRONG, NONE, extra = {}) => { clock += 10; return { label, date: new Date(clock * 1000).toISOString(), n: 30, totals: { CORRECT: 30 - WRONG - NONE, NEUTRAL: 0, WRONG, ADDS: 18, NONE, EXPLAINS: 4 }, sample: "fresh", ...extra }; };
   Wt(path.join(F, "totals.json"), {});
   Wt(path.join(B, "mute-test.json"), { runs: [runRow("final", 3, 2)] });
   s = state(R);
   t("final FAIL -> never READY; cause-ledger first", s.state === "CONTINUE" && s.next.stage === "fixRound" && /cause-ledger/.test(s.next.command) && /FAIL/.test(s.stages.find((x) => x.key === "mute").detail));
+  t("M. tally FAIL -> the allowed fix round is routine (a FAIL is not a stop)", routine(human(R)));
   const LED = path.join(R, "audit", "cause-ledger", "zz-book", "a.json");
   Wt(LED, { tally: { ENGINE: { WRONG: 2, DEAD: 1 }, VOCABULARY: { WRONG: 0, DEAD: 0 }, AUTHORING: { WRONG: 0, DEAD: 0 }, RATER: { WRONG: 1, DEAD: 0 } } });
   s = state(R);
   t("every failure ENGINE/VOCABULARY/RATER, film unchanged -> OPERATOR ENGINE_LIMIT (no endless fix round)", s.operator && s.operator.code === "ENGINE_LIMIT" && /AUTHORING 0/.test(s.operator.evidence.join()), JSON.stringify(s.operator));
+  t("N. a real operator state is reported as one: no 'run it without asking' line, contract = a real gate", !routine(human(R)) && /OPERATOR · ENGINE_LIMIT/.test(human(R)) && state(R).contract === "a real gate: report it to the operator");
   Wt(LED, { tally: { ENGINE: { WRONG: 1, DEAD: 0 }, AUTHORING: { WRONG: 2, DEAD: 1 } } });
   s = state(R);
   t("authoring failures, unchanged film -> a fix round, never a new holdout", s.next.stage === "fixRound" && /Fix round 1/.test(s.next.action) && /never draw a new holdout/.test(s.next.why));

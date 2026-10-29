@@ -302,6 +302,7 @@ function tally() {
   bad.filter((x) => x.verdict === "WRONG").forEach((x) => console.log(`   - ${x.i} WRONG [${x.blame}${x.concept ? `:${x.concept}` : ""}] ${x.why}`));
   if (reviewRequired) console.log(`   REVIEW_REQUIRED (merge-report): ${reviewRequired.flagged} flagged · read WRONG ${reviewRequired.wrong.length}${reviewRequired.wrong.length ? ` (${reviewRequired.wrong.map((x) => `${x.i} ${x.code}`).join(", ")}) → confirmed: fix them in the fix round` : ""} · NEUTRAL ${reviewRequired.neutral.length} · cleared ${reviewRequired.cleared} · unread ${reviewRequired.unread.length}`);
   console.log(`   Fix every WRONG in authored-K.json (cause class, runbook §2b), merge --write, then prep --beats=<changed ids>.`);
+  console.log(require("./lib/next-step").nextStepLine(SLUG, "Readcheck tally"));
   console.log(`   An icon blamed on 2+ beats: add or sharpen its row in data/icon-readings.json.`);
 }
 

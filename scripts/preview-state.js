@@ -450,6 +450,7 @@ function finish(st) {
 
 function print(st) {
   console.log(`── preview state · ${st.slug}${st.engine ? ` [${st.engine}]` : ""} → ${st.state}`);
+  if (st.procedureDrift) console.log(`   ⓘ ${st.procedureDrift.note}`);
   for (const s of st.stages) console.log(`   ${{ done: "✓", "n/a": "·", todo: "→", failed: "✗", blocked: "✗", missing: "✗", elsewhere: "↗", stale: "✗" }[s.status] || "?"} ${s.key.padEnd(9)} ${s.status.padEnd(7)} ${s.detail}`);
   if (st.fixRounds) console.log(`   fix rounds used: ${st.fixRounds.used}/${st.fixRounds.max}`);
   if (st.operator) {
@@ -460,6 +461,9 @@ function print(st) {
     if (st.next.command) console.log(`   $ ${st.next.command}`);
     if (st.next.why) console.log(`   note: ${st.next.why}`);
     if (st.next.transientFailures) console.log(`   transient failures of this step so far: ${st.next.transientFailures}/${MAX_ATTEMPTS}`);
+    // the contract travels with the next action (2026-10-29: an agent whose session loaded a stale skill copy asked
+    // "Seal tamam; mute test'e devam etmemi ister misiniz?" — the next step was routine and was printed here)
+    if (st.state === "CONTINUE") console.log(`   CONTINUE = ${require("./lib/next-step").ROUTINE}`);
   }
 }
 
@@ -468,6 +472,19 @@ const SLUG = args.slug;
 if (CMD === "status") {
   if (!SLUG) { console.error("Usage: node scripts/preview-state.js status --slug=<slug> [--json]"); process.exit(1); }
   const st = bookState(SLUG);
+  // a PINNED book keeps its engine; the preview PROCEDURE (this state machine, the canonical skill, the tool routing)
+  // may have moved on since the pin. Say so — the old copies are what a pinned worktree (and a session opened
+  // elsewhere) would otherwise follow. Uses the last fetch; never fetches, never changes the pin.
+  {
+    const PROC = [".claude/skills/preview-hazirla/SKILL.md", "scripts/preview-state.js", "scripts/lib/next-step.js", "scripts/lib/merge-recovery.js"];
+    const head = git(["rev-parse", "HEAD"]), up = git(["rev-parse", "--verify", "-q", "origin/god-mode"]);
+    if (head && up && head !== up) {
+      const changed = (git(["diff", "--name-only", head, up, "--", ...PROC]) || "").split("\n").filter(Boolean);
+      if (changed.length) st.procedureDrift = { pin: head.slice(0, 8), origin: up.slice(0, 8), changed,
+        note: `the preview PROCEDURE changed on origin since this pin (${changed.join(", ")}). The engine stays pinned; follow the current procedure: git show origin/god-mode:.claude/skills/preview-hazirla/SKILL.md (routine steps never need the operator's approval).` };
+    }
+    st.contract = st.state === "CONTINUE" ? "routine: run the next command now, no operator approval" : st.state === "OPERATOR" ? "a real gate: report it to the operator" : st.state;
+  }
   if (args.json) console.log(JSON.stringify(st, null, 2)); else print(st);
   process.exit(0);
 }

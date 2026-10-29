@@ -298,6 +298,7 @@ if (ENGINE === "antidote") {
   recordMakeBookDone(ACFG);
   console.log(`\n═══════════════════════════════════════════`);
   console.log(`✅ HAZIR (Antidote scaffold) — ${TITLE}  (${((Date.now() - t0a) / 1000).toFixed(0)}s)`);
+  console.log(`   (preview: make-book is ONE step — the sealed mute test, fix rounds and preview-ready follow)${require("./lib/next-step").nextStepLine(SLUG, "make-book")}`);
   console.log(`\n📺 ÖNİZLE (Studio):  npm run dev → http://localhost:3000/Antidote-${SLUG}`);
   console.log(`\n✍  CLAUDE ŞİMDİ ART-DIRECT ETMELİ: ${ACFG}`);
   console.log(`   her sahne için karakter/ifade/aksiyon + kinetik metni elle düzenle (scaffold yalnızca zamanlama+yer tutucu).`);
@@ -492,6 +493,8 @@ recordMakeBookDone(CFG);
 
 console.log(`\n═══════════════════════════════════════════`);
 console.log(`✅ HAZIR — ${TITLE}  (${secs}s)`);
+// in the preview flow this is an intermediate step, not the end (the-magician-s-nephew stopped after it to ask)
+console.log(`   (preview: make-book is ONE step — the sealed mute test, fix rounds and preview-ready follow)${require("./lib/next-step").nextStepLine(SLUG, "make-book")}`);
 console.log(`   süre     : ${mins} dk · ${cfg.beats.length} sahne · ${cfg.captions.length} altyazı`);
 console.log(`   görsel   : ${imgs}`);
 console.log(`   arketip  : ${JSON.stringify(types)}`);

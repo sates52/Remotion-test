@@ -71,13 +71,20 @@ if (!process.argv.includes("--structure-only")) {
     ["H' new config / new finding / BLOCK → never covered", "test-gate-routing.js", /✓ H\. a BLOCK is never covered/],
     ["I Step 0: engine decided + prompt READY, no question", "test-step0.js", /✓ skill: no 'stop and discuss'/],
     ["J Vox book: the firewall does not apply (no fake BLOCK)", "test-gate-routing.js", /✓ firewall: a Vox book is NOT_APPLICABLE/],
+    // preview autonomy (2026-10-29, the-magician-s-nephew asked after the seal): each routine stage says "without asking"
+    ["K make-book PASS → seal: routine, no question", "test-preview-state.js", /PASS K. make-book PASS -> seal is a routine step/],
+    ["L seal → render → describer → judge → tally: routine", "test-preview-state.js", /PASS L\. blind describer \/ judge \/ tally: every sub-step is routine/],
+    ["M tally FAIL → allowed fix round: routine", "test-preview-state.js", /PASS M. tally FAIL -> the allowed fix round is routine/],
+    ["N a real operator state → reported, not run", "test-preview-state.js", /PASS N. a real operator state is reported as one/],
+    ["O pinned book → told the procedure moved on", "test-preview-autonomy.js", /✓ O. pinned behind origin and the skill changed/],
+    ["P every stage tool routes back to status", "test-preview-autonomy.js", /all preview-autonomy checks passed/],
   ];
   const ran = {};
   for (const [, f] of SCEN) if (!ran[f]) { const r = spawnSync(process.execPath, [path.join(__dirname, f)], { encoding: "utf8", timeout: 600000 }); ran[f] = { ok: r.status === 0, out: (r.stdout || "") + (r.stderr || "") }; }
   console.log("\n scenario                                              | command that decides        | Claude Code | Antigravity | Cursor/AGENTS.md");
   for (const [name, f, re] of SCEN) {
     const ok = ran[f].ok && re.test(ran[f].out);
-    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock", "test-gate-routing.js": "render-decision / firewall CLI", "test-step0.js": "make-prompt --check" }[f];
+    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock", "test-gate-routing.js": "render-decision / firewall CLI", "test-step0.js": "make-prompt --check", "test-preview-autonomy.js": "preview-state + stage tools" }[f];
     const cell = ok ? "same ✓" : "✗";
     console.log(` ${name.padEnd(53)} | ${cmd.padEnd(27)} | ${cell.padEnd(11)} | ${cell.padEnd(11)} | ${cell}`);
     if (!ok) fail++;
