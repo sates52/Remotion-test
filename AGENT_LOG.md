@@ -6548,3 +6548,7 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Thumbnail: `render-thumbnails.js` produced only variant A, and the hook text was not visible in the render (defect, not fixed; the book shipped with the operator's choice).
 - Cleanup per standing rule: render-github-cleanup.js (artifacts and runs), purge-render-branches.js (11 refs deleted, render-worker-1…10), render-purge.js (film + thumbnail). Record in PUBLISHED_BOOKS.md.
 - Engine note for review: the thumbnail grammar does not draw a hook word when the layout is `cinematic-bleed` with a long "THINKING, FAST AND SLOW" title line. Investigate before the next book uses that layout.
+
+### 2026-10-29 — essentialism: PUBLISHED & CLEANED (Antidote)
+- Adopted into ../wt-book-essentialism-the-disciplined-pursuit-of-less on origin/god-mode 88db7e09 (book-start --adopt, operator choice). Quality debt accepted by operator for this config. 10-way GitHub render, cloud-verified, 46.3 min. YouTube pack READY.
+- Post-upload cleanup (operator order): render-github-cleanup, purge-render-branches, render-purge. Frees ~2.9 GB local + ~910 MB GitHub.

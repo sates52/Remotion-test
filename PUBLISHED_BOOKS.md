@@ -1401,3 +1401,4 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Quality provenance:** Preview sealed mute test PASS (WRONG ≤ 1/30, dead ≤ 5/30, ADDS 50% text-carried). Firewall 0 BLOCK, 651 REVIEW carried as operator-accepted quality debt for config sha 682dcb40a3a19d9d. Production firewall status stays FAIL.
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-28: GitHub artifacts + runs (render-github-cleanup.js); render/ refs purged on 10 workers (purge-render-branches.js); local film and thumbnail (render-purge.js, ~1.18 GB). Raw audio re-encoded to 81 MB (original kept outside the repo).
 - **Kept:** books/thinking-fast-and-slow/ source (untracked in the working checkout at time of publish).
+- essentialism-the-disciplined-pursuit-of-less — Essentialism (Greg McKeown), Antidote, YouTube live 2026-10-29 (46.3 min, 10-way GitHub split, cloud-verified; GitHub artifacts + render branches + local film/audio cleaned)
