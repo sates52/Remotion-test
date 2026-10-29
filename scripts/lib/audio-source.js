@@ -86,7 +86,9 @@ function vttEnd(vttFile) {
 function durationVsVtt(seconds, vttSeconds) {
   if (seconds == null || vttSeconds == null) return { problems: [], warnings: [] };
   const problems = [], warnings = [];
-  if (vttSeconds > seconds + 2) problems.push(`captions run to ${vttSeconds.toFixed(1)} s but the audio ends at ${seconds.toFixed(1)} s — the VTT belongs to another recording`);
+  // the tolerance is unchanged; a SMALL overhang may be ASR padding of the final cue — the message names the check that
+  // proves it (fix-vtt-tail.js: speech ends inside the audio, pauses align) instead of a hand edit (2026-10-29)
+  if (vttSeconds > seconds + 2) problems.push(`captions run to ${vttSeconds.toFixed(1)} s but the audio ends at ${seconds.toFixed(1)} s — the VTT belongs to another recording${vttSeconds - seconds <= Math.max(5, 0.005 * seconds) ? ` (or only its final cue's END is padded past the audio: verify with node scripts/fix-vtt-tail.js --slug=<slug> --dry — it clamps only when the speech provably ends inside the audio; never edit the timestamps by hand)` : ""}`);
   else if (seconds - vttSeconds > Math.max(30, 0.05 * seconds)) problems.push(`audio is ${seconds.toFixed(1)} s but the captions end at ${vttSeconds.toFixed(1)} s — ${(seconds - vttSeconds).toFixed(0)} s of narration has no captions`);
   else if (seconds - vttSeconds > 10) warnings.push(`audio runs ${(seconds - vttSeconds).toFixed(1)} s past the last caption (an outro?)`);
   return { problems, warnings };

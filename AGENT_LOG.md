@@ -2087,6 +2087,85 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-29 — 10x REAL-BOOK ADOPTION (measured, routed) + MERGE RECOVERY + SEMANTIC REVIEW + AUDIO/VTT TAIL (next cycle P0/P4/P5/P6)
+
+- **P0 — real-book adoption: three levels, never merged.**
+  - `feature-usage.js` now has the ten 10x rows:
+    - diagrams refute / mechanism / causal / scorecard, and loop + ledger
+    - actions lift / drink / leave / flee / place
+    - carried hold
+  - Each row reports three levels:
+    - **capability** — read from THIS tree's `src/`
+    - **adoption** — authored → merged → planned
+    - **verified** — blind mute verdicts on the scenes that carry the feature, mapped item → judge-key frame → sample scene
+  - Plus lexical **hints** (pointers, not verdicts) and `AUTHORED_BEFORE_RULES`: the storyboard is older than its rules.md.
+  - `preview-ready` prints it as an advisory row on every check.
+  - **Real books (read-only, `--out` outside their trees):**
+    - **thinking-fast-and-slow** (pin ebc317cc, now published): capability **no** for all 10; 0 used.
+      Its judge wrote "not the loop" on scene 229, and the loop hint points at 229.
+    - **essentialism** (adopted 10-29 onto 88db7e09): capability **yes** for all 10, but 0 used.
+      Its storyboard was copied, not re-authored (rules.md is newer → `AUTHORED_BEFORE_RULES`).
+      Its loop hints are 78-82 = the "paradox of success" cycle.
+    - **Finding:** `--adopt` moves the code, not the authoring.
+    - No book started on current code has reached a preview, so the rendered/verified level has **no real-book PASS**.
+  - **`rules.md` routing table** "Which tool for which passage": the decision section only named flow / sorter / spectrum.
+    - Each row gives the narration shape → the tool → why (blind, measured) → not when.
+    - Action rows appear only for actions in the book's vocabulary.
+    - Fixture `test-adoption.js`: a new-book prep carries every row; drink / place / leave go authored 1 → merged 1 → planned 1;
+      capability and blind come from the tree; "never use a tool for its own sake".
+- **P4 — merge recovery: a refused merge is a work list.**
+  - `lib/merge-recovery.js` gives every merge problem a code, a class (ROUTINE / REAUTHOR / AGENT_STEP / OPERATOR),
+    its `authored-K.json` and the fix. `storyboard/merge-report.json` is written on every run.
+  - The console prints a recovery block. The stop line no longer says "ask the chunk's author".
+  - `preview-state` prints "Merge recovery — fix all N yourself, NO approval".
+  - Text added: the skill gets a "Merge recovery" block; AGENTS.md, the Antigravity workflow and the Cursor rule get one line each.
+  - Real evidence:
+    - essentialism, 10-28: 38 refusals, the agent asked "Do you want me to continue?"; 38/38 classified, 0 OPERATOR.
+    - Antigravity create-space / crazy-rich-asians: `continue:false` ×30 / ×37 → ROUTINE.
+    - The two top repeat offenders (`continue:false`, an empty onScreenText) are now named in the author template.
+  - Fixture `test-merge-recovery.js`: refuse → report → fix → pass; covers Vox and the readcheck bridge.
+- **P5 — semantic authoring integrity: REVIEW_REQUIRED, never a FAIL.**
+  - `lib/authoring-integrity.js` signals:
+    - **FILLED_AFTER_REFUSAL**: a field merge refused as missing, then filled with a copy of another field. The refusal
+      history is kept in merge-report.json, so a passing dry run does not erase it.
+    - **VISUAL_IS_CLAIM**: a picture beat whose "picture" is a card restating the claim.
+    - **PLACEHOLDER_VISUAL**
+    - **ECHO_ONLY_CARRIER**: a lone callout repeating the narration.
+    - **EARLY_TEXT**: words on screen before they are said.
+  - Calibration: 39 Antidote books, 2,680 blind mute stills.
+    - unflagged: ADDS 63%, TEXT_ONLY 25%, WRONG 10%
+    - ECHO_ONLY_CARRIER (n=127): ADDS 39%, TEXT_ONLY 45%
+    - EARLY_TEXT (n=24): TEXT_ONLY 46%, WRONG 21%
+    - Real signals, not verdicts, hence review only.
+  - Dropped as false positives: claim word-overlap (it flagged honest diagram descriptions), onScreenText = emphasis on its
+    own (their-eyes authored 176/323 that way), and "narrator still speaking".
+  - readcheck `tally` lists the flagged beats it read WRONG (confirmed → fix round) or CORRECT (cleared); the tally itself
+    is unchanged. Vox has no readcheck; the skill says to review those flags yourself.
+  - Mute bars, gates and thresholds are untouched.
+  - Not reconstructible: magician's-nephew's 56 + 4 fills (no pre-fill history); its 3 "question card" beats are text-led → not flagged.
+- **P6 — audio/VTT boundary: a proven, narrow clamp; the +2 s gate is unchanged.**
+  - `lib/vtt-tail.js` + `scripts/fix-vtt-tail.js` (`--dry` first) move ONLY the final cue's END to the decoded audio end, and only when:
+    - the overhang is ≤ max(5 s, 0.5%)
+    - only the trailing cue(s) end past EOF
+    - no cue start or word time is past EOF
+    - a silence runs to EOF after the last word
+    - a pause in the last 20 s ends on a caption word (± 0.15 s)
+  - It keeps `<vtt>.pre-tail-clamp.bak` and records hashes plus evidence in `books/<slug>/vtt-tail-clamp.json`.
+    A refusal exits 2 as an input problem.
+  - The gate's message now points to the tool when the overhang is small.
+  - Real dry runs (nothing written):
+    - magician's-nephew +2.18 s → CLAMP (speech ends 1916.112, 5 aligned pauses; gate FAIL → pass)
+    - crazy-rich-asians +2.24 → CLAMP
+    - essentialism +2.67 → CLAMP
+    - their-eyes +1.88 → CLAMP (already passes)
+    - TFS +1.51 → CLAMP (already passes)
+  - magician's-nephew's worktree VTT was already clamped by hand by its owner, to the same value (1916.458), with no backup.
+    The original is in `test/public/captions/`. Not touched (another agent's pinned book).
+  - Fixture `test-vtt-tail.js` (synthetic audio) covers the clamp, idempotence, and 6 refusals: too long, word past end,
+    start past end, middle cue, misaligned cut, speech to EOF.
+- Tests: adoption, merge-recovery, vtt-tail, feature-usage, audio-source and render-dispatch PASS; all 38 tests touching the
+  changed scripts PASS.
+
 ### 2026-10-29 — CHARACTER ACTION 3.0: `place` (an object set down, and it stays) + threat-aware flee (antidote-10x P4)
 
 - **Why place:** the most frequent physical misread among the actions not yet supported. "Sets it down", "put the tool down"
