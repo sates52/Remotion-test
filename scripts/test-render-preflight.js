@@ -139,7 +139,7 @@ t("missing output -> FAIL, file missing", miss.status === "FAIL" && miss.problem
 
   // evaluate(): Antidote rules with the preview
   const H = "ih000000000000aa";
-  const NR = { state: "NOT_READY", mute }, READY = { state: "READY" };
+  const NR = { state: "NOT_READY", mute, at: "x" }, READY = { state: "READY" }; // at = the preview-ready record the decision saw
   const pdec = (extra = {}) => ({ configHash: "c1", renderInputHash: H, keys: [], preview: { state: "NOT_READY", mute, at: "x" }, ...extra });
   t("Antidote firewall PASS + preview NOT READY, no decision -> STOP (needsAccept preview)", (() => { const e = evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: NR }); return !e.ok && e.needsAccept && e.needsAcceptKinds.join() === "preview"; })());
   t("Antidote firewall PASS + preview READY -> PASS, GO", evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: READY }).decision === "PASS");
@@ -153,6 +153,15 @@ t("missing output -> FAIL, file missing", miss.status === "FAIL" && miss.problem
   t("old decision + preview READY -> ACCEPTED_DEBT, GO (quality coverage unchanged)", evaluate({ mode: MODE.PRODUCTION, firewall: fw([r1]), hash: "c1", inputHash: H, preview: READY, decisions: [oldDec] }).decision === "ACCEPTED_DEBT");
   const both = evaluate({ mode: MODE.PRODUCTION, firewall: fw([r1, r2]), hash: "c1", inputHash: H, preview: NR, decisions: [pdec({ keys: dec("c1", [r1]).keys })] });
   t("preview covered but a NEW REVIEW finding -> STOP (needs quality)", !both.ok && both.needsAcceptKinds.join() === "quality");
+  // 2026-10-29: a decision covers the preview FACT it saw, never a verdict that appeared after it (essentialism: 605
+  // REVIEW accepted while the preview was MISSING — its later mute WRONG / DEAD must not count as accepted)
+  const sawMissing = { configHash: "c1", renderInputHash: H, keys: [], preview: { state: "MISSING", mute: null, at: null } };
+  t("decision saw MISSING, preview still MISSING -> covered (the operator accepted 'no verdict yet')", evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: { state: "MISSING" }, decisions: [sawMissing] }).ok);
+  const later = evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: NR, decisions: [sawMissing] });
+  t("decision saw MISSING, now NOT READY (mute FAIL) -> STOP: a verdict after the decision is not covered", !later.ok && later.needsAcceptKinds.join() === "preview" && /saw it MISSING/.test(later.blockers.join()) && /not covered by it/.test(later.blockers.join()), JSON.stringify(later.blockers));
+  t("decision saw one NOT READY record, a NEWER preview-ready record now -> STOP", !evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: { ...NR, at: "y" }, decisions: [pdec()] }).ok);
+  t("…and the SAME record it saw -> still covered", evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: H, preview: NR, decisions: [pdec()] }).ok);
+  t("a decision for another render input never covers this one (hash unchanged rule)", !evaluate({ mode: MODE.PRODUCTION, firewall: fw([]), hash: "c1", inputHash: "ih-other", preview: { state: "MISSING" }, decisions: [sawMissing] }).ok);
   t("preview decision bound to another render input -> STOP", !evaluate({ mode: MODE.PRODUCTION, firewall: null, hash: "c2", inputHash: "ih0000000000bbbb", preview: NR, decisions: [pdec()] }).ok);
   t("byte-hash-only decision never carries preview coverage", !evaluate({ mode: MODE.PRODUCTION, firewall: null, hash: "c1", inputHash: H, preview: { state: "MISSING" }, decisions: [{ configHash: "c1", keys: [], preview: { state: "MISSING" } }] }).ok);
 }

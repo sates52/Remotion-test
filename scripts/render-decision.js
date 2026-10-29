@@ -31,7 +31,7 @@ const rp = require("./lib/render-preflight");
 
 const args = Object.fromEntries(process.argv.slice(2).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
 const slug = args.slug;
-if (!slug) { console.error("usage: node scripts/render-decision.js --slug=<slug> [--json]"); process.exit(2); }
+if (!slug && require.main === module) { console.error("usage: node scripts/render-decision.js --slug=<slug> [--json]"); process.exit(2); }
 const root = args.root ? path.resolve(String(args.root)) : path.resolve(__dirname, "..");
 
 function decisionStatus({ root, slug }) {
@@ -77,13 +77,46 @@ function decisionStatus({ root, slug }) {
   return { ...base, verdict: "NEEDS_DECISION", exit: 2, quality, needs: ev.needsAcceptKinds, detail: `${q}, ${pvText} — ${ev.blockers.join(" ")} ${ASK}` };
 }
 
-module.exports = { decisionStatus };
+/**
+ * The seven facts, never merged (2026-10-29 — essentialism: 605 REVIEW accepted, preflight GO, dispatch started, while
+ * the readcheck after the beat-100 fix and the sealed mute test were not done and the preview was NOT READY). Each is
+ * read from its own record; none implies another: a technical GO is not a quality PASS, an accepted debt is not a
+ * READY preview, a finished film is not an upload authorization. READ-ONLY.
+ */
+function sevenFacts({ root, slug, st }) {
+  const dir = path.join(root, "books", slug);
+  const rj = (f) => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch { return null; } };
+  const pv = st.preview || {};
+  const mute = rp.muteLine(pv.mute);
+  const decs = rp.loadDecisions(root, slug).filter((d) => d.renderInputHash === st.renderInputHash);
+  const d = decs[decs.length - 1] || null;
+  const runs = ((rj(path.join(dir, "render-facts.json")) || {}).runs) || [];
+  const pre = runs.filter((r) => r.kind === "preflight" && r.mode === "production").pop() || null;
+  const split = [path.join(root, `.render-github-split.${slug}.json`), path.join(root, ".render-github-split.json")].map(rj).find((s) => s && s.slug === slug) || null;
+  const yt = rj(path.join(dir, "youtube-ready.json"));
+  return {
+    A_quality: mute ? `blind mute test: ${mute}${pv.mute.pass === false ? " — FAIL" : pv.mute.pass ? " — PASS" : ""}` : "NOT MEASURED for this config (no mute verdict recorded by preview-ready)",
+    B_preview: `${String(pv.state || "?").replace("_", " ")}${pv.state === "READY" ? "" : " — not READY (a decision never changes this)"}`,
+    C_acceptance: d ? `the operator's decision of ${d.at} for render input ${d.renderInputHash}: ${(d.keys || []).length} REVIEW finding(s)${d.preview ? `, and the preview as it was then (${d.preview.state}${d.preview.mute ? `, ${rp.muteLine(d.preview.mute)}` : ""}) — never a verdict recorded after it` : ""}` : "none for this render input",
+    D_authorization: `${st.verdict}${st.verdict === "COVERED" ? " — the production render of THIS render input is authorized" : st.verdict === "BLOCK" ? " — never" : " — the operator decides"}`,
+    E_technical: pre ? `last production preflight ${pre.at}: ${pre.decision && pre.decision.ok ? "GO" : "STOP"} on render input ${pre.renderInputHash}${pre.renderInputHash === st.renderInputHash ? " (this config)" : " (ANOTHER config — rerun)"} — technical only, not a quality verdict` : "no production preflight recorded",
+    F_dispatch: split ? `${(split.segments || []).length} segment(s) dispatched ${split.dispatchedAt || ""} (${split.mode || "?"}) — node scripts/render-status.js --slug=${slug} for the live state` : "nothing dispatched (no split state)",
+    G_youtube: yt ? `youtube pack: ${yt.ready || yt.status === "READY" ? "READY" : "NOT READY"} — upload / publish is always the operator's` : "youtube pack not checked (lint-titles --pack) — upload / publish is always the operator's",
+  };
+}
+
+module.exports = { decisionStatus, sevenFacts };
 
 if (require.main === module) {
   const st = decisionStatus({ root, slug });
+  if (st.configHash) st.facts = sevenFacts({ root, slug, st });
   if (args.json) console.log(JSON.stringify(st, null, 2));
   else {
     console.log(`${st.verdict} ${slug}: ${st.detail}`);
+    if (st.facts) {
+      const L = { A_quality: "A quality verdict", B_preview: "B preview readiness", C_acceptance: "C operator acceptance", D_authorization: "D render authorization", E_technical: "E technical preflight", F_dispatch: "F GitHub dispatch", G_youtube: "G publishing readiness" };
+      for (const [k, v] of Object.entries(st.facts)) console.log(`  ${L[k].padEnd(23)}: ${v}`);
+    }
     if (st.preview) console.log(`  preview: ${st.preview.ready ? "READY" : "NOT READY"}${st.preview.state === "STALE" ? " (recorded on another config)" : st.preview.state === "MISSING" ? " (no preview-ready.json)" : ""}${rp.muteLine(st.preview.mute) ? ` — ${rp.muteLine(st.preview.mute)}` : ""} — unchanged by any decision`);
     let frozen = false; try { frozen = require("./lib/frozen").isFrozen(slug, root); } catch {}
     if (frozen) console.log("  PUBLISHED (frozen): this book is never re-rendered — the verdict is a record only");

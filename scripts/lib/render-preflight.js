@@ -199,13 +199,21 @@ function evaluate({ mode, firewall, hash, inputHash = null, decisions = [], prev
 
   // 3. preview (not assessed when the caller passed none)
   if (!preview || preview.state === "READY") return q;
-  // preview coverage binds to the render-input hash only (a byte-hash-only entry predates preview coverage anyway)
-  const pBase = decisions.filter((d) => d.preview && d.renderInputHash && inputHash && d.renderInputHash === inputHash).pop() || null;
+  // preview coverage binds to the render-input hash (a byte-hash-only entry predates preview coverage anyway) AND to the
+  // preview FACT the operator saw (2026-10-29): a decision taken while the preview was MISSING accepted "no verdict
+  // yet" — never a mute WRONG / DEAD that appears later. essentialism: 605 REVIEW accepted with the preview MISSING;
+  // once its mute test records NOT READY, that verdict is new debt nobody accepted.
+  const sameFact = (d) => d.preview && d.preview.state === preview.state && (preview.state === "MISSING" || (d.preview.at || null) === (preview.at || null));
+  const forInput = decisions.filter((d) => d.preview && d.renderInputHash && inputHash && d.renderInputHash === inputHash);
+  const pBase = forInput.filter(sameFact).pop() || null;
   if (pBase) return { ...q, previewCovered: true, previewBase: pBase, decision: q.decision === "REFUSED" ? "REFUSED" : "ACCEPTED_DEBT" };
   const ml = muteLine(preview.mute);
+  const seen = forInput.length ? forInput[forInput.length - 1].preview : null;
   return {
     ...q, ok: false, decision: "REFUSED", needsAccept: true, needsAcceptKinds: q.needsAcceptKinds.concat(["preview"]),
-    blockers: q.blockers.concat([`preview ${preview.state.replace("_", " ")}${ml ? ` (${ml})` : ""} and no operator decision covers render input ${inputHash || "unreadable"} — production needs preview READY or the operator's recorded decision for this exact config`]),
+    blockers: q.blockers.concat([seen
+      ? `preview is now ${preview.state.replace("_", " ")}${ml ? ` (${ml})` : ""}, but the operator's decision for render input ${inputHash} saw it ${seen.state.replace("_", " ")}${seen.mute ? ` (${muteLine(seen.mute)})` : ""} — a verdict that appeared after the decision is not covered by it`
+      : `preview ${preview.state.replace("_", " ")}${ml ? ` (${ml})` : ""} and no operator decision covers render input ${inputHash || "unreadable"} — production needs preview READY or the operator's recorded decision for this exact config`]),
   };
 }
 
