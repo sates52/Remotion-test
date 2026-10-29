@@ -99,6 +99,17 @@ function looksOf(c) {
   return v.outfit ? `${age} in a ${v.outfit}` : age;
 }
 
+// What the rig DRAWS for the body poses whose name misleads a reader (movements.ts), 2026-10-29: the reader was shown
+// the raw word "slump", so a fall drawn as a slump (fahrenheit-451 250 "thrown to the earth", island 233) read CORRECT
+// on the words. Shown as drawn, a standing lean beside "he fell to the floor" is visibly the wrong body.
+const BODY_DRAWN = {
+  slump: "standing on their feet, leaning forward, head bowed, arms hanging (a posture, not a fall)",
+  falling: "tipped over backwards in mid-air, arms flailing, motion lines (falling)",
+  collapsed: "lying flat on the floor, one arm flung out, eyes shut (fallen / knocked out)",
+  lying: "lying on a low bed, eyes open",
+};
+const bodyOf = (a) => BODY_DRAWN[a] || a;
+
 function visible(b, bible, own, mech, causal) {
   const v = {};
   const cast = Array.isArray(b.cast) ? b.cast : [];
@@ -108,11 +119,11 @@ function visible(b, bible, own, mech, causal) {
       const c = (bible.cast || {})[k] || {};
       // the viewer sees a look, not a name
       const p = { looks: looksOf(c) };
-      if (n === 0) { if (b.expression) p.face = b.expression; if (b.action) p.body = b.action; if (b.holds) p.holds = b.holds; }
+      if (n === 0) { if (b.expression) p.face = b.expression; if (b.action) p.body = bodyOf(b.action); if (b.holds) p.holds = b.holds; }
       // the SECOND person of an authored two-person cast, exactly as plan-antidote draws them (lib/partner-contract.js,
       // 2026-10-22): the lead verb's pair (fighting / grabbing <-> struggling / embrace), else partnerAction, else idle;
       // partnerExpression, else neutral. Shown so the blind reader can read the reaction the author staged.
-      if (n === 1) { p.face = b.partnerExpression || "neutral"; p.body = partnerActionFor(b.action, b.partnerAction); }
+      if (n === 1) { p.face = b.partnerExpression || "neutral"; p.body = bodyOf(partnerActionFor(b.action, b.partnerAction)); }
       return p;
     });
   }

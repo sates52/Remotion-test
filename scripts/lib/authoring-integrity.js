@@ -23,6 +23,9 @@ const jaccard = (a, b) => { const A = new Set(words(a)), B = new Set(words(b)); 
 const PLACEHOLDER = /^(text( only| statement| list only)?( on [\w ]+)?|quoted line|a plain transition card|n\/?a|tbd|todo|\.{1,3}|-)\.?$/i;
 const CARD_OF_CLAIM = /^(a |an )?(quote|question|title|text|statement) card (stating|asking|saying|that|with)\b/i;
 const QUIET = new Set([undefined, null, "idle", "talk", "think", "point"]);
+const STANDING = new Set(["slump", "idle", "talk", "think", "point", "celebrate", "hold", "reach", "walk"]);
+const BODY_EVENT = /\b(fell (down|over|off|to|onto)|falls? (down|over|off|to the (floor|ground))|falling (down|off|to the)|trip(s|ped)? (over|on) (a|the)\b|(is|was|gets|got|been) (pushed|shoved|knocked|thrown|slammed)|knock(s|ed)? (him|her|them|me|you) (down|over|out)|faint(s|ed)\b|collaps(es|ed) (on|to|onto) the|(lies|lying|lay) (on|in) the (floor|ground|lawn|ice|snow|street|grass)|(is|was|knocked) out cold|thrown to the)/i;
+const BODY_FIGURATIVE = /\b(fall(s|ing)? (in love|into (a |deep )?depression|apart)|fell (in love|apart|asleep|silent)|trips? over (his|her|their|my|your) words)\b/i;
 
 function fieldsOf(a, engine) {
   if (!a) return null;
@@ -80,7 +83,13 @@ function integrityReview({ beats, authored, engine, prev }) {
       if (words(F.callout).length >= 3 && norm(e.narration).includes(c))
         add(e.i, "ECHO_ONLY_CARRIER", "callout", `the callout "${F.callout}" repeats the narration and nothing else on screen carries the meaning (lone ${a.action || "figure"}, no object/icon/diagram) — text-carried`);
     }
-    // 5. words on screen before the narration says them (an early result)
+    // 5. Antidote: the narration says a BODY falls / faints / is pushed / lies on the floor, the staged body stands
+    // (P3 push/fall, 2026-10-29). 93 configs: 15 such beats, ~half real (wonder 30 fainted, fahrenheit-451 250 thrown,
+    // under-the-dome 26 pushed to the floor, crime-and-punishment 92 falls to the floor) and half hypothetical or about
+    // someone off stage — a review pointer, never a verdict; the blind readcheck now sees the drawn body, not its name.
+    if (engine !== "vox" && a.cast && a.cast.length && STANDING.has(a.action || "idle") && BODY_EVENT.test(e.narration) && !BODY_FIGURATIVE.test(e.narration))
+      add(e.i, "BODY_EVENT_STANDING", "action", `the narration says "${(e.narration.match(BODY_EVENT) || [""])[0]}" but the staged body is "${a.action || "idle"}" (standing) — a literal fall is \`falling\`, down on the floor is \`collapsed\` (+ continue), a push puts \`falling\` on the one pushed; keep it standing only if the event is hypothetical or happens to someone not on screen`);
+    // 6. words on screen before the narration says them (an early result)
     for (const s of F.screen) {
       const W = [...new Set(words(s))];
       if (W.length < 2) continue;

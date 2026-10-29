@@ -41,7 +41,8 @@ try {
   const key = JSON.parse(fs.readFileSync(path.join(B, "storyboard", "readcheck", "key.json"), "utf8"));
   const at = (i) => vis.find((v) => key[v.id] === i);
   t("prep runs on --root", r.status === 0 && vis.length === 8, r.stderr);
-  t("authored partner: face sad + body slump shown", JSON.stringify(at(0).people[1]) === JSON.stringify({ looks: "old man in a grey suit", face: "sad", body: "slump" }), JSON.stringify(at(0).people));
+  // the body is shown AS DRAWN (2026-10-29): "slump" is a standing lean, never a fall — the word alone hid that
+  t("authored partner: face sad + the slump shown as drawn (standing, bowed — not a fall)", at(0).people[1].looks === "old man in a grey suit" && at(0).people[1].face === "sad" && /standing on their feet, leaning forward, head bowed/.test(at(0).people[1].body) && /not a fall/.test(at(0).people[1].body), JSON.stringify(at(0).people));
   t("the lead is shown exactly as before", JSON.stringify(at(0).people[0]) === JSON.stringify({ looks: "young woman in a green coat", face: "angry", body: "point" }));
   t("embrace: the partner embraces back", at(1).people[1].body === "embrace" && at(1).people[1].face === "neutral");
   t("grabbing: the partner struggles", at(2).people[1].body === "struggling");
