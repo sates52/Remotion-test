@@ -53,11 +53,9 @@ function saveQueue(q) {
   fs.writeFileSync(QUEUE_FILE, JSON.stringify(q, null, 2), 'utf8');
 }
 
+// read in place from this checkout or the main checkout (lib/render-accounts.js) — never copied into a worktree
 function loadAccounts() {
-  if (!fs.existsSync(ACCOUNTS_FILE)) {
-    throw new Error('render-accounts.json bulunamadı.');
-  }
-  return JSON.parse(fs.readFileSync(ACCOUNTS_FILE, 'utf8'));
+  return require('./lib/render-accounts').loadAccounts(ROOT);
 }
 
 function apiRequest(token, method, apiPath, data = null) {
@@ -256,8 +254,8 @@ async function executeGithubJob(job, pollIntervalSec) {
     const lastIdx = typeof accounts.lastUsedWorkerIndex === 'number' ? accounts.lastUsedWorkerIndex : -1;
     const nextIdx = (lastIdx + 1) % activeWorkers.length;
     worker = activeWorkers[nextIdx];
-    accounts.lastUsedWorkerIndex = nextIdx;
-    fs.writeFileSync(ACCOUNTS_FILE, JSON.stringify(accounts, null, 2), 'utf8');
+    // the pointer lives in <git common dir>/render-pool-state.json; the token file is never rewritten
+    require('./lib/render-accounts').writeState(ROOT, { lastUsedWorkerIndex: nextIdx });
   }
 
   job.workerUsed = worker.username;

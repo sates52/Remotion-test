@@ -60,3 +60,11 @@ Report with `.claude/skills/antidote-quality-handoff/SKILL.md` (Vox books: the s
 ## 4. Never on your own
 Cleanup (`render-github-cleanup.js`, `purge-render-branches.js`, `render-purge.js`), deleting the film, uploading,
 publishing, changing credentials — only on the operator's explicit order (CLAUDE.md "Post-upload order").
+
+## 5. Worker credentials (2026-10-29)
+`render-accounts.json` is read IN PLACE — `$RENDER_ACCOUNTS_FILE`, else this checkout's, else the main checkout's (found
+through the git common dir). A book worktree needs no copy: **never copy the token file into a worktree** and never
+print it. The preflight prints `credentials: … usable · access … verified` before the first push and STOPs when no
+worker is usable (missing file, unsafe source, missing fields, every token refused) — that STOP is the operator's
+(a credential change), not a retry. Nothing rewrites the token file; the round-robin pointer and the access cache live
+in `<git common dir>/render-pool-state.json`.

@@ -534,10 +534,12 @@ async function dispatchWithRetry(httpsModule, worker, payload, sg, ref, maxRetri
 // worker in parallel. Records .render-github-split.json for the assemble step.
 async function dispatchSplit(safeMax) {
   const https = await import("https");
-  const accountsFile = path.join(ROOT, "render-accounts.json");
-  const accounts = JSON.parse(fs.readFileSync(accountsFile, "utf8"));
-  const workers = (accounts.workers || []).filter((w) => w.active !== false && w.token);
-  if (!workers.length) { console.error("❌ Aktif Render Worker yok (render-accounts.json)."); process.exit(1); }
+  // read IN PLACE from this checkout or the main checkout (lib/render-accounts.js); workers GitHub refused are out
+  const RA = require("./lib/render-accounts");
+  let accounts;
+  try { accounts = RA.loadAccounts(ROOT); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
+  const workers = RA.usableWorkers(accounts, ROOT);
+  if (!workers.length) { console.error(`❌ no usable render worker — ${RA.summary(RA.inspect(accounts, ROOT))}`); process.exit(2); }
 
   // segment count: default to all active pool workers (maximizing parallel speed)
   let numSeg;
@@ -902,15 +904,11 @@ async function runGithubActionsRender() {
 
   console.log(`[GITHUB ACTIONS] Render Worker aranıyor...`);
 
-  const accountsFile = path.join(ROOT, "render-accounts.json");
+  const RA = require("./lib/render-accounts");
   let accounts = null;
-  if (fs.existsSync(accountsFile)) {
-    try {
-      accounts = JSON.parse(fs.readFileSync(accountsFile, "utf8"));
-    } catch {}
-  }
+  try { accounts = RA.loadAccounts(ROOT); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
 
-  const activeWorkers = (accounts?.workers || []).filter((w) => w.active !== false && w.token);
+  const activeWorkers = RA.usableWorkers(accounts, ROOT);
   if (activeWorkers.length === 0) {
     console.error(`❌ render-accounts.json içinde aktif bir Render Worker bulunamadı.`);
     process.exit(1);
@@ -927,11 +925,9 @@ async function runGithubActionsRender() {
     const nextIdx = (lastIdx + 1) % activeWorkers.length;
     worker = activeWorkers[nextIdx];
 
-    // Kayıt defterini güncelle
-    accounts.lastUsedWorkerIndex = nextIdx;
-    try {
-      fs.writeFileSync(accountsFile, JSON.stringify(accounts, null, 2), "utf8");
-    } catch {}
+    // the round-robin pointer lives in <git common dir>/render-pool-state.json — the token file is never rewritten
+    // (rewriting it from several book worktrees at once could corrupt the only copy of the tokens)
+    RA.writeState(ROOT, { lastUsedWorkerIndex: nextIdx });
   }
 
   if (!worker || !worker.token) {

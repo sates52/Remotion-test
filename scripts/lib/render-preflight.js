@@ -274,7 +274,7 @@ function readQuality({ root, slug, preview }) {
  * applies an explicit accept if given, checks worker compatibility, prints one summary, and records the facts.
  * Returns { ok, mode, decision, record }. Callers exit when !ok.
  */
-function preflight({ root, slug, engine, method, mode, acceptReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe }) {
+function preflight({ root, slug, engine, method, mode, acceptReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe, credentialCall = null }) {
   const hashFile = configFile ? path.resolve(root, configFile) : null;
   const hash = hashFile ? configHash(hashFile) : null;
   const inputHash = hashFile ? inputHashOf(hashFile) : null;
@@ -315,6 +315,17 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   }
   const compat = workerCompat({ root, method, mode });
   if (!compat.ok) blockers.push(compat.detail);
+  // worker credentials BEFORE the first push (2026-10-29: a GO render failed its first dispatch — render-accounts.json
+  // lived only in the main checkout). Read in place, never copied or printed; access verified once and cached.
+  let cred = null;
+  if (method === "github" && !requireMasteredAudio) {
+    const RA = require("./render-accounts");
+    try {
+      const acc = RA.loadAccounts(root);
+      cred = RA.verifyAccess(acc, root, credentialCall ? { call: credentialCall } : {});
+      if (!cred.usable) blockers.push(`credentials: no usable render worker — ${RA.summary(cred)}`);
+    } catch (e) { cred = { error: e.code || "CREDENTIALS" }; blockers.push(`credentials: ${e.code || "CREDENTIALS"} — ${e.message}`); }
+  }
   const audio = requireMasteredAudio ? checkMasteredAudio({ root, configFile, ...(probe ? { probe } : {}) }) : null;
   if (audio && !audio.ok) blockers.push(`audio: ${audio.detail}`);
   blockers.push(...ev.blockers);
@@ -344,6 +355,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
     : "not needed (preview READY, no quality debt)";
   console.log(`  authorization: ${authorization}`);
   console.log(`  worker    : ${compat.detail}`);
+  if (cred) console.log(`  credentials: ${cred.error ? `STOP (${cred.error})` : require("./render-accounts").summary(cred)}`);
   console.log(`  result    : ${ok ? "GO" : "STOP — nothing dispatched, no pixels produced"}`);
   for (const b of blockers) console.log(`    - ${b}`);
   if (!ok && ev.needsAccept) {
@@ -360,6 +372,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
     preview: { state: pv.state, covered: ev.previewCovered, mute: pv.mute || null },
     decision: { kind: decisionKind, ok, accepted: acceptedNow, reason: acceptReason || null, covered: ev.covered.length, newFindings: ev.newKeys.length, goneFindings: ev.removedKeys.length },
     technical: "NOT_RUN",
+    ...(cred ? { credentials: cred.error ? { ok: false, error: cred.error } : { ok: cred.usable > 0, source: cred.source, active: cred.active, usable: cred.usable, verified: cred.verified, refused: cred.refused.length } } : {}),
   });
   return { ok, mode, decision: ev.decision, record };
 }

@@ -14,13 +14,11 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 
 const ROOT = path.join(__dirname, "..", "..");
-const ACCOUNTS = path.join(ROOT, "render-accounts.json");
-
+const ACCOUNTS = path.join(ROOT, "render-accounts.json"); // legacy export: THIS checkout's path only — load with loadAccounts()
+// the pool is read IN PLACE from this checkout or the main checkout (lib/render-accounts.js, 2026-10-29): a book
+// worktree has no token file and must never get a copy
 function loadAccounts() {
-  if (!fs.existsSync(ACCOUNTS)) {
-    throw new Error("render-accounts.json yok — havuz tanımlı değil (bu dosya gitignore'da, tokenlar burada).");
-  }
-  return JSON.parse(fs.readFileSync(ACCOUNTS, "utf8"));
+  return require("./render-accounts").loadAccounts(ROOT);
 }
 
 /**
