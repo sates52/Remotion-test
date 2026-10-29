@@ -411,7 +411,7 @@ const ACTION_LINE =`Actions that HAPPEN (optional): when the narration says some
 `;
 
 // Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
-const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally. A continued beat also KEEPS WHAT A DEED LEFT (the end state): a person set down in a destination stays in it, a person who sat down stays seated, a person who fell stays down — give them an upper-body action (talk, think, hold, reach, take…; a person who is down: only the face) and they do it in that state; an action that needs the legs (walk, fighting…) ends it.
+const CONTINUE_LINE = `Continuing a stage (optional): \`"continue": true\` means "this beat continues the previous beat's stage": no transition, and whoever/whatever was already on screen stays — the same cast member does not walk in again, the same icon does not pop in again, the same diagram is not rebuilt (only its NEW labels/values draw in). Use it inside a sequence when the next beat keeps the same set and the same person/object/diagram and only something changes (a face, an action, a held object, one more label). Never as a default, never on the first beat, and only with the same \`set\` as the previous beat; a new person in a continued beat still enters normally. A continued beat also KEEPS WHAT A DEED LEFT (the end state): a person set down in a destination stays in it, a person who sat down stays seated, a person who fell stays down — give them an upper-body action (talk, think, hold, reach, take…; a person who is down: only the face) and they do it in that state; an action that needs the legs (walk, fighting…) ends it — only when the narration says so: a person who is down gets up only on "gets up / stands up / rises…" (merge refuses a standing action otherwise), one who left stays gone until the narration brings them back, an object set down stays down until a \`take\`.
 `;
 
 function rulesAntidote(v) {
@@ -1071,8 +1071,58 @@ function merge() {
       if (a.continue === true && k > 0) {
         const pa = authored.get(emitted.beats[k - 1].i);
         const who0 = (x) => (x && Array.isArray(x.cast) && x.cast[0]) || null;
-        if (pa && (pa.action === "take" || pa.action === "hold") && pa.holds && who0(pa) && who0(pa) === who0(a) && a.holds !== pa.holds)
-          P(i, `continues ${who0(a)} after ${pa.action === "take" ? "taking" : "holding"} "${pa.holds}" in beat ${pa.i} — set "holds": "${pa.holds}" (action "hold") to keep it in hand (without it the object vanishes at the cut)`);
+        if (pa && (pa.action === "take" || pa.action === "hold" || pa.action === "drink") && pa.holds && who0(pa) && who0(pa) === who0(a) && a.holds !== pa.holds)
+          P(i, `continues ${who0(a)} after ${pa.action === "take" ? "taking" : pa.action === "drink" ? "drinking from" : "holding"} "${pa.holds}" in beat ${pa.i} — set "holds": "${pa.holds}" (action "hold") to keep it in hand (without it the object vanishes at the cut)`);
+      }
+      // CARRIED BODY STATE, per person (2026-10-29): a continued beat starts where each person's last deed left them —
+      // DOWN after collapsed / falling (a face action keeps them down; a standing action stood them up again: the
+      // fahrenheit-451 sandbox continued a collapsed Montag with "slump" and he stood up while "pressed into the dirt"),
+      // SEATED after sit, GONE after leave / flee, and an object SET DOWN by place stays down. Getting up / coming back
+      // needs the narration to say it. The renderer already composes the rest (endState.ts); merge now refuses the
+      // contradiction instead of drawing it.
+      if (a.continue === true && k > 0) {
+        const ES = require("../src/engines/antidote/endState.ts");
+        const PC = require("./lib/partner-contract");
+        const RISE = /\b(gets? up|got up|getting up|stands? up|stood up|standing up|rises|rose to|climbs? to (his|her|their) feet|pulls? (himself|herself|themselves) up|struggles? to (his|her|their) feet|back on (his|her|their) feet|picks? (himself|herself|themselves) up)\b/i;
+        const BACK = /\b(comes? back|came back|returns|returned|walks? back|re-?enters?|is back)\b/i;
+        const castNow = Array.isArray(a.cast) ? a.cast : [];
+        castNow.forEach((who, ci) => {
+          const act = ci === 0 ? a.action : PC.partnerActionFor(a.action, a.partnerAction);
+          let state = null, from = null;
+          for (let j = k - 1; j >= 0; j--) {
+            const b = authored.get(emitted.beats[j].i), narJ = emitted.beats[j].narration || "";
+            if (!b) break;
+            const bc = Array.isArray(b.cast) ? b.cast : [];
+            const bi = bc.indexOf(who);
+            if (bi >= 0) {
+              const bAct = bi === 0 ? b.action : PC.partnerActionFor(b.action, b.partnerAction);
+              const e = ES.endStateOf(bAct, false);
+              if (e) { state = e.posture; from = b.i; break; }
+              if (RISE.test(narJ) || BACK.test(narJ)) break; // they got up / came back on that beat
+            }
+            if (b.continue !== true) break;
+          }
+          if (!state || state === "standing" || RISE.test(narration)) return;
+          if ((state === "down" || state === "lying") && !ES.keepsRest(state, act))
+            P(i, `continues ${who} ${state === "down" ? "DOWN" : "LYING"} (beat ${from}) with "${act || "idle"}" — that stands them up again. Keep the body down with a face action (${[...ES.FACE_ONLY].join(", ")}), drop "continue" if time has passed, or let the narration say they get up`);
+          else if (state === "seated" && !ES.keepsRest("seated", act))
+            warnings.push(`${i}: REVIEW_REQUIRED continues ${who} SEATED (beat ${from}) with "${act}", which needs the legs — the narration does not say they stand up; keep an upper-body action or drop "continue"`);
+          else if (state === "gone" && act && act !== "idle" && !BACK.test(narration) && act !== "leave" && act !== "flee")
+            warnings.push(`${i}: REVIEW_REQUIRED ${who} left in beat ${from} and is GONE; "${act}" brings them back — the narration does not say they return`);
+        });
+        // an object SET DOWN by place stays down until someone takes it again
+        const lead = castNow[0];
+        if (lead && a.holds && a.action !== "take") {
+          for (let j = k - 1; j >= 0; j--) {
+            const b = authored.get(emitted.beats[j].i);
+            if (!b) break;
+            if (Array.isArray(b.cast) && b.cast[0] === lead && b.holds === a.holds) {
+              if (b.action === "place") P(i, `${lead} set the ${a.holds} down in beat ${b.i}; "holds": "${a.holds}" puts it back in hand without a take — use action "take" (they pick it up again) or another object`);
+              break;
+            }
+            if (b.continue !== true) break;
+          }
+        }
       }
       // CARRIED STATE (10x P1, src/engines/antidote/endState.ts): a continued beat starts where the deed left them —
       // after a lift she is still IN the destination and the lifter beside it. Her new action may use her upper body /
