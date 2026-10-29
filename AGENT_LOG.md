@@ -2087,6 +2087,59 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-29 — Next cycle P1/P2/P3/P7/P8: second loop passage (NOT shipped), place v2 image-only, push/fall, rubric, NVIDIA key
+
+- **P1 — feedback loop, second book: the new design did NOT pass the holdout and is not in production.**
+  - Diagnosis on essentialism 77-83 ("the paradox of success"; sandbox copy):
+    - the book as authored is text-carried: cycle NNN, invented 3/3;
+    - the Mechanism 3.0 chain + loop shows the cycle and the undermining (YYY), but not the flood of options (NNN —
+      "a relabel, not a flood") nor the effort spread thin (PPP).
+  - Built **Mechanism 4.0**: `token.split` (few / many / flood), `thin`, `erode` (the start greys and cracks when the loop
+    returns).
+    - DEV passage: multiply YYY, thin PYY, ADDS 11 → 15/21, EXPLAINS 9 → 12/21, WRONG 0.
+  - **HOLDOUT** thinking-fast-and-slow 294-299 (chosen before the design, authored once from the narration, not looked at
+    while tuning; 3 arms, fresh readers):
+    | arm | WRONG | ADDS |
+    |---|---|---|
+    | baseline | 0 | 5/18 |
+    | chain + loop | 5 | 4/18 |
+    | + erode | 4 | 3/18 |
+    - no gain over the previous version, and both causal arms raise WRONG over the baseline.
+  - → kept on **`dev/mechanism-4-split-erode` (7aa1411c)**, not merged.
+  - Measured misread recorded in `data/icon-readings.json` ("causal relabel (strike-through)"): a struck tag reads as "the
+    first name was wrong". Separately, a station whose word comes at the very end of its beat leaves that beat's sampled
+    frames empty.
+- **P2 — place v2, image only.** Correction to the earlier report: the first place blind test already used the v2 frames.
+  New test, no on-screen text, fresh readers (don't-believe 77-81):
+  | arm | doer / action / object / change | hand back to the side | kept | ADDS | WRONG |
+  |---|---|---|---|---|---|
+  | v2 | YYY | **PPP** (weakest part) | YPY | 6/15 | 3/15 |
+  | baseline | PPP / NNN | | | 0/15 | 2/15 |
+  - All 3 WRONG are on row 5, which is identical in both arms (a pointing figure).
+  - Flee stays a LIMIT; nothing shipped for it.
+- **P3 — push / fall, rendered** (fahrenheit-451 249-253, sandbox; only the body changed: 251 `collapsed`, continued):
+  | arm | doer | action | target | change | kept | path | WRONG | key frames |
+  |---|---|---|---|---|---|---|---|---|
+  | collapsed | YYP | PPP | PPP | PPP | PNP | NNN | 0/15 | CORRECT/ADDS ×2 |
+  | slump (baseline) | PPP | NNN | NNN | NNN | NNN | NNN | 1/15 | NEUTRAL/TEXT_ONLY ×2 |
+  - The fall itself is not shown: `collapsed` is static; the throw needs `falling`.
+  - The kept state broke on the last beat because the author (this test) continued with `slump`: only face actions keep a
+    down body (endState FACE_ONLY), and merge does not yet warn about it — **open**.
+  - The rules / readcheck / REVIEW changes are in 2fa56e7a.
+- **P7 — rubric:** 6caba6b5, 6cc08b80.
+- **P8:** 5828c8cc — gen-vox-images reads NVIDIA_API_KEY from the main checkout's .env in place (worktrees have none). The
+  cost policy is unchanged.
+- **Cross-agent evidence levels:**
+  - L1: code + fixtures.
+  - L2: real agent logs.
+  - L3: real platform session.
+    - Claude Code: book-start refused main and adopted (essentialism).
+    - Antigravity: book-start --check → wt-book-how-to-talk-to-anyone.
+    - Cursor: no transcript after 2026-09-26.
+  - L4: real render — cloud assembly only (under-the-dome).
+  - Relapses after a fix happened only in the stale main checkout (unnecessary asks, a local assembly by Antigravity on
+    crazy-rich-asians).
+
 ### 2026-10-29 — 10x REAL-BOOK ADOPTION (measured, routed) + MERGE RECOVERY + SEMANTIC REVIEW + AUDIO/VTT TAIL (next cycle P0/P4/P5/P6)
 
 - **P0 — real-book adoption: three levels, never merged.**
