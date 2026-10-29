@@ -1,7 +1,7 @@
 import React from "react";
 import type { DiagramSpec } from "../schema";
 import { fitLabel, DIAGRAM_VW as VW, type FittedLabel } from "../labelFit";
-import { causalState, type Causal, type CausalGlyph } from "../causal";
+import { causalState, SPLIT_N, type Causal, type CausalGlyph } from "../causal";
 
 /**
  * CausalChain.tsx — MECHANISM 2.0 (causal.ts): the causal chain drawn. Stations (pictogram + the narration's label) in
@@ -155,13 +155,17 @@ export const CausalChain: React.FC<{ spec: DiagramSpec; accent: string; ink: str
     if (a <= 0) return null;
     const hit = tok && tok.back === 0 && tok.pos >= k - 1e-6; // the token has reached (or passed) this station
     const isEnd = k === n - 1;
+    // MECHANISM 4.0: the start the cycle undermines — drained to grey, cracked through, a little smaller (persistent)
+    const e = c.erode && c.erode.station === k ? S.erode : 0;
+    const GREY = "#9A9A9A";
     return (
       <g key={`s${k}`} opacity={Math.min(1, a * 1.4)}>
-        <g transform={`translate(${X(k)} ${ROW}) scale(${0.6 + 0.4 * a})`}>
-          <circle r={R} fill={isEnd && lastReached ? accent : "#FFFFFF"} stroke={hit ? accent : ink} strokeWidth={hit ? 9 : 6} />
-          <g transform="scale(0.92)"><CausalGlyphArt g={st.glyph} ink={ink} accent={accent} light={!!(isEnd && lastReached)} /></g>
+        <g transform={`translate(${X(k)} ${ROW}) scale(${(0.6 + 0.4 * a) * (1 - 0.14 * e)})`}>
+          <circle r={R} fill={isEnd && lastReached ? accent : e > 0 ? `rgb(${Math.round(255 - 41 * e)},${Math.round(255 - 41 * e)},${Math.round(255 - 41 * e)})` : "#FFFFFF"} stroke={e > 0.5 ? GREY : hit ? accent : ink} strokeWidth={hit && e <= 0.5 ? 9 : 6} />
+          <g transform="scale(0.92)" opacity={1 - 0.6 * e}><CausalGlyphArt g={st.glyph} ink={e > 0.5 ? GREY : ink} accent={e > 0.5 ? "#BDBDBD" : accent} light={!!(isEnd && lastReached)} /></g>
+          {e > 0 ? <path d={`M${-R * 0.55},${-R * 0.85} L${-R * 0.12},${-R * 0.25} L${-R * 0.42},${R * 0.05} L${R * 0.1},${R * 0.5} L${-R * 0.05},${R * 0.62} L${R * 0.35},${R * 0.95}`} fill="none" stroke={ink} strokeWidth={7} strokeLinejoin="round" strokeLinecap="round" pathLength={1} strokeDasharray={`${e} 1`} /> : null}
         </g>
-        <Fit fit={lab(st.label)} x={X(k)} y={ROW + R + 44} fill={ink} />
+        <Fit fit={lab(st.label)} x={X(k)} y={ROW + R + 44} fill={e > 0.5 ? GREY : ink} />
       </g>
     );
   });
@@ -180,10 +184,23 @@ export const CausalChain: React.FC<{ spec: DiagramSpec; accent: string; ink: str
     token = (
       <g>
         {tok.back === 0 ? <line x1={tx} y1={LANE + 44} x2={tx} y2={ROW - R - 6} stroke={accent} strokeWidth={4} strokeDasharray="6 8" opacity={0.8 * tok.born} /> : null}
-        <g transform={`translate(${tx} ${ty}) scale(${0.4 + 0.6 * tok.born})`}>
-          <circle r={44} fill={accent} stroke={ink} strokeWidth={5} />
-          <g transform="scale(0.72)"><CausalGlyphArt g={c.token.glyph} ink={ink} accent={accent} light /></g>
-        </g>
+        {(() => {
+          // MECHANISM 4.0: after the split the carried thing is a CLUSTER (a few / many / a flood) that travels as one; on
+          // thin the copies spread apart, shrink and fade — the same things, now spread too thin
+          const N = c.token.split && S.split > 0 ? SPLIT_N[c.token.split.into] : 1;
+          const step = (26 + 34 * S.split + 92 * S.thin);
+          const sc = (0.4 + 0.6 * tok.born) * (N > 1 ? (1 - 0.38 * S.split) * (1 - 0.42 * S.thin) : 1);
+          return Array.from({ length: N }, (_, k) => {
+            const o = k - (N - 1) / 2;
+            const dx = o * step * S.split, dy = (Math.abs(o) % 2 === 1 ? -1 : 1) * (14 + 26 * S.thin) * S.split * (o === 0 ? 0 : 1);
+            return (
+              <g key={`t${k}`} transform={`translate(${tx + dx} ${ty + dy}) scale(${sc})`} opacity={N > 1 && k !== Math.floor(N / 2) ? (1 - 0.5 * S.thin) * Math.min(1, S.split * 1.5) : 1 - 0.35 * S.thin}>
+                <circle r={44} fill={accent} stroke={ink} strokeWidth={5} />
+                <g transform="scale(0.72)"><CausalGlyphArt g={c.token.glyph} ink={ink} accent={accent} light /></g>
+              </g>
+            );
+          });
+        })()}
         {c.token.tag && tok.back === 0 ? (
           sh > 0 && tagTo1 ? (
             <g>

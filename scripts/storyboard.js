@@ -194,7 +194,11 @@ function causalProblems(diagram, narration, P) {
     if (el === "lane" && !(c.ledger && c.ledger.label)) P("causal cue lane without ledger.label (the loop's name, as said)");
     if (el === "lrelabel" && !(c.ledger && c.ledger.labelTo)) P("causal cue lrelabel without ledger.labelTo (the lane's new name)");
     if ((el === "loop" || el === "clap") && Array.isArray(cv) && cv.length > 8) P("causal: more than 8 " + el + " cues in one beat");
+    // MECHANISM 4.0: what the cycle does to what it carries and to its start — each element needs the data it draws
+    if ((el === "split" || el === "thin") && !(c.token && c.token.split)) P(`causal cue ${el} without token.split {"into": "few|many|flood"} (how many it becomes, as said)`);
+    if (el === "erode" && !c.erode) P('causal cue erode without erode {"station": <the start the cycle undermines>}');
   }
+  if (c.erode && c.erode.station >= c.stations.length) P(`causal: erode.station ${c.erode.station} — there is no such station`);
   // a chain is causal ORDER: two stations with the same label (or glyph + label) say nothing new
   const seen = new Set();
   for (const st of c.stations) { const k = nw(st.label); if (seen.has(k)) P(`causal: station "${st.label}" twice`); seen.add(k); }
@@ -367,6 +371,7 @@ function toolRoute(v) {
     ["states a claim, then says it is WRONG / a myth / not how it works, and gives the right model", "`refute` diagram (\"Negation, irony, fakery\")", "polarity UNCLEAR 3/3 -> CORRECT 3/3, ADDS 10/21 -> 19/21 (unlimited-memory 56-62)", "it only doubts, asks, or lets both views stand"],
     ["explains WHY an outcome comes out as it does: factors that persist and factors drawn again, often two trials", "`mechanism` diagram (\"Why a result happens\")", "EXPLAINS 0/15 -> 11/15 (thinking-fast-and-slow 207-211)", "one cause and one effect (use `causal` or a flow)"],
     ["tells a CHAIN: a start, a trigger, something that changes in between, a result (the thing carried may be renamed)", "`causal` diagram (\"A chain of causes\")", "ADDS 14/15, EXPLAINS 11/15, invented 0/3 (unhinged 127-131)", "only two steps (a flow is enough)"],
+    ["tells a CYCLE that changes what it carries or where it started (a reward that multiplies into a flood, effort spread thin, a result that undermines its own cause)", "`causal` + `loop` with `token.split` and `erode` (\"A loop that repeats\")", "multiply NNN -> YYY, thin PPP -> PYY vs the chain alone; ADDS 11 -> 15/21, EXPLAINS 9 -> 12/21 (essentialism 77-83)", "nothing multiplies, thins or is damaged in the narration"],
     ["describes something that REPEATS and whose result changes round by round (a habit, a reward schedule, a vicious or virtuous cycle, a pathology in phases that feeds itself)", "`causal` with `loop` + `ledger` (\"A loop that repeats\")", "ADDS 3/24 -> 20/24, EXPLAINS 0/24 -> 15/24, invented 3/3 -> 0/3 (unhinged 57-64)", "the narration tells one pass and no return; never add rounds, outcomes or levels it does not state"],
     ["walks through a weighted decision: criteria with weights, options graded on them, added up", "`scorecard` diagram (\"Diagrams\")", "the \"add them up\" beat WRONG 3/3 -> 0/3 (farsighted 306-311)", "no criteria or grades are said (never invent weights or scores)"],
   ];
@@ -567,6 +572,15 @@ solved); \`lrelabel\` renames the row. Outcomes and levels are what the narratio
 = irregular runs, never a regular ABAB rhythm; "flattens" = a staircase down; "massive" = max after empties) - no
 numbers. Measured (unhinged 57-64, blind, 3 readers): ADDS 3/24 -> 20/24, EXPLAINS 0/24 -> 15/24, WRONG 1 -> 0,
 unpredictable NNN -> YYY, flattening PNN -> YYY, invented 3/3 -> 0/3.
+When the CYCLE CHANGES WHAT IT CARRIES OR WHERE IT STARTED (a reward that multiplies into a flood of demands, effort
+spread thin, a result that undermines its own cause — "your success undermined the clarity that created it"): the same
+chain, plus \`"token": {..., "split": {"into": "few|many|flood"}}\` and \`"erode": {"station": <the start it undermines>}\`,
+cued on their words: \`split\` ("a flood of new options": the token becomes a cluster that travels on together), \`thin\`
+("spread so thin": the copies spread apart, shrink and fade), \`erode\` ("undermined": that station greys and cracks — when
+the \`loop\` cue sends the token back to it, the crack lands as it arrives) — all kept on \`continue\` beats. Only what the
+narration says: no split without a stated multiplying, no erode without a stated damage to the start. Measured
+(essentialism 77-83, blind, 3 readers per arm): with the chain + loop alone multiply NNN and thin PPP ("a relabel, not
+a flood"); with split / thin / erode multiply YYY, thin PYY, cycle and undermine YYY, ADDS 11 -> 15/21, EXPLAINS 9 -> 12/21, WRONG 0.
 
 ## Negation, irony, fakery
 When the narration says NOT / never / fake / scripted / pretend / hollow X, never stage X plainly

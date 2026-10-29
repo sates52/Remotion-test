@@ -30,15 +30,24 @@ export const CAUSAL_GLYPHS: CausalGlyph[] = ["bridge", "heart", "brain", "eye", 
   "clock", "speech", "check", "cross", "spark", "lock", "door", "fire", "ice", "water", "plant", "gift", "lever", "pellet", "rat"];
 
 // meter / clap / csolved / lrelabel: MECHANISM 3.0, the loop's LEDGER (causalLedger.ts)
-export type CausalEl = "n0" | "n1" | "n2" | "n3" | "n4" | "token" | "relabel" | "contrast" | "loop" | "meter" | "clap" | "csolved" | "lrelabel" | "lane";
-export const CAUSAL_ELS: CausalEl[] = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop", "meter", "clap", "csolved", "lrelabel", "lane"];
+// split / thin / erode: MECHANISM 4.0 (2026-10-29), what the cycle DOES to what it carries and to where it started —
+// the carried thing multiplies (a flood of options), spreads thin, and on its way back undermines the start station
+// (essentialism "paradox of success": a blind reader saw a one-way chain; nothing showed the options pile up, the
+// effort thin out, or success undermine the clarity that created it).
+export type CausalEl = "n0" | "n1" | "n2" | "n3" | "n4" | "token" | "relabel" | "contrast" | "loop" | "meter" | "clap" | "csolved" | "lrelabel" | "lane" | "split" | "thin" | "erode";
+export const CAUSAL_ELS: CausalEl[] = ["n0", "n1", "n2", "n3", "n4", "token", "relabel", "contrast", "loop", "meter", "clap", "csolved", "lrelabel", "lane", "split", "thin", "erode"];
+/** how many copies a split makes — qualitative, as said (a few / many / a flood), never a counted number */
+export const SPLIT_N = { few: 3, many: 6, flood: 9 } as const;
+export const SPLIT_LEN = 26, THIN_LEN = 34, ERODE_LEN = 34;
 export type CausalCue = string | { phrase: string; occurrence?: number };
 
 export type Causal = {
   /** mark "?": an outcome not known in advance (a door that may open on nothing); figure: a small glyph beside it */
   stations: { label: string; glyph: CausalGlyph; mark?: "?"; figure?: CausalGlyph }[]; // 2..5, causal order
   /** tagTo: one rename (Mechanism 2.0) or a series, one per `relabel` firing (press -> compulsively -> mashing) */
-  token?: { glyph: CausalGlyph; tag?: string; tagTo?: string | string[]; from: number; relabelAt?: number };
+  token?: { glyph: CausalGlyph; tag?: string; tagTo?: string | string[]; from: number; relabelAt?: number; split?: { into: keyof typeof SPLIT_N } };
+  /** MECHANISM 4.0: the station the cycle's return undermines (it greys and cracks when the loop brings the token back) */
+  erode?: { station: number };
   /** bursts (Mechanism 3.0): the contrast lane's laps, one burst per `clap` firing */
   contrast?: { label: string; glyph: CausalGlyph; result?: string; bursts?: import("./causalLedger").Burst[] };
   /** MECHANISM 3.0: the loop's ledger (causalLedger.ts) */
@@ -81,6 +90,10 @@ export type CausalState = {
   token: null | { pos: number; back: number; born: number; tagShift: number };
   contrast: number;
   loop: number;
+  /** MECHANISM 4.0, each 0..1: the token has multiplied / the copies have spread thin / the eroded station is undermined */
+  split: number;
+  thin: number;
+  erode: number;
 };
 
 /**
@@ -147,10 +160,18 @@ export function causalState(c: Causal, local: number): CausalState {
     token = { pos, back: back > 0 && back < 1 ? back : 0, born: ramp(local - P[0].t + 1, BUILD), tagShift: rs === NEVER ? 0 : local >= rs ? ramp(local - rs + 1, RELABEL_LEN) : 0 };
   }
   const cs = startOf(c, "contrast"), ls = startOf(c, "loop");
+  const on = (s0: number, len: number) => (s0 === NEVER ? 0 : local >= s0 ? ramp(local - s0 + 1, len) : 0);
+  // the start is undermined when the cycle COMES BACK to it: never before the token, riding the loop arc, arrives
+  let es = startOf(c, "erode");
+  const lf = firesOf(c, "loop");
+  if (es !== NEVER && es !== SETTLED && c.erode && c.loop && c.loop.to === c.erode.station && lf.length) es = Math.max(es, lf[lf.length - 1] + LOOP_LEN);
   return {
     station: st, slot, arrow, token,
-    contrast: cs === NEVER ? 0 : local >= cs ? ramp(local - cs + 1, BUILD) : 0,
-    loop: ls === NEVER ? 0 : local >= ls ? ramp(local - ls + 1, BUILD) : 0,
+    contrast: on(cs, BUILD),
+    loop: on(ls, BUILD),
+    split: c.token && c.token.split ? on(startOf(c, "split"), SPLIT_LEN) : 0,
+    thin: c.token && c.token.split ? on(startOf(c, "thin"), THIN_LEN) : 0,
+    erode: c.erode ? on(es, ERODE_LEN) : 0,
   };
 }
 const smooth = (x: number) => { const v = Math.max(0, Math.min(1, x)); return v * v * (3 - 2 * v); };
@@ -201,6 +222,8 @@ export function causalSeen(c: Causal, reached: Set<CausalEl>): string {
     if (conLaps.length) bits.push(`a greyed second row: ${conLaps.map((l) => tile(l.o)).join(", ")} with bars ${conLaps.map((l) => l.bar || "-").join(", ")}${has("csolved" as CausalEl) ? ", a check mark beside it" : ""}`);
     parts.push(bits.join("; "));
   }
+  if (c.token && c.token.split && has("split" as CausalEl)) parts.push(`the ${GLYPH_WORDS[c.token.glyph]} multiplies into ${c.token.split.into === "flood" ? "a whole cluster of" : c.token.split.into === "many" ? "many" : "a few"} copies that travel on together${has("thin" as CausalEl) ? "; then the copies spread far apart, shrink and fade" : ""}`);
+  if (c.erode && has("erode" as CausalEl) && c.stations[c.erode.station]) parts.push(`the "${c.stations[c.erode.station].label}" station turns grey and cracks${c.loop && c.loop.to === c.erode.station ? " when the arrow comes back to it" : ""}`);
   if (c.loop && has("loop")) parts.push(`an arrow curves back from "${c.stations[c.stations.length - 1].label}" to "${c.stations[c.loop.to].label}"${c.loop.label ? ` ("${c.loop.label}")` : ""} — the chain runs again`);
   return parts.join("; ");
 }
