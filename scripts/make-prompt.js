@@ -187,7 +187,7 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
       const raw = fs.existsSync(args.profile) ? fs.readFileSync(args.profile, "utf8") : args.profile;
       profile = JSON.parse(raw);
     } catch (e) { console.error(`❌ --profile is not valid JSON: ${e.message}`); process.exit(1); }
-    const errs = validateProfile(profile);
+    const errs = validateProfile(profile, { strict: true }); // a NEW decision: the 2026-10-29 fields that matter for this book are required
     if (errs.length) { console.error(`❌ --profile: ${errs.join("; ")}`); process.exit(1); }
     profileFit = analyzeBookProfile(profile);
   }

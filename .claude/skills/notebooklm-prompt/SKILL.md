@@ -54,7 +54,11 @@ asking "which reference book is this closest to, and where does it differ?"
   "format": "story|argument|mixed",
   "violence": "none|some|central",
   "minorHarm": false,
-  "mustSee": ["3-5 concrete things the viewer must see"] }
+  "mustSee": ["3-5 concrete things the viewer must see"],
+  "periodLook": "essential|backdrop|none",        // required for a past world (period / real-historical / set before 1976)
+  "ideaDensity": "events|balanced|ideas",         // required with periodLook
+  "violenceOf": "people|animals|both",            // optional, default people
+  "animalHarm": {"role": "main-conflict|subplot|backdrop", "mustShow": true, "weight": "high|low"} }  // when violenceOf has animals
 ```
 Judgement calls that flip the result — apply the rubric literally:
 - `realPeople: true` only when real people/events ARE the subject. A novel with a real backdrop →
@@ -63,6 +67,15 @@ Judgement calls that flip the result — apply the rubric literally:
 - `minorHarm: true` when harm/abuse of a child is central → Antidote by policy, symbolic only.
 - `era` is the year of the book's world. A **speculative** world (fantasy / sci-fi) gets no period weight
   from it: a fantasy whose frame story is set in 1900 is `world: "speculative"`, not period.
+- **The year never decides "period" alone (operator, 2026-10-29).** `periodLook` says how much the past world must
+  be SEEN: `essential` = 2+ of `mustSee` are period places, dress, vehicles, technology or public events (segregated
+  Jackson 1962, Paris 1944); `backdrop` = exactly 1; `none` = the story could be told today. `ideaDensity`: half or
+  more of `mustSee` are physical events / places = `events`; inner states or ideas = `ideas` (an interior book
+  needs period photoreal less: half weight). A 1953 interior novel (backdrop + ideas) is not Vox for its year.
+- **Harm to animals is not "central" by itself (operator, 2026-10-29).** Set `violenceOf: "animals"` and
+  `animalHarm`: it counts as central only when it is the main conflict AND must be shown AND carries heavy narration
+  weight (a hunting memoir whose kills are the book); a dog's death that ends a boyhood story is `some`.
+  Harm to people is unchanged; `both` keeps the people rule.
 If you cannot fill a field honestly (a book you do not know), look the book up (summary, reviews) and
 fill it from what the book shows — never guess, and never hand the field or the engine to the operator.
 

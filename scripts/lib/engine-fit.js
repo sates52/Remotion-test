@@ -49,7 +49,8 @@ function analyzeEngineFit(text, ctx = {}) {
   // Period realism matters for a STORY, not for an advice book whose bible year is
   // just the oldest anecdote (Slow Productivity: 1913).
   const narrative = s.second < 20;
-  const periodBonus = narrative && era != null && era < PERIOD_YEAR ? 6 : 0;
+  // the recorded periodLook decides when the profile has one (2026-10-29); the bare year only for legacy profiles
+  const periodBonus = !narrative ? 0 : ctx.periodLook ? ({ essential: 6, backdrop: 3, none: 0 })[ctx.periodLook] || 0 : era != null && era < PERIOD_YEAR ? 6 : 0;
   const vox = realWorld * 2 + periodBonus;
   const ideas = s.second * 0.35 + s.abstract * 0.8;
   const violenceRisk = Math.max(0, s.sensitive - SENSITIVE_OK) * 1.5;
@@ -97,7 +98,18 @@ function analyzeEngineFit(text, ctx = {}) {
  *   }
  */
 const WORLDS = ["real-historical", "period", "contemporary", "speculative", "ideas"];
-function validateProfile(p) {
+// 2026-10-29 (operator decision): the year alone never decides "period", and harm to animals alone is never "central".
+//   periodLook   "essential" | "backdrop" | "none" — how much the past world must be SEEN (2+ mustSee items are period
+//                places / dress / vehicles / technology / public events = essential; 1 = backdrop; 0 = none)
+//   ideaDensity  "events" | "balanced" | "ideas"   — half or more of mustSee physical events / places = events; inner
+//                states or abstract ideas = ideas
+//   violenceOf   "people" | "animals" | "both"       (default people)
+//   animalHarm   { role: "main-conflict"|"subplot"|"backdrop", mustShow: bool, weight: "high"|"low" } — with violenceOf
+//                animals; it counts as central only when it is the main conflict AND must be shown AND weighs heavily
+// Profiles recorded before these fields (every published / pinned book) keep their exact scores: legacy rules apply
+// when a field is absent. make-prompt validates NEW profiles strictly (the fields that matter for this book required).
+const PERIOD_LOOKS = ["essential", "backdrop", "none"], IDEA_DENSITY = ["events", "balanced", "ideas"];
+function validateProfile(p, { strict = false } = {}) {
   const errs = [];
   if (!p || typeof p !== "object") return ["profile must be an object"];
   if (!["fiction", "nonfiction"].includes(p.kind)) errs.push(`kind must be fiction|nonfiction`);
@@ -107,7 +119,28 @@ function validateProfile(p) {
   if (typeof p.realPeople !== "boolean") errs.push("realPeople must be true|false");
   if (p.minorHarm !== undefined && typeof p.minorHarm !== "boolean") errs.push("minorHarm must be true|false");
   if (!Array.isArray(p.mustSee) || p.mustSee.length < 2) errs.push("mustSee: at least 2 concrete things the viewer must see");
+  if (p.periodLook !== undefined && !PERIOD_LOOKS.includes(p.periodLook)) errs.push(`periodLook must be ${PERIOD_LOOKS.join("|")}`);
+  if (p.ideaDensity !== undefined && !IDEA_DENSITY.includes(p.ideaDensity)) errs.push(`ideaDensity must be ${IDEA_DENSITY.join("|")}`);
+  if (p.violenceOf !== undefined && !["people", "animals", "both"].includes(p.violenceOf)) errs.push("violenceOf must be people|animals|both");
+  if (p.animalHarm !== undefined) {
+    const a = p.animalHarm || {};
+    if (!["main-conflict", "subplot", "backdrop"].includes(a.role) || typeof a.mustShow !== "boolean" || !["high", "low"].includes(a.weight)) errs.push('animalHarm must be {"role":"main-conflict|subplot|backdrop","mustShow":true|false,"weight":"high|low"}');
+  }
+  if (strict) {
+    const pastish = p.world === "period" || p.world === "real-historical" || (Number.isFinite(p.era) && p.era <= 1975 && p.world !== "speculative" && p.world !== "ideas");
+    if (pastish && p.periodLook === undefined) errs.push("periodLook is required for a past world (period / real-historical, or set before 1976): essential|backdrop|none — the year alone does not decide");
+    if (pastish && p.ideaDensity === undefined) errs.push("ideaDensity is required for a past world: events|balanced|ideas (from mustSee) — an interior, ideas-led book needs period photoreal less");
+    if ((p.violenceOf === "animals" || p.violenceOf === "both") && p.violence !== "none" && p.animalHarm === undefined) errs.push("animalHarm is required when the violence is (also) against animals");
+  }
   return errs;
+}
+
+// harm to animals alone is "central" only when it is the main conflict AND must be shown AND weighs heavily in the
+// narration; otherwise it counts as "some". Harm to people is unchanged.
+function effectiveViolence(p) {
+  if ((p.violenceOf || "people") !== "animals" || p.violence === "none") return p.violence;
+  const a = p.animalHarm || {};
+  return p.violence === "central" && a.role === "main-conflict" && a.mustShow === true && a.weight === "high" ? "central" : "some";
 }
 
 function analyzeBookProfile(p) {
@@ -118,8 +151,14 @@ function analyzeBookProfile(p) {
   // frame story is set in 1900) does not buy the period bonus — the rubric defines "period" and "speculative" as
   // different worlds (2026-10-27: a fantasy profile flipped to Vox only because its frame year was typed in)
   const earlyEra = Number.isFinite(p.era) && p.era < PERIOD_YEAR && p.format !== "argument";
-  if (p.world === "period" || (p.world === "real-historical" && earlyEra)) { vox += 20; reasons.push(`a period world${Number.isFinite(p.era) ? ` (${p.era})` : ""} → period realism favours Vox`); }
+  if (p.periodLook !== undefined && p.world !== "speculative" && p.world !== "ideas" && p.format !== "argument") {
+    // the decided rule: how much the past world must be SEEN, not which side of 1950 the year falls
+    const pts = { essential: 20, backdrop: 10, none: 0 }[p.periodLook] * (p.ideaDensity === "ideas" ? 0.5 : 1);
+    if (pts) { vox += pts; reasons.push(`the past world must be seen (${p.periodLook}${Number.isFinite(p.era) ? `, ${p.era}` : ""}${p.ideaDensity === "ideas" ? "; an interior, ideas-led book: half" : ""}) → period realism favours Vox`); }
+    else reasons.push(`set in ${Number.isFinite(p.era) ? p.era : "the past"}, but its look is not what the viewer must see (periodLook none) — no period bonus`);
+  } else if (p.world === "period" || (p.world === "real-historical" && earlyEra)) { vox += 20; reasons.push(`a period world${Number.isFinite(p.era) ? ` (${p.era})` : ""} → period realism favours Vox`); }
   else if (earlyEra && p.world === "speculative") reasons.push(`a speculative world with a ${p.era} frame: its look is invented (creatures, magic, other worlds), not a past world to reproduce — no period bonus`);
+  if (p.ideaDensity === "ideas" && p.periodLook !== undefined && p.format !== "argument" && p.world !== "ideas") { antidote += 10; reasons.push("an interior book (mustSee mostly inner states / ideas) → drawn concepts and a staged cast (Antidote)"); }
   if (p.format === "argument") { antidote += 30; reasons.push("an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"); }
   if (p.format === "mixed") { antidote += 10; reasons.push("mixed story + argument → leans Antidote for the ideas"); }
   if (p.world === "ideas") antidote += 15;
@@ -129,8 +168,9 @@ function analyzeBookProfile(p) {
       ? "speculative fiction with a cast → staged characters and invented things drawn in Antidote (measured: I, Robot 1/30 wrong, Ready Player One 0/30 — data/engine-outcomes.json; no speculative Vox book measured)"
       : "contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)");
   }
-  if (p.violence === "central") { antidote += 20; risks.push("violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically"); }
-  else if (p.violence === "some") risks.push("some violence → plan those beats as aftermath/symbol if Vox");
+  const violence = effectiveViolence(p);
+  if (violence === "central") { antidote += 20; risks.push("violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically"); }
+  else if (violence === "some") risks.push(p.violence === "central" ? "harm to animals is present but not central (not the main conflict, or not shown, or light in the narration) → plan those beats as aftermath/symbol if Vox" : "some violence → plan those beats as aftermath/symbol if Vox");
   // Abuse of a child at the centre of the book (Lolita): a photoreal depiction is
   // never acceptable and Flux refuses it anyway. This is a policy, not a weight.
   if (p.minorHarm) {
@@ -145,4 +185,4 @@ function analyzeBookProfile(p) {
   return { pick, confidence, voxScore: vox, antidoteScore: antidote, reasons, risks, source: "book-profile" };
 }
 
-module.exports = { analyzeEngineFit, analyzeBookProfile, validateProfile, SENSITIVE_OK, PERIOD_YEAR };
+module.exports = { analyzeEngineFit, analyzeBookProfile, validateProfile, effectiveViolence, SENSITIVE_OK, PERIOD_YEAR, PERIOD_LOOKS, IDEA_DENSITY };

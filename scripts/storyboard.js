@@ -792,7 +792,7 @@ function prep() {
   if (!ART_BEATS) {
   const { analyzeEngineFromVtt } = require("./lib/vtt");
   const era = bible.world && Number.isFinite(bible.world.approxYear) ? bible.world.approxYear : undefined;
-  const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"), { era });
+  const sig = analyzeEngineFromVtt(fs.readFileSync(vtt, "utf8"), { era, periodLook: (book.engineProfile || {}).periodLook });
   console.log(`engine: ${ENGINE.toUpperCase()} (book.json)${book.engineRationale ? ` — ${book.engineRationale}` : ""}`);
   console.log(`  narration fit: ${sig.pick.toUpperCase()} (${sig.confidence}; vox ${sig.voxScore} vs antidote ${sig.antidoteScore})`);
   sig.reasons.forEach((r) => console.log(`   · ${r}`));

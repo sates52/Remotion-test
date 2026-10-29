@@ -59,5 +59,20 @@ for (const e of ex) {
   assert(`reference: ${e.book} → ${e.expect}`, !errs.length && r.pick === e.expect, errs.join(";") || `${r.pick} ${r.confidence}`);
 }
 
+// ── 2026-10-29 operator decisions: the year never decides "period" alone; harm to animals alone is never "central" ──
+const { effectiveViolence } = require("./lib/engine-fit");
+const help = ex.find((e) => /The Help/.test(e.book)).profile, bell = ex.find((e) => /Bell Jar/.test(e.book)).profile;
+assert("year alone: the same profile at 1953 and 1940 picks the same engine (periodLook decides)", analyzeBookProfile({ ...bell, era: 1940 }).pick === analyzeBookProfile(bell).pick && analyzeBookProfile({ ...help, era: 1940 }).pick === analyzeBookProfile(help).pick);
+assert("year alone: a 1962 world whose look is essential still leans Vox; set to none it does not", analyzeBookProfile(help).pick === "vox" && analyzeBookProfile({ ...help, periodLook: "none" }).voxScore < analyzeBookProfile(help).voxScore);
+assert("an interior (ideas) book gets half the period weight", analyzeBookProfile({ ...help, ideaDensity: "ideas" }).voxScore === analyzeBookProfile(help).voxScore - 10);
+const yeller = ex.find((e) => /Old Yeller/.test(e.book)).profile;
+assert("animals: central animal harm that is not the main conflict / not shown counts as some", effectiveViolence(yeller) === "some" && analyzeBookProfile(yeller).antidoteScore === analyzeBookProfile({ ...yeller, violence: "some" }).antidoteScore);
+assert("animals: central ONLY when main conflict AND shown AND heavy", effectiveViolence({ ...yeller, animalHarm: { role: "main-conflict", mustShow: true, weight: "high" } }) === "central" && effectiveViolence({ ...yeller, animalHarm: { role: "main-conflict", mustShow: true, weight: "low" } }) === "some");
+assert("people: violence against people is unchanged (both keeps the people rule)", effectiveViolence({ ...wwl }) === "central" && effectiveViolence({ ...wwl, violenceOf: "both" }) === "central");
+assert("legacy: a profile without the new fields scores as before (published / pinned books never flip)", analyzeBookProfile(river).voxScore === 50 && analyzeBookProfile({ kind: "nonfiction", world: "real-historical", era: 1940, realPeople: true, format: "story", violence: "none", mustSee: ["a", "b"] }).voxScore === 50);
+assert("strict (new Step 0): a 1946-1975 world without periodLook is refused", validateProfile({ ...help, periodLook: undefined }, { strict: true }).some((e) => /periodLook is required/.test(e)) && !validateProfile({ ...help, periodLook: undefined }).length);
+assert("strict: animal violence without animalHarm is refused", validateProfile({ ...yeller, animalHarm: undefined }, { strict: true }).some((e) => /animalHarm is required/.test(e)));
+assert("strict: a contemporary / speculative profile needs none of the new fields", !validateProfile(wwl, { strict: true }).length && !validateProfile(portal, { strict: true }).length);
+
 console.log(`\n═══ RESULTS: ${passed} passed, ${failed} failed ═══`);
 if (failed) process.exit(1);
