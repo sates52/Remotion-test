@@ -108,6 +108,18 @@ if (engine) {
     const led = newestLedger();
     rows.push({ name: "cause-ledger (advisory owners of each failure)", advisory: true, ok: !last || led >= lastJudged,
       detail: !last ? "no mute run yet" : led >= lastJudged ? `audit/cause-ledger/${slug}/ (newest ${new Date(led).toISOString().slice(0, 16)})` : "could not run — node scripts/cause-ledger.js --slug=" + slug });
+    // Antidote 10x adoption (2026-10-29), measured on every READY check so a new book's use of the tools is on record:
+    // capability / authored->planned / blind, never merged, never a block. A storyboard older than its rules.md (an
+    // adopted or re-prepped book) is named: the tools existed but the authors were never offered them.
+    const fu = spawnSync(process.execPath, ["scripts/feature-usage.js", `--slug=${slug}`, "--json"], { cwd: ROOT, encoding: "utf8" });
+    let fuRep = null;
+    try { fuRep = JSON.parse(fu.stdout); } catch { /* reported below */ }
+    const tx = fuRep ? fuRep.features.filter((f) => f.capability !== undefined && !/carried hold/.test(f.feature)) : [];
+    const used = tx.filter((f) => typeof f.planned === "number" && f.planned > 0);
+    const seen = tx.filter((f) => f.blind && typeof f.blind === "object");
+    rows.push({ name: "10x adoption (advisory: capability / planned / blind)", advisory: true, ok: !!fuRep && fuRep.authoringVsRules !== "AUTHORED_BEFORE_RULES",
+      detail: !fuRep ? "could not run — node scripts/feature-usage.js --slug=" + slug
+        : `${tx.filter((f) => f.capability === "yes").length}/${tx.length} tools in this engine; planned: ${used.length ? used.map((f) => `${f.feature.replace("10x ", "")} ${f.planned}`).join(", ") : "none"}; blind-seen: ${seen.length ? seen.map((f) => `${f.feature.replace("10x ", "")} ${f.blind.correct}/${f.blind.stills} correct`).join(", ") : "none"}${fuRep.authoringVsRules === "AUTHORED_BEFORE_RULES" ? " — ⚠ storyboard older than rules.md (not authored against the current tools)" : ""}` });
   }
   // the mute summary preview-ready.json records (2026-10-28): the production preflight prints it next to a NOT READY
   const mr = verdict || last;

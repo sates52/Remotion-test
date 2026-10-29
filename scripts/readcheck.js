@@ -274,12 +274,22 @@ function tally() {
   const iconBlame = {};
   bad.filter((x) => x.blame === "icon" && x.concept).forEach((x) => { iconBlame[x.concept] = (iconBlame[x.concept] || 0) + 1; });
   const total = byI.size;
-  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i) };
+  // REVIEW_REQUIRED beats from the last merge (lib/authoring-integrity.js) meet their blind reading here: a WRONG is a
+  // confirmed authoring defect (fix round), a CORRECT clears the flag, NEUTRAL stays for the reviewer. Not in the tally.
+  const mrep = readJSON(path.join(BOOK, "storyboard", "merge-report.json"));
+  const flagged = new Map(((mrep && mrep.review) || []).map((x) => [x.i, x.code]));
+  const reviewRequired = flagged.size ? { flagged: flagged.size,
+    wrong: [...flagged.keys()].filter((i) => (latest.get(i) || {}).correctness === "WRONG").map((i) => ({ i, code: flagged.get(i) })),
+    neutral: [...flagged.keys()].filter((i) => (latest.get(i) || {}).correctness === "NEUTRAL").map((i) => ({ i, code: flagged.get(i) })),
+    cleared: [...flagged.keys()].filter((i) => (latest.get(i) || {}).correctness === "CORRECT").length,
+    unread: [...flagged.keys()].filter((i) => !latest.has(i)) } : null;
+  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i), ...(reviewRequired ? { reviewRequired } : {}) };
   fs.writeFileSync(path.join(BOOK, "readcheck.json"), JSON.stringify(summary, null, 2) + "\n");
   if (n < total) console.log(`⚠ only ${n}/${total} beats have a verdict — the readcheck is incomplete; run a full prep + readers + judges before trusting this tally`);
   console.log(`${SLUG} readcheck: ${n} beats · CORRECT ${T.CORRECT} · NEUTRAL ${T.NEUTRAL} · WRONG ${T.WRONG} (${Math.round((T.WRONG / (n || 1)) * 100)}%)`);
   console.log(`   blame: ${JSON.stringify(blame)}${Object.keys(iconBlame).length ? `   icons: ${JSON.stringify(iconBlame)}` : ""}`);
   bad.filter((x) => x.verdict === "WRONG").forEach((x) => console.log(`   - ${x.i} WRONG [${x.blame}${x.concept ? `:${x.concept}` : ""}] ${x.why}`));
+  if (reviewRequired) console.log(`   REVIEW_REQUIRED (merge-report): ${reviewRequired.flagged} flagged · read WRONG ${reviewRequired.wrong.length}${reviewRequired.wrong.length ? ` (${reviewRequired.wrong.map((x) => `${x.i} ${x.code}`).join(", ")}) → confirmed: fix them in the fix round` : ""} · NEUTRAL ${reviewRequired.neutral.length} · cleared ${reviewRequired.cleared} · unread ${reviewRequired.unread.length}`);
   console.log(`   Fix every WRONG in authored-K.json (cause class, runbook §2b), merge --write, then prep --beats=<changed ids>.`);
   console.log(`   An icon blamed on 2+ beats: add or sharpen its row in data/icon-readings.json.`);
 }

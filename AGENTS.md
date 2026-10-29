@@ -79,6 +79,8 @@ Do not re-derive these from prose — run the command and follow what it prints.
 
 - `STORYBOARD_RUNBOOK.md` end to end (via `preview-hazirla`). Authoring method: the book's generated
   `storyboard/rules.md` from `storyboard.js prep` (re-run prep every round; merge refuses a stale vocabulary).
+  A refused merge is a work list (`storyboard/merge-report.json`: code, class, file, fix per problem): fix it yourself,
+  whatever the count — preview-hazirla "Merge recovery"; only an OPERATOR line is a stop.
 - Relationship staging and Gate B: runbook (`gate-b-relationship.js`, reads `GOOGLE_API_KEY` — never print it).
 - Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`); it prints
   `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.

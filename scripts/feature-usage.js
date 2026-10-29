@@ -89,7 +89,55 @@ const FEATURES = [
   { key: "explainedBy", layer: "DIRECTOR", a: (b) => filled(b.explainedBy), m: NC, c: NC, why: "storyboard.js merge does not copy explainedBy into art.json" },
   { key: "noVisual", layer: "DIRECTOR", a: (b) => filled(b.noVisual), m: NC, c: NC, why: "storyboard.js merge does not copy noVisual into art.json" },
   { key: "storyboard.claim", layer: "DIRECTOR", a: (b) => filled((b.storyboard || {}).claim), c: NC, why: "plan-antidote does not copy the authored claim into the scene" },
+  // Antidote 10x (2026-10-26..29). `cap` = how the book's OWN engine code (ROOT/src) shows the capability exists;
+  // `hint` = narration words that MAY call for the tool — a lexical pointer for a reviewer, never a verdict.
+  ...["refute", "mechanism", "causal", "scorecard"].map((ty) => ({ key: `10x diagram:${ty}`, layer: "10X", tenx: true,
+    a: (b) => !!b.diagram && b.diagram.type === ty, e: (s) => !!s.diagram && s.diagram.type === ty, cap: { schema: new RegExp(`export const ${ty}Schema\\b`) },
+    hint: { refute: /\b(myth|misconception|(is|was|it's|that's) (entirely |completely |simply )?wrong|not true|the truth is)/i,
+      mechanism: /\b(why (it|this|they|we)|the reason (is|why)|average|regress(ion)? to the mean|two (trials|tries|attempts))\b/i,
+      causal: /\b(leads? to|triggers?|results? in|causes?|which (then|in turn))\b/i,
+      scorecard: /\b(weigh(t|ted|s)?|criteria|score (each|them)|add (it|them) up|rank (them|each))\b/i }[ty] })),
+  { key: "10x loop + ledger", layer: "10X", tenx: true, a: (b) => !!b.diagram && b.diagram.type === "causal" && !!(b.diagram.causal || {}).ledger,
+    e: (s) => !!s.diagram && s.diagram.type === "causal" && !!(s.diagram.causal || {}).ledger, cap: { schema: /\bledgerBurst\b/ },
+    hint: /\b(feedback loop|vicious (circle|cycle)|virtuous (circle|cycle)|cycle|spiral|again and again|every (single )?time|phase (one|two|three|four))\b/i },
+  ...["lift", "drink", "leave", "flee", "place"].map((ac) => ({ key: `10x action:${ac}`, layer: "10X", tenx: true,
+    a: (b) => b.action === ac, e: (s) => lead(s).action === ac, cap: { action: ac },
+    hint: { lift: /\b(picks? (her|him|them) up|carr(y|ies|ied) (her|him|them))\b/i, drink: /\b(drinks?|drank|sips?|swallow(s|ed)?)\b/i,
+      leave: /\b(walks? out|storms? out|leaves the|goes upstairs|steps? out)\b/i, flee: /\b(runs? away|flees?|fled|escapes?)\b/i,
+      place: /\b(puts? (it|the \w+) down|sets? (it|the \w+) down|lays? (it|the \w+) down)\b/i }[ac] })),
+  { key: "10x carried hold (continue + holds)", layer: "10X", tenx: true, a: (b) => b.continue === true && filled(b.holds),
+    e: (s) => s.continueFromPrev === true && filled(lead(s).holds), cap: { file: "src/engines/antidote/endState.ts" },
+    why: "continue + holds is authorable since 2026-10-19; the carried END STATE (the hold kept across the cut) renders since 2026-10-27 (endState.ts)" },
 ];
+
+// ── capability: does THIS tree's engine have it? (the book's worktree is pinned; its src is what renders) ─────────────
+const SCHEMA = (() => { try { return fs.readFileSync(path.join(ROOT, "src", "engines", "antidote", "schema.ts"), "utf8"); } catch { return null; } })();
+const ACTIONS = SCHEMA && (SCHEMA.match(/export const charAction = z\.enum\(\[([\s\S]*?)\]\)/) || [])[1];
+const capability = (F) => {
+  if (!F.cap) return null;
+  if (F.cap.file) return fs.existsSync(path.join(ROOT, F.cap.file)) ? "yes" : "no";
+  if (!SCHEMA) return NV;
+  if (F.cap.schema) return F.cap.schema.test(SCHEMA) ? "yes" : "no";
+  if (F.cap.action) return ACTIONS && new RegExp(`"${F.cap.action}"`).test(ACTIONS) ? "yes" : "no";
+  return NV;
+};
+
+// ── blind evidence: the book's own mute-test runs (item -> judge-key frame -> sample scene id) ─────────────────────────
+// A blind verdict on a scene that carries the feature in its config. A still is ONE frame: it can miss the moment.
+const MUTE = path.join(ROOT, "audit", "mute", SLUG);
+const blindScenes = new Map(); // scene id -> [{run, correctness, contribution, explains}]
+if (fs.existsSync(MUTE)) for (const run of fs.readdirSync(MUTE)) {
+  const D = path.join(MUTE, run);
+  const jr = readJSON(path.join(D, "judge-result.json")), jk = readJSON(path.join(D, "judge-key.json")), sm = readJSON(path.join(D, "sample.json"));
+  if (!jr || !jk || !Array.isArray(sm) || !Array.isArray(jr.items)) continue;
+  const byFrame = new Map(sm.map((x) => [x.frame, x.id]));
+  for (const it of jr.items) {
+    const fr = (jk[it.id] || {}).frame, id = byFrame.get(fr), V = it.V || {};
+    if (!id) continue;
+    if (!blindScenes.has(id)) blindScenes.set(id, []);
+    blindScenes.get(id).push({ run, correctness: V.correctness, contribution: V.contribution, explains: V.explains });
+  }
+}
 
 const safe = (fn) => (...x) => { try { return !!fn(...x); } catch { return false; } };
 const authoredList = [...authored.values()];
@@ -117,8 +165,26 @@ const rows = FEATURES.map((F) => {
     }
   }
   if (F.why) r.note = F.why;
+  if (F.tenx) {
+    r.capability = capability(F);
+    // blind: every judged still whose config scene carries the feature (authored or engine-made)
+    const v = scenes.filter((s) => safe(F.e)(s) && blindScenes.has(s.id)).flatMap((s) => blindScenes.get(s.id).map((x) => ({ id: s.id, ...x })));
+    r.blind = !blindScenes.size ? "NO_MUTE_RUN" : !v.length ? "NOT_SAMPLED"
+      : { stills: v.length, correct: v.filter((x) => x.correctness === "CORRECT").length, wrong: v.filter((x) => x.correctness === "WRONG").length,
+        adds: v.filter((x) => x.contribution === "ADDS").length, explains: v.filter((x) => x.explains === "YES").length, scenes: [...new Set(v.map((x) => x.id))].slice(0, 12) };
+    if (F.hint && merged.length) {
+      const pool = merged.filter((b) => F.hint.test(b.narration || "") && !has(b));
+      r.hints = { count: pool.length, beats: pool.slice(0, 12).map((b) => b.i) };
+    }
+  }
   return r;
 });
+// Was the storyboard written against THIS rules.md? An adopted or re-prepped book can carry authoring that predates
+// the rules (and the tools) its engine now has: the features exist, the storyboard never had the chance to use them.
+const rulesM = (() => { try { return fs.statSync(path.join(SB, "rules.md")).mtimeMs; } catch { return null; } })();
+const authoredM = authoredFiles.length ? Math.max(...authoredFiles.map((x) => x.m)) : null;
+const adopted = readJSON(path.join(BOOK, "adopted-from.json"), null);
+const authoringVsRules = rulesM == null || authoredM == null ? NV : authoredM < rulesM ? "AUTHORED_BEFORE_RULES" : "AUTHORED_AFTER_RULES";
 // P9-B: the authored two-pole proposition travels brief -> _authorship.propositionAuthored (no art.json channel)
 const propAuthored = briefList ? briefList.filter((b) => b && b.proposition && b.proposition.src === "author").length : NV;
 rows.push({ feature: "proposition (P9-B)", layer: "DIRECTOR", authored: propAuthored, merged: NC,
@@ -128,6 +194,10 @@ rows.push({ feature: "proposition (P9-B)", layer: "DIRECTOR", authored: propAuth
 const result = { slug: SLUG, created: new Date().toISOString(), reportOnly: true,
   note: "Beats per feature per stage. NOT_VERIFIED = cannot be counted from the files; NOT_CARRIED = the stage never receives the field. Zero use is not a defect.",
   sources: { authoredFiles: authoredFiles.map((x) => x.f), authoredBeats: authored.size, mergedBeats: merged.length, plannedScenes: scenes.length },
+  // three evidence levels, never merged: capability (the engine has it) / adoption (authored -> merged -> planned) /
+  // blind (a judged still of a scene that carries it). Hints are lexical pointers, not missed-feature verdicts.
+  levels: { capability: "features[].capability", adoption: "features[].authored/merged/planned", verified: "features[].blind" },
+  authoringVsRules, adoptedFrom: adopted ? { at: adopted.at, reason: adopted.reason } : null,
   features: rows };
 const outDir = path.resolve(args.out || path.join(ROOT, "audit", "feature-usage", SLUG));
 fs.mkdirSync(outDir, { recursive: true });
@@ -140,4 +210,12 @@ console.log(`── feature usage · ${SLUG} · authored ${authored.size} / merg
 console.log(`${pad("feature", 24)} ${pad("layer", 9)} ${pad("authored", 13)} ${pad("merged", 13)} ${pad("planned", 13)} ${pad("rendered", 13)} ${pad("engine-only", 12)} dropped merged->planned`);
 console.log("(planned = merged beats whose decision is in their config scene; engine-only = config scenes with the marker that no beat authored)");
 for (const r of rows) console.log(`${pad(r.feature, 24)} ${pad(r.layer, 9)} ${pad(r.authored, 13)} ${pad(r.merged, 13)} ${pad(r.planned, 13)} ${pad(r.rendered, 13)} ${pad(r.engineOnly == null ? "-" : r.engineOnly, 12)} ${r.dropped == null ? "-" : r.dropped + (r.dropped ? ` (i ${r.droppedBeats.join(",")}${r.dropped > r.droppedBeats.length ? ",…" : ""})` : "")}`);
+const tenx = rows.filter((r) => r.capability !== undefined);
+if (tenx.length) {
+  console.log(`\n── Antidote 10x adoption · three levels, never merged (capability = this tree's engine has it; adoption = authored/merged/planned; verified = blind mute verdicts on scenes that carry it)`);
+  console.log(`${pad("feature", 36)} ${pad("capability", 11)} ${pad("authored", 9)} ${pad("merged", 7)} ${pad("planned", 8)} ${pad("verified (blind stills)", 34)} hints (lexical, unverified)`);
+  const bl = (b) => typeof b === "string" ? b : `${b.stills} stills: CORRECT ${b.correct}, WRONG ${b.wrong}, ADDS ${b.adds}, EXPL ${b.explains}`;
+  for (const r of tenx) console.log(`${pad(r.feature, 36)} ${pad(r.capability, 11)} ${pad(r.authored, 9)} ${pad(r.merged, 7)} ${pad(r.planned, 8)} ${pad(bl(r.blind), 34)} ${r.hints ? `${r.hints.count}${r.hints.count ? ` (i ${r.hints.beats.join(",")}${r.hints.count > r.hints.beats.length ? ",…" : ""})` : ""}` : "-"}`);
+  if (authoringVsRules === "AUTHORED_BEFORE_RULES") console.log(`⚠ the storyboard is older than storyboard/rules.md${adopted ? ` (adopted ${String(adopted.at).slice(0, 10)})` : ""}: it was not authored against the current rules — a feature this engine has could not be chosen. Re-author the passages the hints point to if they fit (never to use a tool).`);
+}
 console.log(`\n✓ ${file}`);

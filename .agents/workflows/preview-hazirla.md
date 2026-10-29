@@ -18,3 +18,5 @@ Antigravity specifics:
    one NEW agent per prompt from the Agent Manager, in parallel where the skill says so. A blind agent opens ONLY the
    file its prompt names and never authored the storyboard.
 3. Relationship staging while authoring: `.agents/workflows/relationship-staging.md`.
+4. A refused merge is a work list, not a question: fix every problem yourself by its code (`storyboard/merge-report.json`,
+   skill "Merge recovery") whatever the count, then continue; stop only for an OPERATOR line.

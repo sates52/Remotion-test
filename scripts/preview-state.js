@@ -270,12 +270,27 @@ function bookState(slug, root = ROOT) {
   const artM = mtime(artPath);
   const gateBM = exists(path.join(SB, "gate-b")) ? Math.max(0, ...fs.readdirSync(path.join(SB, "gate-b")).map((f) => mtime(path.join(SB, "gate-b", f)))) : 0;
   if (!artM || artM < Math.max(authoredM, mtime(path.join(SB, "vocab.json")), gateBM)) {
-    stage("merge", "todo", !artM ? `no ${path.basename(artPath)}` : `${path.basename(artPath)} older than the authored files / prep`);
-    go("merge", "Validate, fix every ✗ yourself in authored-K.json (merge without --write exits 0 even with problems: read 'problems (N)'), then write",
-      `node scripts/storyboard.js merge --slug=${slug} && node scripts/storyboard.js merge --slug=${slug} --write`);
+    // Merge recovery (2026-10-29): a refused merge is a WORK LIST, never a question — essentialism stopped at 38 routine
+    // problems to ask "Do you want me to continue?". merge-report.json gives each problem a code, a class and its file.
+    const mr = readJSON(path.join(SB, "merge-report.json"));
+    const mrFresh = mr && Date.parse(mr.at) >= authoredM && mr.problems > 0;
+    stage("merge", "todo", mrFresh ? `${mr.problems} problem(s) at the last merge: ${Object.entries(mr.byClass).filter(([, n]) => n).map(([c, n]) => `${c} ${n}`).join(", ")}`
+      : !artM ? `no ${path.basename(artPath)}` : `${path.basename(artPath)} older than the authored files / prep`);
+    if (mrFresh && mr.operatorNeeded) {
+      st.operator = { code: "MERGE_OPERATOR", reason: "the merge report names problems only the operator can resolve", evidence: mr.items.filter((x) => x.cls === "OPERATOR").slice(0, 5).map((x) => `${x.i}: ${x.msg}`) };
+      return finish(st);
+    }
+    go("merge", mrFresh
+      ? `Merge recovery — fix all ${mr.problems} yourself, NO approval (routine authoring, whatever the count): ${mr.byCode.slice(0, 6).map((g) => `${g.code} ×${g.n} (${g.cls})`).join(", ")}${mr.byCode.length > 6 ? ", …" : ""}. Fix each beat FROM its narration in the authored-K.json named in storyboard/merge-report.json (never fill a field with a copy of another), then validate and write`
+      : "Validate (read 'problems (N)' — merge without --write exits 0 even with problems), fix every ✗ yourself in authored-K.json without asking, then write",
+      `node scripts/storyboard.js merge --slug=${slug}   # then, at problems (0): node scripts/storyboard.js merge --slug=${slug} --write`);
     return finish(st);
   }
-  stage("merge", "done", `${path.basename(artPath)} ${iso(artM)}`);
+  {
+    const mr = readJSON(path.join(SB, "merge-report.json"));
+    const rv = mr && Array.isArray(mr.review) ? mr.review.length : 0;
+    stage("merge", "done", `${path.basename(artPath)} ${iso(artM)}${rv ? ` · REVIEW_REQUIRED ${rv} beat(s) (merge-report.json; readcheck reads them — not a failure)` : ""}`);
+  }
 
   // 9. readcheck (Antidote): every beat read blind before the first render; changed beats re-read before the next one
   const cfgPath = path.join(B, engine === "antidote" ? "config.antidote.json" : "config.vox.json");

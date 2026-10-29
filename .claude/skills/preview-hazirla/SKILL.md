@@ -74,7 +74,7 @@ make-book → sealed mute test → preview-ready → hand-off. What you do witho
 | prep (§2) | `storyboard.js prep` after the bible, icons and variants are final, and again at the start of every fix round. |
 | authors (§2) | One fresh agent per `### Author K` in `PROMPTS.md`, all in ONE message, in the background (Claude: Agent tool; Antigravity: Agent Manager). Authors follow `antidote-visual-authoring`. |
 | gateB | `gate-b-relationship.js` when a beat stages a relationship (needs `GOOGLE_API_KEY`, never print it). FALLBACK = author that beat normally. |
-| merge (§2) | `merge` → read `problems (N)` (it exits 0 even with problems) → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then read the icon histogram and ~20 random beats against the icon test. |
+| merge (§2) | `merge` → read `problems (N)` (it exits 0 even with problems) → fix every ✗ yourself in `authored-K.json` → `merge --write`. Then read the icon histogram and ~20 random beats against the icon test. A refused merge is a work list: **Merge recovery** below. |
 | readcheck (§2b) | prep → blind readers (fresh, sonnet, parallel) → judge → judges → tally; fix every WRONG by cause class; re-read changed beats with `--beats=` (also after every fix round's merge). A new `data/icon-readings.json` row is shared data: commit it by itself before the next step (contract §3) — `status` stops on any uncommitted code or data under the book. |
 | makeBook (§3) | `make-book … --skip-pack` (`--preview-only` for Antidote). It finished only if it printed ✅ HAZIR and wrote `books/<s>/make-book.done.json` (`status` checks this — a gate without a report, like continuity, cannot pass silently). A gate FAIL is content: read the ❌ line and `books/<s>/*.report.json`, fix the storyboard, merge, re-run. |
 | seal / mute (§4) | Seal right after the first make-book; then the verdict prep, a FRESH sonnet describer, `judge`, a FRESH sonnet judge, `tally`. Blind agents never authored the storyboard and are never told the book. The prep renders 30 stills in one bundle — tens of minutes on a busy PC: start it ONCE in the background and wait for its completion notification; do not poll, cancel or restart it (a restart pays the bundle again; a second prep of the same label is refused while one runs, exit 3). If it was killed anyway, run the same command again: stills already rendered from the same config are kept. |
@@ -82,6 +82,21 @@ make-book → sealed mute test → preview-ready → hand-off. What you do witho
 
 Duration is never a reason to ask: a long step (prep, bundle, make-book, image generation on a configured free
 provider) is started and waited for — never "this will take long, continue?".
+
+**Merge recovery (2026-10-29) — no approval, whatever the count.** Merge FAIL → read the recovery block (and
+`storyboard/merge-report.json`: every problem has a code, a class, its `authored-K.json` and the fix) → fix → `merge`
+(validate) → `merge --write` → continue (make-book / readcheck / preview). 40, 60 or 105 problems are routine
+(essentialism asked "Do you want me to continue?" at 38 — all 38 were authoring fixes, cleared in 90 s once told).
+- `ROUTINE`: fix the named field. `REAUTHOR`: re-read the beat's narration and author it again. `AGENT_STEP`: run the
+  step yourself (`prep`, a fresh author agent for a missing / invalid chunk, `gate-b-relationship.js`), then re-merge.
+- Fix FROM the narration — never fill a field with a copy of another (the emphasis word, the claim, the callout) to
+  pass. Merge then passes, but prints `REVIEW_REQUIRED` (FILLED_AFTER_REFUSAL, VISUAL_IS_CLAIM, ECHO_ONLY_CARRIER,
+  EARLY_TEXT): not a failure and never an operator question — readcheck reads those beats blind; a WRONG there is a
+  confirmed defect for the fix round, a CORRECT clears it. Vox has no readcheck: review its flags yourself against the
+  narration before make-book (the mute test is its blind check).
+- Stop only for a real stop: `OPERATOR` in the report (none of today's merge messages is one), a narration / recording
+  that contradicts the book (an input problem), a fix that would need another agent's files, a new cost, or a fix
+  beyond the storyboard (engine code, gates) — report it with the beat and the message; keep fixing the rest.
 
 `status` already enforces the order: resume is automatic (a finished, current step is never redone; a step whose
 inputs changed is shown stale), the sealed sample is never re-drawn, an unchanged film never gets a new holdout.

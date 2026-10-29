@@ -356,8 +356,39 @@ ${lines.join("\n")}
 `;
 }
 
+// 10x adoption (2026-10-29): the tools were explained in their own sections, but the decision section above them named
+// only flow / sorter / spectrum — a real book adopted onto current code (essentialism, 88db7e09) and the last book on
+// a pin before them (thinking-fast-and-slow: "a dark, perverse feedback loop", judge: "not the loop") used none. One
+// routing table, read at the moment of choice: what the NARRATION does -> the tool -> why (blind, measured) -> not when.
+// Action rows only for actions in this book's vocabulary (a minorHarm book is not offered the harm poses).
+function toolRoute(v) {
+  const has = (a) => v.actions.includes(a);
+  const rows = [
+    ["states a claim, then says it is WRONG / a myth / not how it works, and gives the right model", "`refute` diagram (\"Negation, irony, fakery\")", "polarity UNCLEAR 3/3 -> CORRECT 3/3, ADDS 10/21 -> 19/21 (unlimited-memory 56-62)", "it only doubts, asks, or lets both views stand"],
+    ["explains WHY an outcome comes out as it does: factors that persist and factors drawn again, often two trials", "`mechanism` diagram (\"Why a result happens\")", "EXPLAINS 0/15 -> 11/15 (thinking-fast-and-slow 207-211)", "one cause and one effect (use `causal` or a flow)"],
+    ["tells a CHAIN: a start, a trigger, something that changes in between, a result (the thing carried may be renamed)", "`causal` diagram (\"A chain of causes\")", "ADDS 14/15, EXPLAINS 11/15, invented 0/3 (unhinged 127-131)", "only two steps (a flow is enough)"],
+    ["describes something that REPEATS and whose result changes round by round (a habit, a reward schedule, a vicious or virtuous cycle, a pathology in phases that feeds itself)", "`causal` with `loop` + `ledger` (\"A loop that repeats\")", "ADDS 3/24 -> 20/24, EXPLAINS 0/24 -> 15/24, invented 3/3 -> 0/3 (unhinged 57-64)", "the narration tells one pass and no return; never add rounds, outcomes or levels it does not state"],
+    ["walks through a weighted decision: criteria with weights, options graded on them, added up", "`scorecard` diagram (\"Diagrams\")", "the \"add them up\" beat WRONG 3/3 -> 0/3 (farsighted 306-311)", "no criteria or grades are said (never invent weights or scores)"],
+  ];
+  if (has("take")) rows.push(["someone picks something up and keeps it on the next beats", "`take` + `holds`, then `continue` with the same `holds` (carried state)", "persistence 0/6 -> 6/6, WRONG 3/9 -> 0/9 (inside-out 195-197)", "the object is only mentioned"]);
+  if (has("drink")) rows.push(["someone drinks / sips / swallows", "`drink` + `holds` + `actionCue`", "read as DRINKS 3/3, was \"holding a mug\" 3/3 as take+hold (under-the-dome 52)", "a figurative drink (\"drinks in the view\")"]);
+  if (has("place")) rows.push(["someone sets / puts an object down and it stays there", "`place` + `holds` + `actionCue`", "doer, action and object YYY, was NNN as a seated pose (dont-believe 77-81)", "a figurative \"put it aside\""]);
+  if (has("leave")) rows.push(["someone walks out / leaves / goes upstairs", "`leave` + `actionCue`, the next beat `continue`", "action YYY, result kept YYY, was NNN as a walk in place (the-second-mountain 184-186)", "a figure of speech (\"you walk out thinking\"); `flee` reads only as walking out (LIMIT)"]);
+  if (has("lift")) rows.push(["one person picks up / carries another somewhere", "`lift` + `concept` = the destination, the next beat `continue`", "doer, target, result YES 2/2, was WRONG 2/2 with roles reversed as a point (inside-out 196)", "a hug, help standing up, a figurative lift"]);
+  const L = ["## Which tool for which passage (match what the NARRATION does — never use a tool for its own sake)",
+    "Read the passage the beat belongs to, then find its shape below. A row that matches is the measured way to show it;",
+    "a face + callout on such a passage is text-carried. When no row matches, stage the plain answer from the question",
+    "above. A tool fed with what the narration does not say is invention: merge refuses unsaid cues, numbers and verdicts.",
+    "",
+    "| the narration ... | tool | why (blind, measured) | not when |",
+    "|---|---|---|---|",
+    ...rows.map((r) => `| ${r.join(" | ")} |`),
+    ""];
+  return L.join("\n") + "\n";
+}
+
 // Authored actions with a moment (2026-10-20): the action HAPPENS on screen, on the author's word.
-const ACTION_LINE = `Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
+const ACTION_LINE =`Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
   - \`"action": "offer", "holds": "<object>"\` — the hand holds the object OUT to someone's face, a little below the shoulder ("holds the cigarette to her lips", "gives him a sip of water", "feeds her"): cast the receiver second. \`hold\` keeps the object at one's own chest; \`reach\` touches an icon in front — neither reads as giving it to a person.
   - \`"action": "drink", "holds": "<cup|glass|bottle|mug>", "actionCue": "<the word: drink / sip / swallows>"\` — the person brings the object TO THEIR OWN MOUTH on that word, tips it, head back, eyes half closed, then lowers it to the chest. Keeps a carried seat (\`continue\` + a \`sit\` before). \`take\`/\`hold\` never show the drinking ("takes a drink" read only as "holding a mug").
@@ -405,11 +436,12 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "holds": "<object>",               // optional object in their hand
   "partnerExpression": "<expression>", // optional, two-person cast: the SECOND person's face (else neutral)
   "partnerAction": "<action>",       // optional, two-person cast: the SECOND person's body (else idle)
-  "continue": true,                  // optional: only where this beat keeps the previous beat's stage (Sequences)
+  "continue": true,                  // optional: only where this beat keeps the previous beat's stage (Sequences) — never false: leave it out
   "explainedBy": "one sentence: the event, comparison or relationship this picture shows",
   "noVisual": null | "why nothing in the vocabulary can show it",
-  "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
+  "storyboard": { "claim": "...", "concreteVisual": "the picture as DRAWN: who, what, where", "onScreenText": "the words on screen, or \"none\"",
                   "relationToPrevious": "...", "addedInformation": "... (write 'weak: ...' if honest)" } }
+// all five storyboard fields are REQUIRED on every beat, written from the narration — never a copy of another field
 \`\`\`
 
 ## The question for every beat (answer it BEFORE choosing anything)
@@ -444,6 +476,7 @@ If nothing in the vocabulary can show the meaning, write the reason in \`noVisua
 clearest text-led staging. Measured 2026-10-17 (audit/authoring-ab-2026-10-17): with this question,
 blind judges preferred the new storyboard 24 to 3 on 17 weak beats; image ADDS 9 -> 20 of 34.
 
+${toolRoute(v)}
 ## Vocabulary (nothing else renders)
 - icons: ${v.icons.join(", ")}
 - sets: ${v.sets.join(", ")}
@@ -690,8 +723,9 @@ Book context: \`books/${SLUG}/story-bible.json\` — world/era: ${era}.
     "items": [],                                     // list/checklist only: 2-4 SHORT ALL-CAPS items
     "image": null | { "subject": "a described photograph", "style": "cutout|card" },
     "compare": null | { "left": {"label","subject"}, "right": {"label","subject"} },
-    "storyboard": { "claim": "...", "concreteVisual": "...", "onScreenText": "...",
+    "storyboard": { "claim": "...", "concreteVisual": "the picture as DRAWN (or what the text card shows)", "onScreenText": "the words on screen, or \"none\"",
                     "relationToPrevious": "...", "addedInformation": "..." } } }
+// all five storyboard fields are REQUIRED on every beat, written from the narration — never a copy of another field
 \`\`\`
 
 ${MINOR_RULE}## The image test (most important)
@@ -916,12 +950,12 @@ function relationshipProblems(i, a, narration) {
 function merge() {
   const emitted = readJSON(path.join(SB, "beats.json"));
   if (!emitted) { console.error("❌ run prep first"); process.exit(1); }
-  const authored = new Map();
+  const authored = new Map(), owner = new Map();
   const files = fs.readdirSync(SB).filter((f) => /^authored-\d+\.json$/.test(f));
   for (const f of files) {
     const arr = readJSON(path.join(SB, f));
-    if (!Array.isArray(arr)) { console.error(`❌ ${f} is not a JSON array`); process.exit(1); }
-    arr.forEach((b) => authored.set(b.i, b));
+    if (!Array.isArray(arr)) { console.error(`❌ ${f} is not a JSON array — re-run that chunk's author (a fresh agent, storyboard/PROMPTS.md); no approval needed`); process.exit(1); }
+    arr.forEach((b) => { authored.set(b.i, b); owner.set(b.i, f); });
   }
   const problems = [], warnings = [];
   const P = (i, m) => problems.push(`${i}: ${m}`);
@@ -1165,11 +1199,32 @@ function merge() {
     if (out.length && withImage > out.length * 0.9) warnings.push(`${withImage}/${out.length} beats have an image — almost every beat will be imagefocus; keep 15-30% as real questions/lists/quotes (rules.md → Coverage)`);
     if (out.length && withImage < out.length * 0.7) warnings.push(`only ${withImage}/${out.length} beats have an image (${Math.round((withImage / out.length) * 100)}%) — aim for 70%+: the mute test scores ADDS over ALL frames (rules.md → Coverage)`);
   }
+  // REVIEW_REQUIRED (2026-10-29): fields that pass by FORM but may not be authored (lib/authoring-integrity.js) — the
+  // strongest is provenance: a field this merge refused as missing, then filled with a copy of another field. The
+  // refusal history persists in merge-report.json across runs (a passing dry run must not erase it). Never a problem.
+  const MR = require("./lib/merge-recovery.js");
+  const prevReport = readJSON(path.join(SB, "merge-report.json"));
+  const refusedHist = { ...((prevReport && prevReport.refused) || {}) };
+  for (const p of problems) { const c = MR.classify(p); const m = /^storyboard\.(\w+) missing/.exec(c.msg); if (m && c.i != null) refusedHist[c.i] = [...new Set([...(refusedHist[c.i] || []), m[1]])]; }
+  const review = require("./lib/authoring-integrity.js").integrityReview({ beats: emitted.beats, authored, engine: ENGINE,
+    prev: { items: Object.entries(refusedHist).flatMap(([i, fs2]) => fs2.map((f) => ({ i: Number(i), msg: `storyboard.${f} missing` }))) } });
   console.log(`problems (${problems.length})`); problems.slice(0, 60).forEach((x) => console.log("  ✗ " + x));
-  if (problems.length > 60) console.log(`  … ${problems.length - 60} more`);
+  if (problems.length > 60) console.log(`  … ${problems.length - 60} more (all of them: storyboard/merge-report.json)`);
   if (warnings.length) { console.log(`warnings (${warnings.length})`); warnings.slice(0, 20).forEach((x) => console.log("  ⚠ " + x)); }
+  if (review.length) {
+    console.log(`REVIEW_REQUIRED (${review.length}) — not a failure: check each against its narration (readcheck reads them blind; a confirmed WRONG goes to the fix round)`);
+    review.slice(0, 15).forEach((x) => console.log(`  ? ${x.i}: ${x.code} — ${x.why}`));
+    if (review.length > 15) console.log(`  … ${review.length - 15} more (storyboard/merge-report.json)`);
+  }
+  const rep = MR.buildReport({ slug: SLUG, engine: ENGINE, problems, warnings, owner, review, write: !!args.write, written: !!args.write && !problems.length });
+  rep.refused = refusedHist;
+  fs.writeFileSync(path.join(SB, "merge-report.json"), JSON.stringify(rep, null, 2) + "\n");
+  MR.printReport(rep);
   if (!args.write) return;
-  if (problems.length) { console.error("\n❌ not written — fix the problems (ask the chunk's author, or edit authored-K.json) and re-run."); process.exit(1); }
+  if (problems.length) {
+    console.error(`\n❌ not written — ${problems.length} problem(s). ${rep.operatorNeeded ? "Some need the operator (OPERATOR above): report those; fix the rest." : "Every one is yours to fix, without asking: each line above names the code, the beats and the fix; storyboard/merge-report.json lists the authored-K.json that owns each beat. Fix the beat FROM its narration (never fill a field with a copy of another), re-merge, and continue the preview pipeline."}`);
+    process.exit(1);
+  }
   if (ENGINE === "antidote") {
     fs.writeFileSync(path.join(BOOK, "art.json"), JSON.stringify({
       book: { slug: SLUG, title: book.title, author: book.author, genre: book.genre },
