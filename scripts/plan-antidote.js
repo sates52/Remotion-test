@@ -1085,6 +1085,21 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           if ((L.action === "embrace" || L.action === "lift") && characters[1]) characters[1].actionAt = at;
         }
       }
+      // INNER REASON (Motive 1.0, 2026-10-29): the author's `thought` — what the lead feels / fears INSIDE while the
+      // body and face show the outward act — goes on the lead as a thought bubble: their own inner face
+      // (`expression`) or the reason's icon (`concept`). It appears on the authored `cue` (word-timed), else early.
+      if (a.thought && typeof a.thought === "object" && (a.thought.expression || a.thought.concept)) {
+        const th = {};
+        if (a.thought.expression && EXPRESSIONS.has(a.thought.expression)) th.expression = a.thought.expression;
+        else if (a.thought.concept) th.concept = a.thought.concept;
+        let at = 12;
+        if (a.thought.cue) {
+          const cueAt = anchorAt(s, a.thought.cue, null, durationFrames + MIN_HOLD);
+          if (cueAt == null) warn(`thought cue "${a.thought.cue}" is not spoken in this beat — the bubble appears early`);
+          else at = Math.min(cueAt, Math.max(0, durationFrames - 30));
+        }
+        if (th.expression || th.concept) L.thought = { ...th, at };
+      }
       // The illustration/diorama presets draw the lead as a flat black cut-out —
       // which hides exactly what was just authored (face, held object, WHO it is).
       // A staged lead is drawn as the person. (The silhouette shot and the
@@ -1448,7 +1463,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
       };
     }
-    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
+    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || A.thought || authorContinue)) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
         ...beatSeal,
@@ -1458,6 +1473,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         expression: c0.expression || null, action: c0.action || null, holds: c0.holds || null,
         // the authored action moment, and the partner's reciprocal body (embrace: the partner embraces back)
         ...(c0.actionAt != null ? { actionAt: c0.actionAt } : {}),
+        // the authored inner reason (Motive 1.0): the bubble is a decision like the face
+        ...(c0.thought ? { thought: JSON.parse(JSON.stringify(c0.thought)) } : {}),
         // an authored two-person cast seals the partner too (2026-10-22): what the planner set from the author
         // (or the verb's pair, or the neutral / idle default) is the decision; a later engine change is drift
         ...((c0.action === "embrace" || (Array.isArray(A.cast) && A.cast.length >= 2)) && (out.characters || [])[1] ? { partnerAction: out.characters[1].action || null } : {}),

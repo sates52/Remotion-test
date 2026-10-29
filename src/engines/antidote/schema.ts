@@ -288,6 +288,12 @@ export const characterSchema = z.object({
   emotion: charEmotion.optional(),
   /** Frame offset within scene when the emotion overlay pops (defaults to ~8 frames after entrance) */
   emotionAt: z.number().optional(),
+  /** INNER REASON (Motive 1.0, 2026-10-29): a thought bubble over the head that holds what the person feels or fears
+   *  INSIDE while the body and face show the outward act. `expression` = a small copy of the same person wearing the
+   *  inner face (the inside differs from the outside); `concept` = an icon of the reason (a scene icon / own motif).
+   *  No words. `at` = scene frame where it appears (the authored cue). Class a of the blind corpus: 80 motive beats,
+   *  49 TEXT_ONLY, ADDS 2 — the reason lived only in the callout. */
+  thought: z.object({ expression: expression.optional(), concept: z.string().optional(), at: z.number().optional() }).optional(),
   x: z.number().optional(), // center anchor (px, 1920×1080 stage)
   y: z.number().optional(),
   scale: z.number().optional(),

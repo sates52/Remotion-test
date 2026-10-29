@@ -8,6 +8,8 @@ import { Diagram } from "./Diagram";
 import { RelationshipStage } from "./RelationshipStage";
 import { transitionRender } from "./Transition";
 import { Motif } from "../motifs";
+import { ThoughtBubble } from "./ThoughtBubble";
+import { textBox, type Box } from "../thoughtLayout";
 import { resolveBody, shotPreset, stageChar, stageText } from "../shots";
 import { fitGroundedFigure, holdLift, liftHold } from "../groundFit";
 import { embraceMotifSlot } from "../safeArea";
@@ -139,9 +141,13 @@ const CharacterLayer: React.FC<{
   /** CARRIED STATE (10x P1, continuity.ts): the end state of an earlier deed — the body keeps it (seated in the tub,
    *  seated, down) under this beat's action, at the place the deed left it (rest.stage) */
   rest?: RestCarry;
+  /** the scene ink, for the thought bubble outline (Motive 1.0) */
+  ink?: string;
+  /** the callouts' boxes: the thought bubble never sits under one */
+  avoid?: Box[];
   /** LEAVE / FLEE (Action 2.0, leaveLayout.ts): px from the slot to the exit (the icon, or off the frame) */
   exitDx?: number;
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx }) => {
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx, ink = "#1E1E22", avoid = [] }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   // whoever walked out / ran away on an earlier beat is GONE (endState.ts): never drawn back on their slot
@@ -217,7 +223,7 @@ const CharacterLayer: React.FC<{
   const isNervous = spec.emotion === "sweat";
   const jitterX = isNervous && frame >= (spec.emotionAt ?? 8) ? Math.sin(frame * 1.6) * 1.5 : 0;
 
-  return (
+  const rigDiv = (
     <div
       style={{
         position: "absolute",
@@ -240,6 +246,18 @@ const CharacterLayer: React.FC<{
         emotionAt={spec.emotionAt}
       />
     </div>
+  );
+  if (!spec.thought || st.silhouette) return rigDiv;
+  // the head centre on the stage: rig (200, 150) in a 400 x (600 bust | 900 full) box centred on the slot
+  const dx = e.tx + travel + approach + liftShift + exitShift;
+  const head = { x: st.x + dx, y: st.y + e.ty + (150 + (p.headY ?? 0) - (body === "full" ? 450 : 300)) * scale };
+  return (
+    <>
+      {rigDiv}
+      <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, opacity: e.opacity * goneOpacity }}>
+        <ThoughtBubble spec={spec} head={head} scale={scale} faceRight={head.x < 960} mirror={faceFlip} variant={variant} accent={accent || "#E8A33D"} ink={ink} avoid={avoid} />
+      </div>
+    </>
   );
 };
 
@@ -581,6 +599,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry, back: ci === 0 ? lift.stepBack : 0 } : undefined}
                 rest={cc && cc.rest ? cc.rest : undefined}
                 exitDx={(() => { const L = leaveOf(ci); return L ? L.exitDx : undefined; })()}
+                ink={ink}
+                avoid={texts.map((tx, ti) => { const ts = stageText(scene.shot, tx, ti); return textBox({ x: ts.x, y: ts.y, size: ts.size, text: tx.text }); })}
               />
             )}
           </AbsoluteFill>

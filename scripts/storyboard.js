@@ -408,6 +408,9 @@ const ACTION_LINE =`Actions that HAPPEN (optional): when the narration says some
     hands" — whose hand PARTLY; without it YES). Keep the receiver's later beats \`continue\` + \`"action": "hold"\`.
   A held object is lifted clear of the captions automatically; a \`closeUp\` shows no hands — never frame an object beat as closeUp.
   Put \`"actionCue": "<phrase spoken in this beat>"\` on the word where the deed happens (else 40% into the beat). Who does it, to whom/what and when are yours; the engine adds nothing. In a \`continue\` beat after a take the same person keeps holding it (\`"action": "hold", "holds": "<the same object>"\`; merge refuses otherwise); a continued embrace repeats \`"action": "embrace"\` with the same two and is not replayed.
+
+An INNER REASON (a thought bubble):
+  - \`"thought": { "expression": "<inner face>" }\` or \`"thought": { "concept": "<icon>" }\`, optional \`"cue": "<word spoken in this beat>"\` — a THOUGHT BUBBLE over the lead's (\`cast[0]\`) head: what they feel, fear or want INSIDE, while their face (\`expression\`) and body (\`action\`) show what they do or show OUTSIDE. Use it when the narration gives a person's INNER REASON for an outward act or face ("she never appears angry because she is terrified of the trope", "you backpedal to stop her pain", "he deflects blame to protect his ego"). \`expression\` = their own inner face, drawn small inside the bubble — when the inside is a feeling that DIFFERS from the face they show (blank outside, afraid inside); \`concept\` = an icon of what the reason is ABOUT (her pain, his pride, the label they fear). One bubble, no words in it; the callout may name the reason. It appears on \`cue\` (else early in the beat) and stays — leave \`cue\` out when the word comes late in the beat (a bubble that appears in the last second is not seen). Not for: someone simply thinking or remembering (\`"action": "think"\`), a general idea with no person, the same face inside and outside (merge flags it).
 `;
 
 // Authored scene continuation (art.json `continue`, src/engines/antidote/continuity.ts).
@@ -967,7 +970,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "thought", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1010,6 +1013,21 @@ function merge() {
       const i = e.i, a = authored.get(i), narration = e.narration;
       if (!a) { P(i, "NOT AUTHORED"); continue; }
       if (a.concept != null && !ICONS.has(a.concept)) P(i, `icon "${a.concept}" not in this book's vocabulary`);
+      // INNER REASON (Motive 1.0): one bubble on the lead — their inner face OR the reason's icon, never both, no words
+      if (a.thought != null) {
+        const T = a.thought, nwT = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+        if (typeof T !== "object" || Array.isArray(T)) P(i, `thought must be an object { "expression" | "concept", "cue" }`);
+        else {
+          const extra = Object.keys(T).filter((x) => !["expression", "concept", "cue"].includes(x));
+          if (extra.length) P(i, `thought: unsupported field ${extra.map((x) => `"${x}"`).join(", ")} (only expression, concept, cue — the bubble holds no words)`);
+          if (!!T.expression === !!T.concept) P(i, `thought needs exactly one of "expression" (their inner face) or "concept" (the reason's icon)`);
+          if (T.expression && !EXP.has(T.expression)) P(i, `thought expression "${T.expression}" not in this book's vocabulary`);
+          if (T.concept && !ICONS.has(T.concept)) P(i, `thought icon "${T.concept}" not in this book's vocabulary`);
+          if (!Array.isArray(a.cast) || !a.cast.length) P(i, `thought needs a person: the cast member whose inner reason it is (cast[0])`);
+          if (T.expression && T.expression === a.expression) warnings.push(`${i}: REVIEW_REQUIRED thought expression "${T.expression}" is the outward face too — the bubble shows an inside that DIFFERS from the outside; same face = no contrast (use the icon of the reason, or no bubble)`);
+          if (T.cue != null && !nwT(narration).includes(nwT(T.cue))) P(i, `thought cue "${T.cue}" is not spoken in this beat (the bubble appears on its word)`);
+        }
+      }
       // authored continuation: only after a beat that exists, and on the same set
       if (a.continue != null) {
         const before = k > 0 ? authored.get(emitted.beats[k - 1].i) : null;
@@ -1212,6 +1230,7 @@ function merge() {
         ...(a.conceptMotion ? { conceptMotion: a.conceptMotion } : {}),
         ...(a.conceptMotion && a.conceptMotionCue ? { conceptMotionCue: a.conceptMotionCue } : {}),
         ...(a.actionCue ? { actionCue: a.actionCue } : {}),
+        ...(a.thought && typeof a.thought === "object" ? { thought: a.thought } : {}),
         ...(a.partnerExpression ? { partnerExpression: a.partnerExpression } : {}),
         ...(a.partnerAction ? { partnerAction: a.partnerAction } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),

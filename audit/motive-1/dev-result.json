@@ -1,0 +1,81 @@
+{
+  "role": "DEV (learning only; never counts toward the decision)",
+  "passage": "the-hate-u-give 17-21",
+  "authoring": "zz-hug-new: i2 (book 19) thought {expression: afraid} (no cue: terrified is the last word), i3 (book 20) outward face worried -> blank + thought {expression: afraid, cue: terrified}",
+  "readers": [
+    {
+      "arm": "new",
+      "k": 1,
+      "rows": "CT CT CA CA CA",
+      "outward": "YES",
+      "inner": "YES",
+      "relation": "YES",
+      "contrast": "YES",
+      "invented": "NO",
+      "why": "The viewer names the composed outside (flat, guarded, never angry), the inner fear and worry, links the fear of the angry Black girl label as the reason for self-policing, and contrasts inside with outside. The thought bubble and the close-up face carry the inner fear visually, while rows 1 and 2 rely on printed text."
+    },
+    {
+      "arm": "new",
+      "k": 2,
+      "rows": "CT CT CT CT CA",
+      "outward": "YES",
+      "inner": "YES",
+      "relation": "PARTLY",
+      "contrast": "YES",
+      "invented": "NO",
+      "why": "The viewer names the calm, guarded outward behaviour, the anxiety and worry inside, and the clash between the two. The causal link is stated clearly: she fears the angry Black girl trope, so she removes words and never appears angry. The viewer never says outright that the fear is why she holds her face blank, so relation is PARTLY. Rows 1-4 are carried mostly by the printed labels, and only row 5's face adds meaning beyond the text."
+    },
+    {
+      "arm": "new",
+      "k": 3,
+      "rows": "CT CT CA CA CA",
+      "outward": "YES",
+      "inner": "YES",
+      "relation": "YES",
+      "contrast": "YES",
+      "invented": "NO",
+      "why": "The viewer states the calm guarded exterior, the fear of being labelled the angry Black girl as the reason she polices herself, and the contrast with her inner turmoil. Rows 1-2 are carried mostly by printed labels, while the rows 3-5 faces and thought bubble add the fear."
+    },
+    {
+      "arm": "base",
+      "k": 1,
+      "rows": "CT CT CT CA CA",
+      "outward": "YES",
+      "inner": "YES",
+      "relation": "YES",
+      "contrast": "PARTLY",
+      "invented": "NO",
+      "why": "The viewer gets the calm outward behaviour, the inner anxiety and the fear of the stereotype as the reason, but the contrast between inside and outside is implied across answers rather than stated as a contrast. Rows 1-3 depend mostly on printed banners, while rows 4-5 are carried by faces and staging."
+    },
+    {
+      "arm": "base",
+      "k": 2,
+      "rows": "CT CT CT NA CA",
+      "outward": "PARTLY",
+      "inner": "YES",
+      "relation": "PARTLY",
+      "contrast": "PARTLY",
+      "invented": "NO",
+      "why": "The viewer names a guarded, controlled outward face and inner worry and fear of the angry Black girl stereotype, and links her control of speech and expression to that fear. The contrast between inside and outside is only implied and never stated outright, and the classmate is misread as a bystander."
+    },
+    {
+      "arm": "base",
+      "k": 3,
+      "rows": "CT CT CA CA CA",
+      "outward": "PARTLY",
+      "inner": "YES",
+      "relation": "YES",
+      "contrast": "YES",
+      "invented": "NO",
+      "why": "The viewer names the calm, neutral, guarded outside, the fear of the angry Black girl label as the reason for self-control, and the inner/outer clash, with no invented events. The outward answer is only partial because it is stated mostly through words (neutral face, guarded words) while the images show a worried face rather than a blank controlled one."
+    }
+  ],
+  "summary": {
+    "new": "outward YYY inner YYY relation YPY contrast YYY WRONG 0/15 ADDS 7/15",
+    "base": "outward YPP inner YYY relation YPY contrast PPY WRONG 0/15 ADDS 7/15"
+  },
+  "learned": [
+    "a cue on the last word of a beat leaves the sampled frames empty -> rule: leave cue out when the word comes late",
+    "a callout covered the bubble -> layout avoids callout boxes using the drawn cloud extents (+ box padding)"
+  ]
+}

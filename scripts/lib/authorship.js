@@ -270,6 +270,7 @@ function stagingDrift(s) {
     if (L.partnerAction && (ch[1] || {}).action !== L.partnerAction) d.push(`partner ${L.partnerAction}→${(ch[1] || {}).action ?? "none"}`);
     if (L.partnerExpression && (ch[1] || {}).expression !== L.partnerExpression) d.push(`partner face ${L.partnerExpression}→${(ch[1] || {}).expression ?? "none"}`);
     if (ch.some((x) => x.emotion)) d.push("emotion overlay added");
+    if (L.thought && JSON.stringify(c0.thought || null) !== JSON.stringify(L.thought)) d.push(`thought ${L.thought.expression || L.thought.concept}→${c0.thought ? c0.thought.expression || c0.thought.concept : "none"}`);
   }
   // P0.2 — the icon. A substituted or dropped authored icon used to be invisible
   // here (it is what let `repairSceneContract` swap coin → "spotlight").
@@ -338,6 +339,7 @@ function restoreAuthoredStaging(config) {
       if (L.action) ch[0].action = L.action;
       if (L.holds) ch[0].holds = L.holds; else delete ch[0].holds;
       if (L.actionAt != null) ch[0].actionAt = L.actionAt;
+      if (L.thought) ch[0].thought = JSON.parse(JSON.stringify(L.thought));
     }
     if (L.partnerAction && ch[1]) { ch[1].action = L.partnerAction; if (L.actionAt != null) ch[1].actionAt = L.actionAt; }
     if (L.partnerExpression && ch[1]) ch[1].expression = L.partnerExpression;
