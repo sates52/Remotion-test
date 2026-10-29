@@ -16,7 +16,7 @@ The ENGINE stays the book's pin; the preview PROCEDURE does not age with it: whe
 procedure changed since the pin, follow origin's canonical skill (`git show origin/god-mode:.claude/skills/preview-hazirla/SKILL.md`).
 A routine step is run without asking - `status` prints CONTINUE and the next command after every stage.
 A book already started elsewhere is refused, never migrated silently: its owner decides (keep it, or
-`--adopt="<owner's reason>"` for a new pinned copy; the original stays untouched). Current tools for a book started in
+`--adopt="<owner's reason>"` for a new pinned copy; the original stays untouched). A book with NO production work yet whose pin fell behind: book-start says so - report it; moving it is the operator's word (`--repin="<their reason>"`, refused once work exists). Current tools for a book started in
 the main checkout (render status, cloud assembly): `... | node - --launcher`, then run them in `../wt-production-base`
 with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or clean the shared main checkout.
 

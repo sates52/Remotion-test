@@ -66,6 +66,28 @@ const filled = (x) => typeof x === "string" ? x.trim().length > 0 : x != null;
 // (planned); e = the config marker on its own, for counting scenes the ENGINE produced without the author.
 // "NC" = the stage never carries the field; NV = it cannot be counted from the files.
 const ids = (s) => visible(s).map((c) => c.identity || c.rig);
+// scenes in which a person is still in the END STATE of an earlier deed of the continue chain (this tree's endState.ts)
+const bodyState = (() => {
+  const set = new Set();
+  let ES; try { ES = require(path.join(ROOT, "src", "engines", "antidote", "endState.ts")); } catch { return set; }
+  const all = cfg.scenes || [];
+  all.forEach((s, i) => {
+    if (s.carryState !== true) return;
+    for (const who of ids(s)) {
+      // the actions since the deed, this scene's last: each must keep the rest (keepsRest), or the state ended
+      const since = [(visible(s).find((x) => (x.identity || x.rig) === who) || {}).action];
+      for (let j = i - 1; j >= 0; j--) {
+        const c = visible(all[j]).find((x) => (x.identity || x.rig) === who);
+        const e = c && ES.endStateOf(c.action, visible(all[j]).length === 2);
+        if (e && e.posture !== "standing") { if (since.every((a) => ES.keepsRest(e.posture, a || "idle"))) set.add(s); break; }
+        if (c) since.push(c.action);
+        if (all[j + 1].continueFromPrev !== true) break;
+      }
+      if (set.has(s)) break;
+    }
+  });
+  return set;
+})();
 const FEATURES = [
   { key: "continue", layer: "TIMELINE", a: (b) => b.continue === true, e: (s) => s.continueFromPrev === true },
   { key: "conceptMotion", layer: "TIMELINE", a: (b) => filled(b.conceptMotion), c: (b, s) => (s.props || []).some((x) => x && x.motion === b.conceptMotion), e: (s) => (s.props || []).some((x) => x && x.motion) },
@@ -108,6 +130,10 @@ const FEATURES = [
   { key: "10x carried hold (continue + holds)", layer: "10X", tenx: true, a: (b) => b.continue === true && filled(b.holds),
     e: (s) => s.continueFromPrev === true && filled(lead(s).holds), cap: { file: "src/engines/antidote/endState.ts" },
     why: "continue + holds is authorable since 2026-10-19; the carried END STATE (the hold kept across the cut) renders since 2026-10-27 (endState.ts)" },
+  // P3 2026-10-29: down / seated / gone / lifted kept across a continued beat. Nothing is authored for it (the author writes
+  // continue + a face action); the planner stamps carryState and merge refuses a contradiction since 00733673.
+  { key: "10x carried body state", layer: "10X", tenx: true, a: NC, e: (s) => bodyState.has(s), cap: { file: "src/engines/antidote/endState.ts" },
+    why: "a carryState scene (the planner stamps it on every authored continue) in which a person is still in the end state of an earlier deed of the chain (down, seated, gone, lifted) — counted with this tree's endState.ts; authored = NOT_CARRIED by design" },
 ];
 
 // ── capability: does THIS tree's engine have it? (the book's worktree is pinned; its src is what renders) ─────────────
@@ -144,10 +170,11 @@ const authoredList = [...authored.values()];
 const rows = FEATURES.map((F) => {
   const r = { feature: F.key, layer: F.layer };
   const has = safe(F.a);
-  r.authored = authoredFiles.length ? authoredList.filter(has).length : NV;
-  r.merged = F.m === NC ? NC : merged.length ? merged.filter(has).length : NV;
+  r.authored = F.a === NC ? NC : authoredFiles.length ? authoredList.filter(has).length : NV;
+  r.merged = F.a === NC || F.m === NC ? NC : merged.length ? merged.filter(has).length : NV;
   r.rendered = NV;
-  if (F.c === NC || F.c === NV) r.planned = F.c;
+  if (F.a === NC) r.planned = scenes.filter(safe(F.e)).length;
+  else if (F.c === NC || F.c === NV) r.planned = F.c;
   else if (!merged.length) r.planned = NV;
   else {
     const carried = safe(F.c || ((b, s) => F.e(s)));
@@ -191,13 +218,24 @@ rows.push({ feature: "proposition (P9-B)", layer: "DIRECTOR", authored: propAuth
   planned: scenes.filter((s) => !!(s._authorship || {}).propositionAuthored).length, rendered: NV,
   note: "source is beat-briefs.json src:author (not art.json); scripts/lib/authorship.js authorshipStamp does not return propositionAuthored" });
 
+// Renderer input (P4 2026-10-29): did a production render of THIS config go out? It proves the planned features reached
+// the renderer, not that they are visible — "rendered" per feature stays NOT_VERIFIED.
+const renderedInput = (() => {
+  let rp; try { rp = require("./lib/render-preflight"); } catch { return NV; }
+  const h = rp.inputHashOf(path.join(BOOK, "config.antidote.json"));
+  const runs = ((readJSON(path.join(BOOK, "render-facts.json"), {}) || {}).runs) || [];
+  const go = runs.filter((r) => r.kind === "preflight" && r.mode === "production" && r.decision && r.decision.ok);
+  const split = [`.render-github-split.${SLUG}.json`, ".render-github-split.json"].map((f) => readJSON(path.join(ROOT, f))).find((x) => x && x.slug === SLUG);
+  if (go.some((r) => r.renderInputHash === h)) return split ? "DISPATCHED_THIS_CONFIG" : "PREFLIGHT_GO_THIS_CONFIG";
+  return go.length ? "RENDERED_OTHER_CONFIG" : "NO_PRODUCTION_RENDER";
+})();
 const result = { slug: SLUG, created: new Date().toISOString(), reportOnly: true,
   note: "Beats per feature per stage. NOT_VERIFIED = cannot be counted from the files; NOT_CARRIED = the stage never receives the field. Zero use is not a defect.",
   sources: { authoredFiles: authoredFiles.map((x) => x.f), authoredBeats: authored.size, mergedBeats: merged.length, plannedScenes: scenes.length },
   // three evidence levels, never merged: capability (the engine has it) / adoption (authored -> merged -> planned) /
   // blind (a judged still of a scene that carries it). Hints are lexical pointers, not missed-feature verdicts.
   levels: { capability: "features[].capability", adoption: "features[].authored/merged/planned", verified: "features[].blind" },
-  authoringVsRules, adoptedFrom: adopted ? { at: adopted.at, reason: adopted.reason } : null,
+  authoringVsRules, renderedInput, adoptedFrom: adopted ? { at: adopted.at, reason: adopted.reason } : null,
   features: rows };
 const outDir = path.resolve(args.out || path.join(ROOT, "audit", "feature-usage", SLUG));
 fs.mkdirSync(outDir, { recursive: true });
@@ -216,6 +254,7 @@ if (tenx.length) {
   console.log(`${pad("feature", 36)} ${pad("capability", 11)} ${pad("authored", 9)} ${pad("merged", 7)} ${pad("planned", 8)} ${pad("verified (blind stills)", 34)} hints (lexical, unverified)`);
   const bl = (b) => typeof b === "string" ? b : `${b.stills} stills: CORRECT ${b.correct}, WRONG ${b.wrong}, ADDS ${b.adds}, EXPL ${b.explains}`;
   for (const r of tenx) console.log(`${pad(r.feature, 36)} ${pad(r.capability, 11)} ${pad(r.authored, 9)} ${pad(r.merged, 7)} ${pad(r.planned, 8)} ${pad(bl(r.blind), 34)} ${r.hints ? `${r.hints.count}${r.hints.count ? ` (i ${r.hints.beats.join(",")}${r.hints.count > r.hints.beats.length ? ",…" : ""})` : ""}` : "-"}`);
+  console.log(`renderer input: ${renderedInput} (a render of this config proves the planned features reached the renderer, not that they are visible)`);
   if (authoringVsRules === "AUTHORED_BEFORE_RULES") console.log(`⚠ the storyboard is older than storyboard/rules.md${adopted ? ` (adopted ${String(adopted.at).slice(0, 10)})` : ""}: it was not authored against the current rules — a feature this engine has could not be chosen. Re-author the passages the hints point to if they fit (never to use a tool).`);
 }
 console.log(`\n✓ ${file}`);

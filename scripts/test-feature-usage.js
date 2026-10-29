@@ -50,6 +50,32 @@ t("never writes the book", fs.readFileSync(path.join(BOOK, "config.antidote.json
 const v = spawnSync(process.execPath, [path.join(__dirname, "feature-usage.js"), "--slug=no-such-book", `--root=${root}`], { encoding: "utf8" });
 t("a book without an Antidote config: exit 0, says so", v.status === 0 && /Antidote only/.test(v.stdout));
 
+// P4 2026-10-29: the carried BODY state counts only a kept rest (this tree's endState.ts), never every carryState stamp;
+// the renderer input is a book-level fact read from render-facts (a dispatch of THIS config), pixels stay NOT_VERIFIED
+{
+  fs.mkdirSync(path.join(root, "src", "engines", "antidote"), { recursive: true });
+  fs.copyFileSync(path.join(__dirname, "..", "src", "engines", "antidote", "endState.ts"), path.join(root, "src", "engines", "antidote", "endState.ts"));
+  const b2 = "fixture-body", B2 = path.join(root, "books", b2);
+  fs.mkdirSync(B2, { recursive: true });
+  const sc = (id, action, extra = {}) => ({ id, fromFrame: 0, durationFrames: 300, _narration: `${id} he lies there`, characters: [who("man", { action })], ...extra });
+  const cfg2 = { meta: {}, scenes: [sc("s1", "collapsed"), sc("s2", "think", { continueFromPrev: true, carryState: true }), sc("s3", "talk", { continueFromPrev: true, carryState: true }),
+    sc("s4", "talk"), sc("s5", "talk", { continueFromPrev: true, carryState: true }), // no deed before: a stamp, not a body state
+    sc("s6", "collapsed"), sc("s7", "slump", { continueFromPrev: true, carryState: true })] }; // stood up again: not kept
+  fs.writeFileSync(path.join(B2, "config.antidote.json"), JSON.stringify(cfg2));
+  const rp = require("./lib/render-preflight");
+  fs.writeFileSync(path.join(B2, "render-facts.json"), JSON.stringify({ runs: [{ kind: "preflight", mode: "production", renderInputHash: rp.inputHashOf(path.join(B2, "config.antidote.json")), decision: { ok: true } }] }));
+  const fu = () => { const q = spawnSync(process.execPath, [path.join(__dirname, "feature-usage.js"), `--slug=${b2}`, `--root=${root}`, "--json"], { encoding: "utf8" }); return JSON.parse(q.stdout.slice(q.stdout.indexOf("{"))); };
+  const R = fu();
+  const BS = R.features.find((x) => /carried body state/.test(x.feature));
+  t("body state: 2 kept (down -> think -> talk), not the plain stamp, not the slump that stood him up", !!BS && BS.planned === 2 && BS.authored === "NOT_CARRIED");
+  t("renderer input: a production GO on this config -> PREFLIGHT_GO_THIS_CONFIG; per-feature rendered stays NOT_VERIFIED", R.renderedInput === "PREFLIGHT_GO_THIS_CONFIG" && R.features.every((x) => x.rendered === "NOT_VERIFIED"));
+  fs.writeFileSync(path.join(root, ".render-github-split.json"), JSON.stringify({ slug: b2, segments: [{}] }));
+  t("…and dispatched (split state for this slug) -> DISPATCHED_THIS_CONFIG", fu().renderedInput === "DISPATCHED_THIS_CONFIG");
+  cfg2.scenes.push(sc("s8", "idle"));
+  fs.writeFileSync(path.join(B2, "config.antidote.json"), JSON.stringify(cfg2));
+  t("…a changed config is not the one rendered -> RENDERED_OTHER_CONFIG", fu().renderedInput === "RENDERED_OTHER_CONFIG");
+}
+
 fs.rmSync(root, { recursive: true, force: true });
 console.log(fail ? `\n${fail} FAILED` : "\nall passed");
 process.exit(fail ? 1 : 0);

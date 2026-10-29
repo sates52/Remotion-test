@@ -82,6 +82,25 @@ try {
   r = run(["--slug=s1"], WT);
   t("run from inside the book's worktree: the same RESUME (any checkout works)", r.status === 0 && /RESUME s1/.test(r.stdout), r.stdout + r.stderr);
 
+  // P4 2026-10-29: a Step-0 book (no production work) whose pin fell behind: reported; moved only on --repin (the
+  // operator's word, recorded); a book with work keeps its pin
+  W(path.join(SEED, "scripts", "lib", "rules-v3.js"), "// newer authoring rules\n");
+  g(SEED, "add", "-A"); g(SEED, "commit", "-q", "-m", "rules v3"); g(SEED, "push", "-q", "origin", "god-mode");
+  const NEWER = g(SEED, "rev-parse", "HEAD");
+  r = run(["--slug=s1"]);
+  t("repin: a Step-0 book behind origin is REPORTED, not moved (the operator decides)", r.status === 0 && /NO WORK YET and the pin is 1 commit\(s\) behind/.test(r.stdout) && /--repin=/.test(r.stdout) && g(WT, "rev-parse", "HEAD") === NEW, r.stdout + r.stderr);
+  r = run(["--slug=s1", "--repin=operator: Step 0 only, author on current rules"]);
+  const pin2 = JSON.parse(fs.readFileSync(path.join(WT, "books", "s1", "production-base.json"), "utf8"));
+  t("repin: --repin moves the no-work book to origin and records from / to / reason", r.status === 0 && /REPINNED s1/.test(r.stdout) && g(WT, "rev-parse", "HEAD") === NEWER && pin2.productionBase === NEWER && pin2.repinned[0].from === NEW && /Step 0 only/.test(pin2.repinned[0].reason) && fs.existsSync(path.join(WT, "scripts", "lib", "rules-v3.js")), r.stdout + r.stderr);
+  t("repin: the operator's inputs survive the move", fs.existsSync(path.join(WT, "public", "audio", "s1.m4a")) && fs.existsSync(path.join(WT, "books", "s1", "book.json")));
+  W(path.join(SEED, "scripts", "lib", "rules-v4.js"), "// even newer\n");
+  g(SEED, "add", "-A"); g(SEED, "commit", "-q", "-m", "rules v4"); g(SEED, "push", "-q", "origin", "god-mode");
+  W(path.join(WT, "books", "s1", "storyboard", "authored-1.json"), "[]");
+  r = run(["--slug=s1", "--repin=try again"]);
+  t("repin: a book with production work (an authored chunk) is REFUSED and keeps its pin", r.status === 2 && /REFUSED --repin/.test(r.stderr) && /authored storyboard/.test(r.stderr) && g(WT, "rev-parse", "HEAD") === NEWER, r.stdout + r.stderr);
+  r = run(["--slug=s1"]);
+  t("repin: …and is not offered a move", r.status === 0 && !/NO WORK YET/.test(r.stdout), r.stdout);
+
   // a book already STARTED in the main checkout is never migrated silently
   W(path.join(MAIN, "books", "s2", "pipeline-record.json"), JSON.stringify({ runs: [{ step: "storyboard prep", head: OLD, at: "2026-10-27T10:00:00Z", linkedWorktree: false }] }));
   W(path.join(MAIN, "books", "s2", "storyboard", "authored-1.json"), "[]");
@@ -90,7 +109,7 @@ try {
   t("started in main: REFUSED (exit 2) with the evidence and its WIP row; nothing created", r.status === 2 && /STARTED/.test(r.stderr) && /storyboard prep/.test(r.stderr) && /owner: agent X/.test(r.stdout) && !fs.existsSync(path.join(tmp, "wt-book-s2")), r.stdout + r.stderr);
   r = run(["--slug=s2", "--adopt=owner moves it to current code"]);
   const WT2 = path.join(tmp, "wt-book-s2");
-  t("--adopt: a NEW pinned copy on current code, the reason recorded, the original untouched", r.status === 0 && fs.existsSync(path.join(WT2, "books", "s2", "adopted-from.json")) && fs.existsSync(path.join(WT2, "books", "s2", "storyboard", "authored-1.json")) && fs.existsSync(path.join(MAIN, "books", "s2", "pipeline-record.json")) && g(WT2, "rev-parse", "HEAD") === NEW, r.stdout + r.stderr);
+  t("--adopt: a NEW pinned copy on current code, the reason recorded, the original untouched", r.status === 0 && fs.existsSync(path.join(WT2, "books", "s2", "adopted-from.json")) && fs.existsSync(path.join(WT2, "books", "s2", "storyboard", "authored-1.json")) && fs.existsSync(path.join(MAIN, "books", "s2", "pipeline-record.json")) && g(WT2, "rev-parse", "HEAD") === g(SEED, "rev-parse", "HEAD"), r.stdout + r.stderr);
   r = run(["--slug=s2"], MAIN);
   t("after adoption the book resumes in its own worktree", r.status === 0 && /RESUME s2/.test(r.stdout), r.stdout + r.stderr);
   const final = snap();
@@ -100,7 +119,7 @@ try {
   const L = path.join(tmp, "wt-production-base");
   g(MAIN, "worktree", "add", "--detach", "-q", L, OLD); g(MAIN, "worktree", "lock", "--reason", "launcher", L);
   r = run(["--launcher"]);
-  t("--launcher: the clean launcher moves to origin and stays locked", r.status === 0 && g(L, "rev-parse", "HEAD") === NEW && /\nlocked/.test(wtBlock("wt-production-base")), r.stdout + r.stderr);
+  t("--launcher: the clean launcher moves to origin and stays locked", r.status === 0 && g(L, "rev-parse", "HEAD") === g(SEED, "rev-parse", "HEAD") && /\nlocked/.test(wtBlock("wt-production-base")), r.stdout + r.stderr);
   g(L, "checkout", "-q", "--detach", OLD);
   W(path.join(L, "CLAUDE.md"), "someone's edit\n");
   r = run(["--launcher"]);

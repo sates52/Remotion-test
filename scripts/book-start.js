@@ -125,6 +125,24 @@ if (wip) out(`  Active WIP row naming ${SLUG}: ${wip}`);
 if (mine && exists(PIN)) {
   const pin = readJSON(PIN) || {};
   out(`RESUME ${SLUG}: its production worktree exists - ${WT} (pinned ${String(pin.productionBase || "?").slice(0, 8)}${pin.productionBase && pin.productionBase !== ORIGIN ? `; origin moved to ${ORIGIN.slice(0, 8)} - the book KEEPS its pin` : ""})`);
+  // A pin protects WORK. A book still at Step 0 (no pipeline step, storyboard, config, film or render) would be
+  // authored on the pinned rules when its audio arrives - 2026-10-29: four Step-0 books pinned at 88db7e09 sat 11
+  // commits behind the tool-routing rules.md and the body-state merge. Moving a pin stays the operator's decision
+  // (contract s.3); this says so while it is cheap, and --repin="<operator's reason>" does it only then.
+  if (pin.productionBase && pin.productionBase !== ORIGIN) {
+    const ev = startedEvidence(WT);
+    const dirty = (git(["status", "--porcelain", "--", "scripts", "src", "data", "package.json"], WT) || "").trim();
+    const nBehind = parseInt(git(["rev-list", "--count", `${pin.productionBase}..${ORIGIN}`], WT) || "0", 10) || 0;
+    const repin = typeof args.repin === "string" ? args.repin.trim() : "";
+    if (!ev.length && !dirty && nBehind > 0) {
+      if (repin && !CHECK) {
+        if (git(["checkout", "--detach", "--quiet", ORIGIN], WT) === null) { err(`ERROR book-start: could not move ${WT} to ${ORIGIN.slice(0, 8)} - the pin is unchanged`); process.exit(1); }
+        const at = new Date().toISOString();
+        fs.writeFileSync(PIN, JSON.stringify({ ...pin, productionBase: ORIGIN, at, repinned: [...(pin.repinned || []), { from: pin.productionBase, to: ORIGIN, at, reason: repin, evidence: "no production work (no pipeline step, storyboard, config, film or render state)" }] }, null, 2) + "\n");
+        out(`  REPINNED ${SLUG}: ${pin.productionBase.slice(0, 8)} -> ${ORIGIN.slice(0, 8)} (${nBehind} commit(s)); no production work existed; reason recorded: "${repin}"`);
+      } else out(`  NO WORK YET and the pin is ${nBehind} commit(s) behind origin: its storyboard would be authored on the pinned rules. Moving the pin is the operator's decision - report it; on their word: book-start --slug=${SLUG} --repin="<the operator's reason>"`);
+    } else if (repin) { err(`REFUSED --repin: ${ev.length ? `${SLUG} has production work (${ev.join("; ")}) - a book keeps its engine commit` : dirty ? `${WT} has uncommitted code changes` : "the pin is not behind origin"}`); process.exit(2); }
+  }
   if (!CHECK) {
     // inputs that arrived later in the main checkout (the operator drops audio / VTT there): copy when missing
     const copied = [], differ = [];

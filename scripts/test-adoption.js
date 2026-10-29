@@ -84,6 +84,8 @@ try {
   t("rules: the routing table sits between the question for every beat and the vocabulary", rules.indexOf("## The question for every beat") < rules.indexOf("## Which tool for which passage") && route.length > 200);
   for (const tool of ["`refute`", "`mechanism`", "`causal` diagram", "`loop` + `ledger`", "`scorecard`", "`take`", "`drink`", "`place`", "`leave`", "`lift`"])
     t(`rules: routes to ${tool} with a measured why and a not-when`, route.split("\n").some((l) => l.includes(tool) && /\d+\/\d+|YYY/.test(l) && l.split("|").length >= 6 && l.split("|")[4].trim().length > 0), tool);
+  t("rules: a continued beat keeps a body state until the narration ends it (P3: down gets up only on a narrated rise, gone until they return, set down until a take)",
+    /a person who is down gets up only on "gets up \/ stands up \/ rises…"/.test(rules) && /stays gone until the narration brings them back/.test(rules) && /set down stays down until a `take`/.test(rules));
   t("rules: the table forbids using a tool for its own sake", /never use a tool for its own sake/.test(route) && /invention/.test(route));
   const later = Date.now() / 1000 + 5;
   fs.utimesSync(path.join(BOOK, "storyboard", "authored-1.json"), later, later); // a storyboard authored AFTER this rules.md
