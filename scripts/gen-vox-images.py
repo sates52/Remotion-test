@@ -15,9 +15,32 @@ try:
 except Exception:
     pass
 
+def _main_checkout_env():
+    # A book runs in its own worktree (../wt-book-<slug>, book-start.js); the operator's .env lives in the main
+    # checkout only and is never copied (2026-10-26: their-eyes-were-watching-god stopped on "NVIDIA_API_KEY not found").
+    # Read it in place — never copy it, never print it.
+    try:
+        import subprocess
+        common = subprocess.check_output(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=ROOT, text=True).strip()
+        p = os.path.join(os.path.dirname(common), ".env")
+        return p if os.path.isfile(p) else None
+    except Exception:
+        return None
+
+if not os.environ.get("NVIDIA_API_KEY"):
+    main_env = _main_checkout_env()
+    if main_env:
+        try:
+            from dotenv import load_dotenv
+            load_dotenv(main_env, override=False)
+            if os.environ.get("NVIDIA_API_KEY"):
+                print("NVIDIA_API_KEY: read from the main checkout's .env (not copied)")
+        except Exception:
+            pass
+
 API_KEY = os.environ.get("NVIDIA_API_KEY")
 if not API_KEY:
-    print("ERROR: NVIDIA_API_KEY not found"); sys.exit(1)
+    print("ERROR: NVIDIA_API_KEY not found (not in the environment, this checkout's .env, or the main checkout's .env) — the operator provides it; never write it into a file"); sys.exit(1)
 
 INVOKE_URL = "https://ai.api.nvidia.com/v1/genai/black-forest-labs/flux.2-klein-4b"
 
