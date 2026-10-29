@@ -1,0 +1,115 @@
+{
+  "created": "2026-10-29",
+  "purpose": "P5 visual explanation, class a (motive / inner process behind an outward act: 80 of 234 weak blind items, 49 TEXT_ONLY, ADDS 2, WRONG 12). Registered BEFORE any design: passages, questions, truths, decision rule. The holdouts are not rendered, looked at or tuned on before the design is frozen.",
+  "passages": [
+    {
+      "role": "DEV",
+      "slug": "the-hate-u-give",
+      "beats": [
+        17,
+        21
+      ],
+      "narrationSha256": "e5a40b8194525e6b4788a1d2fd276f109b9219b477a3b72bc40a0c807d6575d3",
+      "artBeatsSha256": "7b3765a212abe2364a7060cf3f7883593c1a14efd8997437a3408e0288ce4857",
+      "narration": [
+        {
+          "i": 17,
+          "narration": "Oh, it is exhausting just to read about. I mean, the physical and behavioral manifestation she forces upon herself. The text shows her actively policing her own vocabulary every second,"
+        },
+        {
+          "i": 18,
+          "narration": "right? Like absolutely no slang. None. If a popular rapper uses a specific word, she immediately removes it from her lexicon."
+        },
+        {
+          "i": 19,
+          "narration": "She monitors her emotional output constantly. She's making sure she never ever appears angry because she's terrified of the trope."
+        },
+        {
+          "i": 20,
+          "narration": "Exactly. She is terrified of being tagged with the angry black girl trope by her white classmates. So she meticulously polices her tone, her facial expressions, even her volume just so her"
+        },
+        {
+          "i": 21,
+          "narration": "peers never categorize her as It creates this incredible vibrating dissonance right from the jump."
+        }
+      ]
+    },
+    {
+      "role": "HOLDOUT-1",
+      "slug": "the-art-of-saying-no",
+      "beats": [
+        145,
+        149
+      ],
+      "narrationSha256": "efe777c428450630332e92e0d9c3ff49d3f2a4cf4e6629e5c93eff7c8c8e3f28",
+      "artBeatsSha256": "618bcea59e109910e1961146d6a38f87f7b8376dce6260b885ce0baefca6e18f",
+      "narration": [
+        {
+          "i": 145,
+          "narration": "She sigh heavily. You can hear the disappointment radiating through the phone. The guilt trip is coming."
+        },
+        {
+          "i": 146,
+          "narration": "And she hits you with the classic, \"Well, I guess family just isn't a priority for you anymore."
+        },
+        {
+          "i": 147,
+          "narration": "We hardly see you.\" The guilt trip. The voice of the master manipulator."
+        },
+        {
+          "i": 148,
+          "narration": "This is the crucible for the recovering people pleaser because your instinct is to immediately backpedal to stop her emotional pain. Did you say, \"Fine, I'll come.\""
+        },
+        {
+          "i": 149,
+          "narration": "Exactly. But the necessary realization here is that you have to separate your logical decision from her emotional response. We operate under the delusion that our job is to manage everyone else's emotional state."
+        }
+      ]
+    },
+    {
+      "role": "HOLDOUT-2",
+      "slug": "learned-optimism-how-to-change-your-mind-and-your-life",
+      "beats": [
+        156,
+        160
+      ],
+      "narrationSha256": "9f785d334fba047a1612c7bd321528b30d65cfdf406c938ca04bd19382c585e9",
+      "artBeatsSha256": "d459fe2b173d05e8852c35bc5c92e3d59b42dea2840301dc10965192656ba5bd",
+      "narration": [
+        {
+          "i": 156,
+          "narration": "We already see so much fingerpointing in the world. It's a vital distinction. If we look at the broader psychological landscape, we see a nuanced line between genuine productive responsibility"
+        },
+        {
+          "i": 157,
+          "narration": "and reflexively assuming you are the sole cause of every negative event. Personalization is actually the trickiest of the three pillars because it is the easiest to fake. How do you mean?"
+        },
+        {
+          "i": 158,
+          "narration": "You can superficially learn to just deflect blame out loud to protect your ego. But when you combine internal personalization with the first two pillars, permanence and pervasiveness, you"
+        },
+        {
+          "i": 159,
+          "narration": "create the ultimate architectural blueprint for clinical depression. The objective here is not to become a narcissist who never admits fault."
+        },
+        {
+          "i": 160,
+          "narration": "The objective is to stop absorbing the blame for circumstances you genuinely do not control and equally importantly to stop viewing the mistakes you did make as permanent pervasive character flaws."
+        }
+      ]
+    }
+  ],
+  "truths": {
+    "DEV": "Starr outwardly keeps a blank, controlled face and voice at Williamson (no slang, never angry) BECAUSE inside she is terrified of being labelled the angry Black girl by her white classmates; the outside hides the inside.",
+    "HOLDOUT-1": "A relative guilt-trips you on the phone (family isnt a priority); the people pleaser instinctively backpedals and says yes (\"Fine, I will come\") BECAUSE they want to stop HER emotional pain; the lesson is to separate your decision from her feelings.",
+    "HOLDOUT-2": "A person can deflect blame out loud (it is not my fault) to protect their ego WHILE inside they still blame themselves (internal personalization); combined with the other two pillars this is a blueprint for depression; the goal is to stop absorbing blame for what you do not control."
+  },
+  "questions": {
+    "outward": "what the person does or shows OUTWARDLY (the act / the face they show) is named correctly",
+    "inner": "what the person feels, fears or thinks INSIDE (the reason) is named correctly",
+    "relation": "the viewer connects the inner reason as the CAUSE of the outward act (because / so that / to hide)",
+    "contrast": "the viewer sees that the inside differs from what is shown outside (where the narration says so)"
+  },
+  "protocol": "silent 5x3 contact sheets (one row per beat), 3 fresh sonnet readers per arm, strict sonnet judge per reader (rows: CORRECT/NEUTRAL/WRONG + ADDS/TEXT_ONLY/NONE; questions YES/PARTLY/NO; invented). Arms: BASE = the published beats; NEW = the device. HOLDOUT NEW arms are authored ONCE by a fresh agent from the narration + the frozen rules text only; nobody tunes them after seeing a result.",
+  "decision": "SHIP to god-mode only if on EACH holdout WRONG(new) <= WRONG(base) (do no harm) AND ADDS(new) >= ADDS(base), AND pooled over both holdouts relation YES(new) >= relation YES(base) + 2 (of 6 readers). Otherwise the device stays on dev/motive-1 with its evidence. DEV results never count toward the decision."
+}
