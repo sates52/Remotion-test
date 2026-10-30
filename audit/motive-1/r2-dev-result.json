@@ -1,0 +1,78 @@
+{
+  "round": 2,
+  "role": "DEV (learning only; never counts)",
+  "passage": "buffett 45-49",
+  "authoring": "sandbox i2 (book 47): outward expression sad -> blank, thought {expression: afraid} (no cue). Rule v1.1 (586864f4).",
+  "summary": {
+    "new": "outward PYY inner PPY relation PYY contrast PPY WRONG 0/15 ADDS 11/15 invented 2",
+    "base": "outward YPP inner PPP relation PPP contrast NNN WRONG 0/15 ADDS 9/15 invented 3"
+  },
+  "readers": [
+    {
+      "arm": "base",
+      "k": 1,
+      "rows": "NT CT CA CA CA",
+      "outward": "YES",
+      "inner": "PARTLY",
+      "relation": "PARTLY",
+      "contrast": "NO",
+      "invented": "YES",
+      "why": "The viewer sees the retreat into ledgers and paper routes and links it to the mother's volatile moods. Fear and control are only hinted at (anxious, safe in order), and the calm outside versus fear inside contrast is never stated. The early rows are vague or carried by text."
+    },
+    {
+      "arm": "base",
+      "k": 2,
+      "rows": "CT CA CA CA CT",
+      "outward": "PARTLY",
+      "inner": "PARTLY",
+      "relation": "PARTLY",
+      "contrast": "NO",
+      "invented": "YES",
+      "why": "The viewer gets the retreat into ledgers and the mother's volatile moods, with a vague sense of control and safety, but muddles who is who, never states fear of the storm as the cause, and sees no calm-outside versus fear-inside contrast. Rows 2 and 3 pictures add some meaning, while rows 1 and 5 are carried mostly by printed words."
+    },
+    {
+      "arm": "base",
+      "k": 3,
+      "rows": "NT CT CA CA CA",
+      "outward": "PARTLY",
+      "inner": "PARTLY",
+      "relation": "PARTLY",
+      "contrast": "NO",
+      "invented": "YES",
+      "why": "The viewer gets the withdrawn man, a sad/worried mood, and ledgers or a controlled game as refuge, but never names fear of the mother's rages or control as the cause, and sees no gap between a calm outside and fear inside. The inner reason and causal link are only hinted at (unsettled by moods, comfort in order), and the mother's rage is shown as worry."
+    },
+    {
+      "arm": "new",
+      "k": 1,
+      "rows": "CT CA CT CA CA",
+      "outward": "PARTLY",
+      "inner": "PARTLY",
+      "relation": "PARTLY",
+      "contrast": "PARTLY",
+      "invented": "YES",
+      "why": "The viewer links the retreat into ledgers and paper routes to the mother's volatile moods and to a need for order, but the inner fear is only inferred ('anxiety', 'on edge'), and the calm-outside versus fear-inside contrast is implied rather than stated. The viewer also adds a 'bargain that became a prison' framing and a younger-man confrontation that the narration does not support."
+    },
+    {
+      "arm": "new",
+      "k": 2,
+      "rows": "CT CA CA CA CA",
+      "outward": "YES",
+      "inner": "PARTLY",
+      "relation": "YES",
+      "contrast": "PARTLY",
+      "invented": "YES",
+      "why": "The viewer gets the chain: the mother's unpredictable moods make him anxious, so he retreats into ledgers and paper routes for order and control. They also name the outward calm and the inner anxiety. However, the viewer misreads the 'Now you know how I felt' row as a cold older man facing a hurt young man, and the viewer never says Warren could not fight back. The viewer also says the older man is calm and orderly while others look upset, which does not clearly pair his calm outside with fear inside."
+    },
+    {
+      "arm": "new",
+      "k": 3,
+      "rows": "CT CA NA CA CA",
+      "outward": "YES",
+      "inner": "YES",
+      "relation": "YES",
+      "contrast": "YES",
+      "invented": "NO",
+      "why": "The viewer reads the outward calm and retreat into ledgers, the inner hurt/worry, and links the mother's volatile moods to his turn to ledgers for order, plus the calm-versus-hurt contrast. Weaknesses are the row 1 and row 3 details, the missing tirade, and control being implied as order rather than stated."
+    }
+  ]
+}
