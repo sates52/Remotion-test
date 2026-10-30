@@ -409,7 +409,9 @@ async function nimCall(text, jpgPath, temperature) {
         method: "POST",
         signal: ac.signal,
         headers: { "content-type": "application/json", authorization: `Bearer ${KEY}` },
-        body: JSON.stringify({ model: NIM_MODEL, messages: [{ role: "user", content }], temperature, max_tokens: 2000, stream: false }),
+        // reasoning VLMs (nemotron-*-vl) spend the token budget thinking and return empty content: switch thinking off
+        // (2026-10-30: llama-3.2-11b-vision is 404 on the free tier, 90b times out; nemotron-3.5-super-vl answers in ~1 s)
+        body: JSON.stringify({ model: NIM_MODEL, messages: [{ role: "user", content }], temperature, max_tokens: 2000, stream: false, ...(/nemotron/i.test(NIM_MODEL) ? { chat_template_kwargs: { enable_thinking: false } } : {}) }),
       });
       const json = await res.json().catch(() => ({}));
       if (res.ok) return String(json.choices?.[0]?.message?.content || "").replace(/```json/gi, "").replace(/```/g, "").trim();

@@ -1,0 +1,271 @@
+{
+ "totals": {
+  "official": {
+   "WRONG": 2,
+   "DEAD": 8,
+   "ADDS": 7,
+   "EXPLAINS": 0,
+   "n": 30
+  },
+  "nim1": {
+   "WRONG": 2,
+   "DEAD": 1,
+   "ADDS": 1,
+   "EXPLAINS": 0,
+   "n": 30
+  },
+  "nim2": {
+   "WRONG": 3,
+   "DEAD": 0,
+   "ADDS": 2,
+   "EXPLAINS": 1,
+   "n": 30
+  }
+ },
+ "agreementWithOfficial": {
+  "correctness": {
+   "nim1": 7,
+   "nim2": 6
+  },
+  "contribution": {
+   "nim1": 15,
+   "nim2": 16
+  },
+  "explains": {
+   "nim1": 30,
+   "nim2": 29
+  },
+  "of": 30
+ },
+ "officialWrongMissedByNim": [
+  "img-26",
+  "img-27"
+ ],
+ "nimWrongOfficialNot": [
+  "img-01",
+  "img-12",
+  "img-25"
+ ],
+ "officialDeadMissedByNim": [
+  "img-05",
+  "img-07",
+  "img-08",
+  "img-10",
+  "img-12",
+  "img-26",
+  "img-27",
+  "img-28"
+ ],
+ "rows": [
+  {
+   "img": "img-01",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer interpreted the question as being directed at them personally, while the narration explains that insurance companies avoid asking applicants because everyone would answer yes; the message is inverted."
+  },
+  {
+   "img": "img-02",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-03",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-04",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-05",
+   "off": "NNN",
+   "nim1": "CTN",
+   "nim2": "CAN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-06",
+   "off": "NTN",
+   "nim1": "NTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-07",
+   "off": "NNN",
+   "nim1": "NTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-08",
+   "off": "NNN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-09",
+   "off": "NAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-10",
+   "off": "NNN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-11",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-12",
+   "off": "NNN",
+   "nim1": "WTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer interprets \"Still Hunts Rabbits\" as a named concept or development insight, while the narration describes a strategic choice to hunt rabbits instead of stags based on expected actions; the image's message does not match the narration's meaning. || The viewer interprets the scene as introd"
+  },
+  {
+   "img": "img-13",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-14",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-15",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-16",
+   "off": "NTN",
+   "nim1": "CNN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-17",
+   "off": "CTN",
+   "nim1": "NTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-18",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-19",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "CAY",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-20",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-21",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-22",
+   "off": "NAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-23",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-24",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-25",
+   "off": "NTN",
+   "nim1": "WTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The image shows glasses with yellow dots labeled knowing the truth versus being in the dark, which does not match the narration about a man claiming a back injury and applying for workers compensation. || The narration describes a man faking a back injury for workers' compensation, while the image s"
+  },
+  {
+   "img": "img-26",
+   "off": "WNN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-27",
+   "off": "WNN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-28",
+   "off": "NNN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-29",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-30",
+   "off": "NTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  }
+ ]
+}

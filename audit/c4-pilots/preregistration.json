@@ -1,0 +1,32 @@
+{
+  "schema": "c4-pilot-prereg/1",
+  "date": "2026-10-30",
+  "written": "before any blind reader ran",
+  "method": "silent 7-frame sequence sheets (left to right, captions off; the on-screen words are identical in both arms), 5 fresh sonnet readers per sheet, one sheet per reader, arm labels randomised (s1/s2 per fixture, map files kept judge-side); one strict judge per reading against the truth; no reader sees the narration",
+  "pilots": {
+    "flee-2.1": {
+      "change": "flee run legibility: upright speed streaks (were gated on a tipped body), flight phase (both knees bent at stride peaks), bounce 16, lean 12, shrinking shadow; cadence 2.4 Hz, FLEE_LEN 42 and arms unchanged (flee critic 2026-10-30)",
+      "arms": { "A": "current god-mode (base)", "B": "changes 1-3" },
+      "fixtures": {
+        "F1": "fahrenheit-451 234-236 (Montag runs from the Mechanical Hound), frames 415,426,429,432,436,439,442 (cue 423)",
+        "F2": "trust-fall 138-142 (Julia flees New York), frames 512,523,526,529,533,536,539 (cue 520)"
+      },
+      "questions": {
+        "action": "forced: stand / walk / run / jump / dance / fall / other — what the person does",
+        "away": "does the person move AWAY from the other thing in the picture (the hound / the city)?",
+        "pursuit": "is anything chasing the person? (an invented pursuit is a misread)"
+      },
+      "shipRule": "SHIP B only if, on BOTH fixtures, RUN readers in B >= 4/5 AND >= RUN readers in A + 2, no dance / celebrate / fall read in B, and WRONG readings in B <= A. Otherwise flee stays a LIMIT; the streak fix alone ships only if B shows no new WRONG."
+    },
+    "continuity-carry": {
+      "change": "carryState (already in production since 00733673): a seated person stays seated across continued beats",
+      "arms": { "ON": "carryState as planned", "OFF": "carryState removed (the pre-P1 plan, byte-identical base)" },
+      "fixture": "trust-fall 42-47 (Damen sits at his parents' table; the narration says he 'just sits there'), frames 560,600,800,975,1150,1280,1480",
+      "questions": {
+        "state": "is the man sitting in every moment, or does he stand up? when?",
+        "persist": "does the picture keep ONE continuous situation (same man, same table, same position) across the moments?"
+      },
+      "shipRule": "carryState is already shipped; this is its first real-book blind check. KEEP if 'sits throughout' readers ON >= 4/5 and >= OFF + 2 and WRONG ON <= OFF. If ON is not better, record it as an open limitation (no rollback without the operator)."
+    }
+  }
+}

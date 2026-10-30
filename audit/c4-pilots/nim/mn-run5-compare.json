@@ -1,0 +1,266 @@
+{
+ "totals": {
+  "official": {
+   "WRONG": 0,
+   "DEAD": 2,
+   "ADDS": 23,
+   "EXPLAINS": 1,
+   "n": 30
+  },
+  "nim1": {
+   "WRONG": 3,
+   "DEAD": 1,
+   "ADDS": 8,
+   "EXPLAINS": 1,
+   "n": 30
+  },
+  "nim2": {
+   "WRONG": 8,
+   "DEAD": 1,
+   "ADDS": 4,
+   "EXPLAINS": 1,
+   "n": 30
+  }
+ },
+ "agreementWithOfficial": {
+  "correctness": {
+   "nim1": 23,
+   "nim2": 17
+  },
+  "contribution": {
+   "nim1": 14,
+   "nim2": 9
+  },
+  "explains": {
+   "nim1": 28,
+   "nim2": 28
+  },
+  "of": 30
+ },
+ "officialWrongMissedByNim": [],
+ "nimWrongOfficialNot": [
+  "img-03",
+  "img-07",
+  "img-10",
+  "img-13",
+  "img-16",
+  "img-17",
+  "img-20",
+  "img-25"
+ ],
+ "officialDeadMissedByNim": [
+  "img-10"
+ ],
+ "rows": [
+  {
+   "img": "img-01",
+   "off": "NAN",
+   "nim1": "CAN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-02",
+   "off": "CAN",
+   "nim1": "CAY",
+   "nim2": "CAY",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-03",
+   "off": "NTN",
+   "nim1": "NTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer interpreted locks as representing ignorance, while the narration states profound ignorance is the axis the story turns on and that the viewer has no idea how the locks work, not that locks equal ignorance."
+  },
+  {
+   "img": "img-04",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-05",
+   "off": "NAN",
+   "nim1": "CTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-06",
+   "off": "CTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-07",
+   "off": "CAN",
+   "nim1": "WTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer sees a comparison between two women, while the narration describes Digory physically overpowering Paulie to satisfy his ego; the subjects, action, and meaning do not match. || The narration describes Digory physically overpowering Paulie, but the image shows two women labeled Polly and Di"
+  },
+  {
+   "img": "img-08",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-09",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-10",
+   "off": "NNN",
+   "nim1": "NTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer understood only 'the joke' from a red label, missing the narration's core message about Alang granting consciousness to animals, so the understood message does not match the narration."
+  },
+  {
+   "img": "img-11",
+   "off": "NTN",
+   "nim1": "NTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-12",
+   "off": "NNN",
+   "nim1": "NNN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-13",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer interprets the scene as a title card for \"Climbing In\" featuring Digory and Polly, while the narration describes children exploring a dark tunnel under slates in an attic; the image suggests a labeled introduction rather than the physical exploration narrated."
+  },
+  {
+   "img": "img-14",
+   "off": "CAY",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-15",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-16",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer treats the on-screen text as a segment title rather than understanding the jackdaw's interjection during a dead silence and the animals' reaction, missing the narration's actual event."
+  },
+  {
+   "img": "img-17",
+   "off": "NAN",
+   "nim1": "WTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer saw two women embracing in dark water, which contradicts the narration of a magnetic ring pulling someone through a wood between worlds back into a study. || The narration describes a magnetic ring pulling a person through a wood between worlds back into a study, but the viewer saw two wo"
+  },
+  {
+   "img": "img-18",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-19",
+   "off": "CAN",
+   "nim1": "NTN",
+   "nim2": "NNN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-20",
+   "off": "CAN",
+   "nim1": "WTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer only sees a title card and a static image of a man with a pole near a bell, missing the narration's core actions of grabbing her arm, striking the bell, and the theme of forcing will onto someone else; it suggests merely a segment introduction rather than the described failure. || The vie"
+  },
+  {
+   "img": "img-21",
+   "off": "CTN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-22",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "CAN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-23",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "CAN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-24",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-25",
+   "off": "CTN",
+   "nim1": "CTN",
+   "nim2": "WTN",
+   "nimWrongWhy": "The viewer inferred the narrator is introducing 'London Mother,' but the narration is instructing someone to take an item back to London to give to their mother to save her life, not introducing a character named London Mother."
+  },
+  {
+   "img": "img-26",
+   "off": "CAN",
+   "nim1": "NTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-27",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-28",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "CAN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-29",
+   "off": "CAN",
+   "nim1": "CAN",
+   "nim2": "CTN",
+   "nimWrongWhy": ""
+  },
+  {
+   "img": "img-30",
+   "off": "CAN",
+   "nim1": "CTN",
+   "nim2": "NTN",
+   "nimWrongWhy": ""
+  }
+ ]
+}

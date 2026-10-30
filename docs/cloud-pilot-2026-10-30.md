@@ -141,6 +141,42 @@ Before a real call:
 
 Not done: no model, no NIM and no paid call was made.
 
+### MEASURED 2026-10-30 — NVIDIA NIM as the blind rater (2 sealed runs, read-only copies)
+
+Setup:
+- `scripts/mute-reliability.js run --rater=nim --k=2` on copies of two sealed runs, 30 frames each.
+- 2 describer and 2 judge passes per frame, one image per request: 120 calls per run, 240 in total.
+- Model `nvidia/nemotron-3.5-super-vl-120b-a12b`, with thinking off (`chat_template_kwargs.enable_thinking=false`).
+- `llama-3.2-11b-vision` returns 404 on the free tier, and `90b` times out.
+- Cost: **$0**, on the free trial (recorded in `audit/ai-spend/2026-10.jsonl`).
+- Wall time: 12.1 min and 11.0 min.
+
+| run | official sealed verdict | NIM pass 1 | NIM pass 2 | NIM majority |
+|---|---|---|---|---|
+| the-magician-s-nephew run5 | **PASS**: WRONG 0, dead 2, ADDS 23, EXPLAINS 1 | WRONG 3, dead 1, ADDS 8 | WRONG 8, dead 1, ADDS 4 | **FAIL (false FAIL)** |
+| the-art-of-strategy final | **FAIL**: WRONG 2, dead 8, ADDS 7, EXPLAINS 0 | WRONG 2, dead 1, ADDS 1 | WRONG 3, dead 0, ADDS 2 | FAIL (same verdict, wrong frames) |
+
+Frame-level findings:
+- **NIM missed both real WRONG frames** of the Art of Strategy run (img-26, img-27). It flagged 3 other frames as WRONG instead.
+- It caught **0 of the 8 dead frames**.
+- On The Magician's Nephew it put WRONG on 8 frames the official rater judged correct, often for "only a title card is visible".
+- Its describer misread frames: it reported "VS POLLY DIGORY" on a frame that does not show it, and "two women embracing in dark water".
+- Correctness agreement with the official rater: MN 23/30 and 17/30; AoS 7/30 and 6/30.
+- ADDS agreement: MN 14/30 and 9/30. NIM's judge calls almost every image TEXT_ONLY.
+- The two NIM passes disagree with each other on 10 of 30 frames.
+
+**Verdict:**
+- NOT usable as the official rater.
+- NOT usable as a pre-screen either: it misses the real WRONG frames, which is the one thing a pre-screen must catch.
+- The official blind rater (fresh Claude sonnet agents) stays.
+
+**Terms** (NVIDIA API Trial Terms of Service, §1.2 and §1.4):
+- The free hosted API is for internal testing and evaluation only, "not in production". Production needs a paid Subscription or an NVIDIA AI Enterprise license.
+- These pilots are evaluation, so they are allowed.
+- A routine pre-screen step would not be allowed on the free tier.
+- The Llama 3.2 model license itself allows commercial use.
+- **Note for the operator:** the pipeline's Flux images for published videos also come through this free API. Under §1.2 that is "Generated Content in production". The operator's decision, recorded here.
+
 ## 4. What stays local (P2.5)
 
 | Stage | Where it runs | Why |
