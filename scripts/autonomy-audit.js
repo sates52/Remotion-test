@@ -105,7 +105,58 @@ function readTranscript(file) {
   return raw.split(/\r?\n/).filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
 }
 
+/** every Claude Code transcript that ran preview-state, by slug (newest last) */
+function transcriptsBySlug(dir) {
+  const out = {};
+  for (const d of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    const p = path.join(dir, d); try { if (!fs.statSync(p).isDirectory()) continue; } catch { continue; }
+    for (const f of fs.readdirSync(p).filter((x) => x.endsWith(".jsonl"))) {
+      const full = path.join(p, f);
+      let txt; try { txt = fs.readFileSync(full, "utf8"); } catch { continue; }
+      const slugs = new Set([...txt.matchAll(/── preview state · (\S+)/g)].map((m) => m[1]));
+      for (const s of slugs) (out[s] = out[s] || []).push({ file: full, mtime: fs.statSync(full).mtime.toISOString() });
+    }
+  }
+  return out;
+}
+
 if (require.main === module) {
+  // --scan (Decision 6, 2026-10-30): measure EVERY real session automatically. A session counts toward L3 only when its
+  // book's pin contains the autonomy fix (c923c2c1, the "never end the turn on CONTINUE" contract); older pins are
+  // the BEFORE baseline. Results append to audit/autonomy/<YYYY-MM-DD>.jsonl; a FAIL is a FAIL (no human override).
+  if (args.scan) {
+    const { execFileSync } = require("child_process");
+    const ROOT = path.join(__dirname, "..");
+    const FIX = args.fix || "c923c2c1";
+    const books = path.resolve(args.books || path.join(ROOT, ".."));
+    const pins = {};
+    for (const d of fs.readdirSync(books).filter((x) => x.startsWith("wt-book-"))) {
+      const slug = d.slice("wt-book-".length);
+      try { pins[slug] = JSON.parse(fs.readFileSync(path.join(books, d, "books", slug, "production-base.json"), "utf8")).productionBase; } catch {}
+    }
+    const hasFix = (pin) => { try { execFileSync("git", ["-C", ROOT, "merge-base", "--is-ancestor", FIX, pin], { stdio: "ignore" }); return true; } catch { return false; } };
+    const own = args.exclude ? new Set(String(args.exclude).split(",")) : new Set();
+    const rows = [];
+    for (const [slug, list] of Object.entries(transcriptsBySlug(args.dir || path.join(os.homedir(), ".claude", "projects")))) {
+      if (!pins[slug] && !args.all) continue; // only books with their own pinned worktree are video-agent sessions
+      for (const t of list) {
+        if ([...own].some((x) => t.file.includes(x))) continue;
+        const r = audit(readTranscript(t.file), slug);
+        if (r.verdict === "NO_EVIDENCE") continue;
+        const after = pins[slug] ? hasFix(pins[slug]) : false;
+        rows.push({ at: new Date().toISOString(), slug, pin: pins[slug] || null, period: after ? "AFTER (counts for L3)" : "BEFORE (pre-fix pin)", transcript: path.basename(t.file), mtime: t.mtime, verdict: r.verdict, stopOnContinue: r.stopOnContinue, claimedGate: r.claimedGate, waiting: r.waiting, reached: r.reached, stops: r.stops.map((s) => ({ at: s.at, stage: s.stage, quote: s.quote.slice(-200) })) });
+      }
+    }
+    const outDir = path.join(ROOT, "audit", "autonomy");
+    fs.mkdirSync(outDir, { recursive: true });
+    const file = path.join(outDir, `${new Date().toISOString().slice(0, 10)}.jsonl`);
+    for (const r of rows) fs.appendFileSync(file, JSON.stringify(r) + "\n");
+    const after = rows.filter((r) => /^AFTER/.test(r.period));
+    for (const r of rows) console.log(`${r.period.padEnd(22)} ${r.slug.padEnd(32)} ${r.verdict.padEnd(11)} stops ${r.stopOnContinue} · claimed ${r.claimedGate} · ${r.transcript}`);
+    const passAfter = after.filter((r) => r.verdict === "PASS").length;
+    console.log(`\n${rows.length} session(s) → ${path.relative(ROOT, file)} · AFTER the fix: ${after.length} (${passAfter} PASS, ${after.filter((r) => r.verdict === "FAIL").length} FAIL, ${after.filter((r) => r.verdict === "REVIEW").length} REVIEW) · L3 needs 2 AFTER PASS sessions on different harnesses`);
+    process.exit(0);
+  }
   if (args.find) {
     const dir = args.dir || path.join(os.homedir(), ".claude", "projects");
     const hits = [];
