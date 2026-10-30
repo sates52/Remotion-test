@@ -2088,6 +2088,32 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-30 — Cycle 4: AI budget, NIM pilot, autonomy scan, blind A/Bs (flee, carried state, The Art of Strategy), MN fix list
+- **AI budget** (b8b0da31):
+  - `scripts/ai-budget.js` + `data/ai-budget.json`: $50 / month, warning at $40, new paid AI work stops at $45, about $2 / 24 h.
+  - Paid gh-aw workflows are started ONLY through `ai-budget.js dispatch`. Direct-API pilots run `check --usd` first and `record` after.
+  - The analyst has `max-daily-ai-credits: 200`, and the `AI_SPEND_PAUSED` repo variable stops it.
+  - The count is an estimate (usage artifacts + the ledger); the provider bill is the truth.
+- **CI Analyst first real run** (operator: keep the existing secret): run 41076356063 failed with "Credit balance is too low".
+  - The key is valid but the Anthropic account has no credit. Cost $0, read back by the counter.
+  - Needs credit bought in the Console; auto-reload OFF also gives the hard cap.
+- **NIM rater pilot:** not usable as the official rater or as a pre-screen. Details: docs/cloud-pilot-2026-10-30.md §3.
+  - It missed both real WRONG frames and 8/8 dead frames on AoS final, and gave a false FAIL on MN run5.
+  - 240 free-trial calls, $0. The NVIDIA trial terms do not allow production use; this also covers the Flux images.
+- **Autonomy** (2dcfdf13, 085acc87): `autonomy-audit.js` and its `--scan` mode.
+  - All 5 real sessions so far ran on pre-fix pins, and all FAIL.
+  - 0 sessions so far on code that has the fix (c923c2c1), so L3 is still open.
+- **Blind A/Bs** (audit/c4-pilots; every rule was written before its readers ran):
+  - **flee 2.1:** NO SHIP. RUN reads 10/10 vs 4/10, but a new direction WRONG appeared on TF (the arm, the gaze and the growing city all point at the threat).
+  - **carryState sit→continue:** ON 5/5 vs OFF 0/5 → L3.
+  - **The Art of Strategy** (2 holdout passages, 184 agents): the current pipeline gives ADDS 9→19/46, dead 2→0, EXPLAINS 4→14, but WRONG 0→2 → NO SHIP.
+    - The merge guards, the beard fix and the messy-hair lint stay out of production (`aos-guards.patch`).
+    - The `target` icon for a football penalty reads as archery; recorded in icon-readings.json.
+- **MN:** film verified (sha256 = the cloud report).
+  - docs/the-magician-s-nephew-upload-fixlist.md: 18 verified items + 5 found by the verifier, 11 of them upload blockers.
+  - Two blockers (the golden apple images) need a re-render.
+  - Not uploaded.
+
 ### 2026-10-30 — CI Failure Analyst hardened and put on `main` (2 files only); MN real dispatch = L3; regression register
 - **Analyst hardened** (operator Decisions 1 and 3). Changes:
   - threat detection **ON** (Haiku, own cap 5 AIC, `continue-on-error: false`, no tracking issue);
