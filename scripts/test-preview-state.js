@@ -303,7 +303,7 @@ try {
   t("status in the production worktree: code done, link and lock checked", s.stages.find((x) => x.key === "code").status === "done" && /node_modules → main, locked/.test(s.stages.find((x) => x.key === "code").detail), JSON.stringify(s.stages.find((x) => x.key === "code")));
   const rmForce = spawnSync("git", ["worktree", "remove", "--force", WT], { cwd: G, encoding: "utf8" });
   t("`git worktree remove --force` on the locked worktree is REFUSED; the main node_modules is untouched", rmForce.status !== 0 && /locked/.test(rmForce.stderr) && fs.existsSync(SENT) && fs.existsSync(WT), rmForce.stderr);
-  fs.rmdirSync(path.join(WT, "node_modules"));
+  { const l = path.join(WT, "node_modules"); if (process.platform === "win32") fs.rmdirSync(l); else fs.unlinkSync(l); } // the link only (POSIX symlink: unlink)
   s = state(WT);
   t("link removed -> status asks to recreate it (no operator)", s.state === "CONTINUE" && s.next.stage === "code" && /recreate/i.test(s.next.action) && fs.existsSync(SENT));
   t("re-run `worktree` -> the link is recreated, still locked", run(G, "worktree", "--slug=zz-book").status === 0 && fs.lstatSync(path.join(WT, "node_modules")).isSymbolicLink() && locked() && state(WT).stages.find((x) => x.key === "code").status === "done");
