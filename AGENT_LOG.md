@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ dev/cycle3 (production reliability + autonomy + cloud pilot) | `scripts/render.js`, `scripts/lib/{book-root,preview-record,mute-verdict,mute-manifest,render-preflight,run-lock,next-step,merge-recovery}.js`, `scripts/{maintenance-upgrade,render-decision,preview-ready,preview-state,mute-test,plan-bible,storyboard,ci-run-tests,mute-cloud-poc}.js`, `.github/workflows/{regression.yml,ci-failure-analyst.*}`, skills | _(done)_ 2026-10-30: pushed to god-mode (… 238ca499) | No book, pin, render, WIP file, gate or threshold changed. Motive r2 NO SHIP (stays on dev/motive-1). See the 2026-10-30 changelog. |
 | _(done)_ render-farsighted | `books/farsighted/` | ✅ PUBLISHED & CLEANED 2026-10-27 | Antidote; 55.5 min (99,435 frames), 10-way split; YouTube live; GitHub runs/artifacts + 11 render refs purged; local film, thumbnails, audio, captions, worktree removed. |
 | _(done)_ deliver-nobody-wants-to-read-your-sh-t | `books/nobody-wants-to-read-your-sh-t/` | ✅ PUBLISHED & CLEANED 2026-10-24 | Antidote; 41:19 (74,067 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~1.9 GB) + 10 render refs purged; local film, upload folder, thumbnails, audio/captions, worktree + render clone removed. |
 | _(done)_ thinking-in-systems | `books/thinking-in-systems/` | ✅ PUBLISHED & CLEANED 2026-10-23 | Antidote; 43:54 (78,692 frames), 10-way split; YouTube live; 10 GitHub runs/artifacts (~1.0 GB) + 10 render refs purged; local film, thumbnails, audio, worktree and render clone removed |
@@ -2086,6 +2087,91 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-10-30 — Production reliability + agent autonomy + GitHub cloud pilot + Antidote 10x (cycle 3)
+- **Base:** origin/god-mode d2570e1a. Isolated worktree wt-p4 (dev/cycle3 → god-mode fast-forward pushes; Motive on
+  dev/motive-1). No book worktree, pin, render or WIP file was written; real cases were read-only.
+- **P0.1 preview-ready record** (211d655f):
+  - `lib/preview-record.js` writes atomically (temp + rename);
+  - the identity is render-preflight's own `inputHashOf`;
+  - the record is read back with render-preflight's `readPreview` and must be this config's READY / NOT_READY;
+  - exit 0 only when READY *and* recorded. (head bug fixed earlier: efdad434 / bd3dda8c.)
+- **The Magician's Nephew render blockers** (0d984f0d):
+  - `render.js --book-root=<pinned worktree>` (GitHub split): bundle / config / locks / state / gates / preflight read
+    the book root (pinned engine renders it); credentials (read in place via the shared git dir — no copy, no symlink),
+    preflight logic, authorization and dispatch come from the launcher. It dispatches and stops; `render-status` /
+    `render-github-redispatch --book-root` follow.
+  - `--authorize-render="<operator's words>"`: its own record (kind render-authorization), separate from
+    `--accept-quality-debt` (now kind quality-debt). The production preflight requires it per render input; legacy
+    combined decisions still count; an authorization never covers debt or a preview.
+  - `render-decision` prints eight facts (A–H) and AUTHORIZED / NEEDS_AUTHORIZATION.
+  - The same render input fully dispatched is refused unless `--new-render`.
+  - MN dry run, read-only: book-root OK (pin 086a0941), credentials found in the main checkout (10/10), 335 bundle
+    paths / 0 missing, input dc2bd5a7a8f19022 not dispatched, NO_DEBT → the exact command.
+- **P0.2 maintenance upgrade** (9a4d26b0): `scripts/maintenance-upgrade.js`.
+  - It moves a pin only when the diff touches technical files.
+  - It requires the exact old SHA, a target on origin, a clean worktree, no render in flight, and the operator's reason.
+  - The book's inputs are hashed and must stay identical; the previous pin is kept and an audit line is written.
+  - MN --check: 25 FEATURE files → refused (MN renders via --book-root).
+- **P0.3 mute run recovery** (e07b4a07): `lib/mute-verdict.js`.
+  - The verdict is chosen by the film's identity.
+  - Stale or retired labels are not carried.
+  - `mute-test supersede` writes only a sidecar entry.
+  - Real MN, read-only: preview-state goes from "run3: needs the blind describer" to READY (run5).
+- **P1 autonomy** (c923c2c1). Trust Fall and The Art of Strategy had CONTINUE plus the contract, and still ended the
+  turn with a question. Changes:
+  - The contract now forbids ending the turn on CONTINUE, in every stage tool, the canonical skill and all four
+    harness entry files.
+  - `plan-bible`: era needs two different period words, plus a source-grounding review (real TF: Quinn, Remy, the
+    Damian spelling).
+  - Merge routes to `status` (it had said make-book; for Antidote the next step is readcheck).
+  - Prep, readers, judges, own icons and preview-ready READY print the contract.
+- **P2.2 regression on Actions** (5748f26c … 39fb6560): same commit, local 15.5 min vs cloud 69 s, 100 pass / 0 new /
+  5 known baseline, $0 (public repo); two Linux portability fixes.
+  - **P2.3 CI Failure Analyst** (9964991a): gh-aw Claude, compiled read-only, NOT enabled (needs `main`, the secret,
+    the budget).
+  - **P2.4** (238ca499): offline manifest POC on MN run5 — verified, no leak, 60 calls ≈ $0.97 Sonnet / $0.05 Haiku.
+    Doc: docs/cloud-pilot-2026-10-30.md.
+- **P3:**
+  - Real-book adoption (0265b962): Art of Strategy refute 4/4/4; a `place` with `cast: []` was silently dropped →
+    merge now refuses ACTION_NO_PERSON. Trust Fall: leave 2, flee 1, place 1, carried hold 6.
+  - Continuity chains take→place and drink→leave were added.
+  - Flee: not changed (hypotheses only).
+  - Motive round 2: see below.
+- **Found and fixed:** test-mute-seal / test-mute-align had been broken since 074d5040 (next-step.js missing from their
+  fixture copy).
+- **Reported, not fixed** (active books; not this agent's files):
+  - MN: ASR names in the captions (Alen, Jisus, Paulie…), "golden apple" vs a silver apple, flat cap vs bowler hat,
+    "DEMURE", and template text in the thumbnail prompt.
+  - TF bible: adult looks for teen characters; Quinn and the parents missing.
+- **Motive 1.0 round 2** (dev/motive-1 8cfe4b28; pre-registered in preregistration-r2.json):
+  - DEV (buffett, learning only): new ADDS 11/15 vs base 9/15, WRONG 0 / 0.
+  - Holdouts were authored by fresh agents and applied unchanged; 3 fresh readers per arm, blind labels.
+  - H1 as-good-as-dead: new WRONG 1, ADDS 7; base WRONG 3, ADDS 8.
+  - H2 the-love-hypothesis: new WRONG 3, ADDS 3; base WRONG 2, ADDS 3.
+  - Pooled relation YES: 0 vs 0.
+  - **NO SHIP.** The device stays on dev/motive-1; a third round needs the operator.
+  - Most WRONG rows are the shared row 1 in both arms. On H2 the label "APOLOGIZING FOR HIS REPUTATION" inverts "He isn't
+    apologizing"; that book is frozen, so it is recorded only.
+- **P4 cross-agent regression ledger.** Levels: L1 = code exists, L2 = fixture PASS (on 238ca499, all listed tests
+  green), L3 = real book / platform PASS.
+
+| # | case | root cause | fix | fixture | real evidence | level / open |
+|---|---|---|---|---|---|---|
+| 1 | MN: question after seal | the CONTINUE contract did not forbid ending the turn | KEEP_GOING in next-step + every stage tool + the 4 entry files | preview-autonomy 25, agent-entrypoints 22 | not yet seen in a new real session | L2 · needs the next real session |
+| 2 | TF: question after bible | `--bible` printed no next step | groundingReview + nextStepLine | plan-bible-grounding 8 | real TF bible (read-only): review flags Quinn, Remy, Damian | L2 (autonomy) / L3 (detection) |
+| 3 | AoS: question after bible PASS | same as #1 | same as #1 | preview-autonomy | not yet seen in a new real session | L2 |
+| 4 | MN: preview-ready.json missing | undefined `head` + empty catch | lib/preview-record: atomic, read back, exit 0 only if recorded | preview-ready-record 10 | MN record present (video agent's earlier fix); atomic version not yet used on a real book | L2 (L3 for the head fix) |
+| 5 | MN: run3 superseded, run5 PASS | open-label filter by time | lib/mute-verdict: identity, retired sidecar | mute-verdict 20 | MN preview-state → READY (run5), read-only | **L3** |
+| 6 | MN: pinned maintenance upgrade | no controlled re-pin | maintenance-upgrade.js | maintenance-upgrade 12 | MN --check refused correctly (25 feature files) | L3 for the refusal; no real upgrade done |
+| 7 | render-accounts.json missing | the pinned render.js reads credentials from the worktree | launcher + `--book-root` (credentials in place, no copy / symlink) | render-book-root 26 | MN dry run: credentials 10/10, 335 bundle paths / 0 missing | L3 dry run; real dispatch = operator |
+| 8 | NO_DEBT without operator GO | debt acceptance = render approval | `--authorize-render` (kind render-authorization), preflight requires it | render-preflight 54, gate-routing 21 | render-decision MN: NO_DEBT → exact command | L3 dry run; not recorded yet |
+| 9 | Vox: narration-external info | bible not checked against narration | era evidence + grounding review | plan-bible-grounding 8 | TF / MN read-only findings | L2 · Vox image-subject check still open |
+| 10 | merge recovery: mechanical fill | `cast: []` action silently dropped | ACTION_NO_PERSON refusal + recovery text | merge-recovery 28 | AoS beat 293 is the real case | L3 detection (read-only) |
+| 11 | cloud assembly: local FFmpeg suggested | old fallback text | render-deliver skill; local join needs `--operator-approved` | cloud-assemble 28 | default since 2026-10-24 (real books) | L3 (earlier cycle) |
+| 12 | YouTube: TODO / copy fallback | placeholders passed | lintPack placeholder hard fail | title-lint, youtube-gate 41 | MN pack READY | L3 · thumbnail-prompt template text not caught |
+| 13 | collapsed → next-beat reset | no carried state | body-state continuity chains (+take→place, drink→leave) | body-state 21 | no blind test this cycle | L2 |
+| 14 | stale checkout | old engine + rules.md | book-start.js from origin, pinned worktree | book-start 20 | MN / TF / AoS worktrees pinned | L3 |
 
 ### 2026-10-29 — Autonomous production reliability + visual storytelling cycle (P0–P6)
 - **P0 — preview autonomy (074d5040).** Root cause (transcript 4b519f83): the-magician-s-nephew's session was opened in the main checkout; the harness loaded `preview-hazirla` from there (24d7186d, no autonomy text) while the book's pin had it. Fix in the tools, not only the skill:
