@@ -890,7 +890,8 @@ Validate it parses and has one entry per beat with matching \`i\`. Do not modify
 Reply with one line: count written.`).join("\n\n");
   fs.writeFileSync(path.join(SB, "PROMPTS.md"), `# Author prompts — ${SLUG} (${ENGINE}, ${beats.length} beats, ${chunks.length} authors)\n\nRun all authors in parallel, then:\n\n    node scripts/storyboard.js merge --slug=${SLUG}\n    node scripts/storyboard.js merge --slug=${SLUG} --write\n\n${prompts}\n`);
   console.log(`✓ books/${SLUG}/storyboard/ — ${beats.length} beats, ${chunks.length} chunks, ${ENGINE}${ENGINE === "antidote" ? `, ${v.icons.length} icons` : ""}`);
-  console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel.`);
+  console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel (fresh agents, background; wait for all, then merge).`);
+  console.log(`  Running the authors is a ${require("./lib/next-step").ROUTINE}`);
 }
 
 // ── EXPERIMENT: validation of an authored relationship-staging selection ────────
@@ -1186,7 +1187,10 @@ function merge() {
         else if (!nw(narration).includes(nw(a.conceptMotionCue))) P(i, `conceptMotionCue "${a.conceptMotionCue}" is not spoken in this beat (the cue time comes from its word timings)`);
       }
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
-      if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
+      // an action with nobody to do it is dropped by the planner (2026-10-30, The Art of Strategy 293: cast [] + action
+      // "place" + holds "letter" — merged, then planned as an empty insert): refused here, never lost silently
+      if (Array.isArray(a.cast) && !a.cast.length && a.action && a.action !== "idle") P(i, `action "${a.action}" with cast [] — nobody on screen does it (the planner would drop it); name who does it in cast, or drop the action and stage the object as the concept icon`);
+      else if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
@@ -1301,10 +1305,14 @@ function merge() {
       storyboard: { method: "authored storyboard (STORYBOARD_RUNBOOK.md)", authoredBy: "claude", date: new Date().toISOString().slice(0, 10) },
       beats: out,
     }, null, 2) + "\n");
-    console.log(`\n✓ books/${SLUG}/art.json — next: node scripts/make-book.js --slug=${SLUG} ... --skip-pack`);
+    // the next step is the STATE MACHINE's (2026-10-30: this line said make-book; for Antidote status says readcheck —
+    // Trust Fall stopped here and asked)
+    console.log(`\n✓ books/${SLUG}/art.json written`);
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Merge"));
   } else {
     fs.writeFileSync(path.join(BOOK, "designs.json"), JSON.stringify(out, null, 2) + "\n");
-    console.log(`\n✓ books/${SLUG}/designs.json — next: node scripts/make-book.js --slug=${SLUG} ... (gate runs before Flux)`);
+    console.log(`\n✓ books/${SLUG}/designs.json written`);
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Merge"));
   }
 }
 

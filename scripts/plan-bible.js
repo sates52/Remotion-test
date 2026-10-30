@@ -236,7 +236,7 @@ function loadBookMeta(slug) {
 }
 
 function findEra(allText, bookMeta = {}) {
-  let era = null, from = null;
+  let era = null, from = null, eraEvidence = null;
 
   // 1. Check metadata overrides
   const universeKey = bookMeta.creative?.world?.universeKey || "";
@@ -280,8 +280,11 @@ function findEra(allText, bookMeta = {}) {
       era = "classical antiquity";
       from = from != null ? from : -375;
     } else {
-      const hit = PERIOD_HINTS.find(([re]) => re.test(allText));
-      if (hit) { era = hit[1].era; from = hit[1].from; }
+      // a period needs at least TWO different period words (2026-10-30): Trust Fall, a contemporary romance, got
+      // "post-apocalyptic sci-fi future" from ONE metaphor ("his emotional stasis") — and its agent stopped to ask
+      const hit = PERIOD_HINTS.map(([re, v]) => ({ v, terms: new Set((allText.match(new RegExp(re.source, "gi")) || []).map((x) => x.toLowerCase())) }))
+        .find((h) => h.terms.size >= 2);
+      if (hit) { era = hit.v.era; from = hit.v.from; eraEvidence = `period words: ${[...hit.terms].join(", ")}`; }
     }
   }
 
@@ -294,7 +297,7 @@ function findEra(allText, bookMeta = {}) {
     forbid = MODERN_ONLY.slice();
   }
 
-  return { era: era || "unspecified", approxYear: from, forbid };
+  return { era: era || "unspecified", approxYear: from, forbid, eraEvidence: eraEvidence || (era ? (isSciFiMeta || isAncientMeta ? "book metadata" : "stated years") : "none — author it from the narration") };
 }
 
 /** the argument/act spine — from the planned chapters when we have them */
@@ -330,7 +333,8 @@ function draft(nar) {
       slug: SLUG,
       world: {
         era: world.era,
-        worldId: "",                 // Claude: stable book-world id, e.g. "camus-absurdism"
+        eraEvidence: world.eraEvidence, // a HEURISTIC: correcting it from the narration is routine authoring
+        worldId: "",                // Claude: stable book-world id, e.g. "camus-absurdism"
         approxYear: world.approxYear,
         setting: "",                  // Claude: one line — where and among whom this happens
         register: "",                 // Claude: literary | reportage | self-help | mythic | ...
@@ -372,6 +376,37 @@ function draft(nar) {
 }
 
 // ── validation ──────────────────────────────────────────────────────────────
+
+// SOURCE GROUNDING of an authored bible (2026-10-30) — review lines, never a refusal:
+//   - a cast member the narration never names (a heuristic leftover: The Art of Strategy kept "lean", "fred", "end");
+//   - a name the narration uses often that no cast member carries (Trust Fall: Quinn, the antagonist, 8 mentions).
+// Generic presenter roles (narrator, protagonist, foil, mentor, extra, everyman, host) are never flagged.
+const GENERIC_CAST = new Set(["narrator", "protagonist", "foil", "mentor", "extra", "everyman", "host", "presenter", "friend", "neighbor"]);
+const NOT_NAMES = new Set(("The And But So This That These Those It Its He She They We You I What When Where Why How Who Which There Here " +
+  "Then Now Yes No Okay Oh Well Right Exactly Absolutely Because If Or Not Just Like Even Also Still Yeah Wow Imagine " +
+  "Think Let Look See Remember Instead Meanwhile Maybe Every Each Some Most Many One Two Three First Second Third Mr Mrs Ms Dr " +
+  "His Her Him Our Their My Your All Any Both Another Other Player Players Chapter Part Book Act Midwestern American English").split(" "));
+function groundingReview(b, nar) {
+  const text = " " + (nar.words || []).map((w) => String(w.w || "")).join(" ").replace(/[^A-Za-z' ]/g, " ") + " ";
+  // a NAME is said capitalized (ASR capitalizes names): "lean", "end", "which" as plain words do not make a character
+  const said = (tok) => tok.length >= 3 && new RegExp(`\\b${tok[0].toUpperCase()}${tok.slice(1).replace(/[^a-z']/g, "")}\\b`).test(text);
+  const out = [];
+  const castTokens = new Set();
+  for (const [k, c] of Object.entries(b.cast || {})) {
+    const toks = [k, ...String((c && c.name) || "").split(/\s+/), ...((c && c.aliases) || [])].map((x) => String(x).toLowerCase().replace(/[^a-z']/g, "")).filter((x) => x.length >= 3);
+    toks.forEach((x) => castTokens.add(x));
+    if (GENERIC_CAST.has(k) || /narrat|presenter|host|generic|everyman/i.test(String((c && c.role) || ""))) continue;
+    if (!toks.some(said)) out.push(`cast "${k}"${c && c.name ? ` (${c.name})` : ""} is never named in the narration — a real character? (a draft leftover is removed; a nameless one gets the narration's word for them)`);
+  }
+  const counts = new Map();
+  for (const m of text.matchAll(/ ([A-Z][a-z]{2,})(?=[ ])/g)) if (!NOT_NAMES.has(m[1])) counts.set(m[1], (counts.get(m[1]) || 0) + 1);
+  const title = String((b.title || "") + " " + ((b.world || {}).setting || "")).toLowerCase();
+  const places = Object.entries(b.places || {}).flatMap(([k, p]) => [k, ...String((p && p.name) || "").split(/\s+/)]).map((x) => String(x).toLowerCase());
+  const missing = [...counts].filter(([w, n]) => n >= 5 && !castTokens.has(w.toLowerCase()) && !places.includes(w.toLowerCase()) && !title.includes(w.toLowerCase()))
+    .sort((a, b2) => b2[1] - a[1]).slice(0, 8);
+  if (missing.length) out.push(`often named in the narration, in no cast member: ${missing.map(([w, n]) => `${w} ×${n}`).join(", ")} — add the ones who are characters (with a look); places / terms need nothing`);
+  return out;
+}
 
 function validate(b) {
   const errs = [], warns = [];
@@ -491,6 +526,14 @@ const CONCEPT_RE = new Map(CONCEPT_LEXICON);
     const nCast = Object.keys(b.cast || {}).length, withLook = Object.values(b.cast || {}).filter((c) => c.look).length;
     console.log(`✓ ${path.relative(ROOT, OUT)} — authored: ${nCast} cast (${withLook} with a look), ` +
       `${Object.keys(b.places || {}).length} places, ${(b.objects || []).length} objects, era "${(b.world || {}).era}"`);
+    // SOURCE GROUNDING (2026-10-30, REVIEW — never blocks): The Art of Strategy kept the heuristic's junk cast keys
+    // (lean, fred, end, which) and Trust Fall left out its most-named antagonist; both rewrites passed. Fixing either
+    // from the narration is routine authoring, never an operator question.
+    try {
+      const g = groundingReview(b, loadNarration());
+      if (g.length) { console.log(`  ⓘ source grounding (review — fix from the narration, then rerun this command; no operator question):`); g.forEach((x) => console.log(`    - ${x}`)); }
+    } catch {}
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Story bible"));
     return;
   }
 
@@ -513,6 +556,9 @@ const CONCEPT_RE = new Map(CONCEPT_LEXICON);
         "  say so in `why` and Phase 4 will draw it.",
         "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
         "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+        "The draft's era, cast keys, ages and places are a HEURISTIC and are often wrong (Trust Fall: one metaphor gave a",
+        "  sci-fi era; The Art of Strategy: 'lean', 'fred', 'end' as characters). Correcting them from the narration is",
+        "  routine authoring — never a question for the operator. Ages, roles and relations come from what the narration says.",
         "Then: node scripts/plan-bible.js --slug=" + SLUG + " --bible=<this file>",
       ],
       validSets: [...VALID_SETS],
@@ -522,7 +568,9 @@ const CONCEPT_RE = new Map(CONCEPT_LEXICON);
     console.log(`\n✍  ${EMIT}`);
     console.log(`   draft: ${Object.keys(bible.cast).length} cast, ${Object.keys(bible.places).length} places, ` +
       `${bible.objects.length} objects, era "${bible.world.era}"`);
-    console.log(`   Claude: rewrite it, then → node scripts/plan-bible.js --slug=${SLUG} --bible=${EMIT}`);
+    console.log(`   era evidence: ${bible.world.eraEvidence}`);
+    console.log(`   Claude: rewrite it from the narration (a wrong era / cast / age in this draft is routine to correct), then → node scripts/plan-bible.js --slug=${SLUG} --bible=${EMIT}`);
+    console.log(`   Rewriting this draft is a ${require("./lib/next-step").ROUTINE}`);
     return;
   }
 

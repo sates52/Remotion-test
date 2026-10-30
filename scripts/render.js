@@ -50,6 +50,25 @@ if (args.help || args.h) {
   process.exit(0);
 }
 
+// --book-root (2026-10-30): render a book from ITS pinned worktree with THIS checkout's tools. The bundle (engine code +
+// book) is built from the book root, so the pinned engine renders it; credentials (lib/render-accounts.js, read in place
+// from the shared git dir), the pre-dispatch check, the operator's authorization and the dispatch come from here.
+// Real case: the-magician-s-nephew pinned 086a0941 — its own render.js looked for render-accounts.json inside the
+// worktree (no copy, no symlink, no admin rights wanted). GitHub split renders only; the process dispatches, records and
+// stops: render-status.js --book-root shows the state and the cloud-assembly command.
+const BOOK_ROOT = typeof args["book-root"] === "string" && args["book-root"].trim() ? path.resolve(args["book-root"].trim()) : ROOT;
+const FOREIGN_BOOK = path.resolve(BOOK_ROOT) !== path.resolve(ROOT);
+if (FOREIGN_BOOK) {
+  const bad = (m) => { console.error(`❌ --book-root: ${m}`); process.exit(2); };
+  const m = String(args.method || "").toLowerCase();
+  if (!["github", "actions", "github-actions"].includes(m)) bad("only with --method=github (the bundle carries the pinned engine; local / lambda would render this checkout's engine)");
+  if (args["legacy-push"] || args.frames || args.lambda) bad("not with --legacy-push / --frames");
+  const bookPin = require("./lib/book-root").checkBookRoot({ launcher: ROOT, bookRoot: BOOK_ROOT, slug: args.slug });
+  if (!bookPin.ok) bad(bookPin.error);
+  console.log(`   book root: ${BOOK_ROOT} — engine pinned ${bookPin.pin.slice(0, 8)} (HEAD = pin, tracked code clean); tools: this checkout ${bookPin.launcherHead.slice(0, 8)}`);
+  args["no-wait"] = true;
+}
+
 function printHelp() {
   console.log(`
 🎬 Remotion Unified Render CLI
@@ -75,6 +94,12 @@ Seçenekler:
   --region=<aws-region>       AWS Lambda region (lambda için, varsayılan: us-east-1)
   --wait                      (github) Render bitene kadar bekle, otomatik indir + birleştir + doğrula + YouTube-ready check (VARSAYILAN: açık)
   --no-wait                   (github) Beklemeden çık, sadece dispatch et
+  --authorize-render="<why>"  PRODUCTION: the operator's go for THIS render input (its own record, kind
+                              render-authorization; quality debt is --accept-quality-debt). Needed even with no debt;
+                              recorded only when quality and preview are settled. Never an agent's own words.
+  --book-root=<worktree>      (github split) render a book from ITS pinned worktree with this checkout's tools: the
+                              bundle comes from the worktree (pinned engine), credentials / preflight / dispatch from
+                              here; dispatches and stops (then render-status.js --book-root=<worktree>)
   --new-render="<reason>"     (github, operator only) dispatch again although a split render of this book may still be
                               running (dispatched <3h ago without --wait, or its process died); default: refuse (exit 3)
   --poll-interval=<sn>        (github --wait) Kaç saniyede bir kontrol et (varsayılan: 15/30)
@@ -116,8 +141,8 @@ if (configFile && !slug) {
 // Never render chapter cards that came from the ASR fallback. The YouTube pack must be
 // hand-refined (needsClaudeRefine:false) and applied (apply-chapters.js) first.
 if (slug) {
-  const metaFile = path.join(__dirname, "..", "books", slug, "youtube-meta.json");
-  const cfgFiles = ["config.vox.json", "config.antidote.json"].map((f) => path.join(__dirname, "..", "books", slug, f));
+  const metaFile = path.join(BOOK_ROOT, "books", slug, "youtube-meta.json");
+  const cfgFiles = ["config.vox.json", "config.antidote.json"].map((f) => path.join(BOOK_ROOT, "books", slug, f));
   const meta = fs.existsSync(metaFile) ? JSON.parse(fs.readFileSync(metaFile, "utf8")) : null;
   const hasCards = cfgFiles.some((f) => fs.existsSync(f) && (JSON.parse(fs.readFileSync(f, "utf8")).chapters || []).length > 0);
   if (meta && meta.needsClaudeRefine === true && hasCards) {
@@ -134,7 +159,7 @@ if (slug && !configFile) {
     `books/${slug}/config.antidote.json`,
   ];
   for (const c of cands) {
-    if (fs.existsSync(path.join(ROOT, c))) {
+    if (fs.existsSync(path.join(BOOK_ROOT, c))) {
       configFile = c;
       break;
     }
@@ -156,9 +181,9 @@ if (!configFile && !composition) {
 }
 
 let configData = null;
-if (configFile && fs.existsSync(path.join(ROOT, configFile))) {
+if (configFile && fs.existsSync(path.join(BOOK_ROOT, configFile))) {
   try {
-    configData = JSON.parse(fs.readFileSync(path.join(ROOT, configFile), "utf8"));
+    configData = JSON.parse(fs.readFileSync(path.join(BOOK_ROOT, configFile), "utf8"));
   } catch (e) {
     console.warn(`⚠ Config dosyası okunamadı: ${configFile} (${e.message})`);
   }
@@ -174,7 +199,7 @@ if (!composition) {
 if (!slug && meta.slug) slug = meta.slug;
 if (!slug) slug = composition.toLowerCase();
 // Which code renders this? Stops on code that is not a commit (scripts/lib/production-guard.js).
-require("./lib/production-guard").productionGuard({ slug, step: "render" });
+require("./lib/production-guard").productionGuard({ slug, step: "render", root: BOOK_ROOT });
 
 const totalFrames =
   configData?.totalFrames ||
@@ -184,7 +209,7 @@ const totalFrames =
 
 const chunkSize = Number(args["chunk-size"]) || 400;
 const previewOutput = args["preview-only"] && !args.frames && !process.env.GITHUB_ACTIONS;
-const finalOutPath = path.join(ROOT, "out", `${slug}${previewOutput ? ".preview" : ""}.mp4`);
+const finalOutPath = path.join(BOOK_ROOT, "out", `${slug}${previewOutput ? ".preview" : ""}.mp4`);
 
 // Concurrency resolution
 const CONC_FILE = path.join(ROOT, "render.concurrency");
@@ -212,7 +237,7 @@ console.log("══════════════════════�
 // published (frozen) books are reported, not blocked.
 if (!args["skip-authorship-gate"]) {
   try {
-    runCmd(`node scripts/gate-authorship.js --slug=${slug} --engine=${engine}`);
+    runCmd(`node scripts/gate-authorship.js --slug=${slug} --engine=${engine}`, { cwd: BOOK_ROOT });
   } catch (_) {
     console.error("❌ Authorship Gate failed. Render blocked before pixels were produced.");
     process.exit(1);
@@ -225,8 +250,9 @@ if (!args["skip-authorship-gate"]) {
 const preflight = require("./lib/render-preflight");
 const preflightMode = args["preview-only"] ? preflight.MODE.PREVIEW_ONLY : preflight.MODE.PRODUCTION;
 const pre = preflight.preflight({
-  root: ROOT, slug, engine, method, mode: preflightMode, configFile,
+  root: BOOK_ROOT, slug, engine, method, mode: preflightMode, configFile,
   acceptReason: typeof args["accept-quality-debt"] === "string" ? args["accept-quality-debt"] : null,
+  authorizeReason: typeof args["authorize-render"] === "string" ? args["authorize-render"] : null,
   skipFirewall: !!args["skip-narrative-firewall"],
   // On the render runner the "Master audio" step must have produced and wired the master: fail closed.
   requireMasteredAudio: !!process.env.GITHUB_ACTIONS,
@@ -246,14 +272,14 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
   // here so render is not blocked by copy-quality issues (171 violations in
   // diagram labels/filler words); fixes tracked in screen-text.report.json.
   try {
-    runCmd(`node scripts/validate-screen-text.js --slug=${slug} --report-only`);
+    runCmd(`node scripts/validate-screen-text.js --slug=${slug} --report-only`, { cwd: BOOK_ROOT });
   } catch (_) {
     // --report-only should never throw, but guard anyway
     console.warn("⚠ Screen-Text Gate warning (report-only mode).");
   }
   // No gate may be passed by deleting/remapping what the pipeline planned.
   try {
-    runCmd(`node scripts/composition-integrity.js --slug=${slug}`);
+    runCmd(`node scripts/composition-integrity.js --slug=${slug}`, { cwd: BOOK_ROOT });
   } catch (_) {
     console.error("❌ Composition Integrity failed (content removed/remapped after planning). Render blocked.");
     process.exit(1);
@@ -262,7 +288,7 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
   // codes report-only in audit/p15-enforcement/). Same escape hatch as the
   // firewall — never use for production delivery.
   try {
-    runCmd(`node scripts/gate-p15.mjs --slug=${slug}`);
+    runCmd(`node scripts/gate-p15.mjs --slug=${slug}`, { cwd: BOOK_ROOT });
   } catch (e) {
     // ERR_UNKNOWN_FILE_EXTENSION: gate-p15.mjs imports a .ts file that plain
     // Node (without ts-node/--experimental-strip-types) cannot resolve on
@@ -294,9 +320,17 @@ switch (method) {
     // 3h — its segments may still be running on the pool (rescue: render-github-redispatch.js). Operator: --new-render.
     if (slug && !process.env.GITHUB_ACTIONS && !args.frames) {
       const { takeRunLock, renderInFlight } = require("./lib/run-lock");
-      takeRunLock(path.join(ROOT, `.render-lock.${slug}.json`), `render ${slug}`);
-      const fl = renderInFlight(path.join(ROOT, `.render-github-split.${slug}.json`));
+      takeRunLock(path.join(BOOK_ROOT, `.render-lock.${slug}.json`), `render ${slug}`);
+      const fl = renderInFlight(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`));
       const newRender = typeof args["new-render"] === "string" ? args["new-render"].trim() : "";
+      // the SAME render input already fully dispatched (any age, 2026-10-30): a second production of it is the
+      // operator's --new-render, never a retry — a stopped run of the same bundle still resumes (mergeResume)
+      const done = require("./lib/run-lock").inputDispatched(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`), configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null);
+      if (done && !newRender) {
+        console.error(`❌ ${slug}: render input ${done.renderInputHash} was already dispatched ${done.dispatchedAt} (${done.segments} segments, bundle ${String(done.bundleSha || "?").slice(0, 8)}). Not dispatching it twice.`);
+        console.error(`   Its state: node scripts/render-status.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}   ·   a deliberate new render: --new-render="<reason>" (operator)`);
+        process.exit(3);
+      }
       if (fl && !newRender) {
         console.error(`❌ ${slug}: a split render was dispatched ${fl.ageMin} min ago (${fl.segments} segments, bundle ${String(fl.bundleSha || "?").slice(0, 8)}) and ${fl.why} — its segments may still be running. Not dispatching it twice.`);
         console.error(`   Check / rescue it: node scripts/render-github-redispatch.js --slug=${slug}   ·   a deliberate new render: --new-render="<reason>" (operator)`);
@@ -575,7 +609,7 @@ async function dispatchSplit(safeMax) {
   if (!args["legacy-push"]) {
     const { buildBundle } = require("./lib/render-bundle");
     try {
-      const b = buildBundle({ slug });
+      const b = buildBundle({ slug, root: BOOK_ROOT });
       bundleSha = b.sha;
       bundleBytes = b.bytes;
     } catch (e) {
@@ -589,8 +623,9 @@ async function dispatchSplit(safeMax) {
   const rd = require("./lib/render-dispatch");
   // per-slug state file: a single shared .render-github-split.json collides when
   // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
-  const stateFile = path.join(ROOT, `.render-github-split.${slug}.json`);
-  const fresh = { slug, composition, totalFrames, bundleSha, bundleBytes, chunkSize: String(chunkSize), concurrency: String(args.concurrency || 2), mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
+  const stateFile = path.join(BOOK_ROOT, `.render-github-split.${slug}.json`);
+  const renderInputHash = configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null;
+  const fresh = { slug, composition, totalFrames, bundleSha, bundleBytes, renderInputHash, ...(FOREIGN_BOOK ? { bookRoot: BOOK_ROOT, tools: (execSync("git rev-parse HEAD", { cwd: ROOT, encoding: "utf8" }) || "").trim() } : {}), chunkSize: String(chunkSize), concurrency: String(args.concurrency || 2), mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
     const remote = worker.remoteName || `render-worker-${(sg.seg - 1) % workers.length + 1}`;
@@ -609,7 +644,7 @@ async function dispatchSplit(safeMax) {
   const save = (s) => {
     const text = JSON.stringify(s, null, 2) + "\n";
     fs.writeFileSync(stateFile, text);
-    fs.writeFileSync(path.join(ROOT, ".render-github-split.json"), text); // back-compat
+    fs.writeFileSync(path.join(BOOK_ROOT, ".render-github-split.json"), text); // back-compat
   };
   save(state);
 
@@ -633,7 +668,7 @@ async function dispatchSplit(safeMax) {
       return hit ? { createdAt: hit.createdAt } : false;
     } catch { return undefined; }
   };
-  const gio = rd.gitIO({ root: ROOT, sha: pushSrc });
+  const gio = rd.gitIO({ root: BOOK_ROOT, sha: pushSrc });
 
   // 1) PUSH every segment's ref (bounded queue, classified failures). Nothing is dispatched unless all refs hold it.
   const pushConc = Number(args["push-concurrency"]) || rd.defaultPushConcurrency(bundleBytes);
@@ -644,7 +679,7 @@ async function dispatchSplit(safeMax) {
     for (const f of pr.failed) console.error(`   seg${f.seg}: ${f.kind}${f.kind === "not-attempted" ? "" : ` — ${String(f.error).split("\n").slice(-2).join(" | ")}`}`);
     if (pr.failed.some((f) => f.kind === "permanent")) console.error(`   A permanent refusal (size limit, pre-receive hook, auth) is not retried. Fix its cause, then rerun the same command.`);
     else console.error(`   Network failures only: rerun the same command — refs already pushed are kept and not uploaded again.`);
-    console.error(`   State: ${path.relative(ROOT, stateFile)}`);
+    console.error(`   State: ${stateFile}`);
     process.exit(1);
   }
 
@@ -664,6 +699,11 @@ async function dispatchSplit(safeMax) {
   // that died before the end, leaves segments running on the pool
   const waits = args.wait !== false && args["no-wait"] === undefined;
   process.on("exit", (code) => { try { const s = JSON.parse(fs.readFileSync(stateFile, "utf8")); if (s.dispatchedAt === state.dispatchedAt) { s.endedAt = new Date().toISOString(); s.waited = waits; s.exitCode = code; fs.writeFileSync(stateFile, JSON.stringify(s, null, 2) + "\n"); } } catch {} });
+  if (FOREIGN_BOOK) {
+    console.log(`\n🚀 ${segs.length} segment(s) dispatched from ${BOOK_ROOT} (pinned engine). This process stops here (--book-root never waits).`);
+    console.log(`   Next: node scripts/render-status.js --slug=${slug} --book-root=${BOOK_ROOT}   — then run only the command it prints (cloud assembly).`);
+    process.exit(dr.ok ? 0 : 1);
+  }
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
   const dispatchStartTime = Date.now();
@@ -874,7 +914,7 @@ async function runGithubActionsRender() {
       console.log(`[GITHUB ACTIONS] Ön-kontrol (izole bundle — diskte olması yeterli, commit gerekmez)...`);
       try {
         const { resolveFiles } = require("./lib/render-bundle");
-        const { files, missing } = resolveFiles(slug);
+        const { files, missing } = resolveFiles(slug, { root: BOOK_ROOT });
         if (missing.length) {
           console.error(`\n❌ ${missing.length} asset DİSKTE YOK — render TETİKLENMEDİ:`);
           missing.forEach((m) => console.error("   " + m));
@@ -902,6 +942,7 @@ async function runGithubActionsRender() {
     return;
   }
 
+  if (FOREIGN_BOOK) { console.error("❌ --book-root: only a split render (the default for a full book) — this one would take the single-job path"); process.exit(2); }
   console.log(`[GITHUB ACTIONS] Render Worker aranıyor...`);
 
   const RA = require("./lib/render-accounts");

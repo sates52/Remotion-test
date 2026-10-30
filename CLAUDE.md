@@ -14,9 +14,10 @@ continue. Do ALL of that book's work THERE and follow THAT worktree's CLAUDE.md 
 old checkout are stale (an old checkout produced crazy-rich-asians and the-lightning-thief on 80-commit-old engine code).
 The ENGINE stays the book's pin; the preview PROCEDURE does not age with it: when `preview-state.js status` says the
 procedure changed since the pin, follow origin's canonical skill (`git show origin/god-mode:.claude/skills/preview-hazirla/SKILL.md`).
-A routine step is run without asking - `status` prints CONTINUE and the next command after every stage.
+A routine step is run without asking - `status` prints CONTINUE and the next command after every stage - and the turn never ends on CONTINUE (no wrap-up / ask tool, no "Devam edeyim mi?", no interim HAZIR DEĞİL report): it ends only at READY, at an OPERATOR stop, or while waiting for background agents.
 A book already started elsewhere is refused, never migrated silently: its owner decides (keep it, or
-`--adopt="<owner's reason>"` for a new pinned copy; the original stays untouched). A book with NO production work yet whose pin fell behind: book-start says so - report it; moving it is the operator's word (`--repin="<their reason>"`, refused once work exists). Current tools for a book started in
+`--adopt="<owner's reason>"` for a new pinned copy; the original stays untouched). A book with NO production work yet whose pin fell behind: book-start says so - report it; moving it is the operator's word (`--repin="<their reason>"`, refused once work exists).
+A pinned book with work moves only for a TECHNICAL fix, on the operator's word: `scripts/maintenance-upgrade.js --from=<pin> --to=<origin sha> --operator-approved="<reason>"` (refuses any engine / planner change); to RENDER it with current tools without moving the pin: `render.js --book-root=<its worktree>` (skill render-deliver). Current tools for a book started in
 the main checkout (render status, cloud assembly): `... | node - --launcher`, then run them in `../wt-production-base`
 with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or clean the shared main checkout.
 

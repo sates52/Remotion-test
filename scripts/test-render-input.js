@@ -133,7 +133,7 @@ fs.writeFileSync(path.join(croot, "public", "audio", "bk.m4a"), "x");
 fs.writeFileSync(path.join(croot, "books", "bk", "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: pre.inputHashOf(path.join(croot, cfgRel)) }));
 const quiet = console.log; console.log = () => {};
 const runnerPre = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel, requireMasteredAudio: true, probe: probe({ m: 1, r: 1 }) });
-const localPre = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel });
+const localPre = pre.preflight({ root: croot, slug: "bk", engine: "vox", method: "local", mode: MODE.PRODUCTION, configFile: cfgRel, authorizeReason: "fixture: the operator authorizes" });
 console.log = quiet;
 t("preflight on the runner: raw audio -> STOP", runnerPre.ok === false);
 t("preflight off the runner: no audio requirement (unchanged)", localPre.ok === true);

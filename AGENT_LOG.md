@@ -2087,6 +2087,64 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-29 — Autonomous production reliability + visual storytelling cycle (P0–P6)
+- **P0 — preview autonomy (074d5040).** Root cause (transcript 4b519f83): the-magician-s-nephew's session was opened in the main checkout; the harness loaded `preview-hazirla` from there (24d7186d, no autonomy text) while the book's pin had it. Fix in the tools, not only the skill:
+  - mute-test (seal / sample / judge / tally), make-book and readcheck print the next command, plus the routine contract (`lib/next-step.js`).
+  - `preview-state status` prints CONTINUE = routine or the real gate, and a **procedure drift** note when the canonical skill / preview-state / merge-recovery changed since the pin.
+  - CLAUDE.md / AGENTS.md: the engine stays the pin, the procedure follows origin's skill.
+  - Tests: test-preview-autonomy, test-preview-state K–N, entry-point matrix K–P.
+- **P1 — render credentials (03e5193d).** `lib/render-accounts.js`:
+  - `render-accounts.json` is read in place from the git common dir (never copied); a copy in a worktree is named as a workaround.
+  - The preflight blocks without a usable worker; access is cached in `<git common dir>/render-pool-state.json` (12 h, no token derivative).
+  - The round-robin pointer moved there too: render.js / render-queue.js no longer rewrite the token file.
+  - test-render-credentials (18). No real token was called.
+- **P2 — authorization vs quality (244480cc).**
+  - `evaluate()`: a decision covers the preview fact it SAW (state + preview-ready record). A mute verdict recorded later is NEEDS_DECISION.
+  - `render-decision.js` prints the seven facts A–G apart.
+  - Real case essentialism verified read-only (consistent hashes; preview MISSING at decision time).
+  - test-render-seven-facts, test-render-preflight +5.
+- **P3 — body state continuity (00733673).**
+  - merge refuses a continued beat that stands a DOWN person up without a narrated rise (BODY_STATE). SEATED+legs and GONE+back are REVIEW_REQUIRED.
+  - Holding an object again after `place` without `take` is refused (PLACE_RELEASED).
+  - drink joins the hold carry.
+  - Blind A/B, f451 249–253, 3 arms, fresh readers ("kept down while he remembers"):
+    | arm | kept down | WRONG |
+    |---|---|---|
+    | fixed | YYY | 1/15 (the row is identical in both arms) |
+    | bug | NNP | 0 |
+    | base | NNN | 0 |
+  - test-body-state (15).
+- **P4 — adoption (9e27acec).**
+  - feature-usage measures the carried BODY state (kept rests only; the planner stamps carryState on every continue) and `renderedInput` (a dispatch of THIS config).
+  - book-start reports a Step-0 book whose pin fell behind; `--repin="<operator's reason>"` moves it only while no production work exists.
+  - Real: carrie, how-to-talk-to-anyone, never-lie, the-most-important-thing are Step 0, pinned 88db7e09 (11 commits behind: no tool routing, no body-state merge). **Operator decision.** essentialism: 0 of 10 diagram/action tools, AUTHORED_BEFORE_RULES.
+- **P5 — Motive 1.0, the inner reason as a thought bubble: NOT shipped** (dev/motive-1: 09f35a65 pre-registration, fdccd8fd design, 0c913b6d rule independence fix, 7382114c result).
+  - The target is class a of the blind corpus: 80 motive beats, 49 TEXT_ONLY, ADDS 2.
+  - DEV the-hate-u-give 17–21 (inner-face variant): contrast YYY vs PPY, outward YYY vs YPP, WRONG 0 vs 0.
+  - Holdouts were authored once by a fresh agent from the frozen rule:
+    | holdout | WRONG new/base | ADDS new/base | relation new/base |
+    |---|---|---|---|
+    | the-art-of-saying-no 145–149 (heart) | 0/0 | 9/9 | PPY / YPP |
+    | learned-optimism 156–160 (shield) | 0/1 | 7/7 | PPP / NNN |
+  - The pre-registered rule needed relation +2: it got +0, so not superior. Do-no-harm held.
+  - The bubble read as intended 6/6, but repeated what the callout already printed.
+  - Next test: new passages where the callout does NOT name the reason, inner-face variant.
+- **P6 — new cross-agent bug fixed (efdad434 cherry-picked from the-magician-s-nephew's local 086a0941, bd3dda8c test).** Since 3de4cf54 (10-28), preview-ready.js referenced an undefined `head` inside an empty catch. It printed READY and **never wrote preview-ready.json** on origin code. test-preview-ready-record runs the real script: 5/6 fail on the old code, 6/6 pass now.
+- **Regression ledger** (level reached: code / fixture / real session / open):
+  1. Magician's Nephew seal ask — code + fixture (074d5040). Real session not verified: the book finished on 086a0941, which predates P0.
+  2. MN 245 invented setting + 224/225 crowned-before-called — **OPEN**.
+     - EARLY_TEXT misses one-word, unstemmed cases ("CROWNED" / "crowns").
+     - No check exists for Vox image subjects.
+     - The book reached READY with WRONG 0/30.
+  3. Vox merge 56+4 mechanical fills — code + fixture (FILLED_AFTER_REFUSAL). MN not reconstructible.
+  4. render-accounts.json missing in a worktree — code + fixture (03e5193d). No worktree render since.
+  5. 605 REVIEW accepted with mute/readcheck unfinished — code + fixture (244480cc) + the real record re-read. essentialism was published since.
+  6. Margery Kempe local assembly — code + fixture (render-deliver). Not on the platform.
+  7. Margery Kempe TODO placeholder — code + fixture + real session (MN youtube-ready READY through lint-titles --pack).
+  8. Old-checkout use — code + fixture + real sessions (5 books in wt-book-* via book-start). Step-0 pin staleness now reported (P4).
+  9. (new) preview-ready record never written — code + fixture (efdad434 / bd3dda8c) + real session (MN's local copy wrote its record).
+- **Pre-existing, not from this cycle:** test-authorship-gate fails 3 director checks on clean origin too (lolita/subway vocab fixture).
+
 ### 2026-10-29 — Next cycle P1/P2/P3/P7/P8: second loop passage (NOT shipped), place v2 image-only, push/fall, rubric, NVIDIA key
 
 - **P1 — feedback loop, second book: the new design did NOT pass the holdout and is not in production.**

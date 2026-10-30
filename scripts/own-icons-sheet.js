@@ -71,3 +71,4 @@ You are a blind rater. Look ONLY at ${png} (Read it). It shows ${keys.length} nu
 Then compare with ${path.join(outDir, "own-icons.key.json")} (intended). Redraw every icon named as something else (SBC casserole → "toaster", Unhinged dopamineHook → "rope") and run this sheet again before storyboard prep.
 `);
 console.log(`✓ ${path.relative(ROOT, png)} — ${keys.length} own icon(s). Blind-name them: ${path.relative(ROOT, path.join(outDir, "OWN-ICONS-PROMPT.md"))}`);
+console.log(`  Naming the icons (a fresh blind agent) is a ${require("./lib/next-step").ROUTINE}`);

@@ -65,8 +65,14 @@ if (engine) {
   // technical: the narration must fit a render bundle (GitHub refuses a file over 100 MB) — found now, not at render
   { const nb = narrationFitsBundle({ root: ROOT, slug }); check("narration fits a render bundle (< 100 MB)", nb.ok, nb.detail); }
   const mt = readJSON(path.join(BOOK, "mute-test.json"));
-  const runs = (mt && mt.runs) || [];
+  const allRuns = (mt && mt.runs) || [];
+  // only runs that judged THIS film count (2026-10-30, lib/mute-verdict.js): identity (render input / config bytes /
+  // legacy stills config), not array position; retired labels (STATUS.json) and runs whose seal fails are left out —
+  // an old PASS without evidence never carries over to a new input
+  const MVR = require("./lib/mute-verdict").currentVerdict({ root: ROOT, slug, configFile: engine ? path.join(BOOK, `config.${engine}.json`) : null, runs: allRuns });
+  const runs = MVR.matching;
   const last = runs[runs.length - 1];
+  const notCounted = MVR.rejected.length ? ` (not counted: ${MVR.rejected.map((x) => `${x.label} — ${x.why}`).join("; ").slice(0, 400)})` : "";
   // Holdout rule (mute-test.js): a PASS on reused frames is a diagnostic. The
   // verdict is the latest fresh-sample run; runs recorded before the rule
   // (no `sample` field) count as fresh only if they were not a --vs comparison.
@@ -80,8 +86,8 @@ if (engine) {
   const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}${(r.totals.ADDS || 0) / r.n < A ? " (text-carried)" : ""}${r.totals.EXPLAINS != null ? `, explains ${r.totals.EXPLAINS}/${r.n}` : ""}` +
     (r.imageBeats > 0 && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
   check("blind mute test (fresh holdout sample)", ok,
-    !last ? "not run — node scripts/mute-test.js prep --slug=" + slug
-      : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")
+    !last ? (allRuns.length ? `no run judged this film${notCounted} — node scripts/preview-state.js status --slug=${slug}` : "not run — node scripts/mute-test.js prep --slug=" + slug)
+      : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "") + (verdict.matchedBy ? ` [bound by ${verdict.matchedBy}]` : "")
       : last.pass && (!verdict || !verdict.pass) ? `${tot(last)} is on reused frames; latest fresh run ${verdict ? tot(verdict) + " FAIL" : "none"} — node scripts/mute-test.js prep --slug=${slug} --label=holdout1 (fresh sample)`
       : tot(last));
   // Machine record (advisory, never a block): which code each step ran on, and whether the report-only
@@ -155,13 +161,15 @@ for (const r of rows) console.log(`   ${r.ok ? "✓" : r.advisory ? "·" : "✗"
 console.log(ready ? `\n✅ READY — preview: http://localhost:3001/${engine === "vox" ? "Vox" : "Antidote"}-${slug}` : "\n❌ NOT READY");
 // THE record of the verdict (2026-10-26): preview-state.js shows READY only from this file, for this exact config —
 // an agent's report of "HAZIR" must come from here, never from Studio opening or a passing gate
-try {
-  const cfgFile = engine ? path.join(BOOK, `config.${engine}.json`) : null;
-  const configSha256 = cfgFile && fs.existsSync(cfgFile) ? require("crypto").createHash("sha256").update(fs.readFileSync(cfgFile)).digest("hex") : null;
-  // renderInputHash (2026-10-28): the production preflight binds the preview to the config AS THE RUNNER RENDERS IT
-  // (lib/render-input.js) — the runner rewrites meta.audio, so configSha256 (bytes) never matches there. Both kept.
-  let renderInputHash = null;
-  try { renderInputHash = cfgFile ? require("./lib/render-input").renderInputHash(readJSON(cfgFile)) : null; } catch {}
-  fs.writeFileSync(path.join(BOOK, "preview-ready.json"), JSON.stringify({ ready, at: new Date().toISOString(), head, configSha256, renderInputHash, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) }, null, 2) + "\n");
-} catch {}
-process.exit(ready ? 0 : 1);
+// the git HEAD this verdict was produced on (was referenced but never defined: the record write threw and was swallowed)
+const head = (() => { try { return require("child_process").execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim() || null; } catch { return null; } })();
+// one contract with render preflight (lib/preview-record.js): atomic write, the preflight's own render-input identity,
+// read back with the preflight's reader — READY is the exit code only when the record says so for THIS config
+// (renderInputHash: the runner rewrites meta.audio, so configSha256 (bytes) never matches there; both kept)
+const rec = require("./lib/preview-record").writePreviewRecord({ root: ROOT, slug, engine, ready, head, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) });
+if (!rec.ok) console.error(`\n❌ preview-ready.json NOT written: ${rec.error} — the verdict is not recorded`);
+else console.log(`   record: books/${slug}/preview-ready.json — ${rec.state} for render input ${rec.record.renderInputHash || "(no config)"}${head ? ` @ ${head.slice(0, 8)}` : ""}`);
+// after READY (2026-10-30): the hand-off and the YouTube pack are routine; the production render is the operator's go
+if (ready && rec.ok) console.log(`\n→ READY recorded. Next (routine, no question): report HAZIR with this ✅ line, finish the YouTube pack until "YouTube READY" (node scripts/lint-titles.js --slug=${slug} --pack). The production render is NOT routine: node scripts/render-decision.js --slug=${slug} says whether the operator's go is recorded.`);
+else if (!ready && rec.ok) console.log(require("./lib/next-step").nextStepLine(slug, "preview-ready (NOT READY)"));
+process.exit(ready && rec.ok ? 0 : 1);

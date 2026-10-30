@@ -13,7 +13,7 @@ const t = (name, ok, extra = "") => { console.log(`${ok ? "✓" : "✗"} ${name}
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "mutealign-"));
 fs.mkdirSync(path.join(root, "scripts", "lib"), { recursive: true });
 fs.copyFileSync(path.join(__dirname, "mute-test.js"), path.join(root, "scripts", "mute-test.js"));
-for (const f of ["production-guard.js", "code-fingerprint.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(root, "scripts", "lib", f));
+for (const f of ["production-guard.js", "code-fingerprint.js", "next-step.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(root, "scripts", "lib", f));
 const slug = "align-book";
 const B = path.join(root, "books", slug);
 fs.mkdirSync(B, { recursive: true });

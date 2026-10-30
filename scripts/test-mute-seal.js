@@ -12,7 +12,7 @@ const t = (name, ok, extra = "") => { console.log(`${ok ? "✓" : "✗"} ${name}
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "muteseal-"));
 fs.mkdirSync(path.join(root, "scripts", "lib"), { recursive: true });
 fs.copyFileSync(path.join(__dirname, "mute-test.js"), path.join(root, "scripts", "mute-test.js"));
-for (const f of ["production-guard.js", "code-fingerprint.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(root, "scripts", "lib", f));
+for (const f of ["production-guard.js", "code-fingerprint.js", "next-step.js"]) fs.copyFileSync(path.join(__dirname, "lib", f), path.join(root, "scripts", "lib", f));
 // fake renderer: --frames=<id>:<frame>,... --out=<dir> -> <out>/<slug>/<id>-f<frame>.png (64x64 colour)
 fs.writeFileSync(path.join(root, "scripts", "render-sequence-stills.js"), `
 const fs=require("fs"),path=require("path"),{execFileSync}=require("child_process");

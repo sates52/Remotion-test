@@ -27,10 +27,17 @@ const { buildBundle } = require("./lib/render-bundle");
 
 const args = parseArgs(process.argv.slice(2));
 const SLUG = args.slug;
-if (!SLUG) { console.error("Kullanım: node scripts/render-github-redispatch.js --slug=<slug>"); process.exit(1); }
+if (!SLUG) { console.error("Kullanım: node scripts/render-github-redispatch.js --slug=<slug> [--book-root=<pinned book worktree>]"); process.exit(1); }
+// --book-root (2026-10-30): a render dispatched by render.js --book-root lives in the book's pinned worktree (state +
+// bundle); this checkout's tools rescue it without touching the pin
+const BOOK = typeof args["book-root"] === "string" && args["book-root"].trim() ? path.resolve(args["book-root"].trim()) : ROOT;
+if (BOOK !== ROOT) {
+  const chk = require("./lib/book-root").checkBookRoot({ launcher: ROOT, bookRoot: BOOK, slug: SLUG });
+  if (!chk.ok) { console.error(`❌ --book-root: ${chk.error}`); process.exit(2); }
+}
 
-const perSlug = path.join(ROOT, `.render-github-split.${SLUG}.json`);
-const splitPath = fs.existsSync(perSlug) ? perSlug : path.join(ROOT, ".render-github-split.json");
+const perSlug = path.join(BOOK, `.render-github-split.${SLUG}.json`);
+const splitPath = fs.existsSync(perSlug) ? perSlug : path.join(BOOK, ".render-github-split.json");
 if (!fs.existsSync(splitPath)) { console.error(`❌ Split state dosyası bulunamadı: .render-github-split.${SLUG}.json`); process.exit(1); }
 const split = JSON.parse(fs.readFileSync(splitPath, "utf8"));
 if (split.slug !== SLUG) { console.error(`❌ State slug'ı '${split.slug}', istenen '${SLUG}'.`); process.exit(1); }
@@ -50,7 +57,7 @@ function bundleSha() {
     // ref gets exactly what the other segments rendered — no rebuild, no audit of a tree that may have moved on
     const have = (c) => { try { execFileSync("git", ["cat-file", "-e", `${c}^{commit}`], { cwd: ROOT, stdio: "ignore" }); return true; } catch { return false; } };
     if (split.bundleSha && !args["new-bundle"] && have(split.bundleSha)) { _bundleSha = split.bundleSha; return _bundleSha; }
-    const sha = buildBundle({ slug: SLUG }).sha;
+    const sha = buildBundle({ slug: SLUG, root: BOOK }).sha;
     // segments of ONE render must come from ONE bundle (bundles are deterministic: same tree, same sha). A different
     // sha means the code or the book changed since the render was dispatched — mixing would splice two versions.
     // A render dispatched before bundles were deterministic has a time-stamped sha: same TREE = same inputs, so the
@@ -76,13 +83,13 @@ async function ensureRef(w, sg) {
   const ref = sg.ref.replace("refs/heads/", "");
   const seg = { ...sg, ref, remoteName: remote };
   // ask the worker first: a ref that already holds the render's bundle needs nothing (and no bundle is built)
-  if (split.bundleSha && !args["new-bundle"] && (await rd.gitIO({ root: ROOT, sha: split.bundleSha }).remoteSha(seg)) === split.bundleSha) {
+  if (split.bundleSha && !args["new-bundle"] && (await rd.gitIO({ root: BOOK, sha: split.bundleSha }).remoteSha(seg)) === split.bundleSha) {
     console.log(`    ref already holds ${String(split.bundleSha).slice(0, 8)} — not pushed again`);
     return true;
   }
   let sha;
   try { sha = bundleSha(); } catch (e) { console.error(`    ❌ bundle refused before any push:\n${e.message}`); return false; }
-  const io = rd.gitIO({ root: ROOT, sha });
+  const io = rd.gitIO({ root: BOOK, sha });
   if ((await io.remoteSha(seg)) === sha) { console.log(`    ref already holds ${sha.slice(0, 8)} — not pushed again`); return true; }
   for (let attempt = 1; attempt <= 3; attempt++) {
     const r = await io.push(seg);

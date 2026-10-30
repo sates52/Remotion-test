@@ -233,6 +233,7 @@ Write ONLY a JSON array [{"id":"b001","guess":"...","misleading":"..."}, ...] to
   fs.writeFileSync(path.join(OUT, "PROMPTS.md"), `# Readcheck — ${SLUG} (${beats.length} beats, ${chunks.length} blind readers)\n\nLaunch every blind reader in ONE message (parallel, model: sonnet). Readers must be fresh agents that did not author the storyboard. Then:\n\n    node scripts/readcheck.js judge --slug=${SLUG}\n\n${prompts}\n`);
   const rc = OUT === BASE ? "" : ` (re-check ${path.basename(OUT)}; then: judge --slug=${SLUG} --recheck=${path.basename(OUT).slice(8)})`;
   console.log(`✓ ${path.relative(ROOT, OUT)} — ${beats.length} beats, ${chunks.length} blind readers${rc}. Run its PROMPTS.md (sonnet, parallel).`);
+  console.log(`  Running the blind readers is a ${require("./lib/next-step").ROUTINE}`);
 }
 
 function judge() {
@@ -256,6 +257,7 @@ Judge meaning, not wording. Write ONLY a JSON array [{"id":"b001","correctness":
   }
   fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `\n## Judges (fresh agents, model: sonnet, parallel). Then: node scripts/readcheck.js tally --slug=${SLUG}\n\n${prompts.join("\n\n")}\n`);
   console.log(`✓ ${files.length} judge inputs. Run the Judges section of PROMPTS.md (sonnet, parallel).`);
+  console.log(`  Running the judges is a ${require("./lib/next-step").ROUTINE}`);
 }
 
 function tally() {

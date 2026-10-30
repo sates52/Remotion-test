@@ -15,11 +15,25 @@ of Margery Kempe planned a local download + ffmpeg concat because its pinned che
 
 ## 0. Preconditions (operator gates, not yours)
 - The operator approved the production render of THIS config. `node scripts/render-decision.js --slug=<slug>` says
-  whether it is already decided (COVERED = do not ask again). A NOT READY preview needs the operator's recorded
-  decision (`--accept-quality-debt="<why>"` — the operator's words, never yours). A BLOCK is never renderable.
+  whether it is already decided (COVERED / AUTHORIZED = do not ask again). Two operator records, kept apart
+  (2026-10-30):
+  - **quality debt** (REVIEW findings / a NOT READY preview): `--accept-quality-debt="<the operator's words>"`;
+  - **the production render go**: `--authorize-render="<the operator's words>"`. It is needed even when quality and
+    preview are clean (NO_DEBT / NEEDS_AUTHORIZATION). It binds to this render input only, and is recorded only when
+    quality and preview are settled.
+  Both are the operator's words, never yours. A BLOCK is never renderable. YouTube READY is not a render permission.
 - Run every command below from a checkout of the CURRENT `origin/god-mode` (the delivery code). A book pinned to an
-  older engine SHA keeps its plan; its finished render state is assembled by current code with `--book-root=<that
-  checkout>` (nothing re-rendered).
+  older engine SHA keeps its pin: render it from the launcher with `--book-root=<that worktree>`:
+  `git show origin/god-mode:scripts/book-start.js | node - --launcher`, then in `../wt-production-base`:
+  `node scripts/render.js --slug=<slug> --method=github --book-root=<book worktree> [--authorize-render="…"]`.
+  - The bundle is built from the book worktree, so its pinned engine renders it.
+  - Credentials are read in place from the main checkout: never copy `render-accounts.json` and never symlink it.
+  - It dispatches, records and stops. Then run `render-status.js --slug=<slug> --book-root=<book worktree>` and
+    only the command it prints (cloud assembly, or a segment rescue with the same `--book-root`).
+  - It refuses a book worktree whose HEAD is not its pin, or that has tracked engine changes. A regenerated
+    `src/books.generated.ts` is fine.
+- The same render input is never dispatched twice: a repeat after a complete dispatch is refused (exit 3). A
+  deliberate new render is the operator's `--new-render="<reason>"`.
 
 ## 1. Render
 ```bash

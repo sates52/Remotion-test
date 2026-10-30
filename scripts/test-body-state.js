@@ -128,6 +128,20 @@ try {
   write({ [I.tea]: { holds: undefined } });
   r = merge();
   t("drink -> continue drops the cup: the hold is carried (merge flags the dropped object)", /drinking from/.test(r.out), r.out.slice(-300));
+  // 2026-10-30 chains the operator listed: take -> place (the object taken is the one set down), drink -> leave
+  write({ [I.drink]: { action: "take", holds: "cup", actionCue: undefined }, [I.tea]: { action: "place", holds: "cup" } });
+  r = merge();
+  t("take -> continue place of the same cup: accepted (the hand that took it sets it down)", r.status === 0 && !/set the cup down in beat/.test(r.out), r.out.slice(-300));
+  write({ [I.drink]: { action: "drink", holds: "cup" }, [I.tea]: { action: "leave", holds: undefined } });
+  r = merge();
+  t("drink -> continue leave WITHOUT the cup: flagged (the cup would vanish at the cut)", /drinking from "cup"/.test(r.out), r.out.slice(-300));
+  write({ [I.drink]: { action: "drink", holds: "cup" }, [I.tea]: { action: "leave", holds: "cup" } });
+  r = merge();
+  t("drink -> continue leave carrying the cup: accepted (she walks out with it)", r.status === 0 && !/GONE|DOWN|SEATED|drinking from/.test(r.out), r.out.slice(-300));
+  // The Art of Strategy 293: an action with nobody to do it was merged, then dropped by the planner
+  write({ [I.empty]: { cast: [], action: "place", holds: "cup", continue: undefined } });
+  r = merge();
+  t("cast [] + action place: refused (nobody does it — it was silently dropped at planning), classified ACTION_NO_PERSON", r.status !== 0 && /action "place" with cast \[\] — nobody on screen does it/.test(r.out) && require("./lib/merge-recovery").classify((r.out.match(/\d+: action "place" with cast[^\n]*/) || [""])[0]).code === "ACTION_NO_PERSON", r.out.slice(-400));
 } finally {
   if (!process.env.KEEP_FIXTURE) fs.rmSync(tmp, { recursive: true, force: true }); else console.log("fixture kept: " + tmp);
   if (fs.existsSync(path.join(REPO, "books", SLUG))) fs.rmSync(path.join(REPO, "books", SLUG), { recursive: true, force: true });

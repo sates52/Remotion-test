@@ -55,8 +55,8 @@ const LABEL = args.label || "run1";
 // Which code renders the stills? Stops on code that is not a commit (scripts/lib/production-guard.js).
 // Measurement unchanged: this only records/guards the code before prep renders.
 if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
-if (!["prep", "judge", "tally", "map"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/mute-test.js prep|judge|tally|map --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]");
+if (!["prep", "judge", "tally", "map", "supersede"].includes(CMD) || !SLUG) {
+  console.error("Usage: node scripts/mute-test.js prep|judge|tally|map --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]\n       node scripts/mute-test.js supersede --slug=<slug> --label=<label> --reason=\"<why>\" [--status=SUPERSEDED|STALE|VOID] [--operator-approved=\"<reason>\"]");
   process.exit(1);
 }
 // bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
@@ -221,8 +221,16 @@ function prep() {
   fs.mkdirSync(path.join(OUT, "mute"), { recursive: true });
   fs.writeFileSync(path.join(OUT, "sample.json"), JSON.stringify(sample, null, 1));
   const prior = args["frames-from"] ? [] : [...seenUnits()];
+  // WHICH FILM this label is drawn from (2026-10-30, lib/mute-verdict.js): the verdict is chosen by this identity, never
+  // by time or position (the-magician-s-nephew: an old run3 blocked a sealed run5 PASS on the current config)
+  let identity = {};
+  try {
+    let codeHead = null; try { codeHead = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
+    identity = { createdAt: new Date().toISOString(), configSha256: require("crypto").createHash("sha256").update(fs.readFileSync(cfgPath)).digest("hex"),
+      renderInputHash: require("./lib/render-preflight").inputHashOf(cfgPath), codeHead };
+  } catch {}
   fs.writeFileSync(path.join(OUT, "sample-meta.json"), JSON.stringify({ ...(V2 ? { method: "v2" } : {}), framesFrom: args["frames-from"] || null, seed: seedFor(LABEL),
-    repeatedUnits: sample.filter((x) => prior.includes(x.id)).length, ...(sealMeta || {}) }, null, 1));
+    repeatedUnits: sample.filter((x) => prior.includes(x.id)).length, ...identity, ...(sealMeta || {}) }, null, 1));
   if (args.seal) {
     let head = null; try { head = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch {}
     const ids = sample.map((s) => s.id);
@@ -476,7 +484,10 @@ function tally() {
   const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor((MAX_REPEAT_PER30 * n) / 30);
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
     sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh, dead, addsTargetMet: addsMet,
-    imageBeats, imageAdds, addsAll: Math.round(addsAll * 100) };
+    imageBeats, imageAdds, addsAll: Math.round(addsAll * 100),
+    // what this verdict judged (2026-10-30): the film's identity at prep + the config the stills were rendered from
+    ...(() => { let framesConfigSha = null; try { framesConfigSha = fs.readFileSync(path.join(OUT, "stills", ".config-sha"), "utf8").trim() || null; } catch {}
+      return { configSha256: meta.configSha256 || null, renderInputHash: meta.renderInputHash || null, codeHead: meta.codeHead || null, framesConfigSha }; })() };
   // v2: never a verdict, never in mute-test.json / the engine-outcomes ledger / cause-ledger (its own history file)
   if (V2) Object.assign(summary, { method: "v2", verdict: false, diagnostic: "v2 full frame, captions not drawn — not a verdict until the operator enables it" });
   fs.writeFileSync(path.join(OUT, "totals.json"), JSON.stringify(summary, null, 2));
@@ -535,4 +546,30 @@ function map() {
   console.log(`✓ ${SLUG}/${LABEL}: ${rows.length} items, each -> one image -> its own description -> its sampled unit`);
 }
 
-({ prep, judge, tally, map })[CMD]();
+// SUPERSEDE (2026-10-30): retire an untallied label for good without touching any of its files — a sidecar entry in
+// audit/mute/<slug>/STATUS.json that preview-state and preview-ready read (lib/mute-verdict.js). Its beats stay "seen"
+// for every later holdout. A tallied label is a verdict and is never retracted; a sealed open label is the holdout
+// itself and is retired only on the operator's word.
+function supersede() {
+  const MV = require("./lib/mute-verdict");
+  const status = String(args.status || "SUPERSEDED").toUpperCase();
+  const reason = typeof args.reason === "string" ? args.reason.trim() : "";
+  if (!MV.RETIRED.has(status)) { console.error(`❌ --status=${status}: one of ${[...MV.RETIRED].join(", ")}`); process.exit(1); }
+  if (!reason) { console.error("❌ --reason=\"<why this label is not a verdict for the current film>\" is required"); process.exit(1); }
+  if (!fs.existsSync(path.join(OUT, "sample.json"))) { console.error(`❌ ${SLUG}/${LABEL}: no such mute label`); process.exit(1); }
+  if (fs.existsSync(path.join(OUT, "totals.json"))) { console.error(`❌ ${SLUG}/${LABEL} is tallied — a verdict is never retracted (its record stays; a newer run on the current film supersedes it by identity)`); process.exit(2); }
+  const op = typeof args["operator-approved"] === "string" ? args["operator-approved"].trim() : "";
+  if (fs.existsSync(path.join(OUT, "seal.json")) && !op) { console.error(`❌ ${SLUG}/${LABEL} is the SEALED holdout (open): retiring it would dodge the verdict — only on the operator's word: --operator-approved="<reason>"`); process.exit(2); }
+  const file = MV.statusFile(ROOT, SLUG);
+  const doc = readJSON(file, {}) || {};
+  const id = MV.labelIdentity(ROOT, SLUG, LABEL);
+  const prev = doc[LABEL] && doc[LABEL].status ? [{ ...doc[LABEL] }] : [];
+  doc[LABEL] = { status, reason, recordedAt: new Date().toISOString(), by: "mute-test.js supersede", ...(op ? { operatorApproved: op } : {}),
+    evidence: { stillsConfigSha: id.stills16, currentConfigSha: MV.currentIdentity(cfgPath).configSha256, drawnAt: id.drawnAt ? new Date(id.drawnAt).toISOString() : null },
+    ...(prev.length || doc[LABEL]?.history ? { history: [...((doc[LABEL] && doc[LABEL].history) || []), ...prev.map(({ history, ...p }) => p)] } : {}) };
+  fs.writeFileSync(file, JSON.stringify(doc, null, 2) + "\n");
+  console.log(`✓ ${SLUG}/${LABEL} → ${status} in ${path.relative(ROOT, file)} (sample, key, stills, seal untouched; its beats stay seen for later holdouts)`);
+  console.log(require("./lib/next-step").nextStepLine(SLUG, `Retiring ${LABEL}`));
+}
+
+({ prep, judge, tally, map, supersede })[CMD]();
