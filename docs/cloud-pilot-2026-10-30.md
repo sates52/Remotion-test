@@ -59,7 +59,9 @@ Known baseline failures (fail on clean origin as well, listed in `data/ci-regres
 |---|---|---|
 | agent, per run | `max-ai-credits: 10` = $0.10 | firewall API proxy, priced with the compiled Haiku table (input $0.10 / output $0.50 per MTok); steering warnings first, then a hard stop |
 | threat detection, per run | `max-ai-credits: 5` = $0.05 | same proxy, its own budget (gh-aw default would be 400) |
-| this workflow, per 24 h | `max-daily-ai-credits: 30` = $0.30 ≈ 2 full runs | activation guardrail; over the limit the agent job is skipped (gh-aw default would be 5000 = $50) |
+| this workflow, per 24 h | `max-daily-ai-credits: 200` = $2 (operator line) | activation guardrail; over the limit the agent job is skipped (gh-aw default would be 5000 = $50) |
+| all paid AI work, per month | $50 budget: **warn $40, stop new paid AI work at $45**, about $2 / 24 h | `scripts/ai-budget.js` (`data/ai-budget.json`): agents start a paid workflow ONLY through `ai-budget.js dispatch`; direct-API pilots `check --usd` first and `record` after |
+| operator stop switch | repository variable `AI_SPEND_PAUSED=true` | the workflow skips its activation job (`if:`), so nothing paid runs |
 | turns / time | `max-turns` 20, agent 15 min, detection 10 min | engine / job timeouts |
 | concurrency | one slot per analysed `run_id` | Actions |
 
@@ -70,6 +72,23 @@ Known baseline failures (fail on clean origin as well, listed in `data/ci-regres
 - runner time is free on this public repo.
 
 The proxy's accounting is gh-aw's estimate. The provider's bill is the truth, so it needs its own limit.
+
+
+### Monthly counter (operator decision 2026-10-30: $50 / month, warn $40, stop $45, ~$2 / day)
+`node scripts/ai-budget.js status` sums two sources:
+1. The paid gh-aw workflows: this month's runs and each run's `usage` artifact (AIC, or tokens × the Haiku price). A run whose usage cannot be read counts at its per-run maximum ($0.15).
+2. The ledger `audit/ai-spend/<YYYY-MM>.jsonl`, which direct-API pilots append to with `record`.
+
+What it does:
+- `dispatch` refuses at STOP (month + this job > $45), at STOP_DAILY (> $2 / 24 h), and at UNKNOWN (the run list cannot be read).
+- A refusal stops only the paid job. Everything else continues.
+
+Limits of the counter:
+- **It is an estimate.** The Anthropic provider bill is the truth.
+- A hard monthly limit could not be set in the Console (2026-10-30). The operator's options:
+  - a prepaid credit balance with auto-reload OFF;
+  - a workspace spend limit, when a non-Default workspace and an org admin / billing role are available.
+- `gh aw logs` needs a newer `gh` than this PC has (2.24), so the counter reads the GitHub REST API directly.
 
 ### Anthropic Console (operator)
 1. Create a separate **workspace** for CI (e.g. `ci-analyst`), and create the new key inside it.

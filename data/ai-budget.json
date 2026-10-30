@@ -1,0 +1,21 @@
+{
+  "note": "Simple monthly AI spend control (operator decision 2026-10-30). ESTIMATE, not the provider bill: gh-aw usage artifacts + the local pilot ledger. Reconcile with the Anthropic Console. Thresholds are operator decisions; scripts/ai-budget.js reads them.",
+  "currency": "USD",
+  "monthlyBudgetUsd": 50,
+  "warnUsd": 40,
+  "stopUsd": 45,
+  "dailyUsd": 2,
+  "aicUsd": 0.01,
+  "repo": "sates52/Remotion-test",
+  "ledgerDir": "audit/ai-spend",
+  "paidWorkflows": {
+    "ci-failure-analyst.lock.yml": {
+      "perRunMaxUsd": 0.15,
+      "why": "max-ai-credits 10 (agent) + 5 (threat detection); 1 AIC = $0.01"
+    }
+  },
+  "prices": {
+    "claude-haiku-5-5": { "inputPerMTok": 0.10, "outputPerMTok": 0.50, "cacheReadPerMTok": 0.01, "cacheWritePerMTok": 0.125 },
+    "claude-sonnet-5-5": { "inputPerMTok": 2.00, "outputPerMTok": 10.00, "cacheReadPerMTok": 0.20, "cacheWritePerMTok": 2.50 }
+  }
+}
