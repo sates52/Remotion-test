@@ -33,14 +33,20 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Node 24 (the tests load .ts engine files directly) + npm cache
+      - name: Node 24 (the tests load .ts engine files directly)
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
-          cache: npm
 
-      - name: Dependencies (no install scripts — nothing downloads a browser)
-        run: npm ci --ignore-scripts --no-audit --no-fund
+      # Only what the tests load (measured: zod, remotion, react, react-dom, scheduler ≈ 9 MB), at the lockfile's
+      # versions, in their own folder — the full project tree (three / expo peers) is never resolved here and no
+      # install script runs. A test that needs another package fails loudly and is added here.
+      - name: Test dependencies (lockfile versions, no install scripts)
+        run: |
+          mkdir -p "$RUNNER_TEMP/deps" && cd "$RUNNER_TEMP/deps" && npm init -y >/dev/null
+          npm install --ignore-scripts --no-audit --no-fund --no-package-lock \
+            zod@3.22.3 remotion@4.0.414 react@19.2.3 react-dom@19.2.3 scheduler@0.27.0
+          mv "$RUNNER_TEMP/deps/node_modules" "$GITHUB_WORKSPACE/node_modules"
 
       - name: ffmpeg + ffprobe (9 tests probe or cut audio) and GNU time (CPU / peak RSS per test)
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg time
