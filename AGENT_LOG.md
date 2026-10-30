@@ -2088,6 +2088,33 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-30 — CI Failure Analyst hardened and put on `main` (2 files only); MN real dispatch = L3; regression register
+- **Analyst hardened** (operator Decisions 1 and 3). Changes:
+  - threat detection **ON** (Haiku, own cap 5 AIC, `continue-on-error: false`, no tracking issue);
+  - no-op / missing-tool / missing-data issue reports off;
+  - toolsets narrowed to `repos, actions`;
+  - `max-daily-ai-credits: 30` (gh-aw default was 5000 = $50 / day).
+- Verified in the lock:
+  - only `workflow_dispatch`;
+  - no `: write` permission in any job;
+  - `GITHUB_READ_ONLY=1`;
+  - `staged`;
+  - 0 compile warnings.
+- First run: nominal maximum $0.15, worst case ≈ $0.23. Doc: docs/cloud-pilot-2026-10-30.md §2.
+- `main` gets ONLY `.github/workflows/ci-failure-analyst.{md,lock.yml}` (operator-approved), as a commit with `main` as its parent. No other file and no engine or render workflow changes.
+- **NOT run.** The first key was pasted into a chat and is compromised. The operator replaces the secret with a new key, then approves the first run separately.
+- **MN** (read-only):
+  - the render was dispatched 2026-10-30 09:07–09:35 UTC from launcher f0a4cbf0 with `--book-root` and `--authorize-render`;
+  - render-facts shows REFUSED with no authorization → authorization recorded (pin 086a0941, config 889a18f8, input dc2bd5a7) → OK;
+  - `render-status` at the time of writing: RENDERING 2/10;
+  - no re-dispatch.
+  - Ledger rows 7 and 8 move to L3.
+- **New standing register:** docs/cross-agent-regressions.md:
+  - the 14 cases + **case 15, the TF audio/VTT tail**: the gate failed at +2.03 s; `fix-vtt-tail` refused TAIL_NOT_SILENT on a tight-cut recording whose words all end before EOF; the owner hand-clamped without the tool record. L1 open; nothing changed.
+  - the autonomy L3 protocol;
+  - the quality backlog: The Art of Strategy final run WRONG 2, dead 8, ADDS 7/30, EXPLAINS 0 = **first research question of the next visual cycle**.
+  - Motive round 3: none. Flee and continuity real blind tests stay open.
+
 ### 2026-10-30 — CI Failure Analyst switched to Haiku 5.5 (operator decision)
 - `.github/workflows/ci-failure-analyst.md` + recompiled `.lock.yml` (gh-aw v1.0.1):
   - model `claude-haiku-5-5` (was `claude-sonnet-5-5`);

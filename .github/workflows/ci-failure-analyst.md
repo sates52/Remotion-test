@@ -24,10 +24,12 @@ engine:
   id: claude
   model: claude-haiku-5-5
 
-# hard limits: ~20 turns, 15 minutes, 10 AI credits (≈ $0.10) per run — Haiku 5.5 ($0.10 / $0.50 per MTok; a 1–3-log run ≈ $0.02–0.06)
+# hard limits: ~20 turns, 15 minutes, 10 AI credits (≈ $0.10) per run + 5 for threat detection — Haiku 5.5 ($0.10 / $0.50 per MTok; a 1–3-log run ≈ $0.02–0.06)
 max-turns: 20
 timeout-minutes: 15
 max-ai-credits: 10
+# 24 h cap for this workflow, agent + detection together: 30 AIC = $0.30 ≈ 2 full runs (gh-aw default: 5000 AIC = $50)
+max-daily-ai-credits: 30
 
 network:
   allowed:
@@ -36,16 +38,26 @@ network:
 
 tools:
   github:
-    toolsets: [default, actions]
+    toolsets: [repos, actions]   # read run logs + files at a commit; no issue / PR tools
   bash: false
   cli-proxy: false
 
 safe-outputs:
   create-issue: false
+  noop:
+    report-as-issue: false
+  report-missing-tool: false
+  report-missing-data: false
   report-failed-jobs: false
   report-failure-as-issue: false
   staged: true
-  threat-detection: false
+  # the agent reads untrusted log text: an AI check of its report for prompt injection and secret leaks before the
+  # step summary is written (Haiku, own cap 5 AIC = $0.05); a finding blocks the output, no tracking issue
+  threat-detection:
+    enabled: true
+    max-ai-credits: 5
+    report-as-issue: false
+    continue-on-error: false
 ---
 
 # CI failure analyst (read-only)

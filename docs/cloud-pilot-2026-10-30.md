@@ -35,28 +35,52 @@ Known baseline failures (fail on clean origin as well, listed in `data/ci-regres
 
 **Verdict:** move it. The deterministic suite is about 13× faster in the cloud, free, and removes the local load.
 
-## 2. CI Failure Analyst (P2.3) — Haiku 5.5, waiting for the secret and `main`
+## 2. CI Failure Analyst (P2.3) — hardened, on `main`, NOT run
 
-- Source: `.github/workflows/ci-failure-analyst.md`, compiled with gh-aw v1.0.1 to `.lock.yml`.
-- Engine: Claude, model **`claude-haiku-5-5`** (operator decision 2026-10-30; was `claude-sonnet-5-5`). The operator's API key was checked with the free `GET /v1/models` call: valid, and `claude-haiku-5-5` is listed. Billing is the Anthropic API via the `ANTHROPIC_API_KEY` secret. A Claude subscription is not supported by gh-aw.
+- Source: `.github/workflows/ci-failure-analyst.md`, compiled with gh-aw v1.0.1 to `.lock.yml`. The lock imports the prompt body from the `.md` at run time (`runtime-import`), so both files live on `main`, where `workflow_dispatch` is listed. They are the only files this pilot puts on `main`.
+- Engine: Claude, model **`claude-haiku-5-5`**. Billing is the Anthropic API via the `ANTHROPIC_API_KEY` repository secret. A Claude subscription is not supported by gh-aw.
+- **The first key was pasted into an agent chat. Treat it as compromised:** the operator replaces the secret with a new key and revokes the old one in the Anthropic Console. Never run the workflow on the old key.
 
-Read-only by construction (verified in the lock):
-- **GitHub tools:** read-only only (`actions_get`, `actions_list`, `get_job_logs`, …). `actions_run_trigger` is absent.
-- **Safe outputs:** only `noop` (the step summary) and `report_*`.
-- **Disabled:** `create-issue`, `report-failed-jobs`, failure-as-issue and threat detection. `staged: true`.
-- **Network and shell:** network limited to defaults plus the Claude domains; bash and the CLI proxy are off.
+### Read-only, verified in the compiled lock (2026-10-30)
+- **Trigger:** only `workflow_dispatch` (input `run_id`). No schedule, push, `workflow_run` or issue trigger, so it never runs by itself and never re-triggers itself.
+- **Permissions:** top level `{}`.
+  - activation and agent jobs: `actions: read`, `contents: read`;
+  - conclusion: `actions: read`;
+  - detection: `contents: read`;
+  - **no `: write` anywhere.** The conclusion job's former `issues: write` is gone: no-op, missing-tool and missing-data reports no longer go to tracking issues.
+- **GitHub tools:** toolsets `repos, actions` only, with `GITHUB_READ_ONLY=1` and automatic lockdown. There are no issue or PR tools, and `actions_run_trigger` is absent.
+- **Safe outputs:** `noop` (the step summary) only, `staged: true`. Disabled: create-issue, the missing-tool / missing-data reports, failed-jobs and failure-as-issue.
+- **Threat detection: ON.** The agent reads untrusted log text, and on a public repo its step summary is public. So a separate detection job (Haiku, own cap 5 AIC) checks the agent output for prompt injection and secret leaks before the safe-output step. It runs with `continue-on-error: false` (a finding blocks the output) and `report-as-issue: false` (no tracking issue).
+- **Network and shell:** network limited to defaults plus the Claude domains; bash and the CLI proxy are off. Secrets are masked in logs (`GH_AW_SECRET_NAMES`).
 - **Pinning:** actions are pinned by SHA and containers by digest.
-- **Limits:** `max-turns` 20, 15 min, `max-ai-credits` **10** (≈ $0.10 per run; gh-aw prices it with the compiled Haiku table, input $0.10 / output $0.50 per MTok). Concurrency: one slot per analysed `run_id`.
 
-To enable (the operator's steps):
-1. Put the workflow on `main`, where `workflow_dispatch` lives.
-2. Add the key: `gh secret set ANTHROPIC_API_KEY --repo sates52/Remotion-test`, typed by the operator, from an account with admin rights on the repo. The local `gh` login (`koplatform`) gets HTTP 403 on repository secrets.
-3. Budget: approved by choosing Haiku 5.5 with the 10-credit cap above.
+### Cost limits (1 AIC = $0.01, gh-aw cost docs)
+| limit | value | enforced by |
+|---|---|---|
+| agent, per run | `max-ai-credits: 10` = $0.10 | firewall API proxy, priced with the compiled Haiku table (input $0.10 / output $0.50 per MTok); steering warnings first, then a hard stop |
+| threat detection, per run | `max-ai-credits: 5` = $0.05 | same proxy, its own budget (gh-aw default would be 400) |
+| this workflow, per 24 h | `max-daily-ai-credits: 30` = $0.30 ≈ 2 full runs | activation guardrail; over the limit the agent job is skipped (gh-aw default would be 5000 = $50) |
+| turns / time | `max-turns` 20, agent 15 min, detection 10 min | engine / job timeouts |
+| concurrency | one slot per analysed `run_id` | Actions |
 
-ESTIMATE per run reading 1–3 failed logs:
-- **Haiku 5.5 (configured):** about $0.02–0.06, capped at $0.10.
-- Sonnet 5.5 (for comparison only): about $0.40–0.80.
-- Runner time: about 5–8 min (free on this public repo).
+**First single run:**
+- nominal maximum **$0.15** (agent 10 + detection 5 AIC);
+- worst case **≈ $0.23**, if the request in flight when a cap is reached completes (at most about $0.04 per Haiku request on each of the two jobs);
+- expected about $0.02–0.06;
+- runner time is free on this public repo.
+
+The proxy's accounting is gh-aw's estimate. The provider's bill is the truth, so it needs its own limit.
+
+### Anthropic Console (operator)
+1. Create a separate **workspace** for CI (e.g. `ci-analyst`), and create the new key inside it.
+2. Give that workspace a **monthly spend limit** of about $5 (a month of the daily cap is about $9.30), plus an email notification at about 50%.
+3. Revoke the old key.
+
+### Steps before the first paid run
+1. The operator stores the NEW key: `gh secret set ANTHROPIC_API_KEY --repo sates52/Remotion-test`. The command prompts for the value; it never goes into a file, an argument or a log.
+2. The operator approves the first run separately.
+3. Run once: `gh workflow run ci-failure-analyst.lock.yml --repo sates52/Remotion-test -f run_id=<a failed run>`.
+4. Measure the run's cost with `gh aw audit <run-id>` and reconcile it with the Console.
 
 ## 3. Cloud blind mute test (P2.4) — offline proof of concept
 
