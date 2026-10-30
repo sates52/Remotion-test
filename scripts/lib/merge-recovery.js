@@ -28,6 +28,7 @@ const RULES = [
   [/not in this book's vocabulary|^(set|shotOverride|expression|action|holds) "[^"]*"$|^callout style "|^diagram type "/, "OUT_OF_VOCAB", "ROUTINE", "pick a value from rules.md -> Vocabulary; if none fits, re-author the beat (REAUTHOR)"],
   [/cast "[^"]*" not in story bible/, "CAST_NOT_IN_BIBLE", "REAUTHOR", "use a bible cast key; if the narration really names a new person, add them to the story bible (then prep) — never invent one"],
   [/shotOverride "beforeAfter"/, "BEFORE_AFTER", "REAUTHOR", "use conceptMotion, a diagram, or two beats (the message explains)"],
+  [/with cast \[\] — nobody on screen does it/, "ACTION_NO_PERSON", "REAUTHOR", "name who does it (cast[0]) from the narration, or drop the action and stage the object as the concept icon"],
   [/needs two cast members|needs exactly two|needs a destination/, "PAIR_ACTION", "REAUTHOR", "give the action its second person / destination from the narration, or choose a one-person action"],
   [/needs "holds"/, "HOLDS_MISSING", "ROUTINE", "add the object the narration names as holds"],
   [/continues .* (DOWN|LYING) \(beat \d+\)/, "BODY_STATE", "REAUTHOR", "re-read the narration: still down -> a face action (idle, talk, think); time has passed -> drop continue; never stand them up unless the narration says they get up"],

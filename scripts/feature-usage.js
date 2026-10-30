@@ -32,7 +32,11 @@ const SLUG = args.slug;
 if (!SLUG) { console.error("Usage: node scripts/feature-usage.js --slug=<slug> [--root=<dir>] [--out=<dir>] [--json]"); process.exit(1); }
 const BOOK = path.join(ROOT, "books", SLUG);
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
-const cfg = readJSON(path.join(BOOK, "config.antidote.json"));
+// a book still before make-book (2026-10-30: The Art of Strategy, Trust Fall) is measured at the levels it has reached:
+// authored / merged; planned is NOT_PLANNED_YET (never 0, never a drop)
+const engineOf = (readJSON(path.join(BOOK, "book.json"), {}) || {}).engine;
+const NO_CONFIG = !fs.existsSync(path.join(BOOK, "config.antidote.json")) && engineOf === "antidote" && fs.existsSync(path.join(BOOK, "storyboard"));
+const cfg = readJSON(path.join(BOOK, "config.antidote.json")) || (NO_CONFIG ? { scenes: [] } : null);
 if (!cfg) { console.log(`feature-usage: ${SLUG} has no config.antidote.json (Antidote only) — nothing to report`); process.exit(0); }
 const NV = "NOT_VERIFIED", NC = "NOT_CARRIED";
 
@@ -173,7 +177,8 @@ const rows = FEATURES.map((F) => {
   r.authored = F.a === NC ? NC : authoredFiles.length ? authoredList.filter(has).length : NV;
   r.merged = F.a === NC || F.m === NC ? NC : merged.length ? merged.filter(has).length : NV;
   r.rendered = NV;
-  if (F.a === NC) r.planned = scenes.filter(safe(F.e)).length;
+  if (NO_CONFIG) r.planned = "NOT_PLANNED_YET";
+  else if (F.a === NC) r.planned = scenes.filter(safe(F.e)).length;
   else if (F.c === NC || F.c === NV) r.planned = F.c;
   else if (!merged.length) r.planned = NV;
   else {

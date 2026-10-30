@@ -1169,7 +1169,10 @@ function merge() {
         else if (!nw(narration).includes(nw(a.conceptMotionCue))) P(i, `conceptMotionCue "${a.conceptMotionCue}" is not spoken in this beat (the cue time comes from its word timings)`);
       }
       if (Array.isArray(a.cast)) a.cast.forEach((c) => { if (!CAST.has(c)) P(i, `cast "${c}" not in story bible`); });
-      if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
+      // an action with nobody to do it is dropped by the planner (2026-10-30, The Art of Strategy 293: cast [] + action
+      // "place" + holds "letter" — merged, then planned as an empty insert): refused here, never lost silently
+      if (Array.isArray(a.cast) && !a.cast.length && a.action && a.action !== "idle") P(i, `action "${a.action}" with cast [] — nobody on screen does it (the planner would drop it); name who does it in cast, or drop the action and stage the object as the concept icon`);
+      else if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
       if (a.diagram) {
         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
