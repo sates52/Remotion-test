@@ -1,0 +1,122 @@
+{
+  "created": "2026-10-30",
+  "round": 2,
+  "purpose": "Motive 1.0 round 2 (operator-approved, limited). Hypothesis from round 1: the bubble read right 6/6 but repeated the callout; it should ADD where the narration gives an inner reason the callout does NOT print. Selection rule (measured before any design): class-a motive phrase in the pivot beat, a cast member on screen, no diagram, the callout shares no content word with the reason clause, a book not used before (scan: 623 beats in 39 books; three chosen by hand from the top of that list for a clear outward act + a stated inner reason). Registered BEFORE the rule change and before any holdout is authored or rendered.",
+  "passages": [
+    {
+      "role": "DEV",
+      "slug": "buffett-the-making-of-an-american-capitalist",
+      "beats": [
+        45,
+        49
+      ],
+      "pivot": 47,
+      "pivotCallout": "He retreated",
+      "narrationSha256": "056dffb1743e57c99dba629ceac3591b2982b8b9efcb734d9bdf601961eed001",
+      "artBeatsSha256": "2826b736ba7def964788fb54cfcca1fb8089da382adbb2f470b5d8aee7bd57a2",
+      "narration": [
+        {
+          "i": 45,
+          "narration": "And there was absolutely no warning. The emotional weather of the house could change in an instant. The trauma of that was so profound that decades later, one of Buffett's own children called Leila from college, and she unleashed a 2-hour"
+        },
+        {
+          "i": 46,
+          "narration": "tirade on her grandson. Two hours completely out of nowhere, reducing him to tears. And when the son told his dad what happened, Warren just looked at him and said, \"Now you know how I felt every day of my life.\" He couldn't fight back against his mother"
+        },
+        {
+          "i": 47,
+          "narration": "emotionally. It was an unwinable war. So, he retreated. He built a financial fortress because it was the only domain he could entirely control."
+        },
+        {
+          "i": 48,
+          "narration": "His mother's volatile moods completely dictated the emotional timeline of that house. You never knew when the storm would hit, and you couldn't make it stop once it started, right? By escaping into"
+        },
+        {
+          "i": 49,
+          "narration": "his ledgers, his paper routes, and his fictitious pinball boss, Buffett was taking ownership of his own reality, he refused to let her erratic outbursts dictate his internal state."
+        }
+      ]
+    },
+    {
+      "role": "HOLDOUT-1",
+      "slug": "as-good-as-dead",
+      "beats": [
+        239,
+        243
+      ],
+      "pivot": 241,
+      "pivotCallout": "PUSHES RAVI AWAY",
+      "narrationSha256": "e15d451af7c0c195afa22c9b420ca478596cfb39f448489b169c12c08f6f4b9d",
+      "artBeatsSha256": "da35c3aef562ac8370341a53d2a0ee9cb0000116f53f18ddb32ef06c01a0477a",
+      "narration": [
+        {
+          "i": 239,
+          "narration": "psychological one. She realizes internally that she must live with those dead eyes forever."
+        },
+        {
+          "i": 240,
+          "narration": "To maintain this massive sprawling lie, she has to sever her emotional ties."
+        },
+        {
+          "i": 241,
+          "narration": "She pushes Ravi away to protect him. She has to sit in an interrogation room and lie directly to D. Hawkins face, mimicking the exact psychopathic"
+        },
+        {
+          "i": 242,
+          "narration": "calm of the killers she used to hunt. It's chilling. She has to permanently use her friends like Cara as human shields for her alibi."
+        },
+        {
+          "i": 243,
+          "narration": "If she ever breaks, if she ever tells the truth to alleviate her guilt, they go down for perjury and obstruction too. She is completely, utterly,"
+        }
+      ]
+    },
+    {
+      "role": "HOLDOUT-2",
+      "slug": "the-love-hypothesis",
+      "beats": [
+        89,
+        93
+      ],
+      "pivot": 91,
+      "pivotCallout": "Refuses to coddle them",
+      "narrationSha256": "3e8f94efcbe59014e444f4f0f72d790bcd27ae885f454fc12a4514cac8a92e2d",
+      "artBeatsSha256": "b63fe3a757ab43946237e9852977267631f9f7882e27b91b477813a66ba2e17a",
+      "narration": [
+        {
+          "i": 89,
+          "narration": "He isn't apologizing for his reputation either. He owns it. He really does. He says, \"I hold my grads accountable. My job is to make sure that my adult graduate students don't become mediocre scientists.\""
+        },
+        {
+          "i": 90,
+          "narration": "He's exacting. He sets a terrifyingly high bar. But he is not inherently cruel. And that distinction is vital."
+        },
+        {
+          "i": 91,
+          "narration": "He demands rigor because he respects the scientific method. And more importantly, he respects their potential. He refuses to coddle them into mediocrity."
+        },
+        {
+          "i": 92,
+          "narration": "But wait, I have a major objection here. I'm remembering a very specific scene."
+        },
+        {
+          "i": 93,
+          "narration": "Literally, right before Olive walks into his office for the very first time, a girl runs out crying."
+        }
+      ]
+    }
+  ],
+  "truths": {
+    "DEV": "Buffett retreated into investing (he sat in a room and studied) BECAUSE it was the only domain he could entirely control — the outward retreat is driven by an inner need for control / safety.",
+    "HOLDOUT-1": "Pip pushes Ravi away (keeps him out, lies to Hawkins) TO PROTECT HIM — outwardly she rejects him, inwardly she loves him and fears for him.",
+    "HOLDOUT-2": "Adam is harsh and demanding with his students (refuses to coddle them) BECAUSE he respects the scientific method and their potential — outwardly cold, inwardly respect / care."
+  },
+  "questions": {
+    "outward": "the outward act or face is named correctly",
+    "inner": "the inner reason / feeling is named correctly",
+    "relation": "the inner reason is connected as the CAUSE of the outward act",
+    "contrast": "the viewer sees the inside differs from what is shown outside (where the narration says so)"
+  },
+  "protocol": "identical to round 1: silent 5x3 sheets, 3 fresh sonnet readers per arm + strict sonnet judge each; BASE = published beats; NEW = round-2 rule; holdouts authored ONCE by a fresh agent from the narration + the frozen rule text only; nobody tunes them after a result.",
+  "decision": "SHIP to god-mode only if on EACH holdout WRONG(new) <= WRONG(base) and ADDS(new) >= ADDS(base), AND pooled over both holdouts relation YES(new) >= relation YES(base) + 2 (of 6). Otherwise the device stays on dev/motive-1. DEV never counts. A third round needs the operator."
+}
