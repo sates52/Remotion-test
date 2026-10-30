@@ -13,18 +13,21 @@ on:
         description: "id of the FAILED workflow run to analyse (e.g. a Regression run)"
         required: true
 
+concurrency:
+  job-discriminator: ${{ github.event.inputs.run_id }}
+
 permissions:
   contents: read
   actions: read
 
 engine:
   id: claude
-  model: claude-sonnet-5-5
+  model: claude-haiku-5-5
 
-# hard limits: ~20 turns, 15 minutes, 100 AI credits (≈ $1.00) per run
+# hard limits: ~20 turns, 15 minutes, 10 AI credits (≈ $0.10) per run — Haiku 5.5 ($0.10 / $0.50 per MTok; a 1–3-log run ≈ $0.02–0.06)
 max-turns: 20
 timeout-minutes: 15
-max-ai-credits: 100
+max-ai-credits: 10
 
 network:
   allowed:

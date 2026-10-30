@@ -35,10 +35,10 @@ Known baseline failures (fail on clean origin as well, listed in `data/ci-regres
 
 **Verdict:** move it. The deterministic suite is about 13× faster in the cloud, free, and removes the local load.
 
-## 2. CI Failure Analyst (P2.3) — compiled, not enabled
+## 2. CI Failure Analyst (P2.3) — Haiku 5.5, waiting for the secret and `main`
 
 - Source: `.github/workflows/ci-failure-analyst.md`, compiled with gh-aw v1.0.1 to `.lock.yml`.
-- Engine: Claude, model `claude-sonnet-5-5`. Billing is the Anthropic API via the `ANTHROPIC_API_KEY` secret. A Claude subscription is not supported by gh-aw.
+- Engine: Claude, model **`claude-haiku-5-5`** (operator decision 2026-10-30; was `claude-sonnet-5-5`). The operator's API key was checked with the free `GET /v1/models` call: valid, and `claude-haiku-5-5` is listed. Billing is the Anthropic API via the `ANTHROPIC_API_KEY` secret. A Claude subscription is not supported by gh-aw.
 
 Read-only by construction (verified in the lock):
 - **GitHub tools:** read-only only (`actions_get`, `actions_list`, `get_job_logs`, …). `actions_run_trigger` is absent.
@@ -46,16 +46,16 @@ Read-only by construction (verified in the lock):
 - **Disabled:** `create-issue`, `report-failed-jobs`, failure-as-issue and threat detection. `staged: true`.
 - **Network and shell:** network limited to defaults plus the Claude domains; bash and the CLI proxy are off.
 - **Pinning:** actions are pinned by SHA and containers by digest.
-- **Limits:** `max-turns` 20, 15 min, `max-ai-credits` 100 (≈ $1.00 per run, gh-aw's estimate).
+- **Limits:** `max-turns` 20, 15 min, `max-ai-credits` **10** (≈ $0.10 per run; gh-aw prices it with the compiled Haiku table, input $0.10 / output $0.50 per MTok). Concurrency: one slot per analysed `run_id`.
 
 To enable (the operator's steps):
 1. Put the workflow on `main`, where `workflow_dispatch` lives.
-2. Add the key: `gh secret set ANTHROPIC_API_KEY --repo sates52/Remotion-test`. Typed by the operator.
-3. Approve the budget.
+2. Add the key: `gh secret set ANTHROPIC_API_KEY --repo sates52/Remotion-test`, typed by the operator, from an account with admin rights on the repo. The local `gh` login (`koplatform`) gets HTTP 403 on repository secrets.
+3. Budget: approved by choosing Haiku 5.5 with the 10-credit cap above.
 
 ESTIMATE per run reading 1–3 failed logs:
-- Sonnet 5.5: about $0.40–0.80 typical, capped at $1.00.
-- Haiku 5.5: about $0.02–0.06.
+- **Haiku 5.5 (configured):** about $0.02–0.06, capped at $0.10.
+- Sonnet 5.5 (for comparison only): about $0.40–0.80.
 - Runner time: about 5–8 min (free on this public repo).
 
 ## 3. Cloud blind mute test (P2.4) — offline proof of concept

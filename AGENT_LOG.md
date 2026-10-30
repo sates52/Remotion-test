@@ -2088,6 +2088,18 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-30 — CI Failure Analyst switched to Haiku 5.5 (operator decision)
+- `.github/workflows/ci-failure-analyst.md` + recompiled `.lock.yml` (gh-aw v1.0.1):
+  - model `claude-haiku-5-5` (was `claude-sonnet-5-5`);
+  - `max-ai-credits` 10 (≈ $0.10 per run; was 100);
+  - one concurrency slot per analysed `run_id`.
+- Still read-only; tools, safe-outputs and network unchanged.
+- The operator's Anthropic API key was validated with the free `GET /v1/models` call (Haiku 5.5 listed). No inference call was made.
+- **Not running yet** (no model call, no cost):
+  - the `ANTHROPIC_API_KEY` repository secret needs a repo-admin account (the local `gh` login gets 403);
+  - `workflow_dispatch` needs the file on the default branch `main`.
+- Doc: docs/cloud-pilot-2026-10-30.md §2.
+
 ### 2026-10-30 — Production reliability + agent autonomy + GitHub cloud pilot + Antidote 10x (cycle 3)
 - **Base:** origin/god-mode d2570e1a. Isolated worktree wt-p4 (dev/cycle3 → god-mode fast-forward pushes; Motive on
   dev/motive-1). No book worktree, pin, render or WIP file was written; real cases were read-only.
