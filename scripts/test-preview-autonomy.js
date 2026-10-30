@@ -51,5 +51,20 @@ try {
 const ROOT = path.join(__dirname, "..");
 for (const f of ["CLAUDE.md", "AGENTS.md"]) t(`entry ${f}: the engine stays pinned, the procedure follows origin; routine steps without asking`, /The ENGINE stays the book's pin; the preview PROCEDURE does not age with it/.test(fs.readFileSync(path.join(ROOT, f), "utf8")));
 for (const f of [".agents/workflows/preview-hazirla.md", ".cursor/rules/antidote-agents.mdc"]) t(`entry ${f}: driven by preview-state status`, /preview-state\.js status/.test(fs.readFileSync(path.join(ROOT, f), "utf8")));
+// 2026-10-30: Trust Fall + The Art of Strategy knew the next step and still ended the turn with a question
+for (const f of ["CLAUDE.md", "AGENTS.md", ".agents/workflows/preview-hazirla.md", ".cursor/rules/antidote-agents.mdc"])
+  t(`entry ${f}: the turn never ends on CONTINUE (no "Devam edeyim mi?", no interim report)`, /turn never ends on CONTINUE/.test(fs.readFileSync(path.join(ROOT, f), "utf8")));
+{
+  const sk = fs.readFileSync(path.join(ROOT, ".claude", "skills", "preview-hazirla", "SKILL.md"), "utf8");
+  t("canonical skill: §2 'Never end your turn on CONTINUE' + §5 HAZIR DEĞİL only at an OPERATOR stop", /Never end your turn on CONTINUE/.test(sk) && /HAZIR DEĞİL report is written ONLY at an OPERATOR stop/.test(sk));
+  t("canonical skill: the bible draft's heuristic fields are routine to correct", /correcting them from the narration is routine, never a question/.test(sk));
+  t("canonical skill: COVERED / AUTHORIZED and --authorize-render (the render go is its own record)", /COVERED \/ AUTHORIZED/.test(sk) && /--authorize-render/.test(sk));
+  const NS = require("./lib/next-step");
+  t("tool contract (every stage tool): 'Do NOT end your turn while status says CONTINUE'", /Do NOT end your turn while status says CONTINUE/.test(NS.ROUTINE) && NS.nextStepLine("x", "Y").includes(NS.KEEP_GOING));
+  const src = (f) => fs.readFileSync(path.join(ROOT, "scripts", f), "utf8");
+  t("merge --write routes to status (no longer 'next: make-book' — wrong for Antidote, where status says readcheck)", /nextStepLine\(SLUG, "Merge"\)/.test(src("storyboard.js")) && !/art\.json — next: node scripts\/make-book/.test(src("storyboard.js")) && /preview-state\.js status \(it names the next step/.test(src("lib/merge-recovery.js")));
+  t("prep, readcheck readers / judges, own-icon naming print the routine contract", /Running the authors is a/.test(src("storyboard.js")) && /Running the blind readers is a/.test(src("readcheck.js")) && /Running the judges is a/.test(src("readcheck.js")) && /Naming the icons \(a fresh blind agent\) is a/.test(src("own-icons-sheet.js")));
+  t("plan-bible --emit and --bible print the contract; preview-ready READY routes to the hand-off + YouTube pack, the render stays the operator's", /Rewriting this draft is a/.test(src("plan-bible.js")) && /nextStepLine\(SLUG, "Story bible"\)/.test(src("plan-bible.js")) && /READY recorded\. Next \(routine, no question\)/.test(src("preview-ready.js")) && /The production render is NOT routine/.test(src("preview-ready.js")));
+}
 console.log(failed ? `\n${failed} FAILED` : "\nall preview-autonomy checks passed");
 process.exit(failed ? 1 : 0);

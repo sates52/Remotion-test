@@ -78,13 +78,20 @@ if (!process.argv.includes("--structure-only")) {
     ["N a real operator state → reported, not run", "test-preview-state.js", /PASS N. a real operator state is reported as one/],
     ["O pinned book → told the procedure moved on", "test-preview-autonomy.js", /✓ O. pinned behind origin and the skill changed/],
     ["P every stage tool routes back to status", "test-preview-autonomy.js", /all preview-autonomy checks passed/],
+    // 2026-10-30: Trust Fall + The Art of Strategy asked after the bible, the-magician-s-nephew stuck on an old mute run
+    ["Q story bible PASS → prep: routine, never end the turn", "test-plan-bible-grounding.js", /PASS --bible: the review is not a refusal \(exit 0\) and the next step \+ contract follow/],
+    ["R wrong bible draft → source-grounded rewrite, no question", "test-plan-bible-grounding.js", /PASS --emit prints the routine contract/],
+    ["S merge errors → autonomous repair", "test-merge-recovery.js", /all merge-recovery checks passed/],
+    ["T old incomplete mute run → the valid current run", "test-mute-verdict.js", /PASS run3 \(untallied, stills of another config\) is STALE/],
+    ["U preview READY → await the operator's render authorization", "test-render-book-root.js", /PASS render-decision: preview READY, no debt, no authorization → NO_DEBT/],
+    ["V pinned book → current tools, no credential copy", "test-render-book-root.js", /PASS credentials: the book worktree finds the main checkout's render-accounts\.json in place/],
   ];
   const ran = {};
   for (const [, f] of SCEN) if (!ran[f]) { const r = spawnSync(process.execPath, [path.join(__dirname, f)], { encoding: "utf8", timeout: 600000 }); ran[f] = { ok: r.status === 0, out: (r.stdout || "") + (r.stderr || "") }; }
   console.log("\n scenario                                              | command that decides        | Claude Code | Antigravity | Cursor/AGENTS.md");
   for (const [name, f, re] of SCEN) {
     const ok = ran[f].ok && re.test(ran[f].out);
-    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock", "test-gate-routing.js": "render-decision / firewall CLI", "test-step0.js": "make-prompt --check", "test-preview-autonomy.js": "preview-state + stage tools" }[f];
+    const cmd = { "test-book-start.js": "production-guard / preview-state", "test-preview-state.js": "preview-state + preview-ready", "test-run-lock.js": "render.js run-lock", "test-mute-resume.js": "mute-test.js prep lock", "test-gate-routing.js": "render-decision / firewall CLI", "test-step0.js": "make-prompt --check", "test-preview-autonomy.js": "preview-state + stage tools", "test-plan-bible-grounding.js": "plan-bible --emit / --bible", "test-merge-recovery.js": "storyboard.js merge", "test-mute-verdict.js": "preview-state + mute-verdict", "test-render-book-root.js": "render-decision / render.js" }[f];
     const cell = ok ? "same ✓" : "✗";
     console.log(` ${name.padEnd(53)} | ${cmd.padEnd(27)} | ${cell.padEnd(11)} | ${cell.padEnd(11)} | ${cell}`);
     if (!ok) fail++;

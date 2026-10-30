@@ -169,4 +169,7 @@ const head = (() => { try { return require("child_process").execFileSync("git", 
 const rec = require("./lib/preview-record").writePreviewRecord({ root: ROOT, slug, engine, ready, head, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) });
 if (!rec.ok) console.error(`\n❌ preview-ready.json NOT written: ${rec.error} — the verdict is not recorded`);
 else console.log(`   record: books/${slug}/preview-ready.json — ${rec.state} for render input ${rec.record.renderInputHash || "(no config)"}${head ? ` @ ${head.slice(0, 8)}` : ""}`);
+// after READY (2026-10-30): the hand-off and the YouTube pack are routine; the production render is the operator's go
+if (ready && rec.ok) console.log(`\n→ READY recorded. Next (routine, no question): report HAZIR with this ✅ line, finish the YouTube pack until "YouTube READY" (node scripts/lint-titles.js --slug=${slug} --pack). The production render is NOT routine: node scripts/render-decision.js --slug=${slug} says whether the operator's go is recorded.`);
+else if (!ready && rec.ok) console.log(require("./lib/next-step").nextStepLine(slug, "preview-ready (NOT READY)"));
 process.exit(ready && rec.ok ? 0 : 1);

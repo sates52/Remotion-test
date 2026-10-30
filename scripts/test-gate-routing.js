@@ -64,7 +64,11 @@ try {
   // preview READY for this render input + the quality decision → covered
   fs.writeFileSync(path.join(d, "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: rp.inputHashOf(cf) }));
   r = node("render-decision.js", "--slug=dd");
-  t("H. preview READY + the quality decision for THIS config → COVERED (exit 0)", r.status === 0 && /^COVERED/.test(r.stdout), r.stdout);
+  // 2026-10-30: accepting the debt is not the render go — the operator's authorization is its own record
+  t("H. preview READY + the quality decision, no render authorization → NEEDS_AUTHORIZATION (exit 2), names --authorize-render", r.status === 2 && /^NEEDS_AUTHORIZATION/.test(r.stdout) && /--authorize-render/.test(r.stdout), r.stdout);
+  rp.recordAuthorization(tmp, "dd", { hash: rp.configHash(cf), inputHash: rp.inputHashOf(cf), commit: "abc12345", reason: "Operator: render dd" });
+  r = node("render-decision.js", "--slug=dd");
+  t("H. preview READY + the quality decision + the render authorization for THIS config → COVERED (exit 0)", r.status === 0 && /^COVERED/.test(r.stdout), r.stdout);
   // P2 (2026-10-28): a quality-only decision never covers a NOT READY preview — authorization is a separate fact
   fs.writeFileSync(path.join(d, "preview-ready.json"), JSON.stringify({ ready: false, renderInputHash: rp.inputHashOf(cf), failed: ["blind mute test"] }));
   r = node("render-decision.js", "--slug=dd");
@@ -92,6 +96,9 @@ try {
   fs.writeFileSync(path.join(vox, "preview-ready.json"), JSON.stringify({ ready: true, renderInputHash: rp.inputHashOf(path.join(vox, "config.vox.json")) }));
   r = node("render-decision.js", "--slug=vx");
   t("decision: Vox preview READY → no debt to accept (exit 2): the production render is still the operator's go", r.status === 2 && /^(NO_DEBT|NOT_APPLICABLE)/.test(r.stdout), r.stdout);
+  rp.recordAuthorization(tmp, "vx", { hash: rp.configHash(path.join(vox, "config.vox.json")), inputHash: rp.inputHashOf(path.join(vox, "config.vox.json")), commit: "abc12345", reason: "Operator: render vx" });
+  r = node("render-decision.js", "--slug=vx");
+  t("decision: Vox preview READY + the operator's render authorization → AUTHORIZED (exit 0): not asked again", r.status === 0 && /^AUTHORIZED/.test(r.stdout) && /without asking again/.test(r.stdout), r.stdout);
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }

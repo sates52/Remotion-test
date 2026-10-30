@@ -63,13 +63,21 @@ repeat:
   OPERATOR    → stop and report (§3, §5)
 ```
 
+**Never end your turn on CONTINUE (2026-10-30).** Trust Fall (after the bible draft, and again after merge) and The
+Art of Strategy (after the bible PASS) received CONTINUE, the next command and "run it now, without asking" — and
+ended the turn with a question anyway ("Devam edeyim mi?", "Storyboard'a devam etmemi ister misiniz?") through the
+harness's wrap-up / ask tool. While status prints CONTINUE you do not: call a wrap-up / ask / end-turn tool, ask
+"shall I continue?", or write an interim "preview HAZIR DEĞİL — next step is …" report. A long pipeline is not a
+reason; you run it. Your turn ends only at READY (§5 HAZIR), at an OPERATOR stop (§3, §5), or while you wait for
+background agents you started — and then you continue when they finish, without a question.
+
 The order is the same for every harness: code (book start) → bible → own icons → prep → authors → merge → readcheck →
 make-book → sealed mute test → preview-ready → hand-off. What you do without asking, by stage (runbook section in brackets):
 
 | stage | you do it yourself |
 |---|---|
 | code | New book from the shared checkout: `preview-state.js worktree --slug=<s>` creates `../wt-book-<s>` (detached at `origin/god-mode`, inputs copied, engine commit pinned) — continue THERE, never produce in the shared checkout. The book start is enforced in code (`production-guard`): the first production step of a new book refuses (exit 2) on engine code that differs from `origin/god-mode`, when origin cannot be fetched, or in the shared main checkout — follow the printed command, never set `PRODUCTION_ALLOW_BEHIND` / `PRODUCTION_ALLOW_MAIN` yourself (operator-only, recorded). A book already under way in the main checkout keeps going there: `preview-state.js pin`. Minimum commit given by the operator: `--min=<sha>`. Add your WIP row (contract §2: role production, worktree, base) to the **main checkout's** `AGENT_LOG.md` — the shared one other agents read, not your worktree's copy; edit only your own lines. |
-| bible (§1, §1c) | `fix-vtt-names`, `plan-bible --emit`, rewrite the draft against the evidence (cast with looks and distinct `variant`s, allowedMotifs/Locations, spine, signatureObjects), `plan-bible --bible`. Never re-run `--emit` over your rewrite. |
+| bible (§1, §1c) | `fix-vtt-names`, `plan-bible --emit`, rewrite the draft against the evidence (cast with looks and distinct `variant`s, allowedMotifs/Locations, spine, signatureObjects), `plan-bible --bible`. Never re-run `--emit` over your rewrite. The draft's era, cast keys, ages and places are a heuristic and often wrong (one metaphor gave Trust Fall a sci-fi era): correcting them from the narration is routine, never a question. `--bible` prints a source-grounding review (a cast member the narration never names, a name it uses often that no cast member carries) — fix what is real and rerun; it never blocks. |
 | ownIcons (§1b) | Draw `motifs.json` (an object the narration CHANGES gets one icon per state it shows, §1b), `own-icons-sheet.js`, a FRESH sonnet agent names each number, write its answers to `storyboard/own-icons.naming.json` as `{"names":{"<n>":{"said","intended","match":true|false}}}`; redraw every misread until all match. |
 | prep (§2) | `storyboard.js prep` after the bible, icons and variants are final, and again at the start of every fix round. |
 | authors (§2) | One fresh agent per `### Author K` in `PROMPTS.md`, all in ONE message, in the background (Claude: Agent tool; Antigravity: Agent Manager). Authors follow `antidote-visual-authoring`. |
@@ -129,11 +137,13 @@ pre-flight, `ENGINE_CONTRADICTION`, `PRODUCTION_ALLOW_*`); accepting quality deb
 holdout limits; a full / final render, upload, publishing; any cleanup; any credential change. If unsure: if
 `node scripts/preview-state.js status --slug=<slug>` prints CONTINUE, continue.
 **Already decided = not asked again.** Before asking the operator about quality debt or the production render, run
-`node scripts/render-decision.js --slug=<slug>` (read-only). COVERED = the operator already accepted THIS exact
-config's findings with `--accept-quality-debt` (that is also its production-render approval): run the production
-render without asking; render.js still runs the real preflight and dispatches only on GO. Nothing else is covered:
-NEEDS_DECISION (a new config or a new finding — an older decision never covers it), BLOCK (never acceptable),
-NO_DEBT / NOT_APPLICABLE (no debt, but the production render is still the operator's go). The preview verdict is
+`node scripts/render-decision.js --slug=<slug>` (read-only). COVERED / AUTHORIZED = the operator's records for THIS
+exact render input already exist: the quality debt (if any) accepted with `--accept-quality-debt`, and the production
+render go recorded with `--authorize-render` (2026-10-30: two separate records; a decision written before 2026-10-30
+was the combined one and still counts). Run the production render without asking; render.js still runs the real
+preflight and dispatches only on GO. Nothing else is covered: NEEDS_DECISION (a new config or a new finding — an older
+decision never covers it), BLOCK (never acceptable), NO_DEBT / NEEDS_AUTHORIZATION (quality settled, the operator's go
+not recorded — report it; record it only with the operator's own words). The preview verdict is
 reported as it is — an accepted decision never turns NOT READY into READY or a firewall FAIL into PASS.
 **Production needs preview READY or the operator's decision — Vox and Antidote alike (2026-10-28).** A NOT READY /
 stale / missing preview stops a production render (no automatic production render) until the operator records a
@@ -169,6 +179,8 @@ the NOT READY preview, nothing else). A changed config or a new finding is never
   `✅ READY` line into the report. Studio opening, gates passing or a finished render are not READY. Any other outcome
   (`READY_CHECK`, exit 1, not run, a mute run without `tally`) is "preview HAZIR DEĞİL" with that stage and the next command.
   (do-over 2026-10-24: preview-ready exited 1 with the verdict untallied and the report still said HAZIR.)
+  That HAZIR DEĞİL report is written ONLY at an OPERATOR stop — never as an interim report while status prints
+  CONTINUE (then you run the next command, §2 "Never end your turn on CONTINUE").
 - Report in Turkish, exactly this shape:
 
 ```

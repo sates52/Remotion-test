@@ -73,7 +73,7 @@ function buildReport({ slug, engine, problems, warnings, owner, review, write, w
   const byFile = {};
   items.forEach((x) => { if (x.file) (byFile[x.file] = byFile[x.file] || []).push(x.i); });
   const operatorNeeded = byClass.OPERATOR > 0;
-  const next = !items.length ? (written ? "merged — continue the preview pipeline (make-book)" : "no problems — run merge --write")
+  const next = !items.length ? (written ? "merged — next: node scripts/preview-state.js status (it names the next step: readcheck for Antidote, make-book for Vox); routine, never end the turn" : "no problems — run merge --write")
     : operatorNeeded ? "STOP: report the OPERATOR problems (each says why); fix the rest meanwhile"
       : `fix all ${items.length} yourself — no approval: ${CLASS_ORDER.filter((c) => byClass[c]).map((c) => `${byClass[c]} ${c}`).join(", ")}; then merge --write`;
   return {

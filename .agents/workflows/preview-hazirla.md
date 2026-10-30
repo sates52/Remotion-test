@@ -13,7 +13,8 @@ differ, the canonical file wins). Read `AGENTS.md` and `docs/AGENT-OPERATING-CON
 Antigravity specifics:
 
 1. Drive everything with the same commands as every other harness: `node scripts/preview-state.js status --slug=<slug>`
-   and the command it prints. Report HAZIR only when that status prints `READY`.
+   and the command it prints. Report HAZIR only when that status prints `READY`. The turn never ends on CONTINUE: no
+   "Devam edeyim mi?", no interim HAZIR DEĞİL report — only READY, an OPERATOR stop, or waiting for agents you started.
 2. **Fresh agents** (storyboard authors, own-icon namer, readcheck readers and judges, mute-test describer and judge):
    one NEW agent per prompt from the Agent Manager, in parallel where the skill says so. A blind agent opens ONLY the
    file its prompt names and never authored the storyboard.

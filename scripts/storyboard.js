@@ -887,7 +887,8 @@ Validate it parses and has one entry per beat with matching \`i\`. Do not modify
 Reply with one line: count written.`).join("\n\n");
   fs.writeFileSync(path.join(SB, "PROMPTS.md"), `# Author prompts — ${SLUG} (${ENGINE}, ${beats.length} beats, ${chunks.length} authors)\n\nRun all authors in parallel, then:\n\n    node scripts/storyboard.js merge --slug=${SLUG}\n    node scripts/storyboard.js merge --slug=${SLUG} --write\n\n${prompts}\n`);
   console.log(`✓ books/${SLUG}/storyboard/ — ${beats.length} beats, ${chunks.length} chunks, ${ENGINE}${ENGINE === "antidote" ? `, ${v.icons.length} icons` : ""}`);
-  console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel.`);
+  console.log(`  Next: run the ${chunks.length} author prompts in books/${SLUG}/storyboard/PROMPTS.md in parallel (fresh agents, background; wait for all, then merge).`);
+  console.log(`  Running the authors is a ${require("./lib/next-step").ROUTINE}`);
 }
 
 // ── EXPERIMENT: validation of an authored relationship-staging selection ────────
@@ -1282,10 +1283,14 @@ function merge() {
       storyboard: { method: "authored storyboard (STORYBOARD_RUNBOOK.md)", authoredBy: "claude", date: new Date().toISOString().slice(0, 10) },
       beats: out,
     }, null, 2) + "\n");
-    console.log(`\n✓ books/${SLUG}/art.json — next: node scripts/make-book.js --slug=${SLUG} ... --skip-pack`);
+    // the next step is the STATE MACHINE's (2026-10-30: this line said make-book; for Antidote status says readcheck —
+    // Trust Fall stopped here and asked)
+    console.log(`\n✓ books/${SLUG}/art.json written`);
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Merge"));
   } else {
     fs.writeFileSync(path.join(BOOK, "designs.json"), JSON.stringify(out, null, 2) + "\n");
-    console.log(`\n✓ books/${SLUG}/designs.json — next: node scripts/make-book.js --slug=${SLUG} ... (gate runs before Flux)`);
+    console.log(`\n✓ books/${SLUG}/designs.json written`);
+    console.log(require("./lib/next-step").nextStepLine(SLUG, "Merge"));
   }
 }
 
