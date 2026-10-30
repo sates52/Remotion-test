@@ -28,8 +28,12 @@ engine:
 max-turns: 20
 timeout-minutes: 15
 max-ai-credits: 10
-# 24 h cap for this workflow, agent + detection together: 30 AIC = $0.30 ≈ 2 full runs (gh-aw default: 5000 AIC = $50)
-max-daily-ai-credits: 30
+# 24 h cap for this workflow, agent + detection: 200 AIC = $2 (operator line 2026-10-30; gh-aw default 5000 = $50).
+# The month ($50: warn $40, stop $45) is counted by scripts/ai-budget.js — agents dispatch ONLY through it.
+max-daily-ai-credits: 200
+
+# the operator stops every paid AI workflow by setting the repository variable AI_SPEND_PAUSED=true
+if: ${{ vars.AI_SPEND_PAUSED != 'true' }}
 
 network:
   allowed:
