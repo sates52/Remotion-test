@@ -1,0 +1,61 @@
+# Deterministic regression suite (2026-10-30, P2.2 pilot). No model call, no render, no network beyond npm / apt,
+# no secret: the tests use none (measured on origin d2570e1a: 101 tests, 0 Chrome / gh / credential processes).
+# Triggers: manual dispatch (GitHub lists it once this file is on the default branch), or a push to an ISOLATED
+# ci/regression/** branch — never god-mode, never the render-worker refs. It never touches render-video.yml.
+name: Regression (deterministic)
+
+on:
+  workflow_dispatch:
+    inputs:
+      jobs:
+        description: "tests run at a time"
+        required: false
+        default: "4"
+  push:
+    branches:
+      - "ci/regression/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: regression-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout (the exact commit)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Node 24 (the tests load .ts engine files directly) + npm cache
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Dependencies (no install scripts — nothing downloads a browser)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: ffmpeg + ffprobe (9 tests probe or cut audio) and GNU time (CPU / peak RSS per test)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg time
+
+      - name: git identity for the tests that commit in their own temp repos
+        run: git config --global user.email "ci@localhost" && git config --global user.name "ci"
+
+      - name: Run the suite
+        run: node scripts/ci-run-tests.js --jobs=${{ github.event.inputs.jobs || '4' }} --timeout=600 --out=out/ci
+
+      - name: Report (SHA-bound)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: regression-${{ github.sha }}
+          path: out/ci/
+          retention-days: 14
+          if-no-files-found: warn

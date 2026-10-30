@@ -628,7 +628,9 @@ if (CMD === "unlink") {
   const link = path.join(WT, "node_modules");
   let st = null; try { st = fs.lstatSync(link); } catch {}
   if (st && !st.isSymbolicLink()) { console.error(`❌ ${link} is a real folder, not a link — not touching it`); process.exit(1); }
-  if (st) fs.rmdirSync(link);   // removes the junction itself; never recurses into its target
+  // removes the LINK itself, never recursing into its target: a Windows junction is removed with rmdir; a POSIX symlink
+  // (Linux CI, 2026-10-30: rmdir on a symlink fails with ENOTDIR) with unlink
+  if (st) { if (process.platform === "win32") fs.rmdirSync(link); else fs.unlinkSync(link); }
   if (main && isLocked(WT, main)) git(["worktree", "unlock", WT], main);
   console.log(`✓ ${WT}: node_modules link removed (main node_modules untouched), worktree unlocked. Removing the worktree is the operator's cleanup.`);
   process.exit(0);
