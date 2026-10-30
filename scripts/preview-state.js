@@ -361,7 +361,20 @@ function bookState(slug, root = ROOT) {
   stage("seal", "done", all.some((x) => x.sealed) ? "sealed" : "legacy runs (no seal)");
 
   // an open (untallied, non-diagnostic) label: carry it through its sub-steps
-  const open = all.filter((x) => !x.tallied && !x.meta.framesFrom);
+  // …but only a label of THIS film (2026-10-30, lib/mute-verdict.js): the-magician-s-nephew stopped on "run3: needs the
+  // blind describer" — run3 was drawn from an old film before the pin and never judged, while run5 (sealed, current
+  // config) had PASSED and preview-ready recorded READY. A stale or retired label stays on disk, is never a verdict,
+  // and is reported here instead of blocking. A sealed open label always stays open (the holdout rule).
+  const MV = require("./lib/mute-verdict");
+  const cfgShaNow = shaFile(path.join(B, `config.${engine}.json`));
+  const staleOpen = [];
+  const open = all.filter((x) => {
+    if (x.tallied || x.meta.framesFrom) return false;
+    const why = MV.staleOpenReason({ root, slug, label: x.l, scopeFrom, configSha256: cfgShaNow });
+    if (why) { staleOpen.push(`${x.l} ${why}`); return false; }
+    return true;
+  });
+  if (staleOpen.length) stage("muteOld", "n/a", `not carried (kept on disk, never a verdict): ${staleOpen.join(" · ")} — to retire a label for good: node scripts/mute-test.js supersede --slug=${slug} --label=<label> --reason="<why>"`);
   const filmM = Math.max(artM, cfgM);
   for (const o of open) {
     const why = o.sealed ? "the sealed verdict sample (re-rendered from the current config)" : "a fresh holdout";

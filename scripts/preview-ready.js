@@ -65,8 +65,14 @@ if (engine) {
   // technical: the narration must fit a render bundle (GitHub refuses a file over 100 MB) — found now, not at render
   { const nb = narrationFitsBundle({ root: ROOT, slug }); check("narration fits a render bundle (< 100 MB)", nb.ok, nb.detail); }
   const mt = readJSON(path.join(BOOK, "mute-test.json"));
-  const runs = (mt && mt.runs) || [];
+  const allRuns = (mt && mt.runs) || [];
+  // only runs that judged THIS film count (2026-10-30, lib/mute-verdict.js): identity (render input / config bytes /
+  // legacy stills config), not array position; retired labels (STATUS.json) and runs whose seal fails are left out —
+  // an old PASS without evidence never carries over to a new input
+  const MVR = require("./lib/mute-verdict").currentVerdict({ root: ROOT, slug, configFile: engine ? path.join(BOOK, `config.${engine}.json`) : null, runs: allRuns });
+  const runs = MVR.matching;
   const last = runs[runs.length - 1];
+  const notCounted = MVR.rejected.length ? ` (not counted: ${MVR.rejected.map((x) => `${x.label} — ${x.why}`).join("; ").slice(0, 400)})` : "";
   // Holdout rule (mute-test.js): a PASS on reused frames is a diagnostic. The
   // verdict is the latest fresh-sample run; runs recorded before the rule
   // (no `sample` field) count as fresh only if they were not a --vs comparison.
@@ -80,8 +86,8 @@ if (engine) {
   const tot = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}${(r.totals.ADDS || 0) / r.n < A ? " (text-carried)" : ""}${r.totals.EXPLAINS != null ? `, explains ${r.totals.EXPLAINS}/${r.n}` : ""}` +
     (r.imageBeats > 0 && r.imageBeats < r.n ? ` (image on ${r.imageBeats}/${r.n} frames)` : "");
   check("blind mute test (fresh holdout sample)", ok,
-    !last ? "not run — node scripts/mute-test.js prep --slug=" + slug
-      : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "")
+    !last ? (allRuns.length ? `no run judged this film${notCounted} — node scripts/preview-state.js status --slug=${slug}` : "not run — node scripts/mute-test.js prep --slug=" + slug)
+      : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "") + (verdict.matchedBy ? ` [bound by ${verdict.matchedBy}]` : "")
       : last.pass && (!verdict || !verdict.pass) ? `${tot(last)} is on reused frames; latest fresh run ${verdict ? tot(verdict) + " FAIL" : "none"} — node scripts/mute-test.js prep --slug=${slug} --label=holdout1 (fresh sample)`
       : tot(last));
   // Machine record (advisory, never a block): which code each step ran on, and whether the report-only
