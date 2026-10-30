@@ -33,6 +33,17 @@ try {
   t("preview-ready.json is WRITTEN (it was silently skipped since 3de4cf54)", !!rec, out.slice(-400));
   t("the record carries the git head it was produced on", !!rec && rec.head === head, JSON.stringify(rec && rec.head));
   t("the record is the verdict (ready matches the exit code)", !!rec && (rec.ready === true) === (r.status === 0), `${rec && rec.ready} / exit ${r.status}`);
+  // one contract with render preflight (2026-10-30, lib/preview-record.js): the preflight's own identity + reader
+  {
+    const rpp = require(path.join(tmp, "scripts", "lib", "render-preflight"));
+    const cfgAbs = path.join(B, "config.antidote.json");
+    const sha = require("crypto").createHash("sha256").update(fs.readFileSync(cfgAbs)).digest("hex");
+    t("the record's renderInputHash is the preflight's inputHashOf(config); configSha256 is the config bytes", !!rec && rec.renderInputHash === rpp.inputHashOf(cfgAbs) && rec.configSha256 === sha, JSON.stringify(rec));
+    const pv = rpp.readPreview({ root: tmp, slug: "zz-record", inputHash: rpp.inputHashOf(cfgAbs), configFile: cfgAbs });
+    t("render preflight reads the record as this config's verdict (never STALE / MISSING)", pv.state === (rec && rec.ready ? "READY" : "NOT_READY"), pv.state);
+    t("written atomically: no temp file left behind", !fs.readdirSync(B).some((f) => /\.tmp$/.test(f)));
+    t("the console says where the record is and for which render input", /record: books\/zz-record\/preview-ready\.json — (READY|NOT_READY) for render input [0-9a-f]{16}/.test(out), out.slice(-300));
+  }
   // a failed write is loud: the record path is a directory
   fs.rmSync(path.join(B, "preview-ready.json"), { force: true });
   fs.mkdirSync(path.join(B, "preview-ready.json"));

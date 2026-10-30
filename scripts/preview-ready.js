@@ -157,15 +157,10 @@ console.log(ready ? `\n✅ READY — preview: http://localhost:3001/${engine ===
 // an agent's report of "HAZIR" must come from here, never from Studio opening or a passing gate
 // the git HEAD this verdict was produced on (was referenced but never defined: the record write threw and was swallowed)
 const head = (() => { try { return require("child_process").execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim() || null; } catch { return null; } })();
-let recordError = null;
-try {
-  const cfgFile = engine ? path.join(BOOK, `config.${engine}.json`) : null;
-  const configSha256 = cfgFile && fs.existsSync(cfgFile) ? require("crypto").createHash("sha256").update(fs.readFileSync(cfgFile)).digest("hex") : null;
-  // renderInputHash (2026-10-28): the production preflight binds the preview to the config AS THE RUNNER RENDERS IT
-  // (lib/render-input.js) — the runner rewrites meta.audio, so configSha256 (bytes) never matches there. Both kept.
-  let renderInputHash = null;
-  try { renderInputHash = cfgFile ? require("./lib/render-input").renderInputHash(readJSON(cfgFile)) : null; } catch (e) { console.error(`   ✗ renderInputHash not computed: ${e.message}`); }
-  fs.writeFileSync(path.join(BOOK, "preview-ready.json"), JSON.stringify({ ready, at: new Date().toISOString(), head, configSha256, renderInputHash, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) }, null, 2) + "\n");
-} catch (e) { recordError = e.message; }
-if (recordError) console.error(`\n❌ preview-ready.json NOT written: ${recordError} — the verdict is not recorded`);
-process.exit(ready && !recordError ? 0 : 1);
+// one contract with render preflight (lib/preview-record.js): atomic write, the preflight's own render-input identity,
+// read back with the preflight's reader — READY is the exit code only when the record says so for THIS config
+// (renderInputHash: the runner rewrites meta.audio, so configSha256 (bytes) never matches there; both kept)
+const rec = require("./lib/preview-record").writePreviewRecord({ root: ROOT, slug, engine, ready, head, mute: muteSummary, failed: rows.filter((r) => !r.advisory && !r.ok).map((r) => r.name) });
+if (!rec.ok) console.error(`\n❌ preview-ready.json NOT written: ${rec.error} — the verdict is not recorded`);
+else console.log(`   record: books/${slug}/preview-ready.json — ${rec.state} for render input ${rec.record.renderInputHash || "(no config)"}${head ? ` @ ${head.slice(0, 8)}` : ""}`);
+process.exit(ready && rec.ok ? 0 : 1);
