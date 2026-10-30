@@ -1,0 +1,26 @@
+{
+  "schema": "motive-holdout/2",
+  "round": 2,
+  "date": "2026-10-30",
+  "preregistration": "audit/motive-1/preregistration-r2.json",
+  "method": "fresh sonnet readers, 3 per arm, silent 5-row x 3-moment sequence sheets, blind arm labels (s1/s2 randomised per holdout), strict judges on outward / inner / relation / contrast + WRONG / DEAD / ADDS; storyboards authored by fresh agents and applied unchanged",
+  "holdouts": {
+    "HOLDOUT-1 as-good-as-dead 239-243": {
+      "new":  { "WRONG": 1, "DEAD": 2, "ADDS": 7, "TEXT_ONLY": 6, "outward": "PPY", "inner": "NPP", "relation": "NNP", "contrast": "NNP" },
+      "base": { "WRONG": 3, "DEAD": 3, "ADDS": 8, "TEXT_ONLY": 4, "outward": "YPY", "inner": "NPN", "relation": "NPN", "contrast": "PPP" },
+      "rule": "WRONG 1<=3 ok; ADDS 7>=8 FAIL"
+    },
+    "HOLDOUT-2 the-love-hypothesis 89-93": {
+      "new":  { "WRONG": 3, "DEAD": 2, "ADDS": 3, "TEXT_ONLY": 10, "outward": "PPP", "inner": "NNN", "relation": "NNN", "contrast": "PPP" },
+      "base": { "WRONG": 2, "DEAD": 1, "ADDS": 3, "TEXT_ONLY": 11, "outward": "PPP", "inner": "NNN", "relation": "NNN", "contrast": "PPP" },
+      "rule": "WRONG 3<=2 FAIL; ADDS 3>=3 ok"
+    }
+  },
+  "pooledRelationYES": { "new": 0, "base": 0, "needed": "new >= base + 2" },
+  "decision": "NO SHIP. The motive device stays on dev/motive-1 and does not reach god-mode. A third round needs the operator.",
+  "readings": [
+    "The device did not make the REASON readable on either holdout: relation stayed at 0 YES in both arms; only one H1 reader in the new arm reached PARTLY on protect-Ravi.",
+    "Most WRONG rows in both arms are the shared row 1 (title card + an unrelated figure / an inverted label), not the device. H2 row 1's label 'APOLOGIZING FOR HIS REPUTATION' inverts the narration ('He isn't apologizing') and is read as a woman apologizing in both arms.",
+    "The H2 star bubble ('respects') was read as aiming at success, which is an added misreading in the new arm."
+  ]
+}
