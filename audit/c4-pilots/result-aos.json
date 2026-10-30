@@ -1,0 +1,21 @@
+{
+  "schema": "c4-pilot-result/1",
+  "date": "2026-10-30",
+  "preregistration": "audit/c4-pilots/preregistration-aos.json",
+  "raters": "46 stills (23 per arm), 2 fresh sonnet describers per image + 1 strict sonnet judge per description = 184 agents; arm labels hidden (key: aos-ab-key.json)",
+  "totals": {
+    "OLD": { "n": 46, "WRONG": 0, "CORRECT": 19, "ADDS": 9, "TEXT_ONLY": 35, "DEAD": 2, "EXPLAINS_YES": 0, "EXPLAINS_PARTLY": 4 },
+    "NEW": { "n": 46, "WRONG": 2, "CORRECT": 25, "ADDS": 19, "TEXT_ONLY": 27, "DEAD": 0, "EXPLAINS_YES": 2, "EXPLAINS_PARTLY": 12 },
+    "OLD:H1": { "WRONG": 0, "ADDS": 6, "DEAD": 1 }, "NEW:H1": { "WRONG": 0, "ADDS": 5, "DEAD": 0, "EXPLAINS_YES": 2 },
+    "OLD:H2": { "WRONG": 0, "ADDS": 3, "DEAD": 1 }, "NEW:H2": { "WRONG": 2, "ADDS": 14, "DEAD": 0 }
+  },
+  "rule": { "wrongPerPassage": false, "deadPooled": true, "addsPlus6": true },
+  "decision": "NO SHIP (pre-registered rule: WRONG must not rise on either passage). The merge guards, the beard fix and the messy-hair lint stay OUT of production; kept as audit/c4-pilots/aos-guards.patch + test-merge-staging-guards.js.txt.",
+  "readings": [
+    "The current pipeline roughly doubles the picture's contribution on this book: ADDS 9 -> 19 of 46, dead 2 -> 0, EXPLAINS (yes+partly) 4 -> 14, CORRECT 19 -> 25.",
+    "Both NEW WRONG readings are ONE authoring choice: the 'target' icon (arrow in a bullseye) for the 2006 World Cup penalty shootout and the goalie watching the kicker — read as archery. Recorded in data/icon-readings.json (target.neverFor), so the next rules.md tells authors.",
+    "H1 (Cuban missile crisis) gains no ADDS (6 -> 5) but gains EXPLAINS (0 -> 2 yes) and CORRECT (4 -> 11); H2 (focal points, bargaining, World Cup) carries most of the ADDS gain (3 -> 14).",
+    "Confound: the NEW arm's author is a fresh agent and OLD was written on older rules text; the comparison measures the current pipeline as a whole, not the guards alone. The guards fired during the NEW fix round (a sorter without counts and a text-only beat were re-staged).",
+    "Next round (operator decision): re-test the same change on two NEW holdout passages with the target row in rules.md; independence: never H1/H2 again."
+  ]
+}

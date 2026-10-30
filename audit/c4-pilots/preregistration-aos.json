@@ -1,0 +1,19 @@
+{
+  "schema": "c4-pilot-prereg/1",
+  "date": "2026-10-30",
+  "written": "after rendering, before any blind reader ran",
+  "question": "Does the current authoring pipeline WITH the new merge staging guards (+ beard and messy-hair fixes) give The Art of Strategy more visual meaning than its real production authoring, without more WRONG?",
+  "passages": {
+    "H1": "the-art-of-strategy b181-189 (Cuban missile crisis: commitment, burning the steering wheel), 8 sampled scenes",
+    "H2": "the-art-of-strategy b225-240 (fairness focal points, bargaining, the 2006 World Cup penalty), 15 sampled scenes",
+    "independence": "neither passage is in the sealed 'final' sample, its threads, or the post-run re-authored chunks 1-3 (critic 2026-10-30); nothing was tuned on them"
+  },
+  "arms": {
+    "OLD": "the book's real authored beats (written on pin 9e27acec), planned on current code",
+    "NEW": "one fresh author per passage with the current rules.md and the unchanged author prompt, the current merge (with the new guards) and one routine fix round, planned on current code"
+  },
+  "confound": "the author differs between arms (production agent vs a fresh agent), and OLD was written under the older rules text; the comparison measures the current pipeline as a whole, not the guards alone",
+  "sampling": "one still per scene at 60% of the scene, identical frames in both arms (identical segmentation), captions off",
+  "raters": "mute-test style: 2 fresh sonnet describers per image, one image at a time, no narration; one strict judge per description gets the scene narration and scores correctness (CORRECT / NEUTRAL / WRONG), contribution (ADDS / TEXT_ONLY / NONE) and explains (YES / PARTLY / NO); arm labels randomised, the key stays judge-side",
+  "shipRule": "SHIP the merge guards + beard + messy-hair lint to god-mode only if, counting all judged descriptions: (1) WRONG(NEW) <= WRONG(OLD) on EACH passage, (2) dead (contribution NONE) NEW <= OLD pooled, (3) ADDS(NEW) >= ADDS(OLD) + 6 pooled over the 46 descriptions per arm (~13 points). Otherwise they stay unshipped and the result is recorded. The bars in data/quality-policy.json are not touched."
+}

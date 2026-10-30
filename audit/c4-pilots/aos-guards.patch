@@ -1,0 +1,67 @@
+diff --git a/scripts/plan-antidote.js b/scripts/plan-antidote.js
+index 38c573b2..a4e88b22 100644
+--- a/scripts/plan-antidote.js
++++ b/scripts/plan-antidote.js
+@@ -389,6 +389,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } =
+       for (const [key, member] of Object.entries(authored)) {
+         const fallback = auto.cast[member && member.role ? member.role : key] || auto.cast.narrator;
+         const merged = { ...fallback.variant, ...((member && member.variant) || {}) };
++        // The auto-cast's facial hair must not leak onto a bible character who never asked for it (The Art of Strategy
++        // 2026-10-30: a woman and a teenager drawn with a goatee → "devilish" reads). A beard is kept only when the
++        // bible sets it or its look names one.
++        if (!(member && member.variant && "beard" in member.variant) && !/\b(beard|bearded|goatee|mustache|moustache|stubble)\b/i.test(String((member && member.look) || ""))) merged.beard = "none";
+         // A recolored character must not keep the auto-cast's derived trim, or
+         // Claude sets a cream suit and the hat stays the old character's black.
+         if (member && member.variant && member.variant.suit && !member.variant.trim) delete merged.trim;
+diff --git a/scripts/plan-bible.js b/scripts/plan-bible.js
+index 4f5542c4..72027079 100644
+--- a/scripts/plan-bible.js
++++ b/scripts/plan-bible.js
+@@ -419,6 +419,11 @@ function validate(b) {
+   for (const [k, c] of Object.entries(b.cast || {})) {
+     if (!/^[a-z0-9-]+$/.test(k)) errs.push(`cast key "${k}" must be a lowercase slug`);
+     if (!c.look) warns.push(`cast.${k}.look is empty — this character will look different every time`);
++    // messy hair draws two tufts that viewers read as HORNS (data/icon-readings.json: 111/403 frames, 28%, 23 books;
++    // The Art of Strategy 2026-10-30: 3 dead frames read "devil framing" / "horned leader"). Only for a menacing figure.
++    const menacing = /\b(villain|devil|demon|monster|menac|sinister|evil)/i.test(String(c.look || ""));
++    if (c.variant && c.variant.hairStyle === "messy" && !menacing) errs.push(`cast.${k}.variant.hairStyle "messy" reads as HORNS to viewers (28% of frames) — give an ordinary or sympathetic character short, curly, bun or long hair (messy only for a villain / monster, said in the look)`);
++    else if (/\bmessy\b/i.test(String(c.look || "")) && !menacing && !(c.variant && c.variant.hairStyle)) warns.push(`cast.${k}.look says "messy" hair but variant.hairStyle is not set — set it (short / curly / long …): messy tufts read as horns`);
+     // A wrong variant key is silent: it merges in, the schema default wins, and
+     // the auto-cast's look survives underneath. Catch it here instead.
+     for (const [vk, vv] of Object.entries(c.variant || {})) {
+diff --git a/scripts/storyboard.js b/scripts/storyboard.js
+index d8c6d5a9..fffbaf6e 100644
+--- a/scripts/storyboard.js
++++ b/scripts/storyboard.js
+@@ -1173,6 +1173,20 @@ function merge() {
+       // "place" + holds "letter" — merged, then planned as an empty insert): refused here, never lost silently
+       if (Array.isArray(a.cast) && !a.cast.length && a.action && a.action !== "idle") P(i, `action "${a.action}" with cast [] — nobody on screen does it (the planner would drop it); name who does it in cast, or drop the action and stage the object as the concept icon`);
+       else if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
++      // The Art of Strategy blind failure (2026-10-30, sealed "final": ADDS 7/30, dead 8, WRONG 2). The rules text already
++      // asked for these; the authors ignored it, so merge enforces it (new books only — published configs are frozen).
++      // (a) a face written for nobody (22 such beats in one chunk; every sampled one read TEXT_ONLY)
++      if (Array.isArray(a.cast) && !a.cast.length && a.expression && a.expression !== "neutral") P(i, `expression "${a.expression}" with cast [] — nobody on screen wears it; name who it is in cast, or drop the face`);
++      // (b) a callout on an empty stage: the engine rotates the book's literal sets under it ("CORNER THEM WITH NO WAY
++      // OUT" over an open road → WRONG "open road suggests escape"; 39 highway text beats read "roadside, unrelated")
++      if (Array.isArray(a.cast) && !a.cast.length && !a.concept && !a.diagram && a.callout && !a.set) P(i, `text-only beat (cast [], no concept, no diagram) without an authored "set" — the engine would rotate a literal place under the words; choose the icon or diagram the narration names, or set "set" to a place that fits the words`);
++      // (c) a bare figure in a beat that names someone else: one person + a mood face carried 5 of the 8 dead frames
++      // (Fred alone in a two-player game, the Driver staged as Kennedy). REVIEW, not a refusal: the second person may be
++      // absent on purpose.
++      if (Array.isArray(a.cast) && a.cast.length === 1 && !a.concept && !a.diagram && !a.holds) {
++        const other = (v.cast || []).filter((c) => c.key !== a.cast[0] && c.key !== "narrator" && c.name && new RegExp(`\\b${String(c.name).split(/\s+/)[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(narration));
++        if (other.length) warnings.push(`${i}: REVIEW_REQUIRED one bare figure (${a.cast[0]}, no object, no diagram) while the narration names ${other.map((c) => c.name).join(", ")} — a lone mood face read as dead in 5 of 8 failures (The Art of Strategy); stage both people, or the object / diagram the line is about`);
++      }
+       if (a.diagram) {
+         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
+         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
+@@ -1183,6 +1197,10 @@ function merge() {
+         else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
+         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
+         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }
++        // (d) a one-node flow draws one badge (blind: "a small cream circle labeled DEADLINE", TEXT_ONLY); a sorter with no
++        // `values` draws 3 identical dots in every bin (blind: "containers identical") — neither shows a structure
++        if (a.diagram.type === "flow" && Array.isArray(a.diagram.labels) && a.diagram.labels.length === 1) P(i, `flow with one label ("${a.diagram.labels[0]}") draws a single badge, not a flow — give it the 2-3 steps the narration names, or use a callout / icon`);
++        if (a.diagram.type === "sorter" && Array.isArray(a.diagram.labels) && a.diagram.labels.length > 1 && !(Array.isArray(a.diagram.values) && a.diagram.values.length)) warnings.push(`${i}: REVIEW_REQUIRED sorter without values — every bin draws the same 3 dots ("containers identical"); give each bin its count (values) where the narration says how many go where`);
+         if (a.concept || a.callout) P(i, "diagram beat also has icon/callout");
+         // the diagram fills the frame (insert framing): an authored person would be dropped silently
+         if (Array.isArray(a.cast) && a.cast.length) P(i, `diagram beat also has cast ${JSON.stringify(a.cast)} — a diagram fills the frame and shows nobody; choose the diagram (cast: []) or the person (no diagram)`);
