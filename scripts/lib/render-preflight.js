@@ -104,10 +104,33 @@ function loadDecisions(root, slug) {
 function recordDecision(root, slug, { hash, inputHash = null, commit, reason, keys, preview = null }) {
   const file = decisionFile(root, slug);
   const doc = readJson(file, { note: "Operator render decisions. Written only by render.js --accept-quality-debt. Each binds to one config hash; BLOCK findings are never accepted.", decisions: [] });
-  const entry = { at: new Date().toISOString(), commit, configHash: hash, ...(inputHash ? { renderInputHash: inputHash } : {}), reason, keys, ...(preview && inputHash ? { preview } : {}) };
+  const entry = { kind: "quality-debt", at: new Date().toISOString(), commit, configHash: hash, ...(inputHash ? { renderInputHash: inputHash } : {}), reason, keys, ...(preview && inputHash ? { preview } : {}) };
   doc.decisions = (doc.decisions || []).concat([entry]);
   writeJson(file, doc);
   return entry;
+}
+
+/**
+ * The operator's PRODUCTION RENDER AUTHORIZATION (2026-10-30), kept apart from accepting quality debt. Real case:
+ * the-magician-s-nephew — preview READY, Vox (no firewall), no debt: render-decision said NO_DEBT ("the production
+ * render needs the operator's go") and the only flag that wrote a record was --accept-quality-debt, which would have
+ * recorded a debt nobody had. Written by render.js --authorize-render="<the operator's words>" only when quality and
+ * preview are settled for this render input; bound to the render input (and the config bytes + book commit seen).
+ * A decision written before 2026-10-30 (no kind) was the combined "accept debt = authorize" record: it still counts.
+ */
+function recordAuthorization(root, slug, { hash, inputHash, commit, reason, preview = null, quality = null }) {
+  const file = decisionFile(root, slug);
+  const doc = readJson(file, { note: "Operator render decisions: quality-debt acceptances (--accept-quality-debt) and production render authorizations (--authorize-render), each bound to one render input. BLOCK findings are never accepted.", decisions: [] });
+  const entry = { kind: "render-authorization", at: new Date().toISOString(), commit, configHash: hash, renderInputHash: inputHash, reason, keys: [], ...(preview ? { preview } : {}), ...(quality ? { quality } : {}) };
+  doc.decisions = (doc.decisions || []).concat([entry]);
+  writeJson(file, doc);
+  return entry;
+}
+
+/** The authorization that covers this render input: an explicit one, or a pre-2026-10-30 combined decision. */
+function authorizationFor(decisions, inputHash) {
+  if (!inputHash) return null;
+  return (decisions || []).filter((d) => d && d.renderInputHash === inputHash && (d.kind === "render-authorization" || !d.kind)).pop() || null;
 }
 
 function appendFacts(root, slug, entry) {
@@ -168,6 +191,8 @@ function muteLine(m) {
  * PREVIEW_ONLY: BLOCK stops; the preview fact is reported, never blocks (a review render is how it gets looked at).
  */
 function evaluate({ mode, firewall, hash, inputHash = null, decisions = [], preview }) {
+  // a production render authorization (kind "render-authorization", 2026-10-30) never covers quality debt or a preview
+  decisions = (decisions || []).filter((d) => d && d.kind !== "render-authorization");
   const out = { mode, decision: "NOT_APPLICABLE", ok: true, blockers: [], covered: [], newKeys: [], removedKeys: [], base: null, needsAccept: false, needsAcceptKinds: [], preview: preview || null, previewCovered: false, previewBase: null };
   if (firewall && firewall.blocks > 0) {
     return { ...out, ok: false, decision: "REFUSED", blockers: [`${firewall.blocks} BLOCK finding(s): no render in either mode. An accepted decision never overrides a BLOCK.`] };
@@ -282,7 +307,7 @@ function readQuality({ root, slug, preview }) {
  * applies an explicit accept if given, checks worker compatibility, prints one summary, and records the facts.
  * Returns { ok, mode, decision, record }. Callers exit when !ok.
  */
-function preflight({ root, slug, engine, method, mode, acceptReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe, credentialCall = null }) {
+function preflight({ root, slug, engine, method, mode, acceptReason = null, authorizeReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe, credentialCall = null }) {
   const hashFile = configFile ? path.resolve(root, configFile) : null;
   const hash = hashFile ? configHash(hashFile) : null;
   const inputHash = hashFile ? inputHashOf(hashFile) : null;
@@ -321,6 +346,20 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
     acceptedNow = true;
     ev = evaluate({ mode, firewall, hash, inputHash, decisions: loadDecisions(root, slug), preview: pvEval });
   }
+  // the operator's production authorization (2026-10-30): its own record, never inferred from a quality verdict, a
+  // preview READY or a technical GO. Recorded only when quality and preview are settled for THIS render input; the
+  // runner never re-judges it (authorized by this pre-dispatch check before the bundle was pushed).
+  let auth = null, authorizedNow = false, authNote = null;
+  if (mode === MODE.PRODUCTION && !requireMasteredAudio) {
+    auth = authorizationFor(loadDecisions(root, slug), inputHash);
+    const reason = typeof authorizeReason === "string" ? authorizeReason.trim() : "";
+    if (!auth && reason && ev.ok && hash && inputHash) {
+      auth = recordAuthorization(root, slug, { hash, inputHash, commit, reason,
+        preview: pvEval ? { state: pv.state, at: pv.at, mute: pv.mute || null } : null,
+        quality: { status: !firewall ? "NOT_ASSESSED" : firewall.reviews ? "ACCEPTED_DEBT" : "PASS", reviews: firewall ? firewall.reviews : null } });
+      authorizedNow = true;
+    } else if (!auth && reason && !ev.ok) authNote = "not recorded: quality / preview are not settled for this render input (see the blockers)";
+  }
   const compat = workerCompat({ root, method, mode });
   if (!compat.ok) blockers.push(compat.detail);
   // worker credentials BEFORE the first push (2026-10-29: a GO render failed its first dispatch — render-accounts.json
@@ -337,6 +376,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   const audio = requireMasteredAudio ? checkMasteredAudio({ root, configFile, ...(probe ? { probe } : {}) }) : null;
   if (audio && !audio.ok) blockers.push(`audio: ${audio.detail}`);
   blockers.push(...ev.blockers);
+  if (mode === MODE.PRODUCTION && !requireMasteredAudio && ev.ok && !auth) blockers.push(`render authorization: none recorded for render input ${inputHash || "?"} — quality and preview are settled; the production render is the operator's go: rerun with --authorize-render="<the operator's words>"`);
 
   const quality = !firewall ? "NOT_ASSESSED" : firewall.blocks ? "FAIL" : firewall.reviews ? "FAIL" : "PASS";
   const decisionKind = acceptedNow ? "ACCEPTED_DEBT (recorded now)" : ev.decision;
@@ -355,13 +395,13 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
   // preview + authorization (2026-10-28): the preview verdict is printed as recorded — a decision never makes it READY
   const ml = muteLine(pv.mute);
   console.log(`  preview   : ${pv.state.replace("_", " ")}${ml ? ` (${ml})` : ""}${pv.state === "READY" ? "" : ` — ${pv.detail}`}`);
-  const authBase = ev.previewBase || (ev.decision === "ACCEPTED_DEBT" ? ev.base : null);
   const authorization = preview ? "n/a (preview-only: not delivery-approved)"
-    : !ok && ev.needsAccept ? "NEEDS OPERATOR DECISION"
-    : authBase ? `OPERATOR DECISION ${authBase.at} covers this render input`
-    : ev.decision === "REFUSED" ? "refused (BLOCK — no decision can cover it)"
-    : "not needed (preview READY, no quality debt)";
-  console.log(`  authorization: ${authorization}`);
+    : requireMasteredAudio ? "runner: authorized by the pre-dispatch check"
+    : ev.decision === "REFUSED" && !ev.needsAccept ? "refused (BLOCK — no decision can cover it)"
+    : auth ? `${authorizedNow ? "RECORDED NOW — " : ""}operator's render authorization ${auth.at}${auth.kind ? "" : " (combined decision before 2026-10-30)"}: "${String(auth.reason || "").slice(0, 120)}"`
+    : ev.needsAccept ? "NEEDS OPERATOR DECISION (quality / preview first)"
+    : "MISSING — the operator's go: --authorize-render=\"<the operator's words>\"";
+  console.log(`  authorization: ${authorization}${authNote ? ` (${authNote})` : ""}`);
   console.log(`  worker    : ${compat.detail}`);
   if (cred) console.log(`  credentials: ${cred.error ? `STOP (${cred.error})` : require("./render-accounts").summary(cred)}`);
   console.log(`  result    : ${ok ? "GO" : "STOP — nothing dispatched, no pixels produced"}`);
@@ -379,10 +419,11 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, skip
     quality: { status: quality, blocks: firewall ? firewall.blocks : null, reviews: firewall ? firewall.reviews : null },
     preview: { state: pv.state, covered: ev.previewCovered, mute: pv.mute || null },
     decision: { kind: decisionKind, ok, accepted: acceptedNow, reason: acceptReason || null, covered: ev.covered.length, newFindings: ev.newKeys.length, goneFindings: ev.removedKeys.length },
+    authorization: auth ? { at: auth.at, recordedNow: authorizedNow, kind: auth.kind || "combined" } : (mode === MODE.PRODUCTION && !requireMasteredAudio ? null : "n/a"),
     technical: "NOT_RUN",
     ...(cred ? { credentials: cred.error ? { ok: false, error: cred.error } : { ok: cred.usable > 0, source: cred.source, active: cred.active, usable: cred.usable, verified: cred.verified, refused: cred.refused.length } } : {}),
   });
   return { ok, mode, decision: ev.decision, record };
 }
 
-module.exports = { MODE, configHash, inputHashOf, decisionMatches, checkMasteredAudio, findingKey, evaluate, readPreview, muteLine, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };
+module.exports = { MODE, configHash, inputHashOf, decisionMatches, checkMasteredAudio, findingKey, evaluate, readPreview, muteLine, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, recordAuthorization, authorizationFor, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };

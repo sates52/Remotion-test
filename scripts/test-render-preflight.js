@@ -108,7 +108,11 @@ t("missing output -> FAIL, file missing", miss.status === "FAIL" && miss.problem
   t("Vox production, preview MISSING, no decision -> STOP (needs operator decision)", !r.ok && /NEEDS OPERATOR DECISION/.test(r.out), r.out);
   setPreview(true);
   r = run(MODE.PRODUCTION);
-  t("Vox preview READY -> GO", r.ok && /preview   : READY/.test(r.out), r.out);
+  // 2026-10-30: READY + no debt is settled quality, not the operator's go — the authorization is its own record
+  t("Vox preview READY, no render authorization -> STOP (authorization MISSING)", !r.ok && /preview   : READY/.test(r.out) && /authorization: MISSING/.test(r.out), r.out);
+  r = run(MODE.PRODUCTION, { authorizeReason: "Operator: render it" });
+  t("Vox preview READY + --authorize-render -> GO, recorded as render-authorization", r.ok && pre.loadDecisions(root, slug).slice(-1)[0].kind === "render-authorization", r.out);
+  fs.writeFileSync(pre.decisionFile(root, slug), JSON.stringify({ decisions: [] })); // the next cases start without decisions
   setPreview(false);
   t("readPreview: ready:false for this input -> NOT_READY with the mute summary", readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).state === "NOT_READY" && readPreview({ root, slug, inputHash: inputHashOf(cfgAbs) }).mute.wrong === 4);
   r = run(MODE.PRODUCTION);
@@ -120,10 +124,13 @@ t("missing output -> FAIL, file missing", miss.status === "FAIL" && miss.problem
   r = run(MODE.PREVIEW_ONLY, { acceptReason: "x" });
   t("--accept-quality-debt in preview-only records nothing", r.ok && pre.loadDecisions(root, slug).length === 0);
   r = run(MODE.PRODUCTION, { acceptReason: "Operator: ship despite mute 4/30" });
-  const decs = pre.loadDecisions(root, slug);
-  t("--accept-quality-debt with preview NOT READY -> GO, preview coverage recorded for this render input", r.ok && decs.length === 1 && decs[0].preview && decs[0].preview.state === "NOT_READY" && decs[0].preview.mute.wrong === 4 && decs[0].renderInputHash === inputHashOf(cfgAbs), r.out);
+  let decs = pre.loadDecisions(root, slug);
+  t("--accept-quality-debt with preview NOT READY -> coverage recorded (kind quality-debt) for this render input; no render go yet -> STOP", !r.ok && decs.length === 1 && decs[0].kind === "quality-debt" && decs[0].preview && decs[0].preview.state === "NOT_READY" && decs[0].preview.mute.wrong === 4 && decs[0].renderInputHash === inputHashOf(cfgAbs) && /authorization: MISSING/.test(r.out), r.out);
+  r = run(MODE.PRODUCTION, { authorizeReason: "Operator: render it with the accepted debt" });
+  decs = pre.loadDecisions(root, slug);
+  t("…+ --authorize-render -> GO; the authorization is a second, separate record", r.ok && decs.length === 2 && decs[1].kind === "render-authorization", r.out);
   r = run(MODE.PRODUCTION);
-  t("Vox NOT READY + decision for THIS hash -> GO, 'OPERATOR DECISION <at> covers this render input'", r.ok && /authorization: OPERATOR DECISION \S+ covers this render input/.test(r.out), r.out);
+  t("Vox NOT READY + debt decision + authorization for THIS input -> GO without asking again", r.ok && /authorization: operator's render authorization/.test(r.out), r.out);
   t("…the preview verdict stays NOT READY in the record (a decision is not READY)", /preview   : NOT READY/.test(r.out) && JSON.parse(fs.readFileSync(path.join(bdir, "preview-ready.json"), "utf8")).ready === false);
   // the runner's rewrite (raw audio path, different formatting) keeps the same render input
   fs.writeFileSync(cfgAbs, JSON.stringify({ meta: { fps: 30, audio: `audio/${slug}.m4a` }, beats: [{ id: "b", n: 1 }] }));

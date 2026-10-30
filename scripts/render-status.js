@@ -61,7 +61,7 @@ function decide({ slug, split, cloudState, localState, film, segRuns, assembleRu
   if (unknown.length) return { verdict: "UNKNOWN", next: null, detail: `run list of segment(s) ${unknown.map((u) => u.seg).join(",")} unreadable (API/auth) — never redispatch or assemble on a guess; run render-status again`, segments: per };
   const running = per.filter((p) => p.state === "running");
   if (running.length) return { verdict: "RENDERING", next: null, detail: `${per.length - running.length - bad.length}/${per.length} segments done, ${running.length} running${bad.length ? `, ${bad.length} failed/missing (rescue after the others finish)` : ""} — wait (render.js --wait continues by itself)`, segments: per };
-  if (bad.length) return { verdict: "SEGMENT_FAILED", next: `node scripts/render-github-redispatch.js --slug=${slug} --seg=${bad.map((b) => b.seg).join(",")}`, detail: `segment(s) ${bad.map((b) => `${b.seg} (${b.state}${b.conclusion ? ` ${b.conclusion}` : ""})`).join(", ")} — re-run only those; the done segments are kept`, segments: per };
+  if (bad.length) return { verdict: "SEGMENT_FAILED", next: `node scripts/render-github-redispatch.js ${S} --seg=${bad.map((b) => b.seg).join(",")}`, detail: `segment(s) ${bad.map((b) => `${b.seg} (${b.state}${b.conclusion ? ` ${b.conclusion}` : ""})`).join(", ")} — re-run only those; the done segments are kept`, segments: per };
   return { verdict: "CLOUD_ASSEMBLE", next: `node scripts/render-github-cloud-assemble.js ${S} --download`, detail: `all ${per.length} segments done for bundle ${String(split.bundleSha).slice(0, 8)} — join + verify on a runner, download only the verified film`, segments: per };
 }
 

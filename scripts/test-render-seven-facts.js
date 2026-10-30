@@ -39,7 +39,9 @@ try {
   t("C acceptance: names what it covered — 3 REVIEW + the preview as it was then (MISSING) — never a later verdict", /3 REVIEW finding\(s\), and the preview as it was then \(MISSING\) — never a verdict recorded after it/.test(f.C_acceptance), f.C_acceptance);
   t("E technical: GO on this config, said to be technical only", /GO on render input .* \(this config\) — technical only, not a quality verdict/.test(f.E_technical), f.E_technical);
   t("F dispatch: 10 segments, from the split state", /10 segment\(s\) dispatched/.test(f.F_dispatch));
-  t("G publishing: a READY pack is still not an upload authorization", /READY — upload \/ publish is always the operator's/.test(f.G_youtube));
+  t("H publishing: a READY pack is neither a render permission nor an upload authorization", /READY — not a render permission; upload \/ publish is always the operator's/.test(f.H_youtube));
+  t("G assembly: its own fact (nothing assembled yet)", /not assembled/.test(f.G_assembly));
+  t("D authorization: the legacy combined decision (before 2026-10-30) still counts as the render go", /render authorization of .*combined/.test(f.D_authorization), f.D_authorization);
 
   // the mute test runs afterwards and records NOT READY for THIS render input: new debt, not covered
   W(path.join(B, "preview-ready.json"), { ready: false, at: "2026-10-29T13:00:00Z", renderInputHash: inputHash, configSha256: "x", failed: ["mute test FAIL"], mute: { label: "final", sample: "fresh", n: 30, wrong: 4, dead: 2, adds: 15, pass: false } });

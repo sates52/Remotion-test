@@ -39,4 +39,15 @@ function renderInFlight(stateFile, hours = 3, now = Date.now()) {
   return { dispatchedAt: s.dispatchedAt, ageMin: Math.round(age / 60000), segments: (s.segments || []).length, bundleSha: s.bundleSha || null, why: s.endedAt ? "dispatched with --no-wait" : "the dispatching process ended without finishing (killed / crashed)" };
 }
 
-module.exports = { takeRunLock, renderInFlight, pidAlive };
+// The SAME render input already fully dispatched (2026-10-30), whatever its age: every segment of a split state that
+// records this renderInputHash was dispatched. A run that stopped half way is not "done" (it resumes); a state written
+// before renderInputHash was recorded cannot be matched and never blocks.
+function inputDispatched(stateFile, inputHash) {
+  const s = readJSON(stateFile);
+  if (!s || !inputHash || s.renderInputHash !== inputHash) return null;
+  const segs = s.segments || [];
+  if (!segs.length || !segs.every((g) => g.dispatchedAt || g.dispatchedSha)) return null;
+  return { renderInputHash: inputHash, dispatchedAt: s.dispatchedAt, segments: segs.length, bundleSha: s.bundleSha || null };
+}
+
+module.exports = { takeRunLock, renderInFlight, pidAlive, inputDispatched };

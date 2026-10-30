@@ -49,7 +49,7 @@ const once = (file) => spawnSync(process.execPath, ["-e", `require(${LIB}).takeR
 
     // the wiring in render.js
     const src = fs.readFileSync(path.join(__dirname, "render.js"), "utf8");
-    const iLock = src.indexOf("takeRunLock(path.join(ROOT, `.render-lock.${slug}.json`)"), iInFlight = src.indexOf("renderInFlight(path.join(ROOT, `.render-github-split.${slug}.json`))"), iRun = src.lastIndexOf("runGithubActionsRender();");
+    const iLock = src.indexOf("takeRunLock(path.join(BOOK_ROOT, `.render-lock.${slug}.json`)"), iInFlight = src.indexOf("renderInFlight(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`))"), iRun = src.lastIndexOf("runGithubActionsRender();");
     t("render.js takes the per-book lock and checks in-flight BEFORE any GitHub dispatch", iLock > 0 && iInFlight > iLock && iRun > iInFlight);
     t("render.js records dispatchedAt and whether the process waited", /dispatchedAt: new Date\(\)\.toISOString\(\)/.test(src) && /s\.waited = waits/.test(src));
     t("only the operator re-dispatches inside the window (--new-render=\"<reason>\")", /--new-render="<reason>"/.test(src) && /process\.exit\(3\)/.test(src));
