@@ -81,4 +81,19 @@ function verdict({ month, daily, unknown, cfg, estUsd = 0 }) {
   return { state: "OK", allow: true, why: `month-to-date $${month.toFixed(2)} of $${cfg.monthlyBudgetUsd}; last 24 h $${daily.toFixed(2)} of $${cfg.dailyUsd}` };
 }
 
-module.exports = { monthKey, monthStart, usdOfRecord, usdOfUsageFiles, readLedger, summarize, verdict };
+/** exclusive admission lock (O_EXCL); a lock older than staleMs (a crashed dispatcher) is taken over */
+function acquireLock(file, { staleMs = 5 * 60e3, now = Date.now() } = {}) {
+  for (let k = 0; k < 2; k++) {
+    try { const fd = fs.openSync(file, "wx"); fs.writeSync(fd, JSON.stringify({ pid: process.pid, at: now })); fs.closeSync(fd); return true; }
+    catch (e) {
+      if (e.code !== "EEXIST") return false;
+      let at = 0; try { at = JSON.parse(fs.readFileSync(file, "utf8")).at || 0; } catch {}
+      if (now - at > staleMs) { try { fs.unlinkSync(file); } catch {} continue; }
+      return false;
+    }
+  }
+  return false;
+}
+function releaseLock(file) { try { fs.unlinkSync(file); } catch {} }
+
+module.exports = { monthKey, monthStart, usdOfRecord, usdOfUsageFiles, readLedger, summarize, verdict, acquireLock, releaseLock };

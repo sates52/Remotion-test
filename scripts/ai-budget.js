@@ -106,6 +106,17 @@ if (cmd === "record") {
   process.exit(0);
 }
 
+// ADMISSION (2026-10-31): two dispatches that check the budget at the same moment would both see room. A dispatch holds
+// an exclusive lock from its check until the new run is VISIBLE on GitHub (then it is counted at its per-run maximum
+// by every later check). A second dispatch waits for the lock or gives up — it never dispatches unchecked.
+const LOCK = path.join(ROOT, cfg.ledgerDir, ".dispatch.lock");
+if (cmd === "dispatch") {
+  fs.mkdirSync(path.dirname(LOCK), { recursive: true });
+  let got = false;
+  for (let k = 0; k < 24 && !(got = B.acquireLock(LOCK)); k++) execFileSync(process.execPath, ["-e", "setTimeout(()=>{},5000)"]);
+  if (!got) { console.error("✗ another paid dispatch holds the admission lock — try again shortly (nothing was dispatched)"); process.exit(4); }
+  process.on("exit", () => B.releaseLock(LOCK));
+}
 const r = report();
 const v = B.verdict({ month: r.month, daily: r.daily, unknown: r.unknown, cfg, estUsd: est || 0 });
 const head = `AI budget ${B.monthKey(now)}: ${v.state} — ${v.why}`;
@@ -124,8 +135,15 @@ if (cmd === "dispatch") {
   if (!v.allow) { console.error("✗ not dispatched — new paid AI work is stopped (nothing else is)."); process.exit(3); }
   const args = ["workflow", "run", opt.workflow, "--repo", cfg.repo, "--ref", opt.ref || "main"];
   for (const f of fields) args.push("-f", f);
+  const t0 = Date.now();
   gh(args);
-  console.log(`✓ dispatched ${opt.workflow} ${fields.join(" ")} on ${cfg.repo}@${opt.ref || "main"} — the run is counted at ≤ $${est.toFixed(2)} until its usage artifact is read`);
+  // keep the lock until GitHub lists the new run (then every later check counts it at its maximum)
+  let seen = false;
+  for (let k = 0; k < 18 && !seen; k++) {
+    execFileSync(process.execPath, ["-e", "setTimeout(()=>{},5000)"]);
+    try { seen = (JSON.parse(gh(["api", `repos/${cfg.repo}/actions/workflows/${opt.workflow}/runs?per_page=5`])).workflow_runs || []).some((x) => Date.parse(x.created_at) >= t0 - 5000); } catch {}
+  }
+  console.log(`✓ dispatched ${opt.workflow} ${fields.join(" ")} on ${cfg.repo}@${opt.ref || "main"} — ${seen ? "run visible" : "run not yet visible after 90 s (counted once it appears)"}; counted at ≤ $${est.toFixed(2)} until its usage artifact is read`);
   process.exit(0);
 }
 console.error(`unknown command: ${cmd}`); process.exit(2);

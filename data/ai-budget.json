@@ -1,10 +1,10 @@
 {
-  "note": "Simple monthly AI spend control (operator decision 2026-10-30). ESTIMATE, not the provider bill: gh-aw usage artifacts + the local pilot ledger. Reconcile with the Anthropic Console. Thresholds are operator decisions; scripts/ai-budget.js reads them.",
+  "note": "Simple monthly AI spend control (operator decisions 2026-10-30, raised 2026-10-31 to $500 / warn $400 / stop $450 / $15 a day). ESTIMATE, not the provider bill: gh-aw usage artifacts + the local ledger; the provider bill (Anthropic Console) is the truth and these lines are NOT a provider-guaranteed hard cap. Admission: one dispatch at a time (lock held until the new run is visible). A refusal stops only new paid AI work.",
   "currency": "USD",
-  "monthlyBudgetUsd": 50,
-  "warnUsd": 40,
-  "stopUsd": 45,
-  "dailyUsd": 2,
+  "monthlyBudgetUsd": 500,
+  "warnUsd": 400,
+  "stopUsd": 450,
+  "dailyUsd": 15,
   "aicUsd": 0.01,
   "repo": "sates52/Remotion-test",
   "ledgerDir": "audit/ai-spend",
@@ -15,7 +15,17 @@
     }
   },
   "prices": {
-    "claude-haiku-5-5": { "inputPerMTok": 0.10, "outputPerMTok": 0.50, "cacheReadPerMTok": 0.01, "cacheWritePerMTok": 0.125 },
-    "claude-sonnet-5-5": { "inputPerMTok": 2.00, "outputPerMTok": 10.00, "cacheReadPerMTok": 0.20, "cacheWritePerMTok": 2.50 }
+    "claude-haiku-5-5": {
+      "inputPerMTok": 0.1,
+      "outputPerMTok": 0.5,
+      "cacheReadPerMTok": 0.01,
+      "cacheWritePerMTok": 0.125
+    },
+    "claude-sonnet-5-5": {
+      "inputPerMTok": 2,
+      "outputPerMTok": 10,
+      "cacheReadPerMTok": 0.2,
+      "cacheWritePerMTok": 2.5
+    }
   }
 }
