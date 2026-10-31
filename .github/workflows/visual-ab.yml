@@ -1,0 +1,75 @@
+# Visual A/B in the cloud (cycle 6, 2026-10-31; operator: local creates, GitHub Cloud tests and renders heavy work).
+# Triggered ONLY by a push to an isolated ci/visual-ab/** bundle branch (scripts/visual-ab-cloud.js builds and pushes
+# it: code + the A/B mini books + ab/manifest.json, no history, no big media). The runner never reads the local PC:
+# every input is in the bundle and its sha256 is checked against the manifest before anything runs.
+# It renders the stills, runs the blind describer / judge through the Claude API (secret ANTHROPIC_API_KEY, capped by
+# the manifest's maxUsd), tallies against the pre-registered rule and uploads the result. It never writes to a book,
+# a storyboard, sealed evidence or any branch; results come back to the PC only via visual-ab-cloud.js fetch.
+name: Visual A/B (cloud)
+
+on:
+  push:
+    branches: ["ci/visual-ab/**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-ab-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout the bundle
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - name: System dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y chromium-browser || true
+      - name: Verify inputs against the manifest (sha256)
+        run: node scripts/visual-ab-cloud.js verify --manifest=ab/manifest.json
+      - name: Install npm dependencies
+        run: npm install --no-audit --no-fund
+      - name: Books registry
+        run: node scripts/gen-books-registry.js
+      - name: Render the stills
+        run: node scripts/visual-ab.js render --manifest=ab/manifest.json --out=out-ab
+      - name: Blind describer + judge (Claude API, capped)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          MODEL=$(node -e 'console.log(require("./ab/manifest.json").model || "claude-haiku-5-5")')
+          MAXUSD=$(node -e 'console.log(require("./ab/manifest.json").maxUsd || 3)')
+          node scripts/visual-ab.js rate --manifest=ab/manifest.json --out=out-ab --model="$MODEL" --k=2 --max-usd="$MAXUSD"
+      - name: Tally against the pre-registered rule
+        run: |
+          node scripts/visual-ab.js tally --manifest=ab/manifest.json --out=out-ab
+          node scripts/visual-ab-cloud.js seal --manifest=ab/manifest.json --out=out-ab
+      - name: Upload result (hash-sealed)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: visual-ab-result
+          path: |
+            out-ab/result.json
+            out-ab/key.json
+            out-ab/ratings.jsonl
+            out-ab/render-timing.json
+            out-ab/seal.json
+            out-ab/stills/
+          retention-days: 30
+      - name: Upload usage (read by scripts/ai-budget.js)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: usage
+          path: out-ab/usage/
+          retention-days: 30

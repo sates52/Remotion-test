@@ -1,0 +1,13 @@
+{
+  "name": "c6-action-first",
+  "prereg": "audit/c4-pilots/preregistration-c6-action-first.json",
+  "model": "claude-sonnet-5-5",
+  "k": 2,
+  "maxUsd": 5,
+  "rule": { "addsPlusPct": 13, "explainsNoLoss": true },
+  "passages": [
+    { "id": "P1", "arms": { "A": "zz-af-p1a", "B": "zz-af-p1b" } },
+    { "id": "P2", "arms": { "A": "zz-af-p2a", "B": "zz-af-p2b" } },
+    { "id": "P3", "arms": { "A": "zz-af-p3a", "B": "zz-af-p3b" } }
+  ]
+}

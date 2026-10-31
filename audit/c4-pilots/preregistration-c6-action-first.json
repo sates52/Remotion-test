@@ -1,0 +1,18 @@
+{
+  "schema": "c4-pilot-prereg/1",
+  "date": "2026-10-31",
+  "cycle": 6,
+  "written": "before any authoring, rendering or blind reading of these passages",
+  "hypothesis": "When the narration states a concrete deed by a cast member, staging that person doing it (instead of a callout, diagram or icon) raises ADDS without raising WRONG, while abstract mechanisms keep their diagrams.",
+  "change": "a 28-line ACTION-FIRST section appended to rules.md (scratchpad/c4/action-first.md): extract storyboard.event {actor, action, object, target, location, before, after} from the narration only, then stage a concrete deed as the person doing it; keep results visible with continue; diagrams stay for abstract mechanisms; callout-only last",
+  "design": "BOTH arms are FRESH authors (same model, same unchanged author prompt, same prep, same merge, at most one routine fix round, same planner code). Arm A = the current rules.md; arm B = the same rules.md + the ACTION-FIRST section. This removes the cycle-4/5 confound (production author vs fresh author).",
+  "passages": {
+    "P1": "trust-fall b97-107 (narrative)",
+    "P2": "trust-fall b175-186 (narrative)",
+    "P3": "the-art-of-strategy b155-165 (ideas — the control: diagrams must not be pushed out)",
+    "independence": "runs of >= 10 beats with no beat of any sealed mute sample (TF final/run2; AoS final/fix1/fix2) and no overlap with any passage or fixture used before (TF 42-47, 138-142, 220-235, 10-12; AoS 64-75, 181-189, 225-240). Nothing tuned on them."
+  },
+  "sampling": "one still per scene at 60% of the scene (scenes > 2 s), identical frames in both arms where the segmentation matches; captions off",
+  "raters": "2 fresh describers per image (one image at a time, no narration) + 1 strict judge per description (scene narration); arm labels randomised, key judge-side",
+  "shipRule": "SHIP the ACTION-FIRST section into the rules generator only if, counting all judged descriptions: (1) WRONG(B) <= WRONG(A) on EACH passage, (2) dead B <= A pooled, (3) ADDS(B) >= ADDS(A) + ceil(13% of the descriptions per arm) pooled, (4) EXPLAINS (yes+partly) B >= A pooled. Otherwise NO SHIP. data/quality-policy.json is not touched."
+}

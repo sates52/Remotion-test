@@ -12,6 +12,10 @@
     "ci-failure-analyst.lock.yml": {
       "perRunMaxUsd": 0.15,
       "why": "max-ai-credits 10 (agent) + 5 (threat detection); 1 AIC = $0.01"
+    },
+    "visual-ab.yml": {
+      "perRunMaxUsd": 5,
+      "why": "cloud blind A/B: describer + judge calls through the Claude API, capped by the manifest maxUsd (<= 5) inside the runner"
     }
   },
   "prices": {
