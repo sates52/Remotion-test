@@ -76,6 +76,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 62 | `farsighted` | **Farsighted: How We Make the Decisions That Matter the Most** — Steven Johnson | 2026-10-27 | 55:14 | *Antidote; 99,435 frames; operator-confirmed upload (detailed record below; row added 2026-10-27)* | see books/farsighted/youtube.md |
 | 63 | `their-eyes-were-watching-god` | **Their Eyes Were Watching God** — Zora Neale Hurston | 2026-10-27 | 40:57 | *Vox; 73,721 frames; operator-confirmed upload (detailed record below; row added 2026-10-27)* | see books/their-eyes-were-watching-god/youtube.md |
 | 64 | `inside-out` | **Inside Out** — Demi Moore | 2026-10-22 | 33:38 | *Antidote; config 60,553 frames. Publication OPERATOR-CONFIRMED 2026-10-28; date from the main checkout's WIP record "PUBLISHED & CLEANED 2026-10-22" (that row says 60,832 frames / 33.8 min — not reconciled); YouTube URL, live title and render SHA NOT recorded* | not recorded |
+| 65 | `the-art-of-strategy` | **The Art of Strategy** — Avinash K. Dixit & Barry J. Nalebuff | 2026-10-31 | 49:02 | *The Art of Strategy Summary: Why Being Stronger Doesn't Win (Dixit & Nalebuff)* (candidate title from `youtube-meta.json` titles[0]; the live title is not recorded) | `STRONGER DOESN'T WIN` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1402,3 +1403,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Cleanup:** Operator-ordered post-upload cleanup completed 2026-10-28: GitHub artifacts + runs (render-github-cleanup.js); render/ refs purged on 10 workers (purge-render-branches.js); local film and thumbnail (render-purge.js, ~1.18 GB). Raw audio re-encoded to 81 MB (original kept outside the repo).
 - **Kept:** books/thinking-fast-and-slow/ source (untracked in the working checkout at time of publish).
 - essentialism-the-disciplined-pursuit-of-less — Essentialism (Greg McKeown), Antidote, YouTube live 2026-10-29 (46.3 min, 10-way GitHub split, cloud-verified; GitHub artifacts + render branches + local film/audio cleaned)
+
+## The Art of Strategy — Avinash K. Dixit & Barry J. Nalebuff (`the-art-of-strategy`, Antidote)
+
+- **Status:** Published on YouTube — operator-confirmed 2026-10-31 ("video yayınlandı"). The date is the confirmation date; the live title, video id and URL are not recorded.
+- **Length:** 88,253 frames at 30 fps (49:02); cloud-verified full decode, audio present, 933.5 MB.
+- **Render:** 10-worker GitHub split render (34m 57s); cloud assembly run 41098565528; sha256 of the downloaded film matched the cloud report.
+- **Quality provenance:** Sealed blind mute fix2 PASS on the bars (WRONG 1/30, DEAD 5/30, ADDS 6/30 = 20%, text-carried). EXPLAINS 1/30 (measured only). Quality debt accepted for config sha 706e65fc88a01856 and render input 408e23b27e1cc66d only (`--accept-quality-debt`). Production firewall status stays FAIL.
+- **Pin:** production base upgraded 9e27acec → efdad434 (maintenance; `preview-ready.js` head fix only).
+- **Cleanup:** Operator-ordered post-upload cleanup 2026-10-31: GitHub artifacts + runs (render-github-cleanup.js, 10 + 10, ~878 MB); render/ refs purged on 10 workers (purge-render-branches.js, 11 refs); local film and thumbnails (render-purge.js, ~934 MB); raw mp3 and mastered audio removed by the GitHub cleanup's local step.
+- **Earlier unintended deletions:** the post-render finalizer removed the raw `.vtt` and the split state file before the cleanup order. `clean.vtt` was not affected.
