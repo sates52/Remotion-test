@@ -2088,6 +2088,23 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-31 — Cycle 5: goal icon, new holdouts, flee 2.2, chain legibility, CI credit diagnosis (all evidence in audit/c4-pilots)
+- **CI Analyst.** The GitHub secret exists and authenticates. It is a different key from the one pasted in chat, which now returns 401.
+  - Both runs fail with "Credit balance is too low". Cost $0.
+  - Operator step: buy credit in that key's Console organization.
+- **target→archery root cause.** No football icon existed, and the lexicon mapped "goal" to `target`.
+  - New `goal` icon, blind-named 6/6; lexicon line ahead of `target`; merge refuses `target` on a football beat.
+  - NOT shipped: it is part of the bundle that failed the holdout rule. Patch: c5-guards-goal.patch.
+- **New holdouts** (AoS 64-75, TF 220-235; 208 agents): WRONG 0/0, CORRECT 14→27, EXPLAINS 9→25, ADDS 23→22 → **NO SHIP** (+7 ADDS needed).
+  - ADDS dropped on the narrative passage: callouts and diagrams replaced people doing things.
+- **Flee 2.2** (start beside the threat, alternating arms, speed lines at leg height, no threat grow): **NO SHIP**.
+  - The base flee already reads 10/10 run and away when staged full-body on new fixtures.
+  - The earlier failures were staging: an edge start and a medium shot.
+- **Chains:** carryState ON/OFF is pixel-identical on place and drink→leave.
+  - drink→leave legibility PASS (L3).
+  - take→place FAIL: it reads as handing the object to the partner, and the held shield reads as a cup or trophy (icon-readings row added).
+- **Autonomy scan:** the first 4 sessions on post-fix code PASS, but all are Step-0 MISSING_INPUT stops. The routine chain is still unmeasured, so L3 stays open.
+
 ### 2026-10-30 — Cycle 4: AI budget, NIM pilot, autonomy scan, blind A/Bs (flee, carried state, The Art of Strategy), MN fix list
 - **AI budget** (b8b0da31):
   - `scripts/ai-budget.js` + `data/ai-budget.json`: $50 / month, warning at $40, new paid AI work stops at $45, about $2 / 24 h.
