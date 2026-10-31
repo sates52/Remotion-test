@@ -1,0 +1,78 @@
+{
+ "name": "c6-action-first",
+ "totals": {
+  "A": {
+   "n": 62,
+   "WRONG": 2,
+   "CORRECT": 35,
+   "ADDS": 52,
+   "DEAD": 4,
+   "EXPLAINS": 35
+  },
+  "A:P1": {
+   "n": 20,
+   "WRONG": 0,
+   "CORRECT": 11,
+   "ADDS": 17,
+   "DEAD": 0,
+   "EXPLAINS": 7
+  },
+  "A:P2": {
+   "n": 22,
+   "WRONG": 0,
+   "CORRECT": 10,
+   "ADDS": 17,
+   "DEAD": 2,
+   "EXPLAINS": 14
+  },
+  "A:P3": {
+   "n": 20,
+   "WRONG": 2,
+   "CORRECT": 14,
+   "ADDS": 18,
+   "DEAD": 2,
+   "EXPLAINS": 14
+  },
+  "B": {
+   "n": 62,
+   "WRONG": 0,
+   "CORRECT": 41,
+   "ADDS": 53,
+   "DEAD": 3,
+   "EXPLAINS": 44
+  },
+  "B:P1": {
+   "n": 20,
+   "WRONG": 0,
+   "CORRECT": 12,
+   "ADDS": 16,
+   "DEAD": 0,
+   "EXPLAINS": 12
+  },
+  "B:P2": {
+   "n": 22,
+   "WRONG": 0,
+   "CORRECT": 12,
+   "ADDS": 18,
+   "DEAD": 3,
+   "EXPLAINS": 12
+  },
+  "B:P3": {
+   "n": 20,
+   "WRONG": 0,
+   "CORRECT": 17,
+   "ADDS": 19,
+   "DEAD": 0,
+   "EXPLAINS": 20
+  }
+ },
+ "rule": {
+  "wrongPerPassage": true,
+  "deadPooled": true,
+  "adds": false,
+  "explainsNoLoss": true,
+  "addsNeeded": 9
+ },
+ "decision": "NO SHIP",
+ "rows": 124
+}

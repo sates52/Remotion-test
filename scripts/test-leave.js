@@ -114,6 +114,13 @@ try {
   write((x, i) => { if (i === iB) x.shotOverride = "closeUp"; });
   r = merge();
   t("merge: a leave in a closeUp is refused (no legs, no exit)", r.status !== 0 && /closeUp shows no legs/.test(r.stdout), (r.stdout || "").slice(-300));
+  // cycle 6 blind (preregistration-c6-flee-shot.json): medium read "runs away" 0/10, wide 10/10
+  write((x, i) => { if (i === iB) x.shotOverride = "medium"; });
+  r = merge();
+  t("merge: a leave in a medium is refused (no legs: reads as sliding off)", r.status !== 0 && /medium shows no legs/.test(r.stdout), (r.stdout || "").slice(-300));
+  write((x, i) => { if (i === iB) x.shotOverride = "wide"; });
+  r = merge();
+  t("merge: a leave in an explicit wide is accepted", r.status === 0, (r.stdout || "").slice(-600));
   write(null);
   r = merge();
   t("merge: the authored leave is accepted", r.status === 0, (r.stdout || "").slice(-600));

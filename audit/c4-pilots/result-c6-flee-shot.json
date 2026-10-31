@@ -1,0 +1,9 @@
+{
+  "preregistration": "preregistration-c6-flee-shot.json",
+  "run": "2026-10-31, workflow wf_53e12b6f-18f: 20 fresh blind sonnet readers (5 per sheet, one sheet each) + 20 sonnet judges",
+  "RUNS_AWAY": { "full-ltt": 5, "full-cra": 5, "medium-ltt": 0, "medium-cra": 0 },
+  "MOVES_UNCLEAR": { "medium-ltt": 5, "medium-cra": 5 },
+  "pooled": { "full": "10/10 runs away", "medium": "0/10 runs away (10/10: leans, slides off the edge, only an arm left)" },
+  "decision": "rule triggered (medium >= 2 below full): SHIP the merge refusal — leave / flee only on a full-body shot (wide, silhouette, lowAngle, crowd, illustration, diorama). No flee code changed.",
+  "also": "Same-session reproduction of cycle 5's 10/10 full-body result. The flee 2.2 patch stays unshipped."
+}

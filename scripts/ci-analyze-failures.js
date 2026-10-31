@@ -45,7 +45,9 @@ function newFailures(run) {
 }
 
 const since = new Date(Date.now() - (+(args.days || 14)) * 864e5).toISOString().slice(0, 10);
-const runs = (JSON.parse(gh(["api", `repos/${REPO}/actions/workflows/regression.yml/runs?status=failure&created=>=${since}&per_page=30`])).workflow_runs || []);
+let runs;
+try { runs = JSON.parse(gh(["api", `repos/${REPO}/actions/workflows/regression.yml/runs?status=failure&created=>=${since}&per_page=30`])).workflow_runs || []; }
+catch (e) { console.log(`✗ GitHub unreachable (${String(e.stderr || e.message).trim().slice(0, 120)}) — nothing dispatched, try again later`); process.exit(2); }
 let dispatched = 0;
 for (const r of runs) {
   const tag = `${r.id} ${r.head_sha.slice(0, 8)} ${r.head_branch}`;

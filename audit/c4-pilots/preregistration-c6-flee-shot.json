@@ -1,0 +1,10 @@
+{
+  "name": "c6 flee: shot choice (no flee code change)",
+  "written": "2026-10-31, before any reader saw the sheets",
+  "question": "Does a flee/leave staged on a medium (waist-up) shot read worse than the same deed on a full-body shot? Current production flee code (2.0), same scenes, same frames.",
+  "sheets": "medium-ltt, medium-cra (r12) vs full-ltt, full-cra (r8 arm A); neutral names s1..s4",
+  "readers": "5 fresh blind sonnet readers per sheet, one sheet each, no narration: what does the person do across the frames",
+  "scoring": "a separate judge per description: RUNS_AWAY (runs / flees / dashes off), WALKS_AWAY (walks / leaves at a walk), MOVES_UNCLEAR (slides / drifts / disappears / leans, no gait), STAYS",
+  "rule": "If medium RUNS_AWAY (pooled, /10) is at least 2 below full-body RUNS_AWAY (/10), storyboard merge REFUSES flee/leave on any non-full-body shot (today only closeUp is refused) and suggests wide. Otherwise no change.",
+  "notChangedAfter": true
+}

@@ -1,0 +1,19 @@
+{
+  "name": "c6 take->place 2.0",
+  "written": "2026-10-31, before any arm-B frame was rendered or read",
+  "change": "place pose: straight arm DOWN-OUT (PLACE_ARM -41) onto a visible wooden table beside the placer (pose.table, legs to the floor); the let-go object is drawn ON the table and stays; Scene flips the placer so the placing arm points AWAY from the partner; eyes follow the object while it is set down",
+  "arms": {
+    "A": "current code (v1: take-rest stand at arm height), frames already rendered in scratchpad r11 before the change",
+    "B": "place 2.0, same fixtures, same frames"
+  },
+  "fixtures": ["zz-pl-won (medium, placer right)", "zz-pl-ltt (placer left)"],
+  "frames": [120, 300, 315, 330, 345, 380, 500, 600],
+  "readers": "5 fresh blind sonnet readers per sheet (one sheet each, no narration, no arm label), asked: what happens to the object across the frames, and where is it at the end",
+  "scoring": {
+    "PLACED": "the reader says the object is put down / set on a surface (table, counter, stand) by the person and stays there",
+    "HANDED": "the reader says it is given / offered / handed to the other person",
+    "HELD_OR_FLOATING": "still held at the end, or floating / hovering / unclear"
+  },
+  "shipRule": "B ships when, on EACH fixture, PLACED >= 4/5 and HANDED = 0/5, and B's PLACED total >= A's PLACED total. Otherwise NO SHIP; the code stays as a patch.",
+  "notChangedAfter": true
+}
