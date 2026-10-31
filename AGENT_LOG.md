@@ -2093,6 +2093,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 - Recorded in PUBLISHED_BOOKS.md (row 65 + section). Live title, video id and URL not recorded.
 - Note for the next finalizer: it removed the raw `.vtt` and the split state file right after the render, before any cleanup order. Only `clean.vtt` should survive that step.
 
+### 2026-10-31 — PUBLISHED & CLEANED: the-art-of-strategy (Antidote, operator-ordered)
+
+- Operator confirmed the YouTube upload ("video yayınlandı") and ordered cleanup. Ran render-github-cleanup.js (10 artifacts + 10 runs, ~878 MB), purge-render-branches.js (11 render/ refs), render-purge.js (film + thumbnails, ~934 MB).
+- Recorded in PUBLISHED_BOOKS.md (row 65 + section). Live title, video id and URL not recorded.
+- Note for the next finalizer: it removed the raw `.vtt` and the split state file right after the render, before any cleanup order. Only `clean.vtt` should survive that step.
+
 ### 2026-10-29 — Next cycle P1/P2/P3/P7/P8: second loop passage (NOT shipped), place v2 image-only, push/fall, rubric, NVIDIA key
 
 - **P1 — feedback loop, second book: the new design did NOT pass the holdout and is not in production.**
