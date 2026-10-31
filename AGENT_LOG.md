@@ -2088,6 +2088,34 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-10-31 — Cycle 6: place 2.0 SHIPPED, flee full-body rule SHIPPED, continued-place replay fixed, cloud visual A/B, Action-First NO SHIP
+
+All evidence is in `audit/c4-pilots` and `audit/cloud-ab`. Every rule was written before its readers ran.
+
+- **take→place 2.0 — SHIP** (f0ac0993, cloud regression 41211687760 green):
+  - A wooden table stands beside the placer. The arm goes down and out onto it, the object stays on the table, and the placer turns so the arm points away from the partner.
+  - Blind result, 20 readers: placed 9/10, handed 0/10. Old v1: placed 4/10, handed 2/10.
+  - Open: the LTT cup is small, and on WON the table is partly cut off at the frame edge.
+- **Continued place replayed — FIXED** (a2ef24eb): `continuity.ts` carried the passed cue only for take and embrace, so a continued place set the object down a second time. Two tests in test-place fail on the old code.
+- **Flee: shot rule — SHIP** (d6550133). No flee code changed.
+  - Blind result, 20 readers: medium shot "runs away" 0/10 (they saw the body slide off the frame); full body 10/10.
+  - Merge now refuses leave and flee on any shot that does not draw the full rig. Allowed shots: wide, silhouette, lowAngle, crowd, illustration, diorama.
+  - The flee 2.2 patch stays unshipped.
+- **Action-First (rules.md section) — NO SHIP.**
+  - Cloud run 41190574611 (Sonnet API, 62 stills, $1.99): WRONG 2→0, CORRECT 35→41, EXPLAINS 35→44, ADDS 52→53 (+9 needed).
+  - The local Sonnet sub-agent raters on the same stills also say NO SHIP.
+  - The two raters agree per item on correctness only 63% of the time, and the cloud judge gives far more CORRECT. Compare A vs B only within one rater, never across raters.
+- **Cloud visual A/B** (`scripts/visual-ab-cloud.js` + `.github/workflows/visual-ab.yml`):
+  - A hash-verified bundle goes in and a sealed result comes back; the same input hash is never run twice.
+  - Wall time: about 21 min in the cloud (render 85 s, rating 17.5 min) vs about 16 min for one arm's stills locally.
+  - Renders are not byte-identical: local vs cloud PSNR median 30.8 dB.
+  - `audit/cloud-ab/.gitattributes` sets `-text` so sealed files stay byte-exact.
+- **CI Analyst:** `ci-analyze-failures.js` found no new failed regression run. It now exits cleanly when GitHub is unreachable. During that outage ai-budget said UNKNOWN and stopped only paid AI, as designed.
+- **Budget:** month-to-date $2.01 of $500; last 24 h $2.01 of $15. This is an estimate, not a provider hard cap.
+- **Autonomy:** never-lie and how-to-talk-to-anyone ran the whole chain on cb0d0311 while it was current: prep → merge → make-book → mute PASS → preview-ready (0 failed) → render → YouTube READY. Both runs: dirty 0, no guard overrides.
+  - The records cannot show operator touches.
+  - No book has started yet on cycle 5/6 code.
+
 ### 2026-10-31 — PUBLISHED & CLEANED: the-art-of-strategy (Antidote, operator-ordered)
 
 - Operator confirmed the YouTube upload ("video yayınlandı") and ordered cleanup. Ran render-github-cleanup.js (10 artifacts + 10 runs, ~878 MB), purge-render-branches.js (11 render/ refs), render-purge.js (film + thumbnails, ~934 MB).
