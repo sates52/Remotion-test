@@ -6784,3 +6784,10 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 ### 2026-10-29 — essentialism: PUBLISHED & CLEANED (Antidote)
 - Adopted into ../wt-book-essentialism-the-disciplined-pursuit-of-less on origin/god-mode 88db7e09 (book-start --adopt, operator choice). Quality debt accepted by operator for this config. 10-way GitHub render, cloud-verified, 46.3 min. YouTube pack READY.
 - Post-upload cleanup (operator order): render-github-cleanup, purge-render-branches, render-purge. Frees ~2.9 GB local + ~910 MB GitHub.
+
+## ✅ 2026-10-31 — trust-fall — PUBLISHED & CLEANED (Antidote)
+- Operator confirmed the YouTube upload is live. Production render on pin `efdad434` (maintenance from `9e27acec`, `preview-ready.js` head fix only). Render input `d01af6b27ab6e933`, config `151776c9`. Sealed holdout run2 PASS (WRONG 0/30, DEAD 4/30, ADDS 23/30, EXPLAINS 2/30).
+- Quality debt: operator accepted for this render input only (`render.js --accept-quality-debt`). Covers 469 REVIEW keys (183 STRATEGY_REQUIREMENT_UNMET, 176 SEMANTIC_STAGING_VIOLATION, 77 VISUAL_NOT_GROUNDED_IN_SEGMENT, 33 STRATEGY_UNRESOLVED). The operator's reason named 215; the recorded keys are wider, so review against the decision file.
+- Render: 10 segments, cloud assembly run 41097267324, 66,277/66,277 frames, full decode clean, 885.9 MB. Download via `render-github-cloud-assemble.js --fetch`.
+- Cleanup (operator order): `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (render/ refs on workers), `render-purge.js` (local film and thumbnails, ~887 MB). The GitHub cleanup's local step also removed the raw mp3, mastered audio, raw `.vtt` and the split state file. `clean.vtt` is kept.
+- Engine backlog (not fixed): (1) maintenance pin reset moved `preview-state.js` mute scope, so run2 stopped counting after the upgrade; (2) quality-debt acceptance and render authorization share one record; (3) seal manifest lacks config identity; (4) 43 absence and 7 state visual gaps plus 33 unresolved strategies remain open for Antidote 10x.
