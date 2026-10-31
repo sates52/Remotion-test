@@ -1,0 +1,221 @@
+{
+  "slug": "zz-af-p2",
+  "world": {
+    "era": "contemporary",
+    "worldId": "contemporary-us",
+    "approxYear": 2024,
+    "setting": "Springfield, Nebraska, and New York City, present day",
+    "register": "romance, emotional, US English",
+    "forbid": [
+      "sci-fi devices",
+      "post-apocalyptic ruins",
+      "period costume"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "trust-fall",
+    "worldId": "contemporary-us",
+    "allowedMotifs": [
+      "family",
+      "heart",
+      "shield",
+      "ledge",
+      "phone",
+      "storm",
+      "home",
+      "gift",
+      "trellis",
+      "inheritance",
+      "food",
+      "mask",
+      "book",
+      "balance",
+      "city",
+      "law"
+    ],
+    "forbiddenMotifs": [
+      "war",
+      "law-courtroom-scenes-unless-narrated"
+    ],
+    "allowedCharacters": [
+      "julia",
+      "damen",
+      "will"
+    ],
+    "allowedLocations": [
+      "street",
+      "bedroom",
+      "room",
+      "classroom",
+      "office",
+      "court",
+      "shore"
+    ],
+    "allowedProps": [
+      "phone",
+      "coin",
+      "gift"
+    ]
+  },
+  "cast": {
+    "julia": {
+      "name": "Julia",
+      "role": "protagonist, Nebraska girl, guarded after a breakup",
+      "look": "young woman in her early twenties, slim build, long hair tied back, plain casual jacket, contemporary",
+      "variant": {
+        "outfit": "casual",
+        "hairStyle": "long",
+        "height": 1,
+        "build": "slight",
+        "headScale": 1,
+        "gender": "f",
+        "age": "young",
+        "shirt": "#3E6E8E",
+        "hair": "#6B4226",
+        "skin": "#E8B98F",
+        "suit": "#3E6E8E"
+      }
+    },
+    "damen": {
+      "name": "Damen",
+      "role": "love interest, New York heir to a wealthy family (narration also spells the name Damian)",
+      "look": "man in his mid-twenties, tall, lean build, short dark hair, tailored suit and expensive glasses, contemporary",
+      "variant": {
+        "outfit": "suit",
+        "hairStyle": "short",
+        "height": 1.06,
+        "build": "average",
+        "headScale": 1,
+        "gender": "m",
+        "age": "adult",
+        "suit": "#1F2328",
+        "shirt": "#F2F2F2",
+        "hair": "#1A1A1A",
+        "skin": "#E8B98F",
+        "glasses": true
+      }
+    },
+    "will": {
+      "name": "Will",
+      "role": "Julia ex-boyfriend, mentioned, not a stage presence",
+      "look": "young man in his early twenties, average build, casual clothes, contemporary",
+      "variant": {
+        "outfit": "casual",
+        "hairStyle": "short",
+        "height": 1,
+        "build": "average",
+        "headScale": 1,
+        "gender": "m",
+        "age": "young",
+        "shirt": "#7A8B99",
+        "hair": "#8A6A3A",
+        "skin": "#E8B98F",
+        "suit": "#7A8B99"
+      }
+    }
+  },
+  "places": {
+    "street": {
+      "set": "street",
+      "look": "city street, New York, daytime, traffic and pedestrians",
+      "mentions": 8
+    },
+    "bedroom": {
+      "set": "bedroom",
+      "look": "childhood bedroom in a Midwestern house, rain outside the window, lattice trellis visible",
+      "mentions": 2
+    },
+    "room": {
+      "set": "room",
+      "look": "family dining room of an elite New York household",
+      "mentions": 5
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "private academy classroom, elite school",
+      "mentions": 1
+    },
+    "court": {
+      "set": "court",
+      "look": "legal hearing, lawsuit over an inheritance",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "heart",
+      "mentions": 28,
+      "why": "the emotional core the narration names repeatedly"
+    },
+    {
+      "concept": "shield",
+      "mentions": 26,
+      "why": "guard and self-protection, the book central image"
+    },
+    {
+      "concept": "ledge",
+      "mentions": 19,
+      "why": "the trust fall itself: stepping off into someone else arms"
+    },
+    {
+      "concept": "family",
+      "mentions": 46,
+      "why": "pressure from parents and inheritance"
+    },
+    {
+      "concept": "phone",
+      "mentions": 10,
+      "why": "contact and rejection; appears in the narration"
+    },
+    {
+      "concept": "storm",
+      "mentions": 10,
+      "why": "the rainstorm of the trellis scene"
+    },
+    {
+      "concept": "gift",
+      "mentions": 6,
+      "why": "inheritance gifts as a source of strain"
+    },
+    {
+      "concept": "home",
+      "mentions": 5,
+      "why": "Nebraska home, safety"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 10,
+      "claim": "Julia is guarding a broken heart after her long relationship ends, and Damen guards himself behind his family wealth."
+    },
+    {
+      "act": "development",
+      "fromFrame": 14765,
+      "claim": "The two are forced together by a family inheritance conflict; each protects a self the other does not yet see."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 28368,
+      "claim": "Damen drops his armour and meets Julia where she is, standing in the rain outside her childhood home."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 40730,
+      "claim": "Trust costs both of them; neither can keep the old guard up."
+    },
+    {
+      "act": "close",
+      "fromFrame": 52932,
+      "claim": "Romance works only when each risks being seen before knowing the other will catch them."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "trellis",
+      "name": "The white lattice trellis",
+      "why": "Damen climbs it to reach Julia in the rain; the narration names it as the moment he drops his armour"
+    }
+  ],
+  "authored": true
+}

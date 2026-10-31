@@ -1,0 +1,5954 @@
+{
+  "meta": {
+    "slug": "zz-af-p3a",
+    "title": "The Art of Strategy",
+    "author": "Avinash K. Dixit & Barry J. Nalebuff",
+    "genre": "business",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": "audio/zz-af-p3a.m4a",
+    "durationInFrames": 2845,
+    "multiplane": true,
+    "hud": {
+      "enabled": true,
+      "accent": "#D9603C",
+      "title": "THE ART OF STRATEGY",
+      "showProgress": true,
+      "showBadge": true
+    },
+    "thumbnail": {
+      "hook": "STRATEGY",
+      "_needsClaudeRefine": true,
+      "variant": {
+        "skin": "#C98A5E",
+        "hair": "#8a8a8a",
+        "suit": "#1f2a44",
+        "shirt": "#f2f2f2",
+        "expression": "happy",
+        "hairStyle": "short",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "adult",
+        "outfit": "suit",
+        "headwear": "none",
+        "accessory": "tie",
+        "build": "average",
+        "height": 1,
+        "headScale": 1,
+        "overlay": []
+      },
+      "action": "celebrate",
+      "expression": "happy",
+      "motif": "risingBars"
+    },
+    "cast": {
+      "lean": {
+        "name": "BB Lean",
+        "role": "Rival firm executive who undercuts on price to take the whole market",
+        "variant": {
+          "skin": "#C98A5E",
+          "hair": "#8a8a8a",
+          "suit": "#1f2a44",
+          "shirt": "#f2f2f2",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "tie",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "fred": {
+        "name": "Fred",
+        "role": "Hunter who must choose between a stag and a rabbit with a partner",
+        "variant": {
+          "skin": "#C98A5E",
+          "hair": "#5a3b22",
+          "suit": "#6b5a3e",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "young",
+          "outfit": "coat",
+          "headwear": "none",
+          "accessory": "collar",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "end": {
+        "name": "Rainbow's End",
+        "role": "Rival firm executive who must decide whether to hold price or cut it",
+        "variant": {
+          "skin": "#C98A5E",
+          "hair": "#b8b8b8",
+          "suit": "#2b2b33",
+          "shirt": "#e8e4ef",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "collar",
+          "build": "slight",
+          "height": 0.98,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "which": {
+        "name": "Driver",
+        "role": "Teenage driver in a game of chicken who must choose to swerve or hold",
+        "variant": {
+          "skin": "#C98A5E",
+          "hair": "#222222",
+          "suit": "#3a4f7a",
+          "shirt": "#e7e7e7",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "young",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "collar",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      }
+    }
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "fromFrame": 15,
+      "durationFrames": 233,
+      "hud": {
+        "hidden": true
+      },
+      "_narration": "But what does the smart child do? They don't take a running dive into the waves. They walk to the edge of the wet sand and just stand there.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "water"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "water",
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "childhood_innocence",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "title",
+      "_act": "setup",
+      "shot": "lowAngle",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(244,242,237)",
+          "rgb(239,237,230)"
+        ],
+        "set": "shore",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          18,
+          -10
+        ],
+        "punch": {
+          "at": 155,
+          "amount": 0.055
+        },
+        "pulses": [
+          79,
+          149
+        ]
+      },
+      "characters": [
+        {
+          "id": "c0-0",
+          "rig": "everyman",
+          "identity": "lean",
+          "role": "lean",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [
+        {
+          "type": "water",
+          "scale": 1,
+          "enter": "pop",
+          "color": "#EAB308",
+          "color2": "#1C1917",
+          "arc": "none",
+          "at": 12
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE ART OF STRATEGY",
+          "style": "plain",
+          "color": "#1E1E22",
+          "enter": "down",
+          "at": 6,
+          "duration": 80
+        },
+        {
+          "text": "THE EDGE OF THE WET SAND",
+          "style": "box",
+          "color": "#EAE7DE",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 155,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "But what does the smart child do? They don't take a running dive into the waves. They walk to the edge of the wet sand and just stand there."
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "title"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"...; visualJob: undefined -> \"surprise\"; visualArc: null -> {\"startState\":\"apparent_security\",\"endState\":\"sudden_fracture\",\"transformatio...; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"... -> {\"function\":\"HOOK\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"pro...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "setup",
+        "payoffPromise": "p-01"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "apparent_security",
+        "endState": "sudden_fracture",
+        "transformation": "shrink"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "But what does the smart child do?",
+        "claimType": "question",
+        "epistemicStance": "questioned",
+        "thesis": "But what does the smart child do?",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"But what does the smart child do?\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "water_focal_center",
+        "visualSubject": "water_allegorical_manifestation",
+        "secondarySubject": "lean",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of water emphasizing theoretical_principle",
+        "composition": "foreground: hero motif water; background: shore architectural depth",
+        "blocking": "foreground: hero motif water; background: shore architectural depth",
+        "compositionRationale": "cinematic framing of water emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "water",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-01",
+      "fromFrame": 248,
+      "durationFrames": 228,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Then they dip one bare toe in the foam where the water washes up. Testing the waters literally. Exactly. Now the parent has a choice.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "setup",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n0": "one bare toe",
+            "token": "in the foam"
+          },
+          "at": {
+            "n0": 24,
+            "token": 48
+          },
+          "done": []
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "wipeLeft",
+        "frames": 10,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(241,239,233)",
+          "rgb(238,235,228)"
+        ],
+        "set": "horizon",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "setup",
+        "split": [
+          "rgb(241,239,233)",
+          "rgb(246,223,151)"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1.048,
+          1
+        ],
+        "panX": [
+          26,
+          -26
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 125,
+          "amount": 0.05
+        },
+        "pulses": [
+          74
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeLeft"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Then they dip one bare toe in the foam where the water washes up.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Then they dip one bare toe in the foam where the water washes up.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Then they dip one bare toe in the foam where the water washes up.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-02",
+      "fromFrame": 476,
+      "durationFrames": 377,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Is the kid in the water? Technically, yes. Right. But is a toe in the foam worth the agony of packing up the umbrellas, the cooler, dragging a screaming toddler",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n1": "packing up the umbrellas"
+          },
+          "at": {
+            "n1": 175
+          },
+          "done": [
+            "n0",
+            "token"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(202,201,195)",
+          "rgb(185,183,177)"
+        ],
+        "set": "horizon",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 207,
+          "amount": 0.05
+        },
+        "pulses": [
+          84,
+          156,
+          310
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "Is the kid in the water? Technically, yes. Right. But is a toe in the foam worth the agony of packing up the umbrellas, the cooler, dragging a screaming toddler"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Is the kid in the water?",
+        "claimType": "question",
+        "epistemicStance": "questioned",
+        "thesis": "Is the kid in the water?",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Is the kid in the water?\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-03",
+      "fromFrame": 853,
+      "durationFrames": 242,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "No. The cost of executing the threat is too high for the parent. So, the parent's size and acquiesces, and the child learns the boundary is Exactly.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "childhood_innocence",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n2": "too high",
+            "n3": "acquiesces"
+          },
+          "at": {
+            "n2": 57,
+            "n3": 122
+          },
+          "done": [
+            "n0",
+            "token",
+            "n1"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "closeUp",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(208,206,201)",
+          "rgb(191,188,182)"
+        ],
+        "set": "horizon",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "pulses": [
+          77,
+          211
+        ],
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          -14
+        ],
+        "punch": {
+          "at": 6,
+          "amount": 0.06
+        }
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":t...; visualJob: \"escalate\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":t... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":t...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"insert\" -> \"closeUp\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": true,
+        "promiseId": "p-01",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "No.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "No.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"No.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "dynamic coverage shift to closeUp preventing visual stagnation",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-04",
+      "fromFrame": 1095,
+      "durationFrames": 315,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "So, 5 minutes later, the child stands in an inch of water, then up to the ankles. Sneaky. The child is diffusing this massive nuclear threat one tiny paperthin ",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "childhood_innocence",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "time",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "loop": [
+              "an inch of water",
+              "up to the ankles"
+            ]
+          },
+          "at": {
+            "loop": [
+              60,
+              101
+            ]
+          },
+          "done": [
+            "n0",
+            "token",
+            "n1",
+            "n2",
+            "n3"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(199,197,192)",
+          "rgb(182,180,173)"
+        ],
+        "set": "horizon",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "pulses": [
+          75,
+          159,
+          247
+        ],
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: \"escalate\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"pr...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": true,
+        "promiseId": "p-01",
+        "promiseRole": "payoff",
+        "payoff": "p-01"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "So, 5 minutes later, the child stands in an inch of water, then up to the ankles.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "So, 5 minutes later, the child stands in an inch of water, then up to the ankles.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"So, 5 minutes later, the child stands in an inch of water, then up to the ankles.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-05",
+      "fromFrame": 1410,
+      "durationFrames": 216,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "a time because at no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up the whole car.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "loop": "single tiny step"
+          },
+          "at": {
+            "loop": [
+              45
+            ]
+          },
+          "done": [
+            "n0",
+            "token",
+            "n1",
+            "n2",
+            "n3"
+          ],
+          "before": {
+            "loop": 2
+          }
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(189,188,183)",
+          "rgb(173,171,165)"
+        ],
+        "set": "horizon",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "pulses": [
+          67
+        ],
+        "zoom": [
+          1,
+          1.05
+        ],
+        "panX": [
+          -18,
+          18
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "a time because at no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up the whole car.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "a time because at no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up the whole car.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"a time because at no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up \"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-06",
+      "fromFrame": 1626,
+      "durationFrames": 228,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "The threat becomes completely unbelievable because the execution cost over a toe in the water is simply too high for the person making the threat.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "balance"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "balance",
+        "intent": null,
+        "lock": {
+          "planShot": "illustration",
+          "artTexts": [
+            {
+              "text": "THE THREAT BECOMES UNBELIEVABLE",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 0,
+              "src": "art"
+            }
+          ],
+          "shot": "illustration",
+          "set": "shore",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "balance",
+          "props": [
+            {
+              "type": "balance",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "balance"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "concept": "balance",
+      "shot": "illustration",
+      "transition": {
+        "type": "whipRight",
+        "frames": 12,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(180,179,174)",
+          "rgb(164,162,156)"
+        ],
+        "set": "shore",
+        "texture": "grain",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 0,
+          "amount": 0.055
+        },
+        "pulses": [
+          74,
+          146
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "balance",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917",
+          "arc": "grow",
+          "stateIndex": 1
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE THREAT BECOMES UNBELIEVABLE",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 0,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.8,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.8,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"under_control\",\"endState\":\"overwhelmed\",\"transformation\":\"over...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: \"escalate\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "props",
+            "from": null,
+            "to": null,
+            "fields": [
+              "props"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "props: [{\"type\":\"balance\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":... -> [{\"type\":\"balance\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": true,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "under_control",
+        "endState": "overwhelmed",
+        "transformation": "overload"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 0,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "transformation",
+      "visualProposition": {
+        "claim": "The threat becomes completely unbelievable because the execution cost over a toe in the water is simply too high for the person making the threat.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "The threat becomes completely unbelievable because the execution cost over a toe in the water is simply too high for the person making the threat.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"The threat becomes completely unbelievable because the execution cost over a toe in the water is simply too high for the\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 4.55,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.7,
+        "mechanismCoverage": 0.95,
+        "stateChange": 1,
+        "audioSurplus": 0.9
+      },
+      "director": {
+        "viewerFocus": "balance_focal_center",
+        "visualSubject": "balance_allegorical_manifestation",
+        "secondarySubject": "shore",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of balance emphasizing theoretical_principle",
+        "composition": "foreground: hero motif balance; background: shore architectural depth",
+        "blocking": "foreground: hero motif balance; background: shore architectural depth",
+        "compositionRationale": "cinematic framing of balance emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "balance",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-07",
+      "fromFrame": 1854,
+      "durationFrames": 228,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it. Because the beach is low stakes.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "water"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "water",
+        "intent": null,
+        "lock": {
+          "planShot": "diorama",
+          "artTexts": [
+            {
+              "text": "THE BEACH IS LOW STAKES",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 164,
+              "src": "art"
+            }
+          ],
+          "shot": "diorama",
+          "set": "shore",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "water",
+          "props": [
+            {
+              "type": "water",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "water"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "turn",
+      "concept": "water",
+      "shot": "diorama",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(247,225,157)",
+          "rgb(239,237,230)"
+        ],
+        "set": "shore",
+        "texture": "grain",
+        "accent": "#1C1917",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 164,
+          "amount": 0.055
+        },
+        "pulses": [
+          74,
+          160
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "water",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917",
+          "arc": "grow",
+          "stateIndex": 1
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE BEACH IS LOW STAKES",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 164,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true...; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true... -> {\"function\":\"EXPLANATION\",\"payoff\":\"promise-01\",\"escalates\":false,\"conceptual...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"payoff\":\"promise-01\",\"escalates\":false,\"conceptual... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "props",
+            "from": null,
+            "to": null,
+            "fields": [
+              "props"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "props: [{\"type\":\"water\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":\"#... -> [{\"type\":\"water\",\"scale\":1,\"enter\":\"pop\",\"at\":0,\"color\":\"#EAB308\",\"color2\":\"#...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 164,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "transformation",
+      "visualProposition": {
+        "claim": "Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 4.55,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.7,
+        "mechanismCoverage": 0.95,
+        "stateChange": 1,
+        "audioSurplus": 0.9
+      },
+      "director": {
+        "viewerFocus": "water_focal_center",
+        "visualSubject": "water_allegorical_manifestation",
+        "secondarySubject": "shore",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of water emphasizing theoretical_principle",
+        "composition": "foreground: hero motif water; background: shore architectural depth",
+        "blocking": "foreground: hero motif water; background: shore architectural depth",
+        "compositionRationale": "cinematic framing of water emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "water",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-08",
+      "fromFrame": 2082,
+      "durationFrames": 254,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme. Yeah, that ruins the friendship.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "coin"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "coin",
+        "intent": null,
+        "lock": {
+          "planShot": "illustration",
+          "artTexts": [
+            {
+              "text": "$15,000 FROM A CLOSE FRIEND",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 10,
+              "src": "art"
+            }
+          ],
+          "shot": "illustration",
+          "set": "office",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "coin",
+          "props": [
+            {
+              "type": "coin",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "coin"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "stat",
+      "_act": "turn",
+      "concept": "coin",
+      "shot": "illustration",
+      "transition": {
+        "type": "flash",
+        "frames": 8,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(248,229,171)",
+          "rgb(242,240,234)"
+        ],
+        "set": "office",
+        "texture": "grain",
+        "accent": "#1C1917",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 10,
+          "amount": 0.09
+        },
+        "pulses": [
+          86,
+          153,
+          225
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "coin",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917"
+        }
+      ],
+      "texts": [
+        {
+          "text": "$15,000 FROM A CLOSE FRIEND",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 10,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.8,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.8,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"quantify\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "quantify",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -4,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_flash"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 10,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "spatial_state",
+      "visualProposition": {
+        "claim": "Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "coin_focal_center",
+        "visualSubject": "coin_allegorical_manifestation",
+        "secondarySubject": "office",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of coin emphasizing theoretical_principle",
+        "composition": "foreground: hero motif coin; background: office architectural depth",
+        "blocking": "foreground: hero motif coin; background: office architectural depth",
+        "compositionRationale": "cinematic framing of coin emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "coin",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-09",
+      "fromFrame": 2336,
+      "durationFrames": 252,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "If my friend did that to me, we wouldn't be friends anymore. It's totally irrational to actually cash that check. Why not just renegotiate the contract?",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "coin"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "coin",
+        "intent": null,
+        "lock": {
+          "planShot": "illustration",
+          "artTexts": [
+            {
+              "text": "IRRATIONAL TO CASH THAT CHECK",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 102,
+              "src": "art"
+            }
+          ],
+          "shot": "illustration",
+          "set": "office",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "coin",
+          "props": [
+            {
+              "type": "coin",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#EAB308",
+              "color2": "#1C1917"
+            }
+          ],
+          "propTypes": [
+            "coin"
+          ],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "question",
+      "_act": "resolution",
+      "concept": "coin",
+      "shot": "illustration",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(234,216,185)",
+          "rgb(237,235,227)"
+        ],
+        "set": "office",
+        "texture": "grain",
+        "accent": "#1C1917",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 102,
+          "amount": 0.055
+        },
+        "pulses": [
+          86,
+          202
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "coin",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#EAB308",
+          "color2": "#1C1917"
+        }
+      ],
+      "texts": [
+        {
+          "text": "IRRATIONAL TO CASH THAT CHECK",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 102,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.8,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "If my friend did that to me, we wouldn't be friends anymore. It's totally irrational to actually cash that check. Why not just renegotiate the contract?"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 102,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "spatial_state",
+      "visualProposition": {
+        "claim": "If my friend did that to me, we wouldn't be friends anymore.",
+        "claimType": "question",
+        "epistemicStance": "questioned",
+        "thesis": "If my friend did that to me, we wouldn't be friends anymore.",
+        "counterThesis": "cash that check",
+        "counterThesisEvidence": "direct",
+        "visualQuestion": "What must the viewer see while hearing: \"If my friend did that to me, we wouldn't be friends anymore.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "coin_focal_center",
+        "visualSubject": "coin_allegorical_manifestation",
+        "secondarySubject": "office",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of coin emphasizing theoretical_principle",
+        "composition": "foreground: hero motif coin; background: office architectural depth",
+        "blocking": "foreground: hero motif coin; background: office architectural depth",
+        "compositionRationale": "cinematic framing of coin emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "coin",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-10",
+      "fromFrame": 2588,
+      "durationFrames": 257,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "It looks deeply irrational in the micro moment. Yes. But in the macro over the long term, it is highly rational to be selectively",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "horizon",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "resolution",
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Micro moment: irrational",
+          "Long term: rational"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "wipeLeft",
+        "frames": 10,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(229,207,167)",
+          "rgb(236,233,225)"
+        ],
+        "set": "horizon",
+        "texture": "grain",
+        "accent": "#1C1917",
+        "act": "resolution",
+        "split": [
+          "rgb(241,239,233)",
+          "rgb(246,223,151)"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.048
+        ],
+        "panX": [
+          -26,
+          26
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 141,
+          "amount": 0.05
+        },
+        "pulses": [
+          74,
+          209
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"pr...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeLeft"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "It looks deeply irrational in the micro moment.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "It looks deeply irrational in the micro moment.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"It looks deeply irrational in the micro moment.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "But what does the smart child do?",
+      "startFrame": 15,
+      "endFrame": 70,
+      "words": [
+        {
+          "w": "But",
+          "s": 15,
+          "e": 20
+        },
+        {
+          "w": "what",
+          "s": 20,
+          "e": 27
+        },
+        {
+          "w": "does",
+          "s": 27,
+          "e": 30
+        },
+        {
+          "w": "the",
+          "s": 30,
+          "e": 34
+        },
+        {
+          "w": "smart",
+          "s": 34,
+          "e": 44
+        },
+        {
+          "w": "child",
+          "s": 44,
+          "e": 54
+        },
+        {
+          "w": "do?",
+          "s": 54,
+          "e": 70
+        }
+      ]
+    },
+    {
+      "text": "They don't take a running dive into the waves.",
+      "startFrame": 70,
+      "endFrame": 154,
+      "words": [
+        {
+          "w": "They",
+          "s": 70,
+          "e": 78
+        },
+        {
+          "w": "don't",
+          "s": 78,
+          "e": 82
+        },
+        {
+          "w": "take",
+          "s": 82,
+          "e": 87
+        },
+        {
+          "w": "a",
+          "s": 87,
+          "e": 94
+        },
+        {
+          "w": "running",
+          "s": 94,
+          "e": 106
+        },
+        {
+          "w": "dive",
+          "s": 106,
+          "e": 116
+        },
+        {
+          "w": "into",
+          "s": 116,
+          "e": 123
+        },
+        {
+          "w": "the",
+          "s": 123,
+          "e": 128
+        },
+        {
+          "w": "waves.",
+          "s": 128,
+          "e": 154
+        }
+      ]
+    },
+    {
+      "text": "They walk to the edge of the wet sand",
+      "startFrame": 154,
+      "endFrame": 207,
+      "words": [
+        {
+          "w": "They",
+          "s": 154,
+          "e": 164
+        },
+        {
+          "w": "walk",
+          "s": 164,
+          "e": 169
+        },
+        {
+          "w": "to",
+          "s": 169,
+          "e": 174
+        },
+        {
+          "w": "the",
+          "s": 174,
+          "e": 177
+        },
+        {
+          "w": "edge",
+          "s": 176,
+          "e": 181
+        },
+        {
+          "w": "of",
+          "s": 181,
+          "e": 184
+        },
+        {
+          "w": "the",
+          "s": 183,
+          "e": 188
+        },
+        {
+          "w": "wet",
+          "s": 188,
+          "e": 195
+        },
+        {
+          "w": "sand",
+          "s": 195,
+          "e": 207
+        }
+      ]
+    },
+    {
+      "text": "and just stand there.",
+      "startFrame": 207,
+      "endFrame": 248,
+      "words": [
+        {
+          "w": "and",
+          "s": 207,
+          "e": 214
+        },
+        {
+          "w": "just",
+          "s": 214,
+          "e": 222
+        },
+        {
+          "w": "stand",
+          "s": 222,
+          "e": 229
+        },
+        {
+          "w": "there.",
+          "s": 229,
+          "e": 248
+        }
+      ]
+    },
+    {
+      "text": "Then they dip one bare toe in the foam",
+      "startFrame": 248,
+      "endFrame": 313,
+      "words": [
+        {
+          "w": "Then",
+          "s": 248,
+          "e": 255
+        },
+        {
+          "w": "they",
+          "s": 255,
+          "e": 265
+        },
+        {
+          "w": "dip",
+          "s": 265,
+          "e": 272
+        },
+        {
+          "w": "one",
+          "s": 272,
+          "e": 279
+        },
+        {
+          "w": "bare",
+          "s": 279,
+          "e": 289
+        },
+        {
+          "w": "toe",
+          "s": 289,
+          "e": 296
+        },
+        {
+          "w": "in",
+          "s": 296,
+          "e": 301
+        },
+        {
+          "w": "the",
+          "s": 301,
+          "e": 304
+        },
+        {
+          "w": "foam",
+          "s": 303,
+          "e": 313
+        }
+      ]
+    },
+    {
+      "text": "where the water washes up.",
+      "startFrame": 313,
+      "endFrame": 354,
+      "words": [
+        {
+          "w": "where",
+          "s": 313,
+          "e": 318
+        },
+        {
+          "w": "the",
+          "s": 318,
+          "e": 322
+        },
+        {
+          "w": "water",
+          "s": 322,
+          "e": 327
+        },
+        {
+          "w": "washes",
+          "s": 327,
+          "e": 339
+        },
+        {
+          "w": "up.",
+          "s": 339,
+          "e": 354
+        }
+      ]
+    },
+    {
+      "text": "Testing the waters literally.",
+      "startFrame": 354,
+      "endFrame": 399,
+      "words": [
+        {
+          "w": "Testing",
+          "s": 354,
+          "e": 363
+        },
+        {
+          "w": "the",
+          "s": 363,
+          "e": 368
+        },
+        {
+          "w": "waters",
+          "s": 368,
+          "e": 380
+        },
+        {
+          "w": "literally.",
+          "s": 380,
+          "e": 399
+        }
+      ]
+    },
+    {
+      "text": "Exactly. Now the parent has a choice.",
+      "startFrame": 399,
+      "endFrame": 476,
+      "words": [
+        {
+          "w": "Exactly.",
+          "s": 399,
+          "e": 426
+        },
+        {
+          "w": "Now",
+          "s": 426,
+          "e": 433
+        },
+        {
+          "w": "the",
+          "s": 433,
+          "e": 438
+        },
+        {
+          "w": "parent",
+          "s": 438,
+          "e": 445
+        },
+        {
+          "w": "has",
+          "s": 445,
+          "e": 450
+        },
+        {
+          "w": "a",
+          "s": 450,
+          "e": 454
+        },
+        {
+          "w": "choice.",
+          "s": 454,
+          "e": 476
+        }
+      ]
+    },
+    {
+      "text": "Is the kid in the water?",
+      "startFrame": 476,
+      "endFrame": 529,
+      "words": [
+        {
+          "w": "Is",
+          "s": 476,
+          "e": 483
+        },
+        {
+          "w": "the",
+          "s": 483,
+          "e": 490
+        },
+        {
+          "w": "kid",
+          "s": 490,
+          "e": 495
+        },
+        {
+          "w": "in",
+          "s": 495,
+          "e": 500
+        },
+        {
+          "w": "the",
+          "s": 500,
+          "e": 505
+        },
+        {
+          "w": "water?",
+          "s": 505,
+          "e": 529
+        }
+      ]
+    },
+    {
+      "text": "Technically, yes. Right. But is a toe in the",
+      "startFrame": 529,
+      "endFrame": 608,
+      "words": [
+        {
+          "w": "Technically,",
+          "s": 529,
+          "e": 548
+        },
+        {
+          "w": "yes.",
+          "s": 548,
+          "e": 560
+        },
+        {
+          "w": "Right.",
+          "s": 560,
+          "e": 572
+        },
+        {
+          "w": "But",
+          "s": 572,
+          "e": 579
+        },
+        {
+          "w": "is",
+          "s": 579,
+          "e": 584
+        },
+        {
+          "w": "a",
+          "s": 584,
+          "e": 589
+        },
+        {
+          "w": "toe",
+          "s": 589,
+          "e": 598
+        },
+        {
+          "w": "in",
+          "s": 598,
+          "e": 603
+        },
+        {
+          "w": "the",
+          "s": 603,
+          "e": 608
+        }
+      ]
+    },
+    {
+      "text": "foam worth the agony of packing up the umbrellas,",
+      "startFrame": 608,
+      "endFrame": 687,
+      "words": [
+        {
+          "w": "foam",
+          "s": 608,
+          "e": 618
+        },
+        {
+          "w": "worth",
+          "s": 618,
+          "e": 625
+        },
+        {
+          "w": "the",
+          "s": 625,
+          "e": 632
+        },
+        {
+          "w": "agony",
+          "s": 632,
+          "e": 644
+        },
+        {
+          "w": "of",
+          "s": 644,
+          "e": 651
+        },
+        {
+          "w": "packing",
+          "s": 651,
+          "e": 661
+        },
+        {
+          "w": "up",
+          "s": 661,
+          "e": 664
+        },
+        {
+          "w": "the",
+          "s": 663,
+          "e": 673
+        },
+        {
+          "w": "umbrellas,",
+          "s": 673,
+          "e": 687
+        }
+      ]
+    },
+    {
+      "text": "the cooler, dragging a screaming toddler to the hot",
+      "startFrame": 687,
+      "endFrame": 771,
+      "words": [
+        {
+          "w": "the",
+          "s": 687,
+          "e": 692
+        },
+        {
+          "w": "cooler,",
+          "s": 692,
+          "e": 711
+        },
+        {
+          "w": "dragging",
+          "s": 711,
+          "e": 721
+        },
+        {
+          "w": "a",
+          "s": 721,
+          "e": 728
+        },
+        {
+          "w": "screaming",
+          "s": 728,
+          "e": 740
+        },
+        {
+          "w": "toddler",
+          "s": 740,
+          "e": 754
+        },
+        {
+          "w": "to",
+          "s": 754,
+          "e": 759
+        },
+        {
+          "w": "the",
+          "s": 759,
+          "e": 764
+        },
+        {
+          "w": "hot",
+          "s": 764,
+          "e": 771
+        }
+      ]
+    },
+    {
+      "text": "car, and ruining the whole Definitely not.",
+      "startFrame": 771,
+      "endFrame": 853,
+      "words": [
+        {
+          "w": "car,",
+          "s": 771,
+          "e": 778
+        },
+        {
+          "w": "and",
+          "s": 778,
+          "e": 786
+        },
+        {
+          "w": "ruining",
+          "s": 786,
+          "e": 795
+        },
+        {
+          "w": "the",
+          "s": 795,
+          "e": 800
+        },
+        {
+          "w": "whole",
+          "s": 800,
+          "e": 829
+        },
+        {
+          "w": "Definitely",
+          "s": 829,
+          "e": 838
+        },
+        {
+          "w": "not.",
+          "s": 838,
+          "e": 853
+        }
+      ]
+    },
+    {
+      "text": "No. The cost of executing the threat is too",
+      "startFrame": 853,
+      "endFrame": 915,
+      "words": [
+        {
+          "w": "No.",
+          "s": 853,
+          "e": 862
+        },
+        {
+          "w": "The",
+          "s": 862,
+          "e": 870
+        },
+        {
+          "w": "cost",
+          "s": 870,
+          "e": 874
+        },
+        {
+          "w": "of",
+          "s": 874,
+          "e": 882
+        },
+        {
+          "w": "executing",
+          "s": 882,
+          "e": 894
+        },
+        {
+          "w": "the",
+          "s": 894,
+          "e": 898
+        },
+        {
+          "w": "threat",
+          "s": 898,
+          "e": 906
+        },
+        {
+          "w": "is",
+          "s": 906,
+          "e": 910
+        },
+        {
+          "w": "too",
+          "s": 910,
+          "e": 915
+        }
+      ]
+    },
+    {
+      "text": "high for the parent.",
+      "startFrame": 915,
+      "endFrame": 944,
+      "words": [
+        {
+          "w": "high",
+          "s": 915,
+          "e": 920
+        },
+        {
+          "w": "for",
+          "s": 920,
+          "e": 925
+        },
+        {
+          "w": "the",
+          "s": 925,
+          "e": 930
+        },
+        {
+          "w": "parent.",
+          "s": 930,
+          "e": 944
+        }
+      ]
+    },
+    {
+      "text": "So, the parent's size and acquiesces, and the child",
+      "startFrame": 944,
+      "endFrame": 1016,
+      "words": [
+        {
+          "w": "So,",
+          "s": 944,
+          "e": 949
+        },
+        {
+          "w": "the",
+          "s": 949,
+          "e": 954
+        },
+        {
+          "w": "parent's",
+          "s": 954,
+          "e": 963
+        },
+        {
+          "w": "size",
+          "s": 963,
+          "e": 970
+        },
+        {
+          "w": "and",
+          "s": 970,
+          "e": 975
+        },
+        {
+          "w": "acquiesces,",
+          "s": 975,
+          "e": 999
+        },
+        {
+          "w": "and",
+          "s": 999,
+          "e": 1004
+        },
+        {
+          "w": "the",
+          "s": 1004,
+          "e": 1011
+        },
+        {
+          "w": "child",
+          "s": 1011,
+          "e": 1016
+        }
+      ]
+    },
+    {
+      "text": "learns the boundary is Exactly.",
+      "startFrame": 1016,
+      "endFrame": 1095,
+      "words": [
+        {
+          "w": "learns",
+          "s": 1016,
+          "e": 1026
+        },
+        {
+          "w": "the",
+          "s": 1026,
+          "e": 1030
+        },
+        {
+          "w": "boundary",
+          "s": 1030,
+          "e": 1040
+        },
+        {
+          "w": "is",
+          "s": 1040,
+          "e": 1064
+        },
+        {
+          "w": "Exactly.",
+          "s": 1064,
+          "e": 1095
+        }
+      ]
+    },
+    {
+      "text": "So, 5 minutes later, the child stands in an",
+      "startFrame": 1095,
+      "endFrame": 1160,
+      "words": [
+        {
+          "w": "So,",
+          "s": 1095,
+          "e": 1102
+        },
+        {
+          "w": "5",
+          "s": 1102,
+          "e": 1110
+        },
+        {
+          "w": "minutes",
+          "s": 1110,
+          "e": 1117
+        },
+        {
+          "w": "later,",
+          "s": 1117,
+          "e": 1126
+        },
+        {
+          "w": "the",
+          "s": 1126,
+          "e": 1134
+        },
+        {
+          "w": "child",
+          "s": 1134,
+          "e": 1141
+        },
+        {
+          "w": "stands",
+          "s": 1141,
+          "e": 1150
+        },
+        {
+          "w": "in",
+          "s": 1150,
+          "e": 1155
+        },
+        {
+          "w": "an",
+          "s": 1155,
+          "e": 1160
+        }
+      ]
+    },
+    {
+      "text": "inch of water, then up to the ankles.",
+      "startFrame": 1160,
+      "endFrame": 1225,
+      "words": [
+        {
+          "w": "inch",
+          "s": 1160,
+          "e": 1165
+        },
+        {
+          "w": "of",
+          "s": 1165,
+          "e": 1170
+        },
+        {
+          "w": "water,",
+          "s": 1170,
+          "e": 1189
+        },
+        {
+          "w": "then",
+          "s": 1189,
+          "e": 1196
+        },
+        {
+          "w": "up",
+          "s": 1196,
+          "e": 1201
+        },
+        {
+          "w": "to",
+          "s": 1201,
+          "e": 1206
+        },
+        {
+          "w": "the",
+          "s": 1206,
+          "e": 1210
+        },
+        {
+          "w": "ankles.",
+          "s": 1210,
+          "e": 1225
+        }
+      ]
+    },
+    {
+      "text": "Sneaky. The child is diffusing this massive nuclear",
+      "startFrame": 1225,
+      "endFrame": 1318,
+      "words": [
+        {
+          "w": "Sneaky.",
+          "s": 1225,
+          "e": 1246
+        },
+        {
+          "w": "The",
+          "s": 1246,
+          "e": 1254
+        },
+        {
+          "w": "child",
+          "s": 1254,
+          "e": 1258
+        },
+        {
+          "w": "is",
+          "s": 1258,
+          "e": 1266
+        },
+        {
+          "w": "diffusing",
+          "s": 1266,
+          "e": 1280
+        },
+        {
+          "w": "this",
+          "s": 1280,
+          "e": 1290
+        },
+        {
+          "w": "massive",
+          "s": 1290,
+          "e": 1304
+        },
+        {
+          "w": "nuclear",
+          "s": 1304,
+          "e": 1318
+        }
+      ]
+    },
+    {
+      "text": "threat one tiny paperthin slice of salami at",
+      "startFrame": 1318,
+      "endFrame": 1410,
+      "words": [
+        {
+          "w": "threat",
+          "s": 1318,
+          "e": 1333
+        },
+        {
+          "w": "one",
+          "s": 1333,
+          "e": 1342
+        },
+        {
+          "w": "tiny",
+          "s": 1342,
+          "e": 1359
+        },
+        {
+          "w": "paperthin",
+          "s": 1359,
+          "e": 1378
+        },
+        {
+          "w": "slice",
+          "s": 1378,
+          "e": 1386
+        },
+        {
+          "w": "of",
+          "s": 1386,
+          "e": 1390
+        },
+        {
+          "w": "salami",
+          "s": 1390,
+          "e": 1405
+        },
+        {
+          "w": "at",
+          "s": 1405,
+          "e": 1410
+        }
+      ]
+    },
+    {
+      "text": "a time because at no single tiny step does",
+      "startFrame": 1410,
+      "endFrame": 1491,
+      "words": [
+        {
+          "w": "a",
+          "s": 1410,
+          "e": 1414
+        },
+        {
+          "w": "time",
+          "s": 1414,
+          "e": 1429
+        },
+        {
+          "w": "because",
+          "s": 1429,
+          "e": 1438
+        },
+        {
+          "w": "at",
+          "s": 1438,
+          "e": 1446
+        },
+        {
+          "w": "no",
+          "s": 1446,
+          "e": 1455
+        },
+        {
+          "w": "single",
+          "s": 1455,
+          "e": 1465
+        },
+        {
+          "w": "tiny",
+          "s": 1465,
+          "e": 1477
+        },
+        {
+          "w": "step",
+          "s": 1477,
+          "e": 1486
+        },
+        {
+          "w": "does",
+          "s": 1486,
+          "e": 1491
+        }
+      ]
+    },
+    {
+      "text": "the minor infraction warrant the massive exhausting punishment of",
+      "startFrame": 1491,
+      "endFrame": 1587,
+      "words": [
+        {
+          "w": "the",
+          "s": 1491,
+          "e": 1496
+        },
+        {
+          "w": "minor",
+          "s": 1496,
+          "e": 1503
+        },
+        {
+          "w": "infraction",
+          "s": 1503,
+          "e": 1522
+        },
+        {
+          "w": "warrant",
+          "s": 1522,
+          "e": 1532
+        },
+        {
+          "w": "the",
+          "s": 1532,
+          "e": 1542
+        },
+        {
+          "w": "massive",
+          "s": 1542,
+          "e": 1556
+        },
+        {
+          "w": "exhausting",
+          "s": 1556,
+          "e": 1570
+        },
+        {
+          "w": "punishment",
+          "s": 1570,
+          "e": 1580
+        },
+        {
+          "w": "of",
+          "s": 1580,
+          "e": 1587
+        }
+      ]
+    },
+    {
+      "text": "packing up the whole car.",
+      "startFrame": 1587,
+      "endFrame": 1626,
+      "words": [
+        {
+          "w": "packing",
+          "s": 1587,
+          "e": 1594
+        },
+        {
+          "w": "up",
+          "s": 1594,
+          "e": 1599
+        },
+        {
+          "w": "the",
+          "s": 1599,
+          "e": 1604
+        },
+        {
+          "w": "whole",
+          "s": 1604,
+          "e": 1609
+        },
+        {
+          "w": "car.",
+          "s": 1609,
+          "e": 1626
+        }
+      ]
+    },
+    {
+      "text": "The threat becomes completely unbelievable because the execution cost",
+      "startFrame": 1626,
+      "endFrame": 1724,
+      "words": [
+        {
+          "w": "The",
+          "s": 1626,
+          "e": 1630
+        },
+        {
+          "w": "threat",
+          "s": 1630,
+          "e": 1640
+        },
+        {
+          "w": "becomes",
+          "s": 1640,
+          "e": 1650
+        },
+        {
+          "w": "completely",
+          "s": 1650,
+          "e": 1662
+        },
+        {
+          "w": "unbelievable",
+          "s": 1662,
+          "e": 1686
+        },
+        {
+          "w": "because",
+          "s": 1686,
+          "e": 1693
+        },
+        {
+          "w": "the",
+          "s": 1693,
+          "e": 1700
+        },
+        {
+          "w": "execution",
+          "s": 1700,
+          "e": 1714
+        },
+        {
+          "w": "cost",
+          "s": 1714,
+          "e": 1724
+        }
+      ]
+    },
+    {
+      "text": "over a toe in the water is simply too",
+      "startFrame": 1724,
+      "endFrame": 1786,
+      "words": [
+        {
+          "w": "over",
+          "s": 1724,
+          "e": 1729
+        },
+        {
+          "w": "a",
+          "s": 1729,
+          "e": 1734
+        },
+        {
+          "w": "toe",
+          "s": 1734,
+          "e": 1741
+        },
+        {
+          "w": "in",
+          "s": 1741,
+          "e": 1746
+        },
+        {
+          "w": "the",
+          "s": 1746,
+          "e": 1750
+        },
+        {
+          "w": "water",
+          "s": 1750,
+          "e": 1767
+        },
+        {
+          "w": "is",
+          "s": 1767,
+          "e": 1772
+        },
+        {
+          "w": "simply",
+          "s": 1772,
+          "e": 1779
+        },
+        {
+          "w": "too",
+          "s": 1779,
+          "e": 1786
+        }
+      ]
+    },
+    {
+      "text": "high for the person making the threat.",
+      "startFrame": 1786,
+      "endFrame": 1854,
+      "words": [
+        {
+          "w": "high",
+          "s": 1786,
+          "e": 1789
+        },
+        {
+          "w": "for",
+          "s": 1789,
+          "e": 1794
+        },
+        {
+          "w": "the",
+          "s": 1794,
+          "e": 1798
+        },
+        {
+          "w": "person",
+          "s": 1798,
+          "e": 1806
+        },
+        {
+          "w": "making",
+          "s": 1806,
+          "e": 1813
+        },
+        {
+          "w": "the",
+          "s": 1813,
+          "e": 1818
+        },
+        {
+          "w": "threat.",
+          "s": 1818,
+          "e": 1854
+        }
+      ]
+    },
+    {
+      "text": "Okay, I totally get salami tactics, but let me",
+      "startFrame": 1854,
+      "endFrame": 1928,
+      "words": [
+        {
+          "w": "Okay,",
+          "s": 1854,
+          "e": 1861
+        },
+        {
+          "w": "I",
+          "s": 1861,
+          "e": 1866
+        },
+        {
+          "w": "totally",
+          "s": 1866,
+          "e": 1870
+        },
+        {
+          "w": "get",
+          "s": 1870,
+          "e": 1878
+        },
+        {
+          "w": "salami",
+          "s": 1878,
+          "e": 1892
+        },
+        {
+          "w": "tactics,",
+          "s": 1892,
+          "e": 1904
+        },
+        {
+          "w": "but",
+          "s": 1904,
+          "e": 1916
+        },
+        {
+          "w": "let",
+          "s": 1916,
+          "e": 1923
+        },
+        {
+          "w": "me",
+          "s": 1923,
+          "e": 1928
+        }
+      ]
+    },
+    {
+      "text": "push back on the Dean Carlin Go for it.",
+      "startFrame": 1928,
+      "endFrame": 2014,
+      "words": [
+        {
+          "w": "push",
+          "s": 1928,
+          "e": 1935
+        },
+        {
+          "w": "back",
+          "s": 1935,
+          "e": 1940
+        },
+        {
+          "w": "on",
+          "s": 1940,
+          "e": 1945
+        },
+        {
+          "w": "the",
+          "s": 1945,
+          "e": 1950
+        },
+        {
+          "w": "Dean",
+          "s": 1950,
+          "e": 1959
+        },
+        {
+          "w": "Carlin",
+          "s": 1959,
+          "e": 1988
+        },
+        {
+          "w": "Go",
+          "s": 1988,
+          "e": 1993
+        },
+        {
+          "w": "for",
+          "s": 1993,
+          "e": 1998
+        },
+        {
+          "w": "it.",
+          "s": 1998,
+          "e": 2014
+        }
+      ]
+    },
+    {
+      "text": "Because the beach is low stakes.",
+      "startFrame": 2014,
+      "endFrame": 2082,
+      "words": [
+        {
+          "w": "Because",
+          "s": 2014,
+          "e": 2022
+        },
+        {
+          "w": "the",
+          "s": 2022,
+          "e": 2029
+        },
+        {
+          "w": "beach",
+          "s": 2029,
+          "e": 2036
+        },
+        {
+          "w": "is",
+          "s": 2036,
+          "e": 2041
+        },
+        {
+          "w": "low",
+          "s": 2041,
+          "e": 2048
+        },
+        {
+          "w": "stakes.",
+          "s": 2048,
+          "e": 2082
+        }
+      ]
+    },
+    {
+      "text": "Taking $15,000 from a close friend over some",
+      "startFrame": 2082,
+      "endFrame": 2173,
+      "words": [
+        {
+          "w": "Taking",
+          "s": 2082,
+          "e": 2096
+        },
+        {
+          "w": "$15,000",
+          "s": 2096,
+          "e": 2130
+        },
+        {
+          "w": "from",
+          "s": 2130,
+          "e": 2137
+        },
+        {
+          "w": "a",
+          "s": 2137,
+          "e": 2142
+        },
+        {
+          "w": "close",
+          "s": 2142,
+          "e": 2151
+        },
+        {
+          "w": "friend",
+          "s": 2151,
+          "e": 2158
+        },
+        {
+          "w": "over",
+          "s": 2158,
+          "e": 2168
+        },
+        {
+          "w": "some",
+          "s": 2168,
+          "e": 2173
+        }
+      ]
+    },
+    {
+      "text": "weight gain is genuinely insane It's",
+      "startFrame": 2173,
+      "endFrame": 2281,
+      "words": [
+        {
+          "w": "weight",
+          "s": 2173,
+          "e": 2180
+        },
+        {
+          "w": "gain",
+          "s": 2180,
+          "e": 2197
+        },
+        {
+          "w": "is",
+          "s": 2197,
+          "e": 2209
+        },
+        {
+          "w": "genuinely",
+          "s": 2209,
+          "e": 2235
+        },
+        {
+          "w": "insane",
+          "s": 2235,
+          "e": 2253
+        },
+        {
+          "w": "It's",
+          "s": 2274,
+          "e": 2281
+        }
+      ]
+    },
+    {
+      "text": "extreme. Yeah, that ruins the friendship.",
+      "startFrame": 2281,
+      "endFrame": 2336,
+      "words": [
+        {
+          "w": "extreme.",
+          "s": 2281,
+          "e": 2295
+        },
+        {
+          "w": "Yeah,",
+          "s": 2295,
+          "e": 2307
+        },
+        {
+          "w": "that",
+          "s": 2307,
+          "e": 2312
+        },
+        {
+          "w": "ruins",
+          "s": 2312,
+          "e": 2322
+        },
+        {
+          "w": "the",
+          "s": 2322,
+          "e": 2326
+        },
+        {
+          "w": "friendship.",
+          "s": 2326,
+          "e": 2336
+        }
+      ]
+    },
+    {
+      "text": "If my friend did that to me, we wouldn't",
+      "startFrame": 2336,
+      "endFrame": 2386,
+      "words": [
+        {
+          "w": "If",
+          "s": 2336,
+          "e": 2341
+        },
+        {
+          "w": "my",
+          "s": 2341,
+          "e": 2346
+        },
+        {
+          "w": "friend",
+          "s": 2346,
+          "e": 2350
+        },
+        {
+          "w": "did",
+          "s": 2350,
+          "e": 2355
+        },
+        {
+          "w": "that",
+          "s": 2355,
+          "e": 2360
+        },
+        {
+          "w": "to",
+          "s": 2360,
+          "e": 2367
+        },
+        {
+          "w": "me,",
+          "s": 2367,
+          "e": 2377
+        },
+        {
+          "w": "we",
+          "s": 2377,
+          "e": 2382
+        },
+        {
+          "w": "wouldn't",
+          "s": 2382,
+          "e": 2386
+        }
+      ]
+    },
+    {
+      "text": "be friends anymore. It's totally irrational to actually",
+      "startFrame": 2386,
+      "endFrame": 2478,
+      "words": [
+        {
+          "w": "be",
+          "s": 2386,
+          "e": 2391
+        },
+        {
+          "w": "friends",
+          "s": 2391,
+          "e": 2398
+        },
+        {
+          "w": "anymore.",
+          "s": 2398,
+          "e": 2422
+        },
+        {
+          "w": "It's",
+          "s": 2422,
+          "e": 2432
+        },
+        {
+          "w": "totally",
+          "s": 2432,
+          "e": 2442
+        },
+        {
+          "w": "irrational",
+          "s": 2442,
+          "e": 2456
+        },
+        {
+          "w": "to",
+          "s": 2456,
+          "e": 2466
+        },
+        {
+          "w": "actually",
+          "s": 2466,
+          "e": 2478
+        }
+      ]
+    },
+    {
+      "text": "cash that check. Why not just renegotiate the contract?",
+      "startFrame": 2478,
+      "endFrame": 2588,
+      "words": [
+        {
+          "w": "cash",
+          "s": 2478,
+          "e": 2490
+        },
+        {
+          "w": "that",
+          "s": 2490,
+          "e": 2497
+        },
+        {
+          "w": "check.",
+          "s": 2497,
+          "e": 2528
+        },
+        {
+          "w": "Why",
+          "s": 2528,
+          "e": 2531
+        },
+        {
+          "w": "not",
+          "s": 2530,
+          "e": 2538
+        },
+        {
+          "w": "just",
+          "s": 2538,
+          "e": 2542
+        },
+        {
+          "w": "renegotiate",
+          "s": 2542,
+          "e": 2562
+        },
+        {
+          "w": "the",
+          "s": 2562,
+          "e": 2566
+        },
+        {
+          "w": "contract?",
+          "s": 2566,
+          "e": 2588
+        }
+      ]
+    },
+    {
+      "text": "It looks deeply irrational in the micro moment.",
+      "startFrame": 2588,
+      "endFrame": 2674,
+      "words": [
+        {
+          "w": "It",
+          "s": 2588,
+          "e": 2598
+        },
+        {
+          "w": "looks",
+          "s": 2598,
+          "e": 2612
+        },
+        {
+          "w": "deeply",
+          "s": 2612,
+          "e": 2624
+        },
+        {
+          "w": "irrational",
+          "s": 2624,
+          "e": 2641
+        },
+        {
+          "w": "in",
+          "s": 2641,
+          "e": 2648
+        },
+        {
+          "w": "the",
+          "s": 2648,
+          "e": 2653
+        },
+        {
+          "w": "micro",
+          "s": 2653,
+          "e": 2662
+        },
+        {
+          "w": "moment.",
+          "s": 2662,
+          "e": 2674
+        }
+      ]
+    },
+    {
+      "text": "Yes. But in the macro over the long term,",
+      "startFrame": 2674,
+      "endFrame": 2751,
+      "words": [
+        {
+          "w": "Yes.",
+          "s": 2674,
+          "e": 2691
+        },
+        {
+          "w": "But",
+          "s": 2691,
+          "e": 2696
+        },
+        {
+          "w": "in",
+          "s": 2696,
+          "e": 2701
+        },
+        {
+          "w": "the",
+          "s": 2701,
+          "e": 2706
+        },
+        {
+          "w": "macro",
+          "s": 2706,
+          "e": 2720
+        },
+        {
+          "w": "over",
+          "s": 2720,
+          "e": 2727
+        },
+        {
+          "w": "the",
+          "s": 2727,
+          "e": 2732
+        },
+        {
+          "w": "long",
+          "s": 2732,
+          "e": 2737
+        },
+        {
+          "w": "term,",
+          "s": 2737,
+          "e": 2751
+        }
+      ]
+    },
+    {
+      "text": "it is highly rational to be selectively",
+      "startFrame": 2751,
+      "endFrame": 2845,
+      "words": [
+        {
+          "w": "it",
+          "s": 2751,
+          "e": 2761
+        },
+        {
+          "w": "is",
+          "s": 2761,
+          "e": 2780
+        },
+        {
+          "w": "highly",
+          "s": 2780,
+          "e": 2797
+        },
+        {
+          "w": "rational",
+          "s": 2797,
+          "e": 2814
+        },
+        {
+          "w": "to",
+          "s": 2814,
+          "e": 2821
+        },
+        {
+          "w": "be",
+          "s": 2821,
+          "e": 2830
+        },
+        {
+          "w": "selectively",
+          "s": 2830,
+          "e": 2845
+        }
+      ]
+    }
+  ],
+  "promises": [
+    {
+      "promiseId": "p-01",
+      "question": "But what does the smart child do? They don't take a running dive into the waves. They walk",
+      "setupBeat": 0,
+      "reminderBeats": [
+        3
+      ],
+      "payoffBeat": 4,
+      "status": "resolved"
+    }
+  ],
+  "audioEvents": [
+    {
+      "frame": 21,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 243,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_1_transition"
+    },
+    {
+      "frame": 857,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_3_contradiction"
+    },
+    {
+      "frame": 1041,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_4"
+    },
+    {
+      "frame": 1101,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_4_payoff"
+    },
+    {
+      "frame": 1620,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_6_transition"
+    },
+    {
+      "frame": 1626,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_6_text_pop"
+    },
+    {
+      "frame": 1848,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_7_transition"
+    },
+    {
+      "frame": 1800,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_7"
+    },
+    {
+      "frame": 1860,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_7_payoff"
+    },
+    {
+      "frame": 2018,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_7_text_pop"
+    },
+    {
+      "frame": 2078,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_8_transition"
+    },
+    {
+      "frame": 2086,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_8_tension"
+    },
+    {
+      "frame": 2092,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_8_text_pop"
+    },
+    {
+      "frame": 2340,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_9_contradiction"
+    },
+    {
+      "frame": 2438,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_9_text_pop"
+    },
+    {
+      "frame": 2583,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_10_transition"
+    },
+    {
+      "frame": 2534,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_10"
+    },
+    {
+      "frame": 2594,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_10_payoff"
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "slug": "zz-af-p3",
+  "world": {
+    "era": "1962–2006",
+    "worldId": "everyman-business-contemporary",
+    "approxYear": 1992,
+    "setting": "Everyday business and life: rival companies, a beach, a two-lane road, a boardroom, a bank, a hunting ground. Everyman adults, no period costume.",
+    "register": "contemporary everyman; explanatory diagrams and icons over talking heads",
+    "forbid": [
+      "smartphone",
+      "laptopMockup",
+      "codeWindow",
+      "serverRoom",
+      "startupGarage"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-art-of-strategy",
+    "worldId": "everyman-business-contemporary",
+    "allowedMotifs": [
+      "game",
+      "war",
+      "coin",
+      "trophy",
+      "road",
+      "car",
+      "crash",
+      "water",
+      "gift",
+      "fire",
+      "phone",
+      "chains",
+      "compass",
+      "balance",
+      "ladder",
+      "shield",
+      "target",
+      "wallet",
+      "magnifier",
+      "clock",
+      "hourglass",
+      "law",
+      "tree",
+      "food",
+      "puppeteer",
+      "mask",
+      "book",
+      "boulder",
+      "notes"
+    ],
+    "forbiddenMotifs": [
+      "rocketLaunch",
+      "codeWindow",
+      "serverRoom"
+    ],
+    "allowedCharacters": [
+      "lean",
+      "fred",
+      "end",
+      "which"
+    ],
+    "allowedLocations": [
+      "office",
+      "street",
+      "shore",
+      "highway",
+      "room",
+      "stage",
+      "horizon"
+    ],
+    "allowedProps": [
+      "car",
+      "road",
+      "coin",
+      "trophy",
+      "gift",
+      "phone",
+      "fire",
+      "water",
+      "balance",
+      "target"
+    ]
+  },
+  "cast": {
+    "lean": {
+      "name": "BB Lean",
+      "role": "Rival firm executive who undercuts on price to take the whole market",
+      "look": "Early-40s businessman, average build, short graying hair, navy suit and tie, holding a rolled price sheet",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "outfit": "suit",
+        "suit": "#1f2a44",
+        "shirt": "#f2f2f2",
+        "accessory": "tie",
+        "hairStyle": "short",
+        "hair": "#8a8a8a",
+        "beard": "none",
+        "build": "average",
+        "height": 1,
+        "headScale": 1
+      },
+      "mentions": 14
+    },
+    "fred": {
+      "name": "Fred",
+      "role": "Hunter who must choose between a stag and a rabbit with a partner",
+      "look": "Mid-30s man, slight build, short brown hair, canvas work coat and boots, carrying a hunting bow",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "outfit": "coat",
+        "suit": "#6b5a3e",
+        "hairStyle": "short",
+        "hair": "#5a3b22",
+        "beard": "stubble",
+        "build": "slight",
+        "height": 1,
+        "headScale": 1
+      },
+      "mentions": 7
+    },
+    "end": {
+      "name": "Rainbow's End",
+      "role": "Rival firm executive who must decide whether to hold price or cut it",
+      "look": "Late-50s woman, slight build, silver hair, dark suit jacket over a blouse, holding a folder marked with a price",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "outfit": "suit",
+        "suit": "#2b2b33",
+        "shirt": "#e8e4ef",
+        "hairStyle": "short",
+        "hair": "#b8b8b8",
+        "build": "slight",
+        "height": 0.98,
+        "headScale": 1
+      },
+      "mentions": 6
+    },
+    "which": {
+      "name": "Driver",
+      "role": "Teenage driver in a game of chicken who must choose to swerve or hold",
+      "look": "Late-teens young man, average build, messy dark hair, plain t-shirt and jeans, gripping a steering wheel",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "outfit": "casual",
+        "shirt": "#e7e7e7",
+        "suit": "#3a4f7a",
+        "hairStyle": "short",
+        "hair": "#222222",
+        "build": "average",
+        "height": 1,
+        "headScale": 1
+      },
+      "mentions": 6
+    }
+  },
+  "places": {
+    "road": {
+      "set": "highway",
+      "look": "Two-lane dirt road in flat open country, two cars facing each other head-on",
+      "mentions": 12
+    },
+    "shore": {
+      "set": "shore",
+      "look": "Sandy beach with calm waves, a few people on the sand",
+      "mentions": 2
+    },
+    "office": {
+      "set": "office",
+      "look": "Corporate boardroom with glass walls and a long table, a price chart on the wall",
+      "mentions": 2
+    },
+    "street": {
+      "set": "street",
+      "look": "City street at dusk, shop fronts closed",
+      "mentions": 1
+    }
+  },
+  "objects": [
+    {
+      "concept": "game",
+      "mentions": 39,
+      "why": "The book's central frame: the whole argument is a game with rules and players"
+    },
+    {
+      "concept": "phone",
+      "mentions": 32,
+      "why": "Recurring prop for the rival firms' calls and price decisions; a phone is the everyday device of negotiation"
+    },
+    {
+      "concept": "war",
+      "mentions": 23,
+      "why": "Pricing wars and military escalation are the book's recurring stake"
+    },
+    {
+      "concept": "coin",
+      "mentions": 17,
+      "why": "Bank runs and trust: coins and money drive the confidence-game examples"
+    },
+    {
+      "concept": "trophy",
+      "mentions": 15,
+      "why": "Winning the game of chicken and the glory of the one who does not swerve"
+    },
+    {
+      "concept": "road",
+      "mentions": 12,
+      "why": "The head-on road of the chicken game, an existing icon"
+    },
+    {
+      "concept": "car",
+      "mentions": 12,
+      "why": "The cars in the chicken game; the steering wheel removed to commit"
+    },
+    {
+      "concept": "crash",
+      "mentions": 11,
+      "why": "The catastrophic head-on outcome both drivers risk"
+    },
+    {
+      "concept": "water",
+      "mentions": 7,
+      "why": "The beach and the warning not to go into the water"
+    },
+    {
+      "concept": "gift",
+      "mentions": 6,
+      "why": "Gifts and rewards in the cooperation examples"
+    },
+    {
+      "concept": "fire",
+      "mentions": 6,
+      "why": "Burning bridges to make a credible commitment"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 0,
+      "claim": "Strategy is a game: your best move depends on what the other side expects you to do, not on how strong you are."
+    },
+    {
+      "act": "development",
+      "fromFrame": 17585,
+      "claim": "Commitment and credible threats change the outcome: remove your own choices to win."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 34238,
+      "claim": "Cooperation and trust fail when each player wants the other to move first."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 51242,
+      "claim": "Real people factor in spite, emotion and irrationality, so the model must be adjusted."
+    },
+    {
+      "act": "close",
+      "fromFrame": 69540,
+      "claim": "Most business conflict is a game where the best move depends on what the other side expects you to do."
+    }
+  ],
+  "authored": true
+}

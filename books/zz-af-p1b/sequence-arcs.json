@@ -1,0 +1,144 @@
+{
+  "slug": "zz-af-p1b",
+  "totalSequences": 4,
+  "totalScenes": 11,
+  "averageDurationSecs": 23.2,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 831,
+      "durationSeconds": 27.7,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 331,
+          "role": "setup",
+          "narration": "You cannot catch someone without stepping out of your own safe zone. Damen has spent his entire life"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 346,
+          "durationFrames": 327,
+          "role": "question",
+          "narration": "a woman with a reputation for destroying anyone who crosses her is a massive unforced error in his w"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 673,
+          "durationFrames": 173,
+          "role": "reveal",
+          "narration": "vertigo. We really need to unpack the subtext of the lie itself because it's brilliant."
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 846,
+      "durationFrames": 684,
+      "durationSeconds": 22.8,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 846,
+          "durationFrames": 163,
+          "role": "authored-start",
+          "narration": "Mr. Long Haven, the actual literature teacher, hated Julia's take on Titus Andronicus."
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1009,
+          "durationFrames": 237,
+          "role": "authored-kept",
+          "narration": "Why? Because she brought political ideologies, specifically feminism and critiques of the patriarchy"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1246,
+          "durationFrames": 284,
+          "role": "authored-kept",
+          "narration": "Long Haven cautioned the class against it. And Julia raged internally about how dismissing feminism "
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1530,
+      "durationFrames": 679,
+      "durationSeconds": 22.6,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1530,
+          "durationFrames": 199,
+          "role": "authored-start",
+          "narration": "Damian taking that specific moment, a moment where Julia was rebellious and silenced by a patriarcha"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1729,
+          "durationFrames": 240,
+          "role": "authored-kept",
+          "narration": "and weaponizing it to defend her against the matriarch of high society. It's a breathtaking layer of"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 1969,
+          "durationFrames": 240,
+          "role": "authored-kept",
+          "narration": "He sees her rebellion, he remembers it, and he validates it in front of the very people she is rebel"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 2209,
+      "durationFrames": 572,
+      "durationSeconds": 19.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2209,
+          "durationFrames": 209,
+          "role": "authored-start",
+          "narration": "marvels at her in this scene. He looks at her and realizes she has no lifelong assumption of a Dartm"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2418,
+          "durationFrames": 363,
+          "role": "authored-kept",
+          "narration": "She has no expectation to join a mind-numbingly boring financial conglomerate. He looks at her undef"
+        }
+      ]
+    }
+  ]
+}

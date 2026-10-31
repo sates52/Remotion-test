@@ -1,0 +1,415 @@
+{
+  "book": {
+    "slug": "zz-af-p2b",
+    "title": "Trust Fall",
+    "author": "Lynn Painter",
+    "genre": "romance"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-10-31"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "The japosition of the warm illuminated ballroom where she was held to the cold dark stone wall where she is alone perfectly captures the velocity of a betrayed trust. The trigger for this, of course,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the cold dark stone wall",
+        "style": "reveal"
+      },
+      "cast": [
+        "julia"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "Julia going from being held in the warm ballroom to standing alone at a cold stone wall shows how fast betrayed trust collapses.",
+        "concreteVisual": "Julia alone, bowed and sad, no one beside her; the caption names the cold stone wall.",
+        "onScreenText": "the cold dark stone wall",
+        "relationToPrevious": "Opens the chunk on Julia's low point.",
+        "addedInformation": "The empty space beside her shows she is now alone, which the words only name.",
+        "event": {
+          "actor": "julia",
+          "action": "is alone at the stone wall",
+          "object": null,
+          "target": null,
+          "location": "cold dark stone wall outside the ballroom",
+          "before": "held in the warm illuminated ballroom",
+          "after": "alone"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "narration": "is that Quinn Rutled has just publicly humiliated Julia's parents. In front of the entire society, Quinn loudly accuses Clintel of bilking an old man with dementia. He threatens a massive fraud lawsuit,",
+      "concept": "law",
+      "diagram": null,
+      "callout": {
+        "text": "a massive fraud lawsuit",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "julia"
+      ],
+      "expression": "afraid",
+      "action": "idle",
+      "storyboard": {
+        "claim": "Quinn Rutledge humiliates Julia's parents in front of society, accusing them of bilking an old man and threatening a fraud lawsuit.",
+        "concreteVisual": "Julia, afraid, in the elite household room beside a law icon for the lawsuit threat.",
+        "onScreenText": "a massive fraud lawsuit",
+        "relationToPrevious": "Names the trigger behind her fall from the ballroom.",
+        "addedInformation": "The law icon shows the threat is legal, not just social.",
+        "event": {
+          "actor": null,
+          "action": "publicly accuses and threatens a massive fraud lawsuit",
+          "object": "fraud lawsuit",
+          "target": "Julia's parents",
+          "location": "in front of the entire society",
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 2,
+      "narration": "and Julia connects the dots. The devastating realization. The boy who just dipped her, the boy she just admitted she was willing to risk everything for, is the son",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "connects the dots",
+        "style": "reveal"
+      },
+      "set": "room",
+      "shotOverride": "twoShot",
+      "cast": [
+        "julia",
+        "damen"
+      ],
+      "expression": "surprised",
+      "action": "idle",
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Julia realizes the boy she just danced with and was ready to risk everything for is the son of her family's accuser.",
+        "concreteVisual": "Two-shot: Julia surprised, facing Damian, who looks worried, caught.",
+        "onScreenText": "connects the dots",
+        "relationToPrevious": "Moves from the public accusation to Julia's private realization about Damian.",
+        "addedInformation": "Puts Damian on screen as the person the realization is about, with his uneasy face.",
+        "event": {
+          "actor": "julia",
+          "action": "connects the dots",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "of the man trying to destroy her family. She realizes Damian was part of the machinery that just ruined them. And this is where we have to ask the hard question.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "part of the machinery",
+        "style": "highlight"
+      },
+      "set": "room",
+      "shotOverride": "twoShot",
+      "cast": [
+        "julia",
+        "damen"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "She realizes Damian was part of the machinery that ruined her family; the hosts raise the hard question.",
+        "concreteVisual": "Same two-shot kept: Julia's face hardens to anger toward a worried Damian.",
+        "onScreenText": "part of the machinery",
+        "relationToPrevious": "Kept stage; only Julia's face changes from surprised to angry.",
+        "addedInformation": "Shows the realization's result: she now holds him responsible.",
+        "event": {
+          "actor": "julia",
+          "action": "realizes Damian was part of the machinery",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": "held by him",
+          "after": "sees him as part of her family's ruin"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "The question that divides readers. Did Damian actually betray her? I argue yes. Absolutely.",
+      "concept": "balance",
+      "diagram": null,
+      "callout": {
+        "text": "Did Damian betray her?",
+        "style": "box"
+      },
+      "cast": [
+        "damen"
+      ],
+      "expression": "worried",
+      "action": "idle",
+      "storyboard": {
+        "claim": "The question that divides readers: did Damian actually betray her? One host argues yes.",
+        "concreteVisual": "Damian, worried, beside a balance scale weighing the two sides.",
+        "onScreenText": "Did Damian betray her?",
+        "relationToPrevious": "Leaves the scene and opens the debate about Damian.",
+        "addedInformation": "The scale shows the question has two sides that readers weigh.",
+        "event": {
+          "actor": null,
+          "action": "readers are divided over whether Damian betrayed her",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Yes. How? He wasn't the one launching the His silence is complicity.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "His silence is complicity",
+        "style": "highlight"
+      },
+      "shotOverride": "twoShot",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "partnerExpression": "sad",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "He did not launch the attack, but his silence is complicity.",
+        "concreteVisual": "Damian with an empty, closed face beside a sad Julia, saying nothing.",
+        "onScreenText": "His silence is complicity",
+        "relationToPrevious": "Gives the 'yes' side its first reason.",
+        "addedInformation": "Shows the silent man next to the hurt woman, making silence a deed toward her.",
+        "event": {
+          "actor": "damen",
+          "action": "stays silent",
+          "object": null,
+          "target": "julia",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 6,
+      "narration": "He knew his father's tactics. He knew his father viewed the LL as small town nobodies to be crushed.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "small town nobodies to be crushed",
+        "style": "reveal"
+      },
+      "cast": [
+        "damen"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "storyboard": {
+        "claim": "He knew his father's tactics and that his father viewed the Lowells as small-town nobodies to be crushed.",
+        "concreteVisual": "Damian alone, blank-faced, the caption quoting his father's view.",
+        "onScreenText": "small town nobodies to be crushed",
+        "relationToPrevious": "Adds what Damian knew to his silence.",
+        "addedInformation": "weak: the father's attitude is text-carried; the picture only shows Damian's indifference.",
+        "event": {
+          "actor": "damen",
+          "action": "knew his father's tactics",
+          "object": null,
+          "target": "the Lowells",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 7,
+      "narration": "Damian actively gathered intel in the early days of tutoring. Remember the transactional intimacy?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "gathered intel",
+        "style": "highlight"
+      },
+      "set": "classroom",
+      "shotOverride": "twoShot",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "smirk",
+      "action": "hold",
+      "holds": "notes",
+      "partnerExpression": "happy",
+      "partnerAction": "talk",
+      "storyboard": {
+        "claim": "Damian actively gathered intel in the early days of tutoring: the transactional intimacy.",
+        "concreteVisual": "In a classroom, Damian holds notes with a sly smirk while Julia talks to him happily.",
+        "onScreenText": "gathered intel",
+        "relationToPrevious": "Moves from what he knew to what he actively did.",
+        "addedInformation": "The notes in his hand while she talks show the information-gathering as a deed.",
+        "event": {
+          "actor": "damen",
+          "action": "gathered intel",
+          "object": "notes",
+          "target": "julia",
+          "location": "tutoring",
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Yeah, but that was before he fell for Even if he caught real feelings later, he never disclosed the initial deception. He allowed her to step off the ledge without telling her the net was rigged.",
+      "concept": "ledge",
+      "diagram": null,
+      "callout": {
+        "text": "the net was rigged",
+        "style": "reveal"
+      },
+      "cast": [
+        "julia",
+        "damen"
+      ],
+      "expression": "afraid",
+      "action": "idle",
+      "partnerExpression": "blank",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Even if he fell for her later, he never disclosed the initial deception; he let her step off the ledge without telling her the net was rigged.",
+        "concreteVisual": "Julia, afraid, at a ledge; Damian beside her, blank, telling her nothing.",
+        "onScreenText": "the net was rigged",
+        "relationToPrevious": "Concludes the case: the deception was never disclosed.",
+        "addedInformation": "The ledge shows the risk Julia takes; Damian's blank face shows what he withholds.",
+        "event": {
+          "actor": "damen",
+          "action": "allowed her to step off the ledge without telling her",
+          "object": "the ledge",
+          "target": "julia",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 9,
+      "narration": "That makes him guilty of I am going to passionately defend Damian here.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "defend Damian",
+        "style": "reveal"
+      },
+      "cast": [
+        "damen"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The case closes with 'guilty', and the other host announces a passionate defence of Damian.",
+        "concreteVisual": "Damian alone, bowed and sad.",
+        "onScreenText": "defend Damian",
+        "relationToPrevious": "Switches from the prosecution to the defence.",
+        "addedInformation": "weak: the turn is text-carried; the sad pose prepares the victim reading.",
+        "event": {
+          "actor": null,
+          "action": "defends Damian",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Damian is a victim of his father's mob boss tactics just as much as the Lowels are.",
+      "concept": "puppeteer",
+      "diagram": null,
+      "callout": {
+        "text": "a victim of his father",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "damen"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "Damian is a victim of his father's mob-boss tactics just as much as the Lowells are.",
+        "concreteVisual": "Damian, sad and bowed, under a puppeteer icon: someone pulling his strings.",
+        "onScreenText": "a victim of his father",
+        "relationToPrevious": "Gives the defence its first argument.",
+        "addedInformation": "The puppeteer shows Damian is controlled, not controlling.",
+        "event": {
+          "actor": null,
+          "action": "uses mob boss tactics on",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "Quinn literally operates on the philosophy that perception is reality. He is a master manipulator.",
+      "concept": "puppeteer",
+      "diagram": null,
+      "callout": {
+        "text": "a master manipulator",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "damen"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "Quinn operates on the philosophy that perception is reality; he is a master manipulator.",
+        "concreteVisual": "Kept stage: the puppeteer icon stays over Damian, whose face turns worried.",
+        "onScreenText": "a master manipulator",
+        "relationToPrevious": "Kept stage; the callout now names the father as manipulator and Damian's face turns worried.",
+        "addedInformation": "The kept puppeteer ties the manipulator label to control over Damian.",
+        "event": {
+          "actor": null,
+          "action": "manipulates, perception is reality",
+          "object": null,
+          "target": "damen",
+          "location": null,
+          "before": null,
+          "after": null
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "book": {
+    "slug": "zz-af-p3a",
+    "title": "The Art of Strategy",
+    "author": "Avinash K. Dixit & Barry J. Nalebuff",
+    "genre": "business"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-10-31"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "But what does the smart child do? They don't take a running dive into the waves. They walk to the edge of the wet sand and just stand there.",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "The edge of the wet sand",
+        "style": "reveal"
+      },
+      "set": "shore",
+      "cast": [],
+      "storyboard": {
+        "claim": "The smart child does not dive in; they walk to the edge of the wet sand and stand there.",
+        "concreteVisual": "The beach set with the water icon: the waves, and the line where the wet sand ends.",
+        "onScreenText": "The edge of the wet sand",
+        "relationToPrevious": "Opens the chunk on the beach example of the parent's threat.",
+        "addedInformation": "weak: shows the water and the edge; the child standing there is carried by the text."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "Then they dip one bare toe in the foam where the water washes up. Testing the waters literally. Exactly. Now the parent has a choice.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n0": "one bare toe",
+            "token": "in the foam"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Then they dip one bare toe in the foam, testing the waters; now the parent has a choice.",
+        "concreteVisual": "A causal chain diagram: the first station, a water glyph labelled TOE IN THE FOAM, draws in and a drop marked ONE BARE TOE is born on it; the later stations wait as dashed '?'.",
+        "onScreenText": "Toe in the foam / One bare toe",
+        "relationToPrevious": "From the child standing at the edge to the first tiny step into the water.",
+        "addedInformation": "Shows the toe as the first link of a chain the parent must now respond to."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "Is the kid in the water? Technically, yes. Right. But is a toe in the foam worth the agony of packing up the umbrellas, the cooler, dragging a screaming toddler to the hot car, and ruining the whole Definitely not.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n1": "packing up the umbrellas"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Is a toe in the foam worth the agony of packing up the umbrellas, the cooler, and dragging a screaming toddler to the hot car? Definitely not.",
+        "concreteVisual": "The same chain; the second station, a danger glyph labelled PACKING UP THE WHOLE CAR, draws in after the toe; the drop travels to it.",
+        "onScreenText": "Packing up the whole car",
+        "relationToPrevious": "Keeps the chain and adds what executing the threat would demand.",
+        "addedInformation": "Shows the size of the punishment set against the tiny toe."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "No. The cost of executing the threat is too high for the parent. So, the parent's size and acquiesces, and the child learns the boundary is Exactly.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "n2": "too high",
+            "n3": "acquiesces"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The cost of executing the threat is too high for the parent, so the parent sighs and acquiesces, and the child learns the boundary.",
+        "concreteVisual": "The same chain; a coin glyph labelled COST TOO HIGH draws in, then a person glyph labelled PARENT ACQUIESCES; the drop runs through to the end.",
+        "onScreenText": "Cost too high / Parent acquiesces",
+        "relationToPrevious": "Completes the chain: from the cost of the punishment to the parent giving in.",
+        "addedInformation": "Shows why the threat fails: its price is paid by the one making it."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "So, 5 minutes later, the child stands in an inch of water, then up to the ankles. Sneaky. The child is diffusing this massive nuclear threat one tiny paperthin slice of salami at",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "loop": [
+              "an inch of water",
+              "up to the ankles"
+            ]
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Five minutes later the child stands in an inch of water, then up to the ankles, defusing the nuclear threat one paper-thin slice of salami at a time.",
+        "concreteVisual": "The same chain; an arrow labelled ONE TINY SLICE OF SALAMI curves back from PARENT ACQUIESCES to TOE IN THE FOAM and the drop rides it round twice, on 'an inch of water' and 'up to the ankles'.",
+        "onScreenText": "One tiny slice of salami",
+        "relationToPrevious": "Keeps the chain and makes it repeat: each new step goes through the same cost and the same giving in.",
+        "addedInformation": "Shows salami tactics as a repeating loop, not one event."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "a time because at no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up the whole car.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Toe in the foam",
+              "glyph": "water"
+            },
+            {
+              "label": "Packing up the whole car",
+              "glyph": "danger"
+            },
+            {
+              "label": "Cost too high",
+              "glyph": "coin"
+            },
+            {
+              "label": "Parent acquiesces",
+              "glyph": "person"
+            }
+          ],
+          "token": {
+            "glyph": "drop",
+            "tag": "One bare toe",
+            "from": 0
+          },
+          "loop": {
+            "to": 0,
+            "label": "One tiny slice of salami"
+          },
+          "cues": {
+            "loop": "single tiny step"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "At no single tiny step does the minor infraction warrant the massive exhausting punishment of packing up the whole car.",
+        "concreteVisual": "The same chain; the drop rides the arrow back once more and runs past PACKING UP THE WHOLE CAR and COST TOO HIGH to PARENT ACQUIESCES again.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "One more lap of the same loop, on the 'single tiny step'.",
+        "addedInformation": "Shows that every slice meets the same too-costly punishment and gets through."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "The threat becomes completely unbelievable because the execution cost over a toe in the water is simply too high for the person making the threat.",
+      "concept": "balance",
+      "diagram": null,
+      "callout": {
+        "text": "The threat becomes unbelievable",
+        "style": "highlight"
+      },
+      "set": "shore",
+      "cast": [],
+      "storyboard": {
+        "claim": "The threat becomes completely unbelievable because the execution cost over a toe in the water is too high for the person making it.",
+        "concreteVisual": "The beach set with the balance icon, weighing two sides, and the callout naming the result.",
+        "onScreenText": "The threat becomes unbelievable",
+        "relationToPrevious": "Sums up the loop: what the repeated giving in did to the threat.",
+        "addedInformation": "weak: the scale shows a weighing; which side is the toe and which the cost is carried by the words."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it. Because the beach is low stakes.",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "The beach is low stakes",
+        "style": "reveal"
+      },
+      "set": "shore",
+      "cast": [],
+      "storyboard": {
+        "claim": "The other host accepts salami tactics but pushes back on the Dean Karlan case, because the beach is low stakes.",
+        "concreteVisual": "The beach set with the water icon again and the callout naming the objection.",
+        "onScreenText": "The beach is low stakes",
+        "relationToPrevious": "Turns from the beach example to an objection about stakes.",
+        "addedInformation": "weak: plain commentary; the water recalls the beach example being set aside."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme. Yeah, that ruins the friendship.",
+      "concept": "coin",
+      "diagram": null,
+      "callout": {
+        "text": "$15,000 from a close friend",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "Taking $15,000 from a close friend over some weight gain is genuinely insane; it ruins the friendship.",
+        "concreteVisual": "The coin icon - literal cash - in the office set, with the amount and 'from a close friend' as the callout.",
+        "onScreenText": "$15,000 from a close friend",
+        "relationToPrevious": "From the low-stakes beach to a high-stakes money case.",
+        "addedInformation": "Shows the stake as cash; the friendship cost is in the words."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "If my friend did that to me, we wouldn't be friends anymore. It's totally irrational to actually cash that check. Why not just renegotiate the contract?",
+      "concept": "coin",
+      "diagram": null,
+      "callout": {
+        "text": "Irrational to cash that check",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "If my friend did that, we wouldn't be friends anymore; it's irrational to actually cash that check - why not renegotiate the contract?",
+        "concreteVisual": "The same coin stays on screen in the office set; the callout changes to the verdict on cashing it.",
+        "onScreenText": "Irrational to cash that check",
+        "relationToPrevious": "Keeps the money and adds the host's verdict on taking it.",
+        "addedInformation": "weak: the verdict is carried by the text; the coin keeps the subject."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "It looks deeply irrational in the micro moment. Yes. But in the macro over the long term, it is highly rational to be selectively",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Micro moment: irrational",
+          "Long term: rational"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "It looks deeply irrational in the micro moment, but in the macro over the long term it is highly rational to be selectively irrational.",
+        "concreteVisual": "A two-bucket sorter: MICRO MOMENT: IRRATIONAL on one side, LONG TERM: RATIONAL on the other.",
+        "onScreenText": "Micro moment: irrational / Long term: rational",
+        "relationToPrevious": "Answers the objection by splitting the act into two time scales.",
+        "addedInformation": "Shows the contrast between the short-term and long-term reading of the same act."
+      }
+    }
+  ]
+}

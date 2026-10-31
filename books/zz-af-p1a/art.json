@@ -1,0 +1,287 @@
+{
+  "book": {
+    "slug": "zz-af-p1a",
+    "title": "Trust Fall",
+    "author": "Lynn Painter",
+    "genre": "romance"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-10-31"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "You cannot catch someone without stepping out of your own safe zone. Damen has spent his entire life blending into this society, playing the part of the affable son. Lying to Shantel Chattingham,",
+      "concept": "mask",
+      "diagram": null,
+      "callout": {
+        "text": "playing the affable son",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "damen"
+      ],
+      "expression": "smirk",
+      "action": "idle",
+      "storyboard": {
+        "claim": "Catching someone means leaving your safe zone; Damen has spent his life blending in as the affable son.",
+        "concreteVisual": "Damen in his suit in the elite family dining room with a mask beside him: the polite role he plays.",
+        "onScreenText": "playing the affable son",
+        "relationToPrevious": "Opening beat: introduces Damen's public role.",
+        "addedInformation": "The mask shows the affability is a performance, not who he is."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "a woman with a reputation for destroying anyone who crosses her is a massive unforced error in his world. He intentionally puts his own balance at risk to catch Julia in a moment of extreme social",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a massive unforced error",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "worried",
+      "action": "talk",
+      "partnerExpression": "surprised",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Lying to Shantel, who destroys anyone who crosses her, is a huge unforced error, and Damen does it to catch Julia off balance.",
+        "concreteVisual": "Damen talking, uneasy, beside a surprised Julia in the dining room.",
+        "onScreenText": "a massive unforced error",
+        "relationToPrevious": "From his usual role to the moment he breaks it.",
+        "addedInformation": "weak: the risk he takes is mostly in the callout; Julia's surprised face shows the effect on her."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "vertigo. We really need to unpack the subtext of the lie itself because it's brilliant.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the subtext of the lie",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "julia",
+        "damen"
+      ],
+      "expression": "surprised",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Julia is thrown into social vertigo; the hosts want to unpack the subtext of the lie.",
+        "concreteVisual": "The same dining room: Julia now in front, stunned, Damen calm beside her.",
+        "onScreenText": "the subtext of the lie",
+        "relationToPrevious": "Same stage; the focus moves from Damen to Julia's reaction.",
+        "addedInformation": "Her stunned face is the vertigo the narration names."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Mr. Long Haven, the actual literature teacher, hated Julia's take on Titus Andronicus.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "hated Julia's take",
+        "style": "highlight"
+      },
+      "set": "classroom",
+      "cast": [
+        "julia"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "book",
+      "storyboard": {
+        "claim": "The literature teacher hated Julia's take on Titus Andronicus.",
+        "concreteVisual": "Julia in the academy classroom holding the play, downcast.",
+        "onScreenText": "hated Julia's take",
+        "relationToPrevious": "Flashback to the classroom moment behind the lie.",
+        "addedInformation": "Moves the story to school and shows her reading was knocked down."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Why? Because she brought political ideologies, specifically feminism and critiques of the patriarchy into the text. Right. Right.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "feminism and the patriarchy",
+        "style": "reveal"
+      },
+      "set": "classroom",
+      "cast": [
+        "julia"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "book",
+      "continue": true,
+      "storyboard": {
+        "claim": "She brought feminism and critiques of the patriarchy into the text.",
+        "concreteVisual": "Same classroom, Julia still holding the play, steady.",
+        "onScreenText": "feminism and the patriarchy",
+        "relationToPrevious": "Same stage; the callout names what her reading was.",
+        "addedInformation": "weak: the content of her reading is text-carried."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Long Haven cautioned the class against it. And Julia raged internally about how dismissing feminism as merely political was infuriating.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "merely political",
+        "style": "strike"
+      },
+      "set": "classroom",
+      "cast": [
+        "julia"
+      ],
+      "expression": "angry",
+      "action": "hold",
+      "holds": "book",
+      "continue": true,
+      "storyboard": {
+        "claim": "The teacher cautioned the class against it, and Julia raged inside at feminism being dismissed as merely political.",
+        "concreteVisual": "Same classroom; Julia's face turns angry, the play still in her hands.",
+        "onScreenText": "merely political (struck)",
+        "relationToPrevious": "Same stage; her face changes from steady to angry.",
+        "addedInformation": "The anger shows how she took the dismissal; the strike marks the label she rejects."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "Damian taking that specific moment, a moment where Julia was rebellious and silenced by a patriarchal figure",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "SILENCED IN CLASS"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Damen takes the moment Julia was rebellious and silenced by a patriarchal figure.",
+        "concreteVisual": "A flow diagram starting with one box: silenced in class.",
+        "onScreenText": "SILENCED IN CLASS",
+        "relationToPrevious": "From the classroom scene to the structure of the irony.",
+        "addedInformation": "Sets the first step of the reversal Damen performs."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "and weaponizing it to defend her against the matriarch of high society. It's a breathtaking layer of irony and It really is.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "SILENCED IN CLASS",
+          "DEFENDS HER"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "He weaponizes that moment to defend her against the matriarch of high society: a layer of irony.",
+        "concreteVisual": "The same flow gains its second box: silenced in class leads to defends her.",
+        "onScreenText": "SILENCED IN CLASS -> DEFENDS HER",
+        "relationToPrevious": "Same diagram; the second step draws in.",
+        "addedInformation": "Shows the reversal as cause and effect: what silenced her now protects her."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "He sees her rebellion, he remembers it, and he validates it in front of the very people she is rebelling against. Damen internally",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "he validates it",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "partnerExpression": "surprised",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "He sees her rebellion, remembers it, and validates it in front of the very people she rebels against.",
+        "concreteVisual": "Back in the dining room: Damen speaking warmly, Julia beside him surprised.",
+        "onScreenText": "he validates it",
+        "relationToPrevious": "From the diagram back to the scene where it happens.",
+        "addedInformation": "Shows who backs whom: Damen speaking for Julia."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "marvels at her in this scene. He looks at her and realizes she has no lifelong assumption of a Dartmouth education.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "no Dartmouth assumption",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "surprised",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Damen marvels at her: she has no lifelong assumption of a Dartmouth education.",
+        "concreteVisual": "Same dining room: Damen looks at Julia, amazed; she stands at ease.",
+        "onScreenText": "no Dartmouth assumption",
+        "relationToPrevious": "Same stage; Damen's face turns from speaking to marveling.",
+        "addedInformation": "weak: the contrast of their lives is mostly in the callout."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "She has no expectation to join a mind-numbingly boring financial conglomerate. He looks at her undefined future and he feels pure unadulterated And this is exactly why I think this is the",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "her undefined future",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "damen",
+        "julia"
+      ],
+      "expression": "happy",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "She has no expectation to join a boring financial conglomerate; he looks at her undefined future and feels pure joy.",
+        "concreteVisual": "Same dining room: Damen gazing at Julia, now smiling.",
+        "onScreenText": "her undefined future",
+        "relationToPrevious": "Same stage; Damen's amazement turns to a smile.",
+        "addedInformation": "His smile shows how her freedom moves him."
+      }
+    }
+  ]
+}

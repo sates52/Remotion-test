@@ -1,0 +1,145 @@
+{
+  "slug": "zz-af-p3b",
+  "totalSequences": 4,
+  "totalScenes": 11,
+  "averageDurationSecs": 23.7,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 233,
+      "durationSeconds": 7.8,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 233,
+          "role": "reveal",
+          "narration": "But what does the smart child do? They don't take a running dive into the waves. They walk to the ed"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 248,
+      "durationFrames": 1378,
+      "durationSeconds": 45.9,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 248,
+          "durationFrames": 228,
+          "role": "authored-start",
+          "narration": "Then they dip one bare toe in the foam where the water washes up. Testing the waters literally. Exac"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 476,
+          "durationFrames": 377,
+          "role": "authored-kept",
+          "narration": "Is the kid in the water? Technically, yes. Right. But is a toe in the foam worth the agony of packin"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 853,
+          "durationFrames": 242,
+          "role": "authored-kept",
+          "narration": "No. The cost of executing the threat is too high for the parent. So, the parent's size and acquiesce"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1095,
+          "durationFrames": 315,
+          "role": "authored-kept",
+          "narration": "So, 5 minutes later, the child stands in an inch of water, then up to the ankles. Sneaky. The child "
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1410,
+          "durationFrames": 216,
+          "role": "authored-kept",
+          "narration": "a time because at no single tiny step does the minor infraction warrant the massive exhausting punis"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 1626,
+      "durationFrames": 456,
+      "durationSeconds": 15.2,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1626,
+          "durationFrames": 228,
+          "role": "setup",
+          "narration": "The threat becomes completely unbelievable because the execution cost over a toe in the water is sim"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1854,
+          "durationFrames": 228,
+          "role": "reveal",
+          "narration": "Okay, I totally get salami tactics, but let me push back on the Dean Carlin Go for it. Because the b"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 2082,
+      "durationFrames": 763,
+      "durationSeconds": 25.4,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2082,
+          "durationFrames": 254,
+          "role": "authored-start",
+          "narration": "Taking $15,000 from a close friend over some weight gain is genuinely insane It's extreme. Yeah, tha"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2336,
+          "durationFrames": 252,
+          "role": "authored-kept",
+          "narration": "If my friend did that to me, we wouldn't be friends anymore. It's totally irrational to actually cas"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2588,
+          "durationFrames": 257,
+          "role": "authored-kept",
+          "narration": "It looks deeply irrational in the micro moment. Yes. But in the macro over the long term, it is high"
+        }
+      ]
+    }
+  ]
+}

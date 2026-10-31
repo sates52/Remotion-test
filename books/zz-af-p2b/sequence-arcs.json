@@ -1,0 +1,170 @@
+{
+  "slug": "zz-af-p2b",
+  "totalSequences": 5,
+  "totalScenes": 12,
+  "averageDurationSecs": 19.6,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 741,
+      "durationSeconds": 24.7,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 340,
+          "role": "setup",
+          "narration": "The japosition of the warm illuminated ballroom where she was held to the cold dark stone wall where"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 355,
+          "durationFrames": 401,
+          "role": "reveal",
+          "narration": "is that Quinn Rutled has just publicly humiliated Julia's parents. In front of the entire society, Q"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 756,
+      "durationFrames": 612,
+      "durationSeconds": 20.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 756,
+          "durationFrames": 343,
+          "role": "authored-start",
+          "narration": "and Julia connects the dots. The devastating realization. The boy who just dipped her, the boy she j"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 1099,
+          "durationFrames": 269,
+          "role": "authored-kept",
+          "narration": "of the man trying to destroy her family. She realizes Damian was part of the machinery that just rui"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 1368,
+      "durationFrames": 1104,
+      "durationSeconds": 36.8,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1368,
+          "durationFrames": 221,
+          "role": "setup",
+          "narration": "The question that divides readers. Did Damian actually betray her? I argue yes. Absolutely."
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1589,
+          "durationFrames": 194,
+          "role": "partial_answer",
+          "narration": "Yes. How? He wasn't the one launching the His silence is complicity."
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1783,
+          "durationFrames": 183,
+          "role": "partial_answer",
+          "narration": "He knew his father's tactics. He knew his father viewed the LL as small town nobodies to be crushed."
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1966,
+          "durationFrames": 180,
+          "role": "question",
+          "narration": "Damian actively gathered intel in the early days of tutoring. Remember the transactional intimacy?"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2146,
+          "durationFrames": 326,
+          "role": "reveal",
+          "narration": "Yeah, but that was before he fell for Even if he caught real feelings later, he never disclosed the "
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 2472,
+      "durationFrames": 163,
+      "durationSeconds": 5.4,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2472,
+          "durationFrames": 163,
+          "role": "reveal",
+          "narration": "That makes him guilty of I am going to passionately defend Damian here."
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 2635,
+      "durationFrames": 308,
+      "durationSeconds": 10.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2635,
+          "durationFrames": 149,
+          "role": "authored-start",
+          "narration": "Damian is a victim of his father's mob boss tactics just as much as the Lowels are."
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2784,
+          "durationFrames": 159,
+          "role": "authored-kept",
+          "narration": "Quinn literally operates on the philosophy that perception is reality. He is a master manipulator."
+        }
+      ]
+    }
+  ]
+}

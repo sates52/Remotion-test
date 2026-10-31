@@ -1,0 +1,50 @@
+{
+  "slug": "zz-af-p3b",
+  "title": "The Art of Strategy",
+  "author": "Avinash K. Dixit & Barry J. Nalebuff",
+  "genre": "business",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "era": 1991,
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "two players facing a payoff matrix",
+      "a prisoner-dilemma style standoff between rivals",
+      "a credible threat or commitment being made",
+      "a bargaining table where a concession wins",
+      "a game-tree diagram of moves and countermoves"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-10-31",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 0,
+    "antidoteScore": 3.9,
+    "signals": {
+      "year": 0,
+      "history": 0,
+      "second": 0,
+      "abstract": 3.4,
+      "sensitive": 6.8,
+      "era": 1992,
+      "words": 296
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [
+      "violence/death 6.8/1k (> 6) → Flux will refuse many Vox images of the key scenes (CONTENT_FILTERED); Antidote draws them symbolically"
+    ],
+    "confirmed": true
+  },
+  "audioSource": "public/audio/the-art-of-strategy.mp3"
+}
