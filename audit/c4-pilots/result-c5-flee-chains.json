@@ -1,0 +1,18 @@
+{
+  "schema": "c4-pilot-result/1",
+  "date": "2026-10-31",
+  "preregistration": "audit/c4-pilots/preregistration-flee22.json (flee); chain legibility bar: >= 4/5 readers see every step, WRONG <= 1/5",
+  "readers": "5 fresh sonnet readers per sheet + 1 strict judge per reading = 60 agents; flee arm labels randomised",
+  "flee-2.2": {
+    "F3 the-lightning-thief 72": { "A": { "run": 5, "away": "YYYYY", "WRONG": 0 }, "C": { "run": 5, "away": "YYYYP", "WRONG": 0 } },
+    "F4 crazy-rich-asians 231": { "A": { "run": 5, "away": "YYYYY", "WRONG": 0 }, "C": { "run": 5, "away": "YYYYY", "WRONG": 0 } },
+    "decision": "NO SHIP (RUN(C) must be >= RUN(A) + 2; both 5/5). Patch kept: audit/c4-pilots/flee-2.2.patch.",
+    "reading": "Staged well (full-body shot, the runner not at the frame edge, threat icon on the other side) the CURRENT flee already reads 10/10 run and 10/10 away. The cycle-4 failures were staging: a runner starting at the frame edge (TF 140, she left in ~16 frames) and a waist-up shot. Flee is no longer a LIMIT for full-body shots; the open risk is an edge start / medium shot."
+  },
+  "chains": {
+    "carryState ON vs OFF": "pixel-identical on both chains (0/8 frames differ): carryState only affects carried rest states (seated / down / gone); place keeps its object through continueFromPrev, and a standing drink -> leave has no rest state. So these were LEGIBILITY tests, not A/B.",
+    "drink -> leave (TF 10-11 scenes, synthetic authoring)": { "drink": "PYYYY", "leave": "YYYYP", "order": "YYYYY", "WRONG": 0, "verdict": "PASS (L3 legibility)" },
+    "take -> place (TF 10-11, real authored place)": { "holding": "YYYYY", "putDown": "NNNNN", "stays": "NNNNN", "WRONG": 2, "verdict": "FAIL",
+      "reading": "With the partner beside her, the place pose reads as HANDING the object to him ('holds it out toward the man'); nobody sees it set down; the held shield reads as a small golden cup / trophy (5/5). Recorded in data/icon-readings.json. Open defect: place needs a visible surface and must not reach toward a partner." }
+  }
+}

@@ -1,0 +1,1550 @@
+[
+ {
+  "dir": "ltt",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A small cartoon child in orange clothes with a helmet-like hair and a shoulder bag stands upright on the left. A green house with an orange roof is on the right, in front of a grey city background."
+    },
+    {
+     "n": 2,
+     "sees": "The child leans and steps, mid-stride, moving left (away from the house). Bag swings. The house stays in place."
+    },
+    {
+     "n": 3,
+     "sees": "The child runs, legs apart in a stride, a bit further left than before. The house is unchanged."
+    },
+    {
+     "n": 4,
+     "sees": "The child keeps running, now near the left edge. The house is unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "The child is partly cut off by the left edge, still running. The house is unchanged."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the child is visible at the far left edge. The house is unchanged."
+    },
+    {
+     "n": 7,
+     "sees": "The child has almost completely left the frame. Only a tiny speck may remain at the left edge. The house stays."
+    },
+    {
+     "n": 8,
+     "sees": "The child is gone. Only the house and the grey city background remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the frame",
+   "chased": "no",
+   "objects": "The child wears a brown shoulder bag that stays on the child's body and swings while running. It leaves the frame with the child. The house is a fixed scenery object and stays.",
+   "sequence": "1. The child stands still on the left, facing the house on the right. 2. The child starts to move and steps left. 3. The child runs left, away from the house. 4. The child reaches the left edge. 5. The child is partly out of the frame. 6. Only a sliver of the child is visible. 7. The child has almost fully left. 8. The child is gone and only the house is left."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the child runs (action \"run\", \"keeps running\"), moves left away from the house and exits the frame, and says chased \"no\". This matches the truth. The reader puts the house on the right and the child on the left from frame 1, which is a minor positional difference, not a contradiction."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A cartoon child in an orange outfit with a helmet-like hat and a shoulder bag stands upright on the left. A small green house with an orange roof is on the right. City skyline is grey in the background."
+    },
+    {
+     "n": 2,
+     "sees": "The child leans forward and starts moving, with legs apart in a stride, bag swinging. The house stays on the right."
+    },
+    {
+     "n": 3,
+     "sees": "The child runs mid-stride, with one leg forward and one back. The child is still left of center, and the house has not moved."
+    },
+    {
+     "n": 4,
+     "sees": "The child runs, closer to the left edge now and partly moving off to the left."
+    },
+    {
+     "n": 5,
+     "sees": "The child is at the far left edge, mostly cut off, still in a running pose."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of orange is visible at the left edge. The child is almost gone."
+    },
+    {
+     "n": 7,
+     "sees": "The child is gone, apart from a tiny speck at the edge. Only the house and the skyline remain."
+    },
+    {
+     "n": 8,
+     "sees": "An empty scene with the house, skyline and title. The child is gone."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, running to the left and off screen",
+   "chased": "no",
+   "objects": "The child carries a shoulder bag. It stays on the child's body, swinging as they run, and leaves the frame with them. No other object is held or used. The house is fixed scenery.",
+   "sequence": "1. The child stands facing the viewer, with the house on the right. 2. The child leans forward and starts to run left. 3. The child runs at full stride. 4. The child nears the left edge. 5. The child is mostly out of frame. 6. Only a sliver of the child is left. 7. The child has exited. 8. The scene is empty except for the house."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says action \"run\", with a running stride and the child leaving the frame. It says the direction is away from the house, to the left and off screen, with the house on the right. It says chased \"no\" and mentions no pursuer. This matches the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A child in an orange outfit with a brown helmet-like hair and a shoulder bag stands upright facing forward, on the left. A green house with an orange roof is on the right. Gray city skyline behind."
+    },
+    {
+     "n": 2,
+     "sees": "The child leans and steps, mid-stride, moving to the left and slightly out of the left edge of where they started. Bag swings. House unchanged."
+    },
+    {
+     "n": 3,
+     "sees": "The child is running in profile facing left, legs apart, further left than before. House still at right."
+    },
+    {
+     "n": 4,
+     "sees": "The child keeps running left, now near the left edge of the frame, mid-stride."
+    },
+    {
+     "n": 5,
+     "sees": "The child is partly cut off by the left edge, running away from the house."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the child's orange body remains at the left edge. House still there."
+    },
+    {
+     "n": 7,
+     "sees": "The child is almost entirely gone, only a tiny speck at the left edge. House alone on the right."
+    },
+    {
+     "n": 8,
+     "sees": "The child is gone. Only the house and city background remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the frame",
+   "chased": "no",
+   "objects": "The child carries a brown shoulder bag that stays on them (swinging while running) until they leave the frame with it. The house is a fixed background object that stays in place.",
+   "sequence": "1. The child stands facing forward, house on the right. 2. The child turns left and starts to run. 3. The child runs left in profile. 4. The child keeps running toward the left edge. 5. The child is partly out of frame. 6. Only a sliver of the child is visible. 7. Nearly gone. 8. The child is gone and the house is left alone."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the child runs, in profile and mid-stride, and exits the left edge while the house stays on the right. That is away from the house. It says chased \"no\". Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A person in an orange outfit with a brown satchel stands upright at center-left, next to a small house with an orange roof and green walls on the right. City skyline behind."
+    },
+    {
+     "n": 2,
+     "sees": "The person leans and starts to move, one leg kicked back, still beside the house."
+    },
+    {
+     "n": 3,
+     "sees": "The person runs to the left, arms swinging and speed lines behind. The house is a little farther to the right."
+    },
+    {
+     "n": 4,
+     "sees": "The person keeps running left, with speed lines. The gap to the house is bigger."
+    },
+    {
+     "n": 5,
+     "sees": "The person runs at the far left, mid-stride with speed lines. The house is farther to the right."
+    },
+    {
+     "n": 6,
+     "sees": "The person is at the far left edge, still running with speed lines. The house sits on the right."
+    },
+    {
+     "n": 7,
+     "sees": "The person is almost off-screen. Only a bit of orange shows at the left edge. The house is still on the right."
+    },
+    {
+     "n": 8,
+     "sees": "The person is gone. Only the house remains on the right, with the city behind."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, leftward and off-screen",
+   "chased": "no",
+   "objects": "The person wears a brown satchel across the body. It stays with them as they run and leaves the frame with them. The house stays in place and is the only thing left at the end.",
+   "sequence": "1. The person stands next to the house. 2. They lean and start to move. 3. They run left with speed lines. 4. They keep running and the gap to the house grows. 5. They reach the far left. 6. They are at the left edge. 7. They are almost out of frame. 8. They are gone and only the house remains."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the person runs, with speed lines and arms swinging. It says they move left, away from the house on the right, and leave the frame. It states \"chased: no\". Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A figure in an orange outfit with a brown helmet-like hair and a satchel stands upright, facing forward on the left. A green house with an orange roof is on the right, in a gray city backdrop."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and steps, mid-stride and running, a little further left than the first frame. The house stays in the same place."
+    },
+    {
+     "n": 3,
+     "sees": "The figure runs with a long stride, legs apart, moving left. House unchanged."
+    },
+    {
+     "n": 4,
+     "sees": "The figure is nearer the left edge, still running, with the satchel swinging."
+    },
+    {
+     "n": 5,
+     "sees": "The figure is partly cut off at the left edge, still running away from the house."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the figure is left at the left edge."
+    },
+    {
+     "n": 7,
+     "sees": "The figure has almost entirely left the frame. Only a tiny speck remains at the left edge. The house is still there."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the house and the empty gray street remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, leaving the frame to the left",
+   "chased": "no",
+   "objects": "The person wears a satchel or bag across the body. It stays on them as they run and leaves the frame with them. The house stays fixed on the right.",
+   "sequence": "1. The figure stands facing forward, with the house to the right. 2. The figure starts to run left, away from the house. 3. The figure runs with a long stride. 4. The figure nears the left edge. 5. The figure is partly cut off at the edge. 6. Only a sliver of the figure is left. 7. Almost nothing is left of the figure. 8. The figure is gone and the house stands alone."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs with a long stride, moves left away from the house on the right, and leaves the frame. It says nothing chases her. This matches the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A child in an orange outfit with a brown helmet-like hair and a satchel stands upright in the left. A green house with orange roof is on the right. Grey city backdrop."
+    },
+    {
+     "n": 2,
+     "sees": "Same child now leaning and stepping, running pose, still left of center and slightly right of the first position. House unchanged on the right."
+    },
+    {
+     "n": 3,
+     "sees": "Child in a mid-stride run, legs apart, a bit further right than before. House unchanged."
+    },
+    {
+     "n": 4,
+     "sees": "Child running, positioned near the left edge, legs in a stride. House unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "Child is at the far left edge, partly cut off, running leftward and out of frame. House unchanged."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the child's orange body at the left edge; almost gone. House unchanged."
+    },
+    {
+     "n": 7,
+     "sees": "Child is gone, with only a tiny trace at the far left edge. House alone on the right."
+    },
+    {
+     "n": 8,
+     "sees": "Empty street with the green house only; the child has left the frame."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, off the left edge of the picture; the house stays put",
+   "chased": "no",
+   "objects": "The child carries a brown satchel or bag across the body, and it stays on the child the whole time. It leaves the frame with the child. Nothing else is held or used.",
+   "sequence": "1. A child in orange with a satchel stands facing front, with a house at right. 2. The child starts to run and leans away from the house. 3. The child runs on in full stride. 4. The child reaches the left side while still running. 5. The child is partly out of frame at the left. 6. Only a sliver of the child is visible. 7. The child is gone. 8. The house stands alone in an empty street."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says action \"run\" and describes a running pose and stride. It says the child moves away from the house, off the left edge, with the house staying put on the right. It says chased \"no\" and invents no pursuit. Frame 3 says the child is \"a bit further right than before\", which is a small inconsistency. The overall direction and the summary still match the truth, so the reading does not contradict it."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A figure in an orange outfit with a brown satchel stands upright, facing front, left of a small green house with an orange roof. City skyline behind."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and steps, one leg kicking back, starting to move away from the house toward the left. House stays in place."
+    },
+    {
+     "n": 3,
+     "sees": "Figure is running, mid-stride, with motion lines behind. It is farther left than before, and the gap to the house is larger."
+    },
+    {
+     "n": 4,
+     "sees": "Still running left with motion lines, now about at the left edge of the frame."
+    },
+    {
+     "n": 5,
+     "sees": "Running figure with speed lines, still left of the house. The gap to the house keeps growing."
+    },
+    {
+     "n": 6,
+     "sees": "Figure is at the far left, still running with speed lines. The house is now farther to the right."
+    },
+    {
+     "n": 7,
+     "sees": "Only a sliver of the orange figure is visible at the left edge, leaving the frame. The house remains."
+    },
+    {
+     "n": 8,
+     "sees": "Figure is gone. Only the house and the city background remain, with the title."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the frame",
+   "chased": "no",
+   "objects": "A brown satchel or bag is worn across the body and stays with the figure until it leaves the frame. Nothing else is held. The green house is a fixed prop.",
+   "sequence": "1. The figure stands next to the house. 2. It leans and starts to step away. 3. It runs, with motion lines. 4. It keeps running and the gap to the house grows. 5. It continues running, still moving left. 6. It reaches the far left edge. 7. It exits the frame, leaving a sliver. 8. Only the house remains."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs (\"action\":\"run\", running with motion lines) and moves away from the house, exiting off the left edge while the gap to the house grows. It says chased is \"no\". It doesn't contradict the truth. The house's position (left or right) is a detail the reading handles consistently."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A cartoon person in orange clothes with a brown bag stands upright beside a small house with a yellow roof, in a grey city background."
+    },
+    {
+     "n": 2,
+     "sees": "The person leans and steps, one leg kicked back, starting to move away from the house. The house is a bit to the right."
+    },
+    {
+     "n": 3,
+     "sees": "Running pose with speed lines behind; the person is farther left from the house, which is now farther away."
+    },
+    {
+     "n": 4,
+     "sees": "Still running with speed lines, the person is further left and the house is smaller or farther."
+    },
+    {
+     "n": 5,
+     "sees": "Running with an arm swung out, the person is near the left edge, with the house far right."
+    },
+    {
+     "n": 6,
+     "sees": "The person is at the far left edge, running, with speed lines. The house is far off."
+    },
+    {
+     "n": 7,
+     "sees": "Only a sliver of orange is visible at the left edge, so the person is almost gone. The house is alone."
+    },
+    {
+     "n": 8,
+     "sees": "The person is gone. Only the house remains in the empty street."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, off the left edge of the picture",
+   "chased": "no",
+   "objects": "The person wears a brown shoulder bag the whole time it is visible. The bag goes with them and leaves the picture when they do. The house stays in place, so it is not held or used.",
+   "sequence": "1. The person stands next to the house. 2. They start to step away. 3. They run with speed lines, moving left. 4. They keep running. 5. They get close to the left edge. 6. They reach the left edge. 7. They are almost fully out of the picture. 8. They are gone and only the house is left."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the person runs (running pose, speed lines), moves away from the house and off the left edge, and says chased is \"no\". The truth puts the house on the right, and the reader has the house on the right with the person exiting left, which matches. Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A figure in an orange outfit with a brown satchel stands upright, facing forward, left of a small green house with an orange roof. City skyline in the background."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and steps, one leg kicked back, starting to move to the right. The house is a little farther right."
+    },
+    {
+     "n": 3,
+     "sees": "The figure is in a full running pose with speed lines behind. It has moved slightly left, away from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure is running, with speed lines, and is farther left. The house stays at the right."
+    },
+    {
+     "n": 5,
+     "sees": "The figure runs with arms out and speed lines, near the left edge, with a bigger gap to the house."
+    },
+    {
+     "n": 6,
+     "sees": "The figure is almost at the far left edge, still running with speed lines. The house stays at the right."
+    },
+    {
+     "n": 7,
+     "sees": "Only a sliver of orange is visible at the far left edge, as the figure leaves the frame. The house remains."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the house and the empty street are left."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house; the figure runs left and exits the frame while the house stays",
+   "chased": "no",
+   "objects": "The figure wears a brown satchel or bag across the body. It stays on the figure while the figure runs and leaves the frame with it. Nothing else is held or used.",
+   "sequence": "1. The figure stands next to the house. 2. It leans and starts to move. 3. It runs, with speed lines, away from the house. 4. It keeps running farther left. 5. It reaches the left edge. 6. It exits the frame. 7. Only the house and the street remain."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs, with speed lines. It says the figure moves left, away from the house on the right, and exits the frame. It answers \"chased: no\". Frame 2 says the figure steps \"to the right\", which is a minor inconsistency. The overall action and the summary both say away from the house, so this does not contradict the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title text at top 'SACRIFICED SAFETY TO FLEE'. A dark-haired figure in a blue outfit stands upright at the left, arms at its sides, next to a big green house with an orange roof."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and starts moving left, away from the house, one leg kicking out. The face looks worried."
+    },
+    {
+     "n": 3,
+     "sees": "The figure runs left in a running pose, with speed lines behind it. It is a bit farther from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure keeps running left, leaning forward, with speed lines. It is now near the left edge."
+    },
+    {
+     "n": 5,
+     "sees": "The figure runs left and is partly cut off by the left edge. Speed lines trail behind it."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the figure is left at the left edge. The house is alone."
+    },
+    {
+     "n": 7,
+     "sees": "The figure is almost gone, with just a tiny trace at the far left. The house is alone."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the house and the title text remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the picture",
+   "chased": "unclear",
+   "objects": "No object is held or used. The house is only scenery and stays in place the whole time.",
+   "sequence": "1. The figure stands beside the house. 2. It leans and starts to run away from the house. 3. It runs left with speed lines. 4. It keeps running toward the left edge. 5. It is partly off the picture. 6. Only a sliver is left. 7. Almost nothing is left. 8. The figure is gone and the house stands alone."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs, with a running pose and speed lines. It says the figure moves away from the house and exits off the left edge. It says \"chased\" is unclear and describes nothing pursuing her. Nothing in it contradicts the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "A worried-looking dark-haired figure in a blue outfit stands upright next to a green house with an orange roof, close to its left wall. Title text reads 'SACRIFICED SAFETY TO FLEE'."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and tilts, starting to move away from the house to the left, slightly off the ground."
+    },
+    {
+     "n": 3,
+     "sees": "The figure is mid-stride, running left, with small speed lines behind. It is a bit farther from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure keeps running left. It is farther from the house, with speed lines and a worried face."
+    },
+    {
+     "n": 5,
+     "sees": "The figure is near the left edge of the frame, still running away, with speed lines."
+    },
+    {
+     "n": 6,
+     "sees": "The figure is only partly visible at the far left edge, almost out of frame."
+    },
+    {
+     "n": 7,
+     "sees": "Only a tiny sliver of the figure's hand or foot shows at the left edge. The house stands alone."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the green house with the orange roof remains on the empty scene."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, toward the left edge and out of frame",
+   "chased": "unclear",
+   "objects": "No object is held or used. The only other thing in the scene is the house, which stays in place.",
+   "sequence": "1. The worried figure stands beside the house. 2. It leans and starts to move left. 3. It runs left with speed lines. 4. It keeps running, farther from the house. 5. It nears the left edge of the frame. 6. It is mostly out of frame. 7. Only a sliver of it remains visible. 8. It is gone and the house stands alone."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs left with speed lines, moving away from the house and off the edge of the frame. It marks the chase as unclear and describes no pursuer, so nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "ltt",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Title 'RAN AWAY AT SEVEN'. A figure in an orange outfit with a brown satchel stands upright on the left, facing front. A small green house with an orange roof is to the right. City skyline behind."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and steps, one leg kicked back, starting to move right. The house is slightly right."
+    },
+    {
+     "n": 3,
+     "sees": "The figure is running to the right, with speed lines behind. It is farther from the left edge and closer to the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure keeps running right, with speed lines. The house is a bit farther to the right than before. The figure looks about the same distance from it."
+    },
+    {
+     "n": 5,
+     "sees": "The figure runs, leaning forward, with speed lines. It is still left of the house."
+    },
+    {
+     "n": 6,
+     "sees": "The figure is at the far left, running, with speed lines. The house is on the right."
+    },
+    {
+     "n": 7,
+     "sees": "The figure is almost gone from the left edge. Only a small orange part is visible. The house stays at right."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the house, skyline and title remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the picture",
+   "chased": "no",
+   "objects": "The person wears a brown satchel or bag across the body. It stays on them the whole time until they leave the frame. The house is a fixed background object that is never touched.",
+   "sequence": "1. The figure stands next to the house. 2. The figure starts to run. 3. The figure runs with speed lines, moving away from the house to the left. 4. The figure keeps running and gets smaller or farther from the house. 5. The figure reaches the left edge. 6. The figure exits the frame. 7. Only the house is left on screen."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "PARTLY",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader says the figure runs, with speed lines, and says nothing chases it. The summary says it runs away from the house and exits off the left edge, which matches the truth. Frames 2 to 5 describe it running right and closer to the house, which conflicts with that. The frames also contradict themselves, with the figure at the far left in frame 6. The final conclusion is clearly \"away\", so I don't count the reading as contradicting the truth, but the direction is only partly consistent."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Flat illustration with a beige background and a big green house with an orange roof and orange door. Title text reads 'SACRIFICED SAFETY TO FLEE'. A dark-haired person in a blue outfit stands upright to the left of the house, facing the viewer."
+    },
+    {
+     "n": 2,
+     "sees": "The person leans and steps in a running stride, moving left, away from the house."
+    },
+    {
+     "n": 3,
+     "sees": "The person keeps running left, now farther from the house, mid-stride."
+    },
+    {
+     "n": 4,
+     "sees": "The person is near the left edge, still running left."
+    },
+    {
+     "n": 5,
+     "sees": "The person is mostly out of frame at the far left edge, with only part of the body visible."
+    },
+    {
+     "n": 6,
+     "sees": "The person has left the frame. Only the house is left, with a sliver of blue at the left edge."
+    },
+    {
+     "n": 7,
+     "sees": "The house stands alone with the title text. The person is gone."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, to the left and out of frame",
+   "chased": "unclear",
+   "objects": "No object is held or used. The only other element is the house, which stays in place.",
+   "sequence": "1. A person stands beside the house. 2. The person starts running left, away from the house. 3. The person keeps running left. 4. The person nears the left edge. 5. The person is almost out of frame. 6. The person has left the frame. 7. Only the empty house is left."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the person runs (\"action\":\"run\", running stride) and moves left, away from the house and out of frame. It lists \"chased\" as \"unclear\" and describes no pursuer, so nothing is invented. It doesn't contradict the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "A figure with dark hair and blue clothes stands upright beside a big green house with an orange roof. The title reads 'SACRIFICED SAFETY TO FLEE'. The figure looks worried."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and starts to move away from the house, one leg kicking back. The face looks alarmed."
+    },
+    {
+     "n": 3,
+     "sees": "The figure runs to the left, away from the house. Small speed lines trail behind and the body is tilted."
+    },
+    {
+     "n": 4,
+     "sees": "The figure keeps running left. It is a little farther from the house, with speed lines behind."
+    },
+    {
+     "n": 5,
+     "sees": "The figure is running and is now near the left edge. It is farther from the house."
+    },
+    {
+     "n": 6,
+     "sees": "Only part of the figure shows at the far left edge. It is almost out of the picture."
+    },
+    {
+     "n": 7,
+     "sees": "The figure has nearly gone. A tiny sliver shows at the far left edge. The house stays still."
+    },
+    {
+     "n": 8,
+     "sees": "The figure is gone. Only the house and the title remain."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house (to the left and out of the picture)",
+   "chased": "no",
+   "objects": "No object is held or used. The house stays in place the whole time.",
+   "sequence": "1. A worried figure stands next to the house. 2. The figure leans and starts to move away. 3. The figure runs left with speed lines. 4. The figure keeps running farther from the house. 5. The figure nears the left edge. 6. The figure is partly out of the picture. 7. Only a sliver of the figure is left at the edge. 8. The figure is gone and only the house remains."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs, moves left away from the house, and exits the picture. It says chased is \"no\", so nothing chases her. It doesn't contradict the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "A worried-looking person with dark hair and a blue outfit stands upright at the left, right next to a big green house with an orange roof. The title at the top reads 'SACRIFICED SAFETY TO FLEE'."
+    },
+    {
+     "n": 2,
+     "sees": "The person leans forward and starts to move away from the house, with one leg lifted. The expression is still worried."
+    },
+    {
+     "n": 3,
+     "sees": "The person is in a running stride, farther left of the house, with small speed lines behind. The face looks scared."
+    },
+    {
+     "n": 4,
+     "sees": "The person keeps running, with speed lines behind. The person is a bit farther from the house."
+    },
+    {
+     "n": 5,
+     "sees": "The person runs at the far left edge, still with speed lines. The house stays in place."
+    },
+    {
+     "n": 6,
+     "sees": "Only part of the person is left, at the very left edge, going out of the frame. Speed lines are still visible."
+    },
+    {
+     "n": 7,
+     "sees": "The person is almost entirely gone, with just a sliver at the left edge. The house stands alone."
+    },
+    {
+     "n": 8,
+     "sees": "The person is gone. Only the green house with the orange roof remains."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, off the left edge of the picture",
+   "chased": "unclear",
+   "objects": "No object is held or used. The house is only a fixed backdrop. It stays in place the whole time and is the only thing left at the end.",
+   "sequence": "1. The worried person stands beside the house. 2. The person leans and starts to leave. 3. The person runs away from the house, with speed lines and a scared face. 4. The person keeps running left. 5. The person reaches the left edge. 6. The person exits the frame. 7. Only a sliver of the person is still visible. 8. The empty house is all that remains."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the person runs (\"running stride\", \"keeps running\") and moves away from the house, off the left edge. It names no pursuer and marks \"chased\" as unclear. It doesn't contradict the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Flat drawing: a girl in a blue dress with dark hair stands upright to the left of a green house with an orange roof. The caption reads 'SACRIFICED SAFETY TO FLEE'."
+    },
+    {
+     "n": 2,
+     "sees": "The girl leans and steps. She has started to run leftward, away from the house."
+    },
+    {
+     "n": 3,
+     "sees": "She is mid-stride, running left. She is a little farther from the house."
+    },
+    {
+     "n": 4,
+     "sees": "She is at the left edge of the frame, still running and leaning away from the house."
+    },
+    {
+     "n": 5,
+     "sees": "She is only partly visible at the far left edge, leaving the frame."
+    },
+    {
+     "n": 6,
+     "sees": "She is gone. Only the house and the caption remain."
+    },
+    {
+     "n": 7,
+     "sees": "The empty house scene with the caption. Nothing moves."
+    },
+    {
+     "n": 8,
+     "sees": "The same empty house scene. She is gone."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, to the left and out of the frame",
+   "chased": "unclear",
+   "objects": "She holds and uses no object. The house is only the setting. It stays in place and is the only thing left at the end.",
+   "sequence": "1. A girl stands beside a house under the caption 'Sacrificed safety to flee'. 2. She starts running to the left, away from the house. 3. She keeps running. 4. She reaches the left edge of the frame. 5. She exits the frame. 6. The house is left alone. 7. The empty scene holds. 8. The empty scene holds."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader says the girl runs (action \"run\", \"mid-stride, running left\"). She runs away from the house and out of the frame. Chased is \"unclear\" and no pursuer is described, so q3 is YES. Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Flat-style scene with a beige sky, a big green house with orange roof, yellow window and orange door. A small person with dark hair and a blue dress stands upright to the left of the house, facing it. Headline reads SACRIFICED SAFETY TO FLEE."
+    },
+    {
+     "n": 2,
+     "sees": "The person leans and steps, with legs in a running stride, moving left and away from the house. The house is unchanged."
+    },
+    {
+     "n": 3,
+     "sees": "The person is farther left, mid-stride, still running away from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The person is nearly at the left edge, still running, partly cut off."
+    },
+    {
+     "n": 5,
+     "sees": "Only part of the person is visible at the far left edge, leaving the frame."
+    },
+    {
+     "n": 6,
+     "sees": "The person is gone. Only the house and headline remain, with a tiny sliver of blue at the left edge."
+    },
+    {
+     "n": 7,
+     "sees": "An empty scene with just the house, the sun circle and the headline."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house (leaves the frame to the left)",
+   "chased": "no",
+   "objects": "No object is held or used. The house is a fixed backdrop and stays the same in every moment.",
+   "sequence": "1. A person stands beside the house. 2. They start running left, away from it. 3. They keep running. 4. They reach the left edge of the frame. 5. They exit the frame. 6. Only the house remains. 7. The scene is empty except for the house."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the person runs (running stride) away from the house and exits the frame to the left. It says chased: no and describes nothing pursuing her. Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "C",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "A worried-looking figure with dark hair and a blue outfit stands upright at the left, right beside a big green house with an orange roof. Title text reads 'SACRIFICED SAFETY TO FLEE'."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans away from the house, tilted and starting to move left. Its feet are off the ground."
+    },
+    {
+     "n": 3,
+     "sees": "The figure is farther left of the house and running, with one leg kicked out behind and speed lines trailing. Its face looks worried."
+    },
+    {
+     "n": 4,
+     "sees": "The figure is still running, with speed lines, and is a little farther from the house."
+    },
+    {
+     "n": 5,
+     "sees": "The figure runs at the far left edge, partly cut off, with speed lines trailing."
+    },
+    {
+     "n": 6,
+     "sees": "Only a sliver of the figure's body is left at the left edge, still moving out of the picture."
+    },
+    {
+     "n": 7,
+     "sees": "Only a tiny trace of the figure is left at the far left edge. The house stands alone."
+    },
+    {
+     "n": 8,
+     "sees": "The figure has gone. Only the house is on screen, with the title text above it."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house and off the left edge of the picture",
+   "chased": "unclear",
+   "objects": "No object is held or used. The house is only the setting. It stays in place the whole time, and the figure leaves it behind.",
+   "sequence": "1. The worried figure stands beside the house. 2. It leans and lifts off the ground, starting to flee. 3. It runs left with speed lines. 4. It keeps running and gets farther away. 5. It reaches the left edge and is partly cut off. 6. Only a sliver of it is still visible. 7. Almost nothing of it is left. 8. The house stands alone and the figure is gone."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs with speed lines, moves away from the house, and exits off the left edge. It reports \"chased\" as unclear and describes nothing pursuing her. Nothing in it contradicts the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Flat illustrated scene with a big green house with an orange roof and a yellow window. A small figure in a blue coat stands upright to the left of the house. Header text reads \"SACRIFICED SAFETY TO FLEE\" with FLEE highlighted."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans and starts to move, legs stepping. It is still to the left of the house, but moving in a running or walking pose."
+    },
+    {
+     "n": 3,
+     "sees": "The figure is mid-stride, leaning forward, a little farther left and drifting away from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure is at the far left edge, still in a running pose and partly cropped."
+    },
+    {
+     "n": 5,
+     "sees": "The figure is almost out of the frame. Only part of its body shows at the left edge."
+    },
+    {
+     "n": 6,
+     "sees": "The figure is gone. Only the house remains, with a tiny sliver at the left edge."
+    },
+    {
+     "n": 7,
+     "sees": "Empty scene with only the house, the hills and the sun. The headline stays the same."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, off the left edge of the frame",
+   "chased": "unclear",
+   "objects": "No object is held or used by the person. The house is a fixed backdrop. It stays in place the whole time while the person leaves it behind.",
+   "sequence": "1. The person stands beside the house. 2. The person starts to run to the left. 3. The person keeps running, moving away from the house. 4. The person reaches the left edge of the frame. 5. The person exits the frame. 6. Only the house is left. 7. The scene is empty, with the house alone and the headline still showing."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading gives action \"run\", describes the figure running away from the house off the left edge, and marks chase as \"unclear\", which counts as YES for q3. Nothing in it contradicts the truth."
+  }
+ },
+ {
+  "dir": "cra",
+  "arm": "A",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Headline 'SACRIFICED SAFETY TO FLEE' at top. A small dark-haired figure in a blue dress stands upright left of a green house with an orange roof, an orange door and a yellow window. Pale sun behind."
+    },
+    {
+     "n": 2,
+     "sees": "The figure leans forward and steps, mid-stride, still left of the house, starting to move."
+    },
+    {
+     "n": 3,
+     "sees": "The figure runs, legs apart, leaning forward, moving left and away from the house."
+    },
+    {
+     "n": 4,
+     "sees": "The figure is running further left and is partly cut off at the left edge. The house is still there."
+    },
+    {
+     "n": 5,
+     "sees": "Only part of the figure shows at the far left edge, nearly out of frame."
+    },
+    {
+     "n": 6,
+     "sees": "The figure is gone. Only the house and the headline remain."
+    },
+    {
+     "n": 7,
+     "sees": "Empty scene with the house only."
+    },
+    {
+     "n": 8,
+     "sees": "Empty scene with the house only, the same as before."
+    }
+   ],
+   "action": "run",
+   "direction": "away from the house, exiting off the left edge of the frame",
+   "chased": "no",
+   "objects": "No object is held or used. The house is only scenery, and it stays in place.",
+   "sequence": "1. The figure stands beside the house. 2. She starts to step and lean forward. 3. She runs left, away from the house. 4. She reaches the left edge of the frame. 5. She exits the frame. 6. The house is left alone on screen."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the figure runs (action \"run\", frame 3 \"The figure runs\"). It moves left, away from the house, and exits off the left edge. It says chased \"no\" and mentions no pursuer. Nothing contradicts the truth."
+  }
+ },
+ {
+  "dir": "place",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a board and clock. A woman in a blue top with a small bag holds a small golden object near her chest. A man in a black suit and glasses stands to the right, facing her. Both calm."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The words 'PSYCHOLOGICAL BEDROCK' appear above the board. Poses unchanged, object still held at her chest."
+    },
+    {
+     "n": 3,
+     "sees": "Same scene, no text. Both standing still, object held at her chest."
+    },
+    {
+     "n": 4,
+     "sees": "Same, nothing changes."
+    },
+    {
+     "n": 5,
+     "sees": "Same, nothing changes."
+    },
+    {
+     "n": 6,
+     "sees": "Same, still. The woman's arm starts to move slightly."
+    },
+    {
+     "n": 7,
+     "sees": "The words 'THEIR OWN SAFETY NETS' appear. The woman extends her arm out toward the man, holding the golden object up in front of him."
+    },
+    {
+     "n": 8,
+     "sees": "Close-up on both against a bright radiating background. The woman looks surprised or worried. The man has glasses and a surprised open mouth. The golden object is not visible."
+    }
+   ],
+   "action": "stand",
+   "direction": "stays: she holds her place and reaches her arm toward the man. He doesn't move. The last frame is a close-up.",
+   "chased": "no",
+   "objects": "A small golden object (a cup or trophy-like item). In frames 1-6 it is in her hand at her chest. In frame 7 she holds it out toward the man. In frame 8 it is not visible, gone or out of frame.",
+   "sequence": "1. A woman and a man stand facing each other in a classroom, and she holds a small golden object. 2. The text 'Psychological Bedrock' appears while they stay still. 3. They hold still for several moments. 4. The text 'Their Own Safety Nets' appears and she reaches out, offering the object to the man. 5. A close-up shows both with surprised or worried faces."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "NO",
+   "q3": "NO",
+   "wrong": false,
+   "why": "The reader sees her holding a small golden object at her chest in frames 1-6, so q1 is yes. The reader never sees her put it down. She only extends it toward the man in frame 7, so q2 is no. In the last frame the object is not visible (\"gone or out of frame\"), so the reader does not see it stay where she left it, and q3 is no. The reading leaves out the set-down but does not contradict the truth. It does not say she picks the object up or leaves, and the man standing beside her fits the truth. The reaching gesture is ambiguous and may be a clumsy view of setting it down, so I did not mark it wrong."
+  }
+ },
+ {
+  "dir": "place",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and wall clock. A young person in a blue top with a bag stands on the left, holding a small yellow/gold object at chest level. A man in a black suit and glasses stands upright on the right. Both calm. Label top right reads 'TRUST FALL'."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene and poses. The words 'PSYCHOLOGICAL BEDROCK' appear in large text over the whiteboard."
+    },
+    {
+     "n": 3,
+     "sees": "Same scene, no text. Both still, the person still holding the small yellow object."
+    },
+    {
+     "n": 4,
+     "sees": "Same as before: both standing still, person holding the object."
+    },
+    {
+     "n": 5,
+     "sees": "Same, both standing still."
+    },
+    {
+     "n": 6,
+     "sees": "Same, the person's arm is starting to shift."
+    },
+    {
+     "n": 7,
+     "sees": "The text 'THEIR OWN SAFETY NETS' appears. The person's arm is raised and extended toward the man, holding the yellow object out. The man stands still."
+    },
+    {
+     "n": 8,
+     "sees": "Close-up of both against a bright radiating-rays background. The person looks surprised or worried, with eyes and mouth open. The man in glasses looks surprised or alarmed with an open mouth. They face each other."
+    }
+   ],
+   "action": "stand",
+   "direction": "stays in place; in the last moment the two are shown close together, facing each other",
+   "chased": "no",
+   "objects": "The person holds a small yellow/gold object at chest level in moments 1 to 6. In moment 7 it is held out toward the man. In moment 8 it is not clearly visible.",
+   "sequence": "1. A person and a man in a suit stand in a classroom, the person holding a small yellow object. 2. The text 'PSYCHOLOGICAL BEDROCK' appears. 3. Both stand still for several moments. 4. The person raises and extends the object toward the man while the text 'THEIR OWN SAFETY NETS' shows. 5. A close-up shows both with surprised or worried faces."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "NO",
+   "q3": "NO",
+   "wrong": false,
+   "why": "The reader clearly sees the young person holding a small yellow object in the early moments. The reading never describes it being put on the ground or a table. The nearest thing is the arm extending the object toward the man, which could be a handoff. In the last moment the object is not clearly visible, so the reader does not see it staying where it was put. The reading omits the set-down but does not explicitly contradict it, since it never says she keeps holding it or picks it up. Extending toward the man is ambiguous, so I did not mark it wrong."
+  }
+ },
+ {
+  "dir": "place",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and wall clock. A woman in a blue top with a small bag stands on the left, holding a small golden object at chest level. A man in a dark suit and glasses stands upright on the right. Both stand calmly."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The words PSYCHOLOGICAL BEDROCK appear over the whiteboard. Both figures still, woman still holding the golden object."
+    },
+    {
+     "n": 3,
+     "sees": "Same scene, no text. Both stand still, woman holding the object."
+    },
+    {
+     "n": 4,
+     "sees": "Same scene, unchanged. Both stand still."
+    },
+    {
+     "n": 5,
+     "sees": "Same scene, unchanged. Both stand still."
+    },
+    {
+     "n": 6,
+     "sees": "Same scene. The woman's arm starts to shift or rise slightly."
+    },
+    {
+     "n": 7,
+     "sees": "The words THEIR OWN SAFETY NETS appear. The woman extends her arm out toward the man, holding up the golden object as if offering or showing it. The man stands still."
+    },
+    {
+     "n": 8,
+     "sees": "Close-up of both faces on a bright radiating-light background with city shapes. Both look surprised or alarmed with wide eyes and open mouths. The woman is on the left and the man is on the right."
+    }
+   ],
+   "action": "stand",
+   "direction": "stays: the woman stays in place facing the man, only reaching her arm toward him. The last moment is a close-up of both.",
+   "chased": "no",
+   "objects": "The woman holds a small golden object, perhaps a trophy or cup, in her hand at chest level from the start. It stays in hand through most moments. In moment 7 she holds it out toward the man. It is not visible in the close-up in moment 8.",
+   "sequence": "1. A woman and a man stand facing each other in a classroom, and she holds a golden object. 2. The text PSYCHOLOGICAL BEDROCK appears. 3. to 5. Nothing changes. 6. Her arm begins to move. 7. The text THEIR OWN SAFETY NETS appears while she holds the object out toward the man. 8. A close-up of both with surprised faces on a bright rays background."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "NO",
+   "q3": "NO",
+   "wrong": false,
+   "why": "The reader sees the woman holding a golden object at chest level from the start. That is close enough to the shield, so q1 is YES. The reader never sees her set it down. In moment 7 she holds it out toward the man, and in moment 8 it is not visible, so q2 is NO. The object is never seen resting anywhere, so q3 is NO. The reading does not directly contradict the truth. It misses the put-down and does not describe her picking something up, running off or the object vanishing, so wrong is false."
+  }
+ },
+ {
+  "dir": "place",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and wall clock. A young person in a blue top with a small bag stands on the left, holding a small yellow object at chest height. A man in a black suit and glasses stands on the right. Tag 'TRUST FALL' top right."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene, with the printed words 'PSYCHOLOGICAL BEDROCK' over the whiteboard. Poses unchanged."
+    },
+    {
+     "n": 3,
+     "sees": "Same scene and poses, no text."
+    },
+    {
+     "n": 4,
+     "sees": "Same, no change."
+    },
+    {
+     "n": 5,
+     "sees": "Same, no change."
+    },
+    {
+     "n": 6,
+     "sees": "Same. The person on the left may be starting to raise an arm."
+    },
+    {
+     "n": 7,
+     "sees": "The text 'THEIR OWN SAFETY NETS' appears. The person on the left holds the yellow object out in an outstretched arm toward the man. The man stands still."
+    },
+    {
+     "n": 8,
+     "sees": "Close-up on both faces against a bright rays background. Both look surprised or worried, with wide eyes and open mouths. The person on the left is on the left side and the man is on the right."
+    }
+   ],
+   "action": "stand",
+   "direction": "stays (the person in blue stays on the left, facing the man; no real movement toward or away, only an arm extended in moment 7)",
+   "chased": "no",
+   "objects": "A small yellow item is held in the blue-clad person's hand at chest height in moments 1-6. In moment 7 it is held out at arm's length toward the man. In moment 8 it is not visible because of the close-up crop.",
+   "sequence": "1. A person in blue and a man in a black suit stand facing each other in a classroom, and the person holds a small yellow object. 2. The text 'PSYCHOLOGICAL BEDROCK' appears. 3. The scene holds still for several moments. 4. The text 'THEIR OWN SAFETY NETS' appears while the person extends the yellow object toward the man. 5. A close-up shows both faces looking surprised or worried."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "NO",
+   "q3": "NO",
+   "wrong": true,
+   "why": "The reader sees the person holding a small yellow object, so q1 is yes. They never see her put it down. In moment 7 she holds it out toward the man, and in moment 8 it is not visible. Nothing shows it resting on the ground or a table, so q2 is no. Because it is never set down, it cannot be seen staying where she put it, so q3 is no. The reading says the object is held and then extended toward the man, which contradicts the truth that she sets it down and it stays there. That is a contradiction and not just a missing detail, so wrong is true."
+  }
+ },
+ {
+  "dir": "place",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a board and a wall clock. A person in a blue top with a small bag holds a small golden item in front of the chest. A second person in a dark suit and glasses stands to the right. Both are calm."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. Printed words 'PSYCHOLOGICAL BEDROCK' appear above. The people don't change."
+    },
+    {
+     "n": 3,
+     "sees": "Same scene, no text. Both stand still. The blue-top person still holds the golden item."
+    },
+    {
+     "n": 4,
+     "sees": "Same as before. Neither person moves."
+    },
+    {
+     "n": 5,
+     "sees": "Same as before. Neither person moves."
+    },
+    {
+     "n": 6,
+     "sees": "Same scene. The blue-top person's arm may be starting to lift."
+    },
+    {
+     "n": 7,
+     "sees": "Printed words 'THEIR OWN SAFETY NETS' appear. The blue-top person holds the golden item out toward the suited person at arm's length."
+    },
+    {
+     "n": 8,
+     "sees": "Close-up with light rays behind. Both faces look surprised or worried, with wide eyes and open mouths. The blue-top person is on the left, the suited person on the right."
+    }
+   ],
+   "action": "stand",
+   "direction": "stays",
+   "chased": "no",
+   "objects": "The blue-top person holds a small golden item at the chest in frames 1-6. In frame 7 it is held out toward the suited person. It is not visible in the close-up in frame 8.",
+   "sequence": "1. Two people stand in a classroom, one holding a small golden item. 2. The words 'PSYCHOLOGICAL BEDROCK' appear. 3. The scene stays still for several moments. 4. The words 'THEIR OWN SAFETY NETS' appear as the blue-top person holds the item out toward the suited person. 5. A close-up shows both people looking surprised or worried."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "NO",
+   "q3": "NO",
+   "why": "The reader saw the blue-top person holding a small golden item in frames 1-6, which matches the first beat (holding the object). The reader never saw her put it down. Frame 7 has her holding it out toward the suited person, and in frame 8 it is not visible. The reading has no put-down and no object staying on the ground or table, so q2 and q3 are NO. The reading also contradicts the truth, because it describes the item being held out and then absent, not set down and left there. The overall action was \"stand\" with direction \"stays\" and nothing was placed. The reading therefore conflicts with the truth that she sets the shield down and it stays there.",
+   "wrong": true
+  }
+ },
+ {
+  "dir": "drink",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and wall clock. A woman in a blue outfit with a bag stands left, holding a small orange object at her chest. A man in a black suit and glasses stands right, facing her."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The woman holds the orange object near her chest and the man stands still. There is no text."
+    },
+    {
+     "n": 3,
+     "sees": "The text 'PSYCHOLOGICAL BEDROCK' appears at the top. The woman raises the orange object to her mouth, as if drinking."
+    },
+    {
+     "n": 4,
+     "sees": "The text 'PSYCHOLOGICAL BEDROCK' is still shown. The woman stands with the orange object near her mouth or chest, and the man is unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "No text. The woman has lowered the orange object to about waist or hand level. The man stands still."
+    },
+    {
+     "n": 6,
+     "sees": "The woman is turning or stepping, with her legs apart. She holds the orange object low. The man stands still."
+    },
+    {
+     "n": 7,
+     "sees": "The woman overlaps with the man and seems to walk past or behind him, moving right. No orange object is visible."
+    },
+    {
+     "n": 8,
+     "sees": "The text 'THEIR OWN SAFETY NETS' appears. Only the man remains in the room, and the woman is gone."
+    }
+   ],
+   "action": "stand",
+   "direction": "She moves toward the man and then past him, going off-screen to the right. He stays in place.",
+   "chased": "no",
+   "objects": "The woman holds a small orange object, probably a cup or drink. It is in her hand at her chest, then raised to her mouth, then lowered to her side. It is not visible in the last frames.",
+   "sequence": "1. The woman stands holding the orange object while the man stands opposite her. 2. The text 'PSYCHOLOGICAL BEDROCK' appears and she raises the object to her mouth. 3. She lowers it. 4. She turns and steps toward the man. 5. She passes him and leaves. 6. The text 'THEIR OWN SAFETY NETS' appears and only the man remains."
+  },
+  "judge": {
+   "q1": "PARTLY",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader hedges on the drink. Frame 3 says she raises the orange object to her mouth \"as if drinking\", and the objects field says \"probably a cup or drink... raised to her mouth\". That is a tentative sighting of the drink, so q1 is PARTLY. The reader clearly sees her leave: she passes the man and goes off-screen to the right, and in frame 8 only the man remains, so q2 is YES. The sequence puts raising the object to the mouth first and leaving after, so q3 is YES. Nothing contradicts the truth: the reader doesn't say she runs toward the house, picks the object up, or leaves before drinking. The man staying behind also matches."
+  }
+ },
+ {
+  "dir": "drink",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and clock. A person in a blue outfit with a bag stands left, holding a small orange item near the chest. A man in a black suit and glasses stands to the right, facing them."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The blue-clad person holds the orange item at the chest. The suited man stands still."
+    },
+    {
+     "n": 3,
+     "sees": "Text 'PSYCHOLOGICAL BEDROCK' appears above. The blue-clad person raises the orange item to their mouth, as if drinking or eating. The suited man stands still."
+    },
+    {
+     "n": 4,
+     "sees": "The text 'PSYCHOLOGICAL BEDROCK' is still shown. The blue-clad person still holds the orange item at the mouth. The suited man is unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "The text is gone. The blue-clad person lowers the orange item to chest level. The suited man is unchanged."
+    },
+    {
+     "n": 6,
+     "sees": "The blue-clad person has turned and steps toward the right, orange item held low at the side. The suited man stays put."
+    },
+    {
+     "n": 7,
+     "sees": "The blue-clad person has moved right and overlaps the suited man, partly hidden behind or beside him. The orange item is no longer clearly visible."
+    },
+    {
+     "n": 8,
+     "sees": "The text 'THEIR OWN SAFETY NETS' appears. Only the suited man is visible. The blue-clad person is gone."
+    }
+   ],
+   "action": "other",
+   "direction": "Moves toward the suited man, overlaps him, then disappears from view.",
+   "chased": "no",
+   "objects": "A small orange item (a cup or drink). It starts in hand at the chest, goes to the mouth, then is lowered back to the chest and held low at the side. It is not clearly visible when the person overlaps the man, and it is gone by the last frame.",
+   "sequence": "1. The blue-clad person stands holding an orange item at the chest, facing the suited man.\n2. They raise it to their mouth, and the text 'PSYCHOLOGICAL BEDROCK' shows.\n3. They lower it back to the chest.\n4. They turn and walk right toward the suited man, holding the item low.\n5. They overlap the suited man, then exit the scene.\n6. The suited man is left alone, with the text 'THEIR OWN SAFETY NETS'."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader describes the person raising the orange item to the mouth (\"as if drinking or eating\"; \"a cup or drink\"), which counts as drinking. They then lower it, turn, walk right and are gone by the last frame, with the suited man left alone. That is leaving. The order is drink first, then leave. The reading adds hedging and says she overlaps the man, but none of that contradicts the truth."
+  }
+ },
+ {
+  "dir": "drink",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and clock. A girl in a blue outfit with a bag stands left, holding a small orange object near her chest. A man in a black suit and glasses stands right. Small header labels at the top."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The girl holds the orange object at her chest, and the man stands still."
+    },
+    {
+     "n": 3,
+     "sees": "The words 'PSYCHOLOGICAL BEDROCK' appear at the top. The girl raises the orange object to her mouth. The man stands still."
+    },
+    {
+     "n": 4,
+     "sees": "The words 'PSYCHOLOGICAL BEDROCK' are still shown. The girl is at the same spot, with the orange object at or near her mouth."
+    },
+    {
+     "n": 5,
+     "sees": "No big text. The girl lowers the orange object to about waist level. The man is unchanged."
+    },
+    {
+     "n": 6,
+     "sees": "The girl turns and takes a step, walking toward the man. She holds the orange object low."
+    },
+    {
+     "n": 7,
+     "sees": "The girl overlaps with the man and seems to pass behind or beside him. The orange object is not clearly visible."
+    },
+    {
+     "n": 8,
+     "sees": "The words 'THEIR OWN SAFETY NETS' appear. Only the man stands there. The girl is gone and the orange object is gone."
+    }
+   ],
+   "action": "walk",
+   "direction": "The girl stays beside the man at first, then moves toward him, passes him, and leaves the picture.",
+   "chased": "no",
+   "objects": "She holds a small orange object, perhaps a cup or drink. It is in her hand at her chest, then at her mouth, then lowered to her side while she walks. It is hidden or gone by the end, when she has left.",
+   "sequence": "1. The girl stands holding an orange object, facing the man. 2. She holds it still at her chest. 3. She raises it to her mouth, as if drinking, while 'PSYCHOLOGICAL BEDROCK' is shown. 4. She stays in that pose. 5. She lowers the object. 6. She turns and walks toward the man. 7. She passes him. 8. She is gone, only the man is left, and 'THEIR OWN SAFETY NETS' is shown."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader sees the girl raise an orange object, perhaps a cup, to her mouth \"as if drinking\". They then see her lower it, walk, pass the man and leave the picture, with only the man left. Drinking comes first and leaving second, which matches the truth. The reader says she walks \"toward the man\" and passes him. That is a minor detail and doesn't contradict the truth. They are also hedged about the object (\"perhaps a cup or drink\"), but this is not a contradiction."
+  }
+ },
+ {
+  "dir": "drink",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with whiteboard and wall clock. A woman in a blue outfit with a bag stands left holding a small orange object at her chest. A man in a black suit and glasses stands right, facing her. Top-left small label bar and top-right 'TRUST FALL' tag."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The woman holds the orange object up near her chest or chin. The man stands still."
+    },
+    {
+     "n": 3,
+     "sees": "Text 'PSYCHOLOGICAL BEDROCK' appears above. The woman raises the orange object to her mouth, as if drinking or eating. The man stands still."
+    },
+    {
+     "n": 4,
+     "sees": "Same text 'PSYCHOLOGICAL BEDROCK'. The woman still holds the orange object at her mouth or face. The man is unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "No text. The woman has lowered the orange object to chest height. The man stands still."
+    },
+    {
+     "n": 6,
+     "sees": "The woman leans or steps to the right with her legs apart and holds the orange object low near her waist. The man stays in place."
+    },
+    {
+     "n": 7,
+     "sees": "The woman has moved right and overlaps the man, standing very close in front of or behind him. The orange object is no longer visible."
+    },
+    {
+     "n": 8,
+     "sees": "Text 'THEIR OWN SAFETY NETS'. Only the man is left standing. The woman is gone from the scene and the orange object is not visible."
+    }
+   ],
+   "action": "walk",
+   "direction": "She moves toward the man, overlaps him, then is gone from the scene. He stays in place.",
+   "chased": "no",
+   "objects": "The woman holds a small orange object, probably a cup or drink. It is in hand at her chest at first, then at her mouth (frames 3-4), then lowered to her waist (frames 5-6). It is gone by frame 7, when she overlaps the man, and absent in frame 8.",
+   "sequence": "1. The woman stands left holding an orange object while the man stands right. 2. She raises it toward her face. 3. She brings it to her mouth, as if drinking, while 'PSYCHOLOGICAL BEDROCK' shows. 4. She holds it there. 5. She lowers it. 6. She steps toward the man with the object held low. 7. She overlaps the man and the object is no longer visible. 8. Only the man remains, and 'THEIR OWN SAFETY NETS' shows."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "YES",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reading says the woman raises the orange object, probably a cup or drink, to her mouth \"as if drinking\" in frames 3-4. In frame 8 she is gone and only the man remains. The order is drink first, then lowering, then gone, so it matches the truth. Some details are off: she moves toward and overlaps the man before vanishing, and the object is lowered rather than drunk from to the end. That is a path detail, not a contradiction, because she still exits the picture and the man stays."
+  }
+ },
+ {
+  "dir": "drink",
+  "arm": "ON",
+  "read": {
+   "frames": [
+    {
+     "n": 1,
+     "sees": "Classroom with a whiteboard and wall clock. A woman in a blue outfit with a bag stands left, holding a small orange object at her chest. A man in a black suit and glasses stands right. Small label top left (INCIDENT, SETUP), 'TRUST FALL' top right."
+    },
+    {
+     "n": 2,
+     "sees": "Same scene. The woman holds the orange object near her chest or chin. The man stands still. No text."
+    },
+    {
+     "n": 3,
+     "sees": "Text 'PSYCHOLOGICAL BEDROCK' above. The woman raises the orange object to her mouth. The man stands still."
+    },
+    {
+     "n": 4,
+     "sees": "Same text 'PSYCHOLOGICAL BEDROCK'. The woman still has the orange object at her mouth. The man is unchanged."
+    },
+    {
+     "n": 5,
+     "sees": "No text. The woman lowers the orange object to about waist height. The man stands still."
+    },
+    {
+     "n": 6,
+     "sees": "The woman holds the orange object low and steps or leans to one side, with her legs apart. The man is unchanged."
+    },
+    {
+     "n": 7,
+     "sees": "The woman has moved right and overlaps the man. They stand close together, almost merged. The orange object is not visible."
+    },
+    {
+     "n": 8,
+     "sees": "Text 'THEIR OWN SAFETY NETS' above. Only the man is visible on the right. The woman is gone from the scene."
+    }
+   ],
+   "action": "other",
+   "direction": "She moves toward the man, overlaps him, then vanishes. She goes toward him and then disappears from view.",
+   "chased": "no",
+   "objects": "The woman holds a small orange object, probably a cup or drink. It is in her hand at her chest in frames 1-2. It is at her mouth in frames 3-4, as if she is drinking. It is lowered in frames 5-6. It is not visible in frame 7 and is gone in frame 8.",
+   "sequence": "1. The woman stands holding an orange object at her chest, facing the man. 2. She holds it near her face. 3. She raises it to her mouth, as if drinking, while the text 'PSYCHOLOGICAL BEDROCK' shows. 4. She keeps it at her mouth. 5. She lowers it. 6. She steps toward the man holding it low. 7. She overlaps the man and the object is hidden. 8. She is gone and only the man remains, with the text 'THEIR OWN SAFETY NETS'."
+  },
+  "judge": {
+   "q1": "YES",
+   "q2": "PARTLY",
+   "q3": "YES",
+   "wrong": false,
+   "why": "The reader sees the object at her mouth in frames 3-4 and calls it drinking, so q1 is YES. Afterward she lowers it, moves toward the man, overlaps him, and is gone by frame 8. That is a disappearance, but the reading frames it as moving toward the man rather than walking out of the picture. It counts as a partial q2 because she does exit the scene. The order is drink first, then vanish, so q3 is YES. Nothing contradicts the truth: she doesn't leave before drinking and doesn't pick the object up, and the man stays. The \"toward him\" direction is a missing or imprecise detail, not a contradiction, so wrong is false."
+  }
+ }
+]

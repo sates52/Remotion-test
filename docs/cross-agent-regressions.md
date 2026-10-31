@@ -26,7 +26,7 @@ Started 2026-10-30 (cycle 3; details in `AGENT_LOG.md` → 2026-10-30). Tests ar
 | 10 | merge recovery filling fields mechanically | an action with `cast: []` silently dropped | ACTION_NO_PERSON refusal | merge-recovery | AoS beat 293 is the real case | L3 (detection) |
 | 11 | cloud assembly: local FFmpeg suggested | old fallback text | render-deliver skill; a local join needs `--operator-approved` | cloud-assemble | **MN 2026-10-30:** cloud assembly run 41038122542 verified 57,493/57,493 frames; the film was downloaded and the local sha256 = the cloud report (843e0ea0…); h264 1080p30 + AAC 48 kHz stereo, 1922.9 s | **L3** |
 | 12 | YouTube pack: TODO / copied fallback text | placeholders passed | lintPack placeholder hard fail | title-lint, youtube-gate | MN pack READY | L3 · template text in the thumbnail prompt is not caught |
-| 13 | collapsed character reset in the next beat | no carried state | body-state continuity chains (+ take→place, drink→leave) | body-state | **TF 42-47 blind A/B 2026-10-30** (sit → continue): carry ON 5/5 "sits throughout", 0 WRONG; carry OFF 0/5, 5 WRONG (`audit/c4-pilots/result-flee-continuity.json`) | **L3 for sit → continue** · collapsed / falling / take→place / drink→leave: no real-book blind yet |
+| 13 | collapsed character reset in the next beat | no carried state | body-state continuity chains (+ take→place, drink→leave) | body-state | **TF 42-47 blind A/B 2026-10-30** (sit → continue): carry ON 5/5 "sits throughout", 0 WRONG; carry OFF 0/5, 5 WRONG (`audit/c4-pilots/result-flee-continuity.json`) | **L3 for sit → continue and drink → leave** (blind 2026-10-31: drink 5/5, leave 5/5, order 5/5, WRONG 0) · **take → place FAILS** (0/5 see it set down; reads as handing it to the partner) · collapsed / falling: no real-book blind yet |
 | 14 | stale checkout: old engine + rules.md | book started on old code | `book-start.js` from origin, pinned worktree | book-start | MN / TF / AoS worktrees pinned | L3 |
 | 15 | **TF: audio/VTT tail — the analyzer and the gate disagree** | see below | — (not fixed) | — | TF 2026-10-30 | **L1 open** |
 | 16 | adoption: 10x features eligible but not authored | see the adoption snapshot below | — (authoring) | — | 10 book worktrees, 2026-10-30 | open |
@@ -61,6 +61,8 @@ Open, for a later cycle (not done):
 - WAITING: background work the agent started has not reported back yet.
 - CLAIMED_GATE: the question names a real gate. A human confirms these; the verdict is REVIEW, never an automatic PASS.
 - AT_GATE: the last status was READY or OPERATOR.
+
+**AFTER, first sessions (2026-10-31 scan):** hamnet, procrastinate-on-purpose, yesteryear, the-first-90-days — all PASS, 0 stops on CONTINUE, but every one is a Step-0 session that stopped correctly at OPERATOR MISSING_INPUT (no audio yet). They prove the Step-0 gate, NOT the bible → preview-ready chain, which is still unmeasured on post-fix code.
 
 **BEFORE (2026-10-30, all three sessions ran on pins before the fix c923c2c1):**
 
