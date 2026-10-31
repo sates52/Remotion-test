@@ -22,6 +22,12 @@ t("summary file wins over per-call lines of the same component; agent + detectio
     { name: "token_usage.jsonl", text: '{"model":"claude-haiku-5-5","input_tokens":1000000}\n' },
     { name: "detection_usage.json", text: JSON.stringify({ aic: 1 }) },
   ], cfg), 0.05));
+t("real artifact layout (2026-10-31 run): agent summary + detection/token_usage.jsonl → both counted",
+  near(B.usdOfUsageFiles([
+    { name: "agent_usage.json", text: JSON.stringify({ ai_credits: 1.630479 }) },
+    { name: "agent/token_usage.jsonl", text: JSON.stringify({ model: "claude-haiku-5-5", input_tokens: 9e9 }) + "\n" },
+    { name: "detection/token_usage.jsonl", text: JSON.stringify({ ai_credits: 0.467504 }) + "\n" },
+  ], cfg), 0.01630479 + 0.00467504));
 t("only per-call lines → their sum", near(B.usdOfUsageFiles([{ name: "token_usage.jsonl", text: '{"aic":2}\n{"aic":3}\n' }], cfg), 0.05));
 t("no usable record → null (the caller counts the run at its maximum)", B.usdOfUsageFiles([{ name: "agent_usage.json", text: "{}" }], cfg) === null);
 

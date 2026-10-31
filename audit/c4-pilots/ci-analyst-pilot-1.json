@@ -1,0 +1,21 @@
+{
+  "schema": "ci-analyst-pilot/1",
+  "date": "2026-10-31",
+  "workflow": ".github/workflows/ci-failure-analyst.lock.yml (main), model claude-haiku-5-5, read-only, threat detection on",
+  "dispatchedVia": "scripts/ai-budget.js dispatch (month $0.00 of $50 before the run)",
+  "run": { "id": 41187278116, "analysed": 41020755406, "conclusion": "success", "wallTime": "3 min 55 s", "agentTurns": 17 },
+  "cost": {
+    "agent": { "aic": 1.630479, "usd": 0.0163, "outputTokens": 8014, "cacheReadTokens": 444189, "cacheWriteTokens": 62828 },
+    "detection": { "aic": 0.467504, "usd": 0.0047 },
+    "totalUsd": 0.0210,
+    "cap": "10 + 5 AIC = $0.15 per run; used 14%"
+  },
+  "security": { "promptInjection": false, "secretLeak": false, "maliciousPatch": false, "writes": "none (noop step summary only)" },
+  "quality": {
+    "groundTruth": "the only real failure was test-preview-state.js: on Linux the test removed a symlink with rmdir (ENOTDIR); fixed in 39fb6560 with unlinkSync on POSIX, together with the same bug in preview-state's own unlink command",
+    "analystFound": "test-preview-state.js, the exact ENOTDIR rmdir line, the Windows-junction vs Linux-symlink cause, fix = unlinkSync on POSIX; also said to check the product's unlink for the same bug (it had it); all 5 known baseline failures classified correctly",
+    "limitsItStated": "no commit diff available (history filtered), counts in the log vs the baseline note do not add up, flakiness not assessed",
+    "verdict": "CORRECT root cause and fix, correct classification, honest limits"
+  },
+  "counterFix": "ai-budget first counted only the agent ($0.0163): detection's usage file was classified by its base name; it now uses the relative path ($0.0210 = agent + detection). test-ai-budget covers the real artifact layout."
+}

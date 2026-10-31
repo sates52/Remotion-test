@@ -59,7 +59,7 @@ function runUsd(runId) {
       const zip = path.join(dir, "u.zip");
       fs.writeFileSync(zip, gh(["api", `repos/${cfg.repo}/actions/artifacts/${a.id}/zip`], "buffer"));
       if (unzipTo(zip, path.join(dir, "x"))) {
-        const files = walk(path.join(dir, "x")).filter((f) => /\.(json|jsonl)$/.test(f)).map((f) => ({ name: path.basename(f), text: fs.readFileSync(f, "utf8") }));
+        const files = walk(path.join(dir, "x")).filter((f) => /\.(json|jsonl)$/.test(f)).map((f) => ({ name: path.relative(path.join(dir, "x"), f).split(path.sep).join("/"), text: fs.readFileSync(f, "utf8") }));
         usd = B.usdOfUsageFiles(files, cfg);
       }
       fs.rmSync(dir, { recursive: true, force: true });
