@@ -1,0 +1,140 @@
+diff --git a/src/engines/antidote/characters/Everyman.tsx b/src/engines/antidote/characters/Everyman.tsx
+index 2d46ad10..e6221b11 100644
+--- a/src/engines/antidote/characters/Everyman.tsx
++++ b/src/engines/antidote/characters/Everyman.tsx
+@@ -244,7 +244,10 @@ export const Everyman: React.FC<{
+   const mid = toScreen(200, ground - LEN / 2);
+   const headAt = toScreen(200, 150);
+   const bed = tipped ? clamp(pose.bed ?? 0, 0, 1) : 0;
++  // two kinds of motion lines: ABOVE a falling (tipped) body, and BEHIND an upright runner (flee). Until 2026-10-30
++  // the runner's streaks were gated on `tipped`, so a flee never drew them (blind: the run read as "walks out").
+   const streaks = tipped ? clamp(pose.streaks ?? 0, 0, 1) : 0;
++  const runStreaks = !tipped ? clamp(pose.streaks ?? 0, 0, 1) : 0;
+   const strain = clamp(pose.strain ?? 0, 0, 1);
+   const flat = Math.abs(Math.sin(rad));
+   // The hand with its object (drawn in front of the garment). `pose.front` (drink, 10x P2): the hand is AT THE MOUTH,
+@@ -300,6 +303,19 @@ export const Everyman: React.FC<{
+             ))}
+           </g>
+         )}
++        {/* a runner: a shadow that shrinks as the body leaves the ground, and speed lines trailing behind it (rig -x is
++            always behind — the body is flipped to face its exit). Outside the lean, so the lines stay horizontal. */}
++        {!tipped && legs && pose.airborne != null && (
++          <ellipse cx={200} cy={ground + 6} rx={95 - 25 * pose.airborne} ry={14} fill="#000" opacity={0.2 - 0.08 * pose.airborne} />
++        )}
++        {runStreaks > 0.02 && (
++          <g transform={`translate(0 ${hipY})`} stroke="#26241F" strokeWidth={7} strokeLinecap="round" opacity={0.5 * runStreaks}>
++            {/* at LEG height (flee 2.2): at arm height the lines started at the rear hand and read as the hand pushing */}
++            {[[640, 170], [730, 130], [820, 150]].map(([y, L], k) => (
++              <line key={k} x1={40} y1={y} x2={40 - L * runStreaks} y2={y} />
++            ))}
++          </g>
++        )}
+         <g transform={tipped ? `translate(${tipDx} ${tipDy}) rotate(${tip} 200 ${ground})` : undefined}>
+         {/* hipY carries the walk bounce and the drop into a chair; the whole
+             figure moves together so the legs never detach from the torso. */}
+diff --git a/src/engines/antidote/components/Scene.tsx b/src/engines/antidote/components/Scene.tsx
+index 18868e5f..973348f8 100644
+--- a/src/engines/antidote/components/Scene.tsx
++++ b/src/engines/antidote/components/Scene.tsx
+@@ -141,7 +141,9 @@ const CharacterLayer: React.FC<{
+   rest?: RestCarry;
+   /** LEAVE / FLEE (Action 2.0, leaveLayout.ts): px from the slot to the exit (the icon, or off the frame) */
+   exitDx?: number;
+-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx }) => {
++  /** FLEE from a threat (flee 2.2): px from the slot to the START beside the threat — the body stands there from frame 0 */
++  startDx?: number;
++}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx, startDx = 0 }) => {
+   const frame = useCurrentFrame();
+   const { fps } = useVideoConfig();
+   // whoever walked out / ran away on an earlier beat is GONE (endState.ts): never drawn back on their slot
+@@ -168,7 +170,7 @@ const CharacterLayer: React.FC<{
+   // LEAVE / FLEE: the body moves along its path to the exit, faces the way it goes from the turn on, and is gone at
+   // the end (through the door / off the frame) — the deed is the movement, never a walk cycle on the spot
+   const leaving = (spec.action === "leave" || spec.action === "flee") && exitDx != null;
+-  const exitShift = leaving ? exitDx! * pathOf(p.exit ?? 0) : 0;
++  const exitShift = leaving ? startDx + exitDx! * pathOf(p.exit ?? 0) : 0;
+   const goneOpacity = leaving ? 1 - (p.gone ?? 0) : 1;
+   const faceFlip = leaving && (p.turned ?? 0) >= 0.5 ? exitDx! < 0 : st.flip;
+   const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) + (liftDx.back ?? 0) * (p.back ?? 0) : 0;
+@@ -451,7 +453,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
+         const amb = ambient((i * 0.37 + 0.11) % 1, local);
+         // The metaphor's arc: what this object DOES over the beat.
+         const from = (p.at ?? 0);
+-        const arc = arcOf(p.arc, local - from, Math.max(1, scene.durationFrames - from));
++        // flee 2.2: the THREAT a person runs from stays put — a growing threat read as "coming closer", and the runner
++        // as running toward it (TF A/B 2026-10-30: the city grew 1 → 1.34 while she fled)
++        const arc = arcOf(fleeFromIcon && i === 0 ? undefined : p.arc, local - from, Math.max(1, scene.durationFrames - from));
+         // Decorative motifs sit back in the set; icon-shot motifs are the hero,
+         // so they stay on the focal plane.
+         const depth = p.depth ?? (iconShot ? 1 : 0.72);
+@@ -581,6 +585,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
+                 liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry, back: ci === 0 ? lift.stepBack : 0 } : undefined}
+                 rest={cc && cc.rest ? cc.rest : undefined}
+                 exitDx={(() => { const L = leaveOf(ci); return L ? L.exitDx : undefined; })()}
++                startDx={(() => { const L = leaveOf(ci); return L ? L.startDx : 0; })()}
+               />
+             )}
+           </AbsoluteFill>
+diff --git a/src/engines/antidote/leaveLayout.ts b/src/engines/antidote/leaveLayout.ts
+index 0bcf4c39..699f2da0 100644
+--- a/src/engines/antidote/leaveLayout.ts
++++ b/src/engines/antidote/leaveLayout.ts
+@@ -34,8 +34,13 @@ export function leaveLayout(lead: Stage, partner: Stage | null, action: "leave"
+     destX = Math.max(EDGE_IN, Math.min(FRAME_W - EDGE_IN, want));
+     if (Math.sign(destX - lead.x) !== dir || Math.abs(destX - lead.x) < 200) destX = dir > 0 ? FRAME_W - EDGE_IN : EDGE_IN;
+   } else destX = dir > 0 ? FRAME_W + OFF : -OFF; // off the frame: the body is fully out before the beat ends
++  // flee 2.2 — an explicit START next to the threat (TF A/B 2026-10-30: the runner stood at the frame edge, so she
++  // left in a few frames and the path showed no direction; readers said "runs toward the skyline"). START = the threat's
++  // away side, about one body away from it; TARGET = the far frame edge. The whole run crosses the frame.
++  let startX = lead.x;
++  if (threat) startX = Math.max(EDGE_IN, Math.min(FRAME_W - EDGE_IN, (iconX as number) + dir * 520 * lead.scale));
+   const destScale = 1.9 * lead.scale; // a door a person fits through (at 1.05 it read as a cabinet, the-second-mountain v1)
+-  return { dir, exitDx: destX - lead.x, dest: { x: destX, y: floorY - 0.36 * ICON_BOX * destScale, scale: destScale }, floorY };
++  return { dir, startDx: startX - lead.x, exitDx: destX - startX, dest: { x: destX, y: floorY - 0.36 * ICON_BOX * destScale, scale: destScale }, floorY };
+ }
+ 
+ /** easing of the path: a step to start, then a steady walk/run (never a slide that starts at full speed) */
+diff --git a/src/engines/antidote/movements.ts b/src/engines/antidote/movements.ts
+index 1e7e6502..66965c07 100644
+--- a/src/engines/antidote/movements.ts
++++ b/src/engines/antidote/movements.ts
+@@ -155,6 +155,8 @@ export type Pose = {
+   gone?: number;
+   /** `leave` / `flee`: 1 from the turn on — the body faces the way it goes */
+   turned?: number;
++  /** `flee`: 0..1 how high the runner is in the stride (1 = both feet off the ground; the rig shrinks the shadow) */
++  airborne?: number;
+ };
+ /** LIFT phases on the pose clock, relative to the author's cue (the lifting word): the lifter closes the gap and bends
+  *  BEFORE the cue; on the cue the body rises; then the carry; then the setting-down; then the lifter straightens. */
+@@ -262,15 +264,24 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
+       const ph = ((frame - cue) / fps) * (run ? 2.4 : 1.3) * Math.PI * 2;
+       return {
+         ...BASE,
+-        legL: g.legL * amp, legR: g.legR * amp, kneeL: g.kneeL * (run ? 1.7 : 1), kneeR: g.kneeR * (run ? 1.7 : 1),
+-        armL: run ? 10 - Math.sin(ph) * 38 : g.armL, armR: run ? -10 - Math.sin(ph) * 38 : g.armR,
++        // flee 2.1 (2026-10-30, blind: the run read as "walks out"): a flight phase — both knees bent and the body
++        // high at each stride peak (airborne), a deeper bounce, a stronger forward lean, and speed streaks drawn from
++        // the turn on. Cadence (2.4 Hz), length and arms are unchanged (a faster cadence lands stills on a standing
++        // pose; flared arms read as a dance — flee critic 2026-10-30).
++        legL: g.legL * amp, legR: g.legR * amp,
++        kneeL: run ? Math.max(g.kneeL * 1.7, 30 * Math.abs(Math.sin(ph))) : g.kneeL,
++        kneeR: run ? Math.max(g.kneeR * 1.7, 30 * Math.abs(Math.sin(ph))) : g.kneeR,
++        // flee 2.2: the arms ALTERNATE (one forward, one back, like a real run) with a smaller swing — swinging together,
++        // the rear arm stretched toward the threat and read as reaching for it ("runs toward the skyline", TF A/B)
++        armL: run ? 10 - Math.sin(ph) * 30 : g.armL, armR: run ? -10 + Math.sin(ph) * 30 : g.armR,
+         elbowL: run ? 55 : 0, elbowR: run ? -55 : 0,
+-        hipY: g.hipY * (run ? 1.8 : 1),
+-        lean: (run ? 9 : 2) + g.lean,
++        hipY: run ? -Math.abs(Math.sin(ph)) * 16 : g.hipY,
++        lean: run ? 12 + g.lean * 0.5 : 2 + g.lean,
+         headY: g.hipY * 0.35,
+         mouth: run ? 0.35 : 0,
+         blink, gazeX: 0.85, gazeY: 0,
+-        streaks: run ? 0.55 : 0,
++        streaks: run ? (frame - cue >= TURN_LEN ? 1 : 0) : 0,
++        airborne: run ? Math.abs(Math.sin(ph)) : undefined,
+         exit: Math.max(0, Math.min(1, k)),
+         gone: Math.max(0, Math.min(1, (k - 0.84) / 0.16)),
+         turned: Math.max(0, Math.min(1, (frame - cue) / TURN_LEN)),

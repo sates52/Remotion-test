@@ -1,0 +1,21 @@
+{
+  "schema": "c4-pilot-result/1",
+  "date": "2026-10-31",
+  "preregistration": "audit/c4-pilots/preregistration-c5.json",
+  "raters": "52 stills (26 per arm), 2 fresh sonnet describers each + 1 strict judge per description = 208 agents; key judge-side (blind-c5)",
+  "totals": {
+    "OLD": { "n": 52, "WRONG": 0, "CORRECT": 14, "ADDS": 23, "TEXT_ONLY": 28, "DEAD": 1, "EXPLAINS_YES": 0, "EXPLAINS_PARTLY": 9 },
+    "NEW": { "n": 52, "WRONG": 0, "CORRECT": 27, "ADDS": 22, "TEXT_ONLY": 29, "DEAD": 1, "EXPLAINS_YES": 1, "EXPLAINS_PARTLY": 24 },
+    "OLD:H3": { "WRONG": 0, "ADDS": 5, "DEAD": 1, "CORRECT": 5 }, "NEW:H3": { "WRONG": 0, "ADDS": 8, "DEAD": 1, "CORRECT": 13 },
+    "OLD:H4": { "WRONG": 0, "ADDS": 18, "DEAD": 0, "CORRECT": 9 }, "NEW:H4": { "WRONG": 0, "ADDS": 14, "DEAD": 0, "CORRECT": 14 }
+  },
+  "rule": { "wrongPerPassage": true, "deadPooled": true, "addsPlus7": false },
+  "decision": "NO SHIP (pre-registered: ADDS must rise by >= 7; it went 23 -> 22). The goal icon, the target-on-football refusal, the merge guards, the beard fix and the messy-hair lint stay out of production; kept as audit/c4-pilots/c5-guards-goal.patch.",
+  "readings": [
+    "The cycle-4 WRONG rise is gone: WRONG 0 vs 0 on both new passages (the target/goal fix + the target reading in rules.md).",
+    "CORRECT 14 -> 27 and EXPLAINS (yes+partly) 9 -> 25: the new pipeline makes the frames say the RIGHT thing and show more of the HOW.",
+    "ADDS does not rise: + on the ideas passage (H3 5 -> 8) but - on the narrative passage (H4 Trust Fall 18 -> 14). On H4 the new author chose diagrams / callouts / an empty room where the production author staged people with actions (scenes 01, 06, 09, 11): the meaning moved into printed words (TEXT_ONLY). For narrative books the picture must carry the deed, not the label.",
+    "The goal icon itself is blind-named 6/6 ('soccer goal with ball'), but no football beat fell in H3/H4, so it was not exercised here."
+  ],
+  "nextHypothesis": "a narrative-passage rule: when the narration states what a named person DOES or FEELS, stage that person doing it (cast + action/expression) instead of a callout or diagram — test on new narrative holdouts with the same ship rule"
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "c4-pilot-prereg/1",
+  "date": "2026-10-30",
+  "cycle": 5,
+  "written": "before any authoring, rendering or blind reading of these passages",
+  "question": "With the goal icon and the target-on-football refusal added (the cause of the cycle-4 WRONGs), does the current pipeline + merge guards (+ beard and messy-hair fixes) keep its visual gain over the real production authoring WITHOUT more WRONG, on passages it has never seen?",
+  "passages": {
+    "H3": "the-art-of-strategy b64-75 (an ideas passage)",
+    "H4": "trust-fall b220-235 (a narrative passage: people, actions)",
+    "independence": "both are runs of >= 10 beats that contain no beat of any sealed mute sample of the book (AoS: final, fix1, fix2; TF: final, run2), and overlap no passage used before (AoS H1 181-189, H2 225-240; TF fixtures 42-47, 138-142). Nothing was tuned on them."
+  },
+  "arms": {
+    "OLD": "the book's real authored beats, planned on the current code",
+    "NEW": "one fresh author per passage with the current rules.md (it now carries the target and goal readings), the unchanged author prompt, the current merge with the guards, at most one routine fix round, planned on the current code"
+  },
+  "confound": "the author differs between the arms (the production agent vs a fresh agent); this measures the current pipeline as a whole",
+  "sampling": "one still per scene at 60% of the scene (scenes > 2 s), the same frames in both arms where the segmentation matches; otherwise the OLD art is carried onto the NEW segmentation by narration overlap (as in cycle 4); captions off",
+  "raters": "2 fresh sonnet describers per image, one image at a time, no narration; one strict judge per description with the scene narration; arm labels randomised, the key judge-side",
+  "shipRule": "UNCHANGED from cycle 4. SHIP the goal icon + guards + beard + messy-hair lint only if: (1) WRONG(NEW) <= WRONG(OLD) on EACH passage, (2) dead NEW <= OLD pooled, (3) ADDS(NEW) >= ADDS(OLD) + 13% of the pooled descriptions per arm (rounded up). Otherwise NO SHIP. data/quality-policy.json is not touched."
+}

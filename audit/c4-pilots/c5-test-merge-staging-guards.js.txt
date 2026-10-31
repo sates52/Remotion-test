@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+// MERGE STAGING GUARDS (2026-10-30, The Art of Strategy blind failure: ADDS 7/30, dead 8, WRONG 2 on the sealed run).
+// The rules text already asked for these; the authors did not follow it, so the REAL merge enforces it:
+//   refused  — a face for nobody (expression with cast []), a text-only beat with no authored set (the engine would
+//              rotate a literal place under the words: "CORNER THEM" over an open road → WRONG), a one-node flow;
+//   REVIEW   — one bare figure while the narration names another cast member; a sorter with no values.
+// Run: node scripts/test-merge-staging-guards.js
+const fs = require("fs"), os = require("os"), path = require("path");
+const { spawnSync } = require("child_process");
+let failed = 0;
+const t = (name, ok, info) => { console.log(`${ok ? "PASS" : "FAIL"} ${name}${!ok && info ? `  (${String(info).slice(0, 700)})` : ""}`); if (!ok) failed++; };
+const REPO = path.join(__dirname, "..");
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "merge-guards-"));
+const SLUG = `zz-merge-guards-${process.pid}`;
+const BOOK = path.join(tmp, "books", SLUG);
+const env = { ...process.env, USE_NVIDIA: "0", PRODUCTION_GUARD: "off" };
+const LINES = [
+  "Welcome to this deep dive into a game of strategy.",
+  "Fred keeps hunting rabbits because he expects Barney to skip the stag.",
+  "Nobody wins this deadlock and the players stay completely stuck.",
+  "Sun Tzu says you should never corner them with no way out.",
+  "Everything hinges on the deadline that nobody can move.",
+  "Safe drivers take policy alpha while risky drivers take policy beta.",
+  "The tense goalie stares at the kicker before the decisive penalty.",
+];
+const ts = (s) => { const ms = Math.round(s * 1000); const h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, sec = Math.floor(ms / 1000) % 60; return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(ms % 1000).padStart(3, "0")}`; };
+let vtt = "WEBVTT\nKind: captions\nLanguage: en\n\n", clock = 0;
+for (const sent of LINES) {
+  const w = sent.split(" "), start = clock;
+  let line = w[0];
+  for (let k = 1; k < w.length; k++) line += `<${ts(start + k * 0.3)}><c> ${w[k]}</c>`;
+  const end = start + w.length * 0.3;
+  vtt += `${ts(start)} --> ${ts(end)} align:start position:0%\n \n${line}\n\n${ts(end)} --> ${ts(end + 0.01)} align:start position:0%\n${sent}\n\n`;
+  clock = end + 4;
+}
+const CAST = { narrator: { name: "Narrator", role: "host", look: "host" }, fred: { name: "Fred", role: "hunter", look: "a hunter in a green coat" }, barney: { name: "Barney", role: "hunter", look: "a hunter in a red coat" } };
+fs.mkdirSync(path.join(BOOK, "storyboard"), { recursive: true });
+fs.mkdirSync(path.join(tmp, "data"), { recursive: true });
+for (const f of ["shared-generic-motifs.json", "motif-world.json"]) fs.copyFileSync(path.join(REPO, "data", f), path.join(tmp, "data", f));
+fs.writeFileSync(path.join(tmp, "fx.vtt"), vtt);
+fs.writeFileSync(path.join(BOOK, "book.json"), JSON.stringify({ slug: SLUG, title: "Guards Test", author: "A. Writer", genre: "nonfiction", engine: "antidote" }));
+fs.writeFileSync(path.join(BOOK, "story-bible.json"), JSON.stringify({ cast: CAST, visualProvenance: { allowedMotifs: ["heart"] } }));
+const run = (argv) => spawnSync(process.execPath, argv, { encoding: "utf8", cwd: REPO, env });
+const read = (p) => (fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, "utf8")) : null);
+const SB = { claim: "c", concreteVisual: "v", onScreenText: "none", relationToPrevious: "r", addedInformation: "a" };
+try {
+  run([path.join(__dirname, "plan-antidote.js"), `--slug=${SLUG}`, "--title=Guards Test", "--author=A. Writer", "--genre=nonfiction", `--vtt=${path.join(tmp, "fx.vtt")}`, "--scene-secs=2", `--emit-beats=${path.join(tmp, "beats.json")}`]);
+  const em = read(path.join(tmp, "beats.json"));
+  const bs = em ? (em.beats || em) : [];
+  const at = (re) => (bs.find((b) => re.test(b.narration || "")) || {}).i;
+  const I = { bare: at(/hunting rabbits/), face: at(/deadlock/), text: at(/corner them/), flow: at(/deadline/), sorter: at(/Safe drivers/), sport: at(/goalie stares/) };
+  t("fixture: every case sentence is its own beat", Object.values(I).every((k) => k > 0) && new Set(Object.values(I)).size === 6, JSON.stringify(bs.map((b) => b.narration)));
+  fs.writeFileSync(path.join(BOOK, "storyboard", "beats.json"), JSON.stringify({ beats: bs.map((b) => ({ i: b.i, narration: b.narration })) }));
+  const bad = {
+    [I.bare]: { cast: ["fred"], expression: "worried", action: "idle" },
+    [I.face]: { cast: [], expression: "worried", callout: { text: "THE PLAYERS STAY STUCK", style: "reveal" } },
+    [I.text]: { cast: [], callout: { text: "NEVER CORNER THEM", style: "reveal" } },
+    [I.flow]: { cast: [], diagram: { type: "flow", labels: ["Deadline"] } },
+    [I.sorter]: { cast: [], diagram: { type: "sorter", labels: ["Safe drivers", "Risky drivers"] } },
+    [I.sport]: { cast: [], concept: "target", callout: { text: "THE DECISIVE PENALTY", style: "reveal" } },
+  };
+  const good = {
+    [I.bare]: { cast: ["fred", "barney"], expression: "worried", action: "idle" },
+    [I.face]: { cast: [], expression: "neutral", callout: { text: "THE PLAYERS STAY STUCK", style: "reveal" }, set: "stage" },
+    [I.text]: { cast: [], callout: { text: "NEVER CORNER THEM", style: "reveal" }, set: "stage" },
+    [I.flow]: { cast: [], diagram: { type: "flow", labels: ["Deadline", "Nobody can move it"] } },
+    [I.sorter]: { cast: [], diagram: { type: "sorter", labels: ["Safe drivers", "Risky drivers"], values: [5, 2] } },
+    [I.sport]: { cast: [], concept: "goal", callout: { text: "THE DECISIVE PENALTY", style: "reveal" } },
+  };
+  const beat = (b, m) => ({ i: b.i, concept: null, callout: null, storyboard: SB, diagram: null, ...(m[b.i] || {}) });
+  fs.writeFileSync(path.join(BOOK, "storyboard", "authored-1.json"), JSON.stringify(bs.map((b) => beat(b, bad))));
+  let r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, "--write", `--root=${tmp}`]);
+  let out = (r.stdout || "") + (r.stderr || "");
+  t("refused: a face written for nobody (expression with cast [])", r.status !== 0 && new RegExp(`${I.face}.*expression "worried" with cast \\[\\] — nobody on screen wears it`).test(out), out.slice(-1200));
+  t("refused: a text-only beat without an authored set", new RegExp(`${I.text}.*text-only beat \\(cast \\[\\], no concept, no diagram\\) without an authored "set"`).test(out));
+  t("refused: a one-node flow", new RegExp(`${I.flow}.*flow with one label \\("Deadline"\\)`).test(out));
+  t("refused: the target icon on a football beat (reads as archery) — use goal", new RegExp(`${I.sport}.*icon "target" on a football beat reads as archery`).test(out));
+  t("nothing is written on a problem", !fs.existsSync(path.join(BOOK, "art.json")));
+  fs.writeFileSync(path.join(BOOK, "storyboard", "authored-1.json"), JSON.stringify(bs.map((b) => beat(b, { ...good, [I.bare]: bad[I.bare], [I.sorter]: bad[I.sorter], [I.sport]: good[I.sport] }))));
+  r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, "--write", `--root=${tmp}`]);
+  out = (r.stdout || "") + (r.stderr || "");
+  t("REVIEW (not refused): one bare figure while the narration names another cast member", new RegExp(`${I.bare}: REVIEW_REQUIRED one bare figure \\(fred, no object, no diagram\\) while the narration names Barney`).test(out), out.slice(-1200));
+  t("REVIEW (not refused): a sorter with no values", new RegExp(`${I.sorter}: REVIEW_REQUIRED sorter without values`).test(out));
+  t("…and those REVIEW items do not block the merge", r.status === 0 && !!read(path.join(BOOK, "art.json")), out.slice(-800));
+  fs.rmSync(path.join(BOOK, "art.json"), { force: true });
+  fs.writeFileSync(path.join(BOOK, "storyboard", "authored-1.json"), JSON.stringify(bs.map((b) => beat(b, good))));
+  r = run([path.join(__dirname, "storyboard.js"), "merge", `--slug=${SLUG}`, "--write", `--root=${tmp}`]);
+  out = (r.stdout || "") + (r.stderr || "");
+  t("the fixed storyboard merges with none of these messages", r.status === 0 && !/nobody on screen wears it|without an authored "set"|flow with one label|one bare figure|sorter without values/.test(out), out.slice(-1000));
+} finally { fs.rmSync(tmp, { recursive: true, force: true }); }
+console.log(failed ? `\n${failed} FAILED` : "\nall merge staging-guard checks passed");
+process.exit(failed ? 1 : 0);

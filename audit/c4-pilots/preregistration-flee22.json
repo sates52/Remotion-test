@@ -1,0 +1,15 @@
+{
+  "schema": "c4-pilot-prereg/1",
+  "date": "2026-10-31",
+  "written": "after rendering, before any blind reader ran",
+  "change": "flee 2.2 = flee 2.1 (streaks, flight phase, lean 12, shadow) + an explicit START beside the threat and TARGET at the far frame edge (the run crosses the frame), arms alternating with a smaller swing, speed lines at leg height, no grow/arc on the threat icon during a flee",
+  "arms": { "A": "current god-mode (base flee)", "C": "flee 2.2" },
+  "fixtures": {
+    "F3": "the-lightning-thief scene-72 ('she ran away from home when she was seven'), Annabeth flees the home icon; shot set to wide in both arms (medium draws no legs); frames 381,392,398,405,411,417,423,429 (cue ~389)",
+    "F4": "crazy-rich-asians scene-231 ('...to flee that abusive...'), Rachel flees the home icon; frames 310,321,327,334,340,346,352,358 (cue ~318)",
+    "independence": "new fixtures; the cycle-4 fixtures (f451 234-236, TF 138-142) are spent and not reused"
+  },
+  "readers": "5 fresh sonnet readers per sheet, one strict sonnet judge per reading, arm labels randomised",
+  "questions": { "q1": "the reader says the person RUNS", "q2": "the reader says the person moves AWAY from the house", "q3": "no invented pursuit" },
+  "shipRule": "SHIP flee 2.2 only if, on BOTH fixtures: RUN(C) >= 4/5 and >= RUN(A) + 2; AWAY-YES(C) >= AWAY-YES(A) (direction must not get worse) and AWAY-YES(C) >= 4/5; WRONG(C) <= WRONG(A); no dance / fall / celebrate read in C. Otherwise NO SHIP and flee stays a LIMIT."
+}

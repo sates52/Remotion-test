@@ -1,0 +1,249 @@
+diff --git a/data/icon-readings.json b/data/icon-readings.json
+index 2b6049fd..fcef33ce 100644
+--- a/data/icon-readings.json
++++ b/data/icon-readings.json
+@@ -102,6 +102,11 @@
+       "reads": "love, romance",
+       "neverFor": ""
+     },
++    "goal": {
++      "reads": "a football (soccer) goal with a ball: a match, a penalty kick, a shot at goal (3/3 'soccer goal with ball'; with a penalty / goalkeeper narration 3/3 'penalty kick setup')",
++      "neverFor": "an abstract objective or aim with no sport in the narration (use target)",
++      "measured": "icon blind naming 2026-10-30 (6 fresh namers, 6/6 'soccer goal with ball')"
++    },
+     "target": {
+       "reads": "aiming at a goal, being targeted",
+       "neverFor": "where an idea came from, its origins (read as irrelevant, F451); a SPORT goal / match / penalty kick — it reads as ARCHERY (blind: \"an arrow hitting a bullseye\", \"a target with an arrow, no people\" for the 2006 World Cup penalty shootout and the goalie watching the kicker: 2 WRONG, The Art of Strategy A/B 2026-10-30)"
+diff --git a/data/shared-generic-motifs.json b/data/shared-generic-motifs.json
+index 74e34da4..4aa2e744 100644
+--- a/data/shared-generic-motifs.json
++++ b/data/shared-generic-motifs.json
+@@ -55,6 +55,7 @@
+     "star",
+     "storm",
+     "target",
++    "goal",
+     "tree",
+     "trophy",
+     "typewriter",
+diff --git a/scripts/cause-ledger.js b/scripts/cause-ledger.js
+index 7f2f7ad8..645f2fac 100644
+--- a/scripts/cause-ledger.js
++++ b/scripts/cause-ledger.js
+@@ -93,7 +93,7 @@ const ICON_WORDS = { crash: "crash|wreck|collision|car", ledge: "ledge|cliff|edg
+   tree: "tree|canopy|trunk", mask: "mask", mirror: "mirror|magnif|glass", key: "key", law: "law|gavel|scale|pillar|column|courthouse",
+   photo: "photo|picture|frame|portrait", war: "shield|spear|sword|war", game: "trophy|cup|game|chess|board|dice", city: "city|building|skyline",
+   food: "food|plate|bowl|meal", coin: "coin|money|dollar|gold", door: "door", lightbulb: "bulb|lamp", puppeteer: "puppet|string|marionette",
+-  chains: "chain|link", compass: "compass", boulder: "boulder|rock|stone", crack: "crack|split|fracture", clock: "clock|watch",
++  chains: "chain|link", compass: "compass", boulder: "boulder|rock|stone", goal: "goal|net|ball|football|soccer", crack: "crack|split|fracture", clock: "clock|watch",
+   balance: "scale|balance", book: "book", shield: "shield", trophy: "trophy|cup", hourglass: "hourglass|sand", target: "target|bullseye|arrow",
+   gift: "gift|box|present", inheritance: "document|scroll|will|seal|paper|certificate" };
+ const iconSeen = (icon, sees) => !ICON_WORDS[icon] || new RegExp(`\\b(${ICON_WORDS[icon]})`, "i").test(sees);
+diff --git a/scripts/lib/antidote-director.js b/scripts/lib/antidote-director.js
+index a04c3aa2..60b143df 100644
+--- a/scripts/lib/antidote-director.js
++++ b/scripts/lib/antidote-director.js
+@@ -175,6 +175,9 @@ const CONCEPT_LEXICON = [
+   ["trophy", /\b(trophy|champion(ship)?|win(ning|ner)?|victory|mastery|prize|conquer|award)\b/i],
+   ["hourglass", /\b(hourglass|patience|urgent|urgency|deadline|clock ticking)\b/i],
+   ["sword", /\b(sword|courage|brave|warrior|slay|cut through|decisive)\b/i],
++  // a FOOTBALL goal before `target`: "goal" in a match is the net, not a bullseye (The Art of Strategy A/B 2026-10-30:
++  // the penalty shootout drawn as `target` read as archery, 2 WRONG)
++  ["goal", /\b(football|soccer|penalt(y|ies)|goalkeeper|goalie|shoot-?out|world cup|striker|kick(s|ed|ing)? the ball|scor(e|es|ed|ing) a goal|the net\b)/i],
+   ["target", /\b(target|aim|bullseye|focus|the one thing|goal|objective|mission)\b/i],
+   ["magnifier", /\b(magnifi(er|ed|ying)|examine|inspect|analyze|microscope|details?|look closer)\b/i],
+   ["wallet", /\b(wallet|sav(e|ing|ings)|budget|cash|invest(ment|ing)?)\b/i],
+@@ -297,6 +300,7 @@ const CONCEPT_HOLD = {
+   hourglass: "hourglass",
+   sword: "sword",
+   target: "target",
++  goal: "goal",
+   magnifier: "magnifier",
+   wallet: "wallet",
+   gift: "gift",
+@@ -771,7 +775,7 @@ function arcFor(cls, motif) {
+     chains: "chains", compass: "compass", iceberg: "iceberg",
+     lightbulb: "lightbulb", shadowSelf: "shadowSelf", puppeteer: "puppeteer",
+     hourglass: "hourglass", shield: "shield", trophy: "trophy", sword: "sword",
+-    target: "target", magnifier: "magnifier", wallet: "wallet", gift: "gift",
++    target: "target", goal: "goal", magnifier: "magnifier", wallet: "wallet", gift: "gift",
+     inheritance: "inheritance",
+     zap: "zap", subway: "subway", butterfly: "butterfly", coffee: "coffee", car: "car",
+     alarmClock: "alarmClock", dominoCascade: "dominoCascade",
+diff --git a/scripts/lib/visual-compiler.js b/scripts/lib/visual-compiler.js
+index d59f726c..cca094a5 100644
+--- a/scripts/lib/visual-compiler.js
++++ b/scripts/lib/visual-compiler.js
+@@ -45,7 +45,7 @@ const RENDERER_PROP_TYPES = new Set([
+   "lightbulb", "shadowSelf", "puppeteer", "iceberg", "chains", "compass",
+   "dominoCascade", "icebergDepth", "funnelTrap",
+   "codeWindow", "laptopMockup", "funnelMetrics", "rocketLaunch", "dollarExchange",
+-  "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
++  "alarmClock", "hourglass", "zap", "shield", "target", "goal", "trophy", "sword",
+   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
+   "inheritance",
+   "kallipolis", "caveAllegory", "shipOfState", "tripartiteSoul", "ringOfGyges",
+diff --git a/scripts/plan-antidote.js b/scripts/plan-antidote.js
+index 38c573b2..a4e88b22 100644
+--- a/scripts/plan-antidote.js
++++ b/scripts/plan-antidote.js
+@@ -389,6 +389,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } =
+       for (const [key, member] of Object.entries(authored)) {
+         const fallback = auto.cast[member && member.role ? member.role : key] || auto.cast.narrator;
+         const merged = { ...fallback.variant, ...((member && member.variant) || {}) };
++        // The auto-cast's facial hair must not leak onto a bible character who never asked for it (The Art of Strategy
++        // 2026-10-30: a woman and a teenager drawn with a goatee → "devilish" reads). A beard is kept only when the
++        // bible sets it or its look names one.
++        if (!(member && member.variant && "beard" in member.variant) && !/\b(beard|bearded|goatee|mustache|moustache|stubble)\b/i.test(String((member && member.look) || ""))) merged.beard = "none";
+         // A recolored character must not keep the auto-cast's derived trim, or
+         // Claude sets a cream suit and the hat stays the old character's black.
+         if (member && member.variant && member.variant.suit && !member.variant.trim) delete merged.trim;
+diff --git a/scripts/plan-bible.js b/scripts/plan-bible.js
+index 4f5542c4..72027079 100644
+--- a/scripts/plan-bible.js
++++ b/scripts/plan-bible.js
+@@ -419,6 +419,11 @@ function validate(b) {
+   for (const [k, c] of Object.entries(b.cast || {})) {
+     if (!/^[a-z0-9-]+$/.test(k)) errs.push(`cast key "${k}" must be a lowercase slug`);
+     if (!c.look) warns.push(`cast.${k}.look is empty — this character will look different every time`);
++    // messy hair draws two tufts that viewers read as HORNS (data/icon-readings.json: 111/403 frames, 28%, 23 books;
++    // The Art of Strategy 2026-10-30: 3 dead frames read "devil framing" / "horned leader"). Only for a menacing figure.
++    const menacing = /\b(villain|devil|demon|monster|menac|sinister|evil)/i.test(String(c.look || ""));
++    if (c.variant && c.variant.hairStyle === "messy" && !menacing) errs.push(`cast.${k}.variant.hairStyle "messy" reads as HORNS to viewers (28% of frames) — give an ordinary or sympathetic character short, curly, bun or long hair (messy only for a villain / monster, said in the look)`);
++    else if (/\bmessy\b/i.test(String(c.look || "")) && !menacing && !(c.variant && c.variant.hairStyle)) warns.push(`cast.${k}.look says "messy" hair but variant.hairStyle is not set — set it (short / curly / long …): messy tufts read as horns`);
+     // A wrong variant key is silent: it merges in, the schema default wins, and
+     // the auto-cast's look survives underneath. Catch it here instead.
+     for (const [vk, vv] of Object.entries(c.variant || {})) {
+diff --git a/scripts/readcheck.js b/scripts/readcheck.js
+index 645eeeed..6bdf0f74 100644
+--- a/scripts/readcheck.js
++++ b/scripts/readcheck.js
+@@ -62,7 +62,7 @@ const DRAWN = {
+   key: "a key", law: "a courthouse / gavel", photo: "a photograph", war: "a tank / battlefield", game: "a game controller / board game",
+   work: "a briefcase at a desk", city: "an intact city skyline", food: "a dinner plate with fork and knife", coin: "a gold coin",
+   door: "a door", lightbulb: "a lit lightbulb", puppeteer: "a hand working puppet strings", chains: "chain links",
+-  compass: "a compass", boulder: "a big boulder", summit: "a mountain summit", ladder: "a ladder", crack: "an abstract orange branching line",
++  compass: "a compass", boulder: "a big boulder", goal: "a football goal with its net and a ball", summit: "a mountain summit", ladder: "a ladder", crack: "an abstract orange branching line",
+   clock: "a clock face", balance: "a balance scale", book: "a book", shield: "a shield", trophy: "a trophy", hourglass: "an hourglass",
+   sword: "a sword", target: "an archery target", magnifier: "a magnifying glass", wallet: "a wallet", gift: "a wrapped gift",
+   inheritance: "a will document with a seal", zap: "a lightning bolt", dominoCascade: "falling dominoes", icebergDepth: "an iceberg",
+diff --git a/scripts/storyboard.js b/scripts/storyboard.js
+index d8c6d5a9..c0e1e6a7 100644
+--- a/scripts/storyboard.js
++++ b/scripts/storyboard.js
+@@ -1173,6 +1173,23 @@ function merge() {
+       // "place" + holds "letter" — merged, then planned as an empty insert): refused here, never lost silently
+       if (Array.isArray(a.cast) && !a.cast.length && a.action && a.action !== "idle") P(i, `action "${a.action}" with cast [] — nobody on screen does it (the planner would drop it); name who does it in cast, or drop the action and stage the object as the concept icon`);
+       else if (Array.isArray(a.cast) && !a.cast.length && a.holds) warnings.push(`${i}: cast [] (nobody on screen) but holds "${a.holds}" — nobody holds it; stage the object as the concept icon or name who holds it`);
++      // The Art of Strategy blind failure (2026-10-30, sealed "final": ADDS 7/30, dead 8, WRONG 2). The rules text already
++      // asked for these; the authors ignored it, so merge enforces it (new books only — published configs are frozen).
++      // (a) a face written for nobody (22 such beats in one chunk; every sampled one read TEXT_ONLY)
++      if (Array.isArray(a.cast) && !a.cast.length && a.expression && a.expression !== "neutral") P(i, `expression "${a.expression}" with cast [] — nobody on screen wears it; name who it is in cast, or drop the face`);
++      // (b) a callout on an empty stage: the engine rotates the book's literal sets under it ("CORNER THEM WITH NO WAY
++      // OUT" over an open road → WRONG "open road suggests escape"; 39 highway text beats read "roadside, unrelated")
++      if (Array.isArray(a.cast) && !a.cast.length && !a.concept && !a.diagram && a.callout && !a.set) P(i, `text-only beat (cast [], no concept, no diagram) without an authored "set" — the engine would rotate a literal place under the words; choose the icon or diagram the narration names, or set "set" to a place that fits the words`);
++      // (e) `target` (an arrow in a bullseye) on a football beat reads as ARCHERY (The Art of Strategy A/B 2026-10-30: the
++      // 2006 World Cup penalty shootout and the goalie, 2 WRONG); the vocabulary has `goal` for that (6/6 blind-named)
++      if (a.concept === "target" && /\b(football|soccer|penalt(y|ies)|goalkeeper|goalie|shoot-?out|world cup|striker|kick(s|ed|ing)? the ball|the kicker)\b/i.test(narration)) P(i, `icon "target" on a football beat reads as archery (an arrow in a bullseye) — use "goal" (a football goal with a ball), or stage the players`);
++      // (c) a bare figure in a beat that names someone else: one person + a mood face carried 5 of the 8 dead frames
++      // (Fred alone in a two-player game, the Driver staged as Kennedy). REVIEW, not a refusal: the second person may be
++      // absent on purpose.
++      if (Array.isArray(a.cast) && a.cast.length === 1 && !a.concept && !a.diagram && !a.holds) {
++        const other = (v.cast || []).filter((c) => c.key !== a.cast[0] && c.key !== "narrator" && c.name && new RegExp(`\\b${String(c.name).split(/\s+/)[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(narration));
++        if (other.length) warnings.push(`${i}: REVIEW_REQUIRED one bare figure (${a.cast[0]}, no object, no diagram) while the narration names ${other.map((c) => c.name).join(", ")} — a lone mood face read as dead in 5 of 8 failures (The Art of Strategy); stage both people, or the object / diagram the line is about`);
++      }
+       if (a.diagram) {
+         if (!DIAG.has(a.diagram.type)) P(i, `diagram type "${a.diagram.type}"`);
+         // a SCORECARD carries its words in `scorecard` (criteria, owners, options, stated numbers), not in labels
+@@ -1183,6 +1200,10 @@ function merge() {
+         else if (!Array.isArray(a.diagram.labels) || !a.diagram.labels.length) P(i, "diagram without labels");
+         // more labels than the renderer draws (or a spectrum without both poles) would be dropped silently
+         else if (DIAG.has(a.diagram.type)) { const cap = capacityProblem(a.diagram.type, a.diagram.labels); if (cap) P(i, cap); }
++        // (d) a one-node flow draws one badge (blind: "a small cream circle labeled DEADLINE", TEXT_ONLY); a sorter with no
++        // `values` draws 3 identical dots in every bin (blind: "containers identical") — neither shows a structure
++        if (a.diagram.type === "flow" && Array.isArray(a.diagram.labels) && a.diagram.labels.length === 1) P(i, `flow with one label ("${a.diagram.labels[0]}") draws a single badge, not a flow — give it the 2-3 steps the narration names, or use a callout / icon`);
++        if (a.diagram.type === "sorter" && Array.isArray(a.diagram.labels) && a.diagram.labels.length > 1 && !(Array.isArray(a.diagram.values) && a.diagram.values.length)) warnings.push(`${i}: REVIEW_REQUIRED sorter without values — every bin draws the same 3 dots ("containers identical"); give each bin its count (values) where the narration says how many go where`);
+         if (a.concept || a.callout) P(i, "diagram beat also has icon/callout");
+         // the diagram fills the frame (insert framing): an authored person would be dropped silently
+         if (Array.isArray(a.cast) && a.cast.length) P(i, `diagram beat also has cast ${JSON.stringify(a.cast)} — a diagram fills the frame and shows nobody; choose the diagram (cast: []) or the person (no diagram)`);
+diff --git a/src/engines/antidote/motifs.tsx b/src/engines/antidote/motifs.tsx
+index 11bff9a6..17283a69 100644
+--- a/src/engines/antidote/motifs.tsx
++++ b/src/engines/antidote/motifs.tsx
+@@ -2312,6 +2312,37 @@ const Target: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+   );
+ };
+ 
++/** A FOOTBALL GOAL with its net and a ball (2026-10-30). The vocabulary had no sport icon: authors drew a penalty
++ *  shootout as `target` (an arrow in a bullseye), and blind viewers read ARCHERY (2 WRONG, The Art of Strategy A/B). */
++const Goal: React.FC<MotifProps> = ({ spec, accent, ink }) => {
++  const netLines = [];
++  for (let x = 90; x <= 430; x += 34) netLines.push(<line key={`v${x}`} x1={x} y1={150} x2={x + (x - 260) * 0.12} y2={360} stroke={ink} strokeWidth={3} opacity={0.35} />);
++  for (let y = 150; y <= 360; y += 30) netLines.push(<line key={`h${y}`} x1={80 - (y - 150) * 0.06} y1={y} x2={440 + (y - 150) * 0.06} y2={y} stroke={ink} strokeWidth={3} opacity={0.35} />);
++  return (
++    <Frame spec={spec}>
++      {/* grass */}
++      <rect x={30} y={360} width={460} height={80} rx={10} fill="#5A8F3C" opacity={0.85} />
++      <line x1={40} y1={372} x2={480} y2={372} stroke="#FFFFFF" strokeWidth={6} opacity={0.9} />
++      {/* the net behind the frame */}
++      <g>{netLines}</g>
++      {/* goal frame: two posts and the crossbar */}
++      <rect x={64} y={132} width={22} height={240} rx={6} fill="#FFFFFF" stroke={ink} strokeWidth={8} />
++      <rect x={434} y={132} width={22} height={240} rx={6} fill="#FFFFFF" stroke={ink} strokeWidth={8} />
++      <rect x={64} y={126} width={392} height={22} rx={6} fill="#FFFFFF" stroke={ink} strokeWidth={8} />
++      {/* the ball in front of the goal, on the penalty spot */}
++      <g transform="translate(260 410)">
++        <circle r={52} fill="#FFFFFF" stroke={ink} strokeWidth={8} />
++        <polygon points="0,-20 19,-6 12,16 -12,16 -19,-6" fill={ink} />
++        {[0, 72, 144, 216, 288].map((a) => (
++          <line key={a} x1={0} y1={-20} x2={0} y2={-48} stroke={ink} strokeWidth={5} transform={`rotate(${a})`} />
++        ))}
++      </g>
++      {/* an accent stripe on the crossbar ties it to the book palette */}
++      <rect x={200} y={130} width={120} height={14} rx={4} fill={accent} />
++    </Frame>
++  );
++};
++
+ const Trophy: React.FC<MotifProps> = ({ spec, accent, ink }) => {
+   return (
+     <Frame spec={spec}>
+@@ -3235,6 +3266,7 @@ const REGISTRY: Record<PropSpec["type"], React.FC<MotifProps>> = {
+   zap: Zap,
+   shield: Shield,
+   target: Target,
++  goal: Goal,
+   trophy: Trophy,
+   sword: Sword,
+   magnifier: Magnifier,
+@@ -3268,7 +3300,7 @@ export const SCENE_ICONS: PropSpec["type"][] = [
+   "lightbulb", "shadowSelf", "puppeteer", "iceberg", "chains", "compass",
+   "dominoCascade", "icebergDepth", "funnelTrap",
+   "codeWindow", "laptopMockup", "funnelMetrics", "rocketLaunch", "dollarExchange",
+-  "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
++  "alarmClock", "hourglass", "zap", "shield", "target", "goal", "trophy", "sword",
+   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
+   "kallipolis", "caveAllegory", "shipOfState", "tripartiteSoul", "ringOfGyges", "thirtyTyrants", "fiveRegimes", "mythOfEr",
+   "boulder",
+@@ -3279,7 +3311,7 @@ export const SCENE_ICONS: PropSpec["type"][] = [
+ export const INSERT_MOTIFS: PropSpec["type"][] = [
+   "barChart", "lineGrowth", "balance", "clock", "maze", "counter",
+   "orbit", "stack", "crack", "ripple", "summit", "ladder", "door", "spotlight",
+-  "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
++  "alarmClock", "hourglass", "zap", "shield", "target", "goal", "trophy", "sword",
+   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
+   ...SCENE_ICONS,
+ ];
+diff --git a/src/engines/antidote/schema.ts b/src/engines/antidote/schema.ts
+index ed3e0a63..6d3e97f3 100644
+--- a/src/engines/antidote/schema.ts
++++ b/src/engines/antidote/schema.ts
+@@ -363,7 +363,7 @@ export const propType = z.enum([
+   // Tech & Silicon Valley Business Motifs
+   "codeWindow", "laptopMockup", "funnelMetrics", "rocketLaunch", "dollarExchange",
+   // High-Retention Narrative & Metaphor Motifs (Antidote 5.1)
+-  "alarmClock", "hourglass", "zap", "shield", "target", "trophy", "sword",
++  "alarmClock", "hourglass", "zap", "shield", "target", "goal", "trophy", "sword",
+   "magnifier", "wallet", "gift", "subway", "butterfly", "coffee", "car",
+   // a sealed will — inheritance handed down (the gift box read as a birthday present)
+   "inheritance",
