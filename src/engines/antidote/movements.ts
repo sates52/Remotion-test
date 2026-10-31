@@ -145,6 +145,8 @@ export type Pose = {
   // bodies by it), and 0..1 progress of setting her down in it (the destination's front edge covers her from then on)
   carry?: number;
   placed?: number;
+  /** `place` 2.0 (cycle 6): 1 = the rig draws a table beside the reaching hand; the object rests ON it once let go */
+  table?: number;
   /** `lift` release (10x P1): 0..1 the lifter steps back from her grip to stand BESIDE the destination */
   back?: number;
   /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
@@ -179,6 +181,9 @@ export const TAKE_BRING = 24;
 /** PLACE (Action 3.0): the held object goes out to the rest position (PLACE_OUT), is let go, the empty hand stays a
  *  moment (PLACE_HOLD) and comes back (PLACE_BACK) — the object stays where it was set down */
 export const PLACE_OUT = 22, PLACE_HOLD = 10, PLACE_BACK = 20;
+/** PLACE 2.0 (cycle 6): the straight arm angled down-out puts the hand-object anchor (140 px down the arm from the
+ *  shoulder at 304,322) at PLACE_REST — the object's base lands on the table top (PLACE_TABLE_TOP) beside the body */
+export const PLACE_ARM = -41, PLACE_REST = { x: 397, y: 427 }, PLACE_TABLE_TOP = 470;
 // `drink` (10x P2): up to the lips, the sip held, back down to the chest
 export const DRINK_UP = 18, DRINK_SIP = 42, DRINK_DOWN = 20;
 /** Frames before an `embrace` cue in which the lead closes the gap (contact lands ON the cue). */
@@ -299,21 +304,24 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
       // draws it resting there). RESULT: the empty hand comes back; the object STAYS (a continued beat repeating the
       // place keeps it settled). Blind: "sets it down", "put the tool down", "crumpled on the floor" read as a person
       // holding / standing next to it (lightning-thief 71 WRONG, don't-believe 79 NONE, wonder 220 WRONG).
-      const at = pose("reach", cue, fps);
+      // PLACE 2.0 (cycle 6): v1 reused the take rest (arm raised toward the partner, object on a thin stand at arm
+      // height) — blind: "holds a cup out to him", the object floated. Now: a TABLE stands beside the placer from the
+      // first frame (pose.table), the straight arm goes DOWN-OUT onto it, the object is let go ON the table and stays;
+      // Scene turns the placer so this arm points away from the partner.
+      const at = { armR: PLACE_ARM, elbowR: 0, armL: 8, lean: 0, headY: 4, gazeX: 0.7, gazeY: 0.7 };
       const held = { ...BASE, armR: -6, elbowR: 82, armL: 12, lean: -2, headY: bob(frame, 2, 140), blink, gazeX: 0.3, gazeY: 0.35 };
-      if (frame < cue) return { ...held, take: 1, bring: 1 };
+      if (frame < cue) return { ...held, take: 1, bring: 1, table: 1 };
       const out = easeInOut((frame - cue) / PLACE_OUT);
       const back = easeInOut((frame - cue - PLACE_OUT - PLACE_HOLD) / PLACE_BACK);
       const ext = out * (1 - back); // 0 at the chest / back at the side, 1 at full reach
       const armTo = (from: number, reachTo: number, side: number) => (back > 0 ? lerp(reachTo, side, back) : lerp(from, reachTo, out));
       return {
         ...BASE,
-        armR: armTo(-6, at.armR, -8), elbowR: armTo(82, at.elbowR ?? 0, 0),
+        armR: armTo(-6, at.armR, -8), elbowR: armTo(82, at.elbowR, 0),
         armL: armTo(12, at.armL, 8), lean: armTo(-2, at.lean, 0),
-        legL: lerp(0, at.legL ?? 0, ext), legR: lerp(0, at.legR ?? 0, ext),
         headY: lerp(held.headY, at.headY, ext), blink,
-        gazeX: lerp(0.3, at.gazeX, out), gazeY: lerp(0.35, at.gazeY ?? 0.4, out),
-        take: out < 1 ? 1 : 0, bring: 1 - out,
+        gazeX: lerp(0.3, at.gazeX, out), gazeY: lerp(0.35, at.gazeY, out),
+        take: out < 1 ? 1 : 0, bring: 1 - out, table: 1,
       };
     }
     case "lift": {

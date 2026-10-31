@@ -14,7 +14,7 @@ import { embraceMotifSlot } from "../safeArea";
 import { liftLayout, isLift } from "../liftLayout";
 import { leaveLayout, pathOf } from "../leaveLayout";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
-import { enter, pose, ambient, arcOf, parallax } from "../movements";
+import { enter, pose, ambient, arcOf, parallax, PLACE_OUT, PLACE_HOLD } from "../movements";
 import { interpolate } from "remotion";
 import { camera } from "../movements";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
@@ -170,7 +170,12 @@ const CharacterLayer: React.FC<{
   const leaving = (spec.action === "leave" || spec.action === "flee") && exitDx != null;
   const exitShift = leaving ? exitDx! * pathOf(p.exit ?? 0) : 0;
   const goneOpacity = leaving ? 1 - (p.gone ?? 0) : 1;
-  const faceFlip = leaving && (p.turned ?? 0) >= 0.5 ? exitDx! < 0 : st.flip;
+  // PLACE 2.0 (cycle 6): the placing arm (the rig's right) goes AWAY from the partner, onto the table on that side —
+  // v1 reached straight at the partner and read as "hands it to him"
+  const placeFlip = spec.action === "place" && lookAtPoint ? lookAtPoint.x > st.x : null;
+  const faceFlip = leaving && (p.turned ?? 0) >= 0.5 ? exitDx! < 0 : placeFlip ?? st.flip;
+  // while the hand sets it down, the eyes follow the object (the rig's own gaze), not the partner
+  const placing = spec.action === "place" && p.table === 1 && (p.bring ?? 1) < 1 && frame + clockOff - cue < PLACE_OUT + PLACE_HOLD;
   const liftShift = liftDx ? liftDx.approach * (p.contact ?? 0) + liftDx.carry * (p.carry ?? 0) + (liftDx.back ?? 0) * (p.back ?? 0) : 0;
   // a receiver steps in over the first frames, takes it, and steps back to its slot as it brings the object in — so it
   // stands on its slot at both cuts (a carried figure never jumps; a take carried past its moment is already back)
@@ -181,11 +186,11 @@ const CharacterLayer: React.FC<{
   // LOOK-AT (4.0 + 4.1): turn gaze (2D) + head toward the resolved target. The whole rig is
   // drawn then flipped by the wrapper's scaleX, so a screen-space direction must
   // be negated back into rig space when the figure is flipped.
-  if (lookAtPoint && !(leaving && (p.turned ?? 0) > 0)) {
+  if (lookAtPoint && !(leaving && (p.turned ?? 0) > 0) && !placing) {
     const eyeY = st.y - 120 * st.scale;
     const screenGx = Math.max(-1, Math.min(1, (lookAtPoint.x - st.x) / 520));
     const screenGy = Math.max(-1, Math.min(1, (lookAtPoint.y - eyeY) / 420));
-    const gx = st.flip ? -screenGx : screenGx;
+    const gx = faceFlip ? -screenGx : screenGx;
     const gy = screenGy;
 
     // Living micro-saccade: eyes never stay 100% frozen on a static coordinate

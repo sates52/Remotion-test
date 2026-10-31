@@ -2,7 +2,7 @@ import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import type { BodyPlan, CharEmotion, HandProp, VariantSpec } from "../schema";
 import type { Pose } from "../movements";
-import { TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
+import { PLACE_REST, PLACE_TABLE_TOP, TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
 import { HeldProp } from "../handprops";
 import { Accessory, BackHair, Beard, darken, FrontHair, Headwear, HeadwearBack, Torso } from "../wardrobe";
 import { EmotionOverlay } from "./Emotions";
@@ -357,7 +357,20 @@ export const Everyman: React.FC<{
             {/* AUTHORED `take` before its cue (pose.take === 0): the object RESTS where the reaching hand will
                 close on it — the settled reach angles of the same shoulder/elbow chain — on a small stand, upright.
                 The hand is empty. From the cue (pose.take === 1) the branch below draws it in the hand. */}
-            {holds && pose.take === 0 ? (
+            {/* PLACE 2.0: a real table beside the placer (wood, outlined, legs to the floor) — the surface the object
+                goes onto and stays on. Drawn behind the hand; the object, once let go, sits on its top. */}
+            {(pose.table ?? 0) > 0 ? (
+              <g>
+                <rect x={352} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
+                <rect x={520} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
+                <rect x={336} y={PLACE_TABLE_TOP} width={214} height={20} rx={6} fill="#A8743F" stroke="#4A2E14" strokeWidth={5} />
+              </g>
+            ) : null}
+            {holds && pose.take === 0 && (pose.table ?? 0) > 0 ? (
+              <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82)`}>
+                <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
+              </g>
+            ) : holds && pose.take === 0 ? (
               <g transform={`rotate(${TAKE_REST_ARM} 304 322)`}>
                 <g transform={`rotate(${TAKE_REST_ELBOW} 304 410)`}>
                   <g transform={`translate(304 462) rotate(${-(TAKE_REST_ARM + TAKE_REST_ELBOW) - pose.lean}) scale(${0.82 / buildW} 0.82)`}>

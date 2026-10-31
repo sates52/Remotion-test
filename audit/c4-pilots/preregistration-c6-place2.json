@@ -6,8 +6,20 @@
     "A": "current code (v1: take-rest stand at arm height), frames already rendered in scratchpad r11 before the change",
     "B": "place 2.0, same fixtures, same frames"
   },
-  "fixtures": ["zz-pl-won (medium, placer right)", "zz-pl-ltt (placer left)"],
-  "frames": [120, 300, 315, 330, 345, 380, 500, 600],
+  "fixtures": [
+    "zz-pl-won (medium, placer right)",
+    "zz-pl-ltt (placer left)"
+  ],
+  "frames": [
+    120,
+    300,
+    315,
+    330,
+    345,
+    380,
+    500,
+    600
+  ],
   "readers": "5 fresh blind sonnet readers per sheet (one sheet each, no narration, no arm label), asked: what happens to the object across the frames, and where is it at the end",
   "scoring": {
     "PLACED": "the reader says the object is put down / set on a surface (table, counter, stand) by the person and stays there",
@@ -15,5 +27,10 @@
     "HELD_OR_FLOATING": "still held at the end, or floating / hovering / unclear"
   },
   "shipRule": "B ships when, on EACH fixture, PLACED >= 4/5 and HANDED = 0/5, and B's PLACED total >= A's PLACED total. Otherwise NO SHIP; the code stays as a patch.",
-  "notChangedAfter": true
+  "notChangedAfter": true,
+  "amendment": {
+    "at": "2026-10-31, before any reader saw any frame of either arm",
+    "why": "both arms replayed the place on the continued beat (frames 500/600) — an engine bug fixed separately in a2ef24eb",
+    "change": "BOTH arms are re-rendered on a2ef24eb (continuity fix): A = a2ef24eb as is (place v1 pose), B = a2ef24eb + place 2.0. The r11 arm-A frames are not used. Fixtures, frames, readers, scoring and ship rule unchanged."
+  }
 }

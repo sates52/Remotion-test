@@ -1,0 +1,29 @@
+{
+  "preregistration": "preregistration-c6-place2.json (amended before any reading: both arms on a2ef24eb)",
+  "run": "2026-10-31 workflow wf_029f8839-cae: 20 fresh blind sonnet readers (5 per sheet, one sheet each) + 20 sonnet judges",
+  "PLACED": {
+    "B-won": 5,
+    "B-ltt": 4,
+    "A-won": 4,
+    "A-ltt": 0
+  },
+  "HANDED": {
+    "B-won": 0,
+    "B-ltt": 0,
+    "A-won": 0,
+    "A-ltt": 2
+  },
+  "HELD_OR_FLOATING": {
+    "B-ltt": 1,
+    "A-won": 1,
+    "A-ltt": 3
+  },
+  "rule": "each fixture PLACED >= 4/5 and HANDED 0/5, and B PLACED >= A PLACED",
+  "check": {
+    "B-won": "5/5, 0 handed",
+    "B-ltt": "4/5, 0 handed",
+    "total": "B 9 vs A 4"
+  },
+  "decision": "SHIP",
+  "notes": "A-won read PLACED 4/5 only because a stand appeared under the paper between the men; A-ltt (cup toward the partner) read handed/held 5/5. Remaining B weakness: the LTT cup is small; the WON table is partly cut off at the frame edge."
+}
