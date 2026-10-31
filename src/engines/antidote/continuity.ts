@@ -281,7 +281,8 @@ export function planContinuity(scenes: AnyScene[], drawsCast: (shot: string) => 
         : Math.max(c.poseAt ?? 0, SETTLED_POSE);
       const slot = prevPlan.chars[j] ? prevPlan.chars[j].slot : j;
       // the same authored action goes on: its cue (on the continuous pose clock) is the one already passed
-      const cue = same && (c.action === "take" || c.action === "embrace")
+      // place (cycle 6): a continued place kept replaying — the object came back into the hand and was set down again
+      const cue = same && (c.action === "take" || c.action === "embrace" || c.action === "place")
         ? ((pcPlan as CharCarry).cue ?? actionCueFrame(pc, prevDur) + (pcPlan.poseClock ?? 0))
         : undefined;
       return { carried: true, slot, poseClock, ...(cue != null ? { cue } : {}) };

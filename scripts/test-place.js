@@ -22,6 +22,20 @@ t("released once the arm reaches the rest position (take -> 0 at full reach, not
 t("after the release the object stays down (take stays 0 for good)", Array.from({ length: 200 }, (_, k) => P(released + k).take).every((x) => x === 0));
 t("the empty hand comes back to the side", P(CUE + M.PLACE_OUT + M.PLACE_HOLD + M.PLACE_BACK + 5).armR === -8);
 const maxStep = (act) => { let m = 0; for (let f = 1; f < CUE + 150; f++) m = Math.max(m, Math.abs(M.pose(act, f, 30, CUE).armR - M.pose(act, f - 1, 30, CUE).armR)); return m; };
+// a CONTINUED place keeps the cue it already passed (cycle 6: it replayed — the object came back into the hand and was
+// set down a second time on the next beat)
+{
+  const Cn = require("../src/engines/antidote/continuity.ts");
+  const { shotPreset } = require("../src/engines/antidote/shots.ts");
+  const sc = (id, from, actionAt, cont) => ({ id, fromFrame: from, durationFrames: 200, shot: "medium", transition: { type: "cut", frames: 0 }, props: [], ...(cont ? { continueFromPrev: true } : {}),
+    characters: [{ id: "a-" + id, identity: "ana", role: "ana", enter: "none", action: "place", holds: "cup", actionAt }, { id: "b-" + id, identity: "ben", role: "ben", enter: "none", action: "idle" }] });
+  const plan = Cn.planContinuity([sc("p1", 0, 80, false), sc("p2", 200, 1, true)], (shot) => !shotPreset(shot).dropsCast);
+  const c = plan[1].chars[0];
+  // as Scene: without a carried cue the beat falls back to its own actionAt (1) on the carried clock — the replay
+  const local = (fr) => M.pose("place", fr + c.poseClock, 30, c.cue != null ? c.cue : 1 + c.poseClock);
+  t("continued place: the carried cue is the first beat's (80), not replayed", c.carried && c.cue === 80, JSON.stringify(c));
+  t("continued place: the object stays down on every frame of the next beat", [0, 1, 20, 60, 199].every((fr) => local(fr).take === 0), JSON.stringify([0, 20].map((fr) => local(fr).take)));
+}
 t("the arm moves no faster than take's own reach (no snap)", maxStep("place") <= maxStep("take"), maxStep("place") + " vs " + maxStep("take"));
 const SC = fs.readFileSync(path.join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8");
 t("renderer: the held object clears the captions while in hand, like take", /\(spec\.action === "take" \|\| spec\.action === "place"\) && p\.take === 1/.test(SC));
