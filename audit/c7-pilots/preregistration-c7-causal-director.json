@@ -1,0 +1,104 @@
+{
+  "schema": "c7-pilot-prereg/1",
+  "date": "2026-11-02",
+  "cycle": 7,
+  "written": "before any passage was read, authored, rendered or rated (passages drawn by script; the CSD text written before the draw)",
+  "hypothesis": "Showing the goal, the deed and its VISIBLE consequence together (Causal Story Director 1.0) raises image ADDS (and keeps or raises EXPLAINS) without raising WRONG or dead frames, in fiction and in idea books.",
+  "change": {
+    "text": "audit/c7-pilots/causal-director-1.0.md appended to arm B's rules.md",
+    "sha256": "7bd3daa9bf4b5c9338edf17b9c496146aebe88fb1122178da2246c3cec8493e7",
+    "plus": "arm B also gets ONE director-review pass: a fresh agent checks every beat against the CSD steps (causal frame grounded by a verbatim quote, kind -> staging, consequence test) and revises only beats that fail; it records each change in storyboard.directorNote"
+  },
+  "arms": {
+    "A": "fresh author, the current rules.md, the unchanged author prompt",
+    "B": "fresh author, rules.md + CSD section, the same author prompt, + the director review",
+    "both": "same prep, same planner code, at most 2 routine merge-fix rounds each (merge problems only)"
+  },
+  "passages": {
+    "draw": "audit/c7-pilots/select-passages.js (windows of 12 beats, never a beat a mute run of that book sampled, not the first/last 5%, >= 9 beats > 2 s; seeded per slug); fallback fiction order wonder -> beloved -> we-were-liars fixed before the draw (wonder had no window)",
+    "books": [
+      {
+        "slug": "red-rising",
+        "genre": "fiction",
+        "windows": [
+          [
+            199,
+            210
+          ],
+          [
+            296,
+            307
+          ]
+        ]
+      },
+      {
+        "slug": "beloved",
+        "genre": "fiction",
+        "windows": [
+          [
+            181,
+            192
+          ],
+          [
+            257,
+            268
+          ]
+        ]
+      },
+      {
+        "slug": "how-to-talk-to-anyone",
+        "genre": "ideas",
+        "windows": [
+          [
+            97,
+            108
+          ],
+          [
+            221,
+            232
+          ]
+        ]
+      },
+      {
+        "slug": "the-most-important-thing",
+        "genre": "ideas",
+        "windows": [
+          [
+            49,
+            60
+          ],
+          [
+            110,
+            121
+          ]
+        ]
+      }
+    ]
+  },
+  "frames": "one still per scene longer than 2 s at 60% of the scene, taken from arm A's config (identical frames in both arms; segmentation verified equal), caption layer off (the official v1 crops the caption band: same effect)",
+  "primary": {
+    "instrument": "the official mute-test procedure (scripts/mute-test.js PROMPTS): per passage and arm a FRESH sonnet describer sees the shuffled stills one at a time and writes text/sees/message/confidence/wouldConfuse; per passage a FRESH sonnet judge gets the narration + both arms' descriptions as X/Y (random per item, the --vs mode) and applies the official JUDGE_RULES verbatim",
+    "replicates": "2 independent describer+judge chains per passage",
+    "metrics": "CORRECT, NEUTRAL, WRONG, ADDS, TEXT_ONLY, NONE (dead), EXPLAINS (YES, official: only with ADDS)"
+  },
+  "shipRule": {
+    "all": [
+      "WRONG(B) <= WRONG(A) in EACH genre (fiction, ideas), pooled over passages and replicates",
+      "DEAD(B) <= DEAD(A) pooled",
+      "ADDS(B) >= ADDS(A) + ceil(10% of the judged items per arm) pooled, AND ADDS(B) >= ADDS(A) in each genre",
+      "EXPLAINS(B) >= EXPLAINS(A) pooled",
+      "CORRECT(B) >= CORRECT(A) pooled"
+    ],
+    "else": "NO SHIP — the section and the director step stay out of production; nothing is re-tuned on these passages",
+    "reported": "the official bars per arm (WRONG <= 1/30, dead <= 5/30, ADDS >= 60%) — reported, not a ship criterion"
+  },
+  "secondary": {
+    "instrument": "3-frame strips per scene (25% / 55% / 85%), a fresh sonnet describer per passage+arm (what happens across the three moments), a fresh judge per passage: SEQUENCE (actor + action + visible result match the narration: YES/PARTLY/NO), CONTINUITY (same people / objects stay consistent: OK/BROKEN), WRONG",
+    "use": "reported per arm and genre; it can NOT bypass the primary rule"
+  },
+  "secondRater": {
+    "instrument": "the cloud API rater with the official rubric (visual-ab.js --rubric=official) on the same stills",
+    "use": "agreement with the primary is reported (P2); it never decides"
+  },
+  "budget": "cloud API spend capped per run by the manifest (ai-budget.js); local subagent rating is not API-billed"
+}
