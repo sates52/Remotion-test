@@ -1,0 +1,204 @@
+{
+ "set": "test",
+ "report": {
+  "R3": {
+   "items": 120,
+   "agreement": {
+    "correctness": 60.8,
+    "contribution": 63.3,
+    "explains": 94.2,
+    "wrongFlag": 86.7,
+    "deadFlag": 81.7
+   },
+   "kappa": {
+    "correctness": 0.157,
+    "contribution": 0.334
+   },
+   "WRONG": {
+    "tp": 3,
+    "fp": 10,
+    "fn": 6
+   },
+   "DEAD": {
+    "tp": 2,
+    "fp": 15,
+    "fn": 7
+   },
+   "totals": {
+    "refCORRECT": 94,
+    "raterCORRECT": 75,
+    "refADDS": 78,
+    "raterADDS": 65
+   },
+   "runs": [
+    {
+     "run": "the-new-one-minute-manager/final",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "1/5",
+     "raterWD": "2/2"
+    },
+    {
+     "run": "ready-player-one/run6",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "0/0",
+     "raterWD": "6/8"
+    },
+    {
+     "run": "the-art-of-saying-no/run2",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "4/4",
+     "raterWD": "0/2"
+    },
+    {
+     "run": "maybe-you-should-talk-to-someone/run3",
+     "ref": "FAIL",
+     "rater": "FAIL",
+     "refWD": "4/0",
+     "raterWD": "5/5"
+    }
+   ],
+   "runVerdictMatches": "1/4",
+   "falsePASS": [
+    "the-art-of-saying-no/run2"
+   ],
+   "falseFAIL": [
+    "the-new-one-minute-manager/final",
+    "ready-player-one/run6"
+   ]
+  },
+  "R2-official": {
+   "items": 120,
+   "agreement": {
+    "correctness": 66.7,
+    "contribution": 73.3,
+    "explains": 91.7,
+    "wrongFlag": 87.5,
+    "deadFlag": 93.3
+   },
+   "kappa": {
+    "correctness": 0.216,
+    "contribution": 0.459
+   },
+   "WRONG": {
+    "tp": 2,
+    "fp": 8,
+    "fn": 7
+   },
+   "DEAD": {
+    "tp": 3,
+    "fp": 2,
+    "fn": 6
+   },
+   "totals": {
+    "refCORRECT": 94,
+    "raterCORRECT": 82,
+    "refADDS": 78,
+    "raterADDS": 77
+   },
+   "runs": [
+    {
+     "run": "the-new-one-minute-manager/final",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "1/5",
+     "raterWD": "5/2"
+    },
+    {
+     "run": "ready-player-one/run6",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "0/0",
+     "raterWD": "0/1"
+    },
+    {
+     "run": "the-art-of-saying-no/run2",
+     "ref": "FAIL",
+     "rater": "FAIL",
+     "refWD": "4/4",
+     "raterWD": "2/2"
+    },
+    {
+     "run": "maybe-you-should-talk-to-someone/run3",
+     "ref": "FAIL",
+     "rater": "FAIL",
+     "refWD": "4/0",
+     "raterWD": "3/0"
+    }
+   ],
+   "runVerdictMatches": "3/4",
+   "falsePASS": [],
+   "falseFAIL": [
+    "the-new-one-minute-manager/final"
+   ]
+  },
+  "R1-current": {
+   "items": 120,
+   "agreement": {
+    "correctness": 69.2,
+    "contribution": 69.2,
+    "explains": 92.5,
+    "wrongFlag": 93.3,
+    "deadFlag": 94.2
+   },
+   "kappa": {
+    "correctness": 0.077,
+    "contribution": 0.229
+   },
+   "WRONG": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 8
+   },
+   "DEAD": {
+    "tp": 2,
+    "fp": 0,
+    "fn": 7
+   },
+   "totals": {
+    "refCORRECT": 94,
+    "raterCORRECT": 99,
+    "refADDS": 78,
+    "raterADDS": 108
+   },
+   "runs": [
+    {
+     "run": "the-new-one-minute-manager/final",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "1/5",
+     "raterWD": "1/1"
+    },
+    {
+     "run": "ready-player-one/run6",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "0/0",
+     "raterWD": "0/0"
+    },
+    {
+     "run": "the-art-of-saying-no/run2",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "4/4",
+     "raterWD": "0/1"
+    },
+    {
+     "run": "maybe-you-should-talk-to-someone/run3",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "4/0",
+     "raterWD": "0/0"
+    }
+   ],
+   "runVerdictMatches": "2/4",
+   "falsePASS": [
+    "the-art-of-saying-no/run2",
+    "maybe-you-should-talk-to-someone/run3"
+   ],
+   "falseFAIL": []
+  }
+ }
+}

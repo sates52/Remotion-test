@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| dev/cycle7 (P4 render guard + Causal Story Director A/B) | `scripts/render.js`, `scripts/lib/{render-entry-guard (new),render-accounts,render-dispatch,run-lock,render-preflight}.js`, `local_chunk_renderer.js`, `scripts/{auto-chain-render,render-queue,pipeline,book-start}.js`, `package.json` (render scripts), `scripts/test-render-*.js`, agent docs (AGENTS.md, CLAUDE.md, render skills); visual A/B tooling (`scripts/visual-ab*.js`) | in progress (2026-11-02) from `../wt-c4` | P4: no default local render, unknown flags refused, local production only with a separate operator approval, credentials only from the main checkout (copies refused), dispatch counted only with real run ids. No book, pin, sealed evidence or gate threshold touched. |
+| _(done)_ dev/cycle7 (P4 render guard + Causal Story Director A/B) | `scripts/render.js`, `scripts/lib/{render-entry-guard (new),render-accounts,render-dispatch,run-lock,render-preflight}.js`, `local_chunk_renderer.js`, `scripts/{auto-chain-render,render-queue,pipeline,book-start}.js`, `package.json` (render scripts), `scripts/test-render-*.js`, agent docs (AGENTS.md, CLAUDE.md, render skills); visual A/B tooling (`scripts/visual-ab*.js`) | _(done)_ 2026-11-02: pushed to god-mode (5974cc0f … see the 2026-11-02 changelog) | P4: no default local render, unknown flags refused, local production only with a separate operator approval, credentials only from the main checkout (copies refused), dispatch counted only with real run ids. No book, pin, sealed evidence or gate threshold touched. |
 | _(done)_ dev/cycle3 (production reliability + autonomy + cloud pilot) | `scripts/render.js`, `scripts/lib/{book-root,preview-record,mute-verdict,mute-manifest,render-preflight,run-lock,next-step,merge-recovery}.js`, `scripts/{maintenance-upgrade,render-decision,preview-ready,preview-state,mute-test,plan-bible,storyboard,ci-run-tests,mute-cloud-poc}.js`, `.github/workflows/{regression.yml,ci-failure-analyst.*}`, skills | _(done)_ 2026-10-30: pushed to god-mode (… 238ca499) | No book, pin, render, WIP file, gate or threshold changed. Motive r2 NO SHIP (stays on dev/motive-1). See the 2026-10-30 changelog. |
 | _(done)_ render-farsighted | `books/farsighted/` | ✅ PUBLISHED & CLEANED 2026-10-27 | Antidote; 55.5 min (99,435 frames), 10-way split; YouTube live; GitHub runs/artifacts + 11 render refs purged; local film, thumbnails, audio, captions, worktree removed. |
 | _(done)_ deliver-nobody-wants-to-read-your-sh-t | `books/nobody-wants-to-read-your-sh-t/` | ✅ PUBLISHED & CLEANED 2026-10-24 | Antidote; 41:19 (74,067 frames), 10-way split; YouTube live; 19 GitHub runs/artifacts (~1.9 GB) + 10 render refs purged; local film, upload folder, thumbnails, audio/captions, worktree + render clone removed. |
@@ -2088,6 +2088,50 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-11-02 — Cycle 7: render entry guard (P4) SHIPPED, place narrow fixes SHIPPED, Causal Story Director 1.0 NO SHIP, rater calibration
+
+All evidence is in `audit/c7-pilots` and `audit/cloud-ab`. Every rule was written and committed before any reader ran.
+
+- **P4 — local production render incident (the-most-important-thing, 2026-10-31) — FIXED in code.**
+  - Root cause: Antigravity conversation 20abbabb, step #428, ran `render.js --slug=… --split --accept-quality-debt=… --dry-run` from the pinned worktree (88db7e09). `--split` and `--dry-run` did not exist and were silently ignored, and the method defaulted to local: 22 of 186 chunks rendered on the PC.
+  - At 14:29 the agent copied `render-accounts.json` into the worktree with Copy-Item, because the old code only looked there.
+  - A hand-written `preview-ready.json` was also used. Its numbers match the sealed mute record, but the other preview gates never ran.
+  - Fix (5974cc0f, 7fa41674, adversarial review: 16 findings verified, 4 refuted):
+    - `--method` is required (no default); unknown flags exit 2; `--dry-run` is real.
+    - A local or Lambda production render needs `--operator-local-production="<operator's words>"`.
+    - Test clips (≤ 1800 frames) are written as `out/<slug>.frames-a-b.mp4`.
+    - The genuine runner is GitHub Actions on Linux only; tools behind origin are refused.
+    - Credentials come only from the main checkout; worktree copies are refused (`CREDENTIALS_COPY`).
+    - "Started" is reported only with real run IDs; an unconfirmed dispatch still blocks a second one.
+    - `--method=github --frames` is refused.
+    - Legacy entry points are guarded; `finish-merge.sh` and `dispatch-lotf-render.mjs` are archived.
+    - `book-start --launcher` names token copies (STOP) and old pins (RENDER never run …).
+    - One contract for every harness: `docs/AGENT-OPERATING-CONTRACT.md` §7b.
+  - **Residual risk:** an old pin's own `render.js` still defaults to local (a pin is never edited). Token copies remain in 4 book worktrees (carrie, essentialism, thinking-fast-and-slow, the-most-important-thing), along with the 22 orphan chunks. Removing them is the operator's call.
+- **P3 — place narrow fixes — SHIP** (f839d5a4): narrower table, object 1.3× on full-body figures. Blind result: placed 10/10, handed 0/10, object named 10/10. icon-readings row updated.
+- **P0/P1 — Causal Story Director 1.0 — NO SHIP.**
+  - Setup: 8 passages drawn by script (red-rising, beloved, how-to-talk-to-anyone, the-most-important-thing) × 2 arms, fresh authors plus a director review in arm B. Official procedure: 32 describers, 16 `--vs` judges, 176 paired judgments per arm.
+  - Totals: ADDS 108→99, EXPLAINS 30→25, CORRECT 129→120, WRONG 1→5, dead 24→17.
+  - Fiction got worse; idea books got slightly better.
+  - Strips (secondary): action plus visible result read 10/88 in both arms.
+  - The cloud second rater also said NO SHIP.
+  - 25/96 B beats were marked noVisual: missing deeds (throw, bow, hide), causers not in the cast, crowds, objects. Vocabulary and cast are the limit.
+- **P2 — calibration** (8 sealed official runs, 240 images; reference = recorded official verdict, not human truth):
+  - The official procedure re-run on the same images agrees 59% on correctness, and its run verdict matches 3/8 runs.
+  - Cloud with the official rubric: item-level WRONG/dead agreement equal to or better than the official re-run, run verdict 4/8. It stays report-only (the pre-registered 7/8 bar was not met).
+  - The cycle-6 cloud rubric almost never says WRONG (false PASS on every FAIL run).
+  - Adjudication by a third chain: WRONG disputes 9:5 for the cloud-official rater, dead disputes 8:2 for the recorded verdict.
+  - Conclusion: single 30-frame runs are not reproducible. A/B decisions should use paired (`--vs`) judging with replicates. A gate change, such as majority over 3 chains, is an operator decision.
+- **Tools:**
+  - The official rubric now lives in `lib/mute-rubric.js` (pinned by hash).
+  - visual-ab has an image mode, strips and `--rubric`.
+  - Cloud inputs travel byte-exact.
+  - ai-budget counts a run that never started its paid step as $0, and a cloud push holds the admission lock.
+  - `test-thumbnail-grammar` race fixed (8ae32b1f).
+- **CI Analyst:** 1 controlled run on a new failure, ≈ $0.017. It correctly said "not caused by this commit" but did not find the race (low confidence). The other 2 failures were fixed without a paid analysis (ledger).
+- **Budget (estimate):** $7.73 today and month-to-date (of $500 / $15 per day). That covers P1 $4.17, calibration dev $1.78, calibration test, and the analyst. Two pushes in a row could have reached $16 against the $15 daily line before the admission-lock fix.
+- **P3/P7:** WAITING_FOR_REAL_BOOK. No book has started on cycle 6/7 code.
 
 ### 2026-10-31 — Cycle 6: place 2.0 SHIPPED, flee full-body rule SHIPPED, continued-place replay fixed, cloud visual A/B, Action-First NO SHIP
 

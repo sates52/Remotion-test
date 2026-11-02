@@ -1,0 +1,36 @@
+{
+ "name": "c7-calibration-test",
+ "rubric": "current",
+ "byRun": {
+  "the-new-one-minute-manager/final": {
+   "n": 30,
+   "WRONG": 1,
+   "NONE": 1,
+   "ADDS": 26,
+   "EXPLAINS": 1
+  },
+  "ready-player-one/run6": {
+   "n": 30,
+   "WRONG": 0,
+   "NONE": 0,
+   "ADDS": 26,
+   "EXPLAINS": 0
+  },
+  "the-art-of-saying-no/run2": {
+   "n": 30,
+   "WRONG": 0,
+   "NONE": 1,
+   "ADDS": 27,
+   "EXPLAINS": 0
+  },
+  "maybe-you-should-talk-to-someone/run3": {
+   "n": 30,
+   "WRONG": 0,
+   "NONE": 0,
+   "ADDS": 29,
+   "EXPLAINS": 0
+  }
+ },
+ "rows": 120,
+ "use": "calibration: compared locally with the reference"
+}
