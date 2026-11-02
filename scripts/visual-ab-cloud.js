@@ -53,7 +53,19 @@ if (cmd === "push") {
   const final = { ...man, inputHash, files, builtAt: new Date().toISOString() };
   console.log(`inputHash ${inputHash} · ${Object.keys(files).length} input files · model ${man.model} · cap $${man.maxUsd}`);
   if (args.dry) process.exit(0);
+  // ADMISSION (2026-11-02): a push STARTS a paid run, so it holds the same lock as ai-budget.js dispatch from the check
+  // until the new run is visible on GitHub (then every later check counts it at its cap). Two pushes in a row had both
+  // seen an empty day because the first run was not listed yet.
+  const B = require("./lib/ai-budget");
+  const bcfg = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "ai-budget.json"), "utf8"));
+  const LOCK = path.join(ROOT, bcfg.ledgerDir || "audit/ai-spend", ".dispatch.lock");
+  fs.mkdirSync(path.dirname(LOCK), { recursive: true });
+  let got = false;
+  for (let k = 0; k < 24 && !(got = B.acquireLock(LOCK)); k++) execFileSync(process.execPath, ["-e", "setTimeout(()=>{},5000)"]);
+  if (!got) { console.error("✗ another paid dispatch holds the admission lock — try again shortly (nothing was pushed)"); process.exit(4); }
+  process.on("exit", () => B.releaseLock(LOCK));
   execFileSync(process.execPath, [path.join(__dirname, "ai-budget.js"), "check", "--workflow=visual-ab.yml", `--usd=${man.maxUsd}`], { stdio: "inherit" });
+  const pushedAt = Date.now();
   // parentless bundle commit from a temporary index: the shared index and branch stay untouched
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "vab-"));
   const idx = path.join(tmp, "index");
@@ -82,7 +94,13 @@ if (cmd === "push") {
   fs.rmSync(tmp, { recursive: true, force: true });
   fs.mkdirSync(path.join(ROOT, "audit", "cloud-ab"), { recursive: true });
   fs.appendFileSync(path.join(ROOT, "audit", "cloud-ab", "pushes.jsonl"), JSON.stringify({ at: new Date().toISOString(), tag, inputHash, commit, files: all.length, model: man.model, maxUsd: man.maxUsd }) + "\n");
-  console.log(`✓ pushed bundle ${commit.slice(0, 8)} (${all.length} files) to ci/visual-ab/${tag} — the workflow starts on its own; then: node scripts/visual-ab-cloud.js fetch --tag=${tag}`);
+  // keep the lock until the run is listed (≤ 90 s), so the next admission check counts it
+  let seen = null;
+  for (let k = 0; k < 18 && !seen; k++) {
+    try { const runs = JSON.parse(execFileSync("gh", ["api", `repos/${REPO}/actions/runs?branch=ci/visual-ab/${tag}&per_page=3`], { encoding: "utf8" })).workflow_runs || []; seen = runs.find((r) => Date.parse(r.created_at) >= pushedAt - 60000) || null; } catch {}
+    if (!seen) execFileSync(process.execPath, ["-e", "setTimeout(()=>{},5000)"]);
+  }
+  console.log(`✓ pushed bundle ${commit.slice(0, 8)} (${all.length} files) to ci/visual-ab/${tag}${seen ? ` — run ${seen.id} started` : " — run not listed yet (the next admission check may not count it)"}; then: node scripts/visual-ab-cloud.js fetch --tag=${tag}`);
 } else if (cmd === "verify") {
   const man = JSON.parse(fs.readFileSync(path.resolve(args.manifest), "utf8"));
   const bad = Object.entries(man.files).filter(([f, h]) => !fs.existsSync(path.join(ROOT, f)) || sha(fs.readFileSync(path.join(ROOT, f))) !== h);
