@@ -2,7 +2,7 @@ import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import type { BodyPlan, CharEmotion, HandProp, VariantSpec } from "../schema";
 import type { Pose } from "../movements";
-import { PLACE_REST, PLACE_TABLE_TOP, TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
+import { PLACE_FULL_SCALE, PLACE_REST, PLACE_TABLE, PLACE_TABLE_TOP, TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
 import { HeldProp } from "../handprops";
 import { Accessory, BackHair, Beard, darken, FrontHair, Headwear, HeadwearBack, Torso } from "../wardrobe";
 import { EmotionOverlay } from "./Emotions";
@@ -251,6 +251,9 @@ export const Everyman: React.FC<{
   // so the same arm is drawn after the head — drawn before it, the cup disappeared behind the face. `propTilt` tips
   // the object toward the lips (a sip), on top of the counter-rotation that otherwise keeps it upright.
   const frontHand = (pose.front ?? 0) > 0;
+  // PLACE (cycle 7): on a full-body figure the set-down object read small (lightning-thief cup) — drawn larger during a
+  // place, scaled about its base so it neither sinks into nor floats above the table
+  const placeScale = (pose.table ?? 0) > 0 && legs ? PLACE_FULL_SCALE : 1;
   const heldArmEl = (
     <g transform={`rotate(${armRot} 304 322)`}>
       <g transform={`rotate(${elbowRot} 304 410)`}>
@@ -265,7 +268,7 @@ export const Everyman: React.FC<{
             the other way round the hand lands as a skin blob in the
             middle of the page. */}
         <Hand cx={304} cy={498} skin={skin} thumb={1} />
-        <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + (pose.propTilt ?? 0)}) scale(${0.82 / buildW} 0.82)`}>
+        <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + (pose.propTilt ?? 0)}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
           <HeldProp prop={holds as string} ink={holdInk} accent={holdAccent} />
         </g>
       </g>
@@ -361,13 +364,13 @@ export const Everyman: React.FC<{
                 goes onto and stays on. Drawn behind the hand; the object, once let go, sits on its top. */}
             {(pose.table ?? 0) > 0 ? (
               <g>
-                <rect x={352} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
-                <rect x={520} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
-                <rect x={336} y={PLACE_TABLE_TOP} width={214} height={20} rx={6} fill="#A8743F" stroke="#4A2E14" strokeWidth={5} />
+                <rect x={PLACE_TABLE.x + 10} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
+                <rect x={PLACE_TABLE.x + PLACE_TABLE.w - 24} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
+                <rect x={PLACE_TABLE.x} y={PLACE_TABLE_TOP} width={PLACE_TABLE.w} height={20} rx={6} fill="#A8743F" stroke="#4A2E14" strokeWidth={5} />
               </g>
             ) : null}
             {holds && pose.take === 0 && (pose.table ?? 0) > 0 ? (
-              <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82)`}>
+              <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
                 <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
               </g>
             ) : holds && pose.take === 0 ? (

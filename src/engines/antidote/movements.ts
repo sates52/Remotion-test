@@ -184,6 +184,11 @@ export const PLACE_OUT = 22, PLACE_HOLD = 10, PLACE_BACK = 20;
 /** PLACE 2.0 (cycle 6): the straight arm angled down-out puts the hand-object anchor (140 px down the arm from the
  *  shoulder at 304,322) at PLACE_REST — the object's base lands on the table top (PLACE_TABLE_TOP) beside the body */
 export const PLACE_ARM = -41, PLACE_REST = { x: 397, y: 427 }, PLACE_TABLE_TOP = 470;
+/** the table under the placed object (rig units): narrow enough to stay in frame when the placer stands near the edge
+ *  (cycle 6 WON: 336-550 ran off the right edge), wide enough to read as a table under the object (centred on PLACE_REST.x) */
+export const PLACE_TABLE = { x: 332, w: 130 };
+/** a place on a FULL-body figure draws the object this much larger (cycle 6 LTT: the set-down cup read small) */
+export const PLACE_FULL_SCALE = 1.3;
 // `drink` (10x P2): up to the lips, the sip held, back down to the chest
 export const DRINK_UP = 18, DRINK_SIP = 42, DRINK_DOWN = 20;
 /** Frames before an `embrace` cue in which the lead closes the gap (contact lands ON the cue). */

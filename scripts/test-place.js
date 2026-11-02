@@ -23,6 +23,11 @@ t("released once the arm reaches the table (take -> 0 at full reach PLACE_ARM, n
 // table is there from the first frame to the end (the surface it goes onto, the object stays on it)
 t("place 2.0: reach is down-out, lower than take's raised rest", M.PLACE_ARM > -60 && M.PLACE_ARM < -20, String(M.PLACE_ARM));
 t("place 2.0: the table is drawn before, during and after", [0, CUE - 1, CUE + 5, released, released + 200].every((fr) => P(fr).table === 1));
+// cycle 7 narrow fixes: the table sits centred under the object and is narrow enough to stay in frame (WON: 336-550 ran
+// off the right edge); a full-body place draws the object larger (LTT: the cup read small)
+t("cycle 7: the table is centred under the placed object", Math.abs(M.PLACE_TABLE.x + M.PLACE_TABLE.w / 2 - M.PLACE_REST.x) <= 2, JSON.stringify(M.PLACE_TABLE));
+t("cycle 7: the table is at most 140 rig units wide and its far edge stays within 470", M.PLACE_TABLE.w <= 140 && M.PLACE_TABLE.x + M.PLACE_TABLE.w <= 470);
+t("cycle 7: a full-body place draws the object larger (1.2-1.5x)", M.PLACE_FULL_SCALE >= 1.2 && M.PLACE_FULL_SCALE <= 1.5);
 // a CONTINUED place keeps the cue it already passed (cycle 6: it replayed — the object came back into the hand and was
 // set down a second time on the next beat)
 {

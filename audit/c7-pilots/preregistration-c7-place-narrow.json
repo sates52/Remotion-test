@@ -1,0 +1,9 @@
+{
+  "name": "c7 place narrow fixes (P3)",
+  "written": "2026-11-02, before the frames were rendered or read",
+  "change": "table narrowed to rig x 332-462 (was 336-550, ran off the right frame edge on WON); on a FULL-body figure the placed object is drawn 1.3x, scaled about its base (LTT: the cup read small). Nothing else changes.",
+  "fixtures": ["zz-pl-won", "zz-pl-ltt"], "frames": [120, 300, 315, 330, 345, 380, 500, 600],
+  "readers": "5 fresh blind sonnet readers per sheet + a judge per description (same categories as c6: PLACED / HANDED / HELD_OR_FLOATING) + OBJECT_NAMED (the reader names a concrete object: cup / mug / paper / card ...)",
+  "rule": "SHIP when on EACH fixture PLACED >= 4/5 and HANDED 0/5 (the c6 place 2.0 bar holds) AND the LTT object is named by >= 4/5 readers. Otherwise the narrow fix is not shipped (place 2.0 stays as shipped).",
+  "notChangedAfter": true
+}
