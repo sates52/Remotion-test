@@ -64,6 +64,10 @@ p = run(["--slug=zz-none", "--method=local"]);
 t("render.js --method=local (whole film) -> exit 2, refused before reading the book", p.status === 2 && /full-length local render is a production render/.test(p.stderr), p.stderr);
 p = run(["--slug=zz-none", "--method=github", "--dry-run", "--authorize-render=go ahead with the render now"]);
 t("--dry-run with an approval flag -> exit 2 (a dry run records nothing)", p.status === 2 && /--dry-run records nothing/.test(p.stderr), p.stderr);
+p = run(["--slug=zz-none", "--method=github", "--frames=0-299"]);
+t("--method=github --frames -> exit 2 (frames are not forwarded: the pool would render the whole film)", p.status === 2 && /pool renders whole films only/.test(p.stderr), p.stderr);
+p = run(["--slug=zz-none", "--method=github", "--allow-dirty-code=x", "--dry-run"]);
+t("--allow-dirty-code (production-guard's documented flag) is not an unknown flag", !/unknown flag/.test(p.stderr), p.stderr);
 p = run(["--slug=zz-none", "--method=github", "stray"]);
 t("a stray positional argument -> exit 2", p.status === 2 && /stray argument/.test(p.stderr), p.stderr);
 p = run(["--method=github"]);
@@ -76,6 +80,9 @@ for (const [file, what] of [["local_chunk_renderer.js", "local_chunk_renderer.js
   const q = spawnSync(process.execPath, [path.join(ROOT, file)], { cwd: ROOT, env, encoding: "utf8", timeout: 60000 });
   t(`${what} without the operator's approval -> exit 2, nothing renders`, q.status === 2 && /production render on this machine/.test(q.stderr), (q.stderr || q.stdout).slice(-300));
 }
+t("render.js --dry-run appends nothing to pipeline-record (productionGuard record:false)", /record: !DRY_RUN/.test(src));
+t("auto-chain-render.js forwards the operator's approval to local_chunk_renderer.js", /--operator-local-production=\$\{JSON\.stringify\(APPROVAL\)\}/.test(fs.readFileSync(path.join(ROOT, "scripts", "auto-chain-render.js"), "utf8")));
+t("finish-merge.sh (an unguarded whole-film local render) is archived", !fs.existsSync(path.join(ROOT, "scripts", "finish-merge.sh")));
 t("pipeline.js --step=render is guarded", /guardLegacyEntry\('pipeline\.js --step=render'\)/.test(fs.readFileSync(path.join(ROOT, "scripts", "pipeline.js"), "utf8")));
 const pkg = require(path.join(ROOT, "package.json"));
 t("npm run render = the GitHub pool", pkg.scripts.render === "node scripts/render.js --method=github");
@@ -102,7 +109,8 @@ t("no live script reads the token file directly (dispatch-lotf-render.mjs archiv
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "entry-guard-"));
   const sf = path.join(tmp, "split.json");
   fs.writeFileSync(sf, JSON.stringify({ renderInputHash: "H", dispatchedAt: "x", runsConfirmedAt: null, segments: [{ dispatchedAt: "x" }, { dispatchedAt: "x" }] }));
-  t("a dispatched-but-unconfirmed render (no run ids) is not 'done' (it resumes / confirms)", RL.inputDispatched(sf, "H") === null);
+  const unc = RL.inputDispatched(sf, "H");
+  t("a dispatched-but-UNCONFIRMED render still blocks a second dispatch (review fix: its runs may exist), flagged unconfirmed", !!unc && unc.confirmed === false, JSON.stringify(unc));
   fs.writeFileSync(sf, JSON.stringify({ renderInputHash: "H", dispatchedAt: "x", runsConfirmedAt: "y", segments: [{ dispatchedAt: "x", runId: 1 }, { dispatchedAt: "x", runId: 2 }] }));
   t("a confirmed render of the same input is 'done' (a second dispatch needs --new-render)", !!RL.inputDispatched(sf, "H"));
   fs.writeFileSync(sf, JSON.stringify({ renderInputHash: "H", dispatchedAt: "x", segments: [{ dispatchedAt: "x" }] }));

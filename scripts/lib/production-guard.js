@@ -105,7 +105,7 @@ function bookStartGate({ slug, step, root, st }) {
   return start;
 }
 
-function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT } = {}) {
+function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT, record: write = true } = {}) {
   if (process.env.GITHUB_ACTIONS || process.env.PRODUCTION_GUARD === "off") return null;
   const st = codeState(root);
   if (!st.head) return null; // not a git checkout (e.g. an exported bundle)
@@ -113,7 +113,8 @@ function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT } =
   const allowReason = (process.env.PRODUCTION_ALLOW_DIRTY || flag || "").trim() || null;
   // the book start is decided before anything is recorded: a refused start leaves no record (else the next try would
   // no longer be a start and would slip through)
-  const start = isBookStart(slug, root) ? bookStartGate({ slug, step, root, st }) : null;
+  // record:false (render.js --dry-run): the code is checked and printed, nothing is pinned or appended
+  const start = write && isBookStart(slug, root) ? bookStartGate({ slug, step, root, st }) : null;
   const record = { step, at: new Date().toISOString(), head: st.head, scriptsTree: st.scriptsTree, srcTree: st.srcTree,
     behindOrigin: st.behindOrigin, linkedWorktree: st.linkedWorktree, dirty: st.drift.length, allowReason, ...(start ? { bookStart: start } : {}) };
   if (st.drift.length) {
@@ -121,7 +122,7 @@ function productionGuard({ slug, step, argv = process.argv, root = CODE_ROOT } =
     record.treeSha256 = fp.treeSha256;
     record.driftFiles = st.drift.slice(0, 40).map((d) => d.file);
   }
-  if (slug) {
+  if (slug && write) {
     const p = path.join(root, "books", slug, "pipeline-record.json");
     if (fs.existsSync(path.dirname(p))) {
       let rec = { note: "production-guard.js: which code each pipeline step ran on", runs: [] };

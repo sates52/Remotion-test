@@ -44,7 +44,11 @@ function checkRenderStart({ method, frames = null, operatorLocal = null, otherAp
   if (!m) {
     return { ok: false, kind: "NO_METHOD", error: `${entry}: no render method given. Production renders run on the GitHub render pool: add --method=github. A local render is never chosen by default (2026-10-31: a render without --method rendered 22 of 186 chunks on this PC).` };
   }
-  if (["github", "actions", "github-actions"].includes(m)) return { ok: true, kind: "github" };
+  if (["github", "actions", "github-actions"].includes(m)) {
+    // the pool renders whole films: --frames is never forwarded, so it would silently render the WHOLE film (review fix)
+    if (frames && !genuineRunner(env, platform)) return { ok: false, kind: "GITHUB_FRAMES", error: `${entry}: --method=github with --frames: the pool renders whole films only (frames are not forwarded) — a short test clip is local: --method=local --frames=a-b` };
+    return { ok: true, kind: "github" };
+  }
   if (!["local", "lambda"].includes(m)) return { ok: false, kind: "BAD_METHOD", error: `${entry}: unknown render method "${method}" (github | local | lambda)` };
   if (m === "local" && genuineRunner(env, platform)) return { ok: true, kind: "runner" };
   const span = framesSpan(frames);

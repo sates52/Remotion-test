@@ -47,9 +47,10 @@ function inputDispatched(stateFile, inputHash) {
   if (!s || !inputHash || s.renderInputHash !== inputHash) return null;
   const segs = s.segments || [];
   if (!segs.length || !segs.every((g) => g.dispatchedAt || g.dispatchedSha)) return null;
-  // cycle 7: a state written since run confirmation existed (runsConfirmedAt key present) needs every segment's run id
-  if ("runsConfirmedAt" in s && !segs.every((g) => g.runId)) return null;
-  return { renderInputHash: inputHash, dispatchedAt: s.dispatchedAt, segments: segs.length, bundleSha: s.bundleSha || null };
+  // cycle 7 (review): a dispatch whose runs were not confirmed still BLOCKS a second dispatch (its runs may exist —
+  // the run list could not be read); `confirmed` only changes what the operator is told
+  const confirmed = segs.every((g) => g.runId) ? true : ("runsConfirmedAt" in s ? false : null);
+  return { renderInputHash: inputHash, dispatchedAt: s.dispatchedAt, segments: segs.length, bundleSha: s.bundleSha || null, confirmed };
 }
 
 // LOCAL production renders (operator-approved, cycle 7): the start is recorded per render input, so neither a second local

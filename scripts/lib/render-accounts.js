@@ -25,6 +25,8 @@ const commonDir = (root) => { const c = git(["rev-parse", "--path-format=absolut
 
 /** the main checkout of the repository `root` belongs to (the parent of the shared git dir), or null */
 function mainCheckout(root) { const cd = commonDir(root); return cd ? path.dirname(cd) : null; }
+/** same path? Windows paths are case-insensitive (git may print C: where the caller has c:) */
+const samePath = (a, b) => { const x = path.resolve(a), y = path.resolve(b); return process.platform === "win32" ? x.toLowerCase() === y.toLowerCase() : x === y; };
 
 /** where the accounts file is, in order — never copies anything. Central discovery (cycle 7, 2026-11-02): only
  *  $RENDER_ACCOUNTS_FILE or the MAIN checkout's file; a linked worktree's own copy is never a source (see findCopies). */
@@ -32,7 +34,7 @@ function locate(root) {
   const cands = [];
   if (process.env.RENDER_ACCOUNTS_FILE) cands.push({ file: path.resolve(process.env.RENDER_ACCOUNTS_FILE), source: "RENDER_ACCOUNTS_FILE" });
   const main = mainCheckout(root);
-  if (main) cands.push({ file: path.join(main, NAME), source: path.resolve(main) === path.resolve(root) ? "this checkout (the main checkout)" : "main checkout (read in place, not copied)" });
+  if (main) cands.push({ file: path.join(main, NAME), source: samePath(main, root) ? "this checkout (the main checkout)" : "main checkout (read in place, not copied)" });
   else cands.push({ file: path.join(root, NAME), source: "this checkout" });
   const hit = cands.find((c) => fs.existsSync(c.file));
   return hit ? { ...hit, searched: cands.map((c) => c.source) } : { file: null, source: null, searched: cands.map((c) => c.source) };
@@ -44,7 +46,8 @@ function findCopies(roots) {
   const out = [];
   for (const r of [...new Set((roots || []).filter(Boolean).map((x) => path.resolve(x)))]) {
     const main = mainCheckout(r);
-    if (main && path.resolve(main) === r) continue;
+    // git cannot tell a main checkout from a worktree here: no classification (locate() falls back to this checkout)
+    if (!main || samePath(main, r)) continue;
     let names = [];
     try { names = fs.readdirSync(r).filter((n) => /^render-accounts.*.json$/i.test(n)); } catch {}
     for (const n of names) out.push(path.join(r, n));
@@ -69,7 +72,10 @@ function writeState(root, patch) { const f = stateFile(root); const s = { ...rea
 
 /** load the pool: the file's content, with the round-robin pointer from the state file. Throws a CLASSED error. */
 function loadAccounts(root, { alsoCheck = [] } = {}) {
-  const copies = findCopies([root, ...alsoCheck]);
+  // an explicit RENDER_ACCOUNTS_FILE that lives in a linked worktree is a copy too
+  const envDir = process.env.RENDER_ACCOUNTS_FILE ? path.dirname(path.resolve(process.env.RENDER_ACCOUNTS_FILE)) : null;
+  const envCopy = envDir && git(["rev-parse", "--is-inside-work-tree"], envDir) === "true" && mainCheckout(envDir) && !samePath(mainCheckout(envDir), git(["rev-parse", "--show-toplevel"], envDir) || envDir) ? [path.resolve(process.env.RENDER_ACCOUNTS_FILE)] : [];
+  const copies = [...findCopies([root, ...alsoCheck]), ...envCopy];
   if (copies.length) {
     const e = new Error(`a COPY of the render-worker token file sits in a worktree: ${copies.join(", ")} — not used, not read. The only source is the main checkout's render-accounts.json (or $RENDER_ACCOUNTS_FILE); a copy is one more place the tokens can leak from. The operator removes it; then rerun.`);
     e.code = "CREDENTIALS_COPY"; e.copies = copies; throw e;

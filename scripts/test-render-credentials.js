@@ -107,6 +107,19 @@ try {
   t("without the copy: read in place from the main checkout", /main checkout/.test(acc.__source.source) && acc.__source.copy === false, acc.__source.source);
   acc = RA.loadAccounts(MAIN);
   t("the main checkout's own file is the source there (not a copy)", /main checkout/.test(acc.__source.source), acc.__source.source);
+  if (process.platform === "win32") {
+    // review fix: git prints C:, a caller may pass c: — the main checkout's own file is never a copy
+    const flip = MAIN[0] === MAIN[0].toUpperCase() ? MAIN[0].toLowerCase() + MAIN.slice(1) : MAIN[0].toUpperCase() + MAIN.slice(1);
+    e = null; try { RA.loadAccounts(flip); } catch (x) { e = x; }
+    t("Windows: the main checkout under a differently-cased drive letter is not a copy", !e, e && e.message);
+  }
+  // review fix: RENDER_ACCOUNTS_FILE pointing at a copy inside a linked worktree is refused too
+  fs.writeFileSync(path.join(WT, "render-accounts.json"), JSON.stringify(pool(1)));
+  process.env.RENDER_ACCOUNTS_FILE = path.join(WT, "render-accounts.json");
+  e = null; try { RA.loadAccounts(MAIN); } catch (x) { e = x; }
+  t("RENDER_ACCOUNTS_FILE -> a copy in a worktree -> CREDENTIALS_COPY", e && e.code === "CREDENTIALS_COPY", e && e.message);
+  delete process.env.RENDER_ACCOUNTS_FILE;
+  fs.rmSync(path.join(WT, "render-accounts.json"));
 
   // 9. the bundle refuses a credentials file, wherever it sits in the bundled tree
   const { auditBundle } = require("./lib/render-bundle");

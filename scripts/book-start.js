@@ -74,8 +74,8 @@ if (path.resolve(here) !== MAIN || behind) out(`  this checkout: ${path.basename
 
 
 // ---- render hazards of a book worktree (cycle 7, 2026-11-02) ----------------------------------------------------------
-// 2026-10-31 (the-most-important-thing): an agent ran the worktree's OWN pinned render.js — its method defaulted to LOCAL,
-// a 186-chunk production render started on this PC — and later copied the render-worker token file into the worktree.
+// 2026-10-31 (the-most-important-thing): an agent ran the worktree's OWN pinned render.js - its method defaulted to LOCAL,
+// a 186-chunk production render started on this PC - and later copied the render-worker token file into the worktree.
 // A pin is never edited, so its old render.js stays; this names the hazard every time a session starts or resumes.
 // Token files are checked by NAME only, never opened.
 function renderHazards(wt) {

@@ -22,7 +22,7 @@
  */
 const { spawnSync } = require("child_process");
 // renders whole films on this PC: refused unless the operator's own --operator-local-production="<words>" (cycle 7)
-require("./lib/render-entry-guard").guardLegacyEntry("auto-chain-render.js");
+const APPROVAL = require("./lib/render-entry-guard").guardLegacyEntry("auto-chain-render.js").record.reason;
 const fs = require("fs");
 const path = require("path");
 
@@ -148,7 +148,7 @@ function renderChunk(job, i) {
 function renderJob(job) {
   log(`RENDER: ${job.slug} — ${job.chunks} chunks @ concurrency ${CONC} (resumable)`);
   // local_chunk_renderer skips existing chunks (resume) and reads RENDER_CONCURRENCY.
-  sh(`node local_chunk_renderer.js ${job.cfg} ${CHUNK_SIZE}`, { retries: 4, env: { RENDER_CONCURRENCY: CONC } });
+  sh(`node local_chunk_renderer.js ${job.cfg} ${CHUNK_SIZE} --operator-local-production=${JSON.stringify(APPROVAL)}`, { retries: 4, env: { RENDER_CONCURRENCY: CONC } });
 }
 function verifyAndRepair(job) {
   log(`VERIFY: ${job.slug} — probing ${job.chunks} chunks`);

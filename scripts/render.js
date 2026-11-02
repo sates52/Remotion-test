@@ -53,7 +53,7 @@ if (args.help || args.h) {
 // UNKNOWN FLAGS ARE REFUSED (cycle 7, 2026-11-02): `--dry-run` and `--split` were silently ignored on 2026-10-31 and an
 // intended dry run became a 186-chunk local production render (scripts/lib/render-entry-guard.js).
 {
-  const KNOWN = new Set(["accept-quality-debt", "account", "authorize-render", "book-root", "chunk-size", "cloud-no-download", "composition",
+  const KNOWN = new Set(["accept-quality-debt", "account", "allow-dirty-code", "authorize-render", "book-root", "chunk-size", "cloud-no-download", "composition",
     "concurrency", "config", "dry-run", "frames", "h", "help", "lambda", "legacy-push", "local-assemble", "local-fallback", "method",
     "new-render", "no-split", "no-wait", "operator-local-production", "poll-interval", "preview-only", "push-concurrency", "region",
     "seg-frames", "segments", "semantic-review", "site-name", "skip-authorship-gate", "skip-narrative-firewall", "skip-verify", "slug",
@@ -225,7 +225,7 @@ if (!composition) {
 if (!slug && meta.slug) slug = meta.slug;
 if (!slug) slug = composition.toLowerCase();
 // Which code renders this? Stops on code that is not a commit (scripts/lib/production-guard.js).
-require("./lib/production-guard").productionGuard({ slug, step: DRY_RUN ? "render (dry-run)" : "render", root: BOOK_ROOT });
+require("./lib/production-guard").productionGuard({ slug, step: DRY_RUN ? "render (dry-run)" : "render", root: BOOK_ROOT, record: !DRY_RUN });
 // OLD TOOLS NEVER START A PRODUCTION RENDER (cycle 7): a checkout behind origin/god-mode carries older guards (the
 // 2026-10-31 render ran a pinned render.js 39 commits behind, whose method defaulted to local). Test clips and the render
 // runner are not production; the operator can override with PRODUCTION_ALLOW_BEHIND="<reason>".
@@ -346,7 +346,7 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
 }
 
 // ── Execution Router ────────────────────────────────────────────────────────
-const dryExit = (what) => { console.log(`\n✓ DRY RUN: every check passed — a real run would ${what}. Nothing was rendered, dispatched or recorded.`); process.exit(0); };
+const dryExit = (what) => { console.log(`\n✓ DRY RUN: every check passed — a real run would ${what}. Nothing was rendered or dispatched and no decision or run was recorded (check reports such as the firewall report may be refreshed).`); process.exit(0); };
 switch (method) {
   case "local":
     if (DRY_RUN) dryExit(`render frames ${args.frames || `0-${totalFrames - 1}`} locally (${START.kind}) to ${finalOutPath}`);
@@ -375,7 +375,9 @@ switch (method) {
     // ONE RENDER PER BOOK (2026-10-26, lib/run-lock.js): a second render.js for the same book while the first is alive
     // stops (exit 3); a split render dispatched without waiting (or whose process died) is not dispatched again within
     // 3h — its segments may still be running on the pool (rescue: render-github-redispatch.js). Operator: --new-render.
-    if (slug && !process.env.GITHUB_ACTIONS && !args.frames) {
+    // --frames is never forwarded to the pool (the workflow would render the WHOLE film): refused outside the runner
+    if (args.frames && !entryGuard.genuineRunner()) { console.error("❌ --method=github with --frames: the pool renders whole films only (frames are not forwarded) — a short test clip is local: --method=local --frames=a-b"); process.exit(2); }
+    if (slug && !entryGuard.genuineRunner()) {
       const { takeRunLock, renderInFlight } = require("./lib/run-lock");
       takeRunLock(path.join(BOOK_ROOT, `.render-lock.${slug}.json`), `render ${slug}`);
       const fl = renderInFlight(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`));
@@ -384,7 +386,7 @@ switch (method) {
       // operator's --new-render, never a retry — a stopped run of the same bundle still resumes (mergeResume)
       const done = require("./lib/run-lock").inputDispatched(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`), configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null);
       if (done && !newRender) {
-        console.error(`❌ ${slug}: render input ${done.renderInputHash} was already dispatched ${done.dispatchedAt} (${done.segments} segments, bundle ${String(done.bundleSha || "?").slice(0, 8)}). Not dispatching it twice.`);
+        console.error(`❌ ${slug}: render input ${done.renderInputHash} was already dispatched ${done.dispatchedAt} (${done.segments} segments, bundle ${String(done.bundleSha || "?").slice(0, 8)})${done.confirmed === false ? " — its runs were NOT CONFIRMED (they may still exist on the pool)" : ""}. Not dispatching it twice.`);
         console.error(`   Its state: node scripts/render-status.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}   ·   a deliberate new render: --new-render="<reason>" (operator)`);
         process.exit(3);
       }
