@@ -1,0 +1,205 @@
+{
+ "set": "dev",
+ "report": {
+  "R3": {
+   "items": 120,
+   "agreement": {
+    "correctness": 57.5,
+    "contribution": 60.8,
+    "explains": 89.2,
+    "wrongFlag": 89.2,
+    "deadFlag": 74.2
+   },
+   "kappa": {
+    "correctness": 0.225,
+    "contribution": 0.34
+   },
+   "WRONG": {
+    "tp": 1,
+    "fp": 6,
+    "fn": 7
+   },
+   "DEAD": {
+    "tp": 0,
+    "fp": 29,
+    "fn": 2
+   },
+   "totals": {
+    "refCORRECT": 97,
+    "raterCORRECT": 58,
+    "refADDS": 69,
+    "raterADDS": 70
+   },
+   "runs": [
+    {
+     "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "1/0",
+     "raterWD": "4/7"
+    },
+    {
+     "run": "the-paradox-of-choice/run1",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "0/0",
+     "raterWD": "1/13"
+    },
+    {
+     "run": "the-lightning-thief/holdout2",
+     "ref": "FAIL",
+     "rater": "FAIL",
+     "refWD": "5/2",
+     "raterWD": "2/0"
+    },
+    {
+     "run": "the-knave-and-the-moon/final",
+     "ref": "FAIL",
+     "rater": "FAIL",
+     "refWD": "2/0",
+     "raterWD": "0/9"
+    }
+   ],
+   "runVerdictMatches": "2/4",
+   "falsePASS": [],
+   "falseFAIL": [
+    "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+    "the-paradox-of-choice/run1"
+   ]
+  },
+  "R2-official": {
+   "items": 120,
+   "agreement": {
+    "correctness": 59.2,
+    "contribution": 61.7,
+    "explains": 90,
+    "wrongFlag": 88.3,
+    "deadFlag": 91.7
+   },
+   "kappa": {
+    "correctness": 0.1,
+    "contribution": 0.297
+   },
+   "WRONG": {
+    "tp": 1,
+    "fp": 7,
+    "fn": 7
+   },
+   "DEAD": {
+    "tp": 1,
+    "fp": 9,
+    "fn": 1
+   },
+   "totals": {
+    "refCORRECT": 97,
+    "raterCORRECT": 75,
+    "refADDS": 69,
+    "raterADDS": 68
+   },
+   "runs": [
+    {
+     "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "1/0",
+     "raterWD": "0/2"
+    },
+    {
+     "run": "the-paradox-of-choice/run1",
+     "ref": "PASS",
+     "rater": "FAIL",
+     "refWD": "0/0",
+     "raterWD": "6/4"
+    },
+    {
+     "run": "the-lightning-thief/holdout2",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "5/2",
+     "raterWD": "1/3"
+    },
+    {
+     "run": "the-knave-and-the-moon/final",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "2/0",
+     "raterWD": "1/1"
+    }
+   ],
+   "runVerdictMatches": "1/4",
+   "falsePASS": [
+    "the-lightning-thief/holdout2",
+    "the-knave-and-the-moon/final"
+   ],
+   "falseFAIL": [
+    "the-paradox-of-choice/run1"
+   ]
+  },
+  "R1-current": {
+   "items": 120,
+   "agreement": {
+    "correctness": 62.5,
+    "contribution": 70,
+    "explains": 90,
+    "wrongFlag": 92.5,
+    "deadFlag": 98.3
+   },
+   "kappa": {
+    "correctness": -0.037,
+    "contribution": 0.372
+   },
+   "WRONG": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 8
+   },
+   "DEAD": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 2
+   },
+   "totals": {
+    "refCORRECT": 97,
+    "raterCORRECT": 91,
+    "refADDS": 69,
+    "raterADDS": 95
+   },
+   "runs": [
+    {
+     "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "1/0",
+     "raterWD": "1/0"
+    },
+    {
+     "run": "the-paradox-of-choice/run1",
+     "ref": "PASS",
+     "rater": "PASS",
+     "refWD": "0/0",
+     "raterWD": "0/0"
+    },
+    {
+     "run": "the-lightning-thief/holdout2",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "5/2",
+     "raterWD": "0/0"
+    },
+    {
+     "run": "the-knave-and-the-moon/final",
+     "ref": "FAIL",
+     "rater": "PASS",
+     "refWD": "2/0",
+     "raterWD": "0/0"
+    }
+   ],
+   "runVerdictMatches": "2/4",
+   "falsePASS": [
+    "the-lightning-thief/holdout2",
+    "the-knave-and-the-moon/final"
+   ],
+   "falseFAIL": []
+  }
+ }
+}

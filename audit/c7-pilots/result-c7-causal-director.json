@@ -1,0 +1,135 @@
+{
+  "preregistration": "preregistration-c7-causal-director.json",
+  "primary": {
+    "instrument": "official procedure, 32 fresh sonnet describers + 16 fresh judges (--vs X/Y), 2 replicates, 176 judgments per arm",
+    "totals": {
+      "A": {
+        "n": 176,
+        "CORRECT": 129,
+        "NEUTRAL": 46,
+        "WRONG": 1,
+        "ADDS": 108,
+        "TEXT_ONLY": 44,
+        "DEAD": 24,
+        "EXPLAINS": 30
+      },
+      "B": {
+        "n": 176,
+        "CORRECT": 120,
+        "NEUTRAL": 51,
+        "WRONG": 5,
+        "ADDS": 99,
+        "TEXT_ONLY": 60,
+        "DEAD": 17,
+        "EXPLAINS": 25
+      },
+      "A:fiction": {
+        "n": 88,
+        "CORRECT": 68,
+        "NEUTRAL": 20,
+        "WRONG": 0,
+        "ADDS": 68,
+        "TEXT_ONLY": 15,
+        "DEAD": 5,
+        "EXPLAINS": 19
+      },
+      "B:fiction": {
+        "n": 88,
+        "CORRECT": 52,
+        "NEUTRAL": 32,
+        "WRONG": 4,
+        "ADDS": 57,
+        "TEXT_ONLY": 27,
+        "DEAD": 4,
+        "EXPLAINS": 11
+      },
+      "A:ideas": {
+        "n": 88,
+        "CORRECT": 61,
+        "NEUTRAL": 26,
+        "WRONG": 1,
+        "ADDS": 40,
+        "TEXT_ONLY": 29,
+        "DEAD": 19,
+        "EXPLAINS": 11
+      },
+      "B:ideas": {
+        "n": 88,
+        "CORRECT": 68,
+        "NEUTRAL": 19,
+        "WRONG": 1,
+        "ADDS": 42,
+        "TEXT_ONLY": 33,
+        "DEAD": 13,
+        "EXPLAINS": 14
+      }
+    },
+    "addsNeeded": 18,
+    "rule": {
+      "wrongPerGenre": false,
+      "deadPooled": true,
+      "addsPooled": false,
+      "addsPerGenre": false,
+      "explainsPooled": false,
+      "correctPooled": false
+    },
+    "officialBars": {
+      "A": {
+        "wrongPer30": 0.17,
+        "deadPer30": 4.09,
+        "addsPct": 61
+      },
+      "B": {
+        "wrongPer30": 0.85,
+        "deadPer30": 2.9,
+        "addsPct": 56
+      }
+    }
+  },
+  "decision": "NO SHIP — the CSD section and the director step stay out of production; nothing re-tuned on these passages",
+  "secondary": {
+    "instrument": "cloud 3-frame strips, sequence rubric (report-only)",
+    "A": {
+      "n": 88,
+      "SEQ_YES": 10,
+      "SEQ_PARTLY": 73,
+      "CONT_BROKEN": 1,
+      "WRONG": 4
+    },
+    "B": {
+      "n": 88,
+      "SEQ_YES": 10,
+      "SEQ_PARTLY": 73,
+      "CONT_BROKEN": 1,
+      "WRONG": 6
+    },
+    "note": "action + visible result read on 10/88 scenes in BOTH arms"
+  },
+  "secondRater": {
+    "instrument": "cloud API, official rubric",
+    "A": {
+      "n": 88,
+      "WRONG": 4,
+      "CORRECT": 54,
+      "ADDS": 45,
+      "DEAD": 5,
+      "EXPLAINS": 1
+    },
+    "B": {
+      "n": 88,
+      "WRONG": 8,
+      "CORRECT": 54,
+      "ADDS": 44,
+      "DEAD": 6,
+      "EXPLAINS": 1
+    },
+    "decision": "NO SHIP"
+  },
+  "reading": "fiction got worse (ADDS 68->57, EXPLAINS 19->11, WRONG 0->4, CORRECT 68->52); idea books slightly better (ADDS 40->42, EXPLAINS 11->14, CORRECT 61->68, dead 19->13). 25 of 96 B beats were marked noVisual by authors/directors: missing deeds (throw, bow, hide, build), causers not in the cast (Nero, Titus), crowds (the crowd shot duplicates one figure), objects (car, TV, pendulum, walking stick). The limit is the engine vocabulary and cast completeness, not the authoring rule.",
+  "cost": {
+    "cloud": "$4.17 (render 768 stills + 352 API ratings)",
+    "local": "subagents, not API-billed"
+  },
+  "cloudRun": 41433739606,
+  "inputHash": "eabec3f219965305"
+}

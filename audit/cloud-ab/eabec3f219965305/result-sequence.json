@@ -1,0 +1,134 @@
+{
+ "name": "c7-causal-director",
+ "rubric": "sequence",
+ "totals": {
+  "A": {
+   "n": 88,
+   "SEQ_YES": 10,
+   "SEQ_PARTLY": 73,
+   "CONT_BROKEN": 1,
+   "WRONG": 4
+  },
+  "A:RR1": {
+   "n": 11,
+   "SEQ_YES": 0,
+   "SEQ_PARTLY": 11,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "A:RR2": {
+   "n": 11,
+   "SEQ_YES": 4,
+   "SEQ_PARTLY": 7,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  },
+  "A:BL1": {
+   "n": 11,
+   "SEQ_YES": 0,
+   "SEQ_PARTLY": 9,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "A:BL2": {
+   "n": 11,
+   "SEQ_YES": 0,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "A:HT1": {
+   "n": 11,
+   "SEQ_YES": 1,
+   "SEQ_PARTLY": 9,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "A:HT2": {
+   "n": 11,
+   "SEQ_YES": 2,
+   "SEQ_PARTLY": 8,
+   "CONT_BROKEN": 1,
+   "WRONG": 0
+  },
+  "A:MI1": {
+   "n": 11,
+   "SEQ_YES": 2,
+   "SEQ_PARTLY": 9,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  },
+  "A:MI2": {
+   "n": 11,
+   "SEQ_YES": 1,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  },
+  "B": {
+   "n": 88,
+   "SEQ_YES": 10,
+   "SEQ_PARTLY": 73,
+   "CONT_BROKEN": 1,
+   "WRONG": 6
+  },
+  "B:RR1": {
+   "n": 11,
+   "SEQ_YES": 1,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  },
+  "B:RR2": {
+   "n": 11,
+   "SEQ_YES": 2,
+   "SEQ_PARTLY": 9,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "B:BL1": {
+   "n": 11,
+   "SEQ_YES": 0,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 1,
+   "WRONG": 2
+  },
+  "B:BL2": {
+   "n": 11,
+   "SEQ_YES": 0,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  },
+  "B:HT1": {
+   "n": 11,
+   "SEQ_YES": 3,
+   "SEQ_PARTLY": 7,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "B:HT2": {
+   "n": 11,
+   "SEQ_YES": 1,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "B:MI1": {
+   "n": 11,
+   "SEQ_YES": 2,
+   "SEQ_PARTLY": 7,
+   "CONT_BROKEN": 0,
+   "WRONG": 1
+  },
+  "B:MI2": {
+   "n": 11,
+   "SEQ_YES": 1,
+   "SEQ_PARTLY": 10,
+   "CONT_BROKEN": 0,
+   "WRONG": 0
+  }
+ },
+ "rows": 176,
+ "use": "secondary (report-only)"
+}

@@ -1,0 +1,36 @@
+{
+ "name": "c7-calibration-dev",
+ "rubric": "official",
+ "byRun": {
+  "learned-optimism-how-to-change-your-mind-and-your-life/run2": {
+   "n": 30,
+   "WRONG": 0,
+   "NONE": 2,
+   "ADDS": 13,
+   "EXPLAINS": 0
+  },
+  "the-paradox-of-choice/run1": {
+   "n": 30,
+   "WRONG": 6,
+   "NONE": 4,
+   "ADDS": 19,
+   "EXPLAINS": 0
+  },
+  "the-lightning-thief/holdout2": {
+   "n": 30,
+   "WRONG": 1,
+   "NONE": 3,
+   "ADDS": 21,
+   "EXPLAINS": 0
+  },
+  "the-knave-and-the-moon/final": {
+   "n": 30,
+   "WRONG": 1,
+   "NONE": 1,
+   "ADDS": 15,
+   "EXPLAINS": 0
+  }
+ },
+ "rows": 120,
+ "use": "calibration: compared locally with the reference"
+}

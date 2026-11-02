@@ -1,0 +1,189 @@
+{
+ "ref": 13,
+ "cloud": 11,
+ "byFlag": {
+  "WRONG": {
+   "ref": 5,
+   "cloud": 9
+  },
+  "NONE": {
+   "ref": 8,
+   "cloud": 2
+  }
+ },
+ "rows": [
+  "cal-r1-img-13 WRONG: recorded=true cloud=false third=false -> majority with cloud",
+  "cal-r1-img-14 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r1-img-16 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-03 WRONG: recorded=false cloud=true third=true -> majority with cloud",
+  "cal-r2-img-03 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-09 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-10 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-12 WRONG: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-13 WRONG: recorded=false cloud=true third=true -> majority with cloud",
+  "cal-r2-img-16 WRONG: recorded=false cloud=true third=true -> majority with cloud",
+  "cal-r2-img-17 WRONG: recorded=false cloud=true third=true -> majority with cloud",
+  "cal-r2-img-25 WRONG: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r2-img-25 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r5-img-02 WRONG: recorded=true cloud=false third=true -> majority with ref",
+  "cal-r5-img-11 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r5-img-14 WRONG: recorded=true cloud=false third=false -> majority with cloud",
+  "cal-r5-img-17 WRONG: recorded=true cloud=false third=false -> majority with cloud",
+  "cal-r5-img-20 WRONG: recorded=true cloud=false third=false -> majority with cloud",
+  "cal-r5-img-20 NONE: recorded=true cloud=false third=false -> majority with cloud",
+  "cal-r5-img-30 NONE: recorded=false cloud=true third=true -> majority with cloud",
+  "cal-r6-img-03 WRONG: recorded=true cloud=false third=true -> majority with ref",
+  "cal-r6-img-14 NONE: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r6-img-18 WRONG: recorded=false cloud=true third=false -> majority with ref",
+  "cal-r6-img-29 WRONG: recorded=true cloud=false third=false -> majority with cloud"
+ ],
+ "R4": {
+  "cal-r1-img-13": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "Narration says to listen to the first sentence you tell yourself. The on-screen text \"THE VERY FIRST SENTENCE\" matches it, but the wary face and faded room don't show self-talk. The viewer's message also mentions the \"eighth insight\", which the narration doesn't say.",
+   "whyC": "The face and room show no mechanism or cause and effect, only a vague mood, so the picture does not explain anything."
+  },
+  "cal-r1-img-14": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The viewer reads a presenter pointing at a chart of three groups, with a possible hospital setting. The narration is about escapable versus inescapable shocks and learned helplessness, which is two groups, not three. The image shows no shocks, helplessness, or contrast between the two conditions. The lines and triangles are generic, and the viewer would form the wrong \"three groups\" idea. The image adds no real content and shows no mechanism.",
+   "whyC": "Only a generic presenter and chart are shown, with no cause and effect."
+  },
+  "cal-r1-img-16": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "A. The headline \"THE EASIEST TO FAKE\" echoes the narration (personalization is easiest to fake), but the V message wrongly names optimism and insurance sales, and the picture itself neither matches nor contradicts the narration. Two people sit side by side with no relevant action, so NEUTRAL. B. Only the headline text carries meaning. The two neutral figures show no deflecting of blame, so TEXT_ONLY. C. No mechanism of faking or blame deflection is shown, so NO.",
+   "whyC": "The picture shows no cause-and-effect, no one deflecting blame or faking anything."
+  },
+  "cal-r2-img-03": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration is a sincere, joyful win (ecstatic, champagne, better apartment, \"life is good\"). The image shows a devil-horned, smirking man holding an orange mug, and the viewer's reading is a smug celebration with a hidden catch tied to the paradox of choice. That suggests mischief and a different meaning. The mug contradicts the champagne headline. Only the \"POPPING CHAMPAGNE\" text matches the narration, so the text carries the meaning, not the picture. The picture shows no mechanism or cause and effect.",
+   "whyC": "The picture shows no cause-and-effect relationship; it shows one man in a plain room."
+  },
+  "cal-r2-img-09": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The man in a living room does not contradict the closing line, but the horns and smirk add a devilish tone that does not match it. No treadmill, engine or plug appears. The viewer gets the meaning only from the headline text.",
+   "whyC": "The picture shows no mechanism or cause and effect. It is a generic person in a room, so it does not explain how choice overload drains you."
+  },
+  "cal-r2-img-10": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "A worried man pointing at empty space neither matches nor contradicts \"tyranny of autonomy / sanctify freedom of choice\". The title text carries the meaning.",
+   "whyC": "No mechanism or cause-effect is shown, just a generic worried figure pointing at nothing."
+  },
+  "cal-r2-img-12": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "Narration poses \"we need an antidote\" as the answer to stopping the engine. The strikethrough on the text suggests rejection, which is ambiguous or slightly contradictory. The man and lightbulb loosely suggest \"an idea is coming\" and do not contradict. The text carries the meaning and the picture shows no mechanism.",
+   "whyC": "The picture is a generic man gesturing at a lightbulb. It shows no cause-and-effect or relationship for stopping the engine."
+  },
+  "cal-r2-img-13": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration says paralysis bleeds into intellectual and professional lives. The viewer read it as those lives being struck out or rejected. The horn-like spikes and the strikethrough title point to a different meaning than the narration's. The worried man in a suit is only generic mood. No object or action shows the paralysis spreading into work, so the picture adds nothing beyond the text.",
+   "whyC": "The picture shows only a worried man and a crossed-out title, with no mechanism or cause and effect."
+  },
+  "cal-r2-img-16": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration asks how to judge a fair salary without comparing with peers. The strikethrough on every word reads as \"fair salary doesn't exist\", which is the opposite of the narrator's question. Only the headline text carries meaning, and the worried man and coin add nothing specific.",
+   "whyC": "The picture shows no mechanism or relationship, only a worried man with a wallet and a coin. Nothing shows peer comparison or the school/district benchmark."
+  },
+  "cal-r2-img-17": {
+   "correctness": "WRONG",
+   "contribution": "NONE",
+   "explains": "NO",
+   "why": "Narration says maximizers who applied to many jobs and negotiated actually achieved slightly (better outcomes, but felt worse). The image shows a worried man with devil-like horns holding a note in an office, which conveys a different meaning (anxiety or evil) and nothing about job applications, weighing variables or negotiating.",
+   "whyC": "Picture shows only a generic worried office character; no mechanism or cause and effect is shown."
+  },
+  "cal-r2-img-25": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration says regret works when options are limited and stakes are clear, ahead of a contrast with infinite choice. The image shows a teacher pointing at a blank whiteboard with a split background. It does not contradict the narration, but it shows nothing about limited options, regret or choice. The viewer's \"limited options / paradox of choice\" message most likely comes from on-screen text, not from the picture. The classroom setting adds no mechanism or cause and effect.",
+   "whyC": "The picture shows only a generic teacher and a blank board. It does not show who does what to whom or what leads to what."
+  },
+  "cal-r5-img-02": {
+   "correctness": "WRONG",
+   "contribution": "NONE",
+   "explains": "NO",
+   "why": "The narration says many people read Percy returning the Bolt as accepting his heroic duty, which the narrator then challenges. The viewer took away \"you are free to choose your own path\", a different message. The worried woman and the door are unrelated to Percy or the Bolt. The image does not convey the narration's meaning, and there is no text carrying it either. It shows no mechanism or cause and effect.",
+   "whyC": "The picture shows a generic woman pointing at a door. It does not show any link between the Bolt, Percy's duty and the misreading."
+  },
+  "cal-r5-img-11": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration says real bravery is choosing to stay vulnerable, and it rejects wielding a sword. The viewer takes away \"RESTORING HER AGENCY\", which is only the text, and it misses the vulnerability point. The image itself (two similar women, a gift, a bag) shows nothing about agency, and the gift suggests an unrelated theme. The picture adds nothing, so only the title carries meaning, and it shows no mechanism.",
+   "whyC": "The picture shows two figures and a gift. It shows no cause and effect and no relationship tied to the narration."
+  },
+  "cal-r5-img-14": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "Text \"NO CAVERN OF DOOM\" struck through matches the narration's rejection of a terrifying cavern, so the message is right. But the picture (worried horned figure, sea, hill, sun) shows no oily black river and reads as a beach, so only the text carries the meaning. It does not contradict, so not WRONG.",
+   "whyC": "The image shows no mechanism or cause-effect, and no river."
+  },
+  "cal-r5-img-17": {
+   "correctness": "NEUTRAL",
+   "contribution": "ADDS",
+   "explains": "NO",
+   "why": "The angry figure and the headline \"TRYING TO FRAME HIM\" roughly match the narration's framing plot. The lightning bolt fits the Zeus/Poseidon theft context. But the narration's actual point is Hades' budget and space for souls, so the image only partly fits and is not clearly right or wrong. The expression and the bolt add some meaning, but the picture does not show who frames whom or any cause and effect. \"Him\" has no referent.",
+   "whyC": "The scene shows a lone scowling figure beside a bolt. It gives the subject and mood but not the mechanism of the framing."
+  },
+  "cal-r5-img-20": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The worried character and the \"ABSOLUTE CRISIS\" headline match the crisis mood of the narration but do not contradict it. The picture shows no fall, no prayer and no father. The grey bars read as a chart or skyline, so the specific event is missing. The headline text carries most of the meaning, and the worried face adds only a generic mood.",
+   "whyC": "The picture shows only generic fear. It has no mechanism or cause and effect, such as a drop followed by a prayer."
+  },
+  "cal-r5-img-30": {
+   "correctness": "NEUTRAL",
+   "contribution": "NONE",
+   "explains": "NO",
+   "why": "The narration is about Percy's final choice and a transition to the Olympus climax. The image is a generic horned-helmet figure that does not contradict this but shows no event or choice. Any meaning comes from the headline text, not the picture.",
+   "whyC": "The picture shows no mechanism, relationship or cause and effect, only a single figure."
+  },
+  "cal-r6-img-03": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "Narration says they embrace their fate and stand guard as living statues. The picture shows two apart, neutral or worried characters, not touching, which clashes with \"embrace\" and acceptance. Only the caption text carries the meaning.",
+   "whyC": "The image shows no mechanism or relationship (no guarding, no sprite, no acceptance), only two figures standing side by side."
+  },
+  "cal-r6-img-14": {
+   "correctness": "WRONG",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The narration says protest from outside the arena is futile and you must enter the arena. The viewer's takeaway is a worried armored figure wary of what lies beyond the arena walls, which is a different meaning. The image shows only a generic worried character with no crowd, sign, arena or entering action, so any meaning comes from the text. It shows no mechanism.",
+   "whyC": "Only a mood portrait; no cause-effect or relationship is shown."
+  },
+  "cal-r6-img-18": {
+   "correctness": "NEUTRAL",
+   "contribution": "TEXT_ONLY",
+   "explains": "NO",
+   "why": "The viewer's message (\"become hard to fight\") is roughly aligned with the narration's \"become hard\", but it is probably drawn from the headline text. The picture shows a skeptical, bored woman with an open hand, and nothing about stone, an institution, or hardening. The image is a generic person and does not contradict the narration, so NEUTRAL. The meaning comes from on-screen text, so TEXT_ONLY. No mechanism or cause-and-effect is shown, so explains is NO.",
+   "whyC": "The image shows only a person with a mood. It has no relationship, mechanism or cause-and-effect."
+  },
+  "cal-r6-img-29": {
+   "correctness": "NEUTRAL",
+   "contribution": "ADDS",
+   "explains": "NO",
+   "why": "The worried, wide-eyed woman fits the narration's distress and physical toll, so nothing contradicts it. The image does not show coughing, bile or hands and knees, so the specific act is missing. The expression carries some of the mood, so contribution is ADDS, but it shows only mood and no mechanism or cause and effect.",
+   "whyC": "Only a worried face and a standing pose are shown, with no depiction of the physical trauma or its cause."
+  }
+ }
+}

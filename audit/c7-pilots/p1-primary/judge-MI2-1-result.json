@@ -1,0 +1,191 @@
+{
+ "items": [
+  {
+   "id": "item-01",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "clock to faded check = history, prices never fall",
+    "contribution": "ADDS",
+    "whyC": "icons show subject only",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "same clock to faded check",
+    "contribution": "ADDS",
+    "whyC": "icons show subject only",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-02",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "clock leads to check plus lock = history to safety",
+    "contribution": "ADDS",
+    "whyC": "arrow shows history implying safety",
+    "explains": "YES"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "clock to check, future safety",
+    "contribution": "ADDS",
+    "whyC": "arrow shows history implying safety",
+    "explains": "YES"
+   }
+  },
+  {
+   "id": "item-03",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "chain ends in padlock safety",
+    "contribution": "ADDS",
+    "whyC": "portfolio engineering not shown",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "chain with bridge icon, safety lock",
+    "contribution": "ADDS",
+    "whyC": "bridge icon ambiguous, no mechanism",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-04",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "safety chain ends in dollar leverage",
+    "contribution": "ADDS",
+    "whyC": "safety leads to leveraging",
+    "explains": "YES"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "chain to dollar coin leverage",
+    "contribution": "ADDS",
+    "whyC": "safety belief leads to leverage",
+    "explains": "YES"
+   }
+  },
+  {
+   "id": "item-05",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "two men, no map or territory",
+    "contribution": "NONE",
+    "whyC": "nothing conveys the point",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "academic risk vs practical reality labels",
+    "contribution": "TEXT_ONLY",
+    "whyC": "labels carry it, containers identical",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-06",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "worried man and crash burst fit a drop",
+    "contribution": "ADDS",
+    "whyC": "shows crash, not mechanism",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "shock only, no cause shown",
+    "contribution": "NONE",
+    "whyC": "nothing specific",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-07",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "two men, nothing about sound business",
+    "contribution": "NONE",
+    "whyC": "no meaning from image",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "coin hints at money but unclear",
+    "contribution": "ADDS",
+    "whyC": "coin only subject-level",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-08",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "price drop and beta feed volatility, result empty",
+    "contribution": "TEXT_ONLY",
+    "whyC": "labels only",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "beta and volatility lead to riskier",
+    "contribution": "TEXT_ONLY",
+    "whyC": "text boxes carry it",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-09",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "REJECTED banner on claim, actual risk",
+    "contribution": "TEXT_ONLY",
+    "whyC": "text carries rejection",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "WRONG",
+    "why": "shows claim stands, riskier, no rejection",
+    "contribution": "TEXT_ONLY",
+    "whyC": "text only",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-10",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "rejected, actual risk permanent loss",
+    "contribution": "TEXT_ONLY",
+    "whyC": "text only",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "rejected, business is the same",
+    "contribution": "TEXT_ONLY",
+    "whyC": "text only",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-11",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "magnifier, no subject of measuring",
+    "contribution": "ADDS",
+    "whyC": "generic examine icon",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "magnifier, anxious, no subject",
+    "contribution": "ADDS",
+    "whyC": "generic examine icon",
+    "explains": "NO"
+   }
+  }
+ ]
+}

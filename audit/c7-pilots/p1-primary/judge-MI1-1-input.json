@@ -1,0 +1,167 @@
+[
+  {
+    "id": "item-01",
+    "t": "13.0s",
+    "narration": "ultimately fail during periods of stress because they break. Exactly. Algorithms are entirely based on historical data and predictable correlations.",
+    "X": {
+      "sees": "Golden yellow background with radiating sunburst stripes and faint window/table outlines. A three-circle chain connected by a line with a small dot: left circle 'HISTORICAL DATA', middle circle empty with caption 'PERIODS OF STRESS' below, right circle 'THEY BREAK'.",
+      "message": "Models built on historical data fail during periods of stress, when they break.",
+      "wouldConfuse": "Middle circle is empty and its label sits below, so the node reads as unlabeled; the left/right labels are inside circles while the middle is outside."
+    },
+    "Y": {
+      "sees": "On a yellow background, a lightning bolt icon labelled algorithms leads by dashed arrows to a dashed question-mark circle, then a triangle for periods of stress, then a red X for they break.",
+      "message": "Algorithms work until periods of stress, when they break, with an unknown step in between.",
+      "wouldConfuse": "The mystery question mark middle step is not explained."
+    }
+  },
+  {
+    "id": "item-02",
+    "t": "20.9s",
+    "narration": "They are, in a very real sense, the ultimate first level thinkers just operating at light speed. Oh wow, I never thought of it that way.",
+    "X": {
+      "sees": "Two cartoon men standing side by side: an older gray-haired man in a black suit with lips parted, and a younger man in a blue sweater with a flat neutral mouth. Headline text overlaps both heads, with THINKERS highlighted in a red box.",
+      "message": "Most investors are the ultimate first-level thinkers.",
+      "wouldConfuse": "Text overlaps the older man's hair and the younger man's head; unclear which character is the first-level thinker."
+    },
+    "Y": {
+      "sees": "A flow diagram of icon circles joined by arrows. A clock (historical data) leads to a lightning bolt (algorithms), then a dashed question-mark circle, then a triangle (periods of stress), then a red X (they break). A star icon labelled predictable correlations sits above the algorithms.",
+      "message": "Algorithms are built on historical data and its predictable correlations, but when stress periods arrive they break.",
+      "wouldConfuse": "The dashed question mark leaves the middle step unclear."
+    }
+  },
+  {
+    "id": "item-03",
+    "t": "29.0s",
+    "narration": "Yeah, they assume the future will look exactly like the past. But as Joel Greenblat points out in his annotations of the text, agreeing with the consensus",
+    "X": {
+      "sees": "Gray background with a two-circle chain joined by a line with a yellow dot in the middle. Left circle (black outline) reads 'THE PAST', right circle (yellow outline) reads 'THE SAME FUTURE'.",
+      "message": "Assuming the past repeats gives the same future.",
+      "wouldConfuse": "The right label is in smaller type; the arrow direction is not shown."
+    },
+    "Y": {
+      "sees": "A five-step icon chain with arrows: clock, lightning bolt, worried brain, triangle, X. The star icon labelled predictable correlations sits above the final X.",
+      "message": "Algorithms use historical data and assume the future looks like the past, so when stress comes the correlations break.",
+      "wouldConfuse": "The predictable correlations label sits above THEY BREAK, so it could read as what breaks or as its cause."
+    }
+  },
+  {
+    "id": "item-04",
+    "t": "38.8s",
+    "narration": "is a very comfortable place to be emotionally. But it is not where above average profits are found. You do not need a supercomput to beat the market. You need t",
+    "X": {
+      "sees": "Two men stand side by side facing the viewer: a smiling young man in a blue shirt and an older man in a black suit with an open mouth, as if speaking. The title above them reads NOT WHERE PROFITS ARE FOUND.",
+      "message": "The obvious, widely known place is not where profits are found.",
+      "wouldConfuse": "The title overlaps the heads, and the smiling young man does not match a negative statement."
+    },
+    "Y": {
+      "sees": "A young man in a blue sweater smiling with arms out at his sides, and an older gray-haired man in a black suit with parted lips on the right. Headline at top, with FOUND highlighted.",
+      "message": "Being right on obvious facts is not where profits are found.",
+      "wouldConfuse": "The smile and open arms are not tied to the sentence; the sentence is a fragment without its subject."
+    }
+  },
+  {
+    "id": "item-05",
+    "t": "46.8s",
+    "narration": "at a compelling narrative on financial television and ask yourself one simple question, which is,",
+    "X": {
+      "sees": "An older gray-haired man in glasses and a black suit holds a magnifying glass with a neutral serious face. The word ONE is in bold and SIMPLE is faded beside him.",
+      "message": "The narrator introduces one simple thing or question that matters most.",
+      "wouldConfuse": "The faded SIMPLE and the bold ONE could be read in either order."
+    },
+    "Y": {
+      "sees": "The older gray-haired man in a black suit and the younger man in a blue sweater stand apart facing forward, both with neutral or slightly uneasy faces. Headline text overlaps their heads at the top.",
+      "message": "The narrator tells you to ask yourself a simple question.",
+      "wouldConfuse": "The headline overlaps both heads; the question itself is not shown."
+    }
+  },
+  {
+    "id": "item-06",
+    "t": "55.9s",
+    "narration": "and who doesn't know that? Oh man, and who doesn't know that? That is such a killer question. It cuts through all the noise because if a piece of information is",
+    "X": {
+      "sees": "An older man in a black suit with gray hair and glasses smirks, holding a magnifying glass at his chest, under an orange banner reading A KILLER QUESTION.",
+      "message": "The narrator is posing a killer question that probes what everyone else has missed.",
+      "wouldConfuse": "A killer question might be read as something violent."
+    },
+    "Y": {
+      "sees": "The older gray-haired man in a black suit has a sly half-smile and points his arm toward the younger man in a blue sweater, who looks wide-eyed with a flat mouth. An orange banner at top reads the question.",
+      "message": "A retort to a so-called insight: who doesn't know that?",
+      "wouldConfuse": "The pointing arm could read as accusing the younger man."
+    }
+  },
+  {
+    "id": "item-07",
+    "t": "65.1s",
+    "narration": "about on a cable news show, it is already baked into the price of the stock. Precisely. If everyone knows it, it is no longer an advantage. It's useless.",
+    "X": {
+      "sees": "Pale yellow background with a three-circle chain joined by a line with a small dot. The left two circles are empty with captions below ('EVERYONE KNOWS IT', 'BAKED INTO THE PRICE'); the right circle contains 'NO ADVANTAGE'.",
+      "message": "If everyone knows it, it is already priced in, so it gives no advantage.",
+      "wouldConfuse": "Labels are inconsistent: the first two sit outside empty circles, the third inside."
+    },
+    "Y": {
+      "sees": "Three empty circles joined by a line, with a small yellow dot moving between the second and third, labelled everyone knows it, baked into the price, no longer an advantage.",
+      "message": "Once everyone knows something it is baked into the price and no longer gives an advantage.",
+      "wouldConfuse": "The circles are empty with no icons."
+    }
+  },
+  {
+    "id": "item-08",
+    "t": "75.2s",
+    "narration": "Anformational advantage only exists when you know something the crowd doesn't. Or more likely, when you analyze the same information but draw a completely diffe",
+    "X": {
+      "sees": "Pale yellow background with two empty U-shaped containers side by side, each holding three yellow dots in the same arrangement. Captions below: 'YOU KNOW SOMETHING' under the left and 'A DIFFERENT CONCLUSION' under the right.",
+      "message": "Two people with the same information can reach different conclusions.",
+      "wouldConfuse": "Identical dot arrangements in both containers suggest sameness, which could contradict 'a different conclusion'."
+    },
+    "Y": {
+      "sees": "Two empty U-shaped containers, each with three yellow dots inside, with a caption under each: something only you know, and a completely different conclusion.",
+      "message": "The same information can lead to a completely different conclusion when you know something only you know.",
+      "wouldConfuse": "The identical dots in both containers do not show a difference in conclusion."
+    }
+  },
+  {
+    "id": "item-09",
+    "t": "87.9s",
+    "narration": "Right? So superior investing is at its absolute core an exercise in second level thinking. But you know knowing this in a vacuum doesn't help unless we look at ",
+    "X": {
+      "sees": "Bright golden sunburst background with a full-body cartoon man in a black suit standing center. Huge headline 'SECOND-LEVEL THINKING' covers his head and upper body, with THINKING highlighted in orange.",
+      "message": "The answer is second-level thinking.",
+      "wouldConfuse": "The text hides the character's face and head."
+    },
+    "Y": {
+      "sees": "On a bright yellow sunburst background stand an older man in a black suit holding a magnifying glass and a younger worried man in blue. The big title SECOND LEVEL THINKING covers both faces.",
+      "message": "The narrator names the idea of second level thinking as the key concept.",
+      "wouldConfuse": "The title covers the older man's face and part of the younger man's face."
+    }
+  },
+  {
+    "id": "item-10",
+    "t": "98.4s",
+    "narration": "cuz the market isn't a math equation. It's a pendulum of human emotion. And to apply this thinking you really have to understand the environment you're operatin",
+    "X": {
+      "sees": "Cream background with a horizontal slider track from left dot to right dot. A yellow fill extends from the left and a big yellow knob sits near the right end. Labels: 'MATH EQUATION' at left and 'HUMAN EMOTION' at right.",
+      "message": "Markets lean far toward human emotion rather than a pure math equation.",
+      "wouldConfuse": "The right label sits under the table/cup background shapes."
+    },
+    "Y": {
+      "sees": "A horizontal yellow line from a small grey dot labelled MATH EQUATION to a big yellow dot at the right labelled HUMAN EMOTION, on a blank room background.",
+      "message": "The narrator is moving from a math equation to human emotion, saying markets are driven by emotion rather than math.",
+      "wouldConfuse": "The line could be read as a spectrum or a progress bar; the direction of the claim is unclear."
+    }
+  },
+  {
+    "id": "item-11",
+    "t": "105.6s",
+    "narration": "The environment is everything. And let me tell you, it is incredibly hostile to rational thought. Let's look at 1999.",
+    "X": {
+      "sees": "A young man with brown hair and glasses in a blue shirt leans tilted to one side, with a worried, frowning face. A room with a lamp and sofa shape is in the background.",
+      "message": "The narrator says the situation or environment is hostile to rational thinking, which leaves a person anxious.",
+      "wouldConfuse": "The tilted body is odd; 'hostile to rational' is a fragment with no clear subject."
+    },
+    "Y": {
+      "sees": "A cartoon older man with gray hair in a black suit and tie, tilted sideways, with a worried frown and eyes glancing aside. Big text at upper right reads 'HOSTILE TO RATIONAL'. Faint window and table in the background.",
+      "message": "The market environment can be hostile to rational thinking or behavior.",
+      "wouldConfuse": "The tilted body looks odd; the phrase is a fragment, so what is hostile to rational is unclear."
+    }
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "c7-causal-director",
+  "prereg": "audit/c7-pilots/preregistration-c7-causal-director.json",
+  "model": "claude-sonnet-5-5",
+  "k": 1,
+  "maxUsd": 10,
+  "rubrics": ["official", "sequence"],
+  "strips": true,
+  "rule": { "addsPlusPct": 10, "explainsNoLoss": true, "note": "the cloud rater is the SECOND rater: the ship decision is the local official procedure (preregistration)" },
+  "passages": [
+    { "id": "RR1", "genre": "fiction", "arms": { "A": "zz-cd-rr1a", "B": "zz-cd-rr1b" } },
+    { "id": "RR2", "genre": "fiction", "arms": { "A": "zz-cd-rr2a", "B": "zz-cd-rr2b" } },
+    { "id": "BL1", "genre": "fiction", "arms": { "A": "zz-cd-bl1a", "B": "zz-cd-bl1b" } },
+    { "id": "BL2", "genre": "fiction", "arms": { "A": "zz-cd-bl2a", "B": "zz-cd-bl2b" } },
+    { "id": "HT1", "genre": "ideas", "arms": { "A": "zz-cd-ht1a", "B": "zz-cd-ht1b" } },
+    { "id": "HT2", "genre": "ideas", "arms": { "A": "zz-cd-ht2a", "B": "zz-cd-ht2b" } },
+    { "id": "MI1", "genre": "ideas", "arms": { "A": "zz-cd-mi1a", "B": "zz-cd-mi1b" } },
+    { "id": "MI2", "genre": "ideas", "arms": { "A": "zz-cd-mi2a", "B": "zz-cd-mi2b" } }
+  ]
+}

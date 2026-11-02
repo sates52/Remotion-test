@@ -1,0 +1,191 @@
+{
+ "items": [
+  {
+   "id": "item-01",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Two people, no relation to obstacles/assistants",
+    "contribution": "NONE",
+    "whyC": "nothing conveyed",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Two people, no relation shown",
+    "contribution": "NONE",
+    "whyC": "nothing conveyed",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-02",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Caption matches advice",
+    "contribution": "TEXT_ONLY",
+    "whyC": "only caption carries meaning",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Link between two circles matches reaching executive via assistant",
+    "contribution": "ADDS",
+    "whyC": "connector shows one leads to the other",
+    "explains": "YES"
+   }
+  },
+  {
+   "id": "item-03",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Linked circles fit assistant-to-decision-maker loyalty",
+    "contribution": "ADDS",
+    "whyC": "link implies relationship but loyalty/networking contrast absent",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Three-step path roughly matches the passage",
+    "contribution": "TEXT_ONLY",
+    "whyC": "steps are carried by labels",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-04",
+   "X": {
+    "correctness": "NEUTRAL",
+    "why": "Smiling pair, only faint THEY",
+    "contribution": "NONE",
+    "whyC": "no humanizing detail shown",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "NEUTRAL",
+    "why": "Talking pair, only faint THEY",
+    "contribution": "NONE",
+    "whyC": "no humanizing detail shown",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-05",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Key held by woman, man reaching: veto/access",
+    "contribution": "ADDS",
+    "whyC": "key and gesture show who controls access",
+    "explains": "YES"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Key held, man pointing toward her: gatekeeping",
+    "contribution": "ADDS",
+    "whyC": "key and posture show who controls access",
+    "explains": "YES"
+   }
+  },
+  {
+   "id": "item-06",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Phone matches call setup",
+    "contribution": "ADDS",
+    "whyC": "phone object shows calling, not the tactic",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Phone plus title names the caper",
+    "contribution": "ADDS",
+    "whyC": "phone object conveys call, title is text",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-07",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Phone and smirk fit casual call",
+    "contribution": "ADDS",
+    "whyC": "phone and expression show casual call",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Phone in hand fits dialing, expression ambiguous",
+    "contribution": "ADDS",
+    "whyC": "phone object conveys dialing",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-08",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Smirk and 'Bob Smith here' fit casual greeting",
+    "contribution": "ADDS",
+    "whyC": "expression conveys sly casualness",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Worried face fits feeling of fraud",
+    "contribution": "ADDS",
+    "whyC": "expression conveys unease",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-09",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Two inputs feeding deception fits fraud claim",
+    "contribution": "TEXT_ONLY",
+    "whyC": "meaning carried by box labels",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Build-up of objection fits",
+    "contribution": "TEXT_ONLY",
+    "whyC": "meaning carried by box labels",
+    "explains": "NO"
+   }
+  },
+  {
+   "id": "item-10",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Diagram matches spoofing and deceiving",
+    "contribution": "ADDS",
+    "whyC": "structure shows two acts converging on deceiving the secretary",
+    "explains": "YES"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Diagram matches spoofing and fraud claim",
+    "contribution": "ADDS",
+    "whyC": "structure shows two acts converging on deceiving the secretary",
+    "explains": "YES"
+   }
+  },
+  {
+   "id": "item-11",
+   "X": {
+    "correctness": "CORRECT",
+    "why": "Rejected stamp matches rejecting the lie reading",
+    "contribution": "TEXT_ONLY",
+    "whyC": "stamp text carries meaning",
+    "explains": "NO"
+   },
+   "Y": {
+    "correctness": "CORRECT",
+    "why": "Rejected stamp plus refusal framing matches",
+    "contribution": "ADDS",
+    "whyC": "objection shrunk and replaced by new refusal diagram",
+    "explains": "NO"
+   }
+  }
+ ]
+}
