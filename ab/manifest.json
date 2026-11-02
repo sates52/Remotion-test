@@ -1,0 +1,977 @@
+{
+ "name": "c7-calibration-dev",
+ "prereg": "audit/c7-pilots/preregistration-c7-calibration.json",
+ "model": "claude-sonnet-5-5",
+ "k": 1,
+ "maxUsd": 6,
+ "rubrics": [
+  "current",
+  "official"
+ ],
+ "images": [
+  {
+   "id": "cal-r1-img-01",
+   "file": "audit/calibration-c7/images/cal-r1-img-01.webp",
+   "narration": "They argued that the dogs and by extension the humans were somehow being inadvertently rewarded by the momentary fractional sessation of pain that happened to coincide with them sitting still. It was a massive stretch, but they needed to",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-02",
+   "file": "audit/calibration-c7/images/cal-r1-img-02.webp",
+   "narration": "Well, Steve Meyer designed an astonishingly clever experiment to settle the debate once and for all. The sitting still experiment. He took a brand new group of dogs and explicitly rewarded them for passivity.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-03",
+   "file": "audit/calibration-c7/images/cal-r1-img-03.webp",
+   "narration": "stress of their explanatory styles took their toll, the physical health of the pessimists began to decline sharply and rapidly compared to their optimistic peers. Are we sure about that? Because my skeptic alarm is blaring right now.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-04",
+   "file": "audit/calibration-c7/images/cal-r1-img-04.webp",
+   "narration": "waking scenario. The goal is what he calls flexible optimism. It is having the cognitive capacity and the situational awareness to endure pessimism when it's precise, realistic, mathematically",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-05",
+   "file": "audit/calibration-c7/images/cal-r1-img-05.webp",
+   "narration": "Creden, to his immense credit, took a massive gamble and hired them. Anyway, the absolute poster child for this experiment was a guy named Robert Dell. Before applying to MetLife, his previous job was literally",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-06",
+   "file": "audit/calibration-c7/images/cal-r1-img-06.webp",
+   "narration": "let's talk about space. What happens when the failure bleeds out of the original context? That is the second pillar. is a big one. Imagine you get passed over for a promotion you",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-07",
+   "file": "audit/calibration-c7/images/cal-r1-img-07.webp",
+   "narration": "They'd fight back. They would hire a lawyer. They would fight the committee. They would externalize the blame to where it rightfully belonged. But Elizabeth possessed a severely pessimistic internalizing style. She immediately absorbed",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-08",
+   "file": "audit/calibration-c7/images/cal-r1-img-08.webp",
+   "narration": "who is this brilliant, promising college student. She was having a casual exploratory conversation with her academic adviser about Jane Austin. The professor shared some deep insights and theories during the chat, but he completely failed to mention",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-09",
+   "file": "audit/calibration-c7/images/cal-r1-img-09.webp",
+   "narration": "When endorphins spike in your bloodstream due to the depressive state, they bind to those receptors on the immune cells. And what happens when they bind? When that binding occurs, the immune system receives",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-10",
+   "file": "audit/calibration-c7/images/cal-r1-img-10.webp",
+   "narration": "reinforcement, and then you completely stop the food, the rat will press that bar a 100 times before it finally quits. It's accustomed to long stretches of unrewarded effort. But Winer made a fascinating discovery when applying this to humans. Humans do not neatly obey",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-11",
+   "file": "audit/calibration-c7/images/cal-r1-img-11.webp",
+   "narration": "But when he touched the wall, they deliberately lied to him. They showed him a fake time that was significantly worse than his actual That's so devious. It was a carefully simulated failure designed to trigger",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-12",
+   "file": "audit/calibration-c7/images/cal-r1-img-12.webp",
+   "narration": "The cells of your immune system, your macroofasages, your tea cells literally have physical receptors for endorphins on their surface. When endorphins spike in your bloodstream due to the depressive state, they bind to those receptors on the",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-13",
+   "file": "audit/calibration-c7/images/cal-r1-img-13.webp",
+   "narration": "at home, or in your own health, pay very close Listen intently to the very first sentence you utter to yourself in the privacy of your own mind. Stop and ask is this",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-14",
+   "file": "audit/calibration-c7/images/cal-r1-img-14.webp",
+   "narration": "A group that received escapable shocks, which as we know teaches mastery and control, and a group that received inescapable shocks, which forcefully induces learned helplessness. What happened to those implanted",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-15",
+   "file": "audit/calibration-c7/images/cal-r1-img-15.webp",
+   "narration": "Seligman means by optimism. Acknowledging a severe skill deficit does not require a permanent explanation. Let's take your example. You are currently a poor public speaker.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-16",
+   "file": "audit/calibration-c7/images/cal-r1-img-16.webp",
+   "narration": "every negative event. Personalization is actually the trickiest of the three pillars because it is the easiest to fake. How do you mean? You can superficially learn to just deflect blame out loud to protect your ego.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-17",
+   "file": "audit/calibration-c7/images/cal-r1-img-17.webp",
+   "narration": "million a year solely in turnover because the agents simply could not handle the sheer volume of rejection. They would hit the wall. Their explanatory style would kick in telling them, you",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-18",
+   "file": "audit/calibration-c7/images/cal-r1-img-18.webp",
+   "narration": "with a specific carefully calibrated number of live tumor cells. She then divided them into three distinct groups. A control group that received no shocks. A group that received escapable shocks, which as we",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-19",
+   "file": "audit/calibration-c7/images/cal-r1-img-19.webp",
+   "narration": "When it rains, it pours. My body's just completely falling apart. I have absolutely no defenses left against anything. What you are experiencing in that bed is not just a run of bad luck.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-20",
+   "file": "audit/calibration-c7/images/cal-r1-img-20.webp",
+   "narration": "The optimist, even if they possess slightly lower raw aptitude, keeps dialing. They experiment with a new angle. They study the rejection and try a different pitch tomorrow. They persist long enough for their skills to",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-21",
+   "file": "audit/calibration-c7/images/cal-r1-img-21.webp",
+   "narration": "they had absolutely zero control over them. The shocks were completely unpredictable. And no matter what the dogs did, barking, moving, jumping, nothing turned the shock off. So, you have these dogs who have experienced this",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-22",
+   "file": "audit/calibration-c7/images/cal-r1-img-22.webp",
+   "narration": "The ultimate goal of Seligman's decades of work is not to permanently labbotomize your critical thinking and turn you into a blind relentless optimist in every single waking scenario. The goal is what he",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-23",
+   "file": "audit/calibration-c7/images/cal-r1-img-23.webp",
+   "narration": "pessimism when it's precise, realistic, mathematically accurate perspective is highly valuable. like when assessing physical risks, buying insurance, or calculating taxes. But having the skills",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-24",
+   "file": "audit/calibration-c7/images/cal-r1-img-24.webp",
+   "narration": "It is. But, and this is the crucial data point that changes everything, found that one in three people never gave up. It didn't matter how much inescapable, maddening noise you blasted at them in the first room.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-25",
+   "file": "audit/calibration-c7/images/cal-r1-img-25.webp",
+   "narration": "work that needs serious correction, allowing that realization to convince you that you are also a terrible father, an incompetent tennis player, and an unlovable spouse is what high pervasiveness does.",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-26",
+   "file": "audit/calibration-c7/images/cal-r1-img-26.webp",
+   "narration": "Let's drop you into another scenario. You've just finished a major presentation to a new client and you bombed it. You lost your train of thought on slide four. The projector malfunctioned. You started sweating",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-27",
+   "file": "audit/calibration-c7/images/cal-r1-img-27.webp",
+   "narration": "escape? It was a young Martinelman working alongside a brilliant researcher named Steve Meyer who realized that the dogs hadn't learned a physical muscular response. They had learned an expectation. An expectation. That is a huge paradigm",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-28",
+   "file": "audit/calibration-c7/images/cal-r1-img-28.webp",
+   "narration": "Right. And you have to remember the zeitgeist of the 1960s. Behaviorism championed by BF Skinner is not just a theory. It is the absolute unquestionable gospel",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-29",
+   "file": "audit/calibration-c7/images/cal-r1-img-29.webp",
+   "narration": "the literal physical machinery of the human mind. Okay, let's unpack this. Yeah. Because the radical shift we are talking about here completely strips away the cliches. Optimism is not a temperament. You are not just genetically predetermined to be a",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r1-img-30",
+   "file": "audit/calibration-c7/images/cal-r1-img-30.webp",
+   "narration": "for you in real life. You are not just being sulky or dramatic. This is learned helplessness manifesting in the boardroom. You are giving up. And you aren't giving up simply because the sting",
+   "set": "dev",
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2"
+  },
+  {
+   "id": "cal-r2-img-01",
+   "file": "audit/calibration-c7/images/cal-r2-img-01.webp",
+   "narration": "to leave behind because the sweater took up that physical space. But in life, that space is our mental and emotional energy. That is a perfect way to visualize it. Let's map that suitcase analogy onto a standard weekend",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-02",
+   "file": "audit/calibration-c7/images/cal-r2-img-02.webp",
+   "narration": "They cannot mentally rest until they know for an absolute fact that there isn't a superior sweater out there. And what's the other profile? The counterprofile to this is the satisficer.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-03",
+   "file": "audit/calibration-c7/images/cal-r2-img-03.webp",
+   "narration": "You are ecstatic. A huge win. You pop champagne with your friends. You upgrade your apartment to a place with better windows. You finally feel like you can breathe. Life is good. 6 months pass.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-04",
+   "file": "audit/calibration-c7/images/cal-r2-img-04.webp",
+   "narration": "So the very novelty that draws me in is the exact mechanism that pushes me away. The spectacle demands processing power I didn't plan on spending. Precisely. And this is the first gear of",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-05",
+   "file": "audit/calibration-c7/images/cal-r2-img-05.webp",
+   "narration": "It's not about lowering the bar. It's about knowing when you've cleared it. Beautifully put. So maximizing is really the ultimate symptom of this modern trap. By demanding the absolute best in a world that",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-06",
+   "file": "audit/calibration-c7/images/cal-r2-img-06.webp",
+   "narration": "of self-worth was entirely enslaved to external social comparison. They took a completely meaningless word puzzle and turned it into an unwininnable highstake status competition.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-07",
+   "file": "audit/calibration-c7/images/cal-r2-img-07.webp",
+   "narration": "In a modern environment overflowing with infinite nuanced options, there is always an imagined better scenario. Oh, I see. Your brain can constantly generate an if only.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-08",
+   "file": "audit/calibration-c7/images/cal-r2-img-08.webp",
+   "narration": "that psychological engine we mentioned. The exhaustion engine. Yeah. This is where the tyranny of autonomy paralyzes us before we even begin to take action. We are effectively defeated by the menu before we can ever place an order.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-09",
+   "file": "audit/calibration-c7/images/cal-r2-img-09.webp",
+   "narration": "that you could have decided right now never to deliberate again? Step off the treadmill. Your exhaustion engine is waiting to be unplugged.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-10",
+   "file": "audit/calibration-c7/images/cal-r2-img-10.webp",
+   "narration": "tyranny of autonomy. the tyranny of autonomy, right? Because as a culture, we absolutely sanctify freedom of choice. We use the amount of options available to us",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-11",
+   "file": "audit/calibration-c7/images/cal-r2-img-11.webp",
+   "narration": "desk chair. They paid a tidy sum for it, transferred the money, and a week goes by, no chair. Two weeks go by, suddenly the seller's account vanishes from the platform.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-12",
+   "file": "audit/calibration-c7/images/cal-r2-img-12.webp",
+   "narration": "to keep us dissatisfied. So the ultimate question becomes how do we stop the engine? We need an antidote. And this brings us to one of the most counterintuitive but powerful concepts in the book.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-13",
+   "file": "audit/calibration-c7/images/cal-r2-img-13.webp",
+   "narration": "grocery shopping, which is what makes this so Not at all. This paralysis bleeds directly into our intellectual and professional lives, too. Like Schwartz highlights another study involving college students who are offered an opportunity to write an extra",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-14",
+   "file": "audit/calibration-c7/images/cal-r2-img-14.webp",
+   "narration": "They analyzed what happened when employers tried to give their employees more freedom by adding more mutual fund options to their retirement portfolios. And what did they find? They found a shocking correlation.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-15",
+   "file": "audit/calibration-c7/images/cal-r2-img-15.webp",
+   "narration": "The world is You couldn't do anything about it, right? But once the market provides 15 different highly specific cuts. If your jeans don't fit flawlessly, it's no longer the manufacturer's fault.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-16",
+   "file": "audit/calibration-c7/images/cal-r2-img-16.webp",
+   "narration": "It's a vital metric. Go on. If I don't talk to my peers and compare our lives, how do I know if I'm getting a fair salary for my industry? How do I objectively judge if my kid's school is performing adequately compared to the district average?",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-17",
+   "file": "audit/calibration-c7/images/cal-r2-img-17.webp",
+   "narration": "meaning how the students actually felt about their And what did they find? The maximizers, largely because they obsessively applied to dozens of jobs, weighed every variable, and aggressively negotiated, actually achieved slightly",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-18",
+   "file": "audit/calibration-c7/images/cal-r2-img-18.webp",
+   "narration": "volume of choices for the most basic staples of human existence. 285 varieties of cookies. That's insane. 85 distinct kinds of crackers, 275 varieties of cereal. We are talking about the tyranny",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-19",
+   "file": "audit/calibration-c7/images/cal-r2-img-19.webp",
+   "narration": "It's exhausting just listening them. And this unyielding demand for self-determination correlates with a massive spike in clinical depression. We gladly take the credit when things go well, but we are forced to shoulder the crushing absolute",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-20",
+   "file": "audit/calibration-c7/images/cal-r2-img-20.webp",
+   "narration": "The room is quiet except for the rhythmic beeping of monitors. A father is standing over a plastic hospital crib, agonizingly watching his newborn daughter, Hunter, struggle to breathe.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-21",
+   "file": "audit/calibration-c7/images/cal-r2-img-21.webp",
+   "narration": "You've been grinding away at a stressful job making $40,000 a year. You clip coupons. You budget tightly. Very relatable. Finally, your hard work pays off. You get a massive promotion.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-22",
+   "file": "audit/calibration-c7/images/cal-r2-img-22.webp",
+   "narration": "Psychologically, reversibility destroys our capacity for satisfaction. Because the decision can technically be undone, your brain refuses to close the file. It never stops evaluating the opportunity costs.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-23",
+   "file": "audit/calibration-c7/images/cal-r2-img-23.webp",
+   "narration": "Regret is not a single isolated It's not. No. What that couple is experiencing in that moment is postdecision remorse. the agonizing cyclical torture after the But the insidious",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-24",
+   "file": "audit/calibration-c7/images/cal-r2-img-24.webp",
+   "narration": "Like Schwartz highlights another study involving college students who are offered an opportunity to write an extra credit essay. Oh, this one is fascinating. Yeah. So, the researchers split the students into two groups. Group A was given a massive list of",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-25",
+   "file": "audit/calibration-c7/images/cal-r2-img-25.webp",
+   "narration": "But here's the critical pivot. Regret functions properly when options are highly limited and the stakes are clear and present. In a modern environment overflowing with infinite",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-26",
+   "file": "audit/calibration-c7/images/cal-r2-img-26.webp",
+   "narration": "it, and never think about it again. And then there are people who take 3 weeks to buy a toaster. Like, what is the difference there? That brings us perfectly to how different psychological profiles process this exact pressure.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-27",
+   "file": "audit/calibration-c7/images/cal-r2-img-27.webp",
+   "narration": "We have to decouple freedom from variety. True freedom isn't the infinite capacity to choose absolutely anything at any time. It is the quiet, disciplined courage to decide what you will never ever deliberate again.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-28",
+   "file": "audit/calibration-c7/images/cal-r2-img-28.webp",
+   "narration": "if you're making a sound choice, whether you are buying a house, investing in a stock, or deciding who to marry. How can being rational be bad for From an economic and strategic standpoint, you are entirely correct. You must weigh the cost to",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-29",
+   "file": "audit/calibration-c7/images/cal-r2-img-29.webp",
+   "narration": "God, that's terrifying. This father happens to be the brilliant physician and writer Atul Gowande. The attending doctors come into the room, look at the struggling infant, review the charts, and then they",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r2-img-30",
+   "file": "audit/calibration-c7/images/cal-r2-img-30.webp",
+   "narration": "Wait, only 3% 3%. I mean, if you are running a retail business, a 3% conversion rate on a massive display is a total failure. It is abysmal. It's terrible.",
+   "set": "dev",
+   "run": "the-paradox-of-choice/run1"
+  },
+  {
+   "id": "cal-r5-img-01",
+   "file": "audit/calibration-c7/images/cal-r5-img-01.webp",
+   "narration": "day in and day out purely to buy Percy a few more years of It's basically battered woman syndrome repurposed as mythological shielding. She sacrifices her entire adult life, works at a",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-02",
+   "file": "audit/calibration-c7/images/cal-r5-img-02.webp",
+   "narration": "that the immediate danger to Percy has A lot of people read Percy returning the Bolt as him stepping into his heroic duty, accepting his role as the savior of Olympus and falling in line",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-03",
+   "file": "audit/calibration-c7/images/cal-r5-img-03.webp",
+   "narration": "to Aries, human life, even the lives of his own nieces and nephews, is nothing but canon actually, let me play devil's advocate here for a second. based on everything we've discussed, like Poseidon's distant",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-04",
+   "file": "audit/calibration-c7/images/cal-r5-img-04.webp",
+   "narration": "He strips away the hypocrisy. It's a fair point that he lacks the hypocrisy of his siblings, but honesty does not negate sociopathy. Being upfront about your willingness to use kids as proxy soldiers doesn't alter the horror of a being",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-05",
+   "file": "audit/calibration-c7/images/cal-r5-img-05.webp",
+   "narration": "shutting down his nervous system. The monster's mother, Akidna, is actively taunting him, challenging him to prove his divine bloodline. She tells him that if he's really the son of the sea god, he should jump. Prove that water won't hurt him.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-06",
+   "file": "audit/calibration-c7/images/cal-r5-img-06.webp",
+   "narration": "He was sent on a quest that he felt was just a meaningless repeat of a past hero's journey. Just the gods amusing themselves by watching him risk his life for an apple. He got scarred, and the only thing he received",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-07",
+   "file": "audit/calibration-c7/images/cal-r5-img-07.webp",
+   "narration": "via an administrative assistant. Exactly. The gods demand total faith and total sacrifice before they offer even a shred of protection. You have to prove you are willing to die for the bloodline before the bloodline offers anything in",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-08",
+   "file": "audit/calibration-c7/images/cal-r5-img-08.webp",
+   "narration": "He walks into the throne room of the gods. And the tension is Zeus is sitting there grumbling, actively threatening to turn Percy into a sensation of lightning just for having the audacity",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-09",
+   "file": "audit/calibration-c7/images/cal-r5-img-09.webp",
+   "narration": "He outsources the trauma of his own indiscretion to a mortal woman so he doesn't have to lift a finger or violate some arbitrary Olympian treaty. It's the divine equivalent of hiding your money in an offshore tax haven so you don't have to",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-10",
+   "file": "audit/calibration-c7/images/cal-r5-img-10.webp",
+   "narration": "your brain is broken, you are deficient. Right? He's sent to Yansy Academy, a boarding school for troubled kids, precisely because he can't sit still and cannot read neurotypical syntax.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-11",
+   "file": "audit/calibration-c7/images/cal-r5-img-11.webp",
+   "narration": "own problem, restoring the agency she sacrificed to protect him. The real bravery here isn't wielding a celestial bronze sword. It is choosing to remain deeply vulnerable",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-12",
+   "file": "audit/calibration-c7/images/cal-r5-img-12.webp",
+   "narration": "heroism, which perfectly frames the payoff of this entire deep dive. When you strip away all the mythology, all the magic, and the monsters, the most heroic thing Percy Jackson does isn't",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-13",
+   "file": "audit/calibration-c7/images/cal-r5-img-13.webp",
+   "narration": "reading. It's a symptom of genetic programming. His brain is hardwired to process ancient Greek syntax, not English. His mind is violently rejecting a language it wasn't built for.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-14",
+   "file": "audit/calibration-c7/images/cal-r5-img-14.webp",
+   "narration": "But the descent into his realm completely shatters that expectation. Let's look at the river It isn't some majestic, terrifying cavern of doom. No, it is an oily black river",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-15",
+   "file": "audit/calibration-c7/images/cal-r5-img-15.webp",
+   "narration": "An educational system that ironically often employs disguised monsters as I see what you're saying. It's like designing a highly advanced piece of military",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-16",
+   "file": "audit/calibration-c7/images/cal-r5-img-16.webp",
+   "narration": "He is the ultimate war proeteer. He doesn't care about honor or valor or the glory of Sparta. He cares about carnage, chaos, and profit margins. And crucially, he views these demigod children strictly as expendable assets.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-17",
+   "file": "audit/calibration-c7/images/cal-r5-img-17.webp",
+   "narration": "the furies and the security forces. And now Poseidon and Zeus are trying to frame him to start a massive world war that will send millions more souls to his realm. Souls he literally does not have the budget or the square footage to I love this detail because",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-18",
+   "file": "audit/calibration-c7/images/cal-r5-img-18.webp",
+   "narration": "is redefined as battlefield reflexes. Because in a physical fight for your life, that constant motion, that inability to maintain tunnel vision on one static object is the exact trait that keeps a spear from going through your chest.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-19",
+   "file": "audit/calibration-c7/images/cal-r5-img-19.webp",
+   "narration": "been a justifiable labor strike, a localized rebellion against abusive parents, and turns it into nihilistic terrorism. I guess that's the rub, isn't it? Kronos doesn't actually care about the demigods, either.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-20",
+   "file": "audit/calibration-c7/images/cal-r5-img-20.webp",
+   "narration": "It's an objectively fatal drop. And in that moment of absolute crisis, Percy offers a desperate internal prayer. Father, help me. And he free This",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-21",
+   "file": "audit/calibration-c7/images/cal-r5-img-21.webp",
+   "narration": "certainly, but consider the mechanism of that validation. The gods wired their children's brains exclusively for Oh, wow. They genetically engineer their offspring to be perfectly adapted",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-22",
+   "file": "audit/calibration-c7/images/cal-r5-img-22.webp",
+   "narration": "incredibly emotionally stunted formal acknowledgement. You are mine. You are a true son of the sea god. It's the absolute bare minimum of validation. Percy literally went to Helen back to stop a",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-23",
+   "file": "audit/calibration-c7/images/cal-r5-img-23.webp",
+   "narration": "Percy and Annabeth without a second thought. He sends him into a rigged trap at an abandoned water park just to fetch his shield. A trap he knows is there, right? He knows it's a trap set by Heesus, designed",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-24",
+   "file": "audit/calibration-c7/images/cal-r5-img-24.webp",
+   "narration": "her up and carried her to safety. Instead, she treats her own daughter's survival as a crucible. The consequence of that foster care drift of leaving kids to raise themselves in Cabin 11 and on the streets is that it plants",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-25",
+   "file": "audit/calibration-c7/images/cal-r5-img-25.webp",
+   "narration": "hardware, dropping it in the middle of a civilian suburb, providing absolutely no instruction manual, and then acting surprised when things That is the perfect analogy.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-26",
+   "file": "audit/calibration-c7/images/cal-r5-img-26.webp",
+   "narration": "Being upfront about your willingness to use kids as proxy soldiers doesn't alter the horror of a being who would gleefully watch his family destroy the planet just to see the fireworks. Fair enough. If anything, Aries proves the",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-27",
+   "file": "audit/calibration-c7/images/cal-r5-img-27.webp",
+   "narration": "She married him specifically to create a camouflage for her son. She threw herself on a grenade. I mean, the psychological toll of that is staggering. She subjects herself to a worldclass abuser",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-28",
+   "file": "audit/calibration-c7/images/cal-r5-img-28.webp",
+   "narration": "is to burn it to the We have to pause and confront a very uncomfortable truth about this climax. Luke is morally correct. You think his assessment of the Olympians is entirely",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-29",
+   "file": "audit/calibration-c7/images/cal-r5-img-29.webp",
+   "narration": "Souls he literally does not have the budget or the square footage to I love this detail because it reframes the entire Olympian hierarchy. If Hades isn't the villain orchestrating everything, it means nobody is driving the bus, right?",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r5-img-30",
+   "file": "audit/calibration-c7/images/cal-r5-img-30.webp",
+   "narration": "flawed, not just corrupted by one bad actor. And this realization makes Percy's ultimate choice at the end of the narrative the defining thematic moment. Let's transition to the climax on Olympus when Percy returns the Master So Percy has survived the underworld.",
+   "set": "dev",
+   "run": "the-lightning-thief/holdout2"
+  },
+  {
+   "id": "cal-r6-img-01",
+   "file": "audit/calibration-c7/images/cal-r6-img-01.webp",
+   "narration": "her heavy limestone fingers softly grazing the warm skin of the young queen as she hands her a simple Gowen flower. The brutal war is over. And here is the landing point of all our",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-02",
+   "file": "audit/calibration-c7/images/cal-r6-img-02.webp",
+   "narration": "view of everyone in the stands is a massive bowl overflowing with thousands of gleaming gold coins. That image is so carefully constructed. It's not just a sporting event.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-03",
+   "file": "audit/calibration-c7/images/cal-r6-img-03.webp",
+   "narration": "But they don't fight it anymore. they don't wage war against their fate. They embrace it. They choose to mind the tour. They choose to stand watch as living statues and keep the delicate magical sprite safe.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-04",
+   "file": "audit/calibration-c7/images/cal-r6-img-04.webp",
+   "narration": "You pull down the statue of a dictator in the town square, everyone cheers and you think you've won. But if the underlying systems of oppression aren't dismantled, the secret police just put on a different colored uniform the next day.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-05",
+   "file": "audit/calibration-c7/images/cal-r6-img-05.webp",
+   "narration": "A programmed knight of Traum would likely react with deep-seated religious hatred or awe. They'd fall to their knees or draw their sword based on centuries of lore. But Rory's reaction, it is just",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-06",
+   "file": "audit/calibration-c7/images/cal-r6-img-06.webp",
+   "narration": "And we have to look at the literal economics of that crowd to understand how deep the rot goes. The numbers the book gives us are staggering when you really think about the reality of peasant life and traum, right?",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-07",
+   "file": "audit/calibration-c7/images/cal-r6-img-07.webp",
+   "narration": "The text explicitly argues against his purity. Do you remember what he says? But his body remembers. That is his exact realization. My body remembers. He may have no conscious",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-08",
+   "file": "audit/calibration-c7/images/cal-r6-img-08.webp",
+   "narration": "the old abbus and the other divers. It's a classic false flag operation. And then comes the hook. He tells the people that the only magic remaining in the entire world that can possibly protect them",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-09",
+   "file": "audit/calibration-c7/images/cal-r6-img-09.webp",
+   "narration": "a hunger for power. A hunger for power, but they are powerless peasants. Exactly. And because they are powerless, they want a holy object to distract them.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-10",
+   "file": "audit/calibration-c7/images/cal-r6-img-10.webp",
+   "narration": "way in. He still participated in the exact same violent gladiatorial but he didn't know what he was doing, but his muscles did. The only reason he survives the melee,",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-11",
+   "file": "audit/calibration-c7/images/cal-r6-img-11.webp",
+   "narration": "moment the underclass starts waiting. Look closely at what Benji does in response. Does he crumble? Does he panic? Does he admit No, he doesn't. Exactly. He instantly pivots.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-12",
+   "file": "audit/calibration-c7/images/cal-r6-img-12.webp",
+   "narration": "She is losing her soft human flesh and becoming immovable rock. Is her resistance just turning her into another omen? It is an incredibly tragic But I think it's also a profound statement on",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-13",
+   "file": "audit/calibration-c7/images/cal-r6-img-13.webp",
+   "narration": "And we see that beautifully in the choice made by Sybil and Rory. The gargoyle explains that to be entirely made of stone is the inevitable tragic fate of both the diver and the knight. But they don't fight it anymore. they don't wage war against their fate.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-14",
+   "file": "audit/calibration-c7/images/cal-r6-img-14.webp",
+   "narration": "the crowd. You cannot dismantle the king's rigged game by standing outside the arena walls with a protest sign shouting that the system is No one cares. The crowd won't listen. To break the illusion, you must enter the arena.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-15",
+   "file": "audit/calibration-c7/images/cal-r6-img-15.webp",
+   "narration": "Yeah, she's sitting with her enemies and she is actively draining a bitter cup of something called the Oxy Draft. And for anyone who might have missed the specific mechanics of the Oxide Draft in the",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-16",
+   "file": "audit/calibration-c7/images/cal-r6-img-16.webp",
+   "narration": "breathy, flawless monologues to powerful knights while supposedly bleeding to death. At a certain point, for me, it pushes the suspension of disbelief past the breaking point. It feels like the physical reality of her",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-17",
+   "file": "audit/calibration-c7/images/cal-r6-img-17.webp",
+   "narration": "His training. It was built entirely by the trauma and the militaristic training of his past life in traum. The oppressive system isn't just in his mind. It is literally baked into his tendons, his calluses,",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-18",
+   "file": "audit/calibration-c7/images/cal-r6-img-18.webp",
+   "narration": "what it actually takes to fight something that claims divine absolute authority. You cannot fight an institution made of stone with soft You have to become hard.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-19",
+   "file": "audit/calibration-c7/images/cal-r6-img-19.webp",
+   "narration": "their oppressor. They haven't actually achieved liberation. They just changed the management. Exactly. They have merely reset the loop. They have just wound the clock back up for the next bloody cycle of violence.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-20",
+   "file": "audit/calibration-c7/images/cal-r6-img-20.webp",
+   "narration": "I mean, if you have to charge your subjects 10 gold coins just to let them, you know, witness your miracles, you aren't divine, You haven't ascended to some higher plane of existence. You're just a mortal running a very lucrative uh",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-21",
+   "file": "audit/calibration-c7/images/cal-r6-img-21.webp",
+   "narration": "It's not just a sporting event. It's a calculated display of absolute untouchable wealth and elevation. He's physically above them, financially separated from them by a gulf of gold,",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-22",
+   "file": "audit/calibration-c7/images/cal-r6-img-22.webp",
+   "narration": "They are deeply impoverished. Yet, they are willingly paying a three copper fee just for the right to sit on a hard wooden bench and watch. And the fighters, the desperate men risking their actual",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-23",
+   "file": "audit/calibration-c7/images/cal-r6-img-23.webp",
+   "narration": "political strategy. You're framing it as a masterclass in manufactured consent and artificial Well, I mean, from a purely mchavellian standpoint, it is brilliantly executed. It's a textbook manipulation of supply and demand.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-24",
+   "file": "audit/calibration-c7/images/cal-r6-img-24.webp",
+   "narration": "Yes, they are frightened. And yes, they are hungry. But their response to that fear is a deeply willful ignorance. Oh, I see. They're offered two things. The deeply uncomfortable, ugly reality of civil",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-25",
+   "file": "audit/calibration-c7/images/cal-r6-img-25.webp",
+   "narration": "She tells herself she will kill him the same way I divined for him with a ceremony. Wow. Even in her ultimate desperate act of rebellion,",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-26",
+   "file": "audit/calibration-c7/images/cal-r6-img-26.webp",
+   "narration": "economy? Because the distribution of the magic is key here. It's pure supply and demand economics supply to theology. Look at how meticulously he orchestrates the distribution of those five stone objects.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-27",
+   "file": "audit/calibration-c7/images/cal-r6-img-27.webp",
+   "narration": "They were accustomed to looking up at a pulpit and being told what to fear and who would protect them. Yeah. It's actually an excellent way to frame it. You didn't cure the underlying disease. You just knocked down the Exactly.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-28",
+   "file": "audit/calibration-c7/images/cal-r6-img-28.webp",
+   "narration": "that allows a dying woman to shatter solid rock. It is the magic sustaining her just long enough to let her break the system. So while it fails on a literal physiological level, it succeeds on a mythological level.",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-29",
+   "file": "audit/calibration-c7/images/cal-r6-img-29.webp",
+   "narration": "violently addles the mind with hallucinations. We see scenes where she is literally on her hands and knees coughing up bile onto the floor from the physical trauma. The physical toll is immense, right? And on top of all that, her flesh is",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  },
+  {
+   "id": "cal-r6-img-30",
+   "file": "audit/calibration-c7/images/cal-r6-img-30.webp",
+   "narration": "It was an incomplete revolution. How so? Because bringing down the physical walls did absolutely nothing to dismantle the habit of belief in the minds of the people of Traum. Think about it like a psychological addiction, right?",
+   "set": "dev",
+   "run": "the-knave-and-the-moon/final"
+  }
+ ],
+ "inputHash": "e589450a2d39e2d5",
+ "files": {
+  "audit/calibration-c7/images/cal-r1-img-01.webp": "697f2e90c9f8ef34863eee1e51780360b316e7956ce000679e79b8045c629073",
+  "audit/calibration-c7/images/cal-r1-img-02.webp": "6ca047cb751f92e6a889587147d0304182ebcf0a9ebe4af649987cefa4935b90",
+  "audit/calibration-c7/images/cal-r1-img-03.webp": "465710d19e6f33bd8ca1f1b3dc185bc64abfc5683dd7b5eeac2a92e06ed64925",
+  "audit/calibration-c7/images/cal-r1-img-04.webp": "1e5675f4dac49d67dd46e5eacb4667f30079b69a1f2523ff3a354a49c49c3f6d",
+  "audit/calibration-c7/images/cal-r1-img-05.webp": "f1a536552d7d694fad72a20784f120be0422ef80ad1ba6bc61e43f4d6ec457aa",
+  "audit/calibration-c7/images/cal-r1-img-06.webp": "f08c62f386024f9847e31fef278d5dea3599907132a4a8e0e71262403cbf8e46",
+  "audit/calibration-c7/images/cal-r1-img-07.webp": "3b19f9c4c043f218a0f2396b67a971c75e585a07e4de2e6ad6ad82fde5f2d291",
+  "audit/calibration-c7/images/cal-r1-img-08.webp": "27c4ec9f3f29887cbcd95eecd4d3868644a21777d109b64c1fbcc714a3e8c1ba",
+  "audit/calibration-c7/images/cal-r1-img-09.webp": "272fd7cd2f47dfec287869f66b6134952b51b37051e31d004ad27bb135e7da10",
+  "audit/calibration-c7/images/cal-r1-img-10.webp": "a4d1d2739f28f6e9efc82da9cb7e9f541a35853f07dbceb7c54eee959a687871",
+  "audit/calibration-c7/images/cal-r1-img-11.webp": "9f8c5dcbb22a91e3ad21d24cdec68a1cd8de788065271befa0030f398d348b59",
+  "audit/calibration-c7/images/cal-r1-img-12.webp": "50518248d5a912e1b30bb05acca5a27c0d285e7524ad0668f035993548cd1707",
+  "audit/calibration-c7/images/cal-r1-img-13.webp": "dba3d12d538c724a615e53bcd9ec630bfaa69613101925dd84d8a59c2f596fb3",
+  "audit/calibration-c7/images/cal-r1-img-14.webp": "f59435c9fd9f2cde25288394b13edb97c4213adee49bfc23734a2b32f2b1efe7",
+  "audit/calibration-c7/images/cal-r1-img-15.webp": "6f15ccea476a8b66aaac4d3e98d595b89b359e4d73fd1f7db9b3db78ed0577e6",
+  "audit/calibration-c7/images/cal-r1-img-16.webp": "8c5bd9af01c3a5c86471e3b6b22188b52d5ca2de3630fe0629dde696410546df",
+  "audit/calibration-c7/images/cal-r1-img-17.webp": "2aaa2269b7609311a5afbf6653745ac3b2797c3fb1c83685df3337936b809b17",
+  "audit/calibration-c7/images/cal-r1-img-18.webp": "ed6039c7cedd72ff881f4e05f2e945c50b3eac29379ef4ce1475cc6a5458d9df",
+  "audit/calibration-c7/images/cal-r1-img-19.webp": "eef32ae31e52f642985931193c8887650b60e2d1d7ea44ad60498e6a382905af",
+  "audit/calibration-c7/images/cal-r1-img-20.webp": "471156d7a68b69834cc0c67c7a9f4d6d72b4022db86f376b91716a9835ab9ee9",
+  "audit/calibration-c7/images/cal-r1-img-21.webp": "f41b3408b9c272c95b0e40e48c283305af79a6fee9205e5a3d3e0c146e19b14b",
+  "audit/calibration-c7/images/cal-r1-img-22.webp": "984c0bba9b8147d46bc2d76cd9a21c6114c1bb9c475d02290a8fe31e2863a963",
+  "audit/calibration-c7/images/cal-r1-img-23.webp": "c036a2305074980c214922cdc873fc39390e3945bfefbc54e9cfa1bf32666908",
+  "audit/calibration-c7/images/cal-r1-img-24.webp": "44bcbf01a0a255fc2aebfc5bf2cc0efa342018b3becda62196d1c9b8d364c6a5",
+  "audit/calibration-c7/images/cal-r1-img-25.webp": "8b1e5ec35a5b931df780ec0c6c1387eaa364d618850859906b875849806dad45",
+  "audit/calibration-c7/images/cal-r1-img-26.webp": "1180775581710ee5f131d7f9bd07ba91c8275be039256919c4dc376cdc52b55a",
+  "audit/calibration-c7/images/cal-r1-img-27.webp": "6a30c313b8c0c408ebaafd2f25a2e60b6a52ce64d981627fb6524a30b17e411d",
+  "audit/calibration-c7/images/cal-r1-img-28.webp": "01324fb10e4b7331f5c4846ceb663da2d275083ff23eb6bd8e853fe8d70401c0",
+  "audit/calibration-c7/images/cal-r1-img-29.webp": "f51ab243bc543c7736fc7b0358070e9eec27c1c54527afef2e029f5f892876f9",
+  "audit/calibration-c7/images/cal-r1-img-30.webp": "d5afd4463f8cc682894204a0cd134452f01ed88273e2c32a4e1fc73ad3ea6b5a",
+  "audit/calibration-c7/images/cal-r2-img-01.webp": "caace6dd38e4ef58bf2777724f023f442715e19390f18650306c2f07c1fcfe12",
+  "audit/calibration-c7/images/cal-r2-img-02.webp": "ed7cc1a92fb31808079b54da622afb1f3aaad7ab5b402747a5b9f7cc05b5fdd8",
+  "audit/calibration-c7/images/cal-r2-img-03.webp": "5e88d331deaadfd62d09fb1ff6ef39bdc2b18db5a4c6992a6e6fc6a509bb219a",
+  "audit/calibration-c7/images/cal-r2-img-04.webp": "dba58776b68e436f58ec52a877e61b55d58224c38f2db5bffca88e41a9c5f5d4",
+  "audit/calibration-c7/images/cal-r2-img-05.webp": "32c2df3502e8cb0e9ce9c045f397a9cb64c61ed0332e0af861eb57d60fc6bdc9",
+  "audit/calibration-c7/images/cal-r2-img-06.webp": "f81c0bed2d8a82c626e6612da2d666b360ebfb08c035903c06e4aa6ffdb1cd8a",
+  "audit/calibration-c7/images/cal-r2-img-07.webp": "090f1253e56352022cc35eb8f58fd235afba9dcdac9950bf1b0ab0ed17dc084a",
+  "audit/calibration-c7/images/cal-r2-img-08.webp": "ee2ef96c9117b39ebce21a7fea455928e7903b494052e2ba0b2de4f1c1424ab3",
+  "audit/calibration-c7/images/cal-r2-img-09.webp": "62d88c0b9fc19864ab671e7f199200b0fd25af8f601d3ed1afb77fabe974c306",
+  "audit/calibration-c7/images/cal-r2-img-10.webp": "25dbb9c099a3b93515ad62cc2efbe8b260753813b52512f044209ed9d93ef105",
+  "audit/calibration-c7/images/cal-r2-img-11.webp": "b3b86b380f15f7f6c08551e53d06693e660acf0f404ddc0520fcbb8ddd69b48e",
+  "audit/calibration-c7/images/cal-r2-img-12.webp": "e2f8cebca79d717738547289f32b9502331e647aab0dfa8e9b085cf0f25945b9",
+  "audit/calibration-c7/images/cal-r2-img-13.webp": "4e17224031799e07377af6eb014ec7843e4f430286e580aafeea9b4f354d264f",
+  "audit/calibration-c7/images/cal-r2-img-14.webp": "c652517f31d46f8ceb37dd9c56424a6cdd406be30cff3f0bc30f2c84e4360233",
+  "audit/calibration-c7/images/cal-r2-img-15.webp": "3ce7d455fb0b90895187e2e5296a1cf9b0e798dfe1e15298ebadaa9767091956",
+  "audit/calibration-c7/images/cal-r2-img-16.webp": "9f031868fcda254b49d3a938cafd798de2cfbea8dfb6dee3cbe12b4a44a29b86",
+  "audit/calibration-c7/images/cal-r2-img-17.webp": "f35d69c8a6a0111c38fd236630c5c054edd812581e96602060a69861a80106fd",
+  "audit/calibration-c7/images/cal-r2-img-18.webp": "714afb8ad122c52765b43050a251f13bf7b8c5cc897c4b9c7742de88ffa4dfd0",
+  "audit/calibration-c7/images/cal-r2-img-19.webp": "d43e74828244dea09ce48a57d5a5ab37a30990a4ff4d55ff8c848afdbb1b16df",
+  "audit/calibration-c7/images/cal-r2-img-20.webp": "a3ce08db2c2efa3cf426735acea61c94d5b9397f4cbfff5e328cab08c12b4607",
+  "audit/calibration-c7/images/cal-r2-img-21.webp": "2f426883042d284c085ae5ef9467100928eccc7d47eba607f2ed5e63bfb17026",
+  "audit/calibration-c7/images/cal-r2-img-22.webp": "365c79ad94125a6027cf870a88f05a4ece18577564c10536c8f9c0a241be2f65",
+  "audit/calibration-c7/images/cal-r2-img-23.webp": "0e22410ec4288f338ff623ee284fd7d831838e660f67f633a91d7a264997ea48",
+  "audit/calibration-c7/images/cal-r2-img-24.webp": "891816cc5ab5b172b1aacbbcc774b7a442e0bb6ba1cb27a63cce763847f060e6",
+  "audit/calibration-c7/images/cal-r2-img-25.webp": "519bfaf7b80508b9376ce2d9af129a7f76c567b405820c73689f1d1e5ad4322e",
+  "audit/calibration-c7/images/cal-r2-img-26.webp": "ee74b2cb8cd6fed701d10592933992ab296ee22ad7b864e2bde2952019f96911",
+  "audit/calibration-c7/images/cal-r2-img-27.webp": "6135f4280a2c1dd20cbeeda6be27964c714c4b38e89c46a3a9f16bead817914c",
+  "audit/calibration-c7/images/cal-r2-img-28.webp": "fe98c0cb58cf72f7b22d83385a0f05340ecda52d75b425e2355366117720cae3",
+  "audit/calibration-c7/images/cal-r2-img-29.webp": "72d71741e48306c59f7be5d234a05215205a6c9ced987ca1ab1f69d03776d8df",
+  "audit/calibration-c7/images/cal-r2-img-30.webp": "5c38d817737eaa15110b4fc7a8655b1b48536dec305672267fad0eb08a11feca",
+  "audit/calibration-c7/images/cal-r5-img-01.webp": "9b52b9d9218bb73d9b4494c0a25c42bb80bec451944975c31c82b26bc000a12a",
+  "audit/calibration-c7/images/cal-r5-img-02.webp": "b8eb3a8c5e0d5af5165abb2e21c9548979f017a53e6b9a74d1f253150a178c1b",
+  "audit/calibration-c7/images/cal-r5-img-03.webp": "7a08bdba5e8333cc4e5fbe70e72026f837e824d76c699bf98653ccfeb1d62b6e",
+  "audit/calibration-c7/images/cal-r5-img-04.webp": "b009caa4c8fe94b33f66473a4a8abcbdc2c6bd0df6fb57a68c581873901fb128",
+  "audit/calibration-c7/images/cal-r5-img-05.webp": "a041f44c4357573fece3bea0177f5e717a45311fe5055573ecccd081ca0e1ec5",
+  "audit/calibration-c7/images/cal-r5-img-06.webp": "de90afa3bd0d5dea1ecf2403d2fe9b9177a7509fced926e96e6657999a0d3a8d",
+  "audit/calibration-c7/images/cal-r5-img-07.webp": "e0e4db7e79a5e7e6307703c011bfe7fd1264040cba0e8ed0593316a4faedbaf7",
+  "audit/calibration-c7/images/cal-r5-img-08.webp": "146fc9519e35f7c1cec014aba23a3eaa7fe2c6b6636a3d6d7ed0fba7bec04095",
+  "audit/calibration-c7/images/cal-r5-img-09.webp": "3bf8f80b78c3ad032494ee6749eb21b0098b48a6dafaa8cb2a9e55d1b7480272",
+  "audit/calibration-c7/images/cal-r5-img-10.webp": "0c7290a647cf19aac08cd716a42590b1b016c29023219d5a793e0227f3c33229",
+  "audit/calibration-c7/images/cal-r5-img-11.webp": "f46dcdc6bf9946117c512c3817e4fe2006a2efc8e7644112592e7700bcac12a7",
+  "audit/calibration-c7/images/cal-r5-img-12.webp": "77c1f120c7ab22422ff774b015cf88b64fbcc820db95f07256bda38e709b745c",
+  "audit/calibration-c7/images/cal-r5-img-13.webp": "86df67a95e9b7ed4839e4a64bca031ceaf0ba194157c04c251abe194ae73d9a3",
+  "audit/calibration-c7/images/cal-r5-img-14.webp": "c71ee692509423d1c381f5d77d13f5db959b5e48007aaed2d426fb0aa4fb4b5e",
+  "audit/calibration-c7/images/cal-r5-img-15.webp": "5d0f5615d07ab715c5f30b9eb5f3ffe200be628a38e6a55e7b9a7d44f0b9a006",
+  "audit/calibration-c7/images/cal-r5-img-16.webp": "8a007d18ff2752e09314d8f6490d9afa051b6c1df4a38d568bd26eec28868b7d",
+  "audit/calibration-c7/images/cal-r5-img-17.webp": "80cbc2eac31c0fa03eec5cf3163c17860cdc102eed59cee022cdb82af940bd72",
+  "audit/calibration-c7/images/cal-r5-img-18.webp": "662535968bde6e22ef3e272aca8271dd62f6a430ecda2ae17f7f2a2609714bee",
+  "audit/calibration-c7/images/cal-r5-img-19.webp": "6412157af231fcddab5fd13710830f78f0fbf7975d5275fd5e89ae68eca9eb8a",
+  "audit/calibration-c7/images/cal-r5-img-20.webp": "11a9971770fb920ef1b54590c8c80954bd11c893b6ad0c5fca5ca688fed3008e",
+  "audit/calibration-c7/images/cal-r5-img-21.webp": "1c029426c1043d2afd6e1e1b8d72785f85c3549f6d48cbd553c2383535a3970d",
+  "audit/calibration-c7/images/cal-r5-img-22.webp": "2076638f0588b4c9d370ea98fe50d89f89ddc415e7ed88bcaa3707fb25243765",
+  "audit/calibration-c7/images/cal-r5-img-23.webp": "27e7a108ae1a8b2865aa09bcaf66a5a2d0fcbddbb463c27a27b2776d0a55baf9",
+  "audit/calibration-c7/images/cal-r5-img-24.webp": "098fd66531c512a723e98f8d20df3bfc33eafb15f76f67c17d70cca523d47d75",
+  "audit/calibration-c7/images/cal-r5-img-25.webp": "4e3c3b975f3cf08b862ae49ddd8d203bb97a30b0db17364f553ba5ff28bb8417",
+  "audit/calibration-c7/images/cal-r5-img-26.webp": "504cc680c863e1e601340e4a052dcbc62a0ec46283f2613068c6307809341bb1",
+  "audit/calibration-c7/images/cal-r5-img-27.webp": "5f87300d6a0c64ff2d496b5f37f58593a17960bb3fb3ad389d88667a5219f647",
+  "audit/calibration-c7/images/cal-r5-img-28.webp": "56e986e1ebe918e91cec9bbe872a74ec8a81d8047787d277d91adc1bad87d413",
+  "audit/calibration-c7/images/cal-r5-img-29.webp": "af9455f19c1327d71e3e9a59869d1224ddaa23a144e5b37ece50973944eb0238",
+  "audit/calibration-c7/images/cal-r5-img-30.webp": "bab4d455aec790724ee5b9d123f774886ebe2f51649d783952ef4e1393a52ec9",
+  "audit/calibration-c7/images/cal-r6-img-01.webp": "033af9cacfdaa063c5e6f7cddcd72887e54566a6d37e6fba2bfa8d1f89658305",
+  "audit/calibration-c7/images/cal-r6-img-02.webp": "b7dd42a896c1c7c44eaea189d7a92d4445561d066838d043cad86ab2a715a6a6",
+  "audit/calibration-c7/images/cal-r6-img-03.webp": "1f0dc7a36edfea0c8b44cd4acbd03d10e317a8d47ff94d4fb09fbd0693e70f5e",
+  "audit/calibration-c7/images/cal-r6-img-04.webp": "8f55c75f1441cbd53da5bb21af4af3d1aee024cca99ce2df225dbe179bc90ec5",
+  "audit/calibration-c7/images/cal-r6-img-05.webp": "4e4b12415d33388529a6d840ff94d2c430d55a3b5471fe7968b1fba318819b4a",
+  "audit/calibration-c7/images/cal-r6-img-06.webp": "25cbd22a153b6560c8c19a0754112dc55cc08d9908b824cfec9f71ea7aa334f8",
+  "audit/calibration-c7/images/cal-r6-img-07.webp": "4fdec522087608f8d6fe992b13f0a2e50d8830066f2711866754c3b3d25a4364",
+  "audit/calibration-c7/images/cal-r6-img-08.webp": "156c6105cb136ebabaf7831c7b18ded7fcd02cffb75215525b24e3dc84d0b2c7",
+  "audit/calibration-c7/images/cal-r6-img-09.webp": "7af278657afd476c0cd70b4e85c30c832c3672af88ec122b55f92b229a2e3808",
+  "audit/calibration-c7/images/cal-r6-img-10.webp": "2239f47b98a8845de33b0083f6b24090dec239de9e12095ad161e0beb28ac841",
+  "audit/calibration-c7/images/cal-r6-img-11.webp": "31ceb103e6768a44d5fdb1ec704c431a0fe064aa3eefc5984191071d54e7752a",
+  "audit/calibration-c7/images/cal-r6-img-12.webp": "58cf638cc05754fdd6f8aeec552361addf27601487ae94f66f13551c4da10ed8",
+  "audit/calibration-c7/images/cal-r6-img-13.webp": "43399a53f75e92045b01533ed7b8c6b43cf6ad29553fb54293616171b633ba70",
+  "audit/calibration-c7/images/cal-r6-img-14.webp": "d5eb5fe2ffa9e2d821f628ac3d67cbd59f9649fbdf64506a9579dde728456ca3",
+  "audit/calibration-c7/images/cal-r6-img-15.webp": "5115a9ca630ea8dde7e9fcd18a590387a98f2bbb8e6944950c2c34c35378eab8",
+  "audit/calibration-c7/images/cal-r6-img-16.webp": "6e8719c13d61455b287138d9f2510a25d0010583dd65cf1255fe2472fd2d8c1f",
+  "audit/calibration-c7/images/cal-r6-img-17.webp": "d669491d2ef9c305d4c0fa9d2a4af9d53c9173813275755c32ad7cea506c6bf9",
+  "audit/calibration-c7/images/cal-r6-img-18.webp": "c5de563bc5d54ac80b8afd830573a79a4a9a14740f75fbf21c6c069d605b74a3",
+  "audit/calibration-c7/images/cal-r6-img-19.webp": "1bf3aded03bda6a6a0a534b47c2bc4ff7512c6a021bdfdd310521d2b5ba22900",
+  "audit/calibration-c7/images/cal-r6-img-20.webp": "b670a0aba761532fd590f39e36eb550e7f29aeff1879aea3be29d102d79b4703",
+  "audit/calibration-c7/images/cal-r6-img-21.webp": "843e2ae437abf20e5ab41efef6fc20a2c759ac825b16c810b4442b312ffc1250",
+  "audit/calibration-c7/images/cal-r6-img-22.webp": "08f476dc3511b506adbf6f336e54c014feef894ea033e15985bae57ceb090903",
+  "audit/calibration-c7/images/cal-r6-img-23.webp": "548b4573f4e2c764b6568742b5e9120ae01e73e1fdd17da09fc388bee40c4627",
+  "audit/calibration-c7/images/cal-r6-img-24.webp": "4f7bbdeaa967b72802827875895fc697e1375c1342c1726a45ac15c771830340",
+  "audit/calibration-c7/images/cal-r6-img-25.webp": "563b1756113cb7e930cbe35d938264837badcb90893d08f977819f35f8fdca55",
+  "audit/calibration-c7/images/cal-r6-img-26.webp": "ccb0b76abbb08bcbf0577439452124981ae3b75437387a6aeea7c5861365906d",
+  "audit/calibration-c7/images/cal-r6-img-27.webp": "08dd7aa6b5527f638dd708ad2ac99703fc9489690fb7df5f86a8a021ee804eec",
+  "audit/calibration-c7/images/cal-r6-img-28.webp": "961852a9019b75083ba8121b0c037332788fc74b86be1151ac8b3363049375a9",
+  "audit/calibration-c7/images/cal-r6-img-29.webp": "1faeef1abfc545c1d71565bd4cceaa91268905bc6a947d39d4b41d718df353dd",
+  "audit/calibration-c7/images/cal-r6-img-30.webp": "c0704f193f1a4194e34fa252bf142e6b8b621728dda6f6a89d7a1071341b555d"
+ },
+ "builtAt": "2026-11-02T11:03:46.898Z"
+}
