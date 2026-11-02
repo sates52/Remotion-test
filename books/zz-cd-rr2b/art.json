@@ -1,0 +1,573 @@
+{
+  "book": {
+    "slug": "zz-cd-rr2b",
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "genre": "science fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "This is exactly why Dancer, the rebel leader who recruited Darrow, explicitly hid Titus's existence from Darrow. Dancer told Darrow back on Mars, \"We're nation breakers, not",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "We're nation breakers",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "shotOverride": "twoShot",
+      "cast": [
+        "dancer",
+        "darrow"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Dancer deliberately kept Titus from Darrow and told him on Mars that they are nation breakers.",
+        "concreteVisual": "On the red Mars horizon the scarred, shaved-headed Dancer in his long coat talks to young Darrow in his rust-red overall, who listens with a worried face.",
+        "onScreenText": "We're nation breakers",
+        "relationToPrevious": "Opens the passage: the rebel leader and his recruit.",
+        "addedInformation": "Shows who said it and to whom: Dancer instructing Darrow.",
+        "causal": {
+          "kind": "event",
+          "actor": "dancer",
+          "goal": null,
+          "action": "hid Titus's existence and told Darrow they are nation breakers",
+          "object": "Titus's existence",
+          "target": "darrow",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "explicitly hid Titus's existence from Darrow"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "narration": "terrorists. A rebellion led by Titus would be crushed in a matter of weeks.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Rebellion led by Titus",
+              "glyph": "fire"
+            },
+            {
+              "label": "Burns incredibly hot",
+              "glyph": "fire"
+            },
+            {
+              "label": "Runs out of oxygen",
+              "glyph": "cross"
+            },
+            {
+              "label": "Crushed in weeks",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "fire",
+            "tag": "A wildfire",
+            "from": 0
+          },
+          "cues": {
+            "n0": "led by Titus",
+            "n3": "crushed"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Not terrorists: a rebellion led by Titus would be crushed in a matter of weeks.",
+        "concreteVisual": "A causal chain: a fire station labelled REBELLION LED BY TITUS draws in on the left, the end station CRUSHED IN WEEKS on the right; the two stations between wait as dashed '?'.",
+        "onScreenText": "Rebellion led by Titus / Crushed in weeks",
+        "relationToPrevious": "From Dancer speaking to the content of his warning: start and end of the chain.",
+        "addedInformation": "Shows the predicted outcome of Titus's way, and that a WHY between is still missing.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "Titus's rebellion",
+          "goal": null,
+          "action": "would be crushed",
+          "object": null,
+          "target": null,
+          "before": "a rebellion led by Titus",
+          "after": "crushed in a matter of weeks",
+          "consequence": "crushed in a matter of weeks",
+          "quote": "A rebellion led by Titus would be crushed in a matter of weeks."
+        }
+      }
+    },
+    {
+      "i": 2,
+      "narration": "It would be a wildfire that burns incredibly hot and then runs out of oxygen because you can't build a new society on rape and murder.\" More importantly, think about the gold narrative we discussed at",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Rebellion led by Titus",
+              "glyph": "fire"
+            },
+            {
+              "label": "Burns incredibly hot",
+              "glyph": "fire"
+            },
+            {
+              "label": "Runs out of oxygen",
+              "glyph": "cross"
+            },
+            {
+              "label": "Crushed in weeks",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "fire",
+            "tag": "A wildfire",
+            "from": 0
+          },
+          "cues": {
+            "token": "a wildfire",
+            "n1": "burns incredibly hot",
+            "n2": "runs out of oxygen"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "It would be a wildfire that burns hot and runs out of oxygen; you can't build a new society on rape and murder.",
+        "concreteVisual": "The same chain; a flame marked A WILDFIRE is born on the first station, the dashed stations fill in as BURNS INCREDIBLY HOT and RUNS OUT OF OXYGEN, and the flame travels through them to CRUSHED IN WEEKS.",
+        "onScreenText": "A wildfire / Burns incredibly hot / Runs out of oxygen",
+        "relationToPrevious": "Fills the missing middle of the chain with the wildfire image.",
+        "addedInformation": "Shows WHY Titus's rebellion fails: it burns itself out.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "Titus's rebellion",
+          "goal": null,
+          "action": "burns incredibly hot and then runs out of oxygen",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "you can't build a new society on rape and murder",
+          "quote": "a wildfire that burns incredibly hot and then runs out of oxygen"
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "the very beginning. The Golds justify their tyrannical rule by claiming that the lower colors are base",
+      "concept": "chains",
+      "diagram": null,
+      "callout": {
+        "text": "Their tyrannical rule",
+        "style": "highlight"
+      },
+      "set": "stage",
+      "shotOverride": "twoShot",
+      "cast": [
+        "dan",
+        "darrow"
+      ],
+      "expression": "smirk",
+      "action": "point",
+      "partnerExpression": "sad",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "Recall the Gold narrative: the Golds justify their tyrannical rule by calling the lower colors base.",
+        "concreteVisual": "In a marble-and-gold hall the armoured Gold guard Dan points with a smirk at Darrow, who stands bowed and sad; chains hang beside them.",
+        "onScreenText": "Their tyrannical rule",
+        "relationToPrevious": "Turns from Titus's rebellion to the Gold narrative it would serve.",
+        "addedInformation": "Shows the ruling and the ruled, and who is doing the justifying.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the Golds",
+          "goal": null,
+          "action": "justify their tyrannical rule by claiming the lower colors are base",
+          "object": null,
+          "target": "the lower colors",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "The Golds justify their tyrannical rule by claiming that the lower colors are base"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "unthinking savages who need the firm hand of the Golds to maintain civilization. Titus's uncontrolled savage rage actually validates",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Base unthinking savages",
+              "glyph": "speech"
+            },
+            {
+              "label": "Savage rage",
+              "glyph": "fire"
+            },
+            {
+              "label": "Proves the Golds right",
+              "glyph": "check"
+            },
+            {
+              "label": "Gold supremacy",
+              "glyph": "lock"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "A Red with power",
+            "from": 1
+          },
+          "cues": {
+            "n0": "unthinking savages",
+            "n1": "savage rage"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Lower colors are called unthinking savages needing the Golds' firm hand, and Titus's savage rage validates that.",
+        "concreteVisual": "A causal chain: a speech station BASE UNTHINKING SAVAGES draws in, then a fire station SAVAGE RAGE; two stations further right are still empty.",
+        "onScreenText": "Base unthinking savages / Savage rage",
+        "relationToPrevious": "From the picture of Gold rule to how Titus feeds its story.",
+        "addedInformation": "Puts the Gold claim and Titus's rage side by side as cause and trigger.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "titus",
+          "goal": null,
+          "action": "uncontrolled savage rage validates the Gold claim",
+          "object": "the Gold narrative",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "Titus's uncontrolled savage rage actually validates"
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "the Gold's core Oh, right. If a red gets power and immediately acts like a rabid animal, it proves the gold's right.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Base unthinking savages",
+              "glyph": "speech"
+            },
+            {
+              "label": "Savage rage",
+              "glyph": "fire"
+            },
+            {
+              "label": "Proves the Golds right",
+              "glyph": "check"
+            },
+            {
+              "label": "Gold supremacy",
+              "glyph": "lock"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "A Red with power",
+            "from": 1
+          },
+          "cues": {
+            "token": "a red gets power",
+            "n2": "proves the gold's right"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "If a Red gets power and acts like a rabid animal, it proves the Golds right.",
+        "concreteVisual": "The same chain; a person token marked A RED WITH POWER is born on SAVAGE RAGE and travels into a new check station PROVES THE GOLDS RIGHT.",
+        "onScreenText": "A Red with power / Proves the Golds right",
+        "relationToPrevious": "Adds the result: the rage confirms the Gold claim.",
+        "addedInformation": "Shows the consequence of the rage feeding back into the Golds' story.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "a red who gets power",
+          "goal": null,
+          "action": "acts like a rabid animal",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "it proves the gold's right",
+          "quote": "If a red gets power and immediately acts like a rabid animal, it proves the gold's right."
+        }
+      }
+    },
+    {
+      "i": 6,
+      "narration": "It strengthens the story of gold supremacy. Titus is the worst possible ambassador for Red Liberation.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Base unthinking savages",
+              "glyph": "speech"
+            },
+            {
+              "label": "Savage rage",
+              "glyph": "fire"
+            },
+            {
+              "label": "Proves the Golds right",
+              "glyph": "check"
+            },
+            {
+              "label": "Gold supremacy",
+              "glyph": "lock"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "A Red with power",
+            "from": 1
+          },
+          "cues": {
+            "n3": "gold supremacy"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "It strengthens the story of Gold supremacy; Titus is the worst ambassador for Red liberation.",
+        "concreteVisual": "The same chain; a lock station GOLD SUPREMACY draws in at the end and the token arrives there.",
+        "onScreenText": "Gold supremacy",
+        "relationToPrevious": "Completes the chain with its final result.",
+        "addedInformation": "Shows the chain ending in a stronger Gold supremacy, the opposite of what a Red rebel wants.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "titus",
+          "goal": null,
+          "action": "strengthens the story",
+          "object": "the story of gold supremacy",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "Titus is the worst possible ambassador for Red Liberation",
+          "quote": "It strengthens the story of gold supremacy."
+        }
+      }
+    },
+    {
+      "i": 7,
+      "narration": "Darrow realizes that if he's going to actually win, he has to be fundamentally better than the Golds,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Fundamentally better than the Golds",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "shotOverride": "twoShot",
+      "cast": [
+        "darrow",
+        "titus"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Darrow realizes that to actually win he has to be fundamentally better than the Golds.",
+        "concreteVisual": "Darrow in his rust-red overall stands calm and speaking, while beside him the tall Titus in his gilded uniform glowers with anger.",
+        "onScreenText": "Fundamentally better than the Golds",
+        "relationToPrevious": "From the chain that Titus feeds to Darrow's opposite choice.",
+        "addedInformation": "Contrasts Darrow's calm with Titus's rage: two ways to fight.",
+        "causal": {
+          "kind": "decision",
+          "actor": "darrow",
+          "goal": "to actually win",
+          "action": "realizes he has to be fundamentally better than the Golds",
+          "object": null,
+          "target": "the Golds",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "he has to be fundamentally better than the Golds"
+        },
+        "directorNote": "decision consequence test: the realization (what changes) is invisible and the vocabulary has no object for it; noVisual was null -> noVisual states the gap, staging kept"
+      }
+    },
+    {
+      "i": 8,
+      "narration": "not just a more violent version of them. He has to break the paradigm, not just flip the board. The story is the real cage, and Titus is still trapped in it, playing the savage they expect him to be.",
+      "concept": "chains",
+      "diagram": null,
+      "callout": {
+        "text": "The story is the real cage",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "shotOverride": "twoShot",
+      "cast": [
+        "titus",
+        "darrow"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Not a more violent version of them: break the paradigm; the story is the real cage and Titus is still trapped in it.",
+        "concreteVisual": "The same two on the horizon; chains appear beside the angry Titus, Darrow calm beside him.",
+        "onScreenText": "The story is the real cage",
+        "relationToPrevious": "Keeps the pair and adds the chains: Titus is the one still bound.",
+        "addedInformation": "Shows Titus, not Darrow, as the prisoner of the Gold story.",
+        "causal": {
+          "kind": "comparison",
+          "actor": "titus",
+          "goal": null,
+          "action": "is still trapped in the story, playing the savage",
+          "object": "the story",
+          "target": null,
+          "before": "a more violent version of them",
+          "after": "break the paradigm",
+          "consequence": null,
+          "quote": "The story is the real cage, and Titus is still trapped in it"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Right? And as we synthesize all these layers of control, the gamification, the pioneer myth, the physical awe, the manufactured trauma, I think it's important to engage critically with the text because Pierce Brown",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Gamification",
+          "The pioneer myth",
+          "Physical awe",
+          "Manufactured trauma"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Synthesizing the layers of control: gamification, the pioneer myth, physical awe, manufactured trauma.",
+        "concreteVisual": "A sorter of four buckets: GAMIFICATION, THE PIONEER MYTH, PHYSICAL AWE, MANUFACTURED TRAUMA.",
+        "onScreenText": "Gamification / The pioneer myth / Physical awe / Manufactured trauma",
+        "relationToPrevious": "Steps back from Titus to the whole system of control.",
+        "addedInformation": "Lists the four layers at once as parts of one structure.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": "synthesize all these layers of control",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "the gamification, the pioneer myth, the physical awe, the manufactured trauma"
+        }
+      }
+    },
+    {
+      "i": 10,
+      "narration": "builds an incredibly tight ideological argument. But to make it work, the physical mechanics of this universe require a pretty massive suspension of disbelief.",
+      "concept": "book",
+      "diagram": null,
+      "callout": {
+        "text": "Suspension of disbelief",
+        "style": "highlight"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "Pierce Brown builds a tight ideological argument, but the physical mechanics require a massive suspension of disbelief.",
+        "concreteVisual": "A book icon alone on screen.",
+        "onScreenText": "Suspension of disbelief",
+        "relationToPrevious": "Turns from the book's argument to a critique of the book.",
+        "addedInformation": "weak: the book icon names the subject; the critique is carried by the text.",
+        "causal": {
+          "kind": "commentary",
+          "actor": "Pierce Brown",
+          "goal": null,
+          "action": "builds an incredibly tight ideological argument",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "the physical mechanics of this universe require a pretty massive suspension of disbelief",
+          "quote": "require a pretty massive suspension of disbelief"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "I completely agree. The foundational premise of the book requires us to believe in a perfectly isolated society. I mean, we are talking about millions",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A perfectly isolated society",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [],
+      "storyboard": {
+        "claim": "The book's premise requires believing in a perfectly isolated society of millions.",
+        "concreteVisual": "The empty dark rock tunnels of the mines, dust in the lamp beams, with the words A PERFECTLY ISOLATED SOCIETY.",
+        "onScreenText": "A perfectly isolated society",
+        "relationToPrevious": "Names the first implausible premise of the critique.",
+        "addedInformation": "weak: the tunnels place the claim in the mines; the claim is text-carried.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": "requires us to believe in a perfectly isolated society",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "The foundational premise of the book requires us to believe in a perfectly isolated society."
+        },
+        "directorNote": "idea beat forced a person: lone Darrow (blank) reads as personal loneliness, not a sealed society of millions -> cast [] with the mines set and the callout, noVisual updated"
+      }
+    }
+  ]
+}

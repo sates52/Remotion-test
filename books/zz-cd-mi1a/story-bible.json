@@ -1,0 +1,186 @@
+{
+  "slug": "zz-cd-mi1a",
+  "world": {
+    "era": "1999–2008",
+    "worldId": "wall-street-value-investing",
+    "approxYear": 2008,
+    "setting": "Institutional investment offices, trading floors, and corporate boardrooms amidst market bubbles and crashes.",
+    "register": "intellectual, analytical, measured, counter-cyclical financial philosophy",
+    "forbid": [
+      "smartphoneApp",
+      "crypto",
+      "blockchain",
+      "aiRobot"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "the-most-important-thing",
+    "worldId": "wall-street-value-investing",
+    "allowedMotifs": [
+      "pendulum",
+      "balance scale",
+      "market cycle waves",
+      "margin of safety shield",
+      "distressed debt ledger",
+      "crowd psychology",
+      "second level thinking matrix"
+    ],
+    "forbiddenMotifs": [
+      "get-rich-quick graphics",
+      "cryptocurrency symbols",
+      "laser eyes",
+      "space rockets"
+    ],
+    "allowedCharacters": [
+      "marks",
+      "investor"
+    ],
+    "allowedLocations": [
+      "office",
+      "classroom",
+      "room",
+      "abstract"
+    ],
+    "allowedProps": [
+      "balance",
+      "shield",
+      "notes",
+      "coin",
+      "wallet",
+      "dollarExchange",
+      "book",
+      "magnifier",
+      "crash"
+    ]
+  },
+  "cast": {
+    "marks": {
+      "name": "Howard Marks",
+      "role": "Veteran contrarian investor and co-founder of Oaktree Capital",
+      "look": "A wise 60-year-old financial philosopher with receding silver hair, thoughtful framed spectacles, tailored charcoal bespoke suit, and a calm discerning posture.",
+      "variant": {
+        "gender": "m",
+        "age": "old",
+        "outfit": "suit",
+        "suit": "#2b2b2b",
+        "headwear": "none",
+        "hair": "#aaaaaa",
+        "hairStyle": "short",
+        "height": 1.78,
+        "build": "average",
+        "headScale": 1
+      },
+      "mentions": 12
+    },
+    "investor": {
+      "name": "The Consensus Investor",
+      "role": "The typical first-level market participant caught in crowd euphoria and panic",
+      "look": "An eager 35-year-old Wall Street trader in white dress shirt with loosened tie and rolled up sleeves, alternately ecstatic and panic-stricken.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "outfit": "casual",
+        "suit": "#3d5a80",
+        "headwear": "none",
+        "hair": "#4a3525",
+        "hairStyle": "short",
+        "height": 1.75,
+        "build": "slight",
+        "headScale": 1
+      },
+      "mentions": 8
+    }
+  },
+  "places": {
+    "office": {
+      "set": "office",
+      "look": "A quiet oak-paneled investment partnership office filled with financial memos, annual reports, and subdued desk lamps.",
+      "mentions": 15
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A sterile academic business school lecture hall with blackboards outlining modern portfolio theory and efficient market hypotheses.",
+      "mentions": 4
+    },
+    "room": {
+      "set": "room",
+      "look": "A trading desk sanctuary surrounded by multiple monitors displaying red and green price tickers.",
+      "mentions": 8
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "A minimalist conceptual void visualizing financial pendulums, bell curve distributions, and intrinsic value anchors.",
+      "mentions": 20
+    }
+  },
+  "objects": [
+    {
+      "concept": "balance",
+      "mentions": 45,
+      "why": "The iconic market cycle pendulum swinging between reckless greed and paralyzing fear"
+    },
+    {
+      "concept": "shield",
+      "mentions": 30,
+      "why": "Margin of safety protecting capital against unforeseen catastrophes"
+    },
+    {
+      "concept": "dollarExchange",
+      "mentions": 25,
+      "why": "The divergence between market price paid and underlying intrinsic value"
+    },
+    {
+      "concept": "notes",
+      "mentions": 20,
+      "why": "Howard Marks' legendary Oaktree memos annotating market psychology and cycles"
+    },
+    {
+      "concept": "crash",
+      "mentions": 18,
+      "why": "Periodic financial panics and distressed debt liquidation opportunities"
+    },
+    {
+      "concept": "magnifier",
+      "mentions": 15,
+      "why": "Second-level thinking scrutinizing what consensus expectations are already priced in"
+    },
+    {
+      "concept": "coin",
+      "mentions": 14,
+      "why": "Capital preservation and asymmetry of return relative to risk taken"
+    },
+    {
+      "concept": "book",
+      "mentions": 12,
+      "why": "The annotated classic distilled into core timeless investment principles"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 5,
+      "claim": "First-level thinking equates great companies with great investments, failing to recognize that crowd consensus drives price beyond intrinsic value."
+    },
+    {
+      "act": "development",
+      "fromFrame": 12566,
+      "claim": "Markets are governed not by efficient predictability, but by an emotional pendulum swinging ceaselessly between euphoria and despair."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 26861,
+      "claim": "True risk is not academic volatility or beta, but the permanent loss of capital that peaks precisely when the herd believes risk has vanished."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 41918,
+      "claim": "Superior performance demands lonely contrarian discipline and an uncompromising margin of safety to survive adverse realities."
+    },
+    {
+      "act": "close",
+      "fromFrame": 57605,
+      "claim": "The most important thing is acknowledging what you cannot know, letting downside protection ensure that upside takes care of itself."
+    }
+  ],
+  "authored": true
+}

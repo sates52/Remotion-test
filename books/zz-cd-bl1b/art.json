@@ -1,0 +1,430 @@
+{
+  "book": {
+    "slug": "zz-cd-bl1b",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "She walked with her head high and her eyes blank. She lived as though she were entirely alone, needing no one. Ella, one of the primary women in town, explicitly says she junked Sethy",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Lived as though alone",
+        "style": "reveal"
+      },
+      "set": "street",
+      "shotOverride": "wide",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "blank",
+      "action": "walk",
+      "storyboard": {
+        "claim": "Sethe walked with her head high and eyes blank, living as though entirely alone; Ella says she junked Sethe.",
+        "concreteVisual": "Sethe alone on the dirt road, walking with a blank face, no one beside her.",
+        "onScreenText": "Lived as though alone",
+        "relationToPrevious": "Opening beat: Sethe's isolation as the town sees it.",
+        "addedInformation": "The empty road and blank face show her walking through the town with no one.",
+        "causal": {
+          "kind": "event",
+          "actor": "sethe",
+          "goal": null,
+          "action": "walked with her head high and her eyes blank",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": "lived as though entirely alone",
+          "consequence": "Ella says she junked Sethe",
+          "quote": "She walked with her head high and her eyes blank."
+        },
+        "directorNote": "consequence test: Ella junking Sethe is invisible and unshowable, noVisual was null -> stated the TEXT_ONLY consequence in noVisual; staging unchanged"
+      }
+    },
+    {
+      "i": 1,
+      "narration": "because Seth was too prideful. Too prideful. Yeah. Sethy's fierce self-sufficiency was read by the community as an arrogant rejection of them. She acted like she didn't need",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "SELF-SUFFICIENCY",
+          "ARROGANT REJECTION"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Sethe's fierce self-sufficiency was read by the community as an arrogant rejection; she acted like she didn't need their forgiveness.",
+        "concreteVisual": "A two-step flow: SELF-SUFFICIENCY arrow ARROGANT REJECTION.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From Sethe walking alone to how the town reads that walk.",
+        "addedInformation": "The arrow shows the same trait turned into an insult in the community's eyes.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "the community",
+          "goal": null,
+          "action": "read her self-sufficiency",
+          "object": "Sethe's fierce self-sufficiency",
+          "target": "sethe",
+          "before": "fierce self-sufficiency",
+          "after": "an arrogant rejection of them",
+          "consequence": "she seemed not to need their forgiveness",
+          "quote": "Sethy's fierce self-sufficiency was read by the community as an arrogant rejection of them."
+        }
+      }
+    },
+    {
+      "i": 2,
+      "narration": "their forgiveness. I see. So, the ledger between 124 and the town wasn't just unbalanced because of the town's jealousy.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "124 BLUESTONE",
+          "THE TOWN"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The ledger between 124 and the town wasn't unbalanced only because of the town's jealousy.",
+        "concreteVisual": "Two buckets side by side: 124 BLUESTONE and THE TOWN, the two sides of the ledger.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From the town's reading of Sethe to the two-sided account between them.",
+        "addedInformation": "Names the two parties of the ledger so the next beat can weigh them.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "the ledger was unbalanced",
+          "object": "the ledger",
+          "target": "124 and the town",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "the ledger between 124 and the town wasn't just unbalanced because of the town's jealousy."
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "There was a massive, stubborn, calcified debt of pride on both sides.",
+      "concept": "balance",
+      "diagram": null,
+      "callout": {
+        "text": "A debt of pride on both sides",
+        "style": "reveal"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "There was a massive, stubborn, calcified debt of pride on both sides.",
+        "concreteVisual": "A balance scale alone, its two pans weighed against each other.",
+        "onScreenText": "A debt of pride on both sides",
+        "relationToPrevious": "The two sides of the ledger are now weighed: both owe pride.",
+        "addedInformation": "The scale shows the blame is two-sided, not the town's alone.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": null,
+          "object": "a debt of pride",
+          "target": "124 and the town",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "There was a massive, stubborn, calcified debt of pride on both sides."
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Denver walking to Lady Jones's house and asking for a job, asking for food.",
+      "concept": "home",
+      "diagram": null,
+      "callout": {
+        "text": "Asking for a job, for food",
+        "style": "reveal"
+      },
+      "set": "street",
+      "shotOverride": "wide",
+      "cast": [
+        "denver"
+      ],
+      "expression": "worried",
+      "action": "leave",
+      "actionCue": "walking",
+      "storyboard": {
+        "claim": "Denver walks to Lady Jones's house and asks for a job, asks for food.",
+        "concreteVisual": "Denver walks along the dirt road to a house and goes in, gone from the road.",
+        "onScreenText": "Asking for a job, for food",
+        "relationToPrevious": "From the frozen debt to the first person who moves: Denver.",
+        "addedInformation": "Shows Denver physically leaving and going to another house.",
+        "causal": {
+          "kind": "event",
+          "actor": "denver",
+          "goal": "a job, food",
+          "action": "walking to Lady Jones's house and asking",
+          "object": null,
+          "target": "Lady Jones's house",
+          "before": null,
+          "after": "at Lady Jones's house",
+          "consequence": null,
+          "quote": "Denver walking to Lady Jones's house and asking for a job, asking for food."
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "That was the first payment on that debt in 18 years. It broke the stalemate. The community finally steps in to audit the haunting, proving the ledger can't be balanced alone.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "FIRST PAYMENT",
+          "STALEMATE BROKEN",
+          "COMMUNITY STEPS IN"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "That was the first payment on the debt in 18 years; it broke the stalemate and the community steps in.",
+        "concreteVisual": "A three-step flow: FIRST PAYMENT arrow STALEMATE BROKEN arrow COMMUNITY STEPS IN.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "The consequence of Denver's walk.",
+        "addedInformation": "The chain shows what Denver's single request set in motion.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "denver",
+          "goal": null,
+          "action": "the first payment on that debt",
+          "object": "the debt",
+          "target": "the community",
+          "before": "stalemate for 18 years",
+          "after": "the community finally steps in",
+          "consequence": "It broke the stalemate.",
+          "quote": "That was the first payment on that debt in 18 years. It broke the stalemate."
+        }
+      }
+    },
+    {
+      "i": 6,
+      "narration": "You cannot survive this kind of trauma in isolation. No, you can't. And it's crucial to remember where the community learned this collective power in the first place. They didn't invent it on the spot.",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "ISOLATION",
+          "COLLECTIVE POWER"
+        ],
+        "values": [
+          0.85
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "You cannot survive this kind of trauma in isolation; the community learned this collective power somewhere.",
+        "concreteVisual": "A spectrum from ISOLATION to COLLECTIVE POWER, the marker near collective power.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From the community stepping in to the general lesson.",
+        "addedInformation": "Places survival on the collective side, away from Sethe's isolation.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": null,
+          "object": "trauma",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "You cannot survive this kind of trauma in isolation."
+        },
+        "directorNote": "causal.before/after (isolation -> collective power) are not a change the narration states -> set both to null"
+      }
+    },
+    {
+      "i": 7,
+      "narration": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The value of the human body",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "medium",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "storyboard": {
+        "claim": "They learned it from Baby Suggs, whose greatest act was re-accounting the value of the human body.",
+        "concreteVisual": "Baby Suggs in the woods, speaking warmly.",
+        "onScreenText": "The value of the human body",
+        "relationToPrevious": "Traces the community's power back to its source, Baby Suggs.",
+        "addedInformation": "weak: introduces Baby Suggs as the source; the re-accounting is text-carried.",
+        "causal": {
+          "kind": "idea",
+          "actor": "baby-suggs",
+          "goal": null,
+          "action": "reaccounting the value of the human body",
+          "object": "the human body",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "the community learned collective power",
+          "quote": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself."
+        }
+      }
+    },
+    {
+      "i": 8,
+      "narration": "We have to talk about the clearing. Oh, absolutely. This is perhaps the beating heart of the entire novel.",
+      "concept": "tree",
+      "diagram": null,
+      "callout": {
+        "text": "The Clearing",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "wide",
+      "cast": [],
+      "storyboard": {
+        "claim": "We have to talk about the Clearing, perhaps the beating heart of the novel.",
+        "concreteVisual": "The woods with a tree, empty of people.",
+        "onScreenText": "The Clearing",
+        "relationToPrevious": "From Baby Suggs to the place where she preached.",
+        "addedInformation": "Sets the location in the woods before the scene is described.",
+        "causal": {
+          "kind": "commentary",
+          "actor": null,
+          "goal": null,
+          "action": null,
+          "object": "the clearing",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "We have to talk about the clearing."
+        }
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods. A place they call the clearing.",
+      "concept": "tree",
+      "diagram": null,
+      "callout": {
+        "text": "Cut deep in the woods",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "wide",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Imagine the heat of a Saturday afternoon in a wide open place cut deep in the woods, the Clearing.",
+        "concreteVisual": "The same woods and tree, still empty.",
+        "onScreenText": "Cut deep in the woods",
+        "relationToPrevious": "Same stage; the callout now places it deep in the woods.",
+        "addedInformation": "weak: the place is described, not changed.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": null,
+          "object": "the clearing",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "a wide open place cut deep in the woods. A place they call the clearing."
+        }
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock. She has a twisted hip.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "An unchurched preacher",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "wide",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "neutral",
+      "action": "sit",
+      "storyboard": {
+        "claim": "Baby Suggs, this unchurched, unrobed, unanointed preacher, sits on a huge flat rock; she has a twisted hip.",
+        "concreteVisual": "Old Baby Suggs sitting in the woods.",
+        "onScreenText": "An unchurched preacher",
+        "relationToPrevious": "The empty Clearing now has its preacher.",
+        "addedInformation": "Shows the preacher is an old woman sitting in the woods, not in a church.",
+        "causal": {
+          "kind": "event",
+          "actor": "baby-suggs",
+          "goal": null,
+          "action": "sits on a huge flat-sided rock",
+          "object": "a rock",
+          "target": null,
+          "before": null,
+          "after": "seated",
+          "consequence": null,
+          "quote": "sits on a huge flat-sided rock."
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "She's old. She's physically exhausted from a lifetime of labor, And she bangs her walking stick on the ground and she shouts to the people hiding in the trees, \"Let the children come.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "\"Let the children come\"",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "wide",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "continue": true,
+      "storyboard": {
+        "claim": "Old and exhausted, she bangs her walking stick and shouts to the people hiding in the trees, 'Let the children come.'",
+        "concreteVisual": "Baby Suggs, still seated in the woods, calling out.",
+        "onScreenText": "\"Let the children come\"",
+        "relationToPrevious": "Same seated preacher; now she calls out.",
+        "addedInformation": "weak: her call is shown; who she calls is text-carried.",
+        "causal": {
+          "kind": "event",
+          "actor": "baby-suggs",
+          "goal": null,
+          "action": "bangs her walking stick on the ground and she shouts",
+          "object": "her walking stick",
+          "target": "the people hiding in the trees",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "she shouts to the people hiding in the trees, \"Let the children come."
+        }
+      }
+    }
+  ]
+}

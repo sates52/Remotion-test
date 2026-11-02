@@ -1,0 +1,215 @@
+{
+ "name": "c7-causal-director",
+ "prereg": "audit/c7-pilots/preregistration-c7-causal-director.json",
+ "model": "claude-sonnet-5-5",
+ "k": 1,
+ "maxUsd": 10,
+ "rubrics": [
+  "official",
+  "sequence"
+ ],
+ "strips": true,
+ "rule": {
+  "addsPlusPct": 10,
+  "explainsNoLoss": true,
+  "note": "the cloud rater is the SECOND rater: the ship decision is the local official procedure (preregistration)"
+ },
+ "passages": [
+  {
+   "id": "RR1",
+   "genre": "fiction",
+   "arms": {
+    "A": "zz-cd-rr1a",
+    "B": "zz-cd-rr1b"
+   }
+  },
+  {
+   "id": "RR2",
+   "genre": "fiction",
+   "arms": {
+    "A": "zz-cd-rr2a",
+    "B": "zz-cd-rr2b"
+   }
+  },
+  {
+   "id": "BL1",
+   "genre": "fiction",
+   "arms": {
+    "A": "zz-cd-bl1a",
+    "B": "zz-cd-bl1b"
+   }
+  },
+  {
+   "id": "BL2",
+   "genre": "fiction",
+   "arms": {
+    "A": "zz-cd-bl2a",
+    "B": "zz-cd-bl2b"
+   }
+  },
+  {
+   "id": "HT1",
+   "genre": "ideas",
+   "arms": {
+    "A": "zz-cd-ht1a",
+    "B": "zz-cd-ht1b"
+   }
+  },
+  {
+   "id": "HT2",
+   "genre": "ideas",
+   "arms": {
+    "A": "zz-cd-ht2a",
+    "B": "zz-cd-ht2b"
+   }
+  },
+  {
+   "id": "MI1",
+   "genre": "ideas",
+   "arms": {
+    "A": "zz-cd-mi1a",
+    "B": "zz-cd-mi1b"
+   }
+  },
+  {
+   "id": "MI2",
+   "genre": "ideas",
+   "arms": {
+    "A": "zz-cd-mi2a",
+    "B": "zz-cd-mi2b"
+   }
+  }
+ ],
+ "inputHash": "eabec3f219965305",
+ "files": {
+  "books/zz-cd-bl1a/art.json": "e576ba189d57679a41d1bb4f8351fb95c0036f84bac15dd85102076e37165499",
+  "books/zz-cd-bl1a/book.json": "52743bf89c83e264a2b94f98c277c3979702f30ba41a19ac9d752b793052aa7e",
+  "books/zz-cd-bl1a/config.antidote.json": "feacb35cd6cfda5de8b520b6e450881527e36f2e34f90ea74b08b9912637f525",
+  "books/zz-cd-bl1a/creative-bible.json": "bc071a37068d3d41e546ddaa21dd7a8c56ea8bc8ac5d3e774e37f020e9cc5051",
+  "books/zz-cd-bl1a/sequence-arcs.json": "fff22256614d21c028f89e2eb746d81d4fb18d5a13dfc6c5ebd57dac863652f6",
+  "books/zz-cd-bl1a/story-bible.json": "e2a547609bcc5416897d53021a4db41ef2edc1467b507c99899f5eae3ea043a4",
+  "books/zz-cd-bl1b/art.json": "9bb1083867281e1454e2afe72578110dd54ca9c36b9d803cd6a8b3a6499058f2",
+  "books/zz-cd-bl1b/book.json": "316253a652298bf73640614df2b989fb3de94b9704e2a66fb79c6209bfe1affa",
+  "books/zz-cd-bl1b/config.antidote.json": "0d87bbd31823fbfbab4ba70b569097ecb7eb0224bb2353c77984efa3f657c282",
+  "books/zz-cd-bl1b/creative-bible.json": "bc071a37068d3d41e546ddaa21dd7a8c56ea8bc8ac5d3e774e37f020e9cc5051",
+  "books/zz-cd-bl1b/sequence-arcs.json": "cdf093bf19752434cc2b9f1448cb8f691c72d33e3d1f7f05fcb645d48b615d1f",
+  "books/zz-cd-bl1b/story-bible.json": "2f1a1ab77b57808ddab1a5ec5b4937d5cf372ad2b02bde6d0b0fc212c939bfed",
+  "books/zz-cd-bl2a/art.json": "0eb7719a0ef7c3c03a11f95ff3e12cf32b701ca8e9770afe267a763649a18eff",
+  "books/zz-cd-bl2a/book.json": "e368318276b80d837de35024f7db31a7caa10c3fcd1a416b97bf551183469e13",
+  "books/zz-cd-bl2a/config.antidote.json": "34a6ed26b125990672057cad87a60a8bbc4dd49e7229fbc64730ab6ea5a7a85f",
+  "books/zz-cd-bl2a/creative-bible.json": "bc071a37068d3d41e546ddaa21dd7a8c56ea8bc8ac5d3e774e37f020e9cc5051",
+  "books/zz-cd-bl2a/sequence-arcs.json": "6ca237416b5def1c8d0cc2046a0d836897905ba7dbd6d8305eab05cd8ac81bf3",
+  "books/zz-cd-bl2a/story-bible.json": "b6423f45696f937c24e1a77e5d31f7d8d2ea0b43490cfb358908a2329c2d2eac",
+  "books/zz-cd-bl2b/art.json": "be274bf59092197ace19e9886c4a120dfb7ac8b8ba7aca4a1a69f859dd0c444e",
+  "books/zz-cd-bl2b/book.json": "3e2276624c80d36f2a31619ec7bcb4e9ce4eddc0e83a4cda9f0c5d35e771f7ab",
+  "books/zz-cd-bl2b/config.antidote.json": "81687c5ce25501d4ddcce4d939fe3aea732c9097fe3c4a2bf4b69f9223391b98",
+  "books/zz-cd-bl2b/creative-bible.json": "bc071a37068d3d41e546ddaa21dd7a8c56ea8bc8ac5d3e774e37f020e9cc5051",
+  "books/zz-cd-bl2b/sequence-arcs.json": "b68cf1827874323e05fe4706c22309a21f761669ec1a8eaa2da5a10405e1d756",
+  "books/zz-cd-bl2b/story-bible.json": "1b7bbccba037b3d78307dc91180c05bdf45713d23fc549295cf1dae07c11064a",
+  "books/zz-cd-ht1a/art.json": "a6c347786455d46f0d5c781d6fa8cf47732caf9ddb3507a773fc3e478674a503",
+  "books/zz-cd-ht1a/book.json": "120e46134df8b675dc64cff54bd61d5c6c67806bf7eddaaaad94d99010fb0c93",
+  "books/zz-cd-ht1a/config.antidote.json": "401ad08f59c85b268f3d37b04bb23987aed7e93be8cf15011d1ab746076f23b8",
+  "books/zz-cd-ht1a/creative-bible.json": "eefcfdbeaf006f018daa2aa1f4e057fb1bd398a0dd5d2f744c17a50859bdc4f2",
+  "books/zz-cd-ht1a/sequence-arcs.json": "38010b1783aa330e7217d93a1b9eb51e3c94c2fa93fe8b5e8d68ec30c889ba68",
+  "books/zz-cd-ht1a/story-bible.json": "b97fab0a0c1f4d84eb0cd6e699a016c5e90231a31604696c18f608c47bdd61bd",
+  "books/zz-cd-ht1b/art.json": "6742bdced779336347fb9c313b0cd3c0bd4210574a689f422d137b891b803cb5",
+  "books/zz-cd-ht1b/book.json": "7f2c40bacfd0f45532b7ab86f502f3115765f98d03468f75c1801c271e8b8781",
+  "books/zz-cd-ht1b/config.antidote.json": "b652d7204e7e441db7f0493c70e0a2ef309a65d6c806e6627a45e22c8f8606cd",
+  "books/zz-cd-ht1b/creative-bible.json": "eefcfdbeaf006f018daa2aa1f4e057fb1bd398a0dd5d2f744c17a50859bdc4f2",
+  "books/zz-cd-ht1b/sequence-arcs.json": "a69f9ec93b39a13eaca1ceff71746d2d5aefe42145ea27acac188adf7acb8bd9",
+  "books/zz-cd-ht1b/story-bible.json": "4265cf8e5d32b0d4b3eeb41a4608c5567a257798c007bb7a3af9636d759f46f0",
+  "books/zz-cd-ht2a/art.json": "2d478f028a46efc73512963a0944915e822bf680e4f259661982a2a7986456f2",
+  "books/zz-cd-ht2a/book.json": "94923d3f4ad11804edf9a3519ec9d8f338bc059c0e40c140d761194b750b55b5",
+  "books/zz-cd-ht2a/config.antidote.json": "20ca3266596dd9d1a6250c1dd94ab811c746b69af39be718d9ea23c4d32cd4e8",
+  "books/zz-cd-ht2a/creative-bible.json": "eefcfdbeaf006f018daa2aa1f4e057fb1bd398a0dd5d2f744c17a50859bdc4f2",
+  "books/zz-cd-ht2a/sequence-arcs.json": "bfc2abf8977b36dfe68b5483d27ac6d56ec50066963c1ff7cde3993eaa8725bf",
+  "books/zz-cd-ht2a/story-bible.json": "4170802c8f8471292d7d3f93b7f7ed4154d57a2ea47d559179e02a6f50dab602",
+  "books/zz-cd-ht2b/art.json": "8418e716909ce3df74cfb1af8a37d6dbe5e0275f1b1dd25bf62e293256312551",
+  "books/zz-cd-ht2b/book.json": "30266eff31a9747a2cf1f2d14d131f0163d76c407b84f469e053bcf39f10e8e3",
+  "books/zz-cd-ht2b/config.antidote.json": "cd649a8984bbaaabf53614c0509b1dacff7d4193290aa0bff5b341ae5d7689ed",
+  "books/zz-cd-ht2b/creative-bible.json": "eefcfdbeaf006f018daa2aa1f4e057fb1bd398a0dd5d2f744c17a50859bdc4f2",
+  "books/zz-cd-ht2b/sequence-arcs.json": "9c1e88f87c575ec51e25b2442a40e5b47c531a3cdf730deb32bbfaa2d24f842e",
+  "books/zz-cd-ht2b/story-bible.json": "e8deaa5ee6fe124f33382e0e2ffb48cfa717bf96f1c76dd72699a76493f71896",
+  "books/zz-cd-mi1a/art.json": "e03c685d843d273bfacf903a63547e16fd977e8d970d5fda9e35bce15884c70b",
+  "books/zz-cd-mi1a/book.json": "59469e73f74d6efaa280b5db0317d2e11b4171c6a93825d7dd2959b95da1fe78",
+  "books/zz-cd-mi1a/config.antidote.json": "f680edc3d5f2b47a87fbce48e77951bee894181c8ea27d8bedb332ec6b5a3b19",
+  "books/zz-cd-mi1a/creative-bible.json": "7dc0d9007526bdc8cc982ea74a61d38774ac914c1ee08cad108872200811fb00",
+  "books/zz-cd-mi1a/sequence-arcs.json": "ddc662a3103a8e86e60c47f3799e3d0372d682ca6993e28b6350f9dd7ff76433",
+  "books/zz-cd-mi1a/story-bible.json": "b9ef65134950db67193e8cccc8953555575ad225f97746b28e8e9d76d53c2ffa",
+  "books/zz-cd-mi1b/art.json": "bd5a2026ba25e910a848c414eccab8b5d29653ac8afdc1a287b34ad91732b183",
+  "books/zz-cd-mi1b/book.json": "baa52a218ed90c6ac98ebc775190f57082cdc50f35c4c8bd3ddec7ffbefaee4e",
+  "books/zz-cd-mi1b/config.antidote.json": "9d1c271d0b3a7cdb64f4e69ad4451fa07c89eb20e7af25b78d27afac7f061f4d",
+  "books/zz-cd-mi1b/creative-bible.json": "7dc0d9007526bdc8cc982ea74a61d38774ac914c1ee08cad108872200811fb00",
+  "books/zz-cd-mi1b/sequence-arcs.json": "9cf0298b22d543fdad7f7adf56eed599bb5cb70a678055188971d2c73dfd7332",
+  "books/zz-cd-mi1b/story-bible.json": "5b0547fad86eb35a60952e7fc90ea9e60f5ee9f68f59fa019765b14ce2ab7325",
+  "books/zz-cd-mi2a/art.json": "9df385dba7ca232dbdbc7e534fb1de687c663e1c4910eb9ebdbfd84597cc1614",
+  "books/zz-cd-mi2a/book.json": "86ad38ceea4d5ba523652dd2554da3483ada811a1d4da89c15daaa3845a4a796",
+  "books/zz-cd-mi2a/config.antidote.json": "07780f462bb545f1b9acc6498135007913a8c35e5d5d0577d5cca810dc3b7357",
+  "books/zz-cd-mi2a/creative-bible.json": "7dc0d9007526bdc8cc982ea74a61d38774ac914c1ee08cad108872200811fb00",
+  "books/zz-cd-mi2a/sequence-arcs.json": "d95ff105456e216b28b7d0750ce55f23663ead5ebf2ac83955cbc81e458e39ec",
+  "books/zz-cd-mi2a/story-bible.json": "c77bfd31d6d88c4865bc84629c84f236b00bb0670d50fe119b684548749ca8ef",
+  "books/zz-cd-mi2b/art.json": "f94fbe1e7329300ef801160a591e920b6663b1b95e18f04e06e1247e3e05c834",
+  "books/zz-cd-mi2b/book.json": "2e82539c081591106f8d181a040a5e2d53ce4e88e9b509708c907f51a5692d0a",
+  "books/zz-cd-mi2b/config.antidote.json": "f68c606c0f08ca7a96dda65d1e6948c4d1641f434555d7187d720e90a551cdb1",
+  "books/zz-cd-mi2b/creative-bible.json": "7dc0d9007526bdc8cc982ea74a61d38774ac914c1ee08cad108872200811fb00",
+  "books/zz-cd-mi2b/sequence-arcs.json": "6b6357cb637e609351be0cda608f1a7f4d9fced90f50b4045573813388e1c3b0",
+  "books/zz-cd-mi2b/story-bible.json": "de5b79ebad3b594be6e79a11e49c347388c34c318028fd4388bce25eef962d09",
+  "books/zz-cd-rr1a/art.json": "c45e94baecff314af892304f5689c1d56d5e42f31b926ad1f8b79d9ed9fc2b6a",
+  "books/zz-cd-rr1a/book.json": "ffd5880be672de9b0d4396ed20d66ed07ea221d030ae56d288460fff4c288273",
+  "books/zz-cd-rr1a/config.antidote.json": "26f96abcdca26efc161adadce814ad0d9ecba2a8d02e700406076e03ca4dc074",
+  "books/zz-cd-rr1a/creative-bible.json": "a999dca4d6e63701bc5e4db27ef4b859055972a0e9e0a846a7970d8192f46775",
+  "books/zz-cd-rr1a/sequence-arcs.json": "ebc40d389713861cf02dabf00867ad043c2f99b03387131af5bec57f2cc755aa",
+  "books/zz-cd-rr1a/story-bible.json": "e1fa6977aca08a02c9d6589ec113a40113b47a6cb4ffcf84c66c5495062b8e2b",
+  "books/zz-cd-rr1b/art.json": "d3279a9d620b30107c647f4fd9a89995f5e4bc9cb10c00ea01e0679743ff9951",
+  "books/zz-cd-rr1b/book.json": "f070843553b4f654b919035b888299fdb266f4423564ee1deca4c1d874a81972",
+  "books/zz-cd-rr1b/config.antidote.json": "b224f9fc0e22ab469f199f7588fa92777b7824363923484496ff80563524499c",
+  "books/zz-cd-rr1b/creative-bible.json": "a999dca4d6e63701bc5e4db27ef4b859055972a0e9e0a846a7970d8192f46775",
+  "books/zz-cd-rr1b/sequence-arcs.json": "41f5af11c1a187b69bf55b1f599c28ca673a70a935cb79f81733848f2f2bef02",
+  "books/zz-cd-rr1b/story-bible.json": "7bf4a2f2354045ca1be4507ec6d8d9420b1a1b6a66c2d3c58d03ac11df08628c",
+  "books/zz-cd-rr2a/art.json": "7e5c22cc200b3c57472968003c03e787bc632a9007d37eb176e51701b65b6c95",
+  "books/zz-cd-rr2a/book.json": "9f387cbf4c057d841139e5c6ae1079c167ff36c80ddc3ac21887e92ea068b69d",
+  "books/zz-cd-rr2a/config.antidote.json": "aceef3fe11f5ee1f2f13e2e28a5a8e115cbae2ec0cbd337ce3264adf6043ecc8",
+  "books/zz-cd-rr2a/creative-bible.json": "a999dca4d6e63701bc5e4db27ef4b859055972a0e9e0a846a7970d8192f46775",
+  "books/zz-cd-rr2a/sequence-arcs.json": "e063db0a62049389648251c492fccfd7ac3fde0ce852f215e5bd24cab3a9f4af",
+  "books/zz-cd-rr2a/story-bible.json": "4c287febd79d0018830429c627838808de04cbcd39af0639e3158f8446cf35d0",
+  "books/zz-cd-rr2b/art.json": "fc181eb531b13d249cdcecba41590370f3f5ea20fe08b2a9b81f95e0ebed0c33",
+  "books/zz-cd-rr2b/book.json": "4eb5b5dd490bbc6d5f4b2fba845dba0da6a6e887190e382e004153c7d7f615cf",
+  "books/zz-cd-rr2b/config.antidote.json": "8d81cc9ca6dbbb193fca6aa77d8a5769f3cc6f04dbfcfbef8456d13b1ea81448",
+  "books/zz-cd-rr2b/creative-bible.json": "a999dca4d6e63701bc5e4db27ef4b859055972a0e9e0a846a7970d8192f46775",
+  "books/zz-cd-rr2b/sequence-arcs.json": "27a374daca3ee7aec41cb742268b6fa6cfa59a97c1385a5e1c31820d2a16ee2b",
+  "books/zz-cd-rr2b/story-bible.json": "39ce93be92fce08f49dee1f3889c248acea819c2477d7a35b7bb6c4106493055",
+  "public/audio/zz-cd-bl1a.m4a": "d9ace050c74e82a3170ab7e79388e7b6eebb4120e46a7236961b03af687722bb",
+  "public/audio/zz-cd-bl1b.m4a": "d9ace050c74e82a3170ab7e79388e7b6eebb4120e46a7236961b03af687722bb",
+  "public/audio/zz-cd-bl2a.m4a": "a82f9c0d4bca30e62a5700754b39d7699443f616fd2b05399ca8e34672ba4715",
+  "public/audio/zz-cd-bl2b.m4a": "a82f9c0d4bca30e62a5700754b39d7699443f616fd2b05399ca8e34672ba4715",
+  "public/audio/zz-cd-ht1a.m4a": "6ff0098b089aefe94c89dd60d1b8ea20c26959d5c0cf8d0c10ca2c8d71bb70b1",
+  "public/audio/zz-cd-ht1b.m4a": "6ff0098b089aefe94c89dd60d1b8ea20c26959d5c0cf8d0c10ca2c8d71bb70b1",
+  "public/audio/zz-cd-ht2a.m4a": "e67959fbba42d236305b8bc0c22065bea2644d98d4e48c3aaf5a55118a8fa052",
+  "public/audio/zz-cd-ht2b.m4a": "e67959fbba42d236305b8bc0c22065bea2644d98d4e48c3aaf5a55118a8fa052",
+  "public/audio/zz-cd-mi1a.m4a": "666168606506b92eff6791f23dbeebb49c23ef8a4d27974b08b01f837d95d2fb",
+  "public/audio/zz-cd-mi1b.m4a": "666168606506b92eff6791f23dbeebb49c23ef8a4d27974b08b01f837d95d2fb",
+  "public/audio/zz-cd-mi2a.m4a": "4cc8512a1cf658d2985a7dfb3013b9e0445eb54ae24540c4d8b81aaa8915b867",
+  "public/audio/zz-cd-mi2b.m4a": "4cc8512a1cf658d2985a7dfb3013b9e0445eb54ae24540c4d8b81aaa8915b867",
+  "public/audio/zz-cd-rr1a.m4a": "2f77c122151ed96ee1ee41298f605b2766362dd546ad0c62e8fd3717f0988447",
+  "public/audio/zz-cd-rr1b.m4a": "2f77c122151ed96ee1ee41298f605b2766362dd546ad0c62e8fd3717f0988447",
+  "public/audio/zz-cd-rr2a.m4a": "4d0948fd053e4f691b0cef102f8cbeec8a16873ffd4277c4ff745e637fe96e88",
+  "public/audio/zz-cd-rr2b.m4a": "4d0948fd053e4f691b0cef102f8cbeec8a16873ffd4277c4ff745e637fe96e88",
+  "public/captions/zz-cd-bl1a.vtt": "1cc20dc92e56cbf17e9d7f9d124f4382a1d0a6e22d782035a6898492724a63d4",
+  "public/captions/zz-cd-bl1b.vtt": "1cc20dc92e56cbf17e9d7f9d124f4382a1d0a6e22d782035a6898492724a63d4",
+  "public/captions/zz-cd-bl2a.vtt": "c8e23bbb94769b807ea7acc202e151a45e225bbe5f445397e992fc48c79c8dc1",
+  "public/captions/zz-cd-bl2b.vtt": "c8e23bbb94769b807ea7acc202e151a45e225bbe5f445397e992fc48c79c8dc1",
+  "public/captions/zz-cd-ht1a.vtt": "f9f1cfed78bf63235f7c82526c3c7e4ee037b16ba59ce4cbe39165e711be98c3",
+  "public/captions/zz-cd-ht1b.vtt": "f9f1cfed78bf63235f7c82526c3c7e4ee037b16ba59ce4cbe39165e711be98c3",
+  "public/captions/zz-cd-ht2a.vtt": "314cb59252d8e5592357a16573cf45a4d16e51002baad100ca16f85b436c07b3",
+  "public/captions/zz-cd-ht2b.vtt": "314cb59252d8e5592357a16573cf45a4d16e51002baad100ca16f85b436c07b3",
+  "public/captions/zz-cd-mi1a.vtt": "fa3f703f2f5660df7b702574296f167735f76e9873dfdb0a63d6b260a2849fe8",
+  "public/captions/zz-cd-mi1b.vtt": "fa3f703f2f5660df7b702574296f167735f76e9873dfdb0a63d6b260a2849fe8",
+  "public/captions/zz-cd-mi2a.vtt": "7c650bd26036f2a89fce6bb4713f80792e73027a5f71f51206de0bf0dd425152",
+  "public/captions/zz-cd-mi2b.vtt": "7c650bd26036f2a89fce6bb4713f80792e73027a5f71f51206de0bf0dd425152",
+  "public/captions/zz-cd-rr1a.vtt": "8bf6cb9a85c56073bf4cfa6d8677d65ce15fbfac5f6d12a91db077c35ec9d9bc",
+  "public/captions/zz-cd-rr1b.vtt": "8bf6cb9a85c56073bf4cfa6d8677d65ce15fbfac5f6d12a91db077c35ec9d9bc",
+  "public/captions/zz-cd-rr2a.vtt": "05d149e0f83ce01e356b74816743aa86faa333d1ef7cebd95a08f839eaf434af",
+  "public/captions/zz-cd-rr2b.vtt": "05d149e0f83ce01e356b74816743aa86faa333d1ef7cebd95a08f839eaf434af"
+ },
+ "builtAt": "2026-11-02T11:02:05.446Z"
+}

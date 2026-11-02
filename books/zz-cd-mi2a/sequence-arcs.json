@@ -1,0 +1,176 @@
+{
+  "slug": "zz-cd-mi2a",
+  "totalSequences": 6,
+  "totalScenes": 12,
+  "averageDurationSecs": 17.2,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 267,
+      "durationSeconds": 8.9,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 267,
+          "role": "reveal",
+          "narration": "on Wall Street. The smartest guys in the room. Exactly. They built these massively heavily leveraged"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 282,
+      "durationFrames": 1065,
+      "durationSeconds": 35.5,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 282,
+          "durationFrames": 221,
+          "role": "authored-start",
+          "narration": "Their models looked at decades of historical data and assumed that nationwide home prices could neve"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 503,
+          "durationFrames": 283,
+          "role": "authored-kept",
+          "narration": "Right. They equated historical price stability with future safety. Exactly. They looked at their nea"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 786,
+          "durationFrames": 300,
+          "role": "authored-kept",
+          "narration": "They literally engineered their portfolios. assuing a nationwide housing crash, a true black swan ou"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1086,
+          "durationFrames": 261,
+          "role": "authored-kept",
+          "narration": "And because they thought risk was gone, they leveraged up 30 to1. So when reality broke their models"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 1347,
+      "durationFrames": 346,
+      "durationSeconds": 11.5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1347,
+          "durationFrames": 346,
+          "role": "reveal",
+          "narration": "They confused the map for the territory. Joel Greenblat actually chimes in on this exact point in th"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1693,
+      "durationFrames": 499,
+      "durationSeconds": 16.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1693,
+          "durationFrames": 156,
+          "role": "authored-start",
+          "narration": "of investing. Give us an example. Let's say a company's stock price drops by 50%"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1849,
+          "durationFrames": 343,
+          "role": "authored-kept",
+          "narration": "in a week because of a broad market panic, but the underlying business is incredibly sound. It has z"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 2192,
+      "durationFrames": 651,
+      "durationSeconds": 21.7,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2192,
+          "durationFrames": 235,
+          "role": "authored-start",
+          "narration": "stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier beca"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2427,
+          "durationFrames": 221,
+          "role": "authored-kept",
+          "narration": "But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2648,
+          "durationFrames": 195,
+          "role": "authored-kept",
+          "narration": "Because the business is exactly the same, but it's now on sale for half the Here is the problem with"
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "engine",
+      "fromFrame": 2843,
+      "durationFrames": 250,
+      "durationSeconds": 8.3,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2843,
+          "durationFrames": 250,
+          "role": "reveal",
+          "narration": "If we throw out the professor's neat little graph, if we completely abandon academic measures like v"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+  "book": {
+    "slug": "zz-cd-bl2b",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "and contains you. It's manageable, Versus a loneliness that roams, a dry and spreading thing that makes the sound of one's own feet going seemingly",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Loneliness that contains you",
+          "Loneliness that roams"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Morrison contrasts a loneliness that contains you and is manageable with a roaming, spreading loneliness.",
+        "concreteVisual": "Two labelled buckets side by side: 'Loneliness that contains you' and 'Loneliness that roams'.",
+        "onScreenText": "Loneliness that contains you / Loneliness that roams",
+        "relationToPrevious": "Opens the chunk on the novel's description of loneliness.",
+        "addedInformation": "Shows the two kinds the narration sets against each other.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "contrasts a loneliness that contains you with one that roams",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "Versus a loneliness that roams, a dry and spreading thing"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "narration": "It's such a haunting description. The community decides they must disremember the ghost of beloved to survive.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "disremember the ghost",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "beloved"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The community decides it must disremember Beloved's ghost to survive.",
+        "concreteVisual": "Beloved, barefoot in her white dress, alone in a bare room, bowed and sad.",
+        "onScreenText": "disremember the ghost",
+        "relationToPrevious": "From the description of loneliness to the community's decision about Beloved.",
+        "addedInformation": "weak: shows whom they forget; the forgetting itself is text-carried.",
+        "causal": {
+          "kind": "decision",
+          "actor": "the community",
+          "goal": "to survive",
+          "action": "decides they must disremember",
+          "object": "the ghost of Beloved",
+          "target": "beloved",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "The community decides they must disremember the ghost of beloved to survive."
+        },
+        "directorNote": "causal.consequence repeated the goal (\"to survive\"); the narration states no resulting change -> consequence set to null"
+      }
+    },
+    {
+      "i": 2,
+      "narration": "They have to treat her like a bad dream. The text says it was not a story to pass on. But the paradox, and Morrison is brilliant at these paradoxes, is that while the characters must",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "not a story to pass on",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "beloved"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "continue": true,
+      "storyboard": {
+        "claim": "They treat her like a bad dream; the text says it was not a story to pass on.",
+        "concreteVisual": "Beloved stays in the same room, her face now blank and empty, the phrase on screen.",
+        "onScreenText": "not a story to pass on",
+        "relationToPrevious": "Same stage; Beloved's face goes from sad to blank as she becomes a bad dream.",
+        "addedInformation": "weak: the face change marks her fading; the meaning is the quoted phrase.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the community",
+          "goal": null,
+          "action": "treat her like a bad dream",
+          "object": "beloved",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "They have to treat her like a bad dream. The text says it was not a story to pass on."
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "disreme survive, the book explicitly tasks the reader with remembering.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Characters: disremember",
+          "Reader: remember"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "While the characters must disremember to survive, the book tasks the reader with remembering.",
+        "concreteVisual": "Two buckets side by side: 'Characters: disremember' and 'Reader: remember'.",
+        "onScreenText": "Characters: disremember / Reader: remember",
+        "relationToPrevious": "Turns Beloved's forgetting into the paradox between characters and reader.",
+        "addedInformation": "Shows both sides of the paradox at once.",
+        "causal": {
+          "kind": "comparison",
+          "actor": "the book",
+          "goal": null,
+          "action": "tasks the reader with remembering",
+          "object": "the reader",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "the book explicitly tasks the reader with remembering."
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Wow. Yeah. The characters need to forget so they can face tomorrow. But we need to remember so it never happens again.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Characters: disremember",
+          "Reader: remember"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The characters need to forget to face tomorrow; we need to remember so it never happens again.",
+        "concreteVisual": "The same two buckets stay on screen: characters disremember, reader remembers.",
+        "onScreenText": "Characters: disremember / Reader: remember",
+        "relationToPrevious": "Keeps the paradox diagram while the hosts restate it with reasons.",
+        "addedInformation": "weak: the reasons (tomorrow / never again) are spoken, not drawn.",
+        "causal": {
+          "kind": "comparison",
+          "actor": "we",
+          "goal": null,
+          "action": "need to remember",
+          "object": "it",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "so it never happens again",
+          "quote": "But we need to remember so it never happens again."
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "The epigraph dedicates the book to the 60 million and more, the estimated number of people who died in the slave trade.",
+      "concept": "grave",
+      "diagram": null,
+      "callout": {
+        "text": "the 60 million and more",
+        "style": "reveal"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "The epigraph dedicates the book to the 60 million and more who died in the slave trade.",
+        "concreteVisual": "A grave marker alone, with the dedication's number beside it.",
+        "onScreenText": "the 60 million and more",
+        "relationToPrevious": "The thing the reader must remember: the dead of the slave trade.",
+        "addedInformation": "The grave says these are the dead, the number says how many.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the epigraph",
+          "goal": null,
+          "action": "dedicates the book",
+          "object": "the book",
+          "target": "the 60 million and more",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "The epigraph dedicates the book to the 60 million and more"
+        }
+      }
+    },
+    {
+      "i": 6,
+      "narration": "I struggle with the framing at the very end, though. Why is that? Look at the final repeated phrase of the book.",
+      "concept": "book",
+      "diagram": null,
+      "callout": {
+        "text": "the final repeated phrase",
+        "style": "box"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "One host struggles with the book's framing at the very end, its final repeated phrase.",
+        "concreteVisual": "A closed book alone, labelled with the phrase under discussion.",
+        "onScreenText": "the final repeated phrase",
+        "relationToPrevious": "From the dedication at the front to the phrase at the end.",
+        "addedInformation": "weak: the book icon marks that the topic is the text's ending.",
+        "causal": {
+          "kind": "commentary",
+          "actor": "the host",
+          "goal": null,
+          "action": "struggles with the framing",
+          "object": "the final repeated phrase",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "Look at the final repeated phrase of the book."
+        }
+      }
+    },
+    {
+      "i": 7,
+      "narration": "This is not a story to pass on. And yet, Tony Morrison has just passed it on to us, right? How can anyone look at this devastation, the generational trauma, the broken minds, the dead",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Not to pass on",
+          "Toni Morrison passed it on"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The phrase says this is not a story to pass on, yet Toni Morrison has passed it on to us.",
+        "concreteVisual": "Two buckets side by side: \"Not to pass on\" and \"Toni Morrison passed it on\".",
+        "onScreenText": "Not to pass on / Toni Morrison passed it on",
+        "relationToPrevious": "From the book and its final phrase to the irony: the phrase against what Morrison did.",
+        "addedInformation": "Shows both sides of the irony at once: what the phrase says and what the author did.",
+        "causal": {
+          "kind": "comparison",
+          "actor": "Toni Morrison",
+          "goal": null,
+          "action": "has just passed it on",
+          "object": "the story",
+          "target": "us",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "And yet, Tony Morrison has just passed it on to us, right?"
+        },
+        "directorNote": "comparison (phrase vs Morrison passing it on) was carried only by a callout on a kept book icon -> sorter with both sides in the narration's words, continue dropped"
+      }
+    },
+    {
+      "i": 8,
+      "narration": "child in the woodshed, the dog with its eye popped out, and agree with the ultimate framing that this is not a sad story.",
+      "concept": "grave",
+      "diagram": null,
+      "callout": {
+        "text": "\"not a sad story\"?",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "After the dead child in the woodshed and the maimed dog, how can anyone agree this is not a sad story?",
+        "concreteVisual": "Sethe bowed in grief in a bare room beside a grave marker, the framing questioned beside her.",
+        "onScreenText": "\"not a sad story\"?",
+        "relationToPrevious": "From the irony of passing it on to the challenge of the ending's framing.",
+        "addedInformation": "weak: grief and the grave show the devastation and its cause; the doubt is in the callout.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "the host",
+          "goal": null,
+          "action": "questions the framing",
+          "object": "the ultimate framing",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "agree with the ultimate framing that this is not a sad story."
+        },
+        "directorNote": "emotion beat showed a grieving face without its cause -> grave icon (the dead child named in the narration) beside Sethe"
+      }
+    },
+    {
+      "i": 9,
+      "narration": "It is completely, overwhelmingly devastating. I understand why you feel that way. The weight of it is crushing, but we have to reevaluate what makes a story sad.",
+      "concept": "grave",
+      "diagram": null,
+      "callout": {
+        "text": "what makes a story sad",
+        "style": "box"
+      },
+      "set": "room",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "It is overwhelmingly devastating and the weight is crushing, but we must reevaluate what makes a story sad.",
+        "concreteVisual": "Sethe stays bowed beside the same grave in the same room; the question appears beside her.",
+        "onScreenText": "what makes a story sad",
+        "relationToPrevious": "Same stage; the other host concedes the grief and turns to the question.",
+        "addedInformation": "weak: the question is text-carried.",
+        "causal": {
+          "kind": "commentary",
+          "actor": "the host",
+          "goal": null,
+          "action": "reevaluate what makes a story sad",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "we have to reevaluate what makes a story sad."
+        },
+        "directorNote": "continued stage would drop the grave added on beat 8 -> same grave icon kept"
+      }
+    },
+    {
+      "i": 10,
+      "narration": "it is not a sad story because ultimately it is a survival story. the historical context, the middle passage, the system of channel slavery, that is a profound,",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Chattel slavery: tragedy",
+          "This woman: survival"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "It is not a sad story because it is a survival story; the historical system of chattel slavery is the profound tragedy.",
+        "concreteVisual": "Two buckets: 'Chattel slavery: tragedy' and 'This woman: survival'.",
+        "onScreenText": "Chattel slavery: tragedy / This woman: survival",
+        "relationToPrevious": "Answers the question by splitting the history from the novel.",
+        "addedInformation": "Separates the two things the narration distinguishes.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "is a survival story",
+          "object": "the novel",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "it is not a sad story because ultimately it is a survival story."
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "worldshattering tragedy But the narrative arc of this specific novel of this specific woman",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Chattel slavery: tragedy",
+          "This woman: survival"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Slavery is a world-shattering tragedy, but the narrative arc of this specific novel, this specific woman, is something else.",
+        "concreteVisual": "The same two buckets stay: tragedy for chattel slavery, survival for this woman.",
+        "onScreenText": "Chattel slavery: tragedy / This woman: survival",
+        "relationToPrevious": "Keeps the split as the host finishes the contrast.",
+        "addedInformation": "The kept diagram shows which side 'this specific woman' falls on.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "contrasts the tragedy with the narrative arc",
+          "object": "this specific woman",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "But the narrative arc of this specific novel of this specific woman"
+        }
+      }
+    }
+  ]
+}

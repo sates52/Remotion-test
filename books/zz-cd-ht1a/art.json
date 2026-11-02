@@ -1,0 +1,347 @@
+{
+  "book": {
+    "slug": "zz-cd-ht1a",
+    "title": "How to Talk to Anyone",
+    "author": "Leil Lowndes",
+    "genre": "self-help"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "What you experienced in the elevator was a complete failure of pacing. Pacing another person's emotional velocity is the unseen engine of",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A failure of pacing",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "partnerExpression": "blank",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "What happened in the elevator was a complete failure of pacing; pacing another's emotional velocity is the unseen engine of rapport.",
+        "concreteVisual": "The everyman stands bowed and worried beside Carla, whose face is blank: the exchange did not connect.",
+        "onScreenText": "A failure of pacing",
+        "relationToPrevious": "Opens the chunk on the failed elevator encounter.",
+        "addedInformation": "weak: shows a failed exchange; 'pacing' itself is carried by the label."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "subconscious because we usually think rapport is about topics. Right. Right. We tend to think that building rapport is about finding shared interests, discovering you both like the same sports team or read the same books.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "WE USUALLY THINK",
+          "claim": "Rapport is about topics",
+          "inputs": [
+            "Same sports team",
+            "Same books"
+          ],
+          "hub": "Shared interests",
+          "output": "Rapport",
+          "verdict": "Built on rhythm",
+          "reason": "Neurologically",
+          "truth": "The music, not the lyrics",
+          "cues": {
+            "links": "shared interests",
+            "result": "same books"
+          }
+        }
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "We usually think rapport is about topics: shared interests, the same sports team, the same books.",
+        "concreteVisual": "A claim panel 'WE USUALLY THINK': 'Same sports team' and 'Same books' feed 'Shared interests', which leads to 'Rapport'.",
+        "onScreenText": "WE USUALLY THINK / Same sports team / Same books / Shared interests / Rapport",
+        "relationToPrevious": "Moves from the failed encounter to the belief behind it.",
+        "addedInformation": "Lays out the belief the hosts are about to overturn."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "But neurologically rapport is built on rhythm. It is about the music, not the",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "WE USUALLY THINK",
+          "claim": "Rapport is about topics",
+          "inputs": [
+            "Same sports team",
+            "Same books"
+          ],
+          "hub": "Shared interests",
+          "output": "Rapport",
+          "verdict": "Built on rhythm",
+          "reason": "Neurologically",
+          "truth": "The music, not the lyrics",
+          "cues": {
+            "doubt": "But",
+            "reason": "neurologically",
+            "rejected": {
+              "phrase": "built on rhythm",
+              "occurrence": 1
+            },
+            "truth": "music"
+          }
+        }
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "But neurologically rapport is built on rhythm; it is about the music, not the lyrics.",
+        "concreteVisual": "The same panel greys and is stamped 'Built on rhythm'; the reason 'Neurologically' and the correct model 'The music, not the lyrics' draw in.",
+        "onScreenText": "Neurologically / Built on rhythm / The music, not the lyrics",
+        "relationToPrevious": "Same diagram; the belief is rejected and replaced.",
+        "addedInformation": "Turns the claim: rhythm, not shared topics, builds rapport."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "The music, not the lyrics. I love that. If the person you are speaking to is operating at a slow adagio pace, you must drop your energy to adagio.",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "Slow adagio",
+          "Frantic allegro"
+        ],
+        "values": [
+          0.12
+        ]
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "If the person you speak to is at a slow adagio pace, you must drop your energy to adagio.",
+        "concreteVisual": "A scale from 'Slow adagio' to 'Frantic allegro' with the marker near the slow end.",
+        "onScreenText": "Slow adagio / Frantic allegro",
+        "relationToPrevious": "From 'rhythm' in general to the tempo scale you match on.",
+        "addedInformation": "Shows energy as a tempo you set to match the other person."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "If they are moving at a frantic allegro clip, you must match that allegro intensity. When energy is mismatched, the brain instantly flags the other person as an outsider or a stressor.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Energy mismatched",
+          "Brain flags them",
+          "Outsider or stressor"
+        ]
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "Match a frantic allegro; when energy is mismatched the brain instantly flags the other person as an outsider or stressor.",
+        "concreteVisual": "A three-step flow: 'Energy mismatched' -> 'Brain flags them' -> 'Outsider or stressor'.",
+        "onScreenText": "Energy mismatched / Brain flags them / Outsider or stressor",
+        "relationToPrevious": "From the tempo to what happens when it is not matched.",
+        "addedInformation": "Gives the cause and effect of a mismatch."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "And what if you are just too exhausted to match their intellect or invent brilliant small talk? Well, that's where the next tool comes right? The source material offers this brilliant defensive tool called pariting. There's a story about a chauffeur named",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A defensive tool: parroting",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "storyboard": {
+        "claim": "If you are too exhausted to match their intellect or invent small talk, the book offers a defensive tool called parroting.",
+        "concreteVisual": "The everyman stands bowed and worried, too drained to perform.",
+        "onScreenText": "A defensive tool: parroting",
+        "relationToPrevious": "From matching energy to what to do when you have none.",
+        "addedInformation": "weak: shows the exhaustion; the tool's name is text."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "Phil picking up the author when she's utterly drained from a speaking tour. She's just dead tired, utterly exhausted.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Utterly exhausted",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "carla",
+        "everyman"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Phil the chauffeur picks up the author, dead tired after a speaking tour.",
+        "concreteVisual": "A drained woman slumped and sad; beside her a calm man, her driver.",
+        "onScreenText": "Utterly exhausted",
+        "relationToPrevious": "Starts the chauffeur story that illustrates parroting.",
+        "addedInformation": "Sets up the tired passenger and the listener."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "Instead of trying to entertain her with his own clever anecdotes, Phil just listens. When she sleepily mentions going to the theater, he simply repeats the last word with a gentle questioning tone. Theater. Simple as that.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Theater?",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "sad",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "Instead of telling clever anecdotes, Phil listens and repeats her last word with a questioning tone: 'Theater.'",
+        "concreteVisual": "The same pair: now the calm man speaks gently to the slumped, tired woman; the echoed word 'Theater?' on screen.",
+        "onScreenText": "Theater?",
+        "relationToPrevious": "Same stage; the driver now answers her with one echoed word.",
+        "addedInformation": "Shows the technique: a single repeated word back to her."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Yeah. When she says she hopes to find a car that's right for her, a skilled salesperson might pair it back. Right for you.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Right for you.",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "partnerExpression": "happy",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "When she hopes to find a car that's right for her, a skilled salesperson parrots it back: 'Right for you.'",
+        "concreteVisual": "A friendly salesman speaks to a pleased customer; his echo 'Right for you.' on screen.",
+        "onScreenText": "Right for you.",
+        "relationToPrevious": "A second example of the same echo, in a sales setting.",
+        "addedInformation": "Shows parroting used by a salesperson."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "It acts as a conversational boomerang. It throws the ball back perfectly, requiring zero mental calories from the exhausted party while keeping the spotlight firmly on their It's incredibly efficient.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Throws the ball back",
+          "Zero mental calories",
+          "Spotlight on them"
+        ]
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "Parroting is a conversational boomerang: it throws the ball back, costs zero mental calories and keeps the spotlight on them.",
+        "concreteVisual": "A three-step flow: 'Throws the ball back' -> 'Zero mental calories' -> 'Spotlight on them'.",
+        "onScreenText": "Throws the ball back / Zero mental calories / Spotlight on them",
+        "relationToPrevious": "From the examples to why the technique works.",
+        "addedInformation": "Explains the mechanism behind the examples."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "But let's look at the friction of actually doing this in real life. Because if I just stand there and systematically echo the last three words of your sentences back to you, I'm going to sound like a malfunctioning customer service chatbot. no, seriously.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A malfunctioning chatbot",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "blank",
+      "action": "talk",
+      "partnerExpression": "surprised",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "If I systematically echo the last three words of your sentences, I sound like a malfunctioning customer service chatbot.",
+        "concreteVisual": "A blank-faced man talks flatly at a woman who looks taken aback.",
+        "onScreenText": "A malfunctioning chatbot",
+        "relationToPrevious": "Turns from the benefit to the friction of overusing it.",
+        "addedInformation": "Shows the robotic echo and the listener's reaction."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "I say, \"I have a problem.\" And you say, \"You have a problem.\" People are going to catch on and they might even think I'm mocking right?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "You have a problem.",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "blank",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "'I have a problem.' 'You have a problem.' People catch on and may think you are mocking them.",
+        "concreteVisual": "The same pair: the blank man echoes her words and the woman's face turns angry, feeling mocked.",
+        "onScreenText": "You have a problem.",
+        "relationToPrevious": "Same stage; her surprise becomes offence at the echo.",
+        "addedInformation": "Shows the cost: the echo is read as mockery."
+      }
+    }
+  ]
+}

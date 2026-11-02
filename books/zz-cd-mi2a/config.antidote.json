@@ -1,0 +1,6182 @@
+{
+  "meta": {
+    "slug": "zz-cd-mi2a",
+    "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+    "author": "Howard Marks",
+    "genre": "finance",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": "audio/zz-cd-mi2a.m4a",
+    "durationInFrames": 3093,
+    "multiplane": true,
+    "hud": {
+      "enabled": true,
+      "accent": "#D9603C",
+      "title": "THE MOST IMPORTANT THING",
+      "showProgress": true,
+      "showBadge": true
+    },
+    "thumbnail": {
+      "hook": "THOUGHTFUL IMPORTANT",
+      "_needsClaudeRefine": true,
+      "variant": {
+        "skin": "#D9A277",
+        "hair": "#aaaaaa",
+        "suit": "#2b2b2b",
+        "shirt": "rgb(241,239,233)",
+        "expression": "happy",
+        "hairStyle": "short",
+        "glasses": true,
+        "beard": "none",
+        "gender": "m",
+        "age": "old",
+        "outfit": "suit",
+        "headwear": "none",
+        "accessory": "satchel",
+        "build": "average",
+        "height": 1.78,
+        "headScale": 1,
+        "overlay": []
+      },
+      "action": "celebrate",
+      "expression": "happy",
+      "motif": "risingBars"
+    },
+    "cast": {
+      "marks": {
+        "name": "Howard Marks",
+        "role": "Veteran contrarian investor and co-founder of Oaktree Capital",
+        "variant": {
+          "skin": "#D9A277",
+          "hair": "#aaaaaa",
+          "suit": "#2b2b2b",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "m",
+          "age": "old",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "satchel",
+          "build": "average",
+          "height": 1.78,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "investor": {
+        "name": "The Consensus Investor",
+        "role": "The typical first-level market participant caught in crowd euphoria and panic",
+        "variant": {
+          "skin": "#D9A277",
+          "hair": "#4a3525",
+          "suit": "#3d5a80",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "satchel",
+          "build": "slight",
+          "height": 1.75,
+          "headScale": 1,
+          "overlay": []
+        }
+      }
+    }
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "fromFrame": 15,
+      "durationFrames": 267,
+      "hud": {
+        "hidden": true
+      },
+      "_narration": "on Wall Street. The smartest guys in the room. Exactly. They built these massively heavily leveraged portfolios based on complex Gaussian copular models.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "title",
+      "_act": "setup",
+      "shot": "lowAngle",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(244,242,237)",
+          "rgb(239,237,230)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          18,
+          -10
+        ],
+        "punch": {
+          "at": 90,
+          "amount": 0.055
+        },
+        "pulses": [
+          68,
+          178
+        ]
+      },
+      "characters": [
+        {
+          "id": "c0-0",
+          "rig": "everyman",
+          "identity": "marks",
+          "role": "marks",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "THE MOST IMPORTANT THING",
+          "style": "plain",
+          "color": "#1E1E22",
+          "enter": "down",
+          "at": 6,
+          "duration": 75
+        },
+        {
+          "text": "THE SMARTEST GUYS IN THE ROOM",
+          "style": "box",
+          "color": "#EAE7DE",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 90,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.7,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "title"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"...; visualJob: undefined -> \"surprise\"; visualArc: null -> {\"startState\":\"apparent_security\",\"endState\":\"sudden_fracture\",\"transformatio...; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"... -> {\"function\":\"HOOK\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"pro...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "setup",
+        "payoffPromise": "p-01"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "apparent_security",
+        "endState": "sudden_fracture",
+        "transformation": "shrink"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "on Wall Street.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "on Wall Street.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"on Wall Street.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "marks",
+        "secondarySubject": "office",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: office",
+        "blocking": "foreground: speaker center; background: office",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-01",
+      "fromFrame": 282,
+      "durationFrames": 221,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at once across the entire country.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "historical_grounding",
+        "requiredActions": [
+          "ground_in_authentic_historical_reality"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "historical_grounding",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "ground_in_authentic_historical_reality"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "setup",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n0": "decades of historical data",
+            "n1": "could never decline"
+          },
+          "at": {
+            "n0": 29,
+            "n1": 129
+          },
+          "done": []
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(240,200,77)",
+          "rgb(206,158,7)"
+        ],
+        "set": "abstract",
+        "texture": "rays",
+        "accent": "#1C1917",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 122,
+          "amount": 0.05
+        },
+        "pulses": [
+          74,
+          192
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at once across the entire country."
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "setup",
+        "payoffPromise": "p-02"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at once across the entire country.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at once across the entire country.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at onc\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-02",
+      "fromFrame": 503,
+      "durationFrames": 283,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Right. They equated historical price stability with future safety. Exactly. They looked at their neat historical models and relied on normal outcomes prevailing",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "historical_grounding",
+        "requiredActions": [
+          "ground_in_authentic_historical_reality"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "historical_grounding",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "ground_in_authentic_historical_reality"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "token": "future safety"
+          },
+          "at": {
+            "token": 84
+          },
+          "done": [
+            "n0",
+            "n1"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(218,216,211)",
+          "rgb(201,199,192)"
+        ],
+        "set": "abstract",
+        "texture": "rays",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 156,
+          "amount": 0.05
+        },
+        "pulses": [
+          72,
+          144,
+          223
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Right.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Right.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Right.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-03",
+      "fromFrame": 786,
+      "durationFrames": 300,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "They literally engineered their portfolios. assuing a nationwide housing crash, a true black swan outlier, was a statistical which is wild in hindsight.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n2": "engineered their portfolios"
+          },
+          "at": {
+            "n2": 21
+          },
+          "done": [
+            "n0",
+            "n1",
+            "token"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "closeUp",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(210,208,203)",
+          "rgb(193,191,184)"
+        ],
+        "set": "abstract",
+        "texture": "rays",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "pulses": [
+          79,
+          151,
+          242
+        ],
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          -14
+        ],
+        "punch": {
+          "at": 6,
+          "amount": 0.06
+        }
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"insert\" -> \"closeUp\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "They literally engineered their portfolios.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "They literally engineered their portfolios.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"They literally engineered their portfolios.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "dynamic coverage shift to closeUp preventing visual stagnation",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-04",
+      "fromFrame": 1086,
+      "durationFrames": 261,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "And because they thought risk was gone, they leveraged up 30 to1. So when reality broke their models, they were utterly decimated.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "stat",
+      "_act": "tension",
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n3": "leveraged up 30",
+            "n4": "utterly decimated"
+          },
+          "at": {
+            "n3": 62,
+            "n4": 223
+          },
+          "done": [
+            "n0",
+            "n1",
+            "token",
+            "n2"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(216,214,209)",
+          "rgb(199,197,190)"
+        ],
+        "set": "classroom",
+        "texture": "rays",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 144,
+          "amount": 0.05
+        },
+        "pulses": [
+          211
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"quantify\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: \"quantify\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "And because they thought risk was gone, they leveraged up 30 to1.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "And because they thought risk was gone, they leveraged up 30 to1.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"And because they thought risk was gone, they leveraged up 30 to1.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-05",
+      "fromFrame": 1347,
+      "durationFrames": 346,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "They confused the map for the territory. Joel Greenblat actually chimes in on this exact point in the text, pointing out that many academic versions of risk com",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "CONFUSED THE MAP FOR THE TERRITORY",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 4,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "classroom",
+          "cast": [
+            "marks",
+            "investor"
+          ],
+          "expression": "neutral",
+          "action": "talk",
+          "holds": "book",
+          "partnerAction": "slump",
+          "partnerExpression": "sad",
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "_take": "sustained",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(216,214,209)",
+          "rgb(199,197,190)"
+        ],
+        "set": "classroom",
+        "texture": "rays",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 4,
+          "amount": 0.05
+        },
+        "pulses": [
+          87,
+          156,
+          240,
+          317
+        ]
+      },
+      "characters": [
+        {
+          "id": "c5-0",
+          "rig": "everyman",
+          "identity": "marks",
+          "role": "marks",
+          "expression": "neutral",
+          "enter": "left",
+          "poseAt": 60,
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "book"
+        },
+        {
+          "id": "c5-1",
+          "rig": "everyman",
+          "identity": "investor",
+          "role": "investor",
+          "expression": "sad",
+          "enter": "right",
+          "poseAt": 60,
+          "action": "slump",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "CONFUSED THE MAP FOR THE TERRITORY",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 4,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "talk+slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "payoff",
+        "payoff": "p-01"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 4,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "They confused the map for the territory.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "They confused the map for the territory.",
+        "counterThesis": "chimes in on this exact point in the text, pointing out that many academic versions of risk com",
+        "counterThesisEvidence": "direct",
+        "visualQuestion": "What must the viewer see while hearing: \"They confused the map for the territory.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "marks_and_investor",
+        "secondarySubject": "classroom",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: marks; right: investor; background: classroom",
+        "blocking": "left: marks; right: investor; background: classroom",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "marks",
+          "investor"
+        ]
+      }
+    },
+    {
+      "id": "scene-06",
+      "fromFrame": 1693,
+      "durationFrames": 156,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "of investing. Give us an example. Let's say a company's stock price drops by 50%",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "medium",
+          "artTexts": [
+            {
+              "text": "DROPS BY 50% IN A WEEK",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 96,
+              "src": "art"
+            }
+          ],
+          "shot": "medium",
+          "set": "room",
+          "cast": [
+            "investor"
+          ],
+          "expression": "afraid",
+          "action": "slump",
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "stat",
+      "_act": "tension",
+      "shot": "medium",
+      "transition": {
+        "type": "whipRight",
+        "frames": 12,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(199,198,193)",
+          "rgb(183,180,174)"
+        ],
+        "set": "room",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 96,
+          "amount": 0.09
+        },
+        "pulses": [
+          74
+        ]
+      },
+      "characters": [
+        {
+          "rig": "everyman",
+          "enter": "fade",
+          "lookAt": "viewer",
+          "id": "c6-0",
+          "expression": "afraid",
+          "action": "slump",
+          "role": "investor",
+          "identity": "investor",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "DROPS BY 50% IN A WEEK",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 96,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.845,
+        "semanticSignature": {
+          "action": "slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.845,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"quantify\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "quantify",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipRight"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 96,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "of investing.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "of investing.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"of investing.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "investor",
+        "secondarySubject": "room",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: room",
+        "blocking": "foreground: speaker center; background: room",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-07",
+      "fromFrame": 1849,
+      "durationFrames": 343,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "in a week because of a broad market panic, but the underlying business is incredibly sound. It has zero debt and it's generating massive free cash flow. Accordi",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "ZERO DEBT",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 157,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "room",
+          "cast": [
+            "marks",
+            "investor"
+          ],
+          "expression": "neutral",
+          "action": "hold",
+          "holds": "coin",
+          "partnerAction": "slump",
+          "partnerExpression": "afraid",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "psychology",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "somber",
+            "visualRegister": "metaphoric_stark",
+            "lightingOrTone": "dramatic_contrast"
+          },
+          "forbiddenTropes": [
+            "comic_lightbulb",
+            "celebrate_action",
+            "cheerful_facial_expression",
+            "heart_symbol",
+            "party_confetti",
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "turn",
+      "shot": "split",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(247,227,166)",
+          "rgb(239,237,230)"
+        ],
+        "set": "room",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.048,
+          1
+        ],
+        "panX": [
+          26,
+          -26
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 157,
+          "amount": 0.055
+        },
+        "pulses": [
+          98,
+          238
+        ]
+      },
+      "characters": [
+        {
+          "id": "c7-0",
+          "rig": "everyman",
+          "identity": "marks",
+          "role": "marks",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "hold",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "coin"
+        },
+        {
+          "id": "c7-1",
+          "rig": "everyman",
+          "identity": "investor",
+          "role": "investor",
+          "expression": "afraid",
+          "enter": "right",
+          "action": "slump",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "ZERO DEBT",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 157,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "hold+slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: \"escalate\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"...",
+            "sigBefore": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"twoShot\" -> \"split\"",
+            "sigBefore": {
+              "action": "hold+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold+slump",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": true,
+        "promiseId": "p-02",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 157,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "comparison_split",
+      "visualProposition": {
+        "claim": "in a week because of a broad market panic, but the underlying business is incredibly sound.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "in a week because of a broad market panic, but the underlying business is incredibly sound.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"in a week because of a broad market panic, but the underlying business is incredibly sound.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 3.81,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.95,
+        "mechanismCoverage": 0.85,
+        "stateChange": 0.8,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "marks_and_investor",
+        "secondarySubject": "room",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: marks; right: investor; background: room",
+        "blocking": "left: marks; right: investor; background: room",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "marks",
+          "investor"
+        ]
+      }
+    },
+    {
+      "id": "scene-08",
+      "fromFrame": 2192,
+      "durationFrames": 235,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier because [clears throat] the price moves so much, right?",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "question",
+      "_act": "turn",
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "links": "beta or volatility",
+            "result": "riskier"
+          },
+          "at": {
+            "links": 13,
+            "result": 147
+          },
+          "done": []
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(247,228,167)",
+          "rgb(240,238,232)"
+        ],
+        "set": "abstract",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 129,
+          "amount": 0.05
+        },
+        "pulses": [
+          70,
+          202
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"QUESTION\",\"payoffPromise\":\"promise-02\",\"escalates\":true,\"concept...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"payoffPromise\":\"promise-02\",\"escalates\":true,\"concept... -> {\"function\":\"EXPLANATION\",\"payoffPromise\":\"promise-02\",\"escalates\":false,\"con...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"payoffPromise\":\"promise-02\",\"escalates\":false,\"con... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier because [clears throat] the price moves so much, right?",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier because [clears throat] the price moves so much, right?",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier because [clears throat] \"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-09",
+      "fromFrame": 2427,
+      "durationFrames": 221,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "turn",
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "doubt": "But",
+            "rejected": {
+              "phrase": "actual risk",
+              "occurrence": 1
+            },
+            "truth": "permanent capital loss"
+          },
+          "at": {
+            "doubt": 0,
+            "rejected": 109,
+            "truth": 128
+          },
+          "done": [
+            "links",
+            "result"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(245,219,138)",
+          "rgb(239,237,230)"
+        ],
+        "set": "abstract",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 122,
+          "amount": 0.05
+        },
+        "pulses": [
+          70
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-10",
+      "fromFrame": 2648,
+      "durationFrames": 195,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Because the business is exactly the same, but it's now on sale for half the Here is the problem with that, though.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "resolution",
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "reason": "exactly the same"
+          },
+          "at": {
+            "reason": 34
+          },
+          "done": [
+            "links",
+            "result",
+            "doubt",
+            "rejected",
+            "truth"
+          ]
+        },
+        "authored": true
+      },
+      "shot": "closeUp",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(240,200,77)",
+          "rgb(206,158,7)"
+        ],
+        "set": "abstract",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "resolution"
+      },
+      "camera": {
+        "pulses": [
+          70
+        ],
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: \"explain\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"insert\" -> \"closeUp\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Because the business is exactly the same, but it's now on sale for half the Here is the problem with that, though.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "Because the business is exactly the same, but it's now on sale for half the Here is the problem with that, though.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Because the business is exactly the same, but it's now on sale for half the Here is the problem with that, though.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "dynamic coverage shift to closeUp preventing visual stagnation",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-11",
+      "fromFrame": 2843,
+      "durationFrames": 250,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "If we throw out the professor's neat little graph, if we completely abandon academic measures like volatility and beta, how do we actually measure risk?",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "medium",
+          "artTexts": [
+            {
+              "text": "HOW DO WE MEASURE RISK?",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 190,
+              "src": "art"
+            }
+          ],
+          "shot": "medium",
+          "set": "classroom",
+          "cast": [
+            "investor"
+          ],
+          "expression": "worried",
+          "action": "hold",
+          "holds": "magnifier",
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "question",
+      "_act": "resolution",
+      "shot": "medium",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#EAB308"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(232,212,178)",
+          "rgb(237,235,227)"
+        ],
+        "set": "classroom",
+        "texture": "grid",
+        "accent": "#1C1917",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 190,
+          "amount": 0.055
+        },
+        "pulses": [
+          84,
+          163
+        ]
+      },
+      "characters": [
+        {
+          "rig": "everyman",
+          "enter": "fade",
+          "lookAt": "heldProp",
+          "id": "c11-0",
+          "expression": "worried",
+          "action": "hold",
+          "holds": "magnifier",
+          "role": "investor",
+          "identity": "investor",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "HOW DO WE MEASURE RISK?",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 190,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.845,
+        "semanticSignature": {
+          "action": "hold",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.845,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"payoff\":\"promise-02\",\"escalates\":true,\"conceptua...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"payoff\":\"promise-02\",\"escalates\":true,\"conceptua... -> {\"function\":\"PAYOFF\",\"payoff\":\"promise-02\",\"escalates\":true,\"conceptual\":fals...; visualJob: \"contrast\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"payoff\":\"promise-02\",\"escalates\":true,\"conceptual\":fals... -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "hold",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "payoff",
+        "payoff": "p-02"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 190,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "If we throw out the professor's neat little graph, if we completely abandon academic measures like volatility and beta, how do we actually measure risk?",
+        "claimType": "question",
+        "epistemicStance": "questioned",
+        "thesis": "If we throw out the professor's neat little graph, if we completely abandon academic measures like volatility and beta, how do we actually measure risk?",
+        "counterThesis": "measure risk",
+        "counterThesisEvidence": "direct",
+        "visualQuestion": "What must the viewer see while hearing: \"If we throw out the professor's neat little graph, if we completely abandon academic measures like volatility and beta, \"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "investor",
+        "secondarySubject": "classroom",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: classroom",
+        "blocking": "foreground: speaker center; background: classroom",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "on Wall Street. The smartest guys in the room.",
+      "startFrame": 15,
+      "endFrame": 83,
+      "words": [
+        {
+          "w": "on",
+          "s": 15,
+          "e": 23
+        },
+        {
+          "w": "Wall",
+          "s": 23,
+          "e": 27
+        },
+        {
+          "w": "Street.",
+          "s": 27,
+          "e": 42
+        },
+        {
+          "w": "The",
+          "s": 42,
+          "e": 49
+        },
+        {
+          "w": "smartest",
+          "s": 49,
+          "e": 59
+        },
+        {
+          "w": "guys",
+          "s": 59,
+          "e": 63
+        },
+        {
+          "w": "in",
+          "s": 63,
+          "e": 68
+        },
+        {
+          "w": "the",
+          "s": 68,
+          "e": 73
+        },
+        {
+          "w": "room.",
+          "s": 73,
+          "e": 83
+        }
+      ]
+    },
+    {
+      "text": "Exactly. They built these massively heavily leveraged portfolios",
+      "startFrame": 83,
+      "endFrame": 193,
+      "words": [
+        {
+          "w": "Exactly.",
+          "s": 83,
+          "e": 107
+        },
+        {
+          "w": "They",
+          "s": 107,
+          "e": 114
+        },
+        {
+          "w": "built",
+          "s": 114,
+          "e": 119
+        },
+        {
+          "w": "these",
+          "s": 119,
+          "e": 126
+        },
+        {
+          "w": "massively",
+          "s": 126,
+          "e": 143
+        },
+        {
+          "w": "heavily",
+          "s": 143,
+          "e": 155
+        },
+        {
+          "w": "leveraged",
+          "s": 155,
+          "e": 171
+        },
+        {
+          "w": "portfolios",
+          "s": 171,
+          "e": 193
+        }
+      ]
+    },
+    {
+      "text": "based on complex Gaussian copular models.",
+      "startFrame": 193,
+      "endFrame": 282,
+      "words": [
+        {
+          "w": "based",
+          "s": 193,
+          "e": 200
+        },
+        {
+          "w": "on",
+          "s": 200,
+          "e": 207
+        },
+        {
+          "w": "complex",
+          "s": 207,
+          "e": 224
+        },
+        {
+          "w": "Gaussian",
+          "s": 224,
+          "e": 241
+        },
+        {
+          "w": "copular",
+          "s": 241,
+          "e": 255
+        },
+        {
+          "w": "models.",
+          "s": 255,
+          "e": 282
+        }
+      ]
+    },
+    {
+      "text": "Their models looked at decades of historical data and",
+      "startFrame": 282,
+      "endFrame": 356,
+      "words": [
+        {
+          "w": "Their",
+          "s": 282,
+          "e": 289
+        },
+        {
+          "w": "models",
+          "s": 289,
+          "e": 301
+        },
+        {
+          "w": "looked",
+          "s": 301,
+          "e": 306
+        },
+        {
+          "w": "at",
+          "s": 306,
+          "e": 311
+        },
+        {
+          "w": "decades",
+          "s": 311,
+          "e": 320
+        },
+        {
+          "w": "of",
+          "s": 320,
+          "e": 325
+        },
+        {
+          "w": "historical",
+          "s": 325,
+          "e": 339
+        },
+        {
+          "w": "data",
+          "s": 339,
+          "e": 349
+        },
+        {
+          "w": "and",
+          "s": 349,
+          "e": 356
+        }
+      ]
+    },
+    {
+      "text": "assumed that nationwide home prices could never decline all",
+      "startFrame": 356,
+      "endFrame": 443,
+      "words": [
+        {
+          "w": "assumed",
+          "s": 356,
+          "e": 366
+        },
+        {
+          "w": "that",
+          "s": 366,
+          "e": 371
+        },
+        {
+          "w": "nationwide",
+          "s": 371,
+          "e": 385
+        },
+        {
+          "w": "home",
+          "s": 385,
+          "e": 392
+        },
+        {
+          "w": "prices",
+          "s": 392,
+          "e": 411
+        },
+        {
+          "w": "could",
+          "s": 411,
+          "e": 419
+        },
+        {
+          "w": "never",
+          "s": 419,
+          "e": 423
+        },
+        {
+          "w": "decline",
+          "s": 423,
+          "e": 438
+        },
+        {
+          "w": "all",
+          "s": 438,
+          "e": 443
+        }
+      ]
+    },
+    {
+      "text": "at once across the entire country.",
+      "startFrame": 443,
+      "endFrame": 503,
+      "words": [
+        {
+          "w": "at",
+          "s": 443,
+          "e": 450
+        },
+        {
+          "w": "once",
+          "s": 450,
+          "e": 459
+        },
+        {
+          "w": "across",
+          "s": 459,
+          "e": 469
+        },
+        {
+          "w": "the",
+          "s": 469,
+          "e": 474
+        },
+        {
+          "w": "entire",
+          "s": 474,
+          "e": 483
+        },
+        {
+          "w": "country.",
+          "s": 483,
+          "e": 503
+        }
+      ]
+    },
+    {
+      "text": "Right. They equated historical price stability with future",
+      "startFrame": 503,
+      "endFrame": 599,
+      "words": [
+        {
+          "w": "Right.",
+          "s": 503,
+          "e": 510
+        },
+        {
+          "w": "They",
+          "s": 510,
+          "e": 517
+        },
+        {
+          "w": "equated",
+          "s": 517,
+          "e": 534
+        },
+        {
+          "w": "historical",
+          "s": 534,
+          "e": 551
+        },
+        {
+          "w": "price",
+          "s": 551,
+          "e": 558
+        },
+        {
+          "w": "stability",
+          "s": 558,
+          "e": 575
+        },
+        {
+          "w": "with",
+          "s": 575,
+          "e": 587
+        },
+        {
+          "w": "future",
+          "s": 587,
+          "e": 599
+        }
+      ]
+    },
+    {
+      "text": "safety. Exactly. They looked at their neat historical models",
+      "startFrame": 599,
+      "endFrame": 697,
+      "words": [
+        {
+          "w": "safety.",
+          "s": 599,
+          "e": 618
+        },
+        {
+          "w": "Exactly.",
+          "s": 618,
+          "e": 639
+        },
+        {
+          "w": "They",
+          "s": 639,
+          "e": 647
+        },
+        {
+          "w": "looked",
+          "s": 647,
+          "e": 651
+        },
+        {
+          "w": "at",
+          "s": 651,
+          "e": 656
+        },
+        {
+          "w": "their",
+          "s": 656,
+          "e": 663
+        },
+        {
+          "w": "neat",
+          "s": 663,
+          "e": 673
+        },
+        {
+          "w": "historical",
+          "s": 673,
+          "e": 687
+        },
+        {
+          "w": "models",
+          "s": 687,
+          "e": 697
+        }
+      ]
+    },
+    {
+      "text": "and relied on normal outcomes prevailing.",
+      "startFrame": 697,
+      "endFrame": 786,
+      "words": [
+        {
+          "w": "and",
+          "s": 697,
+          "e": 707
+        },
+        {
+          "w": "relied",
+          "s": 707,
+          "e": 716
+        },
+        {
+          "w": "on",
+          "s": 716,
+          "e": 726
+        },
+        {
+          "w": "normal",
+          "s": 726,
+          "e": 740
+        },
+        {
+          "w": "outcomes",
+          "s": 740,
+          "e": 755
+        },
+        {
+          "w": "prevailing.",
+          "s": 755,
+          "e": 786
+        }
+      ]
+    },
+    {
+      "text": "They literally engineered their portfolios.",
+      "startFrame": 786,
+      "endFrame": 851,
+      "words": [
+        {
+          "w": "They",
+          "s": 786,
+          "e": 795
+        },
+        {
+          "w": "literally",
+          "s": 795,
+          "e": 807
+        },
+        {
+          "w": "engineered",
+          "s": 807,
+          "e": 824
+        },
+        {
+          "w": "their",
+          "s": 824,
+          "e": 829
+        },
+        {
+          "w": "portfolios.",
+          "s": 829,
+          "e": 851
+        }
+      ]
+    },
+    {
+      "text": "assuing a nationwide housing crash, a true black swan",
+      "startFrame": 851,
+      "endFrame": 937,
+      "words": [
+        {
+          "w": "assuing",
+          "s": 851,
+          "e": 860
+        },
+        {
+          "w": "a",
+          "s": 860,
+          "e": 865
+        },
+        {
+          "w": "nationwide",
+          "s": 865,
+          "e": 877
+        },
+        {
+          "w": "housing",
+          "s": 877,
+          "e": 887
+        },
+        {
+          "w": "crash,",
+          "s": 887,
+          "e": 899
+        },
+        {
+          "w": "a",
+          "s": 899,
+          "e": 906
+        },
+        {
+          "w": "true",
+          "s": 906,
+          "e": 915
+        },
+        {
+          "w": "black",
+          "s": 915,
+          "e": 925
+        },
+        {
+          "w": "swan",
+          "s": 925,
+          "e": 937
+        }
+      ]
+    },
+    {
+      "text": "outlier, was a statistical which",
+      "startFrame": 937,
+      "endFrame": 1035,
+      "words": [
+        {
+          "w": "outlier,",
+          "s": 937,
+          "e": 961
+        },
+        {
+          "w": "was",
+          "s": 961,
+          "e": 968
+        },
+        {
+          "w": "a",
+          "s": 968,
+          "e": 975
+        },
+        {
+          "w": "statistical",
+          "s": 975,
+          "e": 993
+        },
+        {
+          "w": "which",
+          "s": 1028,
+          "e": 1035
+        }
+      ]
+    },
+    {
+      "text": "is wild in hindsight.",
+      "startFrame": 1035,
+      "endFrame": 1086,
+      "words": [
+        {
+          "w": "is",
+          "s": 1035,
+          "e": 1045
+        },
+        {
+          "w": "wild",
+          "s": 1045,
+          "e": 1059
+        },
+        {
+          "w": "in",
+          "s": 1059,
+          "e": 1067
+        },
+        {
+          "w": "hindsight.",
+          "s": 1067,
+          "e": 1086
+        }
+      ]
+    },
+    {
+      "text": "And because they thought risk was gone, they leveraged",
+      "startFrame": 1086,
+      "endFrame": 1163,
+      "words": [
+        {
+          "w": "And",
+          "s": 1086,
+          "e": 1091
+        },
+        {
+          "w": "because",
+          "s": 1091,
+          "e": 1095
+        },
+        {
+          "w": "they",
+          "s": 1095,
+          "e": 1100
+        },
+        {
+          "w": "thought",
+          "s": 1100,
+          "e": 1105
+        },
+        {
+          "w": "risk",
+          "s": 1105,
+          "e": 1115
+        },
+        {
+          "w": "was",
+          "s": 1115,
+          "e": 1122
+        },
+        {
+          "w": "gone,",
+          "s": 1122,
+          "e": 1141
+        },
+        {
+          "w": "they",
+          "s": 1141,
+          "e": 1148
+        },
+        {
+          "w": "leveraged",
+          "s": 1148,
+          "e": 1163
+        }
+      ]
+    },
+    {
+      "text": "up 30 to1. So when reality",
+      "startFrame": 1163,
+      "endFrame": 1261,
+      "words": [
+        {
+          "w": "up",
+          "s": 1163,
+          "e": 1172
+        },
+        {
+          "w": "30",
+          "s": 1172,
+          "e": 1182
+        },
+        {
+          "w": "to1.",
+          "s": 1182,
+          "e": 1200
+        },
+        {
+          "w": "So",
+          "s": 1235,
+          "e": 1239
+        },
+        {
+          "w": "when",
+          "s": 1239,
+          "e": 1247
+        },
+        {
+          "w": "reality",
+          "s": 1247,
+          "e": 1261
+        }
+      ]
+    },
+    {
+      "text": "broke their models, they were utterly decimated.",
+      "startFrame": 1261,
+      "endFrame": 1347,
+      "words": [
+        {
+          "w": "broke",
+          "s": 1261,
+          "e": 1268
+        },
+        {
+          "w": "their",
+          "s": 1268,
+          "e": 1273
+        },
+        {
+          "w": "models,",
+          "s": 1273,
+          "e": 1287
+        },
+        {
+          "w": "they",
+          "s": 1287,
+          "e": 1297
+        },
+        {
+          "w": "were",
+          "s": 1297,
+          "e": 1309
+        },
+        {
+          "w": "utterly",
+          "s": 1309,
+          "e": 1321
+        },
+        {
+          "w": "decimated.",
+          "s": 1321,
+          "e": 1347
+        }
+      ]
+    },
+    {
+      "text": "They confused the map for the territory.",
+      "startFrame": 1347,
+      "endFrame": 1413,
+      "words": [
+        {
+          "w": "They",
+          "s": 1347,
+          "e": 1355
+        },
+        {
+          "w": "confused",
+          "s": 1355,
+          "e": 1367
+        },
+        {
+          "w": "the",
+          "s": 1367,
+          "e": 1374
+        },
+        {
+          "w": "map",
+          "s": 1374,
+          "e": 1381
+        },
+        {
+          "w": "for",
+          "s": 1381,
+          "e": 1388
+        },
+        {
+          "w": "the",
+          "s": 1388,
+          "e": 1395
+        },
+        {
+          "w": "territory.",
+          "s": 1395,
+          "e": 1413
+        }
+      ]
+    },
+    {
+      "text": "Joel Greenblat actually chimes in on this exact point",
+      "startFrame": 1434,
+      "endFrame": 1523,
+      "words": [
+        {
+          "w": "Joel",
+          "s": 1434,
+          "e": 1443
+        },
+        {
+          "w": "Greenblat",
+          "s": 1443,
+          "e": 1460
+        },
+        {
+          "w": "actually",
+          "s": 1460,
+          "e": 1467
+        },
+        {
+          "w": "chimes",
+          "s": 1467,
+          "e": 1477
+        },
+        {
+          "w": "in",
+          "s": 1477,
+          "e": 1487
+        },
+        {
+          "w": "on",
+          "s": 1487,
+          "e": 1496
+        },
+        {
+          "w": "this",
+          "s": 1496,
+          "e": 1503
+        },
+        {
+          "w": "exact",
+          "s": 1503,
+          "e": 1515
+        },
+        {
+          "w": "point",
+          "s": 1515,
+          "e": 1523
+        }
+      ]
+    },
+    {
+      "text": "in the text, pointing out that many academic versions",
+      "startFrame": 1523,
+      "endFrame": 1599,
+      "words": [
+        {
+          "w": "in",
+          "s": 1523,
+          "e": 1527
+        },
+        {
+          "w": "the",
+          "s": 1527,
+          "e": 1532
+        },
+        {
+          "w": "text,",
+          "s": 1532,
+          "e": 1544
+        },
+        {
+          "w": "pointing",
+          "s": 1544,
+          "e": 1551
+        },
+        {
+          "w": "out",
+          "s": 1551,
+          "e": 1554
+        },
+        {
+          "w": "that",
+          "s": 1554,
+          "e": 1561
+        },
+        {
+          "w": "many",
+          "s": 1561,
+          "e": 1568
+        },
+        {
+          "w": "academic",
+          "s": 1568,
+          "e": 1587
+        },
+        {
+          "w": "versions",
+          "s": 1587,
+          "e": 1599
+        }
+      ]
+    },
+    {
+      "text": "of risk completely miss the practical reality",
+      "startFrame": 1599,
+      "endFrame": 1693,
+      "words": [
+        {
+          "w": "of",
+          "s": 1599,
+          "e": 1607
+        },
+        {
+          "w": "risk",
+          "s": 1607,
+          "e": 1621
+        },
+        {
+          "w": "completely",
+          "s": 1621,
+          "e": 1638
+        },
+        {
+          "w": "miss",
+          "s": 1638,
+          "e": 1655
+        },
+        {
+          "w": "the",
+          "s": 1655,
+          "e": 1664
+        },
+        {
+          "w": "practical",
+          "s": 1664,
+          "e": 1681
+        },
+        {
+          "w": "reality",
+          "s": 1681,
+          "e": 1693
+        }
+      ]
+    },
+    {
+      "text": "of investing. Give us an example.",
+      "startFrame": 1693,
+      "endFrame": 1751,
+      "words": [
+        {
+          "w": "of",
+          "s": 1693,
+          "e": 1700
+        },
+        {
+          "w": "investing.",
+          "s": 1700,
+          "e": 1719
+        },
+        {
+          "w": "Give",
+          "s": 1719,
+          "e": 1724
+        },
+        {
+          "w": "us",
+          "s": 1724,
+          "e": 1727
+        },
+        {
+          "w": "an",
+          "s": 1727,
+          "e": 1731
+        },
+        {
+          "w": "example.",
+          "s": 1731,
+          "e": 1751
+        }
+      ]
+    },
+    {
+      "text": "Let's say a company's stock price drops by 50%",
+      "startFrame": 1751,
+      "endFrame": 1849,
+      "words": [
+        {
+          "w": "Let's",
+          "s": 1751,
+          "e": 1758
+        },
+        {
+          "w": "say",
+          "s": 1758,
+          "e": 1763
+        },
+        {
+          "w": "a",
+          "s": 1763,
+          "e": 1767
+        },
+        {
+          "w": "company's",
+          "s": 1767,
+          "e": 1777
+        },
+        {
+          "w": "stock",
+          "s": 1777,
+          "e": 1784
+        },
+        {
+          "w": "price",
+          "s": 1784,
+          "e": 1794
+        },
+        {
+          "w": "drops",
+          "s": 1794,
+          "e": 1806
+        },
+        {
+          "w": "by",
+          "s": 1806,
+          "e": 1827
+        },
+        {
+          "w": "50%",
+          "s": 1827,
+          "e": 1849
+        }
+      ]
+    },
+    {
+      "text": "in a week because of a broad market panic,",
+      "startFrame": 1849,
+      "endFrame": 1935,
+      "words": [
+        {
+          "w": "in",
+          "s": 1849,
+          "e": 1856
+        },
+        {
+          "w": "a",
+          "s": 1856,
+          "e": 1861
+        },
+        {
+          "w": "week",
+          "s": 1861,
+          "e": 1868
+        },
+        {
+          "w": "because",
+          "s": 1868,
+          "e": 1878
+        },
+        {
+          "w": "of",
+          "s": 1878,
+          "e": 1883
+        },
+        {
+          "w": "a",
+          "s": 1883,
+          "e": 1890
+        },
+        {
+          "w": "broad",
+          "s": 1890,
+          "e": 1899
+        },
+        {
+          "w": "market",
+          "s": 1899,
+          "e": 1909
+        },
+        {
+          "w": "panic,",
+          "s": 1909,
+          "e": 1935
+        }
+      ]
+    },
+    {
+      "text": "but the underlying business is incredibly sound.",
+      "startFrame": 1935,
+      "endFrame": 2000,
+      "words": [
+        {
+          "w": "but",
+          "s": 1935,
+          "e": 1943
+        },
+        {
+          "w": "the",
+          "s": 1943,
+          "e": 1947
+        },
+        {
+          "w": "underlying",
+          "s": 1947,
+          "e": 1962
+        },
+        {
+          "w": "business",
+          "s": 1962,
+          "e": 1969
+        },
+        {
+          "w": "is",
+          "s": 1969,
+          "e": 1974
+        },
+        {
+          "w": "incredibly",
+          "s": 1974,
+          "e": 1988
+        },
+        {
+          "w": "sound.",
+          "s": 1988,
+          "e": 2000
+        }
+      ]
+    },
+    {
+      "text": "It has zero debt and it's generating massive free",
+      "startFrame": 2000,
+      "endFrame": 2096,
+      "words": [
+        {
+          "w": "It",
+          "s": 2000,
+          "e": 2007
+        },
+        {
+          "w": "has",
+          "s": 2007,
+          "e": 2010
+        },
+        {
+          "w": "zero",
+          "s": 2010,
+          "e": 2019
+        },
+        {
+          "w": "debt",
+          "s": 2019,
+          "e": 2031
+        },
+        {
+          "w": "and",
+          "s": 2031,
+          "e": 2039
+        },
+        {
+          "w": "it's",
+          "s": 2039,
+          "e": 2046
+        },
+        {
+          "w": "generating",
+          "s": 2046,
+          "e": 2072
+        },
+        {
+          "w": "massive",
+          "s": 2072,
+          "e": 2087
+        },
+        {
+          "w": "free",
+          "s": 2087,
+          "e": 2096
+        }
+      ]
+    },
+    {
+      "text": "cash flow. According to academic models, the",
+      "startFrame": 2096,
+      "endFrame": 2192,
+      "words": [
+        {
+          "w": "cash",
+          "s": 2096,
+          "e": 2103
+        },
+        {
+          "w": "flow.",
+          "s": 2103,
+          "e": 2137
+        },
+        {
+          "w": "According",
+          "s": 2137,
+          "e": 2147
+        },
+        {
+          "w": "to",
+          "s": 2147,
+          "e": 2151
+        },
+        {
+          "w": "academic",
+          "s": 2151,
+          "e": 2168
+        },
+        {
+          "w": "models,",
+          "s": 2168,
+          "e": 2185
+        },
+        {
+          "w": "the",
+          "s": 2185,
+          "e": 2192
+        }
+      ]
+    },
+    {
+      "text": "stock's beta or volatility has just skyrocketed,",
+      "startFrame": 2192,
+      "endFrame": 2283,
+      "words": [
+        {
+          "w": "stock's",
+          "s": 2192,
+          "e": 2209
+        },
+        {
+          "w": "beta",
+          "s": 2209,
+          "e": 2226
+        },
+        {
+          "w": "or",
+          "s": 2226,
+          "e": 2233
+        },
+        {
+          "w": "volatility",
+          "s": 2233,
+          "e": 2250
+        },
+        {
+          "w": "has",
+          "s": 2250,
+          "e": 2257
+        },
+        {
+          "w": "just",
+          "s": 2257,
+          "e": 2262
+        },
+        {
+          "w": "skyrocketed,",
+          "s": 2262,
+          "e": 2283
+        }
+      ]
+    },
+    {
+      "text": "meaning the stock is now quote unquote riskier because",
+      "startFrame": 2283,
+      "endFrame": 2366,
+      "words": [
+        {
+          "w": "meaning",
+          "s": 2283,
+          "e": 2291
+        },
+        {
+          "w": "the",
+          "s": 2291,
+          "e": 2295
+        },
+        {
+          "w": "stock",
+          "s": 2295,
+          "e": 2303
+        },
+        {
+          "w": "is",
+          "s": 2303,
+          "e": 2307
+        },
+        {
+          "w": "now",
+          "s": 2307,
+          "e": 2327
+        },
+        {
+          "w": "quote",
+          "s": 2327,
+          "e": 2334
+        },
+        {
+          "w": "unquote",
+          "s": 2334,
+          "e": 2343
+        },
+        {
+          "w": "riskier",
+          "s": 2343,
+          "e": 2363
+        },
+        {
+          "w": "because",
+          "s": 2363,
+          "e": 2366
+        }
+      ]
+    },
+    {
+      "text": "[clears throat] the price moves so much, right?",
+      "startFrame": 2366,
+      "endFrame": 2427,
+      "words": [
+        {
+          "w": "[clears",
+          "s": 2366,
+          "e": 2369
+        },
+        {
+          "w": "throat]",
+          "s": 2366,
+          "e": 2370
+        },
+        {
+          "w": "the",
+          "s": 2370,
+          "e": 2375
+        },
+        {
+          "w": "price",
+          "s": 2375,
+          "e": 2382
+        },
+        {
+          "w": "moves",
+          "s": 2382,
+          "e": 2389
+        },
+        {
+          "w": "so",
+          "s": 2389,
+          "e": 2394
+        },
+        {
+          "w": "much,",
+          "s": 2394,
+          "e": 2408
+        },
+        {
+          "w": "right?",
+          "s": 2408,
+          "e": 2427
+        }
+      ]
+    },
+    {
+      "text": "But to a value investor like Markx or Greenblat,",
+      "startFrame": 2427,
+      "endFrame": 2526,
+      "words": [
+        {
+          "w": "But",
+          "s": 2427,
+          "e": 2435
+        },
+        {
+          "w": "to",
+          "s": 2435,
+          "e": 2439
+        },
+        {
+          "w": "a",
+          "s": 2439,
+          "e": 2444
+        },
+        {
+          "w": "value",
+          "s": 2444,
+          "e": 2454
+        },
+        {
+          "w": "investor",
+          "s": 2454,
+          "e": 2471
+        },
+        {
+          "w": "like",
+          "s": 2471,
+          "e": 2480
+        },
+        {
+          "w": "Markx",
+          "s": 2480,
+          "e": 2492
+        },
+        {
+          "w": "or",
+          "s": 2492,
+          "e": 2497
+        },
+        {
+          "w": "Greenblat,",
+          "s": 2497,
+          "e": 2526
+        }
+      ]
+    },
+    {
+      "text": "the actual risk of permanent capital loss has just",
+      "startFrame": 2526,
+      "endFrame": 2611,
+      "words": [
+        {
+          "w": "the",
+          "s": 2526,
+          "e": 2533
+        },
+        {
+          "w": "actual",
+          "s": 2533,
+          "e": 2543
+        },
+        {
+          "w": "risk",
+          "s": 2543,
+          "e": 2550
+        },
+        {
+          "w": "of",
+          "s": 2550,
+          "e": 2555
+        },
+        {
+          "w": "permanent",
+          "s": 2555,
+          "e": 2567
+        },
+        {
+          "w": "capital",
+          "s": 2567,
+          "e": 2576
+        },
+        {
+          "w": "loss",
+          "s": 2576,
+          "e": 2586
+        },
+        {
+          "w": "has",
+          "s": 2586,
+          "e": 2593
+        },
+        {
+          "w": "just",
+          "s": 2593,
+          "e": 2611
+        }
+      ]
+    },
+    {
+      "text": "Because the business is exactly the same, but it's",
+      "startFrame": 2648,
+      "endFrame": 2725,
+      "words": [
+        {
+          "w": "Because",
+          "s": 2648,
+          "e": 2655
+        },
+        {
+          "w": "the",
+          "s": 2655,
+          "e": 2665
+        },
+        {
+          "w": "business",
+          "s": 2665,
+          "e": 2675
+        },
+        {
+          "w": "is",
+          "s": 2675,
+          "e": 2682
+        },
+        {
+          "w": "exactly",
+          "s": 2682,
+          "e": 2691
+        },
+        {
+          "w": "the",
+          "s": 2691,
+          "e": 2701
+        },
+        {
+          "w": "same,",
+          "s": 2701,
+          "e": 2713
+        },
+        {
+          "w": "but",
+          "s": 2713,
+          "e": 2718
+        },
+        {
+          "w": "it's",
+          "s": 2718,
+          "e": 2725
+        }
+      ]
+    },
+    {
+      "text": "now on sale for half the Here is the",
+      "startFrame": 2725,
+      "endFrame": 2795,
+      "words": [
+        {
+          "w": "now",
+          "s": 2725,
+          "e": 2728
+        },
+        {
+          "w": "on",
+          "s": 2727,
+          "e": 2735
+        },
+        {
+          "w": "sale",
+          "s": 2735,
+          "e": 2742
+        },
+        {
+          "w": "for",
+          "s": 2742,
+          "e": 2747
+        },
+        {
+          "w": "half",
+          "s": 2747,
+          "e": 2754
+        },
+        {
+          "w": "the",
+          "s": 2754,
+          "e": 2775
+        },
+        {
+          "w": "Here",
+          "s": 2775,
+          "e": 2783
+        },
+        {
+          "w": "is",
+          "s": 2783,
+          "e": 2790
+        },
+        {
+          "w": "the",
+          "s": 2790,
+          "e": 2795
+        }
+      ]
+    },
+    {
+      "text": "problem with that, though.",
+      "startFrame": 2795,
+      "endFrame": 2843,
+      "words": [
+        {
+          "w": "problem",
+          "s": 2795,
+          "e": 2799
+        },
+        {
+          "w": "with",
+          "s": 2799,
+          "e": 2807
+        },
+        {
+          "w": "that,",
+          "s": 2807,
+          "e": 2814
+        },
+        {
+          "w": "though.",
+          "s": 2814,
+          "e": 2843
+        }
+      ]
+    },
+    {
+      "text": "If we throw out the professor's neat little graph,",
+      "startFrame": 2843,
+      "endFrame": 2912,
+      "words": [
+        {
+          "w": "If",
+          "s": 2843,
+          "e": 2850
+        },
+        {
+          "w": "we",
+          "s": 2850,
+          "e": 2855
+        },
+        {
+          "w": "throw",
+          "s": 2855,
+          "e": 2862
+        },
+        {
+          "w": "out",
+          "s": 2862,
+          "e": 2867
+        },
+        {
+          "w": "the",
+          "s": 2867,
+          "e": 2874
+        },
+        {
+          "w": "professor's",
+          "s": 2874,
+          "e": 2886
+        },
+        {
+          "w": "neat",
+          "s": 2886,
+          "e": 2893
+        },
+        {
+          "w": "little",
+          "s": 2893,
+          "e": 2898
+        },
+        {
+          "w": "graph,",
+          "s": 2898,
+          "e": 2912
+        }
+      ]
+    },
+    {
+      "text": "if we completely abandon academic measures like volatility",
+      "startFrame": 2912,
+      "endFrame": 3003,
+      "words": [
+        {
+          "w": "if",
+          "s": 2912,
+          "e": 2919
+        },
+        {
+          "w": "we",
+          "s": 2919,
+          "e": 2927
+        },
+        {
+          "w": "completely",
+          "s": 2927,
+          "e": 2941
+        },
+        {
+          "w": "abandon",
+          "s": 2941,
+          "e": 2955
+        },
+        {
+          "w": "academic",
+          "s": 2955,
+          "e": 2970
+        },
+        {
+          "w": "measures",
+          "s": 2970,
+          "e": 2979
+        },
+        {
+          "w": "like",
+          "s": 2979,
+          "e": 2984
+        },
+        {
+          "w": "volatility",
+          "s": 2984,
+          "e": 3003
+        }
+      ]
+    },
+    {
+      "text": "and beta, how do we actually measure risk?",
+      "startFrame": 3003,
+      "endFrame": 3093,
+      "words": [
+        {
+          "w": "and",
+          "s": 3003,
+          "e": 3006
+        },
+        {
+          "w": "beta,",
+          "s": 3006,
+          "e": 3024
+        },
+        {
+          "w": "how",
+          "s": 3044,
+          "e": 3049
+        },
+        {
+          "w": "do",
+          "s": 3049,
+          "e": 3052
+        },
+        {
+          "w": "we",
+          "s": 3051,
+          "e": 3059
+        },
+        {
+          "w": "actually",
+          "s": 3059,
+          "e": 3066
+        },
+        {
+          "w": "measure",
+          "s": 3066,
+          "e": 3078
+        },
+        {
+          "w": "risk?",
+          "s": 3078,
+          "e": 3093
+        }
+      ]
+    }
+  ],
+  "promises": [
+    {
+      "promiseId": "p-01",
+      "question": "on Wall Street. The smartest guys in the room. Exactly. They built these massively heavily",
+      "setupBeat": 0,
+      "reminderBeats": [
+        3,
+        4
+      ],
+      "payoffBeat": 5,
+      "status": "resolved"
+    },
+    {
+      "promiseId": "p-02",
+      "question": "Their models looked at decades of historical data and assumed that nationwide home prices",
+      "setupBeat": 1,
+      "reminderBeats": [
+        7,
+        9
+      ],
+      "payoffBeat": 11,
+      "status": "resolved"
+    }
+  ],
+  "audioEvents": [
+    {
+      "frame": 21,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 277,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_1_transition"
+    },
+    {
+      "frame": 790,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_3_contradiction"
+    },
+    {
+      "frame": 1090,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_4_contradiction"
+    },
+    {
+      "frame": 1293,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_5"
+    },
+    {
+      "frame": 1353,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_5_payoff"
+    },
+    {
+      "frame": 1351,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_5_text_pop"
+    },
+    {
+      "frame": 1687,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_6_transition"
+    },
+    {
+      "frame": 1789,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_6_text_pop"
+    },
+    {
+      "frame": 2006,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_7_text_pop"
+    },
+    {
+      "frame": 2187,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_8_transition"
+    },
+    {
+      "frame": 2196,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_8_contradiction"
+    },
+    {
+      "frame": 2431,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_9_tension"
+    },
+    {
+      "frame": 2652,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_10_contradiction"
+    },
+    {
+      "frame": 2838,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_11_transition"
+    },
+    {
+      "frame": 2789,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_11"
+    },
+    {
+      "frame": 2849,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_11_payoff"
+    },
+    {
+      "frame": 3033,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_11_text_pop"
+    }
+  ]
+}

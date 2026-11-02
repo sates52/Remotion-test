@@ -1,0 +1,151 @@
+{
+  "slug": "zz-cd-rr1b",
+  "totalSequences": 4,
+  "totalScenes": 12,
+  "averageDurationSecs": 23.9,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "authored",
+      "fromFrame": 15,
+      "durationFrames": 1020,
+      "durationSeconds": 34,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 283,
+          "role": "authored-start",
+          "narration": "But structurally, Dan is just another disposable cog in the gold machine. And notice how Darrow trea"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 298,
+          "durationFrames": 182,
+          "role": "authored-kept",
+          "narration": "When ugly Dan tries to humiliate Darrow by throwing a pebble at his head, Darrow doesn't cower."
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 480,
+          "durationFrames": 264,
+          "role": "authored-kept",
+          "narration": "Darrow turns around, looks this armed guard in the eye, and gives him this incredibly sarcastic, swe"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 744,
+          "durationFrames": 291,
+          "role": "authored-kept",
+          "narration": "He knows he's better than Dan. Yeah, he knows Dan could beat him, but he doesn't respect him. Darrow"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 1035,
+      "durationFrames": 660,
+      "durationSeconds": 22,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1035,
+          "durationFrames": 196,
+          "role": "authored-start",
+          "narration": "the moment Nero Augustus steps off that ship, Darrow is crushed."
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1231,
+          "durationFrames": 231,
+          "role": "authored-kept",
+          "narration": "Darrow explicitly admits in his inner monologue that he feels shame. He says, \"I scarcely want to lo"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1462,
+          "durationFrames": 233,
+          "role": "authored-kept",
+          "narration": "I feel like I dirty his gold and black finery with my red eyes. He doesn't mock the arch governor. H"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1695,
+      "durationFrames": 703,
+      "durationSeconds": 23.4,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1695,
+          "durationFrames": 328,
+          "role": "authored-start",
+          "narration": "The sheer visual majesty and terrifying perfection of the gold hierarchy bypasses his rebellious nat"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2023,
+          "durationFrames": 219,
+          "role": "authored-kept",
+          "narration": "don't just hold power, they embody it so perfectly that the lower colors police their own selfworth."
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2242,
+          "durationFrames": 156,
+          "role": "authored-kept",
+          "narration": "If you feel dirty just looking at your ruler, you will never presume to overthrow them."
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 2398,
+      "durationFrames": 473,
+      "durationSeconds": 15.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2398,
+          "durationFrames": 235,
+          "role": "setup",
+          "narration": "The physical narrative is the cage. But you know, to maintain that level of terrifying perfection, t"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2633,
+          "durationFrames": 238,
+          "role": "reveal",
+          "narration": "They can't be soft. They actually have to be the monsters they project. Which brings us to the mecha"
+        }
+      ]
+    }
+  ]
+}

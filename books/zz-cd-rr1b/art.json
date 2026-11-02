@@ -1,0 +1,538 @@
+{
+  "book": {
+    "slug": "zz-cd-rr1b",
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "genre": "science fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "But structurally, Dan is just another disposable cog in the gold machine. And notice how Darrow treats ugly Dan versus how he treats Nero. Right?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a disposable cog",
+        "style": "highlight"
+      },
+      "set": "street",
+      "shotOverride": "twoShot",
+      "cast": [
+        "dan",
+        "darrow"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Structurally Dan is just another disposable cog in the Gold machine; note how Darrow treats Dan versus Nero.",
+        "concreteVisual": "The heavy armoured guard Dan, blank-faced, stands opposite the young Red miner Darrow on a street.",
+        "onScreenText": "a disposable cog",
+        "relationToPrevious": "Opens the chunk: introduces the guard and the comparison to come.",
+        "addedInformation": "weak: shows who Dan is and who faces him; the 'cog' idea is carried by the label.",
+        "causal": {
+          "kind": "idea",
+          "actor": "dan",
+          "goal": null,
+          "action": "is just another disposable cog",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "Dan is just another disposable cog in the gold machine"
+        },
+        "directorNote": "kind comparison but only Dan is on screen (Nero, the other side, cannot be cast) and the quote is the cog claim; target darrow not stated for that claim -> kind idea, target null; staging kept"
+      }
+    },
+    {
+      "i": 1,
+      "narration": "When ugly Dan tries to humiliate Darrow by throwing a pebble at his head, Darrow doesn't cower.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "throwing a pebble",
+        "style": "reveal"
+      },
+      "set": "street",
+      "cast": [
+        "dan",
+        "darrow"
+      ],
+      "expression": "smirk",
+      "action": "point",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Dan tries to humiliate Darrow by throwing a pebble at his head; Darrow does not cower.",
+        "concreteVisual": "Dan, smirking, jabs a hand toward Darrow; Darrow stands straight with a level face, not cowering.",
+        "onScreenText": "throwing a pebble",
+        "relationToPrevious": "Same two on the same street: Dan now sneers and points at Darrow.",
+        "addedInformation": "Shows the guard as the aggressor and Darrow unbowed; the pebble itself is text only.",
+        "causal": {
+          "kind": "event",
+          "actor": "dan",
+          "goal": "humiliate Darrow",
+          "action": "throwing a pebble at his head",
+          "object": "pebble",
+          "target": "darrow",
+          "before": null,
+          "after": "Darrow doesn't cower",
+          "consequence": "Darrow doesn't cower",
+          "quote": "throwing a pebble at his head, Darrow doesn't cower"
+        }
+      }
+    },
+    {
+      "i": 2,
+      "narration": "Darrow turns around, looks this armed guard in the eye, and gives him this incredibly sarcastic, sweeping, mocking bow. He is totally insubordinate.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a mocking bow",
+        "style": "highlight"
+      },
+      "set": "street",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "smirk",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Darrow looks the armed guard in the eye and gives him a sarcastic, sweeping, mocking bow; he is totally insubordinate.",
+        "concreteVisual": "Darrow, now in front, smirks straight at Dan; Dan glares back, angry.",
+        "onScreenText": "a mocking bow",
+        "relationToPrevious": "Darrow turns the tables: he becomes the lead with a smirk, Dan's face turns angry.",
+        "addedInformation": "The reversal of faces shows who is mocking whom.",
+        "causal": {
+          "kind": "event",
+          "actor": "darrow",
+          "goal": null,
+          "action": "gives him this incredibly sarcastic, sweeping, mocking bow",
+          "object": null,
+          "target": "dan",
+          "before": null,
+          "after": "He is totally insubordinate",
+          "consequence": null,
+          "quote": "gives him this incredibly sarcastic, sweeping, mocking bow"
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "He knows he's better than Dan. Yeah, he knows Dan could beat him, but he doesn't respect him. Darrow's pride is completely intact when dealing with the But the moment the gold arrives,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "pride completely intact",
+        "style": "box"
+      },
+      "set": "street",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "smirk",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Darrow knows Dan could beat him but does not respect him; his pride is intact with the guard, until the Gold arrives.",
+        "concreteVisual": "Darrow keeps his confident smirk in front of the angry guard.",
+        "onScreenText": "pride completely intact",
+        "relationToPrevious": "Kept stage: the label now names the result, his pride.",
+        "addedInformation": "weak: the faces repeat; the label states the verdict.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "darrow",
+          "goal": null,
+          "action": "doesn't respect him",
+          "object": null,
+          "target": "dan",
+          "before": null,
+          "after": "Darrow's pride is completely intact",
+          "consequence": null,
+          "quote": "Darrow's pride is completely intact"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "the moment Nero Augustus steps off that ship, Darrow is crushed.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Darrow is crushed",
+        "style": "reveal"
+      },
+      "set": "street",
+      "shotOverride": "medium",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The moment Nero Augustus steps off the ship, Darrow is crushed.",
+        "concreteVisual": "Darrow alone, head bowed and shoulders slumped, the smirk gone.",
+        "onScreenText": "Darrow is crushed",
+        "relationToPrevious": "The guard is gone; Darrow's defiant smirk turns to a bowed, sad posture.",
+        "addedInformation": "The before/after of Darrow's posture shows the switch from defiance to defeat.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "darrow",
+          "goal": null,
+          "action": "is crushed",
+          "object": null,
+          "target": "Nero Augustus",
+          "before": "pride intact",
+          "after": "crushed",
+          "consequence": null,
+          "quote": "Nero Augustus steps off that ship, Darrow is crushed"
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Darrow explicitly admits in his inner monologue that he feels shame. He says, \"I scarcely want to look at him.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "I scarcely want to look",
+        "style": "highlight"
+      },
+      "set": "street",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "In his inner monologue Darrow admits he feels shame: 'I scarcely want to look at him.'",
+        "concreteVisual": "Darrow keeps his head bowed, eyes down, sad.",
+        "onScreenText": "I scarcely want to look",
+        "relationToPrevious": "Kept: the bowed Darrow; the label quotes his shame.",
+        "addedInformation": "The lowered eyes match the quote about not looking.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "darrow",
+          "goal": null,
+          "action": "feels shame",
+          "object": null,
+          "target": "Nero",
+          "before": null,
+          "after": "shame",
+          "consequence": null,
+          "quote": "I scarcely want to look at him"
+        },
+        "directorNote": "emotion beat: the face is shown but its cause (Nero) is not on screen and the vocabulary cannot cast him; noVisual was null -> noVisual states the cause is text only"
+      }
+    },
+    {
+      "i": 6,
+      "narration": "I feel like I dirty his gold and black finery with my red eyes. He doesn't mock the arch governor. He doesn't feel defiant.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "I dirty his gold finery",
+        "style": "highlight"
+      },
+      "set": "street",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "'I feel like I dirty his gold and black finery with my red eyes.' He does not mock or defy the ArchGovernor.",
+        "concreteVisual": "Darrow, still bowed and sad; no smirk, no defiance.",
+        "onScreenText": "I dirty his gold finery",
+        "relationToPrevious": "Kept: the label moves on to his reason, that he dirties the Gold.",
+        "addedInformation": "weak: the posture repeats; the quote carries the reason.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "darrow",
+          "goal": null,
+          "action": "doesn't mock the arch governor",
+          "object": null,
+          "target": "the arch governor",
+          "before": null,
+          "after": "He doesn't feel defiant",
+          "consequence": null,
+          "quote": "He doesn't mock the arch governor. He doesn't feel defiant"
+        },
+        "directorNote": "emotion beat: the face is shown but its cause (Nero) is not on screen and the vocabulary cannot cast him; noVisual was null -> noVisual states the cause is text only"
+      }
+    },
+    {
+      "i": 7,
+      "narration": "The sheer visual majesty and terrifying perfection of the gold hierarchy bypasses his rebellious nature entirely because the golds have weaponized They",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Terrifying perfection",
+              "glyph": "spark"
+            },
+            {
+              "label": "Feel dirty looking",
+              "glyph": "eye"
+            },
+            {
+              "label": "Police their own selfworth",
+              "glyph": "lock"
+            },
+            {
+              "label": "Never overthrow them",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Rebellious nature",
+            "from": 0
+          },
+          "cues": {
+            "n0": "terrifying perfection",
+            "token": "rebellious nature"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "The visual majesty and terrifying perfection of the Gold hierarchy bypasses Darrow's rebellious nature; the Golds have weaponized it.",
+        "concreteVisual": "A causal chain: first station 'Terrifying perfection'; a token tagged 'Rebellious nature' is born there; later stations dashed.",
+        "onScreenText": "Terrifying perfection; Rebellious nature",
+        "relationToPrevious": "From Darrow's shame to the mechanism behind it.",
+        "addedInformation": "Starts the cause chain that explains the shame.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "the golds",
+          "goal": null,
+          "action": "bypasses his rebellious nature entirely",
+          "object": null,
+          "target": "darrow",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "terrifying perfection of the gold hierarchy bypasses his rebellious nature entirely"
+        }
+      }
+    },
+    {
+      "i": 8,
+      "narration": "don't just hold power, they embody it so perfectly that the lower colors police their own selfworth.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Terrifying perfection",
+              "glyph": "spark"
+            },
+            {
+              "label": "Feel dirty looking",
+              "glyph": "eye"
+            },
+            {
+              "label": "Police their own selfworth",
+              "glyph": "lock"
+            },
+            {
+              "label": "Never overthrow them",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Rebellious nature",
+            "from": 0
+          },
+          "cues": {
+            "n2": "police their own selfworth"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The Golds don't just hold power, they embody it so perfectly that the lower colors police their own self-worth.",
+        "concreteVisual": "The same chain; the station 'Police their own selfworth' (a lock) draws in.",
+        "onScreenText": "Police their own selfworth",
+        "relationToPrevious": "Same diagram, one more station.",
+        "addedInformation": "Names the effect: the ruled guard themselves.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "the lower colors",
+          "goal": null,
+          "action": "police their own selfworth",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "the lower colors police their own selfworth",
+          "quote": "the lower colors police their own selfworth"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "narration": "If you feel dirty just looking at your ruler, you will never presume to overthrow them.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Terrifying perfection",
+              "glyph": "spark"
+            },
+            {
+              "label": "Feel dirty looking",
+              "glyph": "eye"
+            },
+            {
+              "label": "Police their own selfworth",
+              "glyph": "lock"
+            },
+            {
+              "label": "Never overthrow them",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Rebellious nature",
+            "from": 0
+          },
+          "cues": {
+            "n1": "feel dirty",
+            "n3": "never presume to overthrow"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "If you feel dirty just looking at your ruler, you will never presume to overthrow them.",
+        "concreteVisual": "The same chain completes: 'Feel dirty looking' fills the gap, then 'Never overthrow them' (a cross) closes it.",
+        "onScreenText": "Feel dirty looking; Never overthrow them",
+        "relationToPrevious": "Same diagram: the missing middle and the result draw in.",
+        "addedInformation": "Shows the result of the chain: no revolt.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "you",
+          "goal": null,
+          "action": "feel dirty just looking at your ruler",
+          "object": null,
+          "target": "your ruler",
+          "before": null,
+          "after": null,
+          "consequence": "you will never presume to overthrow them",
+          "quote": "If you feel dirty just looking at your ruler, you will never presume to overthrow them"
+        }
+      }
+    },
+    {
+      "i": 10,
+      "narration": "The physical narrative is the cage. But you know, to maintain that level of terrifying perfection, the golds can't just be pretty aristocrats.",
+      "concept": "chains",
+      "diagram": null,
+      "callout": {
+        "text": "the narrative is the cage",
+        "style": "reveal"
+      },
+      "set": "abstract",
+      "shotOverride": "medium",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The physical narrative is the cage; to keep that terrifying perfection, the Golds cannot just be pretty aristocrats.",
+        "concreteVisual": "Darrow bowed beside a set of chains.",
+        "onScreenText": "the narrative is the cage",
+        "relationToPrevious": "Sums up the chain: the result is imprisonment.",
+        "addedInformation": "The chains read as bound / imprisoned, the claim's literal reading.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": "is the cage",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "The physical narrative is the cage"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "They can't be soft. They actually have to be the monsters they project. Which brings us to the mechanics of power within the gold cast itself.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the monsters they project",
+        "style": "highlight"
+      },
+      "set": "court",
+      "shotOverride": "lowAngle",
+      "cast": [
+        "titus"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "storyboard": {
+        "claim": "The Golds can't be soft; they have to be the monsters they project, which leads to power within the Gold caste.",
+        "concreteVisual": "A tall Gold in a gilded high-collared uniform, seen from below, glaring.",
+        "onScreenText": "the monsters they project",
+        "relationToPrevious": "Turns from the Reds to the Golds themselves.",
+        "addedInformation": "The low-angle angry Gold shows menace, not softness.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the golds",
+          "goal": null,
+          "action": "have to be the monsters they project",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "They actually have to be the monsters they project"
+        }
+      }
+    }
+  ]
+}

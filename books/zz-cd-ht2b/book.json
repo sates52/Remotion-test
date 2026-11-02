@@ -1,0 +1,57 @@
+{
+  "slug": "zz-cd-ht2b",
+  "title": "How to Talk to Anyone",
+  "author": "Leil Lowndes",
+  "genre": "self-help",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "era": 2003,
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "subtle micro-behaviors like the Flooding Smile and Sticky Eyes in real social settings",
+      "the tension between faking confidence versus projecting authentic social warmth",
+      "awkward room entry dynamics, networking parties, and interpersonal body language",
+      "conversational reciprocity tricks like Parroting and Matching Mood before shifting tone"
+    ]
+  },
+  "engineRubric": {
+    "pick": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 45,
+    "reasons": [
+      "an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": []
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-02",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 21.5,
+    "signals": {
+      "year": 0,
+      "history": 0,
+      "second": 43.5,
+      "abstract": 7.9,
+      "sensitive": 4,
+      "era": 2010,
+      "words": 253
+    },
+    "reasons": [
+      "the narration addresses the viewer (\"you\" 43.5/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": true
+  },
+  "audioSource": "public/audio/how-to-talk-to-anyone.mp3"
+}

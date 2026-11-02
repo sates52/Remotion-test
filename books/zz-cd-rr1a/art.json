@@ -1,0 +1,305 @@
+{
+  "book": {
+    "slug": "zz-cd-rr1a",
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "genre": "science fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "But structurally, Dan is just another disposable cog in the gold machine. And notice how Darrow treats ugly Dan versus how he treats Nero. Right?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a disposable cog",
+        "style": "reveal"
+      },
+      "set": "street",
+      "cast": [
+        "dan"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "storyboard": {
+        "claim": "Structurally Dan is just another disposable cog in the Gold machine, and Darrow treats him differently from Nero.",
+        "concreteVisual": "Dan, the heavyset Gold guard in black armour, stands blank-faced on a mine street.",
+        "onScreenText": "a disposable cog",
+        "relationToPrevious": "Opens the comparison by introducing Dan, the low-ranking side of it.",
+        "addedInformation": "weak: shows who Dan is (an armed guard) but the 'cog' idea rests on the label."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "When ugly Dan tries to humiliate Darrow by throwing a pebble at his head, Darrow doesn't cower.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Darrow doesn't cower",
+        "style": "highlight"
+      },
+      "set": "street",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "partnerExpression": "smirk",
+      "partnerAction": "point",
+      "storyboard": {
+        "claim": "When Dan throws a pebble at Darrow's head to humiliate him, Darrow does not cower.",
+        "concreteVisual": "On the street, the Gold guard Dan smirks and jabs a finger at Darrow, who faces him upright with an angry, unbowed face.",
+        "onScreenText": "Darrow doesn't cower",
+        "relationToPrevious": "Darrow joins Dan on the same street; the confrontation begins.",
+        "addedInformation": "Shows the power pair: the armed guard taunting, the Red boy refusing to shrink."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "Darrow turns around, looks this armed guard in the eye, and gives him this incredibly sarcastic, sweeping, mocking bow. He is totally insubordinate.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a mocking bow",
+        "style": "reveal"
+      },
+      "set": "street",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "smirk",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Darrow looks the armed guard in the eye and gives him a sarcastic, sweeping, mocking bow; he is totally insubordinate.",
+        "concreteVisual": "Same street: Darrow now smirks straight at Dan, whose face has turned angry.",
+        "onScreenText": "a mocking bow",
+        "relationToPrevious": "Same two on the kept stage; Darrow's face turns from defiance to mockery and Dan's from jeering to anger.",
+        "addedInformation": "The swapped faces show who holds the upper hand in this exchange."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "He knows he's better than Dan. Yeah, he knows Dan could beat him, but he doesn't respect him. Darrow's pride is completely intact when dealing with the But the moment the gold arrives,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "pride completely intact",
+        "style": "highlight"
+      },
+      "set": "street",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "smirk",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Darrow knows he is better than Dan; Dan could beat him, but he doesn't respect him, and his pride stays intact until the Gold arrives.",
+        "concreteVisual": "Darrow, still smirking, talks back at the angry armoured guard.",
+        "onScreenText": "pride completely intact",
+        "relationToPrevious": "Same stage; Darrow now speaks back, the result of the exchange: his pride holds.",
+        "addedInformation": "Closes the Dan half of the comparison: an armed guard does not break him."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "the moment Nero Augustus steps off that ship, Darrow is crushed.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Nero Augustus steps off",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "shotOverride": "lowAngle",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The moment Nero Augustus steps off the ship, Darrow is crushed.",
+        "concreteVisual": "On the open Mars horizon, Darrow stands bowed and sad, shot from below.",
+        "onScreenText": "Nero Augustus steps off",
+        "relationToPrevious": "Cut from the defiant street scene to the same boy now bowed: the Nero half of the comparison.",
+        "addedInformation": "The before/after of Darrow's posture (upright smirk to bowed head) makes 'crushed' visible."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Darrow explicitly admits in his inner monologue that he feels shame. He says, \"I scarcely want to look at him.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "I scarcely want to look",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "Darrow admits in his inner monologue that he feels shame: 'I scarcely want to look at him.'",
+        "concreteVisual": "Darrow stays bowed on the horizon, head down, eyes lowered.",
+        "onScreenText": "I scarcely want to look",
+        "relationToPrevious": "Same stage and pose; the label now gives his own words for why his head is down.",
+        "addedInformation": "Ties the lowered head to shame, in Darrow's words."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "I feel like I dirty his gold and black finery with my red eyes. He doesn't mock the arch governor. He doesn't feel defiant.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "I dirty his finery",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "'I feel like I dirty his gold and black finery with my red eyes.' He doesn't mock the ArchGovernor; he doesn't feel defiant.",
+        "concreteVisual": "Darrow, still bowed on the horizon, his face now anxious.",
+        "onScreenText": "I dirty his finery",
+        "relationToPrevious": "Same stage; his face shifts from sadness to anxious self-disgust.",
+        "addedInformation": "weak: the contrast with the defiant smirk on beats 2-3 shows the missing defiance; 'dirty' rests on the label."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "The sheer visual majesty and terrifying perfection of the gold hierarchy bypasses his rebellious nature entirely because the golds have weaponized They",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Gold perfection"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "The sheer visual majesty and terrifying perfection of the Gold hierarchy bypasses Darrow's rebellious nature because the Golds have weaponized it.",
+        "concreteVisual": "A flow diagram begins with its first box: GOLD PERFECTION.",
+        "onScreenText": "Gold perfection",
+        "relationToPrevious": "From Darrow's shame to the mechanism that produces it.",
+        "addedInformation": "Names the cause of the shame as a structure, not a mood."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "don't just hold power, they embody it so perfectly that the lower colors police their own selfworth.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Gold perfection",
+          "Police own selfworth"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "They don't just hold power, they embody it so perfectly that the lower colors police their own self-worth.",
+        "concreteVisual": "The flow grows: GOLD PERFECTION arrow POLICE OWN SELFWORTH.",
+        "onScreenText": "Gold perfection -> Police own selfworth",
+        "relationToPrevious": "Same diagram; adds the effect on the lower colors.",
+        "addedInformation": "Shows the control moving inside the ruled: they police themselves."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "If you feel dirty just looking at your ruler, you will never presume to overthrow them.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Gold perfection",
+          "Police own selfworth",
+          "Never overthrow"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "If you feel dirty just looking at your ruler, you will never presume to overthrow them.",
+        "concreteVisual": "The flow completes: GOLD PERFECTION arrow POLICE OWN SELFWORTH arrow NEVER OVERTHROW.",
+        "onScreenText": "Gold perfection -> Police own selfworth -> Never overthrow",
+        "relationToPrevious": "Same diagram; adds the final result.",
+        "addedInformation": "Completes the cause-to-effect chain: perfection leads to self-policing, which leads to no revolt."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "The physical narrative is the cage. But you know, to maintain that level of terrifying perfection, the golds can't just be pretty aristocrats.",
+      "concept": "chains",
+      "diagram": null,
+      "callout": {
+        "text": "the narrative is the cage",
+        "style": "reveal"
+      },
+      "set": "horizon",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The physical narrative is the cage; and to keep up that terrifying perfection, the Golds can't just be pretty aristocrats.",
+        "concreteVisual": "Darrow stands bowed on the horizon beside intact chains.",
+        "onScreenText": "the narrative is the cage",
+        "relationToPrevious": "Sums up the mechanism: its result is a cage around the Reds.",
+        "addedInformation": "The chains show the Reds held in place by the narrative, not by force."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "They can't be soft. They actually have to be the monsters they project. Which brings us to the mechanics of power within the gold cast itself.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the monsters they project",
+        "style": "reveal"
+      },
+      "set": "stage",
+      "shotOverride": "lowAngle",
+      "cast": [
+        "titus"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "storyboard": {
+        "claim": "They can't be soft; they actually have to be the monsters they project, which leads to the mechanics of power inside the Gold caste.",
+        "concreteVisual": "A tall Gold in a gilded high-collared uniform, seen from below, glares with a hard angry face.",
+        "onScreenText": "the monsters they project",
+        "relationToPrevious": "Turns from the Reds held by the image to the Golds who must live up to it.",
+        "addedInformation": "Shows the Gold as genuinely menacing, not a soft aristocrat, and opens the Gold-caste section."
+      }
+    }
+  ]
+}

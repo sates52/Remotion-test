@@ -1,0 +1,6204 @@
+{
+  "meta": {
+    "slug": "zz-cd-bl1b",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "fiction",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": "audio/zz-cd-bl1b.m4a",
+    "durationInFrames": 3073,
+    "multiplane": true,
+    "hud": {
+      "enabled": true,
+      "accent": "#D9603C",
+      "title": "BELOVED",
+      "showProgress": true,
+      "showBadge": true
+    },
+    "thumbnail": {
+      "hook": "BELOVED",
+      "_needsClaudeRefine": true,
+      "variant": {
+        "skin": "#6B4A2E",
+        "hair": "#1A1410",
+        "suit": "#5C4A3A",
+        "shirt": "rgb(241,239,233)",
+        "expression": "happy",
+        "hairStyle": "bun",
+        "glasses": false,
+        "beard": "none",
+        "gender": "f",
+        "age": "adult",
+        "outfit": "dress",
+        "headwear": "headscarf",
+        "accessory": "none",
+        "build": "slight",
+        "height": 1,
+        "headScale": 1,
+        "overlay": []
+      },
+      "action": "celebrate",
+      "expression": "happy",
+      "motif": "risingBars"
+    },
+    "cast": {
+      "sethe": {
+        "name": "Sethe",
+        "role": "the mother at 124 Bluestone Road, who killed her baby daughter rather than see her returned to slavery",
+        "variant": {
+          "skin": "#6B4A2E",
+          "hair": "#1A1410",
+          "suit": "#5C4A3A",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "bun",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "dress",
+          "headwear": "headscarf",
+          "accessory": "none",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "denver": {
+        "name": "Denver",
+        "role": "Sethe's daughter, raised in isolation at 124 Bluestone Road, the one who walks out to the steps for help",
+        "variant": {
+          "skin": "#5A3F28",
+          "hair": "#120D0A",
+          "suit": "#8A8A8A",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "braids",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "young",
+          "outfit": "dress",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "paul-d": {
+        "name": "Paul D",
+        "role": "a man who was enslaved at Sweet Home with Sethe, who returns to 124 Bluestone Road in 1873",
+        "variant": {
+          "skin": "#4A3322",
+          "hair": "#120D0A",
+          "suit": "#6B5340",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "coat",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "heavy",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "baby-suggs": {
+        "name": "Baby Suggs",
+        "role": "Sethe's mother-in-law, an old preacher who gathers people in the Clearing",
+        "variant": {
+          "skin": "#4A3322",
+          "hair": "#B8B8B8",
+          "suit": "#2E2E2E",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "bun",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "old",
+          "outfit": "apron",
+          "headwear": "headscarf",
+          "accessory": "none",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "beloved": {
+        "name": "Beloved",
+        "role": "a young woman who appears at the house, who may be the returned daughter or a ghost",
+        "variant": {
+          "skin": "#3C2A1C",
+          "hair": "#0E0A08",
+          "suit": "#F2F2F2",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "long",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "young",
+          "outfit": "dress",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "schoolteacher": {
+        "name": "The schoolteacher",
+        "role": "the white man who runs Sweet Home, who records the enslaved people in a ledger of their traits",
+        "variant": {
+          "skin": "#E8B98F",
+          "hair": "#8A7F70",
+          "suit": "#1F2328",
+          "shirt": "#F2F2F2",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "tie",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "stamp-paid": {
+        "name": "Stamp Paid",
+        "role": "a man who ferried escaping enslaved people across the river and later shows Paul D a newspaper clipping",
+        "variant": {
+          "skin": "#4A3322",
+          "hair": "#8A8A8A",
+          "suit": "#8A8F95",
+          "shirt": "rgb(241,239,233)",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "old",
+          "outfit": "vest",
+          "headwear": "cap",
+          "accessory": "none",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      }
+    }
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "fromFrame": 15,
+      "durationFrames": 350,
+      "hud": {
+        "hidden": true
+      },
+      "_narration": "She walked with her head high and her eyes blank. She lived as though she were entirely alone, needing no one. Ella, one of the primary women in town, explicitl",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "title",
+      "_act": "setup",
+      "shot": "lowAngle",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(244,242,237)",
+          "rgb(239,237,230)"
+        ],
+        "set": "street",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          18,
+          -10
+        ],
+        "punch": {
+          "at": 90,
+          "amount": 0.055
+        },
+        "pulses": [
+          77,
+          197,
+          269
+        ]
+      },
+      "characters": [
+        {
+          "id": "c0-0",
+          "rig": "everyman",
+          "identity": "sethe",
+          "role": "sethe",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "BELOVED",
+          "style": "plain",
+          "color": "#1E1E22",
+          "enter": "down",
+          "at": 6,
+          "duration": 75
+        },
+        {
+          "text": "LIVED AS THOUGH ALONE",
+          "style": "box",
+          "color": "#EAE7DE",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 90,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "ABSTRACT_CONCRETE",
+        "risks": [
+          "METAPHOR"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|insert",
+          "prop-arc:*",
+          "text:box|stack|marker"
+        ],
+        "requirement": {
+          "kind": "concrete",
+          "shots": [
+            "illustration",
+            "diorama",
+            "insert"
+          ],
+          "diagramAllowed": true
+        },
+        "evidence": {
+          "figurativeClaim": "She walked with her head high and her eyes blank. She lived as though she were entirely alone, needing no one. Ella, one of the primary women in town, explicitl"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "title"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"...; visualJob: undefined -> \"surprise\"; visualArc: null -> {\"startState\":\"apparent_security\",\"endState\":\"sudden_fracture\",\"transformatio...; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"... -> {\"function\":\"HOOK\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"pro...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "setup",
+        "payoffPromise": "p-01"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "apparent_security",
+        "endState": "sudden_fracture",
+        "transformation": "shrink"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "She walked with her head high and her eyes blank.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "She walked with her head high and her eyes blank.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"She walked with her head high and her eyes blank.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "sethe",
+        "secondarySubject": "street",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: street",
+        "blocking": "foreground: speaker center; background: street",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-01",
+      "fromFrame": 365,
+      "durationFrames": 317,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "because Seth was too prideful. Too prideful. Yeah. Sethy's fierce self-sufficiency was read by the community as an arrogant rejection of them. She acted like sh",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "room",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "society_institution",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "setup",
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "SELF-SUFFICIENCY",
+          "ARROGANT REJECTION"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(242,241,235)",
+          "rgb(239,237,230)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 174,
+          "amount": 0.05
+        },
+        "pulses": [
+          72,
+          151,
+          245
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "setup",
+        "payoffPromise": "p-02"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "because Seth was too prideful.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "because Seth was too prideful.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"because Seth was too prideful.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-02",
+      "fromFrame": 682,
+      "durationFrames": 223,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "their forgiveness. I see. So, the ledger between 124 and the town wasn't just unbalanced because of the town's jealousy.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "room",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "stat",
+      "_act": "tension",
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "124 BLUESTONE",
+          "THE TOWN"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "flash",
+        "frames": 8,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(233,231,225)",
+          "rgb(215,213,205)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 123,
+          "amount": 0.05
+        },
+        "pulses": [
+          89,
+          194
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"under_control\",\"endState\":\"overwhelmed\",\"transformation\":\"over...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":true}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":tr...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": false,
+        "emotional": true,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "escalate",
+      "visualArc": {
+        "startState": "under_control",
+        "endState": "overwhelmed",
+        "transformation": "overload"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -4,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_flash"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "their forgiveness.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "their forgiveness.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"their forgiveness.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 4.25,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.95,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-03",
+      "fromFrame": 905,
+      "durationFrames": 183,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "There was a massive, stubborn, calcified debt of pride on both sides.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "balance"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "balance",
+        "intent": null,
+        "lock": {
+          "planShot": "illustration",
+          "artTexts": [
+            {
+              "text": "A DEBT OF PRIDE ON BOTH SIDES",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 6,
+              "src": "art"
+            }
+          ],
+          "shot": "illustration",
+          "set": "room",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "balance",
+          "props": [
+            {
+              "type": "balance",
+              "scale": 1,
+              "enter": "pop",
+              "at": 0,
+              "color": "#F97316",
+              "color2": "#18181B"
+            }
+          ],
+          "propTypes": [
+            "balance"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "concept": "balance",
+      "shot": "illustration",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(210,208,203)",
+          "rgb(193,191,184)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 6,
+          "amount": 0.055
+        },
+        "pulses": [
+          77
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "balance",
+          "scale": 1,
+          "enter": "pop",
+          "at": 0,
+          "color": "#F97316",
+          "color2": "#18181B"
+        }
+      ],
+      "texts": [
+        {
+          "text": "A DEBT OF PRIDE ON BOTH SIDES",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 6,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.8,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.8,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true...; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true... -> {\"function\":\"TENSION\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":tru...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":tru... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "spatial_state",
+      "visualProposition": {
+        "claim": "There was a massive, stubborn, calcified debt of pride on both sides.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "There was a massive, stubborn, calcified debt of pride on both sides.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"There was a massive, stubborn, calcified debt of pride on both sides.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "balance_focal_center",
+        "visualSubject": "balance_allegorical_manifestation",
+        "secondarySubject": "room",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of balance emphasizing theoretical_principle",
+        "composition": "foreground: hero motif balance; background: room architectural depth",
+        "blocking": "foreground: hero motif balance; background: room architectural depth",
+        "compositionRationale": "cinematic framing of balance emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "balance",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-04",
+      "fromFrame": 1088,
+      "durationFrames": 163,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Denver walking to Lady Jones's house and asking for a job, asking for food.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "home"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "home",
+        "intent": null,
+        "lock": {
+          "planShot": "wide",
+          "artTexts": [
+            {
+              "text": "ASKING FOR A JOB, FOR FOOD",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 65,
+              "src": "art"
+            }
+          ],
+          "shot": "wide",
+          "set": "street",
+          "cast": [
+            "denver"
+          ],
+          "expression": "worried",
+          "action": "leave",
+          "holds": null,
+          "actionAt": 8,
+          "concept": "home",
+          "props": [
+            {
+              "type": "home",
+              "scale": 1,
+              "enter": "pop",
+              "at": 12,
+              "color": "#F97316",
+              "color2": "#18181B"
+            }
+          ],
+          "propTypes": [
+            "home"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "concept": "home",
+      "shot": "wide",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(202,200,195)",
+          "rgb(185,182,176)"
+        ],
+        "set": "street",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 65,
+          "amount": 0.055
+        },
+        "pulses": [
+          132
+        ]
+      },
+      "characters": [
+        {
+          "id": "c4-0",
+          "rig": "everyman",
+          "identity": "denver",
+          "role": "denver",
+          "expression": "worried",
+          "enter": "left",
+          "action": "leave",
+          "lookAt": "viewer",
+          "silhouette": false,
+          "actionAt": 8
+        }
+      ],
+      "props": [
+        {
+          "type": "home",
+          "scale": 1,
+          "enter": "pop",
+          "at": 12,
+          "color": "#F97316",
+          "color2": "#18181B"
+        }
+      ],
+      "texts": [
+        {
+          "text": "ASKING FOR A JOB, FOR FOOD",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 65,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "UNRESOLVED",
+        "risks": [
+          "UNKNOWN_CAPABILITY:action:leave"
+        ],
+        "capabilityConfidence": null,
+        "semanticSignature": {
+          "action": "leave",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {
+          "unknownKeys": [
+            "action:leave"
+          ],
+          "note": "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)",
+          "fallbackCandidatesChecked": [
+            "shot:illustration",
+            "shot:diorama",
+            "shot:medium",
+            "shot:closeUp"
+          ]
+        },
+        "resolution": {
+          "kind": "unresolved_no_proof",
+          "repairs": [],
+          "invalidActions": [],
+          "note": "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)"
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false}; visualJob: undefined -> \"ground\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: \"ground\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...",
+            "sigBefore": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "leave",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 65,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Denver walking to Lady Jones's house and asking for a job, asking for food.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Denver walking to Lady Jones's house and asking for a job, asking for food.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Denver walking to Lady Jones's house and asking for a job, asking for food.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "home_focal_center",
+        "visualSubject": "home_allegorical_manifestation",
+        "secondarySubject": "denver",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of home emphasizing theoretical_principle",
+        "composition": "foreground: hero motif home; background: street architectural depth",
+        "blocking": "foreground: hero motif home; background: street architectural depth",
+        "compositionRationale": "cinematic framing of home emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "home",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-05",
+      "fromFrame": 1251,
+      "durationFrames": 293,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "That was the first payment on that debt in 18 years. It broke the stalemate. The community finally steps in to audit the haunting, proving the ledger can't be b",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "room",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "society_institution",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "stat",
+      "_act": "tension",
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "FIRST PAYMENT",
+          "STALEMATE BROKEN",
+          "COMMUNITY STEPS IN"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "flash",
+        "frames": 8,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(208,206,201)",
+          "rgb(191,188,182)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 161,
+          "amount": 0.05
+        },
+        "pulses": [
+          79,
+          156,
+          235
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "That was the first payment on that debt in 18 years. It broke the stalemate. The community finally steps in to audit the haunting, proving the ledger can't be b"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"default_path\",\"endState\":\"intentional_path\",\"transformation\":\"...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":false,\"emotional\":f... -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false}; visualJob: \"contrast\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "payoff",
+        "payoff": "p-01"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "default_path",
+        "endState": "intentional_path",
+        "transformation": "shift_focus"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -4,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_flash"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "That was the first payment on that debt in 18 years.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "That was the first payment on that debt in 18 years.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"That was the first payment on that debt in 18 years.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-06",
+      "fromFrame": 1544,
+      "durationFrames": 302,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "You cannot survive this kind of trauma in isolation. No, you can't. And it's crucial to remember where the community learned this collective power in the first ",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "kitchen",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "character_psychology",
+        "requiredActions": [
+          "visualize_internal_tension_or_rupture"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "character_psychology",
+          "domain": "psychology",
+          "requiredActions": [
+            "visualize_internal_tension_or_rupture"
+          ],
+          "requiredAttributes": {
+            "mood": "somber",
+            "visualRegister": "metaphoric_stark",
+            "lightingOrTone": "dramatic_contrast"
+          },
+          "forbiddenTropes": [
+            "comic_lightbulb",
+            "celebrate_action",
+            "cheerful_facial_expression",
+            "heart_symbol",
+            "party_confetti",
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "tension",
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "ISOLATION",
+          "COLLECTIVE POWER"
+        ],
+        "values": [
+          0.85
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "dissolve",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(251,154,87)",
+          "rgb(219,101,19)"
+        ],
+        "set": "kitchen",
+        "texture": "rays",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 166,
+          "amount": 0.05
+        },
+        "pulses": [
+          105,
+          235
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "You cannot survive this kind of trauma in isolation. No, you can't. And it's crucial to remember where the community learned this collective power in the first "
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true}; visualJob: undefined -> \"escalate\"; visualArc: null -> {\"startState\":\"under_control\",\"endState\":\"overwhelmed\",\"transformation\":\"over...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":false,\"emotional\":true,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": true,
+        "promiseId": "p-02",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "escalate",
+      "visualArc": {
+        "startState": "under_control",
+        "endState": "overwhelmed",
+        "transformation": "overload"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_dissolve"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "You cannot survive this kind of trauma in isolation.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "You cannot survive this kind of trauma in isolation.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"You cannot survive this kind of trauma in isolation.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-07",
+      "fromFrame": 1846,
+      "durationFrames": 185,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "medium",
+          "artTexts": [
+            {
+              "text": "THE VALUE OF THE HUMAN BODY",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 99,
+              "src": "art"
+            }
+          ],
+          "shot": "medium",
+          "set": "forest",
+          "cast": [
+            "baby-suggs"
+          ],
+          "expression": "happy",
+          "action": "talk",
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "turn",
+      "shot": "medium",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(253,213,185)",
+          "rgb(240,238,232)"
+        ],
+        "set": "forest",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 99,
+          "amount": 0.055
+        },
+        "pulses": [
+          86
+        ]
+      },
+      "characters": [
+        {
+          "id": "c7-0",
+          "rig": "everyman",
+          "identity": "baby-suggs",
+          "role": "baby-suggs",
+          "expression": "happy",
+          "enter": "fade",
+          "action": "talk",
+          "lookAt": "callout",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "THE VALUE OF THE HUMAN BODY",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 99,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.7,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"character\",\"text\",\"motif\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"reveal\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "character",
+        "text",
+        "motif"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 99,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "baby-suggs",
+        "secondarySubject": "forest",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: forest",
+        "blocking": "foreground: speaker center; background: forest",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-08",
+      "fromFrame": 2031,
+      "durationFrames": 213,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "We have to talk about the clearing. Oh, absolutely. This is perhaps the beating heart of the entire novel.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "tree"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "tree",
+        "intent": null,
+        "lock": {
+          "planShot": "wide",
+          "artTexts": [
+            {
+              "text": "THE CLEARING",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 27,
+              "src": "art"
+            }
+          ],
+          "shot": "wide",
+          "set": "forest",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "tree",
+          "props": [
+            {
+              "type": "tree",
+              "scale": 1,
+              "enter": "pop",
+              "at": 12,
+              "color": "#F97316",
+              "color2": "#18181B"
+            }
+          ],
+          "propTypes": [
+            "tree"
+          ]
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "literary_critique",
+        "requiredActions": [
+          "frame_story_through_editorial_or_literary_lens"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "literary_critique",
+          "domain": "literature_meta",
+          "requiredActions": [
+            "frame_story_through_editorial_or_literary_lens"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs",
+            "ambient_setting_distraction",
+            "unrelated_navigation_prop"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "distinguish_meta_commentary_from_story_world"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "turn",
+      "concept": "tree",
+      "shot": "wide",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(253,205,172)",
+          "rgb(240,238,232)"
+        ],
+        "set": "forest",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 27,
+          "amount": 0.055
+        },
+        "pulses": [
+          105,
+          175
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "tree",
+          "scale": 1,
+          "enter": "pop",
+          "at": 12,
+          "color": "#F97316",
+          "color2": "#18181B"
+        }
+      ],
+      "texts": [
+        {
+          "text": "THE CLEARING",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 27,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 1,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 27,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "spatial_state",
+      "visualProposition": {
+        "claim": "We have to talk about the clearing.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "We have to talk about the clearing.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"We have to talk about the clearing.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "tree_focal_center",
+        "visualSubject": "tree_allegorical_manifestation",
+        "secondarySubject": "forest",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of tree emphasizing theoretical_principle",
+        "composition": "foreground: hero motif tree; background: forest architectural depth",
+        "blocking": "foreground: hero motif tree; background: forest architectural depth",
+        "compositionRationale": "cinematic framing of tree emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "tree",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-09",
+      "fromFrame": 2244,
+      "durationFrames": 305,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods. A place they call the clearing.",
+      "_authorship": {
+        "src": "art",
+        "propTypes": [
+          "tree"
+        ],
+        "diagramAuthored": false,
+        "conceptAuthored": "tree",
+        "intent": null,
+        "lock": {
+          "planShot": "wide",
+          "artTexts": [
+            {
+              "text": "CUT DEEP IN THE WOODS",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 169,
+              "src": "art"
+            }
+          ],
+          "shot": "wide",
+          "set": "forest",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": "tree",
+          "props": [
+            {
+              "type": "tree",
+              "scale": 1,
+              "enter": "pop",
+              "at": 12,
+              "color": "#F97316",
+              "color2": "#18181B"
+            }
+          ],
+          "propTypes": [
+            "tree"
+          ],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "question",
+      "_act": "turn",
+      "concept": "tree",
+      "shot": "wide",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(253,197,159)",
+          "rgb(240,238,232)"
+        ],
+        "set": "forest",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 169,
+          "amount": 0.055
+        },
+        "pulses": [
+          80,
+          149,
+          248
+        ]
+      },
+      "characters": [],
+      "props": [
+        {
+          "type": "tree",
+          "scale": 1,
+          "enter": "pop",
+          "at": 12,
+          "color": "#F97316",
+          "color2": "#18181B"
+        }
+      ],
+      "texts": [
+        {
+          "text": "CUT DEEP IN THE WOODS",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 169,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 1,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 169,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "spatial_state",
+      "visualProposition": {
+        "claim": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.17,
+      "vigBreakdown": {
+        "claimCoverage": 1,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "tree_focal_center",
+        "visualSubject": "tree_allegorical_manifestation",
+        "secondarySubject": "forest",
+        "relationship": "exposition",
+        "cameraIntent": "cinematic framing of tree emphasizing theoretical_principle",
+        "composition": "foreground: hero motif tree; background: forest architectural depth",
+        "blocking": "foreground: hero motif tree; background: forest architectural depth",
+        "compositionRationale": "cinematic framing of tree emphasizing theoretical_principle",
+        "motionIntent": "subtle camera drift maintaining gaze",
+        "revealOrder": [
+          "tree",
+          "spatial_context",
+          "thematic_detail"
+        ]
+      }
+    },
+    {
+      "id": "scene-10",
+      "fromFrame": 2549,
+      "durationFrames": 219,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock. She has a twisted hip.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "wide",
+          "artTexts": [
+            {
+              "text": "AN UNCHURCHED PREACHER",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 22,
+              "src": "art"
+            }
+          ],
+          "shot": "wide",
+          "set": "forest",
+          "cast": [
+            "baby-suggs"
+          ],
+          "expression": "neutral",
+          "action": "sit",
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "resolution",
+      "shot": "wide",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(234,216,184)",
+          "rgb(237,235,227)"
+        ],
+        "set": "forest",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 22,
+          "amount": 0.055
+        },
+        "pulses": [
+          106
+        ]
+      },
+      "characters": [
+        {
+          "id": "c10-0",
+          "rig": "everyman",
+          "identity": "baby-suggs",
+          "role": "baby-suggs",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "sit",
+          "lookAt": "wander",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "AN UNCHURCHED PREACHER",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 22,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.688,
+        "semanticSignature": {
+          "action": "sit",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.688,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 22,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "baby-suggs",
+        "secondarySubject": "forest",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: forest",
+        "blocking": "foreground: speaker center; background: forest",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-11",
+      "fromFrame": 2768,
+      "durationFrames": 305,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "She's old. She's physically exhausted from a lifetime of labor, And she bangs her walking stick on the ground and she shouts to the people hiding in the trees, ",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "wide",
+          "artTexts": [
+            {
+              "text": "\"LET THE CHILDREN COME\"",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 245,
+              "src": "art"
+            }
+          ],
+          "shot": "wide",
+          "set": "forest",
+          "cast": [
+            "baby-suggs"
+          ],
+          "expression": "happy",
+          "action": "talk",
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "childhood_innocence",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "resolution",
+      "_take": "sustained",
+      "shot": "wide",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(234,216,184)",
+          "rgb(237,235,227)"
+        ],
+        "set": "forest",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 245,
+          "amount": 0.05
+        },
+        "pulses": [
+          76,
+          156,
+          223
+        ]
+      },
+      "characters": [
+        {
+          "id": "c11-0",
+          "rig": "everyman",
+          "identity": "baby-suggs",
+          "role": "baby-suggs",
+          "expression": "happy",
+          "enter": "none",
+          "poseAt": 60,
+          "action": "talk",
+          "lookAt": "wander",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "\"LET THE CHILDREN COME\"",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 245,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "diorama",
+          "confidence": 0.938
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.7,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"pr...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "payoff",
+        "payoff": "p-02"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 245,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "She's old.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "She's old.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"She's old.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "baby-suggs",
+        "secondarySubject": "forest",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: forest",
+        "blocking": "foreground: speaker center; background: forest",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "She walked with her head high and her eyes",
+      "startFrame": 15,
+      "endFrame": 65,
+      "words": [
+        {
+          "w": "She",
+          "s": 15,
+          "e": 22
+        },
+        {
+          "w": "walked",
+          "s": 22,
+          "e": 27
+        },
+        {
+          "w": "with",
+          "s": 27,
+          "e": 32
+        },
+        {
+          "w": "her",
+          "s": 32,
+          "e": 36
+        },
+        {
+          "w": "head",
+          "s": 36,
+          "e": 41
+        },
+        {
+          "w": "high",
+          "s": 41,
+          "e": 48
+        },
+        {
+          "w": "and",
+          "s": 48,
+          "e": 53
+        },
+        {
+          "w": "her",
+          "s": 53,
+          "e": 58
+        },
+        {
+          "w": "eyes",
+          "s": 58,
+          "e": 65
+        }
+      ]
+    },
+    {
+      "text": "blank. She lived as though she were entirely alone,",
+      "startFrame": 65,
+      "endFrame": 164,
+      "words": [
+        {
+          "w": "blank.",
+          "s": 65,
+          "e": 84
+        },
+        {
+          "w": "She",
+          "s": 84,
+          "e": 92
+        },
+        {
+          "w": "lived",
+          "s": 92,
+          "e": 101
+        },
+        {
+          "w": "as",
+          "s": 101,
+          "e": 106
+        },
+        {
+          "w": "though",
+          "s": 106,
+          "e": 113
+        },
+        {
+          "w": "she",
+          "s": 113,
+          "e": 120
+        },
+        {
+          "w": "were",
+          "s": 120,
+          "e": 130
+        },
+        {
+          "w": "entirely",
+          "s": 130,
+          "e": 144
+        },
+        {
+          "w": "alone,",
+          "s": 144,
+          "e": 164
+        }
+      ]
+    },
+    {
+      "text": "needing no one. Ella, one of the primary women",
+      "startFrame": 164,
+      "endFrame": 257,
+      "words": [
+        {
+          "w": "needing",
+          "s": 164,
+          "e": 176
+        },
+        {
+          "w": "no",
+          "s": 176,
+          "e": 183
+        },
+        {
+          "w": "one.",
+          "s": 183,
+          "e": 212
+        },
+        {
+          "w": "Ella,",
+          "s": 212,
+          "e": 228
+        },
+        {
+          "w": "one",
+          "s": 228,
+          "e": 233
+        },
+        {
+          "w": "of",
+          "s": 233,
+          "e": 236
+        },
+        {
+          "w": "the",
+          "s": 236,
+          "e": 240
+        },
+        {
+          "w": "primary",
+          "s": 240,
+          "e": 250
+        },
+        {
+          "w": "women",
+          "s": 250,
+          "e": 257
+        }
+      ]
+    },
+    {
+      "text": "in town, explicitly says she junked Sethy",
+      "startFrame": 257,
+      "endFrame": 365,
+      "words": [
+        {
+          "w": "in",
+          "s": 257,
+          "e": 264
+        },
+        {
+          "w": "town,",
+          "s": 264,
+          "e": 284
+        },
+        {
+          "w": "explicitly",
+          "s": 284,
+          "e": 303
+        },
+        {
+          "w": "says",
+          "s": 303,
+          "e": 322
+        },
+        {
+          "w": "she",
+          "s": 322,
+          "e": 332
+        },
+        {
+          "w": "junked",
+          "s": 332,
+          "e": 344
+        },
+        {
+          "w": "Sethy",
+          "s": 344,
+          "e": 365
+        }
+      ]
+    },
+    {
+      "text": "because Seth was too prideful.",
+      "startFrame": 365,
+      "endFrame": 430,
+      "words": [
+        {
+          "w": "because",
+          "s": 365,
+          "e": 375
+        },
+        {
+          "w": "Seth",
+          "s": 375,
+          "e": 387
+        },
+        {
+          "w": "was",
+          "s": 387,
+          "e": 390
+        },
+        {
+          "w": "too",
+          "s": 389,
+          "e": 396
+        },
+        {
+          "w": "prideful.",
+          "s": 396,
+          "e": 430
+        }
+      ]
+    },
+    {
+      "text": "Too prideful. Yeah. Sethy's fierce",
+      "startFrame": 430,
+      "endFrame": 526,
+      "words": [
+        {
+          "w": "Too",
+          "s": 430,
+          "e": 437
+        },
+        {
+          "w": "prideful.",
+          "s": 437,
+          "e": 455
+        },
+        {
+          "w": "Yeah.",
+          "s": 480,
+          "e": 502
+        },
+        {
+          "w": "Sethy's",
+          "s": 502,
+          "e": 516
+        },
+        {
+          "w": "fierce",
+          "s": 516,
+          "e": 526
+        }
+      ]
+    },
+    {
+      "text": "self-sufficiency was read by the community as an arrogant",
+      "startFrame": 526,
+      "endFrame": 610,
+      "words": [
+        {
+          "w": "self-sufficiency",
+          "s": 526,
+          "e": 548
+        },
+        {
+          "w": "was",
+          "s": 548,
+          "e": 552
+        },
+        {
+          "w": "read",
+          "s": 552,
+          "e": 560
+        },
+        {
+          "w": "by",
+          "s": 560,
+          "e": 563
+        },
+        {
+          "w": "the",
+          "s": 562,
+          "e": 567
+        },
+        {
+          "w": "community",
+          "s": 567,
+          "e": 581
+        },
+        {
+          "w": "as",
+          "s": 581,
+          "e": 591
+        },
+        {
+          "w": "an",
+          "s": 591,
+          "e": 596
+        },
+        {
+          "w": "arrogant",
+          "s": 596,
+          "e": 610
+        }
+      ]
+    },
+    {
+      "text": "rejection of them. She acted like she didn't need",
+      "startFrame": 610,
+      "endFrame": 682,
+      "words": [
+        {
+          "w": "rejection",
+          "s": 610,
+          "e": 624
+        },
+        {
+          "w": "of",
+          "s": 624,
+          "e": 629
+        },
+        {
+          "w": "them.",
+          "s": 629,
+          "e": 646
+        },
+        {
+          "w": "She",
+          "s": 646,
+          "e": 651
+        },
+        {
+          "w": "acted",
+          "s": 651,
+          "e": 660
+        },
+        {
+          "w": "like",
+          "s": 660,
+          "e": 665
+        },
+        {
+          "w": "she",
+          "s": 665,
+          "e": 672
+        },
+        {
+          "w": "didn't",
+          "s": 672,
+          "e": 677
+        },
+        {
+          "w": "need",
+          "s": 677,
+          "e": 682
+        }
+      ]
+    },
+    {
+      "text": "their forgiveness. I see.",
+      "startFrame": 682,
+      "endFrame": 759,
+      "words": [
+        {
+          "w": "their",
+          "s": 682,
+          "e": 692
+        },
+        {
+          "w": "forgiveness.",
+          "s": 692,
+          "e": 725
+        },
+        {
+          "w": "I",
+          "s": 725,
+          "e": 732
+        },
+        {
+          "w": "see.",
+          "s": 732,
+          "e": 759
+        }
+      ]
+    },
+    {
+      "text": "So, the ledger between 124 and the town wasn't",
+      "startFrame": 759,
+      "endFrame": 838,
+      "words": [
+        {
+          "w": "So,",
+          "s": 759,
+          "e": 766
+        },
+        {
+          "w": "the",
+          "s": 766,
+          "e": 771
+        },
+        {
+          "w": "ledger",
+          "s": 771,
+          "e": 780
+        },
+        {
+          "w": "between",
+          "s": 780,
+          "e": 795
+        },
+        {
+          "w": "124",
+          "s": 795,
+          "e": 804
+        },
+        {
+          "w": "and",
+          "s": 804,
+          "e": 809
+        },
+        {
+          "w": "the",
+          "s": 809,
+          "e": 814
+        },
+        {
+          "w": "town",
+          "s": 814,
+          "e": 826
+        },
+        {
+          "w": "wasn't",
+          "s": 826,
+          "e": 838
+        }
+      ]
+    },
+    {
+      "text": "just unbalanced because of the town's jealousy.",
+      "startFrame": 838,
+      "endFrame": 905,
+      "words": [
+        {
+          "w": "just",
+          "s": 838,
+          "e": 843
+        },
+        {
+          "w": "unbalanced",
+          "s": 843,
+          "e": 862
+        },
+        {
+          "w": "because",
+          "s": 862,
+          "e": 867
+        },
+        {
+          "w": "of",
+          "s": 867,
+          "e": 872
+        },
+        {
+          "w": "the",
+          "s": 872,
+          "e": 876
+        },
+        {
+          "w": "town's",
+          "s": 876,
+          "e": 886
+        },
+        {
+          "w": "jealousy.",
+          "s": 886,
+          "e": 905
+        }
+      ]
+    },
+    {
+      "text": "There was a massive, stubborn, calcified debt of",
+      "startFrame": 905,
+      "endFrame": 996,
+      "words": [
+        {
+          "w": "There",
+          "s": 905,
+          "e": 910
+        },
+        {
+          "w": "was",
+          "s": 910,
+          "e": 915
+        },
+        {
+          "w": "a",
+          "s": 915,
+          "e": 922
+        },
+        {
+          "w": "massive,",
+          "s": 922,
+          "e": 939
+        },
+        {
+          "w": "stubborn,",
+          "s": 939,
+          "e": 965
+        },
+        {
+          "w": "calcified",
+          "s": 965,
+          "e": 982
+        },
+        {
+          "w": "debt",
+          "s": 982,
+          "e": 989
+        },
+        {
+          "w": "of",
+          "s": 989,
+          "e": 996
+        }
+      ]
+    },
+    {
+      "text": "pride on both sides.",
+      "startFrame": 996,
+      "endFrame": 1050,
+      "words": [
+        {
+          "w": "pride",
+          "s": 996,
+          "e": 1016
+        },
+        {
+          "w": "on",
+          "s": 1016,
+          "e": 1025
+        },
+        {
+          "w": "both",
+          "s": 1025,
+          "e": 1032
+        },
+        {
+          "w": "sides.",
+          "s": 1032,
+          "e": 1050
+        }
+      ]
+    },
+    {
+      "text": "Denver walking to Lady Jones's house and asking for",
+      "startFrame": 1088,
+      "endFrame": 1174,
+      "words": [
+        {
+          "w": "Denver",
+          "s": 1088,
+          "e": 1100
+        },
+        {
+          "w": "walking",
+          "s": 1100,
+          "e": 1107
+        },
+        {
+          "w": "to",
+          "s": 1107,
+          "e": 1112
+        },
+        {
+          "w": "Lady",
+          "s": 1112,
+          "e": 1121
+        },
+        {
+          "w": "Jones's",
+          "s": 1121,
+          "e": 1136
+        },
+        {
+          "w": "house",
+          "s": 1136,
+          "e": 1150
+        },
+        {
+          "w": "and",
+          "s": 1150,
+          "e": 1157
+        },
+        {
+          "w": "asking",
+          "s": 1157,
+          "e": 1169
+        },
+        {
+          "w": "for",
+          "s": 1169,
+          "e": 1174
+        }
+      ]
+    },
+    {
+      "text": "a job, asking for food.",
+      "startFrame": 1174,
+      "endFrame": 1251,
+      "words": [
+        {
+          "w": "a",
+          "s": 1174,
+          "e": 1179
+        },
+        {
+          "w": "job,",
+          "s": 1179,
+          "e": 1200
+        },
+        {
+          "w": "asking",
+          "s": 1200,
+          "e": 1212
+        },
+        {
+          "w": "for",
+          "s": 1212,
+          "e": 1220
+        },
+        {
+          "w": "food.",
+          "s": 1220,
+          "e": 1251
+        }
+      ]
+    },
+    {
+      "text": "That was the first payment on that debt in",
+      "startFrame": 1251,
+      "endFrame": 1318,
+      "words": [
+        {
+          "w": "That",
+          "s": 1251,
+          "e": 1256
+        },
+        {
+          "w": "was",
+          "s": 1256,
+          "e": 1259
+        },
+        {
+          "w": "the",
+          "s": 1258,
+          "e": 1265
+        },
+        {
+          "w": "first",
+          "s": 1265,
+          "e": 1270
+        },
+        {
+          "w": "payment",
+          "s": 1270,
+          "e": 1280
+        },
+        {
+          "w": "on",
+          "s": 1280,
+          "e": 1287
+        },
+        {
+          "w": "that",
+          "s": 1287,
+          "e": 1294
+        },
+        {
+          "w": "debt",
+          "s": 1294,
+          "e": 1306
+        },
+        {
+          "w": "in",
+          "s": 1306,
+          "e": 1318
+        }
+      ]
+    },
+    {
+      "text": "18 years. It broke the stalemate.",
+      "startFrame": 1318,
+      "endFrame": 1385,
+      "words": [
+        {
+          "w": "18",
+          "s": 1318,
+          "e": 1330
+        },
+        {
+          "w": "years.",
+          "s": 1330,
+          "e": 1342
+        },
+        {
+          "w": "It",
+          "s": 1342,
+          "e": 1349
+        },
+        {
+          "w": "broke",
+          "s": 1349,
+          "e": 1356
+        },
+        {
+          "w": "the",
+          "s": 1356,
+          "e": 1361
+        },
+        {
+          "w": "stalemate.",
+          "s": 1361,
+          "e": 1385
+        }
+      ]
+    },
+    {
+      "text": "The community finally steps in to audit the haunting,",
+      "startFrame": 1385,
+      "endFrame": 1472,
+      "words": [
+        {
+          "w": "The",
+          "s": 1385,
+          "e": 1392
+        },
+        {
+          "w": "community",
+          "s": 1392,
+          "e": 1407
+        },
+        {
+          "w": "finally",
+          "s": 1407,
+          "e": 1419
+        },
+        {
+          "w": "steps",
+          "s": 1419,
+          "e": 1426
+        },
+        {
+          "w": "in",
+          "s": 1426,
+          "e": 1431
+        },
+        {
+          "w": "to",
+          "s": 1431,
+          "e": 1438
+        },
+        {
+          "w": "audit",
+          "s": 1438,
+          "e": 1448
+        },
+        {
+          "w": "the",
+          "s": 1448,
+          "e": 1452
+        },
+        {
+          "w": "haunting,",
+          "s": 1452,
+          "e": 1472
+        }
+      ]
+    },
+    {
+      "text": "proving the ledger can't be balanced alone.",
+      "startFrame": 1472,
+      "endFrame": 1544,
+      "words": [
+        {
+          "w": "proving",
+          "s": 1472,
+          "e": 1481
+        },
+        {
+          "w": "the",
+          "s": 1481,
+          "e": 1486
+        },
+        {
+          "w": "ledger",
+          "s": 1486,
+          "e": 1500
+        },
+        {
+          "w": "can't",
+          "s": 1500,
+          "e": 1508
+        },
+        {
+          "w": "be",
+          "s": 1508,
+          "e": 1512
+        },
+        {
+          "w": "balanced",
+          "s": 1512,
+          "e": 1524
+        },
+        {
+          "w": "alone.",
+          "s": 1524,
+          "e": 1544
+        }
+      ]
+    },
+    {
+      "text": "You cannot survive this kind of trauma in isolation.",
+      "startFrame": 1544,
+      "endFrame": 1632,
+      "words": [
+        {
+          "w": "You",
+          "s": 1544,
+          "e": 1551
+        },
+        {
+          "w": "cannot",
+          "s": 1551,
+          "e": 1563
+        },
+        {
+          "w": "survive",
+          "s": 1563,
+          "e": 1580
+        },
+        {
+          "w": "this",
+          "s": 1580,
+          "e": 1587
+        },
+        {
+          "w": "kind",
+          "s": 1587,
+          "e": 1590
+        },
+        {
+          "w": "of",
+          "s": 1589,
+          "e": 1594
+        },
+        {
+          "w": "trauma",
+          "s": 1594,
+          "e": 1601
+        },
+        {
+          "w": "in",
+          "s": 1601,
+          "e": 1608
+        },
+        {
+          "w": "isolation.",
+          "s": 1608,
+          "e": 1632
+        }
+      ]
+    },
+    {
+      "text": "No, you can't. And it's crucial to remember where",
+      "startFrame": 1632,
+      "endFrame": 1709,
+      "words": [
+        {
+          "w": "No,",
+          "s": 1632,
+          "e": 1644
+        },
+        {
+          "w": "you",
+          "s": 1644,
+          "e": 1649
+        },
+        {
+          "w": "can't.",
+          "s": 1649,
+          "e": 1664
+        },
+        {
+          "w": "And",
+          "s": 1664,
+          "e": 1668
+        },
+        {
+          "w": "it's",
+          "s": 1668,
+          "e": 1676
+        },
+        {
+          "w": "crucial",
+          "s": 1676,
+          "e": 1683
+        },
+        {
+          "w": "to",
+          "s": 1683,
+          "e": 1690
+        },
+        {
+          "w": "remember",
+          "s": 1690,
+          "e": 1700
+        },
+        {
+          "w": "where",
+          "s": 1700,
+          "e": 1709
+        }
+      ]
+    },
+    {
+      "text": "the community learned this collective power in the first",
+      "startFrame": 1709,
+      "endFrame": 1779,
+      "words": [
+        {
+          "w": "the",
+          "s": 1709,
+          "e": 1716
+        },
+        {
+          "w": "community",
+          "s": 1716,
+          "e": 1728
+        },
+        {
+          "w": "learned",
+          "s": 1728,
+          "e": 1738
+        },
+        {
+          "w": "this",
+          "s": 1738,
+          "e": 1745
+        },
+        {
+          "w": "collective",
+          "s": 1745,
+          "e": 1757
+        },
+        {
+          "w": "power",
+          "s": 1757,
+          "e": 1764
+        },
+        {
+          "w": "in",
+          "s": 1764,
+          "e": 1772
+        },
+        {
+          "w": "the",
+          "s": 1772,
+          "e": 1775
+        },
+        {
+          "w": "first",
+          "s": 1774,
+          "e": 1779
+        }
+      ]
+    },
+    {
+      "text": "place. They didn't invent it on the spot.",
+      "startFrame": 1779,
+      "endFrame": 1846,
+      "words": [
+        {
+          "w": "place.",
+          "s": 1779,
+          "e": 1796
+        },
+        {
+          "w": "They",
+          "s": 1796,
+          "e": 1800
+        },
+        {
+          "w": "didn't",
+          "s": 1800,
+          "e": 1808
+        },
+        {
+          "w": "invent",
+          "s": 1808,
+          "e": 1815
+        },
+        {
+          "w": "it",
+          "s": 1815,
+          "e": 1820
+        },
+        {
+          "w": "on",
+          "s": 1820,
+          "e": 1824
+        },
+        {
+          "w": "the",
+          "s": 1824,
+          "e": 1829
+        },
+        {
+          "w": "spot.",
+          "s": 1829,
+          "e": 1846
+        }
+      ]
+    },
+    {
+      "text": "They learned it from baby Suggs, whose greatest act",
+      "startFrame": 1846,
+      "endFrame": 1925,
+      "words": [
+        {
+          "w": "They",
+          "s": 1846,
+          "e": 1853
+        },
+        {
+          "w": "learned",
+          "s": 1853,
+          "e": 1858
+        },
+        {
+          "w": "it",
+          "s": 1858,
+          "e": 1863
+        },
+        {
+          "w": "from",
+          "s": 1863,
+          "e": 1868
+        },
+        {
+          "w": "baby",
+          "s": 1868,
+          "e": 1877
+        },
+        {
+          "w": "Suggs,",
+          "s": 1877,
+          "e": 1899
+        },
+        {
+          "w": "whose",
+          "s": 1899,
+          "e": 1908
+        },
+        {
+          "w": "greatest",
+          "s": 1908,
+          "e": 1918
+        },
+        {
+          "w": "act",
+          "s": 1918,
+          "e": 1925
+        }
+      ]
+    },
+    {
+      "text": "was reaccounting the value of the human body itself.",
+      "startFrame": 1925,
+      "endFrame": 2010,
+      "words": [
+        {
+          "w": "was",
+          "s": 1925,
+          "e": 1932
+        },
+        {
+          "w": "reaccounting",
+          "s": 1932,
+          "e": 1949
+        },
+        {
+          "w": "the",
+          "s": 1949,
+          "e": 1956
+        },
+        {
+          "w": "value",
+          "s": 1956,
+          "e": 1964
+        },
+        {
+          "w": "of",
+          "s": 1964,
+          "e": 1968
+        },
+        {
+          "w": "the",
+          "s": 1968,
+          "e": 1973
+        },
+        {
+          "w": "human",
+          "s": 1973,
+          "e": 1983
+        },
+        {
+          "w": "body",
+          "s": 1983,
+          "e": 1992
+        },
+        {
+          "w": "itself.",
+          "s": 1992,
+          "e": 2010
+        }
+      ]
+    },
+    {
+      "text": "We have to talk about the clearing.",
+      "startFrame": 2031,
+      "endFrame": 2086,
+      "words": [
+        {
+          "w": "We",
+          "s": 2031,
+          "e": 2038
+        },
+        {
+          "w": "have",
+          "s": 2038,
+          "e": 2045
+        },
+        {
+          "w": "to",
+          "s": 2045,
+          "e": 2050
+        },
+        {
+          "w": "talk",
+          "s": 2050,
+          "e": 2057
+        },
+        {
+          "w": "about",
+          "s": 2057,
+          "e": 2062
+        },
+        {
+          "w": "the",
+          "s": 2062,
+          "e": 2069
+        },
+        {
+          "w": "clearing.",
+          "s": 2069,
+          "e": 2086
+        }
+      ]
+    },
+    {
+      "text": "Oh, absolutely. This is perhaps the beating",
+      "startFrame": 2086,
+      "endFrame": 2177,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 2086,
+          "e": 2093
+        },
+        {
+          "w": "absolutely.",
+          "s": 2093,
+          "e": 2120
+        },
+        {
+          "w": "This",
+          "s": 2120,
+          "e": 2127
+        },
+        {
+          "w": "is",
+          "s": 2127,
+          "e": 2136
+        },
+        {
+          "w": "perhaps",
+          "s": 2136,
+          "e": 2148
+        },
+        {
+          "w": "the",
+          "s": 2148,
+          "e": 2158
+        },
+        {
+          "w": "beating",
+          "s": 2158,
+          "e": 2177
+        }
+      ]
+    },
+    {
+      "text": "heart of the entire novel.",
+      "startFrame": 2177,
+      "endFrame": 2244,
+      "words": [
+        {
+          "w": "heart",
+          "s": 2177,
+          "e": 2189
+        },
+        {
+          "w": "of",
+          "s": 2189,
+          "e": 2199
+        },
+        {
+          "w": "the",
+          "s": 2199,
+          "e": 2206
+        },
+        {
+          "w": "entire",
+          "s": 2206,
+          "e": 2218
+        },
+        {
+          "w": "novel.",
+          "s": 2218,
+          "e": 2244
+        }
+      ]
+    },
+    {
+      "text": "Imagine the oppressive heat of a Saturday afternoon",
+      "startFrame": 2244,
+      "endFrame": 2350,
+      "words": [
+        {
+          "w": "Imagine",
+          "s": 2244,
+          "e": 2273
+        },
+        {
+          "w": "the",
+          "s": 2273,
+          "e": 2278
+        },
+        {
+          "w": "oppressive",
+          "s": 2278,
+          "e": 2292
+        },
+        {
+          "w": "heat",
+          "s": 2292,
+          "e": 2300
+        },
+        {
+          "w": "of",
+          "s": 2300,
+          "e": 2304
+        },
+        {
+          "w": "a",
+          "s": 2304,
+          "e": 2312
+        },
+        {
+          "w": "Saturday",
+          "s": 2312,
+          "e": 2324
+        },
+        {
+          "w": "afternoon",
+          "s": 2324,
+          "e": 2350
+        }
+      ]
+    },
+    {
+      "text": "in a wide open place cut deep in",
+      "startFrame": 2350,
+      "endFrame": 2444,
+      "words": [
+        {
+          "w": "in",
+          "s": 2350,
+          "e": 2369
+        },
+        {
+          "w": "a",
+          "s": 2369,
+          "e": 2379
+        },
+        {
+          "w": "wide",
+          "s": 2379,
+          "e": 2393
+        },
+        {
+          "w": "open",
+          "s": 2393,
+          "e": 2405
+        },
+        {
+          "w": "place",
+          "s": 2405,
+          "e": 2417
+        },
+        {
+          "w": "cut",
+          "s": 2417,
+          "e": 2432
+        },
+        {
+          "w": "deep",
+          "s": 2432,
+          "e": 2439
+        },
+        {
+          "w": "in",
+          "s": 2439,
+          "e": 2444
+        }
+      ]
+    },
+    {
+      "text": "the woods. A place they call the clearing.",
+      "startFrame": 2444,
+      "endFrame": 2529,
+      "words": [
+        {
+          "w": "the",
+          "s": 2444,
+          "e": 2448
+        },
+        {
+          "w": "woods.",
+          "s": 2448,
+          "e": 2466
+        },
+        {
+          "w": "A",
+          "s": 2484,
+          "e": 2492
+        },
+        {
+          "w": "place",
+          "s": 2492,
+          "e": 2496
+        },
+        {
+          "w": "they",
+          "s": 2496,
+          "e": 2501
+        },
+        {
+          "w": "call",
+          "s": 2501,
+          "e": 2506
+        },
+        {
+          "w": "the",
+          "s": 2506,
+          "e": 2511
+        },
+        {
+          "w": "clearing.",
+          "s": 2511,
+          "e": 2529
+        }
+      ]
+    },
+    {
+      "text": "Baby Sugs, this unchurched, unroed, unanointed",
+      "startFrame": 2549,
+      "endFrame": 2655,
+      "words": [
+        {
+          "w": "Baby",
+          "s": 2549,
+          "e": 2559
+        },
+        {
+          "w": "Sugs,",
+          "s": 2559,
+          "e": 2573
+        },
+        {
+          "w": "this",
+          "s": 2573,
+          "e": 2580
+        },
+        {
+          "w": "unchurched,",
+          "s": 2580,
+          "e": 2607
+        },
+        {
+          "w": "unroed,",
+          "s": 2607,
+          "e": 2633
+        },
+        {
+          "w": "unanointed",
+          "s": 2633,
+          "e": 2655
+        }
+      ]
+    },
+    {
+      "text": "preacher, sits on a huge flat-sided rock.",
+      "startFrame": 2655,
+      "endFrame": 2729,
+      "words": [
+        {
+          "w": "preacher,",
+          "s": 2655,
+          "e": 2669
+        },
+        {
+          "w": "sits",
+          "s": 2669,
+          "e": 2676
+        },
+        {
+          "w": "on",
+          "s": 2676,
+          "e": 2681
+        },
+        {
+          "w": "a",
+          "s": 2681,
+          "e": 2686
+        },
+        {
+          "w": "huge",
+          "s": 2686,
+          "e": 2696
+        },
+        {
+          "w": "flat-sided",
+          "s": 2696,
+          "e": 2717
+        },
+        {
+          "w": "rock.",
+          "s": 2717,
+          "e": 2729
+        }
+      ]
+    },
+    {
+      "text": "She has a twisted hip.",
+      "startFrame": 2729,
+      "endFrame": 2768,
+      "words": [
+        {
+          "w": "She",
+          "s": 2729,
+          "e": 2736
+        },
+        {
+          "w": "has",
+          "s": 2736,
+          "e": 2739
+        },
+        {
+          "w": "a",
+          "s": 2739,
+          "e": 2744
+        },
+        {
+          "w": "twisted",
+          "s": 2744,
+          "e": 2756
+        },
+        {
+          "w": "hip.",
+          "s": 2756,
+          "e": 2768
+        }
+      ]
+    },
+    {
+      "text": "She's old. She's physically exhausted from a lifetime",
+      "startFrame": 2768,
+      "endFrame": 2868,
+      "words": [
+        {
+          "w": "She's",
+          "s": 2768,
+          "e": 2780
+        },
+        {
+          "w": "old.",
+          "s": 2780,
+          "e": 2804
+        },
+        {
+          "w": "She's",
+          "s": 2804,
+          "e": 2816
+        },
+        {
+          "w": "physically",
+          "s": 2816,
+          "e": 2830
+        },
+        {
+          "w": "exhausted",
+          "s": 2830,
+          "e": 2844
+        },
+        {
+          "w": "from",
+          "s": 2844,
+          "e": 2852
+        },
+        {
+          "w": "a",
+          "s": 2852,
+          "e": 2856
+        },
+        {
+          "w": "lifetime",
+          "s": 2856,
+          "e": 2868
+        }
+      ]
+    },
+    {
+      "text": "of labor, And she bangs her walking stick on",
+      "startFrame": 2868,
+      "endFrame": 2943,
+      "words": [
+        {
+          "w": "of",
+          "s": 2868,
+          "e": 2873
+        },
+        {
+          "w": "labor,",
+          "s": 2873,
+          "e": 2900
+        },
+        {
+          "w": "And",
+          "s": 2900,
+          "e": 2904
+        },
+        {
+          "w": "she",
+          "s": 2904,
+          "e": 2909
+        },
+        {
+          "w": "bangs",
+          "s": 2909,
+          "e": 2919
+        },
+        {
+          "w": "her",
+          "s": 2919,
+          "e": 2924
+        },
+        {
+          "w": "walking",
+          "s": 2924,
+          "e": 2933
+        },
+        {
+          "w": "stick",
+          "s": 2933,
+          "e": 2938
+        },
+        {
+          "w": "on",
+          "s": 2938,
+          "e": 2943
+        }
+      ]
+    },
+    {
+      "text": "the ground and she shouts to the people hiding",
+      "startFrame": 2943,
+      "endFrame": 3000,
+      "words": [
+        {
+          "w": "the",
+          "s": 2943,
+          "e": 2948
+        },
+        {
+          "w": "ground",
+          "s": 2948,
+          "e": 2952
+        },
+        {
+          "w": "and",
+          "s": 2952,
+          "e": 2960
+        },
+        {
+          "w": "she",
+          "s": 2960,
+          "e": 2967
+        },
+        {
+          "w": "shouts",
+          "s": 2967,
+          "e": 2976
+        },
+        {
+          "w": "to",
+          "s": 2976,
+          "e": 2981
+        },
+        {
+          "w": "the",
+          "s": 2981,
+          "e": 2986
+        },
+        {
+          "w": "people",
+          "s": 2986,
+          "e": 2991
+        },
+        {
+          "w": "hiding",
+          "s": 2991,
+          "e": 3000
+        }
+      ]
+    },
+    {
+      "text": "in the trees, \"Let the children come.",
+      "startFrame": 3000,
+      "endFrame": 3073,
+      "words": [
+        {
+          "w": "in",
+          "s": 3000,
+          "e": 3005
+        },
+        {
+          "w": "the",
+          "s": 3005,
+          "e": 3010
+        },
+        {
+          "w": "trees,",
+          "s": 3010,
+          "e": 3032
+        },
+        {
+          "w": "\"Let",
+          "s": 3032,
+          "e": 3041
+        },
+        {
+          "w": "the",
+          "s": 3041,
+          "e": 3048
+        },
+        {
+          "w": "children",
+          "s": 3048,
+          "e": 3058
+        },
+        {
+          "w": "come.",
+          "s": 3058,
+          "e": 3073
+        }
+      ]
+    }
+  ],
+  "promises": [
+    {
+      "promiseId": "p-01",
+      "question": "She walked with her head high and her eyes blank. She lived as though she were entirely al",
+      "setupBeat": 0,
+      "reminderBeats": [
+        3,
+        4
+      ],
+      "payoffBeat": 5,
+      "status": "resolved"
+    },
+    {
+      "promiseId": "p-02",
+      "question": "because Seth was too prideful. Too prideful. Yeah. Sethy's fierce self-sufficiency was rea",
+      "setupBeat": 1,
+      "reminderBeats": [
+        6,
+        9
+      ],
+      "payoffBeat": 11,
+      "status": "resolved"
+    }
+  ],
+  "audioEvents": [
+    {
+      "frame": 21,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 360,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_1_transition"
+    },
+    {
+      "frame": 678,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_2_transition"
+    },
+    {
+      "frame": 900,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_3_transition"
+    },
+    {
+      "frame": 909,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_3_tension"
+    },
+    {
+      "frame": 851,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_3"
+    },
+    {
+      "frame": 911,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_3_payoff"
+    },
+    {
+      "frame": 911,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_3_text_pop"
+    },
+    {
+      "frame": 1082,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_4_transition"
+    },
+    {
+      "frame": 1092,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_4_contradiction"
+    },
+    {
+      "frame": 1153,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_4_text_pop"
+    },
+    {
+      "frame": 1247,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_5_transition"
+    },
+    {
+      "frame": 1197,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_5"
+    },
+    {
+      "frame": 1257,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_5_payoff"
+    },
+    {
+      "frame": 1539,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_6_transition"
+    },
+    {
+      "frame": 1548,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_6_tension"
+    },
+    {
+      "frame": 1841,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_7_transition"
+    },
+    {
+      "frame": 1945,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_7_text_pop"
+    },
+    {
+      "frame": 2025,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_8_transition"
+    },
+    {
+      "frame": 2058,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_8_text_pop"
+    },
+    {
+      "frame": 2248,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_9_tension"
+    },
+    {
+      "frame": 2413,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_9_text_pop"
+    },
+    {
+      "frame": 2544,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_10_transition"
+    },
+    {
+      "frame": 2553,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_10_contradiction"
+    },
+    {
+      "frame": 2571,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_10_text_pop"
+    },
+    {
+      "frame": 2714,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_11"
+    },
+    {
+      "frame": 2774,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_11_payoff"
+    },
+    {
+      "frame": 3013,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_11_text_pop"
+    }
+  ]
+}

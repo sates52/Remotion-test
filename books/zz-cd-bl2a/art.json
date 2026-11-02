@@ -1,0 +1,344 @@
+{
+  "book": {
+    "slug": "zz-cd-bl2a",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "and contains you. It's manageable, Versus a loneliness that roams, a dry and spreading thing that makes the sound of one's own feet going seemingly",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a loneliness that roams",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "cast": [
+        "beloved"
+      ],
+      "expression": "sad",
+      "action": "walk",
+      "storyboard": {
+        "claim": "A contained loneliness is manageable; a loneliness that roams is a dry, spreading thing with only the sound of one's own feet.",
+        "concreteVisual": "Beloved, barefoot in her white dress, walking alone through the forest with a sad face.",
+        "onScreenText": "a loneliness that roams",
+        "relationToPrevious": "Opens the chunk on the book's closing image of loneliness.",
+        "addedInformation": "Shows who is lonely and that the loneliness moves: one woman walking alone."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "It's such a haunting description. The community decides they must disremember the ghost of beloved to survive.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Disremember the ghost",
+          "Survive"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The community decides it must disremember the ghost of Beloved to survive.",
+        "concreteVisual": "A flow arrow: DISREMEMBER THE GHOST leads to SURVIVE.",
+        "onScreenText": "Disremember the ghost -> Survive",
+        "relationToPrevious": "From the description of loneliness to the community's choice about her.",
+        "addedInformation": "Shows forgetting as the means and survival as the end."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "They have to treat her like a bad dream. The text says it was not a story to pass on. But the paradox, and Morrison is brilliant at these paradoxes, is that while the characters must",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "not a story to pass on",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "cast": [
+        "beloved"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "They treat her like a bad dream; the text says it was not a story to pass on.",
+        "concreteVisual": "Beloved standing alone in the forest, bowed and sad.",
+        "onScreenText": "not a story to pass on",
+        "relationToPrevious": "The forgetting from the flow, seen from the side of the one forgotten.",
+        "addedInformation": "weak: the forgetting itself is text; the picture shows who is left behind."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "disreme survive, the book explicitly tasks the reader with remembering.",
+      "concept": "book",
+      "diagram": null,
+      "callout": {
+        "text": "tasks the reader with remembering",
+        "style": "highlight"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "While the characters must disremember to survive, the book explicitly tasks the reader with remembering.",
+        "concreteVisual": "A book, alone on screen.",
+        "onScreenText": "tasks the reader with remembering",
+        "relationToPrevious": "Turns from the characters' forgetting to the reader's duty.",
+        "addedInformation": "The book is the one making the demand, not the characters."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Wow. Yeah. The characters need to forget so they can face tomorrow. But we need to remember so it never happens again.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Characters forget",
+          "We remember"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The characters need to forget so they can face tomorrow; we need to remember so it never happens again.",
+        "concreteVisual": "Two buckets side by side: CHARACTERS FORGET and WE REMEMBER.",
+        "onScreenText": "Characters forget / We remember",
+        "relationToPrevious": "Sums up the paradox as two opposite tasks.",
+        "addedInformation": "Separates the two sides of the paradox at a glance."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "The epigraph dedicates the book to the 60 million and more, the estimated number of people who died in the slave trade.",
+      "concept": "grave",
+      "diagram": null,
+      "callout": {
+        "text": "the 60 million and more",
+        "style": "reveal"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "The epigraph dedicates the book to the 60 million and more who died in the slave trade.",
+        "concreteVisual": "A grave marker, alone on screen.",
+        "onScreenText": "the 60 million and more",
+        "relationToPrevious": "The remembering duty made concrete: whom the book remembers.",
+        "addedInformation": "The grave shows the number counts the dead."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "I struggle with the framing at the very end, though. Why is that? Look at the final repeated phrase of the book.",
+      "concept": "book",
+      "diagram": null,
+      "callout": {
+        "text": "the final repeated phrase",
+        "style": "highlight"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "One host struggles with the framing at the very end and points to the book's final repeated phrase.",
+        "concreteVisual": "A book, alone on screen.",
+        "onScreenText": "the final repeated phrase",
+        "relationToPrevious": "Moves from the dedication at the start to the framing at the end.",
+        "addedInformation": "weak: the book only locates where the phrase is."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "This is not a story to pass on. And yet, Tony Morrison has just passed it on to us, right? How can anyone look at this devastation, the generational trauma, the broken minds, the dead",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OBJECTION",
+          "claim": "This is a sad story",
+          "inputs": [
+            "The devastation",
+            "Generational trauma",
+            "The broken minds"
+          ],
+          "hub": "The weight of it",
+          "output": "Overwhelmingly devastating",
+          "verdict": "Not a sad story",
+          "reason": "The arc of this woman",
+          "truth": "A survival story",
+          "cues": {
+            "links": "the generational trauma"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The book says it is not a story to pass on, yet Morrison passed it on; how can anyone look at the devastation, the generational trauma, the broken minds.",
+        "concreteVisual": "A claim panel THE OBJECTION: THIS IS A SAD STORY; three inputs (the devastation, generational trauma, the broken minds) flow into THE WEIGHT OF IT.",
+        "onScreenText": "This is a sad story",
+        "relationToPrevious": "From the phrase to the host's objection to the book's framing.",
+        "addedInformation": "Lays out what the objection is built from."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "child in the woodshed, the dog with its eye popped out, and agree with the ultimate framing that this is not a sad story.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OBJECTION",
+          "claim": "This is a sad story",
+          "inputs": [
+            "The devastation",
+            "Generational trauma",
+            "The broken minds"
+          ],
+          "hub": "The weight of it",
+          "output": "Overwhelmingly devastating",
+          "verdict": "Not a sad story",
+          "reason": "The arc of this woman",
+          "truth": "A survival story",
+          "cues": {}
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The dead child in the woodshed and the maimed dog make it hard to agree that this is not a sad story.",
+        "concreteVisual": "The same claim panel holds: the inputs feeding THE WEIGHT OF IT under THIS IS A SAD STORY.",
+        "onScreenText": "This is a sad story",
+        "relationToPrevious": "Keeps the objection on screen while the host adds more evidence.",
+        "addedInformation": "weak: holds the claim; the added examples are spoken only."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "It is completely, overwhelmingly devastating. I understand why you feel that way. The weight of it is crushing, but we have to reevaluate what makes a story sad.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OBJECTION",
+          "claim": "This is a sad story",
+          "inputs": [
+            "The devastation",
+            "Generational trauma",
+            "The broken minds"
+          ],
+          "hub": "The weight of it",
+          "output": "Overwhelmingly devastating",
+          "verdict": "Not a sad story",
+          "reason": "The arc of this woman",
+          "truth": "A survival story",
+          "cues": {
+            "result": "overwhelmingly devastating",
+            "doubt": "reevaluate"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "It is overwhelmingly devastating; the weight is crushing, but we have to reevaluate what makes a story sad.",
+        "concreteVisual": "The claim's output OVERWHELMINGLY DEVASTATING rises, then a doubt mark appears on the panel.",
+        "onScreenText": "Overwhelmingly devastating",
+        "relationToPrevious": "Completes the objection and begins the reply.",
+        "addedInformation": "Shows the objection accepted as felt, then put in question."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "it is not a sad story because ultimately it is a survival story. the historical context, the middle passage, the system of channel slavery, that is a profound,",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OBJECTION",
+          "claim": "This is a sad story",
+          "inputs": [
+            "The devastation",
+            "Generational trauma",
+            "The broken minds"
+          ],
+          "hub": "The weight of it",
+          "output": "Overwhelmingly devastating",
+          "verdict": "Not a sad story",
+          "reason": "The arc of this woman",
+          "truth": "A survival story",
+          "cues": {
+            "rejected": {
+              "phrase": "not a sad story",
+              "occurrence": 1
+            },
+            "truth": "survival story"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "It is not a sad story because ultimately it is a survival story; the historical context is still a profound tragedy.",
+        "concreteVisual": "The claim greys and is stamped NOT A SAD STORY; the correct model A SURVIVAL STORY lights up in the same parts.",
+        "onScreenText": "Not a sad story / A survival story",
+        "relationToPrevious": "Rejects the objection built over the last beats.",
+        "addedInformation": "Names the replacing reading: survival, not sadness."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "worldshattering tragedy But the narrative arc of this specific novel of this specific woman",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OBJECTION",
+          "claim": "This is a sad story",
+          "inputs": [
+            "The devastation",
+            "Generational trauma",
+            "The broken minds"
+          ],
+          "hub": "The weight of it",
+          "output": "Overwhelmingly devastating",
+          "verdict": "Not a sad story",
+          "reason": "The arc of this woman",
+          "truth": "A survival story",
+          "cues": {
+            "reason": "the narrative arc"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The history is a world-shattering tragedy, but the narrative arc of this specific novel and this specific woman is different.",
+        "concreteVisual": "The rejected claim stays grey; the reason THE ARC OF THIS WOMAN closes the gate beside A SURVIVAL STORY.",
+        "onScreenText": "The arc of this woman",
+        "relationToPrevious": "Gives the reason for the rejection on the previous beat.",
+        "addedInformation": "Separates the tragedy of history from the arc of Sethe's story."
+      }
+    }
+  ]
+}

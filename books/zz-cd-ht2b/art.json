@@ -1,0 +1,508 @@
+{
+  "book": {
+    "slug": "zz-cd-ht2b",
+    "title": "How to Talk to Anyone",
+    "author": "Leil Lowndes",
+    "genre": "self-help"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "Now, contrast this miserable experience with the strategy of treating the gatekeeper as the actual VIP.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the gatekeeper as VIP",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "partnerExpression": "happy",
+      "storyboard": {
+        "claim": "Contrast the miserable call with treating the gatekeeper as the real VIP.",
+        "concreteVisual": "In an office, the everyman faces Carla as the assistant and talks to her warmly; she smiles back.",
+        "onScreenText": "the gatekeeper as VIP",
+        "relationToPrevious": "First beat: the strategy is introduced.",
+        "addedInformation": "Shows who the 'VIP' is: the assistant, not the boss.",
+        "causal": {
+          "kind": "idea",
+          "actor": "everyman",
+          "goal": null,
+          "action": "treating the gatekeeper as the actual VIP",
+          "object": null,
+          "target": "carla",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "treating the gatekeeper as the actual VIP"
+        }
+      }
+    },
+    {
+      "i": 1,
+      "narration": "And here's what that means for you. This is a massive blind spot for most professionals. They view assistants and secretaries as obstacles to be bypassed. But recognizing the humanity",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "obstacles to be bypassed",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "wide",
+      "cast": [
+        "everyman",
+        "carla"
+      ],
+      "expression": "neutral",
+      "action": "leave",
+      "continue": true,
+      "actionCue": "bypassed",
+      "partnerExpression": "sad",
+      "storyboard": {
+        "claim": "Most professionals see assistants and secretaries as obstacles to bypass.",
+        "concreteVisual": "Same office: on 'bypassed' the everyman walks past Carla without a look and out of frame; she is left sad.",
+        "onScreenText": "obstacles to be bypassed",
+        "relationToPrevious": "Same two people; now he does the usual thing and walks past her.",
+        "addedInformation": "Makes the blind spot a visible deed: the assistant is ignored.",
+        "causal": {
+          "kind": "event",
+          "actor": "everyman",
+          "goal": null,
+          "action": "bypass the assistant",
+          "object": null,
+          "target": "carla",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "They view assistants and secretaries as obstacles to be bypassed"
+        },
+        "directorNote": "causal before/after (\"assistant at her desk\" / \"assistant ignored\") not stated by the narration -> set to null"
+      }
+    },
+    {
+      "i": 2,
+      "narration": "of the gatekeeper, elevating the assistant before you even attempt to reach the executive secures long-term",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Elevate the assistant",
+          "Reach the executive"
+        ]
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "Elevating the assistant before you try to reach the executive secures long-term loyalty.",
+        "concreteVisual": "A flow diagram: 'Elevate the assistant' -> 'Reach the executive'.",
+        "onScreenText": "Elevate the assistant / Reach the executive",
+        "relationToPrevious": "From the bypass to the better order of steps.",
+        "addedInformation": "Shows the sequence: the assistant comes before the boss.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": null,
+          "goal": null,
+          "action": "elevating the assistant before you even attempt to reach the executive",
+          "object": null,
+          "target": "the assistant",
+          "before": null,
+          "after": null,
+          "consequence": "secures long-term",
+          "quote": "elevating the assistant before you even attempt to reach the executive secures long-term"
+        }
+      }
+    },
+    {
+      "i": 3,
+      "narration": "structural loyalty where transactional networking completely fails. They aren't just obstacles.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Elevate the assistant",
+          "Reach the executive",
+          "Structural loyalty"
+        ]
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "It secures structural loyalty where transactional networking fails; assistants are not just obstacles.",
+        "concreteVisual": "The same flow gains its result: 'Structural loyalty'.",
+        "onScreenText": "Elevate the assistant / Reach the executive / Structural loyalty",
+        "relationToPrevious": "Same diagram; the result label draws in.",
+        "addedInformation": "Names the payoff of elevating the assistant.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": null,
+          "goal": null,
+          "action": null,
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": "structural loyalty",
+          "consequence": "structural loyalty where transactional networking completely fails",
+          "quote": "structural loyalty where transactional networking completely fails"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Secretaries, assistants, and spouses have names. They have rich internal lives.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "They have names",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "carla",
+        "everyman"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "partnerExpression": "happy",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "Secretaries, assistants and spouses have names and rich internal lives.",
+        "concreteVisual": "Carla, the assistant, talks warmly; the everyman faces her and listens, smiling.",
+        "onScreenText": "They have names",
+        "relationToPrevious": "Back to the two people; now she leads and he listens.",
+        "addedInformation": "weak: the person is shown, her inner life only by the callout.",
+        "causal": {
+          "kind": "idea",
+          "actor": "carla",
+          "goal": null,
+          "action": "have names",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "Secretaries, assistants, and spouses have names."
+        }
+      }
+    },
+    {
+      "i": 5,
+      "narration": "And most importantly, they have absolute veto power over your access. The book offers a very specific almost theatrical tactic for this called",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "absolute veto power",
+        "style": "box"
+      },
+      "set": "office",
+      "cast": [
+        "carla",
+        "everyman"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "key",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "reach",
+      "storyboard": {
+        "claim": "They have absolute veto power over your access.",
+        "concreteVisual": "Carla holds a key at her chest; the everyman reaches toward it, worried.",
+        "onScreenText": "absolute veto power",
+        "relationToPrevious": "Same two; now she holds the key to access and he needs it.",
+        "addedInformation": "Shows who controls access: the assistant.",
+        "causal": {
+          "kind": "idea",
+          "actor": "carla",
+          "goal": null,
+          "action": "have absolute veto power",
+          "object": "access",
+          "target": "everyman",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "they have absolute veto power over your access"
+        },
+        "directorNote": "kind comparison but the narration states a claim (veto power over access), no two sides -> kind idea; staging kept"
+      }
+    },
+    {
+      "i": 6,
+      "narration": "the hoham caper. I love the name of this one. Instead of calling and formally asking, \"Hello, may I please speak to Miss Bigshot?\" which instantly",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "please speak to Miss Bigshot",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "phone",
+      "storyboard": {
+        "claim": "The hoham caper: instead of formally asking to speak to Miss Bigshot, which marks you as an outsider seeking favor...",
+        "concreteVisual": "The everyman alone holds his phone, worried and stiff.",
+        "onScreenText": "please speak to Miss Bigshot",
+        "relationToPrevious": "From the assistant to the phone call tactic.",
+        "addedInformation": "Shows the formal, nervous ask the tactic replaces.",
+        "causal": {
+          "kind": "event",
+          "actor": "everyman",
+          "goal": "speak to Miss Bigshot",
+          "action": "calling and formally asking",
+          "object": "phone",
+          "target": "Miss Bigshot",
+          "before": null,
+          "after": null,
+          "consequence": "identifies you as an outsider",
+          "quote": "Instead of calling and formally asking"
+        },
+        "directorNote": "consequence test: the outsider label is invisible and no target reaction is stated -> recorded in noVisual"
+      }
+    },
+    {
+      "i": 7,
+      "narration": "identifies you as an outsider seeking favor, you dial the number and casually let the pronoun roll off your tongue with a sigh.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "casually, with a sigh",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "smirk",
+      "action": "talk",
+      "holds": "phone",
+      "continue": true,
+      "storyboard": {
+        "claim": "You dial and casually let the pronoun roll off your tongue with a sigh.",
+        "concreteVisual": "Same man with the same phone, now relaxed and smirking as he talks.",
+        "onScreenText": "casually, with a sigh",
+        "relationToPrevious": "Same man and phone; the face changes from worried to casual.",
+        "addedInformation": "The change from stiff to casual is the tactic.",
+        "causal": {
+          "kind": "event",
+          "actor": "everyman",
+          "goal": null,
+          "action": "dial the number and casually let the pronoun roll off your tongue",
+          "object": "phone",
+          "target": null,
+          "before": "formally asking",
+          "after": "casual",
+          "consequence": null,
+          "quote": "you dial the number and casually let the pronoun roll off your tongue with a sigh"
+        },
+        "directorNote": "causal before \"formal and stiff\": stiff not stated -> \"formally asking\" (beat 6 words)"
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Hi, Bob Smith here. Is she in? Is she in? Yeah, but if I try that, I feel like I'm committing corporate fraud.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "committing corporate fraud",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "everyman"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "holds": "phone",
+      "continue": true,
+      "storyboard": {
+        "claim": "'Hi, Bob Smith here. Is she in?' - but trying it feels like committing corporate fraud.",
+        "concreteVisual": "Same man with the phone, now slumped and worried.",
+        "onScreenText": "committing corporate fraud",
+        "relationToPrevious": "Same man and phone; the casual smirk turns to guilt.",
+        "addedInformation": "Shows the objection as his feeling about the call.",
+        "causal": {
+          "kind": "emotion",
+          "actor": "everyman",
+          "goal": null,
+          "action": "try that",
+          "object": "phone",
+          "target": null,
+          "before": "casual",
+          "after": null,
+          "consequence": "I feel like I'm committing corporate fraud",
+          "quote": "if I try that, I feel like I'm committing corporate fraud"
+        },
+        "directorNote": "causal after \"guilty\" not stated (consequence already holds the narration words) -> null; slump happened at beat start over the \"Is she in\" call -> actionCue on \"try that\" so the casual call shows first and the feeling follows its cause"
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Fraud. Dropping a casual is she in is a deliberate attempt to deceive the secretary.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE FRAUD CHARGE",
+          "claim": "Is she in is a lie",
+          "inputs": [
+            "A casual is she in",
+            "Spoofing your status"
+          ],
+          "hub": "Deceives the secretary",
+          "output": "The jig is up",
+          "verdict": "It is a refusal",
+          "reason": "A refusal to submit",
+          "truth": "Refusing an artificial class system",
+          "cues": {
+            "links": "casual is she in",
+            "result": "deceive the secretary"
+          }
+        }
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "storyboard": {
+        "claim": "Dropping a casual 'is she in' is a deliberate attempt to deceive the secretary.",
+        "concreteVisual": "A claim panel 'THE FRAUD CHARGE': 'A casual is she in' feeds 'Deceives the secretary'.",
+        "onScreenText": "THE FRAUD CHARGE / A casual is she in / Deceives the secretary",
+        "relationToPrevious": "From his guilty face to the charge laid out.",
+        "addedInformation": "Lays out the parts of the fraud accusation.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the caller",
+          "goal": null,
+          "action": "dropping a casual is she in",
+          "object": null,
+          "target": "the secretary",
+          "before": null,
+          "after": null,
+          "consequence": "deceive the secretary",
+          "quote": "Dropping a casual is she in is a deliberate attempt to deceive the secretary."
+        }
+      }
+    },
+    {
+      "i": 10,
+      "narration": "You're spoofing your social status to bypass security protocols. You're manipulating them into thinking you're a personal friend of the boss. And when the boss picks up and says, \"Who is this?\" The jig is entirely",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE FRAUD CHARGE",
+          "claim": "Is she in is a lie",
+          "inputs": [
+            "A casual is she in",
+            "Spoofing your status"
+          ],
+          "hub": "Deceives the secretary",
+          "output": "The jig is up",
+          "verdict": "It is a refusal",
+          "reason": "A refusal to submit",
+          "truth": "Refusing an artificial class system",
+          "cues": {
+            "links": "spoofing your social status",
+            "result": "The jig is entirely"
+          }
+        }
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "You spoof your social status to bypass security; when the boss says 'Who is this?' the jig is up.",
+        "concreteVisual": "The same claim panel gains 'Spoofing your status' and reaches its output 'The jig is up'.",
+        "onScreenText": "Spoofing your status / The jig is up",
+        "relationToPrevious": "Same diagram; the second input and the result draw in.",
+        "addedInformation": "Shows where the charge says the tactic ends: exposure.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the caller",
+          "goal": "bypass security protocols",
+          "action": "spoofing your social status",
+          "object": null,
+          "target": "the secretary",
+          "before": null,
+          "after": "the boss asks who it is",
+          "consequence": "The jig is entirely",
+          "quote": "You're spoofing your social status to bypass security protocols."
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "up. You are interpreting it as a lie, but it is actually a refusal to submit to an artificial class system. How so?",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE FRAUD CHARGE",
+          "claim": "Is she in is a lie",
+          "inputs": [
+            "A casual is she in",
+            "Spoofing your status"
+          ],
+          "hub": "Deceives the secretary",
+          "output": "The jig is up",
+          "verdict": "It is a refusal",
+          "reason": "A refusal to submit",
+          "truth": "Refusing an artificial class system",
+          "cues": {
+            "doubt": "but",
+            "rejected": {
+              "phrase": "actually",
+              "occurrence": 1
+            },
+            "truth": "artificial class system"
+          }
+        }
+      },
+      "callout": null,
+      "set": "office",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "You read it as a lie, but it is actually a refusal to submit to an artificial class system.",
+        "concreteVisual": "The claim greys and is stamped 'It is a refusal'; the correct model 'Refusing an artificial class system' appears.",
+        "onScreenText": "It is a refusal / Refusing an artificial class system",
+        "relationToPrevious": "Same diagram; the charge is rejected and replaced.",
+        "addedInformation": "Turns the fraud reading into a refusal of class rank.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": "refusal to submit",
+          "object": null,
+          "target": "an artificial class system",
+          "before": "read as a lie",
+          "after": "read as a refusal",
+          "consequence": null,
+          "quote": "it is actually a refusal to submit to an artificial class system"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "book": {
+    "slug": "zz-cd-bl1a",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "genre": "fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "She walked with her head high and her eyes blank. She lived as though she were entirely alone, needing no one. Ella, one of the primary women in town, explicitly says she junked Sethy",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "She lived needing no one",
+        "style": "reveal"
+      },
+      "set": "street",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "blank",
+      "action": "walk",
+      "storyboard": {
+        "claim": "Sethe walked with her head high and eyes blank, living as if entirely alone; Ella says she junked her.",
+        "concreteVisual": "Sethe alone on an empty street, walking with a blank face, nobody beside her.",
+        "onScreenText": "She lived needing no one",
+        "relationToPrevious": "Opens the chunk on Sethe's isolation.",
+        "addedInformation": "The empty street around her shows the isolation the narration describes."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "because Seth was too prideful. Too prideful. Yeah. Sethy's fierce self-sufficiency was read by the community as an arrogant rejection of them. She acted like she didn't need",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Too prideful",
+        "style": "highlight"
+      },
+      "set": "street",
+      "shotOverride": "lowAngle",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "smirk",
+      "action": "walk",
+      "continue": true,
+      "storyboard": {
+        "claim": "Sethe's fierce self-sufficiency was read by the community as an arrogant rejection of them.",
+        "concreteVisual": "The same street, Sethe seen from below, still walking alone, a proud set to her face.",
+        "onScreenText": "Too prideful",
+        "relationToPrevious": "Same walk; the camera drops low and her face turns proud as the town's verdict is named.",
+        "addedInformation": "weak: the low angle and face suggest pride; the town's reading is carried by the callout."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "their forgiveness. I see. So, the ledger between 124 and the town wasn't just unbalanced because of the town's jealousy.",
+      "concept": "balance",
+      "diagram": null,
+      "callout": {
+        "text": "Not just the town's jealousy",
+        "style": "reveal"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "The ledger between 124 and the town wasn't unbalanced only because of the town's jealousy.",
+        "concreteVisual": "A tipped scale alone on screen: the account between the house and the town.",
+        "onScreenText": "Not just the town's jealousy",
+        "relationToPrevious": "From Sethe's pride to the account it is part of.",
+        "addedInformation": "The scale makes the 'ledger' a weighing of two sides."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "There was a massive, stubborn, calcified debt of pride on both sides.",
+      "concept": "balance",
+      "diagram": null,
+      "callout": {
+        "text": "pride on both sides",
+        "style": "stack"
+      },
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "There was a massive, stubborn, calcified debt of pride on both sides.",
+        "concreteVisual": "The same scale stays; the label names what sits on both pans.",
+        "onScreenText": "pride on both sides",
+        "relationToPrevious": "Same scale; now the weight on each side is named.",
+        "addedInformation": "Two-sided weighing matches 'on both sides'; the word pride is text-carried."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Denver walking to Lady Jones's house and asking for a job, asking for food.",
+      "concept": "home",
+      "diagram": null,
+      "callout": {
+        "text": "asking for food",
+        "style": "reveal"
+      },
+      "set": "street",
+      "cast": [
+        "denver"
+      ],
+      "expression": "worried",
+      "action": "leave",
+      "actionCue": "walking",
+      "storyboard": {
+        "claim": "Denver walks to Lady Jones's house and asks for a job and for food.",
+        "concreteVisual": "Denver, anxious, walks down the street toward a house and goes in.",
+        "onScreenText": "asking for food",
+        "relationToPrevious": "From the stalemate to the act that breaks it.",
+        "addedInformation": "Shows the deed itself: Denver going out to another house for help."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "That was the first payment on that debt in 18 years. It broke the stalemate. The community finally steps in to audit the haunting, proving the ledger can't be balanced alone.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Denver asks for help",
+          "Stalemate broken",
+          "Community steps in"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "That was the first payment on the debt in 18 years; it broke the stalemate and the community steps in.",
+        "concreteVisual": "A three-step flow: Denver asks for help, the stalemate breaks, the community steps in.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "The consequence of Denver's walk.",
+        "addedInformation": "The flow shows the cause and effect of her request."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "You cannot survive this kind of trauma in isolation. No, you can't. And it's crucial to remember where the community learned this collective power in the first place. They didn't invent it on the spot.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "cannot survive in isolation",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "sethe"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "storyboard": {
+        "claim": "You cannot survive this kind of trauma in isolation; the community learned its collective power somewhere.",
+        "concreteVisual": "Sethe alone in a bare room, slumped and sad.",
+        "onScreenText": "cannot survive in isolation",
+        "relationToPrevious": "The lesson drawn from the community stepping in.",
+        "addedInformation": "weak: the lone, bowed figure shows isolation; the lesson is carried by the callout."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body itself.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the value of the human body",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "storyboard": {
+        "claim": "The community learned collective power from Baby Suggs, who revalued the human body itself.",
+        "concreteVisual": "Baby Suggs in the woods, speaking warmly.",
+        "onScreenText": "the value of the human body",
+        "relationToPrevious": "From the community to where it learned its power.",
+        "addedInformation": "Introduces Baby Suggs as the source."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "We have to talk about the clearing. Oh, absolutely. This is perhaps the beating heart of the entire novel.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the Clearing",
+        "style": "highlight"
+      },
+      "set": "forest",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "happy",
+      "action": "celebrate",
+      "continue": true,
+      "storyboard": {
+        "claim": "We have to talk about the Clearing, perhaps the beating heart of the novel.",
+        "concreteVisual": "Baby Suggs in the same woods, arms raised.",
+        "onScreenText": "the Clearing",
+        "relationToPrevious": "Same woods and preacher; she raises her arms as the place is named.",
+        "addedInformation": "Names the place where her preaching happens."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods. A place they call the clearing.",
+      "concept": "tree",
+      "diagram": null,
+      "callout": {
+        "text": "a place they call the Clearing",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "shotOverride": "wide",
+      "cast": [],
+      "storyboard": {
+        "claim": "Imagine the heat of a Saturday afternoon in a wide open place cut deep in the woods: the Clearing.",
+        "concreteVisual": "A wide shot of empty woods around an open space, a tree in front.",
+        "onScreenText": "a place they call the Clearing",
+        "relationToPrevious": "From naming the Clearing to seeing it.",
+        "addedInformation": "Shows the setting: an open space deep in the woods."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock. She has a twisted hip.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "unchurched, unanointed preacher",
+        "style": "stack"
+      },
+      "set": "forest",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "neutral",
+      "action": "sit",
+      "continue": true,
+      "storyboard": {
+        "claim": "Baby Suggs, an unchurched, unrobed, unanointed preacher with a twisted hip, sits on a huge flat rock.",
+        "concreteVisual": "In the same woods, the old woman Baby Suggs comes in and sits.",
+        "onScreenText": "unchurched, unanointed preacher",
+        "relationToPrevious": "Same Clearing; the preacher enters and sits.",
+        "addedInformation": "Places her in the Clearing, seated, old."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "She's old. She's physically exhausted from a lifetime of labor, And she bangs her walking stick on the ground and she shouts to the people hiding in the trees, \"Let the children come.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Let the children come",
+        "style": "highlight"
+      },
+      "set": "forest",
+      "cast": [
+        "baby-suggs"
+      ],
+      "expression": "happy",
+      "action": "point",
+      "continue": true,
+      "storyboard": {
+        "claim": "Old and exhausted, she bangs her stick and shouts to the people in the trees: Let the children come.",
+        "concreteVisual": "Baby Suggs still seated, pointing out toward the trees, calling with a warm face.",
+        "onScreenText": "Let the children come",
+        "relationToPrevious": "Same seated preacher; she now calls out to the trees.",
+        "addedInformation": "The gesture outward shows her summoning the hidden people."
+      }
+    }
+  ]
+}

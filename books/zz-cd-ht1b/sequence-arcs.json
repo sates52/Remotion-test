@@ -1,0 +1,178 @@
+{
+  "slug": "zz-cd-ht1b",
+  "totalSequences": 6,
+  "totalScenes": 12,
+  "averageDurationSecs": 19.2,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 262,
+      "durationSeconds": 8.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 262,
+          "role": "reveal",
+          "narration": "What you experienced in the elevator was a complete failure of pacing. Pacing another person's emoti"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 277,
+      "durationFrames": 525,
+      "durationSeconds": 17.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 277,
+          "durationFrames": 345,
+          "role": "authored-start",
+          "narration": "subconscious because we usually think rapport is about topics. Right. Right. We tend to think that b"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 622,
+          "durationFrames": 180,
+          "role": "authored-kept",
+          "narration": "But neurologically rapport is built on rhythm. It is about the music, not the"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 802,
+      "durationFrames": 977,
+      "durationSeconds": 32.6,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 802,
+          "durationFrames": 286,
+          "role": "setup",
+          "narration": "The music, not the lyrics. I love that. If the person you are speaking to is operating at a slow ada"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1088,
+          "durationFrames": 310,
+          "role": "question",
+          "narration": "If they are moving at a frantic allegro clip, you must match that allegro intensity. When energy is "
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1398,
+          "durationFrames": 381,
+          "role": "reveal",
+          "narration": "And what if you are just too exhausted to match their intellect or invent brilliant small talk? Well"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1779,
+      "durationFrames": 768,
+      "durationSeconds": 25.6,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1779,
+          "durationFrames": 192,
+          "role": "authored-start",
+          "narration": "Phil picking up the author when she's utterly drained from a speaking tour. She's just dead tired, u"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1971,
+          "durationFrames": 360,
+          "role": "authored-kept",
+          "narration": "Instead of trying to entertain her with his own clever anecdotes, Phil just listens. When she sleepi"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2331,
+          "durationFrames": 216,
+          "role": "authored-kept",
+          "narration": "Yeah. When she says she hopes to find a car that's right for her, a skilled salesperson might pair i"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "engine",
+      "fromFrame": 2547,
+      "durationFrames": 351,
+      "durationSeconds": 11.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2547,
+          "durationFrames": 351,
+          "role": "reveal",
+          "narration": "It acts as a conversational boomerang. It throws the ball back perfectly, requiring zero mental calo"
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "authored",
+      "fromFrame": 2898,
+      "durationFrames": 555,
+      "durationSeconds": 18.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2898,
+          "durationFrames": 350,
+          "role": "authored-start",
+          "narration": "But let's look at the friction of actually doing this in real life. Because if I just stand there an"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 3248,
+          "durationFrames": 205,
+          "role": "authored-kept",
+          "narration": "I say, \"I have a problem.\" And you say, \"You have a problem.\" People are going to catch on and they "
+        }
+      ]
+    }
+  ]
+}

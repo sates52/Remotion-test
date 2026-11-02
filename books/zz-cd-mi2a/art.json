@@ -1,0 +1,470 @@
+{
+  "book": {
+    "slug": "zz-cd-mi2a",
+    "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+    "author": "Howard Marks",
+    "genre": "finance"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "on Wall Street. The smartest guys in the room. Exactly. They built these massively heavily leveraged portfolios based on complex Gaussian copular models.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The smartest guys in the room",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "investor"
+      ],
+      "expression": "smirk",
+      "action": "hold",
+      "holds": "notes",
+      "storyboard": {
+        "claim": "The smartest guys on Wall Street built heavily leveraged portfolios on complex Gaussian copula models.",
+        "concreteVisual": "The consensus investor in his office, smirking with self-assurance, holding his model's notes.",
+        "onScreenText": "The smartest guys in the room",
+        "relationToPrevious": "Opening beat: introduces the confident quants.",
+        "addedInformation": "The smirk and the notes in hand show overconfidence resting on a paper model."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "Their models looked at decades of historical data and assumed that nationwide home prices could never decline all at once across the entire country.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n0": "decades of historical data",
+            "n1": "could never decline"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "Their models used decades of historical data and assumed nationwide home prices could never decline all at once.",
+        "concreteVisual": "A causal chain: a clock station DECADES OF HISTORICAL DATA draws in, then a check station PRICES NEVER DECLINE; later stations wait dashed.",
+        "onScreenText": "Decades of historical data / Prices never decline",
+        "relationToPrevious": "From the confident quant to the reasoning inside his model.",
+        "addedInformation": "Shows the assumption as the output of past data, the first link of the chain."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "Right. They equated historical price stability with future safety. Exactly. They looked at their neat historical models and relied on normal outcomes prevailing.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "token": "future safety"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "They equated historical price stability with future safety and relied on normal outcomes prevailing.",
+        "concreteVisual": "The same chain; a lock token tagged FUTURE SAFETY is born on the PRICES NEVER DECLINE station.",
+        "onScreenText": "Future safety",
+        "relationToPrevious": "Keeps the chain and adds the belief it produces.",
+        "addedInformation": "Shows that 'safety' is a conclusion drawn from past stability, not a fact."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "They literally engineered their portfolios. assuing a nationwide housing crash, a true black swan outlier, was a statistical which is wild in hindsight.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n2": "engineered their portfolios"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "They engineered their portfolios assuming a nationwide housing crash, a black swan outlier, was a statistical impossibility.",
+        "concreteVisual": "The same chain; a third station ENGINEERED PORTFOLIOS draws in and the FUTURE SAFETY token travels into it.",
+        "onScreenText": "Engineered portfolios",
+        "relationToPrevious": "The belief moves one step further: from an assumption into the portfolios themselves.",
+        "addedInformation": "Shows the assumption becoming the structure of the investment."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "And because they thought risk was gone, they leveraged up 30 to1. So when reality broke their models, they were utterly decimated.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Decades of historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Prices never decline",
+              "glyph": "check"
+            },
+            {
+              "label": "Engineered portfolios",
+              "glyph": "bridge"
+            },
+            {
+              "label": "Leveraged up",
+              "glyph": "coin"
+            },
+            {
+              "label": "Utterly decimated",
+              "glyph": "danger"
+            }
+          ],
+          "token": {
+            "glyph": "lock",
+            "tag": "Future safety",
+            "from": 1
+          },
+          "cues": {
+            "n3": "leveraged up 30",
+            "n4": "utterly decimated"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Because they thought risk was gone they leveraged up 30 to 1, and when reality broke their models they were utterly decimated.",
+        "concreteVisual": "The same chain; a coin station LEVERAGED UP 30 TO 1 draws in, then a danger station UTTERLY DECIMATED; the token runs through to the end.",
+        "onScreenText": "Leveraged up 30 to 1 / Utterly decimated",
+        "relationToPrevious": "Completes the chain from the data to the collapse.",
+        "addedInformation": "Shows the result as the end of a chain of reasoning, not bad luck."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "They confused the map for the territory. Joel Greenblat actually chimes in on this exact point in the text, pointing out that many academic versions of risk completely miss the practical reality",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Confused the map for the territory",
+        "style": "reveal"
+      },
+      "set": "classroom",
+      "cast": [
+        "marks",
+        "investor"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "holds": "book",
+      "partnerExpression": "sad",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "They confused the map for the territory; Joel Greenblatt points out that academic versions of risk miss the practical reality of investing.",
+        "concreteVisual": "In a lecture hall Howard Marks talks holding the book while the consensus investor stands slumped and sad beside him.",
+        "onScreenText": "Confused the map for the territory",
+        "relationToPrevious": "From the collapse to the lesson drawn from it.",
+        "addedInformation": "weak: the slumped investor shows the failure; the map/territory idea is carried by the text."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "of investing. Give us an example. Let's say a company's stock price drops by 50%",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Drops by 50% in a week",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "investor"
+      ],
+      "expression": "afraid",
+      "action": "slump",
+      "storyboard": {
+        "claim": "Example: a company's stock price drops by 50% in a week.",
+        "concreteVisual": "The consensus investor at his trading desk, afraid and bowed.",
+        "onScreenText": "Drops by 50% in a week",
+        "relationToPrevious": "Moves from the lesson to a concrete example.",
+        "addedInformation": "The frightened trader shows the panic behind the price drop."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "in a week because of a broad market panic, but the underlying business is incredibly sound. It has zero debt and it's generating massive free cash flow. According to academic models, the",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Zero debt",
+        "style": "highlight"
+      },
+      "set": "room",
+      "cast": [
+        "marks",
+        "investor"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "coin",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "The drop comes from a broad market panic, but the business is sound: zero debt and massive free cash flow.",
+        "concreteVisual": "Marks joins the panicking investor at the trading desk, calm, holding a coin; the investor stays afraid and bowed.",
+        "onScreenText": "Zero debt",
+        "relationToPrevious": "Keeps the panicking investor and adds the calm counterpart holding the business's cash.",
+        "addedInformation": "Shows the gap between the panicked price and the healthy cash-generating business."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "stock's beta or volatility has just skyrocketed, meaning the stock is now quote unquote riskier because [clears throat] the price moves so much, right?",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "links": "beta or volatility",
+            "result": "riskier"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "According to academic models the stock's beta or volatility has skyrocketed, so it is now riskier because the price moves so much.",
+        "concreteVisual": "A refute diagram: ACADEMIC MODELS SAY - BETA and VOLATILITY feed THE PRICE MOVES SO MUCH, which outputs RISKIER.",
+        "onScreenText": "Academic models say: the stock is now riskier",
+        "relationToPrevious": "From the example to how academic models read it.",
+        "addedInformation": "Lays out the academic definition of risk as a model built from price movement."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "But to a value investor like Markx or Greenblat, the actual risk of permanent capital loss has just",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "doubt": "But",
+            "rejected": {
+              "phrase": "actual risk",
+              "occurrence": 1
+            },
+            "truth": "permanent capital loss"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "But to a value investor like Marks or Greenblatt, the actual risk of permanent capital loss has just dropped.",
+        "concreteVisual": "The same diagram; on 'But' the claim is doubted, on 'actual risk' it greys and is stamped, and PERMANENT CAPITAL LOSS appears as the correct model.",
+        "onScreenText": "The actual risk / Permanent capital loss",
+        "relationToPrevious": "Keeps the academic claim and rejects it.",
+        "addedInformation": "Replaces volatility with permanent loss as the measure of risk."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Because the business is exactly the same, but it's now on sale for half the Here is the problem with that, though.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "ACADEMIC MODELS SAY",
+          "claim": "The stock is now riskier",
+          "inputs": [
+            "Beta",
+            "Volatility"
+          ],
+          "hub": "The price moves so much",
+          "output": "Riskier",
+          "verdict": "The actual risk",
+          "reason": "The business is the same",
+          "truth": "Permanent capital loss",
+          "cues": {
+            "reason": "exactly the same"
+          }
+        }
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Because the business is exactly the same but now on sale for half the price. Here is the problem with that, though.",
+        "concreteVisual": "The same diagram; the reason THE BUSINESS IS EXACTLY THE SAME draws in under the rejected claim.",
+        "onScreenText": "The business is exactly the same",
+        "relationToPrevious": "Adds the reason behind the rejection.",
+        "addedInformation": "Gives the why: an unchanged business at a lower price is safer."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "If we throw out the professor's neat little graph, if we completely abandon academic measures like volatility and beta, how do we actually measure risk?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "How do we measure risk?",
+        "style": "reveal"
+      },
+      "set": "classroom",
+      "cast": [
+        "investor"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "magnifier",
+      "storyboard": {
+        "claim": "If we abandon academic measures like volatility and beta, how do we actually measure risk?",
+        "concreteVisual": "The consensus investor in the lecture hall holding a magnifier, worried.",
+        "onScreenText": "How do we actually measure risk?",
+        "relationToPrevious": "From the rejection of beta to the open question it leaves.",
+        "addedInformation": "weak: the magnifier hints at the search for a measure; the question itself is text."
+      }
+    }
+  ]
+}

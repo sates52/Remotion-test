@@ -1,0 +1,146 @@
+{
+  "slug": "zz-cd-bl2a",
+  "totalSequences": 3,
+  "totalScenes": 12,
+  "averageDurationSecs": 33.4,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 1025,
+      "durationSeconds": 34.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 317,
+          "role": "setup",
+          "narration": "and contains you. It's manageable, Versus a loneliness that roams, a dry and spreading thing that ma"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 332,
+          "durationFrames": 216,
+          "role": "question",
+          "narration": "It's such a haunting description. The community decides they must disremember the ghost of beloved t"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 548,
+          "durationFrames": 314,
+          "role": "complication",
+          "narration": "They have to treat her like a bad dream. The text says it was not a story to pass on. But the parado"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 862,
+          "durationFrames": 178,
+          "role": "reveal",
+          "narration": "disreme survive, the book explicitly tasks the reader with remembering."
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 1040,
+      "durationFrames": 598,
+      "durationSeconds": 19.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1040,
+          "durationFrames": 204,
+          "role": "setup",
+          "narration": "Wow. Yeah. The characters need to forget so they can face tomorrow. But we need to remember so it ne"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1244,
+          "durationFrames": 209,
+          "role": "question",
+          "narration": "The epigraph dedicates the book to the 60 million and more, the estimated number of people who died "
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1453,
+          "durationFrames": 185,
+          "role": "reveal",
+          "narration": "I struggle with the framing at the very end, though. Why is that? Look at the final repeated phrase "
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1638,
+      "durationFrames": 1366,
+      "durationSeconds": 45.5,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1638,
+          "durationFrames": 312,
+          "role": "authored-start",
+          "narration": "This is not a story to pass on. And yet, Tony Morrison has just passed it on to us, right? How can a"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 1950,
+          "durationFrames": 218,
+          "role": "authored-kept",
+          "narration": "child in the woodshed, the dog with its eye popped out, and agree with the ultimate framing that thi"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2168,
+          "durationFrames": 314,
+          "role": "authored-kept",
+          "narration": "It is completely, overwhelmingly devastating. I understand why you feel that way. The weight of it i"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2482,
+          "durationFrames": 320,
+          "role": "authored-kept",
+          "narration": "it is not a sad story because ultimately it is a survival story. the historical context, the middle "
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2802,
+          "durationFrames": 202,
+          "role": "authored-kept",
+          "narration": "worldshattering tragedy But the narrative arc of this specific novel of this specific woman"
+        }
+      ]
+    }
+  ]
+}

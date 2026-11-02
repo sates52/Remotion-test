@@ -1,0 +1,178 @@
+{
+  "slug": "zz-cd-rr2a",
+  "totalSequences": 6,
+  "totalScenes": 12,
+  "averageDurationSecs": 18,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 360,
+      "durationSeconds": 12,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 360,
+          "role": "reveal",
+          "narration": "This is exactly why Dancer, the rebel leader who recruited Darrow, explicitly hid Titus's existence "
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 375,
+      "durationFrames": 472,
+      "durationSeconds": 15.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 375,
+          "durationFrames": 153,
+          "role": "authored-start",
+          "narration": "terrorists. A rebellion led by Titus would be crushed in a matter of weeks."
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 528,
+          "durationFrames": 319,
+          "role": "authored-kept",
+          "narration": "It would be a wildfire that burns incredibly hot and then runs out of oxygen because you can't build"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 847,
+      "durationFrames": 204,
+      "durationSeconds": 6.8,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 847,
+          "durationFrames": 204,
+          "role": "reveal",
+          "narration": "the very beginning. The Golds justify their tyrannical rule by claiming that the lower colors are ba"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1051,
+      "durationFrames": 759,
+      "durationSeconds": 25.3,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1051,
+          "durationFrames": 276,
+          "role": "authored-start",
+          "narration": "unthinking savages who need the firm hand of the Golds to maintain civilization. Titus's uncontrolle"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1327,
+          "durationFrames": 264,
+          "role": "authored-kept",
+          "narration": "the Gold's core Oh, right. If a red gets power and immediately acts like a rabid animal, it proves t"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1591,
+          "durationFrames": 219,
+          "role": "authored-kept",
+          "narration": "It strengthens the story of gold supremacy. Titus is the worst possible ambassador for Red Liberatio"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 1810,
+      "durationFrames": 516,
+      "durationSeconds": 17.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1810,
+          "durationFrames": 175,
+          "role": "authored-start",
+          "narration": "Darrow realizes that if he's going to actually win, he has to be fundamentally better than the Golds"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 1985,
+          "durationFrames": 341,
+          "role": "authored-kept",
+          "narration": "not just a more violent version of them. He has to break the paradigm, not just flip the board. The "
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "engine",
+      "fromFrame": 2326,
+      "durationFrames": 910,
+      "durationSeconds": 30.3,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2326,
+          "durationFrames": 357,
+          "role": "setup",
+          "narration": "Right? And as we synthesize all these layers of control, the gamification, the pioneer myth, the phy"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2683,
+          "durationFrames": 272,
+          "role": "question",
+          "narration": "builds an incredibly tight ideological argument. But to make it work, the physical mechanics of this"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2955,
+          "durationFrames": 281,
+          "role": "reveal",
+          "narration": "I completely agree. The foundational premise of the book requires us to believe in a perfectly isola"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,566 @@
+{
+  "book": {
+    "slug": "zz-cd-mi1b",
+    "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+    "author": "Howard Marks",
+    "genre": "finance"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-02"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "Okay, tell me why. Yes, it is intensely difficult to beat the market. That's exactly why simple mechanical formulas and algorithms",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Algorithms",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Future looks like the past",
+              "glyph": "brain"
+            },
+            {
+              "label": "Periods of stress",
+              "glyph": "danger"
+            },
+            {
+              "label": "They break",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "spark",
+            "tag": "Predictable correlations",
+            "from": 0
+          },
+          "cues": {
+            "n1": "mechanical formulas and algorithms"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "It is intensely difficult to beat the market, and that is exactly why simple mechanical formulas and algorithms...",
+        "concreteVisual": "A causal chain diagram on an empty stage: the station ALGORITHMS (a bolt glyph) draws in on 'algorithms'; the stations before and after it wait as dashed '?'.",
+        "onScreenText": "Algorithms",
+        "relationToPrevious": "Opens the chunk: the hosts answer 'tell me why' by turning to formulas and algorithms.",
+        "addedInformation": "Shows the algorithm as one link in a chain whose cause and result are still missing.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "algorithms",
+          "goal": null,
+          "action": "ultimately fail during periods of stress",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "simple mechanical formulas and algorithms"
+        },
+        "directorNote": "causal.action \"fail to beat the market\" and target \"the market\" merged two separate statements (the narration never says algorithms fail to beat the market) -> action set to the chunk wording \"ultimately fail during periods of stress\", target nulled"
+      }
+    },
+    {
+      "i": 1,
+      "narration": "ultimately fail during periods of stress because they break. Exactly. Algorithms are entirely based on historical data and predictable correlations.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Algorithms",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Future looks like the past",
+              "glyph": "brain"
+            },
+            {
+              "label": "Periods of stress",
+              "glyph": "danger"
+            },
+            {
+              "label": "They break",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "spark",
+            "tag": "Predictable correlations",
+            "from": 0
+          },
+          "cues": {
+            "n3": "periods of stress",
+            "n4": "they break",
+            "n0": "historical data",
+            "token": "predictable correlations"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Algorithms ultimately fail during periods of stress because they break; they are entirely based on historical data and predictable correlations.",
+        "concreteVisual": "The same chain: PERIODS OF STRESS (danger glyph) and THEY BREAK (cross) draw in after ALGORITHMS, then HISTORICAL DATA (clock) at the start; a spark tagged PREDICTABLE CORRELATIONS is born on the data and travels into the algorithm.",
+        "onScreenText": "Historical data / Periods of stress / They break / Predictable correlations",
+        "relationToPrevious": "Keeps the chain and adds its start, the stress and the break.",
+        "addedInformation": "Shows what the algorithm runs on and where it ends: built on the past, broken by stress.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "algorithms",
+          "goal": null,
+          "action": "fail during periods of stress",
+          "object": "historical data and predictable correlations",
+          "target": null,
+          "before": null,
+          "after": "they break",
+          "consequence": "algorithms ultimately fail",
+          "quote": "ultimately fail during periods of stress because they break"
+        }
+      }
+    },
+    {
+      "i": 2,
+      "narration": "They are, in a very real sense, the ultimate first level thinkers just operating at light speed. Oh wow, I never thought of it that way.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Algorithms",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Future looks like the past",
+              "glyph": "brain"
+            },
+            {
+              "label": "Periods of stress",
+              "glyph": "danger"
+            },
+            {
+              "label": "They break",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "spark",
+            "tag": "Predictable correlations",
+            "from": 0
+          },
+          "cues": {}
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Algorithms are, in a real sense, the ultimate first-level thinkers operating at light speed.",
+        "concreteVisual": "The same causal chain held unchanged: historical data feeding the algorithm, stress, the break; the middle WHY station still dashed.",
+        "onScreenText": "none",
+        "relationToPrevious": "Holds the chain while the hosts call the algorithm a first-level thinker.",
+        "addedInformation": "weak: the 'first-level thinker' label is carried by the audio only.",
+        "causal": {
+          "kind": "idea",
+          "actor": "algorithms",
+          "goal": null,
+          "action": null,
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "the ultimate first level thinkers just operating at light speed"
+        },
+        "directorNote": "kind commentary was wrong: the beat makes a claim (algorithms are the ultimate first-level thinkers), not banter -> kind idea; the kept causal chain stays as its tool"
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Yeah, they assume the future will look exactly like the past. But as Joel Greenblat points out in his annotations of the text, agreeing with the consensus",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Historical data",
+              "glyph": "clock"
+            },
+            {
+              "label": "Algorithms",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Future looks like the past",
+              "glyph": "brain"
+            },
+            {
+              "label": "Periods of stress",
+              "glyph": "danger"
+            },
+            {
+              "label": "They break",
+              "glyph": "cross"
+            }
+          ],
+          "token": {
+            "glyph": "spark",
+            "tag": "Predictable correlations",
+            "from": 0
+          },
+          "cues": {
+            "n2": "assume the future"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Algorithms assume the future will look exactly like the past.",
+        "concreteVisual": "The same chain: the dashed station between ALGORITHMS and PERIODS OF STRESS fills in as FUTURE LOOKS LIKE THE PAST (brain glyph); the spark runs on through it.",
+        "onScreenText": "Future looks like the past",
+        "relationToPrevious": "Fills the dashed WHY station that was missing since beat 0.",
+        "addedInformation": "Shows the hidden assumption that links historical data to the break.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": "algorithms",
+          "goal": null,
+          "action": "assume the future will look exactly like the past",
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "they break under stress",
+          "quote": "they assume the future will look exactly like the past"
+        }
+      }
+    },
+    {
+      "i": 4,
+      "narration": "is a very comfortable place to be emotionally. But it is not where above average profits are found. You do not need a supercomput to beat the market. You need the psychological discipline to look",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Not where profits are found",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "investor",
+        "marks"
+      ],
+      "expression": "happy",
+      "action": "idle",
+      "partnerExpression": "neutral",
+      "partnerAction": "talk",
+      "storyboard": {
+        "claim": "Agreeing with the consensus is emotionally comfortable but not where above-average profits are found; you need psychological discipline, not a supercomputer.",
+        "concreteVisual": "In the office the consensus investor stands smiling and at ease; Howard Marks beside him talks, calm.",
+        "onScreenText": "Not where profits are found",
+        "relationToPrevious": "From the algorithm chain to the human version: the comfortable consensus investor.",
+        "addedInformation": "weak: shows the comfortable investor; that comfort earns no profit is carried by the callout.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "agreeing with the consensus",
+          "object": null,
+          "target": "the consensus",
+          "before": "comfortable",
+          "after": null,
+          "consequence": "not where above average profits are found",
+          "quote": "it is not where above average profits are found"
+        },
+        "directorNote": "causal.actor \"investor\" not stated (the narration names no one agreeing with the consensus); the profits side of the comparison is shown only by the callout, unreported -> actor null, noVisual records the TEXT_ONLY side"
+      }
+    },
+    {
+      "i": 5,
+      "narration": "at a compelling narrative on financial television and ask yourself one simple question, which is,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "One simple question",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "marks"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "magnifier",
+      "storyboard": {
+        "claim": "You need the discipline to look at a compelling narrative on financial television and ask yourself one simple question.",
+        "concreteVisual": "Howard Marks at the trading desk with its price monitors, holding up a magnifier.",
+        "onScreenText": "One simple question",
+        "relationToPrevious": "From the comfortable consensus to the disciplined questioner.",
+        "addedInformation": "Shows the habit of scrutiny the hosts prescribe: look closer before believing.",
+        "causal": {
+          "kind": "idea",
+          "actor": "you",
+          "goal": null,
+          "action": "ask yourself one simple question",
+          "object": "a compelling narrative on financial television",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "ask yourself one simple question"
+        },
+        "directorNote": "kind decision and actor \"marks\" not supported: the narration advises \"you\" to ask a question, no one chooses or refuses -> kind idea, actor \"you\"; staging (the questioner with the magnifier) kept"
+      }
+    },
+    {
+      "i": 6,
+      "narration": "and who doesn't know that? Oh man, and who doesn't know that? That is such a killer question. It cuts through all the noise because if a piece of information is on the front page of the Wall Street Journal or, you know, being yelled",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A killer question",
+        "style": "box"
+      },
+      "set": "room",
+      "cast": [
+        "marks"
+      ],
+      "expression": "smirk",
+      "action": "hold",
+      "holds": "magnifier",
+      "continue": true,
+      "storyboard": {
+        "claim": "The question is 'and who doesn't know that?' - it cuts through the noise, because front-page news or cable-news shouting...",
+        "concreteVisual": "Same trading desk: Howard Marks keeps the magnifier up, with a knowing smirk.",
+        "onScreenText": "A killer question",
+        "relationToPrevious": "Keeps Marks and the magnifier; the question is now named.",
+        "addedInformation": "Names the exact question the magnifier stands for.",
+        "causal": {
+          "kind": "idea",
+          "actor": "you",
+          "goal": null,
+          "action": "asks who doesn't know that",
+          "object": "a piece of information on the front page",
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": "it cuts through all the noise",
+          "quote": "It cuts through all the noise"
+        },
+        "directorNote": "causal.actor \"marks\" not stated (the question is the one \"you\" ask yourself, beat 5) -> actor \"you\""
+      }
+    },
+    {
+      "i": 7,
+      "narration": "about on a cable news show, it is already baked into the price of the stock. Precisely. If everyone knows it, it is no longer an advantage. It's useless.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Everyone knows it",
+          "Baked into the price",
+          "No longer an advantage"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Widely known information is already baked into the price of the stock; if everyone knows it, it is no longer an advantage - it is useless.",
+        "concreteVisual": "A three-step flow on an empty stage: EVERYONE KNOWS IT -> BAKED INTO THE PRICE -> NO LONGER AN ADVANTAGE.",
+        "onScreenText": "Everyone knows it / Baked into the price / No longer an advantage",
+        "relationToPrevious": "Answers the question from beat 6 with its mechanism.",
+        "addedInformation": "Shows why known news is worthless: the price already holds it.",
+        "causal": {
+          "kind": "mechanism",
+          "actor": null,
+          "goal": null,
+          "action": "everyone knows it",
+          "object": "the price of the stock",
+          "target": null,
+          "before": null,
+          "after": "already baked into the price",
+          "consequence": "it is no longer an advantage",
+          "quote": "If everyone knows it, it is no longer an advantage"
+        }
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Anformational advantage only exists when you know something the crowd doesn't. Or more likely, when you analyze the same information but draw a completely different conclusion because you aren't blinded by the prevailing emotion of the",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Something only you know",
+          "A completely different conclusion"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Informational advantage only exists when you know something the crowd doesn't, or analyze the same information and draw a completely different conclusion, not blinded by the prevailing emotion.",
+        "concreteVisual": "A two-bucket sorter: KNOW WHAT THE CROWD DOESN'T | A COMPLETELY DIFFERENT CONCLUSION.",
+        "onScreenText": "Something only you know / A completely different conclusion",
+        "relationToPrevious": "From what is useless to the only two places an edge can come from.",
+        "addedInformation": "Shows the two sources of advantage side by side.",
+        "causal": {
+          "kind": "comparison",
+          "actor": null,
+          "goal": null,
+          "action": "know something the crowd doesn't, or draw a completely different conclusion",
+          "object": "the same information",
+          "target": "the crowd",
+          "before": null,
+          "after": null,
+          "consequence": "an informational advantage exists",
+          "quote": "when you know something the crowd doesn't"
+        }
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Right? So superior investing is at its absolute core an exercise in second level thinking. But you know knowing this in a vacuum doesn't help unless we look at what happens when human beings are actually put under pressure under extreme stress",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Second level thinking",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "marks",
+        "investor"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "magnifier",
+      "partnerExpression": "worried",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "Superior investing is at its core an exercise in second-level thinking, but it only helps once we see what happens when people are put under extreme stress.",
+        "concreteVisual": "In the office Howard Marks holds the magnifier; beside him the consensus investor stands bowed with a worried face.",
+        "onScreenText": "Second level thinking",
+        "relationToPrevious": "Names the discipline from beats 5-8 and brings in the human under pressure.",
+        "addedInformation": "Contrasts the scrutinising thinker with the stressed crowd member the next passage is about.",
+        "causal": {
+          "kind": "idea",
+          "actor": null,
+          "goal": null,
+          "action": "second level thinking",
+          "object": null,
+          "target": "human beings under extreme stress",
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "superior investing is at its absolute core an exercise in second level thinking"
+        },
+        "directorNote": "causal.actor \"marks\" not stated (the narration says superior investing is second-level thinking, no actor) -> actor null"
+      }
+    },
+    {
+      "i": 10,
+      "narration": "cuz the market isn't a math equation. It's a pendulum of human emotion. And to apply this thinking you really have to understand the environment you're operating in.",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "Math equation",
+          "Human emotion"
+        ],
+        "values": [
+          1
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The market isn't a math equation, it's a pendulum of human emotion; to apply this thinking you must understand the environment.",
+        "concreteVisual": "A spectrum from MATH EQUATION to HUMAN EMOTION with the marker at the HUMAN EMOTION end.",
+        "onScreenText": "Math equation / Human emotion",
+        "relationToPrevious": "From the stressed people to what the market really is.",
+        "addedInformation": "Places the market at the emotion pole, away from the equation.",
+        "causal": {
+          "kind": "comparison",
+          "actor": "the market",
+          "goal": null,
+          "action": null,
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "the market isn't a math equation. It's a pendulum of human emotion"
+        }
+      }
+    },
+    {
+      "i": 11,
+      "narration": "The environment is everything. And let me tell you, it is incredibly hostile to rational thought. Let's look at 1999.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Hostile to rational thought",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "investor"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "storyboard": {
+        "claim": "The environment is everything, and it is incredibly hostile to rational thought. Let's look at 1999.",
+        "concreteVisual": "The consensus investor at the trading desk among red and green price monitors, bowed with a worried face.",
+        "onScreenText": "Hostile to rational thought",
+        "relationToPrevious": "From the abstract spectrum to the person caught in that environment.",
+        "addedInformation": "weak: the hostility is carried by the callout; the picture shows the pressured investor.",
+        "causal": {
+          "kind": "idea",
+          "actor": "the environment",
+          "goal": null,
+          "action": null,
+          "object": null,
+          "target": null,
+          "before": null,
+          "after": null,
+          "consequence": null,
+          "quote": "it is incredibly hostile to rational thought"
+        },
+        "directorNote": "kind emotion not supported: the narration states no feeling that changes, it claims the environment is hostile to rational thought; actor \"investor\" not stated -> kind idea, actor \"the environment\", target null; staging kept with its noVisual"
+      }
+    }
+  ]
+}

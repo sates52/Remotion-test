@@ -1,0 +1,163 @@
+{
+  "slug": "zz-cd-bl1a",
+  "totalSequences": 5,
+  "totalScenes": 12,
+  "averageDurationSecs": 20.5,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "authored",
+      "fromFrame": 15,
+      "durationFrames": 667,
+      "durationSeconds": 22.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 350,
+          "role": "authored-start",
+          "narration": "She walked with her head high and her eyes blank. She lived as though she were entirely alone, needi"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 365,
+          "durationFrames": 317,
+          "role": "authored-kept",
+          "narration": "because Seth was too prideful. Too prideful. Yeah. Sethy's fierce self-sufficiency was read by the c"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 682,
+      "durationFrames": 406,
+      "durationSeconds": 13.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 682,
+          "durationFrames": 223,
+          "role": "authored-start",
+          "narration": "their forgiveness. I see. So, the ledger between 124 and the town wasn't just unbalanced because of "
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 905,
+          "durationFrames": 183,
+          "role": "authored-kept",
+          "narration": "There was a massive, stubborn, calcified debt of pride on both sides."
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 1088,
+      "durationFrames": 758,
+      "durationSeconds": 25.3,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1088,
+          "durationFrames": 163,
+          "role": "setup",
+          "narration": "Denver walking to Lady Jones's house and asking for a job, asking for food."
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1251,
+          "durationFrames": 293,
+          "role": "question",
+          "narration": "That was the first payment on that debt in 18 years. It broke the stalemate. The community finally s"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1544,
+          "durationFrames": 302,
+          "role": "reveal",
+          "narration": "You cannot survive this kind of trauma in isolation. No, you can't. And it's crucial to remember whe"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1846,
+      "durationFrames": 398,
+      "durationSeconds": 13.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1846,
+          "durationFrames": 185,
+          "role": "authored-start",
+          "narration": "They learned it from baby Suggs, whose greatest act was reaccounting the value of the human body its"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2031,
+          "durationFrames": 213,
+          "role": "authored-kept",
+          "narration": "We have to talk about the clearing. Oh, absolutely. This is perhaps the beating heart of the entire "
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 2244,
+      "durationFrames": 829,
+      "durationSeconds": 27.6,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2244,
+          "durationFrames": 305,
+          "role": "authored-start",
+          "narration": "Imagine the oppressive heat of a Saturday afternoon in a wide open place cut deep in the woods. A pl"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2549,
+          "durationFrames": 219,
+          "role": "authored-kept",
+          "narration": "Baby Sugs, this unchurched, unroed, unanointed preacher, sits on a huge flat-sided rock. She has a t"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2768,
+          "durationFrames": 305,
+          "role": "authored-kept",
+          "narration": "She's old. She's physically exhausted from a lifetime of labor, And she bangs her walking stick on t"
+        }
+      ]
+    }
+  ]
+}

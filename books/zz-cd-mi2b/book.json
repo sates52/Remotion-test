@@ -1,0 +1,57 @@
+{
+  "slug": "zz-cd-mi2b",
+  "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+  "author": "Howard Marks",
+  "genre": "finance",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "market cycle pendulum swinging between euphoria and panic",
+      "second-level thinking decision matrix",
+      "risk vs return bell curve distortion",
+      "margin of safety barrier guarding an asset"
+    ]
+  },
+  "engineRubric": {
+    "pick": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 45,
+    "reasons": [
+      "an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": []
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-02",
+    "fit": "vox",
+    "confidence": "moderate",
+    "voxScore": 25.4,
+    "antidoteScore": 17,
+    "signals": {
+      "year": 0,
+      "history": 10.6,
+      "second": 0,
+      "abstract": 21.2,
+      "sensitive": 3.5,
+      "era": 2008,
+      "words": 283
+    },
+    "reasons": [
+      "real-world / dated references (0 years, 10.6 history terms per 1k words) → photoreal shows the actual world (Vox)",
+      "idea vocabulary 21.2/1k (habits, decisions, attention, money…) → concepts need icons/diagrams, not photographs (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": true
+  },
+  "audioSource": "public/audio/the-most-important-thing.mp3"
+}

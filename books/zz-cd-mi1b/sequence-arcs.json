@@ -1,0 +1,168 @@
+{
+  "slug": "zz-cd-mi1b",
+  "totalSequences": 5,
+  "totalScenes": 12,
+  "averageDurationSecs": 21.6,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "authored",
+      "fromFrame": 15,
+      "durationFrames": 957,
+      "durationSeconds": 31.9,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 220,
+          "role": "authored-start",
+          "narration": "Okay, tell me why. Yes, it is intensely difficult to beat the market. That's exactly why simple mech"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 235,
+          "durationFrames": 260,
+          "role": "authored-kept",
+          "narration": "ultimately fail during periods of stress because they break. Exactly. Algorithms are entirely based "
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 495,
+          "durationFrames": 220,
+          "role": "authored-kept",
+          "narration": "They are, in a very real sense, the ultimate first level thinkers just operating at light speed. Oh "
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 715,
+          "durationFrames": 257,
+          "role": "authored-kept",
+          "narration": "Yeah, they assume the future will look exactly like the past. But as Joel Greenblat points out in hi"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 972,
+      "durationFrames": 322,
+      "durationSeconds": 10.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 972,
+          "durationFrames": 322,
+          "role": "reveal",
+          "narration": "is a very comfortable place to be emotionally. But it is not where above average profits are found. "
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1294,
+      "durationFrames": 516,
+      "durationSeconds": 17.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1294,
+          "durationFrames": 185,
+          "role": "authored-start",
+          "narration": "at a compelling narrative on financial television and ask yourself one simple question, which is,"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1479,
+          "durationFrames": 331,
+          "role": "authored-kept",
+          "narration": "and who doesn't know that? Oh man, and who doesn't know that? That is such a killer question. It cut"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 1810,
+      "durationFrames": 989,
+      "durationSeconds": 33,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1810,
+          "durationFrames": 240,
+          "role": "setup",
+          "narration": "about on a cable news show, it is already baked into the price of the stock. Precisely. If everyone "
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2050,
+          "durationFrames": 345,
+          "role": "question",
+          "narration": "Anformational advantage only exists when you know something the crowd doesn't. Or more likely, when "
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2395,
+          "durationFrames": 404,
+          "role": "reveal",
+          "narration": "Right? So superior investing is at its absolute core an exercise in second level thinking. But you k"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "engine",
+      "fromFrame": 2799,
+      "durationFrames": 444,
+      "durationSeconds": 14.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2799,
+          "durationFrames": 254,
+          "role": "setup",
+          "narration": "cuz the market isn't a math equation. It's a pendulum of human emotion. And to apply this thinking y"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 3053,
+          "durationFrames": 190,
+          "role": "reveal",
+          "narration": "The environment is everything. And let me tell you, it is incredibly hostile to rational thought. Le"
+        }
+      ]
+    }
+  ]
+}
