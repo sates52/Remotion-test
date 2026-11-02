@@ -36,7 +36,10 @@ const engineOf = (slug) => {
     return null;
   }
 };
-const books = fs.readdirSync(path.join(ROOT, "books")).filter((s) => !published.has(s) && engineOf(s)).sort();
+// the engine is read ONCE per book (2026-11-02): reading book.json twice raced with parallel tests that create and
+// remove fixture books under books/ — the second read returned null and candidates(null) threw on the Linux runner
+const engines = Object.fromEntries(fs.readdirSync(path.join(ROOT, "books")).map((s) => [s, engineOf(s)]));
+const books = Object.keys(engines).filter((s) => !published.has(s) && engines[s]).sort();
 
 // 1) + 2)
 const history = loadGrammarHistory(ROOT, "__none__").filter((h) => h.published);
@@ -45,7 +48,7 @@ let prev = null;
 let sameNeighbour = 0;
 let variantProblems = [];
 for (const slug of books) {
-  const engine = engineOf(slug);
+  const engine = engines[slug];
   const vs = pickVariants({ slug, engine, history, n: 3 });
   const a = vs[0];
   layouts.add(a.layout);
