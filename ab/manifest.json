@@ -1,0 +1,977 @@
+{
+ "name": "c7-calibration-test",
+ "prereg": "audit/c7-pilots/preregistration-c7-calibration.json",
+ "model": "claude-sonnet-5-5",
+ "k": 1,
+ "maxUsd": 6,
+ "rubrics": [
+  "current",
+  "official"
+ ],
+ "images": [
+  {
+   "id": "cal-r3-img-01",
+   "file": "audit/calibration-c7/images/cal-r3-img-01.webp",
+   "narration": "The lesson there is vital for corporate leaders. You absolutely cannot afford to let your best people play poorly. In any organization, if the star player is allowed to slack off, bend the rules, or underperform without consequence, the standard for the",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-02",
+   "file": "audit/calibration-c7/images/cal-r3-img-02.webp",
+   "narration": "They will just come straight to you. Ah, I see. By investing those five minutes up front, you're preventing 50 interruptions down the line. You're building a self-reliant problem-solving node in",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-03",
+   "file": "audit/calibration-c7/images/cal-r3-img-03.webp",
+   "narration": "pragmatic about this reality. A redirect is meant for someone who is capable but made a mistake or someone who is genuinely learning but stumbled. But if you have gone through this entire process, if you have ensured the goal",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-04",
+   "file": "audit/calibration-c7/images/cal-r3-img-04.webp",
+   "narration": "But the parable argues that we have the entire concept of managerial time completely backward. There is a quote the manager keeps on his desk in the story and it perfectly lands the",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-05",
+   "file": "audit/calibration-c7/images/cal-r3-img-05.webp",
+   "narration": "It only teaches them to avoid the manager, hide their mistakes, bury the bad data, and do the absolute bare minimum required to not get yelled at. It creates a deeply entrenched culture of fear, minimal",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-06",
+   "file": "audit/calibration-c7/images/cal-r3-img-06.webp",
+   "narration": "Okay, that clarifies it. The context really matters. And when you do it right, that praise lands with incredible impact because it is a clear, honest It's not manipulative flattery to make them like you.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-07",
+   "file": "audit/calibration-c7/images/cal-r3-img-07.webp",
+   "narration": "She said, \"I couldn't possibly let them use maths because then everyone would get 100%.\" As if everyone succeeding is a catastrophic failure of the system. It reveals a deeply ingrained, almost pathological",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-08",
+   "file": "audit/calibration-c7/images/cal-r3-img-08.webp",
+   "narration": "So, she called her boss sweating, completely defensive, heart racing. And she blurts out, \"I have a problem.\" Yes. And she expects him to either, you know, swoop in to save the day or just start barking orders at her. But his response is completely He doesn't do either.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-09",
+   "file": "audit/calibration-c7/images/cal-r3-img-09.webp",
+   "narration": "Like an employee is late to a meeting, but the manager says nothing, not wanting to make a scene. Right. I'll let it slide. Then another small mistake happens. A typo in an external email.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-10",
+   "file": "audit/calibration-c7/images/cal-r3-img-10.webp",
+   "narration": "If someone is new or if they have just been promoted to a stretch role, or they are taking on a technology they've never used, if they are in the learning phase, leaving them alone is not autonomy. It is abandonment.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-11",
+   "file": "audit/calibration-c7/images/cal-r3-img-11.webp",
+   "narration": "like him. He wants to be the cool boss. So when annual performance reviews roll around, he rates every single person on his team a perfect 10. Even the people who are objectively failing, missing quotas and showing up right?",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-12",
+   "file": "audit/calibration-c7/images/cal-r3-img-12.webp",
+   "narration": "two completely different It's so true. I've seen it tear teams apart. The employee thinks they are supposed to be focusing on like hightouch customer satisfaction, spending an hour on the phone resolving and the boss thinks",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-13",
+   "file": "audit/calibration-c7/images/cal-r3-img-13.webp",
+   "narration": "You perfectly separate the behavior from the person and they just sit there and pout. They refuse to change. Right? What if they have a fundamental toxic won't do attitude? Are you just supposed to keep giving them one minute redirects in a continuous loop forever?",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-14",
+   "file": "audit/calibration-c7/images/cal-r3-img-14.webp",
+   "narration": "constantly calibrating their own behavior against They become their own course correction But this brings up a massive logistical question for me. If the employees are managing themselves, if",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-15",
+   "file": "audit/calibration-c7/images/cal-r3-img-15.webp",
+   "narration": "In most companies, if you go in and ask an employee what their primary job is, and then you walk down the hall and ask their boss what that employees primary job is, you will get two completely different It's so true.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-16",
+   "file": "audit/calibration-c7/images/cal-r3-img-16.webp",
+   "narration": "traditional sense. The old hierarchy is dead because it's just too slow. Way too slow. If every decision has to go up a chain of command and back down, your competitor has already beaten you to market. Innovation has to happen at the edges of the",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-17",
+   "file": "audit/calibration-c7/images/cal-r3-img-17.webp",
+   "narration": "are in the learning phase, leaving them alone is not autonomy. It is abandonment. It is setting an ambush because they don't know where the pins are yet. They are bullying blind. Exactly. You are leaving them alone in a pitch",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-18",
+   "file": "audit/calibration-c7/images/cal-r3-img-18.webp",
+   "narration": "If you always just give the answer in 5 seconds, you become the permanent unyielding bottleneck for every single decision in your department. You're training them to be helpless. You are actively training them to be helpless.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-19",
+   "file": "audit/calibration-c7/images/cal-r3-img-19.webp",
+   "narration": "They want consensus on every single decision. But because they are so terrified of or holding anyone accountable, right? Their organizations are losing. Their people win sort of in the short term, but the business fails.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-20",
+   "file": "audit/calibration-c7/images/cal-r3-img-20.webp",
+   "narration": "Exactly. And this manager decides like as a team building exercise to set up a bowling alley for their department. Okay. Fun, right? But instead of just letting the team bowl, the manager takes a giant, heavy,",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-21",
+   "file": "audit/calibration-c7/images/cal-r3-img-21.webp",
+   "narration": "The bed sheet is lifted off the bowling lane, But setting a goal in January doesn't mean anything by March. How does this manager actually keep the employee aligned dayto-day without turning into a",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-22",
+   "file": "audit/calibration-c7/images/cal-r3-img-22.webp",
+   "narration": "But obviously people don't just wobble towards success. Sometimes they sprint in the completely wrong They make a huge mistake. Right. What happens when a massive mistake is made? That requires the third tool and it is arguably",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-23",
+   "file": "audit/calibration-c7/images/cal-r3-img-23.webp",
+   "narration": "You're worried about lowering the bar. I am. I've seen managers praise the bare minimum to the point where the employee thinks they are a superstar, but their work is actually terrible. I can't run a competitive business on approximately right.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-24",
+   "file": "audit/calibration-c7/images/cal-r3-img-24.webp",
+   "narration": "Precisely. To protect their own ego, they play the victim. They externalize the blame onto your bad leadership or your unreasonable temper. They tell themselves, \"My boss is a tyrant.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-25",
+   "file": "audit/calibration-c7/images/cal-r3-img-25.webp",
+   "narration": "standard you both agreed upon. The toughness is just objective accountability to their own stated goal. Ah, so it's not arbitrary emotional toughness. It's objective datadriven",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-26",
+   "file": "audit/calibration-c7/images/cal-r3-img-26.webp",
+   "narration": "If they praise it all, which is rare, they do it as a driveby. Hey, good job on the presentation as they're literally walking way down the hallway looking at their phone. Or they do the dreaded compliment Oh,",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-27",
+   "file": "audit/calibration-c7/images/cal-r3-img-27.webp",
+   "narration": "the Pareto principle, which the text explicitly leans on. Yes, 80% of your really important needlemoving results are going to come from 20% of your So, you don't write down your entire job description. You don't write down every single email you have",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-28",
+   "file": "audit/calibration-c7/images/cal-r3-img-28.webp",
+   "narration": "If it isn't a secret trick, it cannot be manipulative. It becomes a shared language. It becomes a psychological contract between adults. I am going to do this to help you",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-29",
+   "file": "audit/calibration-c7/images/cal-r3-img-29.webp",
+   "narration": "Absolute radical transparency. The book's defense against manipulation is to put all your cards face up on the table from day one. You literally tell your team, let people know upfront what you are going to do to help them",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r3-img-30",
+   "file": "audit/calibration-c7/images/cal-r3-img-30.webp",
+   "narration": "you know, swoop in to save the day or just start barking orders at her. But his response is completely He doesn't do either. He just says, \"Good. That's what you've been hired to solve. And then dead silence. Oh, that silence is a crucible.",
+   "set": "test",
+   "run": "the-new-one-minute-manager/final"
+  },
+  {
+   "id": "cal-r4-img-01",
+   "file": "audit/calibration-c7/images/cal-r4-img-01.webp",
+   "narration": "No, it didn't solve the global energy crisis. It didn't fix like catastrophic housing shortage. What the technology actually did was make infrastructural collapse and ecological rot politically It's",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-02",
+   "file": "audit/calibration-c7/images/cal-r4-img-02.webp",
+   "narration": "highstakes martial art. And as a sociologist, it forces you to ask a very disturbing question about this society, which is, is this obsessive, granular fandom actually a sign of authentic",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-03",
+   "file": "audit/calibration-c7/images/cal-r4-img-03.webp",
+   "narration": "He does. He offers him his own executive suite in the real world, endless physical resources, and a massive multi-million dollar salary. All Wade has to do is help IIC seize total control of the And what you are",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-04",
+   "file": "audit/calibration-c7/images/cal-r4-img-04.webp",
+   "narration": "to hack into II's database and steals her real world dossier, we learn the truth. Samantha hides behind her flawless digital skin because she has a prominent Port Weinstein birthark covering half of her physical face.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-05",
+   "file": "audit/calibration-c7/images/cal-r4-img-05.webp",
+   "narration": "It's just devastating. But wait, I have to play devil's advocate here, though. Okay, go for it. Let's look at what the Oasis is actually providing for a kid in that situation. Isn't it an undeniable necessary lifeline?",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-06",
+   "file": "audit/calibration-c7/images/cal-r4-img-06.webp",
+   "narration": "It demands absolute wrote imitation. It demands that he perfectly parrot the genius of someone else who lived a century ago. It provides the dazzling illusion of achievement while requiring",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-07",
+   "file": "audit/calibration-c7/images/cal-r4-img-07.webp",
+   "narration": "Doesn't that count for A shared language, yes. But what are they actually saying to each other with I mean, the problem with this shared culture is that it isn't organic. It is a dictatorship of trivia.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-08",
+   "file": "audit/calibration-c7/images/cal-r4-img-08.webp",
+   "narration": "The perfect game. He has to stand there sweating in his haptic suit, navigating all 256 levels of the maze without making a single microscopic mistake until the game's code physically breaks and displays the kill screen. What Klein is illustrating here is",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-09",
+   "file": "audit/calibration-c7/images/cal-r4-img-09.webp",
+   "narration": "that building and the millions of homeless refugees we see living in squalid tents and cardboard shelters freezing outside the II plaza, in the real world, this slavery is permanent.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-10",
+   "file": "audit/calibration-c7/images/cal-r4-img-10.webp",
+   "narration": "And he knows how to do it. He succeeds effortlessly because he has exhaustively studied the lyrics. He has memorized the liner notes. He has read the biographies of every single band member. He knows the music of a band that",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-11",
+   "file": "audit/calibration-c7/images/cal-r4-img-11.webp",
+   "narration": "He has all the data, But what does he do with it? Nothing. Instead of using that profound knowledge to try and engineer a solution for the physical world, humanity just used the apex of their technological achievement",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-12",
+   "file": "audit/calibration-c7/images/cal-r4-img-12.webp",
+   "narration": "hooked up to a state-of-the-art immersion rig. Wade puts on the rig, and he has to play the classic 1980 Atari game, Adventure. He has to navigate the pixelated bat and the dragons to find the invisible dot, right?",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-13",
+   "file": "audit/calibration-c7/images/cal-r4-img-13.webp",
+   "narration": "the epic virtual space battles, you know, the classic underdog story of a penniles kid hacking the corporate system. It's designed to be intoxicating. Exactly. But the thesis we are going to prove to you today is that this book is absolutely",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-14",
+   "file": "audit/calibration-c7/images/cal-r4-img-14.webp",
+   "narration": "But what Helen's reality shows us is that the simulation leaves physical bigotry, racism, and systemic inequality entirely untouched. Yeah. In fact, Helen's own mother, Marie, literally instructed her",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-15",
+   "file": "audit/calibration-c7/images/cal-r4-img-15.webp",
+   "narration": "historically recognized as the very first digital Easter egg in video game But this ultimate breakthrough, the climax of the entire global hunt, doesn't lead to some grand digital No, it",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-16",
+   "file": "audit/calibration-c7/images/cal-r4-img-16.webp",
+   "narration": "reality. And that immense power vacuum introduces our antagonists. You have Nolan Sarrento and an organization known as the Sixers. The corporate army. Exactly. The Sixers are an army of employees working for",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-17",
+   "file": "audit/calibration-c7/images/cal-r4-img-17.webp",
+   "narration": "But in the real world, standing in front of Wade in this coffee shop, H is actually Helen Harris. Yes, Helen is a young queer black woman who grew up in the physical",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-18",
+   "file": "audit/calibration-c7/images/cal-r4-img-18.webp",
+   "narration": "We have to talk about the apocalyptic climax of the book, the massive battle at Castle Anarak in Sector 21. It is a massive sequence. It is. Wade has rallied the Gunters and",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-19",
+   "file": "audit/calibration-c7/images/cal-r4-img-19.webp",
+   "narration": "by corporate drop cops who kick down his door. He is handcuffed, thrown in an armored vehicle, and marched into the blindingly white, sterile, II indentured employee induction center. The sensory details here",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-20",
+   "file": "audit/calibration-c7/images/cal-r4-img-20.webp",
+   "narration": "to simulate the feeling of having a warm, supportive household. He watches the Katons over and over and over again just to feel a synthetic sense of safety. It's heartbreaking. It really is. He is self-medicating with James Holidayiday's",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-21",
+   "file": "audit/calibration-c7/images/cal-r4-img-21.webp",
+   "narration": "Now, replace your car or the subway with Wade's Oh, the commute is terrifying. Wade lives in the Portland Avenue stack. These are literal trailer parks stacked 22 high on this incredibly dangerous makeshift metal scaffolding of",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-22",
+   "file": "audit/calibration-c7/images/cal-r4-img-22.webp",
+   "narration": "fantasy, the man who provided the opium for the entire human race, looks at Wade and tells him the Holiday confesses that he created the oasis because he never felt comfortable in the real",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-23",
+   "file": "audit/calibration-c7/images/cal-r4-img-23.webp",
+   "narration": "Meta but expanded to encompass all human interaction. literally everything you right? If I wins, the open web dies. It becomes an ad choked subscription prison where user anonymity is strictly outlawed by real world",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-24",
+   "file": "audit/calibration-c7/images/cal-r4-img-24.webp",
+   "narration": "It's a museum of computing history, ranging from the original Apple 1 to the Commodore 64, culminating at the very top with a simple Atari 2600 hooked up to a state-of-the-art immersion rig.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-25",
+   "file": "audit/calibration-c7/images/cal-r4-img-25.webp",
+   "narration": "to understand. The immersive virtual reality of the oasis, the haptic gloves, the fisers, the omnidirectional treadmills, it did not cure poverty in the year 2045. No, it didn't solve the global energy crisis. It didn't fix like catastrophic housing shortage.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-26",
+   "file": "audit/calibration-c7/images/cal-r4-img-26.webp",
+   "narration": "only place you can get a decent meal. Reality is the only place you can find true human connection. It is a deathbed confession. It is. Halliday realizes far too late that he used his brilliance to build a monumental",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-27",
+   "file": "audit/calibration-c7/images/cal-r4-img-27.webp",
+   "narration": "only to inherit a completely dead physical future. And that profound disconnect brings us to a really crucial counterpoint about the book itself and how the narrative handles its own heavy themes. Yes, we have to raise an honest structural",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-28",
+   "file": "audit/calibration-c7/images/cal-r4-img-28.webp",
+   "narration": "sofa right next to him. Right next to him. So faced with that horrifying physical trauma, what does Wade do? He retreats into the oasis. and he uses this upbeat 80s sitcom about a",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-29",
+   "file": "audit/calibration-c7/images/cal-r4-img-29.webp",
+   "narration": "they are using shifts of indentured workers leveraging massive teams of real-time cryptologists and holiday scholars feeding them instructions through their comms. They even use hacked immersion rigs so that if",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r4-img-30",
+   "file": "audit/calibration-c7/images/cal-r4-img-30.webp",
+   "narration": "And this reveal is crucial because it exposes the massive unbridgegable gulf between online prestige and physical It's huge. Throughout the first half of the story, the Oasis is constantly praised by Wade as this great equalizer.",
+   "set": "test",
+   "run": "ready-player-one/run6"
+  },
+  {
+   "id": "cal-r7-img-01",
+   "file": "audit/calibration-c7/images/cal-r7-img-01.webp",
+   "narration": "want to go. It's too much money. You don't really like the wider friend group. It's exhausting. But picture the friend on the other end of the phone. They are so excited, hyping up the itinerary,",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-02",
+   "file": "audit/calibration-c7/images/cal-r7-img-02.webp",
+   "narration": "It triggers a defensive, often argumentative response. So, the strategy is to bypass their amygdala entirely. A linguistic workaround. Exactly. You replace the word no with phrases that communicate the exact same boundary, but without using the linguistic",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-03",
+   "file": "audit/calibration-c7/images/cal-r7-img-03.webp",
+   "narration": "You have to ask yourself, what is the alternative? The alternative is living your entire life as a servant to other people's priorities. You might save the transactional relationship. You might plate the toxic boss, but you will",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-04",
+   "file": "audit/calibration-c7/images/cal-r7-img-04.webp",
+   "narration": "And it led to massive resentment and self-loathing. He hated being asked. He dreaded the weekends, but he literally could not stop the reflex of saying yes. The word would come out of his mouth before",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-05",
+   "file": "audit/calibration-c7/images/cal-r7-img-05.webp",
+   "narration": "It sounds so flattering. They want you. You feel so flattered. Now, realistically, you are already drowning in tasks. Your inbox is a disaster zone. You are sleeping six hours a night.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-06",
+   "file": "audit/calibration-c7/images/cal-r7-img-06.webp",
+   "narration": "behavioral standpoint, it's a puzzle. A puzzle. Think about how the human brain works. We are inherently problem solvers. Every excuse you offer is an obstacle the requesttor is naturally inclined to try and solve for you.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-07",
+   "file": "audit/calibration-c7/images/cal-r7-img-07.webp",
+   "narration": "The book isn't advocating for professional suicide. You obviously adjust the delivery to the context and the power dynamic. You don't have to use those exact two words like an uncompromising robot, right? Context matters. To a VP, you might say, \"My",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-08",
+   "file": "audit/calibration-c7/images/cal-r7-img-08.webp",
+   "narration": "You're at work. Your manager pulls you aside and offers you a massive side project. Oh, those are tricky, right? Because it's high visibility, which is great, but looking at the scope, you realize it will completely consume your evenings and weekends for the next two months.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-09",
+   "file": "audit/calibration-c7/images/cal-r7-img-09.webp",
+   "narration": "Think about it this way. What if the people you are so terrified of disappointing actually end up respecting you more precisely because you finally had the courage to draw a line? What if closing the vault is",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-10",
+   "file": "audit/calibration-c7/images/cal-r7-img-10.webp",
+   "narration": "shut. You're caught. By offering a specific excuse, you just opened a negotiation you never wanted to be in. You painted yourself into a corner. When you said movies with the kids you thought you were softening the blow, but what you actually",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-11",
+   "file": "audit/calibration-c7/images/cal-r7-img-11.webp",
+   "narration": "So we have to figure out why we do this. Why does that unauthorized withdrawal happen before we even realize what we've Let's uh let's look at the sheer instinct of it.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-12",
+   "file": "audit/calibration-c7/images/cal-r7-img-12.webp",
+   "narration": "You might save the transactional relationship. You might plate the toxic boss, but you will slowly lose yourself in the process. Wow. It really forces you to weigh the cost of the yes. Think about the people you admire",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-13",
+   "file": "audit/calibration-c7/images/cal-r7-img-13.webp",
+   "narration": "You are literally zipping up your bag dreaming of dinner. A co-orker pops their head over your cubicle wall. Oh, I know where this is going. They say, \"Hey, can you help me compile this data real quick?\" And your heart just sinks.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-14",
+   "file": "audit/calibration-c7/images/cal-r7-img-14.webp",
+   "narration": "completely freeze. Okay, as we look at the totality of Zahar's framework, I want to bring up one honest grounded criticism of this entire philosophy, we have to be real with our listeners here. Let's hear it. The book makes it sound like",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-15",
+   "file": "audit/calibration-c7/images/cal-r7-img-15.webp",
+   "narration": "excuses altogether. A simple, polite, categorical refusal stops the negotiation dead in its tracks. But hold on. The silence that follows an excuse-free refusal is",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-16",
+   "file": "audit/calibration-c7/images/cal-r7-img-16.webp",
+   "narration": "This is the crucible for the recovering people pleaser because your instinct is to immediately backpedal to stop her emotional pain. Did you say, \"Fine, I'll come.\" Exactly. But the necessary realization here is that you",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-17",
+   "file": "audit/calibration-c7/images/cal-r7-img-17.webp",
+   "narration": "an obligation to open the vault and hand over your savings. Exactly right. It sounds cold to the people pleasing ear, but it's the only sustainable way to survive without burning out completely. And we also have to recognize that",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-18",
+   "file": "audit/calibration-c7/images/cal-r7-img-18.webp",
+   "narration": "Oh, that is so true. Yes, you can always make a rare conscious exception for something truly magical, but the baseline must be the rule. If you operate without a baseline, your time will",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-19",
+   "file": "audit/calibration-c7/images/cal-r7-img-19.webp",
+   "narration": "To combat this, you have to remove the decision-making process from the heat of the moment. You skip the fatigue entirely by having a blanket The strategy Zaharatus outlines here is brilliant for type",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-20",
+   "file": "audit/calibration-c7/images/cal-r7-img-20.webp",
+   "narration": "Your inbox is a disaster zone. You are sleeping six hours a night. But the prestige is so tempting. You're staring at the screen, excited but completely overwhelmed,",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-21",
+   "file": "audit/calibration-c7/images/cal-r7-img-21.webp",
+   "narration": "must be the rule. If you operate without a baseline, your time will be completely colonized by other people's priorities masquerading as opportunities. So, categorical rejection",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-22",
+   "file": "audit/calibration-c7/images/cal-r7-img-22.webp",
+   "narration": "It's an ingrained reflex wired into your A reflex. Yeah. When that text comes in, your brain registers a social bid. From an evolutionary standpoint, human beings are tribal",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-23",
+   "file": "audit/calibration-c7/images/cal-r7-img-23.webp",
+   "narration": "a withdrawal without even checking your balance. You're just handing over the debit card, closing your eyes, and hoping you have enough energy left to survive the week. Precisely. You are operating completely blindly. And this brings us to an even more insidious",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-24",
+   "file": "audit/calibration-c7/images/cal-r7-img-24.webp",
+   "narration": "They can adjust their own weekend plans. Oh, I see. By stalling, you rob them of agency. You drain their time just to protect yourself from a 5-second awkward That is a harsh truth to swallow. So, stalling is just a",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-25",
+   "file": "audit/calibration-c7/images/cal-r7-img-25.webp",
+   "narration": "free this weekend to help them move just because you didn't explicitly announce you were busy. or you know the neighborhood group chat that school committees. It's just this constant low-level hum of demands and we just keep agreeing to them.",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-26",
+   "file": "audit/calibration-c7/images/cal-r7-img-26.webp",
+   "narration": "Exactly. You are maintaining the relationship while maintaining the boundary. But here is where people completely mess up this strategy. Okay. But where do we mess up? When we use that softer language, when we hand",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-27",
+   "file": "audit/calibration-c7/images/cal-r7-img-27.webp",
+   "narration": "maybe is just a psychological torture It really is. Picture this scenario. It's 4:55 p.m. on a Friday. You are literally zipping up your bag dreaming of dinner. A co-orker pops their head over your cubicle",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-28",
+   "file": "audit/calibration-c7/images/cal-r7-img-28.webp",
+   "narration": "It is a declaration of personal agency and Zahariatis uses a really relatable everyday example to illustrate the psychological shift. Uh the temptation of a donut in the office",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-29",
+   "file": "audit/calibration-c7/images/cal-r7-img-29.webp",
+   "narration": "We talk about it like having brown eyes or you know being naturally upbeat but it is not a personality trait. It is an accounting An accounting problem. Exactly. And most of us are just bleeding capital because we refuse to look at the",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r7-img-30",
+   "file": "audit/calibration-c7/images/cal-r7-img-30.webp",
+   "narration": "irritation from the coworker, being sincere and direct actually shows far more respect for the other person's time than stringing them along. It's just objective respect. I hear the logic, but I have to push",
+   "set": "test",
+   "run": "the-art-of-saying-no/run2"
+  },
+  {
+   "id": "cal-r8-img-01",
+   "file": "audit/calibration-c7/images/cal-r8-img-01.webp",
+   "narration": "call his wife's therapist to advocate for his side of the story. He wants Lori to act as his defense attorney against his It's a brilliant parallel because John wants Lori to be his ally in his ongoing exhausting war against the idiots",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-02",
+   "file": "audit/calibration-c7/images/cal-r8-img-02.webp",
+   "narration": "No. I'd be paralyzed by depression. I'd never get out of bed. I wouldn't invest in a retirement account or paint my house. Isn't the denial of death a biological necessity just to function in You",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-03",
+   "file": "audit/calibration-c7/images/cal-r8-img-03.webp",
+   "narration": "the breakup for Lori, or you know, the mayonnaise on the sandwich for John or maybe it's an annoying co-orker for you, it feels entirely all-consuming. Oh, totally. Feels like the biggest deal in the world, right? But from a clinical perspective, it is",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-04",
+   "file": "audit/calibration-c7/images/cal-r8-img-04.webp",
+   "narration": "Right. Yeah. Just boyfriend. And to cope with this sudden implosion, this like total shattering of her carefully curated life plan. Lori has to cross that invisible boundary of her",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-05",
+   "file": "audit/calibration-c7/images/cal-r8-img-05.webp",
+   "narration": "about trivial things like breakups or career moves or being stuck in traffic or getting a bad review at work to avoid facing the ultimate terrifying existential uncertainty.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-06",
+   "file": "audit/calibration-c7/images/cal-r8-img-06.webp",
+   "narration": "He offers wise compassion. He cares enough about her long-term healing to drop a loving, highly disruptive truth bomb. And we see the exact inverse of this with John, who comes into Lor's office actively demanding idiot",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-07",
+   "file": "audit/calibration-c7/images/cal-r8-img-07.webp",
+   "narration": "We tightly grip the iron bars of our familiar distress. We scream and complain to anyone who will listen about our captivity, but we are absolutely terrified to step through the open door because freedom",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-08",
+   "file": "audit/calibration-c7/images/cal-r8-img-08.webp",
+   "narration": "You feel powerful, energized, and self-righteous. Anger gives you an illusion of control. It basically replaces the agonizing void of loss with the focused heat of combat.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-09",
+   "file": "audit/calibration-c7/images/cal-r8-img-09.webp",
+   "narration": "dissecting the ways we lie to ourselves. But before we conclude, we really have to address the elephant in the room regarding this entire philosophy. Yes, we need to raise a specific heavy challenge",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-10",
+   "file": "audit/calibration-c7/images/cal-r8-img-10.webp",
+   "narration": "mistakes, you are taking accountability, right? Like you're paying your debt. But therapeutically, chronic guilt is actually a shield. Wallowing in self-hatred allows you to avoid the terrifying, incredibly hard,",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-11",
+   "file": "audit/calibration-c7/images/cal-r8-img-11.webp",
+   "narration": "the phone gleefully bashing him, tearing down his character and insulting him, just insulating Lori in this warm bubble of righteous And that bubble feels amazing in the moment. You know, when you are hurting, blind validation feels",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-12",
+   "file": "audit/calibration-c7/images/cal-r8-img-12.webp",
+   "narration": "Yes. The toxic partner keeps you safely distracted by drama so you never have to face the quiet terror of true connection. Breaking these cycles requires dropping the defenses, laying down the armor, which brings us to the",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-13",
+   "file": "audit/calibration-c7/images/cal-r8-img-13.webp",
+   "narration": "Yeah. Denial of death doesn't make you live better. It makes you live shallower. It breeds complacency. It allows for the neurotic procrastination of your own life. When Julie is finally forced to accept her timeline,",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-14",
+   "file": "audit/calibration-c7/images/cal-r8-img-14.webp",
+   "narration": "She has this fierce, almost aggressive resignation about her, declaring that she is completely done with love after a man named Myron leaves her. She's just given up. But then, as Lori gently pushes, Rita",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-15",
+   "file": "audit/calibration-c7/images/cal-r8-img-15.webp",
+   "narration": "There's this beautiful detail where she reveals to Lori that she desperately wants to work as a cashier at Trader Joe's. I love this part. It's so amazing. She refers to it as her version of Holland, a reference to a poem about",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-16",
+   "file": "audit/calibration-c7/images/cal-r8-img-16.webp",
+   "narration": "of well the anatomy of emotional defense. Like we aren't looking at therapy as some mechanic shop for broken minds where you go to get your gears realigned, you Right. Right. Not at all. We're looking at it as the systematic and often",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-17",
+   "file": "audit/calibration-c7/images/cal-r8-img-17.webp",
+   "narration": "it's exactly how the ego wants you to feel. Okay, so I'm playing right into the ego's hands here. You kind of are. But think about it this way. Yes, it is a real fire. The breakup happened. The pain of rejection is visceral",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-18",
+   "file": "audit/calibration-c7/images/cal-r8-img-18.webp",
+   "narration": "the mind from shattering entirely. Look, I have to play devil's advocate here again because the guy is functioning. He is providing for his two surviving daughters. He is keeping a roof over their heads. He is literally winning Emmys at work in the",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-19",
+   "file": "audit/calibration-c7/images/cal-r8-img-19.webp",
+   "narration": "scene toward the end of Lor's journey with Wendell. Lori is standing at the threshold of Wendle's office door at the end of a session. Her time is up. She stops, turns, looks at him, and says very simply, \"I'm sorry about",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-20",
+   "file": "audit/calibration-c7/images/cal-r8-img-20.webp",
+   "narration": "How do you mean? Like, if I come to you bleeding, emotionally speaking, I don't want to lecture on my complicity and getting cut. I want a bandage. I want you in my corner. If I'm heartbroken, I want you to say, \"The ex is terrible.\" If I'm fired, I want you",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-21",
+   "file": "audit/calibration-c7/images/cal-r8-img-21.webp",
+   "narration": "detachment, they are modeling emotional Oh, that's true. That clinical detachment is often just another form of armor. A patient cannot learn to be vulnerable if the person across from them is wearing a lab coat",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-22",
+   "file": "audit/calibration-c7/images/cal-r8-img-22.webp",
+   "narration": "Okay, that makes sense. So, in the context of our daily lives, the feeling of being completely trapped by our circumstances is often just another decoy your ego built to protect you from the terrifying truth of your own",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-23",
+   "file": "audit/calibration-c7/images/cal-r8-img-23.webp",
+   "narration": "bars and walk out because then it's on you. Exactly. Because stepping out into the open means you can no longer blame the cage. It requires taking terrifying total responsibility for your own life.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-24",
+   "file": "audit/calibration-c7/images/cal-r8-img-24.webp",
+   "narration": "of psychological healing versus surgical intervention. The boundary in modern therapy is structural, not emotional. Yes. The 50 minutes are entirely for the patient.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-25",
+   "file": "audit/calibration-c7/images/cal-r8-img-25.webp",
+   "narration": "out of habit of physical remnant, a coping mechanism from her grueling first round of chemotherapy. And she is grappling with a concrete, unforgiving, inescapable deadline. Her cancer has returned",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-26",
+   "file": "audit/calibration-c7/images/cal-r8-img-26.webp",
+   "narration": "she presents boyfriend to Wendell entirely as a monster. She literally dubs him the kid hater, which is so intense. It is. And she completely leaves out how generous, deeply engaged, and kind he had been to her and",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-27",
+   "file": "audit/calibration-c7/images/cal-r8-img-27.webp",
+   "narration": "of freedom. And if we dig deeper into why we are so afraid of our own agency and what the future holds, we hit the bedrock of all human anxiety. The big one. The big one. What is the ultimate fear we",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-28",
+   "file": "audit/calibration-c7/images/cal-r8-img-28.webp",
+   "narration": "Rita abandoned or neglected her kids, if she caused them deep psychological trauma, shouldn't she carry that weight? Shouldn't she feel terrible every day? Isn't pushing for self forgiveness in cases of severe",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-29",
+   "file": "audit/calibration-c7/images/cal-r8-img-29.webp",
+   "narration": "next 10 years. Just burned her whole future to the Exactly. Just incinerated the map. And then we cut straight from that messy, tears soaked bedroom to her sleek therapy office.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  },
+  {
+   "id": "cal-r8-img-30",
+   "file": "audit/calibration-c7/images/cal-r8-img-30.webp",
+   "narration": "Healing isn't about becoming an unfeilling robot. It is about recognizing that we are all, as Yolan puts it, fellow travelers trudging through the shared human experience. The therapist isn't a god sitting on a mountain.",
+   "set": "test",
+   "run": "maybe-you-should-talk-to-someone/run3"
+  }
+ ],
+ "inputHash": "c45cb856c2199f4e",
+ "files": {
+  "audit/calibration-c7/images/cal-r3-img-01.webp": "9a4c885a56c7a383b994f35c7b9dc963d80a16bf8ac4f3b570e9360929ecb789",
+  "audit/calibration-c7/images/cal-r3-img-02.webp": "135a789a4de6dde750e9331c24babaa684a2f47efcd33ded0346e306f4776f0c",
+  "audit/calibration-c7/images/cal-r3-img-03.webp": "c96fc1dce44762df36de134b5f69650f657f044da4437abb7066d6e65d12b4d2",
+  "audit/calibration-c7/images/cal-r3-img-04.webp": "7a775d7b02d0158c7482205d7eb5ccb35a143fcb1879ec53260abd26a75ca511",
+  "audit/calibration-c7/images/cal-r3-img-05.webp": "6fb88b45f15b8657363c6a632d81d8dd612b9ccf6326ad1a88942f15d7e69be4",
+  "audit/calibration-c7/images/cal-r3-img-06.webp": "9f99279eb6930f2670f475b0c756e3721058f971c7ad12c1847195358fcf49ff",
+  "audit/calibration-c7/images/cal-r3-img-07.webp": "f47e148f237901ad92ea5f8177326e25bfebba23bc10b616bd6f9079e77129c6",
+  "audit/calibration-c7/images/cal-r3-img-08.webp": "cdba710e7ab355ce24193a918c91cfda68674b580026a8d958e6ae04e47899c3",
+  "audit/calibration-c7/images/cal-r3-img-09.webp": "c6aab29e905dd313ad2a0030f9c125f6ab7b49066f89abe5a95766fe3269c5fd",
+  "audit/calibration-c7/images/cal-r3-img-10.webp": "10d5e94093fc2b49ecc8a35cca4f4f2c12f5b21ff95dc353aea00f9ca37b723b",
+  "audit/calibration-c7/images/cal-r3-img-11.webp": "321c56b4115336011888165cd09be77c88fa1ec080b293ee4cc4e27a17dbee10",
+  "audit/calibration-c7/images/cal-r3-img-12.webp": "b40d36b8ca0a68b394895ab1500c7639ac20bdc75899bab27485060af136f31a",
+  "audit/calibration-c7/images/cal-r3-img-13.webp": "179ff7365528df3afa472846e9b39593e0ba5b4fc22fcbe013d2b5ab524ce76b",
+  "audit/calibration-c7/images/cal-r3-img-14.webp": "f9d8d63ca8c3f27a0c0d0949483a81a7a74265a0120f51dc004da2334a54d50d",
+  "audit/calibration-c7/images/cal-r3-img-15.webp": "e0d375b3ee5a06e4e7dafaed308f95fe062b1e30096b1cbe05e47a18a73954a3",
+  "audit/calibration-c7/images/cal-r3-img-16.webp": "8844fe0287bb72d505ebad20c639c791b1cbd797893d01be5169d0b776aa77cb",
+  "audit/calibration-c7/images/cal-r3-img-17.webp": "28db647b7e0ce6f757f7a7fb28044e7b9e0d17fd7553e3e5e42c6908dace0f69",
+  "audit/calibration-c7/images/cal-r3-img-18.webp": "dab5ec68d52c68d252f90ace623215d621f9d5b230b442ab09ac6897b859f2f1",
+  "audit/calibration-c7/images/cal-r3-img-19.webp": "8af5932969be88ce2d8d844bd0f97cb2d51f2400c80e0a9bd53d58cff49257b6",
+  "audit/calibration-c7/images/cal-r3-img-20.webp": "cf9d0fdcfe0cf068b339a4c3166cfdfa4f76ca0862daece21c0a11bc83304ba2",
+  "audit/calibration-c7/images/cal-r3-img-21.webp": "cbd73b55c47e3a119023daa1445fc2ba9152ee6378af80374f4f447c21367c94",
+  "audit/calibration-c7/images/cal-r3-img-22.webp": "abd6085946eb5c48a8452f204c73127dfdbfd0906965f4f382755a5da9cf6033",
+  "audit/calibration-c7/images/cal-r3-img-23.webp": "271d25cb29805a293fde4a140f261ad0a2b62ce9d3160227017abd7077d8f99a",
+  "audit/calibration-c7/images/cal-r3-img-24.webp": "da6a8ee3912faa2cf5b7cb3bf4f77c968c1e5a26c4a41ba89e4210fd9c7d7960",
+  "audit/calibration-c7/images/cal-r3-img-25.webp": "498d3baf4fd9c0a06962d2615452700ac511c10d1a2682aebb6b29ccc226123e",
+  "audit/calibration-c7/images/cal-r3-img-26.webp": "04f6cdf9b476f4350caf299a041b803aef697c96006cd39f91bff918b726c034",
+  "audit/calibration-c7/images/cal-r3-img-27.webp": "92915f253d5012cbb3bfee199129aed7ffa8150a867b263557c7818dad55c871",
+  "audit/calibration-c7/images/cal-r3-img-28.webp": "ecaa0c88d6e2221cf13bce70ecee897c243193397d146dba5839a7785d44c6d0",
+  "audit/calibration-c7/images/cal-r3-img-29.webp": "7162df09fdcd18be94e4063dd5470c178a1ee52984fd071f5eab157ab0163711",
+  "audit/calibration-c7/images/cal-r3-img-30.webp": "41ddcd982f12547589dcc9f3463acc89f1cffc18bbf2ff135a52cd0bbbbba079",
+  "audit/calibration-c7/images/cal-r4-img-01.webp": "72daea91ed98d2da92d49a1f3555fa397e0a7d58f1edc985aba6cd2d389a9028",
+  "audit/calibration-c7/images/cal-r4-img-02.webp": "fc3dffaf43cc70e74b313cab578f7f473afb24fb5c29e6dfd2a6a4606938b755",
+  "audit/calibration-c7/images/cal-r4-img-03.webp": "011b80afa92656b3b50155b5b0543614f17e702cee64a7eaaa6c5b1061357382",
+  "audit/calibration-c7/images/cal-r4-img-04.webp": "48fe26fd4595ef4e7d14c768fe3ad937b04e65f1ad8644b7765ff6fce50fd8dc",
+  "audit/calibration-c7/images/cal-r4-img-05.webp": "9e4c0305f4304a623c23ee6b9cb33a421cf5052216d831760f1e491c70c75bd6",
+  "audit/calibration-c7/images/cal-r4-img-06.webp": "48a39081228be5144b970b435d5b74b0ff73dbabbafad6edbd188baeb3492e93",
+  "audit/calibration-c7/images/cal-r4-img-07.webp": "125365cacc78fae3e004672a6d987d30787aad5dcc06732eb0e343005aee663e",
+  "audit/calibration-c7/images/cal-r4-img-08.webp": "b7673ac64e7f93727af2d378fc77e1bd35d6c4c58c385a6f37372403b8fbea89",
+  "audit/calibration-c7/images/cal-r4-img-09.webp": "225e11511180a70e346294238d00b503bc2e2c545c257d721196bb3487c94d89",
+  "audit/calibration-c7/images/cal-r4-img-10.webp": "0035be1d62fa399a08bf5614a0b999082db175b48a9709dc74072a8288dae9dd",
+  "audit/calibration-c7/images/cal-r4-img-11.webp": "f7d8823bb3a643b76339323f1c8511258a13305bdd6b108ff79175c88c04d6b4",
+  "audit/calibration-c7/images/cal-r4-img-12.webp": "50bc238df1fbd1345fedfaa1ed2c10b3c7951f9ccdc6919f6df13735abe69003",
+  "audit/calibration-c7/images/cal-r4-img-13.webp": "9048efe6164df1e16d67bfdb1d877ce6cd9042151613b629fc30aa8fc222e828",
+  "audit/calibration-c7/images/cal-r4-img-14.webp": "d0b6d5c24967e6009fc20d96de24ae4ccabd04b5d833f1147ee27fc45f56a485",
+  "audit/calibration-c7/images/cal-r4-img-15.webp": "a60c98a785f4c5ba06e199bb6f318b2062ece98a75eb52cb1b82aae1683777dd",
+  "audit/calibration-c7/images/cal-r4-img-16.webp": "87723a5460a1820da37af395855ae4d2c6cfc0eada255d6cf68db2b3dacea118",
+  "audit/calibration-c7/images/cal-r4-img-17.webp": "b9fce2c550f4edf488bc95a33e3bc54311d1d8a09ce8b75b248359fd561abab3",
+  "audit/calibration-c7/images/cal-r4-img-18.webp": "dd9de434fa6b7202917cb8ca793daadb543cb45818d1dae9a312e44efe3c5266",
+  "audit/calibration-c7/images/cal-r4-img-19.webp": "8ff09b461991d169f5b1dc7756258c21c8b91cd9d9ab4221eb6690fa902f7a05",
+  "audit/calibration-c7/images/cal-r4-img-20.webp": "ee8649290db5194295b306d2aa29c53d7761daeb9e4202883c4851e3311c5789",
+  "audit/calibration-c7/images/cal-r4-img-21.webp": "8b9b47a2b7544ceb750f02baaf64984484f37fb2a6e790eb950ecbc4691062ef",
+  "audit/calibration-c7/images/cal-r4-img-22.webp": "be63a8488ba76f0e58a62612802341e338fed4fb648d3e6293a834919916cfc2",
+  "audit/calibration-c7/images/cal-r4-img-23.webp": "8e4bc544773c775e9b56d4d99047ca9de00bf6f9e8cc7ee21bb3732d9af191a9",
+  "audit/calibration-c7/images/cal-r4-img-24.webp": "7ca651f88046d0c5096d1e1f36b8465608ef9bf91982f1442b87ef84a9ae1858",
+  "audit/calibration-c7/images/cal-r4-img-25.webp": "c55b15dbf4dea3aff5f530d2aeb28167609343d9e13f85c22dcbfc32bc515e3b",
+  "audit/calibration-c7/images/cal-r4-img-26.webp": "d0e3ebdc0cabfb55b9fe282fbf625439b7178e8f68a7453d9c55531870191e34",
+  "audit/calibration-c7/images/cal-r4-img-27.webp": "3638c5fa3c5c504058f055abb6da88d2ce3dbe47e84e9798d744e59943f4523b",
+  "audit/calibration-c7/images/cal-r4-img-28.webp": "33fe627a5a7db2f0372602ed8c40fc0373442a5288d0a953ae700979d36ae747",
+  "audit/calibration-c7/images/cal-r4-img-29.webp": "673c3b58e45d5469f4aceced627b7ced93bc9deca0d48e07e90fb66192d1e7cc",
+  "audit/calibration-c7/images/cal-r4-img-30.webp": "767f535278ec7b20b2122020c106dadb1e52b54aafa4d8453c7686cc853c6133",
+  "audit/calibration-c7/images/cal-r7-img-01.webp": "f9d38e25f1a7718e59d3f397ef97a9e28d7612a254a4097f7177231c547a8f61",
+  "audit/calibration-c7/images/cal-r7-img-02.webp": "baaa07c4fbf81abd329a0898d994fa7d1af8c81680f053d04d525c9160ea0fe7",
+  "audit/calibration-c7/images/cal-r7-img-03.webp": "d53d1a54b888f8fcb65f1aaaddf6ccf33d78a6683f76cba899ef665a1ee19c08",
+  "audit/calibration-c7/images/cal-r7-img-04.webp": "4c879776baf2345955e079b5bce858a355309763513f21a3030e67accfaebd11",
+  "audit/calibration-c7/images/cal-r7-img-05.webp": "f5b19cf2f7081ccc1ade771834b6894d79a58b5eb4c457b3bfba0593756f865b",
+  "audit/calibration-c7/images/cal-r7-img-06.webp": "d181ef257716b52eff72488934e17635c2457a645832904b08786dd7d0bcb7e2",
+  "audit/calibration-c7/images/cal-r7-img-07.webp": "14ec65abc9afbb28f13b57ebb01b502098690fc76eda8cb55fe74459381f3022",
+  "audit/calibration-c7/images/cal-r7-img-08.webp": "80434914a58337c9dd068973105de03781ac8497f4ab3ee82375a0fd3c0c4289",
+  "audit/calibration-c7/images/cal-r7-img-09.webp": "fed382e077fc699bab7f76609b02f9bdbfe20e76cb9b034288bd451255f50c84",
+  "audit/calibration-c7/images/cal-r7-img-10.webp": "752ff5c2f12dec790468c01736e5ef60bf504fa3b7d7d2461cb9de54285d1cf8",
+  "audit/calibration-c7/images/cal-r7-img-11.webp": "51436d828a803c449e520c0ed3cfd4a57aa22a2a16bb9990b5349dad3c419527",
+  "audit/calibration-c7/images/cal-r7-img-12.webp": "6531f074ab6f10b0b20cd3e9b45d1bd613a715fa975b3780795c0609e2d43e0d",
+  "audit/calibration-c7/images/cal-r7-img-13.webp": "0c995b3fe173cdeb35119a107bfedd257d19ee98a46724abcda4994538453359",
+  "audit/calibration-c7/images/cal-r7-img-14.webp": "95f8f345c817894696f61e1f113316f807ba8ce9b75274fc7b6a9ba5d57f2db9",
+  "audit/calibration-c7/images/cal-r7-img-15.webp": "28c4b00d36eb3309de5794c8baf795e65ab44525bfe0e7f780f275068498983b",
+  "audit/calibration-c7/images/cal-r7-img-16.webp": "74d3efbff8bed41d5d3c453a63f3b37ef4e74d55cd16e86972c1f0377292a2e2",
+  "audit/calibration-c7/images/cal-r7-img-17.webp": "91b4ef693735d866de257aab576f8a83ae5744a830616b4dc8df4383d61f6e9d",
+  "audit/calibration-c7/images/cal-r7-img-18.webp": "88ad2c2cee57a9920faeb9a0db7f5f96c01a2c6ea06308a2294e23081c256816",
+  "audit/calibration-c7/images/cal-r7-img-19.webp": "0a07f50da78ad94b5eb6a3a4f9c6a839cf01c1bbd6785c29c55fed9aa6ddd41f",
+  "audit/calibration-c7/images/cal-r7-img-20.webp": "30778ceffcfd1dab4a0f3dae82aa6b011ad9c0ffac398c06bf3bed7fe3e082f2",
+  "audit/calibration-c7/images/cal-r7-img-21.webp": "ebec7a6fd8ec6f4bd142e2da65f13de5f763a525e6ad0d611454b640089dcc36",
+  "audit/calibration-c7/images/cal-r7-img-22.webp": "76eba3f33a859430c378dcdffbcb3c2e05caf1bafbcd53b8b95f05f1a8fa7cf2",
+  "audit/calibration-c7/images/cal-r7-img-23.webp": "fe3d0fffe9be5b96c54d4d3f1f9fff916768d55d2062fd85ae03b4aa0de9310a",
+  "audit/calibration-c7/images/cal-r7-img-24.webp": "cffb1addef9be240df2b1fe0392d3c5ea23338ce603a7f56a89c8aecf462e978",
+  "audit/calibration-c7/images/cal-r7-img-25.webp": "697b0b5215188e6c742fe8231a3ae82c8c7c6f98f9a82d571932895997c84c25",
+  "audit/calibration-c7/images/cal-r7-img-26.webp": "9ab407ef4958d349532ba560e331681c7f93a9b47fd8b0a25c06dfd548d5e99f",
+  "audit/calibration-c7/images/cal-r7-img-27.webp": "e986798a9da43b0b46463d9fe5478baf8d8fa2359a59402aa9efe79a6b2d94dd",
+  "audit/calibration-c7/images/cal-r7-img-28.webp": "a8593b26b7be50b3b10a031447f54b8c18efddb4c6d29408cca280637565282d",
+  "audit/calibration-c7/images/cal-r7-img-29.webp": "b36138fcb926bafaa0311ae72a830e01882780119e7212c6c15141cf2d4ec048",
+  "audit/calibration-c7/images/cal-r7-img-30.webp": "946c7309faf9a9ca55ad44ec0aa2e54a6136c8977e85cdd481f78c5795354175",
+  "audit/calibration-c7/images/cal-r8-img-01.webp": "e9703f85f9e7f62a0acbd59e4bd4fcd56ee750681abdc0f3ef96a6431b25785b",
+  "audit/calibration-c7/images/cal-r8-img-02.webp": "a5a965416de47a528465792866162400ed368ec68149b154de15fdcd84f9507b",
+  "audit/calibration-c7/images/cal-r8-img-03.webp": "210c751e74be37302f7221e2010356eea602986039002b79fe3d5575b007ffa6",
+  "audit/calibration-c7/images/cal-r8-img-04.webp": "d9efb341160fe7636cca035de9e1c9c041afac5bd22284dd1fbd58f5a04c4c04",
+  "audit/calibration-c7/images/cal-r8-img-05.webp": "c198d1881ba1c4016145321cd62ebbcdb2eae781d0c3819c77ed9611dbed8506",
+  "audit/calibration-c7/images/cal-r8-img-06.webp": "ec4a262e5772db0208701f7b86e8b83a95500bd2278dab06db14c7e37aa2678d",
+  "audit/calibration-c7/images/cal-r8-img-07.webp": "05027111bf16af12617c0204c4b6a7a2779adbd950da9d4c0521fd7e94025899",
+  "audit/calibration-c7/images/cal-r8-img-08.webp": "b314647269d9984742bbb1159e0a66e21b2fd1185293ac47957e09c49b052f08",
+  "audit/calibration-c7/images/cal-r8-img-09.webp": "87fde23663dea9725dc0efb42f032c68598114265f53033fa02def528e890b03",
+  "audit/calibration-c7/images/cal-r8-img-10.webp": "33681acfa6a4008140a94a6b9383a1955dcad535651fdafc0d879b7e9e7e1f41",
+  "audit/calibration-c7/images/cal-r8-img-11.webp": "2de8ce7e875e98ef840fd6f288f61decba2f13928c8e1b6a1acfabb7edc00911",
+  "audit/calibration-c7/images/cal-r8-img-12.webp": "3e7370ca18201d4d29a16e5f26ad6f17470a9045962cb390ad0b1ffdfceca324",
+  "audit/calibration-c7/images/cal-r8-img-13.webp": "f0bbce47b0a5ae2ee643654531a834361c98890c36859cd741b98b47bb31762c",
+  "audit/calibration-c7/images/cal-r8-img-14.webp": "7902fe85cb41c53d9494e04338903733c34e8589e4c63824a4e7bc5b527f0637",
+  "audit/calibration-c7/images/cal-r8-img-15.webp": "74b607c2f8e18fab1c5f3adfbbe5da104592437e9e044c0905b38b2bda45f7ad",
+  "audit/calibration-c7/images/cal-r8-img-16.webp": "2ffe92f776dc5994c4e29d776d46654c152cd532a3f797268b636021d1d1eb8e",
+  "audit/calibration-c7/images/cal-r8-img-17.webp": "6e83528ddc6cc60f3f02fcd3be5f1bf953469d6152c7488cf4597144326aeb9f",
+  "audit/calibration-c7/images/cal-r8-img-18.webp": "eb073fce30590d96fdce53c19fd46d7b17dd44214dd3767b9d8add5e44b9fddf",
+  "audit/calibration-c7/images/cal-r8-img-19.webp": "003f4f8ebc6b8577c2dc07ea74080a30aac54992ddf8607a5e61a4a64c0b30d8",
+  "audit/calibration-c7/images/cal-r8-img-20.webp": "25e2d7d8259b2cf8dd42bff589581dd84239aead8b836ba2b54949a6248ccdd1",
+  "audit/calibration-c7/images/cal-r8-img-21.webp": "ef921e5c719b2addbce19fef49c52d87d192e89bce3a11e42fb4ca33ab4a13cd",
+  "audit/calibration-c7/images/cal-r8-img-22.webp": "746e06b676a60dfc3b9531a5a7934f8c67fb0dc08d97183f7e188c2b0746d6bc",
+  "audit/calibration-c7/images/cal-r8-img-23.webp": "8cc24c2cc183b398624c7e30588ffd03121b32a9c145c90e2031041758b2a713",
+  "audit/calibration-c7/images/cal-r8-img-24.webp": "3b4f6fe599d023d148763b5c545e1412e6dec5459a01906808fbc6642ed188df",
+  "audit/calibration-c7/images/cal-r8-img-25.webp": "7fe110e2828e7de11d59f683957379db0fc0fe8448439c4309ccae1d6e2a9bbd",
+  "audit/calibration-c7/images/cal-r8-img-26.webp": "4734b9cb07754afd0abf6221a83e0933c68ba104ea8569b897b82dd9f67ca459",
+  "audit/calibration-c7/images/cal-r8-img-27.webp": "2e00fb05dcd473b1e981488dd0e0b5a933f52b079251d23df25198c6ec242415",
+  "audit/calibration-c7/images/cal-r8-img-28.webp": "52c6de0521f5fd439721eca986ebca952405502d90500a0d57f76257422b7d8d",
+  "audit/calibration-c7/images/cal-r8-img-29.webp": "05e2b5fe32f95d9ed9290eaf9b84df3ce439fbee5774c5d9b99b9689e7a904c4",
+  "audit/calibration-c7/images/cal-r8-img-30.webp": "9abc8d2079aa854abff6208a2dfbce564977b48d853f1c9e6e0f82f8cfab0c80"
+ },
+ "builtAt": "2026-11-02T15:18:55.719Z"
+}
