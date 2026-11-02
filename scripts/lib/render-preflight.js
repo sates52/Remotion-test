@@ -307,7 +307,7 @@ function readQuality({ root, slug, preview }) {
  * applies an explicit accept if given, checks worker compatibility, prints one summary, and records the facts.
  * Returns { ok, mode, decision, record }. Callers exit when !ok.
  */
-function preflight({ root, slug, engine, method, mode, acceptReason = null, authorizeReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe, credentialCall = null }) {
+function preflight({ root, slug, engine, method, mode, acceptReason = null, authorizeReason = null, skipFirewall = false, configFile, requireMasteredAudio = false, probe, credentialCall = null, dryRun = false }) {
   const hashFile = configFile ? path.resolve(root, configFile) : null;
   const hash = hashFile ? configHash(hashFile) : null;
   const inputHash = hashFile ? inputHashOf(hashFile) : null;
@@ -368,7 +368,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, auth
   if (method === "github" && !requireMasteredAudio) {
     const RA = require("./render-accounts");
     try {
-      const acc = RA.loadAccounts(root);
+      const acc = RA.loadAccounts(root, { alsoCheck: [path.join(__dirname, "..", "..")] });
       cred = RA.verifyAccess(acc, root, credentialCall ? { call: credentialCall } : {});
       if (!cred.usable) blockers.push(`credentials: no usable render worker — ${RA.summary(cred)}`);
     } catch (e) { cred = { error: e.code || "CREDENTIALS" }; blockers.push(`credentials: ${e.code || "CREDENTIALS"} — ${e.message}`); }
@@ -413,6 +413,8 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, auth
   }
   console.log("───────────────────────────────────────────────────────────────\n");
 
+  // --dry-run (cycle 7): the check runs and prints, but leaves no preflight fact behind (a dry run is not a render)
+  if (dryRun) return { ok, mode, decision: ev.decision, record: null };
   const record = appendFacts(root, slug, {
     kind: "preflight", mode, commit, configHash: hash, renderInputHash: inputHash,
     ...(audio ? { audio: { ok: audio.ok, detail: audio.detail } } : {}),

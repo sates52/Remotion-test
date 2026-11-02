@@ -47,7 +47,20 @@ function inputDispatched(stateFile, inputHash) {
   if (!s || !inputHash || s.renderInputHash !== inputHash) return null;
   const segs = s.segments || [];
   if (!segs.length || !segs.every((g) => g.dispatchedAt || g.dispatchedSha)) return null;
+  // cycle 7: a state written since run confirmation existed (runsConfirmedAt key present) needs every segment's run id
+  if ("runsConfirmedAt" in s && !segs.every((g) => g.runId)) return null;
   return { renderInputHash: inputHash, dispatchedAt: s.dispatchedAt, segments: segs.length, bundleSha: s.bundleSha || null };
 }
 
-module.exports = { takeRunLock, renderInFlight, pidAlive, inputDispatched };
+// LOCAL production renders (operator-approved, cycle 7): the start is recorded per render input, so neither a second local
+// run nor a GitHub dispatch renders the same input again without the operator's --new-render.
+function recordLocalStart(file, { renderInputHash, approval = null, frames = null }) {
+  fs.writeFileSync(file, JSON.stringify({ method: "local", renderInputHash: renderInputHash || null, startedAt: new Date().toISOString(), pid: process.pid, host: os.hostname(), frames, approval }, null, 2) + "\n");
+}
+function localStarted(file, inputHash) {
+  const s = readJSON(file);
+  if (!s || !inputHash || s.renderInputHash !== inputHash) return null;
+  return { method: "local", startedAt: s.startedAt, renderInputHash: inputHash };
+}
+
+module.exports = { takeRunLock, renderInFlight, pidAlive, inputDispatched, recordLocalStart, localStarted };

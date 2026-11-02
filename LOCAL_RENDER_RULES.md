@@ -24,7 +24,8 @@
    - **Yeni Hesap Ekleme Rehberi**: Kullanıcı yeni hesap eklemek istediğinde adımlar [NEW_RENDER_ACCOUNT_GUIDE.md](file:///c:/Users/savas/Cursor/Remotion/test/NEW_RENDER_ACCOUNT_GUIDE.md) dosyasından sunulur.
 
 3. **Varsayılan Render Yöntemi**:
-   - Yöntem belirtilmediğinde veya pipeline normal çağrıldığında **varsayılan yerel mikro-chunk render** (`--method=local`) çalışır.
+   - **Varsayılan yöntem YOK (2026-11-02).** `--method` verilmezse render.js hiçbir şey çalıştırmadan çıkar (exit 2). Üretim render'ı = `--method=github`
+     (kitap worktree'sinden: launcher + `--book-root`). Ayrıntı ve gerekçe: `docs/AGENT-OPERATING-CONTRACT.md` §7b.
 
 ---
 
@@ -64,8 +65,10 @@ node scripts/render.js --slug=single-dad-dilemma --method=github --worker=worker
 
 ### B. Yerel Render (Local Micro-Chunking)
 ```bash
-# 400 frame mikro-chunking ile güvenli yerel render (varsayılan)
-node scripts/render.js --slug=single-dad-dilemma --method=local
+# Yalnız kısa test klibi (≤ 1800 frame) — out/<slug>.frames-a-b.mp4, asla film adı değil:
+node scripts/render.js --slug=<slug> --method=local --frames=0-899
+# Tam uzunlukta yerel üretim render'ı YALNIZ operatörün ayrı onayıyla:
+# node scripts/render.js --slug=<slug> --method=local --operator-local-production="<operatörün kendi sözleri>"
 ```
 
 ### C. AWS Lambda Render

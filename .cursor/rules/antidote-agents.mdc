@@ -11,6 +11,9 @@ Read `AGENTS.md` (the router) and `docs/AGENT-OPERATING-CONTRACT.md` before any 
 invariants that bind every agent). Procedures live once, in `.claude/skills/<name>/SKILL.md` — read the file the
 router names and follow it; this rule never restates them.
 
+Production render: `docs/AGENT-OPERATING-CONTRACT.md` §7b (enforced in code) — `--method=github` from current tools via the
+launcher + `--book-root`; never a book worktree's own `render.js`; no local fallback; never copy `render-accounts.json`.
+
 Cursor specifics:
 - Production decisions come from commands, not from this text: `node scripts/preview-state.js status --slug=<slug>`
   (next action / stop), `production-guard` refusals (exit 2), one-run locks (exit 3). Follow what they print.

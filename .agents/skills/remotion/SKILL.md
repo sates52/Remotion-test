@@ -692,11 +692,13 @@ node scripts/render.js --slug=<slug> --method=github
 # Specify a specific worker:
 node scripts/render.js --slug=<slug> --method=github --worker=worker2
 
-# Default local micro-chunk render (400-frame chunks):
-node scripts/render.js --slug=<slug> --method=local
+# Local: ONLY a short test clip (≤ 1800 frames, written as out/<slug>.frames-a-b.mp4) — production is --method=github:
+node scripts/render.js --slug=<slug> --method=local --frames=0-899
+# A full-length local render needs the operator's own separate approval (docs/AGENT-OPERATING-CONTRACT.md §7b):
+# node scripts/render.js --slug=<slug> --method=local --operator-local-production="<the operator's words>"
 
-# AWS Lambda render:
-node scripts/render.js --slug=<slug> --method=lambda
+# AWS Lambda render (operator approval required, same flag):
+# node scripts/render.js --slug=<slug> --method=lambda --operator-local-production="<the operator's words>"
 ```
 
 ---
@@ -706,7 +708,7 @@ node scripts/render.js --slug=<slug> --method=lambda
 For videos >15 minutes (typically 20,000+ frames), Chrome headless will leak memory locally and eventually crash with `Exit Code 1` / `Maximum call stack size exceeded`.
 
 **The Solution: Micro-Chunking**
-1. Use the `local_chunk_renderer.js` script to process the video in chunks of **400 frames** (or `node scripts/render.js --method=local`).
+1. A full-length LOCAL render is a production render: only with the operator's `--operator-local-production="<words>"` (`local_chunk_renderer.js` / `render.js --method=local`; docs/AGENT-OPERATING-CONTRACT.md §7b). Production renders run on the GitHub pool.
 2. **CRITICAL Remotion v4 CLI change**: Do not use `--from` and `--to`. These flags are ignored and will cause OOM crashes! ALWAYS use `--frames=start-end`.
    - Correct: `npx remotion render MyComp out.mp4 --frames=0-399 --concurrency=1`
    - Incorrect: `npx remotion render MyComp out.mp4 --from 0 --to 399`

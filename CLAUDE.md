@@ -196,6 +196,11 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 
 ## The multi-worker GitHub render pool (quick map)
 
+- **Production render contract (every harness, enforced in code since 2026-11-02):** `docs/AGENT-OPERATING-CONTRACT.md` §7b —
+  `--method=github` is required (no default), a book worktree's own old `render.js` is never run (launcher + `--book-root`),
+  no local fallback, heavy local renders only with `--operator-local-production="<operator's words>"`, credentials only
+  from the main checkout (copies refused), "started" only with real run ids.
+
 - `node scripts/render.js --slug=<slug> --method=github` → round-robins workers from
   `render-accounts.json` and dispatches `render-video.yml` on each.
 - **A render pushes an ISOLATED PER-BOOK BUNDLE, never the shared branch.**

@@ -32,6 +32,10 @@ of Margery Kempe planned a local download + ffmpeg concat because its pinned che
     only the command it prints (cloud assembly, or a segment rescue with the same `--book-root`).
   - It refuses a book worktree whose HEAD is not its pin, or that has tracked engine changes. A regenerated
     `src/books.generated.ts` is fine.
+- The code enforces the production render contract (`docs/AGENT-OPERATING-CONTRACT.md` §7b): `--method` is required
+  (no default), unknown flags exit 2, a checkout behind origin cannot start a production render, a worktree copy of
+  `render-accounts.json` is refused, and "dispatched" is printed only when every segment's run id is seen — a
+  `NOT CONFIRMED` line means the render did NOT start: run `render-status.js` and only the command it prints.
 - The same render input is never dispatched twice: a repeat after a complete dispatch is refused (exit 3). A
   deliberate new render is the operator's `--new-render="<reason>"`.
 

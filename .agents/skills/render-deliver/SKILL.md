@@ -9,3 +9,5 @@ description: >
 This is the Antigravity entry for the shared procedure. The text is `.claude/skills/render-deliver/SKILL.md`
 (the same file every harness reads) — read it fully. Operating rules for every agent: `docs/AGENT-OPERATING-CONTRACT.md`.
 When anything is unclear about a render, run `node scripts/render-status.js --slug=<slug>` and do only the command it prints.
+Production render contract (enforced in code): `docs/AGENT-OPERATING-CONTRACT.md` §7b — `--method=github` is required, never
+run the book worktree's own `scripts/render.js`, never fall back to a local render, never copy `render-accounts.json`.

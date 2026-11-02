@@ -73,6 +73,8 @@ Do not re-derive these from prose — run the command and follow what it prints.
   already under way keeps its pinned SHA when origin moves.
 - **READY / HAZIR:** only when `preview-state.js status` prints `READY` — `preview-ready.js` recorded a PASS for the
   current config after the last mute tally. Studio opening is not READY.
+- **Production render (every harness):** `docs/AGENT-OPERATING-CONTRACT.md` §7b — `--method=github` from current tools
+  (launcher + `--book-root`), never a book worktree's own `render.js`, no local fallback, no token-file copies.
 - **One long job at a time:** a second `mute-test.js prep` of the same label, or a second `render.js` of the same book,
   refuses while the first runs (exit 3); a split render still in flight is not dispatched again (rescue:
   `render-github-redispatch.js`). Never cancel and restart a running prep or render.

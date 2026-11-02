@@ -50,6 +50,23 @@ if (args.help || args.h) {
   process.exit(0);
 }
 
+// UNKNOWN FLAGS ARE REFUSED (cycle 7, 2026-11-02): `--dry-run` and `--split` were silently ignored on 2026-10-31 and an
+// intended dry run became a 186-chunk local production render (scripts/lib/render-entry-guard.js).
+{
+  const KNOWN = new Set(["accept-quality-debt", "account", "authorize-render", "book-root", "chunk-size", "cloud-no-download", "composition",
+    "concurrency", "config", "dry-run", "frames", "h", "help", "lambda", "legacy-push", "local-assemble", "local-fallback", "method",
+    "new-render", "no-split", "no-wait", "operator-local-production", "poll-interval", "preview-only", "push-concurrency", "region",
+    "seg-frames", "segments", "semantic-review", "site-name", "skip-authorship-gate", "skip-narrative-firewall", "skip-verify", "slug",
+    "wait", "worker"]);
+  const unknown = Object.keys(args).filter((k) => !KNOWN.has(k));
+  const loose = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+  if (unknown.length || loose.length) {
+    console.error(`❌ render.js: ${unknown.length ? `unknown flag(s) ${unknown.map((k) => "--" + k).join(", ")}` : ""}${unknown.length && loose.length ? "; " : ""}${loose.length ? `stray argument(s) ${loose.join(" ")}` : ""} — nothing ran. See node scripts/render.js --help.`);
+    process.exit(2);
+  }
+}
+const DRY_RUN = !!args["dry-run"];
+
 // --book-root (2026-10-30): render a book from ITS pinned worktree with THIS checkout's tools. The bundle (engine code +
 // book) is built from the book root, so the pinned engine renders it; credentials (lib/render-accounts.js, read in place
 // from the shared git dir), the pre-dispatch check, the operator's authorization and the dispatch come from here.
@@ -80,7 +97,11 @@ Seçenekler:
   --slug=<slug>               Kitap / proje slug'ı (örn: sway, single-dad-dilemma)
   --config=<dosya>            Özel config json yolu (örn: books/sway/config.vox.json)
   --composition=<id>          Özel composition id (örn: Vox-sway, Antidote-clear-thinking)
-  --method=<yöntem>           Render yöntemi: local | lambda | github (VARSAYILAN: local)
+  --method=<yöntem>           ZORUNLU (varsayılan yok): github = üretim (GitHub render havuzu) · local = yalnız kısa test
+                              klibi (--frames, ≤ 1800 frame) ya da operatörün ayrı onayıyla · lambda = operatör onayıyla
+  --operator-local-production="<operatörün kendi sözleri>"  ağır local / lambda üretim render'ı için AYRI operatör onayı
+                              (kalite borcu ya da render yetkisi metni yerine geçmez)
+  --dry-run                   tüm kontrolleri çalıştırır; hiçbir şey render etmez, dispatch etmez, kaydetmez
   --chunk-size=<sayı>         Her chunk'taki frame sayısı (local için, varsayılan: 400)
   --concurrency=<sayı>        Eşzamanlı render worker sayısı (local için, varsayılan: 4 veya render.concurrency)
   --frames=<başla-bitir>      Belirli frame aralığını render et (örn: 0-1999)
@@ -130,7 +151,20 @@ Seçenekler:
 let slug = args.slug;
 let configFile = args.config;
 let composition = args.composition;
-const method = (args.method || "local").toLowerCase();
+const method = String(args.method || "").toLowerCase();
+// THE ENTRY GUARD (lib/render-entry-guard.js): no default method, no heavy local / Lambda render without the operator's
+// own --operator-local-production, short --frames test clips and the genuine render runner stay free.
+const entryGuard = require("./lib/render-entry-guard");
+const START = entryGuard.checkRenderStart({
+  method, frames: args.frames || null,
+  operatorLocal: typeof args["operator-local-production"] === "string" ? args["operator-local-production"] : (args["operator-local-production"] ? "" : null),
+  otherApprovals: [args["accept-quality-debt"], args["authorize-render"]],
+});
+if (!START.ok) { console.error(`❌ ${START.error}`); process.exit(2); }
+if (DRY_RUN && (typeof args["accept-quality-debt"] === "string" || typeof args["authorize-render"] === "string" || START.kind === "operator-local-production")) {
+  console.error("❌ --dry-run records nothing: run it without --accept-quality-debt / --authorize-render / --operator-local-production (those are the operator's decisions, recorded only by a real run).");
+  process.exit(2);
+}
 
 // If config path given without slug, extract slug
 if (configFile && !slug) {
@@ -166,18 +200,10 @@ if (slug && !configFile) {
   }
 }
 
-// Default fallback if nothing specified
+// Nothing specified = nothing rendered (cycle 7: this used to fall back to single-dad-dilemma silently)
 if (!configFile && !composition) {
-  const defaultSlug = "single-dad-dilemma";
-  const defPath = `books/${defaultSlug}/config.vox.json`;
-  if (fs.existsSync(path.join(ROOT, defPath))) {
-    slug = defaultSlug;
-    configFile = defPath;
-  } else {
-    console.error("❌ Hata: Render edilecek bir --slug veya --config belirtilmedi.");
-    printHelp();
-    process.exit(1);
-  }
+  console.error("❌ Hata: Render edilecek bir --slug veya --config belirtilmedi (varsayılan kitap yok).");
+  process.exit(1);
 }
 
 let configData = null;
@@ -199,7 +225,21 @@ if (!composition) {
 if (!slug && meta.slug) slug = meta.slug;
 if (!slug) slug = composition.toLowerCase();
 // Which code renders this? Stops on code that is not a commit (scripts/lib/production-guard.js).
-require("./lib/production-guard").productionGuard({ slug, step: "render", root: BOOK_ROOT });
+require("./lib/production-guard").productionGuard({ slug, step: DRY_RUN ? "render (dry-run)" : "render", root: BOOK_ROOT });
+// OLD TOOLS NEVER START A PRODUCTION RENDER (cycle 7): a checkout behind origin/god-mode carries older guards (the
+// 2026-10-31 render ran a pinned render.js 39 commits behind, whose method defaulted to local). Test clips and the render
+// runner are not production; the operator can override with PRODUCTION_ALLOW_BEHIND="<reason>".
+{
+  const tools = require("./lib/production-guard").codeState(ROOT);
+  const cur = entryGuard.checkToolsCurrent(tools, { kind: START.kind });
+  if (cur.override) console.warn(`⚠ render.js: tools ${tools.behindOrigin} commit(s) behind origin — operator override PRODUCTION_ALLOW_BEHIND: "${cur.override}"`);
+  if (!cur.ok) {
+    console.error(`❌ render.js (${ROOT}): ${cur.error}`);
+    console.error(`   git fetch origin god-mode && git show origin/god-mode:scripts/book-start.js | node - --launcher`);
+    console.error(`   then in ../wt-production-base: node scripts/render.js --method=github --slug=${slug} --book-root=<the book's worktree>`);
+    process.exit(2);
+  }
+}
 
 const totalFrames =
   configData?.totalFrames ||
@@ -209,7 +249,7 @@ const totalFrames =
 
 const chunkSize = Number(args["chunk-size"]) || 400;
 const previewOutput = args["preview-only"] && !args.frames && !process.env.GITHUB_ACTIONS;
-const finalOutPath = path.join(BOOK_ROOT, "out", `${slug}${previewOutput ? ".preview" : ""}.mp4`);
+const finalOutPath = path.join(BOOK_ROOT, "out", method === "local" ? entryGuard.localOutputName(slug, args.frames || null, { preview: previewOutput }) : `${slug}${previewOutput ? ".preview" : ""}.mp4`);
 
 // Concurrency resolution
 const CONC_FILE = path.join(ROOT, "render.concurrency");
@@ -229,7 +269,7 @@ console.log(`   Slug        : ${slug}`);
 console.log(`   Composition : ${composition}`);
 console.log(`   Engine      : ${engine.toUpperCase()}`);
 console.log(`   Toplam Frame: ${totalFrames}`);
-console.log(`   Yöntem      : ${method.toUpperCase()}${!args.method ? " (Varsayılan: local)" : ""}`);
+console.log(`   Yöntem      : ${method.toUpperCase()} (${START.kind}${START.kind === "operator-local-production" ? `: "${START.record.reason}"` : ""})${DRY_RUN ? "  — DRY RUN: checks only, nothing renders or is recorded" : ""}`);
 console.log("═════════════════════════════════════════════════════════════════\n");
 
 // Faz 0 (2026-09-24): before every transport and both engines — a film nobody
@@ -256,6 +296,7 @@ const pre = preflight.preflight({
   skipFirewall: !!args["skip-narrative-firewall"],
   // On the render runner the "Master audio" step must have produced and wired the master: fail closed.
   requireMasteredAudio: !!process.env.GITHUB_ACTIONS,
+  dryRun: DRY_RUN,
 });
 if (!pre.ok) {
   console.error("❌ Pre-dispatch check refused the render. Nothing was dispatched.");
@@ -305,11 +346,27 @@ if (engine === "antidote" && !args["skip-narrative-firewall"]) {
 }
 
 // ── Execution Router ────────────────────────────────────────────────────────
+const dryExit = (what) => { console.log(`\n✓ DRY RUN: every check passed — a real run would ${what}. Nothing was rendered, dispatched or recorded.`); process.exit(0); };
 switch (method) {
   case "local":
+    if (DRY_RUN) dryExit(`render frames ${args.frames || `0-${totalFrames - 1}`} locally (${START.kind}) to ${finalOutPath}`);
+    // one local production per book at a time, and never the same render input twice on any method (cycle 7)
+    if (slug && START.kind === "operator-local-production") {
+      const RL = require("./lib/run-lock");
+      RL.takeRunLock(path.join(BOOK_ROOT, `.render-lock.${slug}.json`), `render ${slug}`);
+      const inputHash = configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null;
+      const newRender = typeof args["new-render"] === "string" ? args["new-render"].trim() : "";
+      const done = RL.inputDispatched(path.join(BOOK_ROOT, `.render-github-split.${slug}.json`), inputHash) || RL.localStarted(path.join(BOOK_ROOT, `.render-local.${slug}.json`), inputHash);
+      if (done && !newRender) {
+        console.error(`❌ ${slug}: render input ${inputHash} was already started ${done.dispatchedAt || done.startedAt} (${done.method || "github"}). Not rendering it twice — a deliberate new render: --new-render="<reason>" (operator).`);
+        process.exit(3);
+      }
+      RL.recordLocalStart(path.join(BOOK_ROOT, `.render-local.${slug}.json`), { renderInputHash: inputHash, approval: START.record, frames: args.frames || null });
+    }
     runLocalRender();
     break;
   case "lambda":
+    if (DRY_RUN) dryExit("render on AWS Lambda (operator-approved)");
     runLambdaRender();
     break;
   case "github":
@@ -337,7 +394,11 @@ switch (method) {
         process.exit(3);
       }
       if (fl) console.warn(`⚠ ${slug}: dispatching again within ${fl.ageMin} min — operator: ${newRender}`);
+      // a local production of the same input already started (operator-approved) is not rendered again on the pool
+      const loc = require("./lib/run-lock").localStarted(path.join(BOOK_ROOT, `.render-local.${slug}.json`), configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null);
+      if (loc && !newRender) { console.error(`❌ ${slug}: this render input was started as a LOCAL production render ${loc.startedAt}. Not dispatching it again — operator: --new-render="<reason>".`); process.exit(3); }
     }
+    if (DRY_RUN) dryExit("push the render bundle and dispatch it on the GitHub render pool");
     runGithubActionsRender();
     break;
   default:
@@ -571,7 +632,7 @@ async function dispatchSplit(safeMax) {
   // read IN PLACE from this checkout or the main checkout (lib/render-accounts.js); workers GitHub refused are out
   const RA = require("./lib/render-accounts");
   let accounts;
-  try { accounts = RA.loadAccounts(ROOT); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
+  try { accounts = RA.loadAccounts(ROOT, { alsoCheck: [BOOK_ROOT] }); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
   const workers = RA.usableWorkers(accounts, ROOT);
   if (!workers.length) { console.error(`❌ no usable render worker — ${RA.summary(RA.inspect(accounts, ROOT))}`); process.exit(2); }
 
@@ -695,6 +756,25 @@ async function dispatchSplit(safeMax) {
     console.error(`\n❌ ${dr.failed.length} segment(s) not dispatched: ${dr.failed.map((f) => `seg${f.seg} (${f.error})`).join(", ")}`);
     console.error(`   Rerun the same command: dispatched segments are not dispatched again.`);
   }
+  // 3) CONFIRM each dispatched segment by its own run id (cycle 7): an HTTP 204 is not a render. "dispatched" is said
+  //    only when every segment's run exists; the state file then holds the segment manifest with run ids.
+  const findRun = async (sg) => {
+    const w = workerOf(sg);
+    if (!w) return undefined;
+    try {
+      const { execFileSync: efs1 } = require("child_process");
+      const runs = JSON.parse(efs1("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", "30", "--json", "headBranch,createdAt,databaseId,url"],
+        { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
+      const since = new Date(sg.pushedAt || sg.dispatchedAt || 0).getTime() - 60000;
+      const hit = runs.find((x) => (x.headBranch === sg.ref || x.headBranch === `refs/heads/${sg.ref}`) && new Date(x.createdAt).getTime() >= since);
+      return hit ? { id: hit.databaseId, url: hit.url, createdAt: hit.createdAt } : null;
+    } catch { return undefined; }
+  };
+  const cr = dr.ok ? await rd.confirmRuns({ state, sha: pushSrc, save, log: (m) => console.log(m), io: { findRun } }) : { ok: false, confirmed: 0, missing: state.segments.map((g) => g.seg) };
+  if (!cr.ok) {
+    console.error(`\n❌ NOT CONFIRMED: ${cr.missing.length} segment(s) without a run on the pool (seg ${cr.missing.join(", ")}). GitHub accepting a dispatch (HTTP 204) is not a render — do not report this render as started.`);
+    console.error(`   Check: node scripts/render-status.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}   ·   rescue: node scripts/render-github-redispatch.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}`);
+  } else console.log(`✓ ${cr.confirmed} segment run(s) confirmed on the pool (run ids in ${stateFile})`);
   // whether this process saw the render through (lib/run-lock.js renderInFlight): a --no-wait dispatch, or a process
   // that died before the end, leaves segments running on the pool
   const waits = args.wait !== false && args["no-wait"] === undefined;
@@ -702,7 +782,7 @@ async function dispatchSplit(safeMax) {
   if (FOREIGN_BOOK) {
     console.log(`\n🚀 ${segs.length} segment(s) dispatched from ${BOOK_ROOT} (pinned engine). This process stops here (--book-root never waits).`);
     console.log(`   Next: node scripts/render-status.js --slug=${slug} --book-root=${BOOK_ROOT}   — then run only the command it prints (cloud assembly).`);
-    process.exit(dr.ok ? 0 : 1);
+    process.exit(dr.ok && cr.ok ? 0 : 1);
   }
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
@@ -947,7 +1027,7 @@ async function runGithubActionsRender() {
 
   const RA = require("./lib/render-accounts");
   let accounts = null;
-  try { accounts = RA.loadAccounts(ROOT); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
+  try { accounts = RA.loadAccounts(ROOT, { alsoCheck: [BOOK_ROOT] }); } catch (e) { console.error(`❌ ${e.code || "CREDENTIALS"}: ${e.message}`); process.exit(2); }
 
   const activeWorkers = RA.usableWorkers(accounts, ROOT);
   if (activeWorkers.length === 0) {

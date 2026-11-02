@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // RENDER CREDENTIALS (2026-10-29). Real case: a production render passed the preflight (GO) and failed its first GitHub
 // dispatch — render-accounts.json existed only in the main checkout, not in the book worktree; the agent copied the
-// token file into the worktree to get on. Now the pool is read IN PLACE (env -> this checkout -> main checkout via the
+// token file into the worktree to get on. Now the pool is read IN PLACE (env -> the main checkout via the
 // git common dir), never copied, never printed; nothing rewrites the token file (round-robin + access cache live in
 // <git common dir>/render-pool-state.json); the preflight checks found / safe / enough workers / fields / access BEFORE
 // the first push and says STOP when there is nothing usable. A fixture: a main repo + a linked book worktree, fake tokens.
@@ -29,7 +29,7 @@ try {
 
   // 1. no credentials anywhere
   let e = null; try { RA.loadAccounts(WT); } catch (x) { e = x; }
-  t("nowhere -> CREDENTIALS_MISSING, the places searched named (no copy suggested)", e && e.code === "CREDENTIALS_MISSING" && /this checkout, main checkout/.test(e.message) && /never recreate or copy it/.test(e.message), e && e.message);
+  t("nowhere -> CREDENTIALS_MISSING, the places searched named (no copy suggested)", e && e.code === "CREDENTIALS_MISSING" && /looked in: main checkout/.test(e.message) && !/this checkout/.test(e.message) && /never recreate or copy it/.test(e.message), e && e.message);
 
   // 2. main checkout has it, the book worktree does not -> read in place, no copy made
   const MF = path.join(MAIN, "render-accounts.json");
@@ -91,11 +91,22 @@ try {
   t("a token file that is not gitignored -> CREDENTIALS_UNSAFE (one git add -A would publish it)", e && e.code === "CREDENTIALS_UNSAFE", e && e.message);
   fs.writeFileSync(path.join(MAIN, ".gitignore"), "render-accounts.json\n");
 
-  // 8. an earlier workaround copy in the worktree is named
+  // 8. a COPY in a worktree is REFUSED (cycle 7, 2026-11-02: four book worktrees held one; the 2026-10-31 incident made
+  //    one with Copy-Item) — named by path, never read; the main checkout's file is the only source
   fs.writeFileSync(path.join(WT, "render-accounts.json"), JSON.stringify(pool(1)));
   fs.writeFileSync(path.join(WT, ".gitignore"), "render-accounts.json\n");
+  e = null; try { RA.loadAccounts(WT); } catch (x) { e = x; }
+  t("a COPY in the book worktree -> CREDENTIALS_COPY (path named, nothing read)", e && e.code === "CREDENTIALS_COPY" && e.copies.length === 1 && e.copies[0] === path.join(WT, "render-accounts.json"), e && e.message);
+  e = null; try { RA.loadAccounts(MAIN, { alsoCheck: [WT] }); } catch (x) { e = x; }
+  t("tools in the main checkout, book in a worktree holding a copy (--book-root) -> CREDENTIALS_COPY", e && e.code === "CREDENTIALS_COPY", e && e.message);
+  fs.renameSync(path.join(WT, "render-accounts.json"), path.join(WT, "render-accounts.backup.json"));
+  e = null; try { RA.loadAccounts(WT); } catch (x) { e = x; }
+  t("a renamed copy (render-accounts.backup.json) is a copy too", e && e.code === "CREDENTIALS_COPY", e && e.message);
+  fs.rmSync(path.join(WT, "render-accounts.backup.json"));
   acc = RA.loadAccounts(WT);
-  t("a COPY in the book worktree is named (the main checkout's is the source; removal is the operator's call)", acc.__source.copy === true && /a COPY of the main checkout's token file/.test(RA.summary(RA.inspect(acc, WT))));
+  t("without the copy: read in place from the main checkout", /main checkout/.test(acc.__source.source) && acc.__source.copy === false, acc.__source.source);
+  acc = RA.loadAccounts(MAIN);
+  t("the main checkout's own file is the source there (not a copy)", /main checkout/.test(acc.__source.source), acc.__source.source);
 
   // 9. the bundle refuses a credentials file, wherever it sits in the bundled tree
   const { auditBundle } = require("./lib/render-bundle");

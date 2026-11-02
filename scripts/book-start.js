@@ -72,6 +72,23 @@ const behind = parseInt(git(["rev-list", "--count", `HEAD..${ORIGIN}`], here) ||
 out(`book-start: production code = origin/god-mode ${ORIGIN.slice(0, 8)}${fetched ? "" : ` (NOT fetched - allowed: ${allowBehind})`}`);
 if (path.resolve(here) !== MAIN || behind) out(`  this checkout: ${path.basename(here)} @ ${(hereHead || "?").slice(0, 8)}${behind ? `, ${behind} commit(s) BEHIND - do no book work here` : ""}${path.resolve(here) === MAIN ? " (the SHARED main checkout - never produce a book here)" : ""}`);
 
+
+// ---- render hazards of a book worktree (cycle 7, 2026-11-02) ----------------------------------------------------------
+// 2026-10-31 (the-most-important-thing): an agent ran the worktree's OWN pinned render.js — its method defaulted to LOCAL,
+// a 186-chunk production render started on this PC — and later copied the render-worker token file into the worktree.
+// A pin is never edited, so its old render.js stays; this names the hazard every time a session starts or resumes.
+// Token files are checked by NAME only, never opened.
+function renderHazards(wt) {
+  const lines = [];
+  let names = [];
+  try { names = fs.readdirSync(wt).filter((n) => /^render-accounts.*\.json$/i.test(n)); } catch {}
+  for (const n of names) lines.push(`STOP  token-file COPY ${path.join(wt, n)} - never used (current tools refuse it: CREDENTIALS_COPY); the operator removes it`);
+  let rjs = "";
+  try { rjs = fs.readFileSync(path.join(wt, "scripts", "render.js"), "utf8"); } catch {}
+  if (rjs && !rjs.includes("render-entry-guard")) lines.push(`RENDER never run ${path.basename(wt)}'s own scripts/render.js (pinned before the 2026-11-02 guard: no --method = a LOCAL production render). Render with current tools: \`... | node - --launcher\`, then in ../wt-production-base: node scripts/render.js --method=github --slug=<slug> --book-root="${wt}"`);
+  return lines;
+}
+
 // ---- --launcher: refresh the shared launcher worktree (clean only) --------------------------------------------------
 if (args.launcher) {
   const L = path.join(PARENT, "wt-production-base");
@@ -79,11 +96,14 @@ if (args.launcher) {
   if (!reg) { err(`REFUSED --launcher: ${L} is not a worktree of this repo`); process.exit(2); }
   const dirty = (git(["status", "--porcelain", "--untracked-files=no"], L) || "").split(/\r?\n/).filter(Boolean);
   if (dirty.length) { err(`REFUSED --launcher: ${L} has ${dirty.length} modified tracked file(s) - not touching it (${dirty.slice(0, 3).join("; ")})`); process.exit(2); }
-  if (reg.head === ORIGIN) { out(`OK launcher ${L} is already at ${ORIGIN.slice(0, 8)}${reg.locked ? " (locked)" : ""}`); process.exit(0); }
-  if (CHECK) { out(`CHECK launcher ${L} is at ${(reg.head || "?").slice(0, 8)}; would move it to ${ORIGIN.slice(0, 8)}`); process.exit(0); }
+  const hazards = () => { for (const w of worktrees().filter((x) => /^wt-book-/.test(path.basename(x.path)))) for (const l of renderHazards(w.path)) out(`  ${l}`); };
+  if (reg.head === ORIGIN) { out(`OK launcher ${L} is already at ${ORIGIN.slice(0, 8)}${reg.locked ? " (locked)" : ""}. Production render: cd "${L}" && node scripts/render.js --method=github --slug=<slug> --book-root="<the book's worktree>"`); hazards(); process.exit(0); }
+  if (CHECK) { out(`CHECK launcher ${L} is at ${(reg.head || "?").slice(0, 8)}; would move it to ${ORIGIN.slice(0, 8)}`); hazards(); process.exit(0); }
   if (git(["checkout", "--detach", "--quiet", ORIGIN], L) === null) { err(`ERROR --launcher: git checkout in ${L} failed`); process.exit(1); }
   out(`OK launcher ${L} -> ${ORIGIN.slice(0, 8)}${reg.locked ? " (still locked)" : ""}. Run current tools there, e.g.:`);
   out(`   cd "${L}" && node scripts/render-status.js --slug=<slug> --book-root="<the checkout that holds the book>"`);
+  out(`   cd "${L}" && node scripts/render.js --method=github --slug=<slug> --book-root="<the book's worktree>"   (production render)`);
+  hazards();
   process.exit(0);
 }
 
@@ -160,6 +180,7 @@ if (mine && exists(PIN)) {
     if (copied.length) out(`  copied the inputs that arrived since: ${copied.join(", ")}`);
     if (differ.length) out(`  NOT copied (the worktree has a different version - decide which is right): ${differ.join(", ")}`);
   }
+  for (const l of renderHazards(WT)) out(`  ${l}`);
   out(`  Continue THERE: cd "${WT}" && node scripts/preview-state.js status --slug=${SLUG}`);
   process.exit(0);
 }

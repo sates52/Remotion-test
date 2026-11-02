@@ -1,6 +1,10 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+// a whole film rendered on this PC is a production render: refused unless the genuine render runner or the operator's
+// own --operator-local-production="<words>" (scripts/lib/render-entry-guard.js, cycle 7)
+require('./scripts/lib/render-entry-guard').guardLegacyEntry('local_chunk_renderer.js');
+process.argv = process.argv.filter((a) => !a.startsWith('--operator-local-production='));
 
 const DEFAULT_CFG = 'books/single-dad-dilemma/config.vox.json';
 const configFile = process.argv[2] || (fs.existsSync(DEFAULT_CFG) ? DEFAULT_CFG : 'project-config.json');

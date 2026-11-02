@@ -142,6 +142,38 @@ result in `books/<s>/preview-ready.json`. A preview is READY ("HAZIR") only when
 A render can be technically VERIFIED and quality FAIL, and a book can pass the firewall and fail the mute test. Report each fact separately and never write "PASS" for the
 one you did not measure. Unknown = `NOT_VERIFIED`, not a guess.
 
+## 7b. Production render — one contract, enforced in code (2026-11-02)
+
+Real case (2026-10-31, the-most-important-thing, an Antigravity session): `node scripts/render.js --slug=… --split
+--accept-quality-debt="…" --dry-run` run from the book's PINNED worktree. `--split` and `--dry-run` did not exist and
+were silently ignored; the method defaulted to local; a 186-chunk production render ran on the operator's PC for 3.5 h
+(22 chunks). The agent then copied `render-accounts.json` into the worktree to reach the GitHub pool. Since 2026-11-02
+the code refuses each step of that, for every harness alike:
+
+- **Production renders run on the GitHub render pool.** `render.js` has NO default method: without `--method` it exits 2
+  before anything runs. From a book worktree: `git show origin/god-mode:scripts/book-start.js | node - --launcher`, then in
+  `../wt-production-base`: `node scripts/render.js --method=github --slug=<slug> --book-root=<book worktree>`.
+- **Never run a book worktree's own `scripts/render.js`.** A pin made before 2026-11-02 still defaults to LOCAL (a pin is
+  never edited); `book-start.js` prints a `RENDER never run …` line for every such worktree. Current `render.js` also
+  refuses to start a production render from a checkout that is behind `origin/god-mode`.
+- **A GitHub failure never becomes a local render.** Stop, run `node scripts/render-status.js --slug=<slug>` and do only
+  the command it prints.
+- **A heavy local (or Lambda) render needs the operator's own separate approval:** `--operator-local-production="<the
+  operator's words>"` (≥ 6 words, not the quality-debt or render-authorization text). Quality debt and render
+  authorization never imply it. Allowed without it: Remotion Studio, still renders (mute test, framecheck, visual A/B)
+  and short local test clips (`--frames=a-b`, ≤ 1800 frames, written as `out/<slug>.frames-a-b.mp4`, never as the film).
+  `local_chunk_renderer.js`, `auto-chain-render.js` and `pipeline.js --step=render` follow the same rule.
+- **Unknown flags are refused** (exit 2). `--dry-run` is real: every check, nothing rendered, dispatched or recorded.
+- **Credentials:** only the main checkout's `render-accounts.json` (or `$RENDER_ACCOUNTS_FILE`) is read, in place. A copy
+  in any worktree is refused (`CREDENTIALS_COPY`, named by path, never opened); never copy, symlink or recreate it —
+  the operator removes copies.
+- **"Render started" only with real run ids.** A dispatch counts when every segment's own GitHub Actions run is seen
+  (run id + url in `.render-github-split.<slug>.json`). HTTP 204 alone is reported as NOT CONFIRMED.
+- **One render per render input**, across methods: the same `renderInputHash` is not dispatched or rendered twice
+  without the operator's `--new-render="<reason>"`.
+
+Tests: `scripts/test-render-entry-guard.js`, `scripts/test-render-credentials.js`.
+
 ## 8. No automatic cleanup
 
 `render-github-cleanup.js`, `purge-render-branches.js` and `render-purge.js` delete the files the operator uploads.

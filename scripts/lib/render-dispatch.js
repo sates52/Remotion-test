@@ -202,6 +202,33 @@ async function dispatchAll({ state, sha, io, save = () => {}, log = () => {} }) 
 }
 
 /**
+ * CONFIRM (cycle 7, 2026-11-02): GitHub answers a dispatch with HTTP 204 before any run exists, and a 204 is not a render.
+ * A segment counts as dispatched only when its OWN Actions run is seen on its ref (created after its push): its run id
+ * and url go into the state (the segment manifest: seg, frames, worker, ref, bundle, runId). Polls up to timeoutMs.
+ * io: { findRun(seg) → Promise<{ id, url, createdAt } | null (no run) | undefined (could not tell)> }
+ * Returns { ok, confirmed, missing: [seg] } — never throws for a missing run; the caller decides (exit or heal).
+ */
+async function confirmRuns({ state, sha, io, timeoutMs = 4 * 60 * 1000, pollMs = 15000, sleep = sleepMs, save = () => {}, log = () => {}, now = () => Date.now() }) {
+  const due = state.segments.filter((sg) => sg.dispatchedSha === sha);
+  const start = now();
+  for (;;) {
+    for (const sg of due) {
+      if (sg.runId) continue;
+      let r;
+      try { r = await io.findRun(sg); } catch { r = undefined; }
+      if (r && r.id) { Object.assign(sg, { runId: r.id, runUrl: r.url || null, runCreatedAt: r.createdAt || null }); save(state); log(`  seg${sg.seg} → ${sg.username}: run ${r.id} confirmed`); }
+    }
+    const missing = due.filter((sg) => !sg.runId).map((sg) => sg.seg);
+    if (!missing.length || now() - start >= timeoutMs) {
+      state.runsConfirmedAt = missing.length ? null : new Date().toISOString();
+      save(state);
+      return { ok: missing.length === 0 && due.length === state.segments.length, confirmed: due.length - missing.length, missing };
+    }
+    await sleep(pollMs);
+  }
+}
+
+/**
  * Resume rule: a previous run that never FINISHED (its process stopped before the end: a refused or failed push, a
  * crash) with the same slug, bundle, mode, settings and segmentation keeps its push/dispatch marks. Anything else —
  * including a finished render whose segment failed on the runner — starts fresh, so every segment is dispatched
@@ -214,7 +241,7 @@ function mergeResume(prev, fresh, { newRender = false } = {}) {
   if (!Array.isArray(prev.segments) || prev.segments.length !== fresh.segments.length || !fresh.segments.every((s, i) => same(s, prev.segments[i]))) return fresh;
   return { ...fresh, firstDispatchedAt: prev.firstDispatchedAt || prev.dispatchedAt, resumedAt: new Date().toISOString(), segments: fresh.segments.map((s, i) => ({ ...prev.segments[i], ...s, ...pick(prev.segments[i]) })) };
 }
-const KEEP = ["pushed", "pushedAt", "pushSeconds", "pushAttempts", "pushError", "pushErrorKind", "dispatchedAt", "dispatchedSha", "dispatchCode", "dispatchAttemptSha"];
+const KEEP = ["pushed", "pushedAt", "pushSeconds", "pushAttempts", "pushError", "pushErrorKind", "dispatchedAt", "dispatchedSha", "dispatchCode", "dispatchAttemptSha", "runId", "runUrl", "runCreatedAt"];
 const pick = (o) => Object.fromEntries(KEEP.filter((k) => o[k] !== undefined).map((k) => [k, o[k]]));
 
 /** real git I/O for a repo root: async push of `sha` to `remote ref`, and the remote ref's current sha */
@@ -239,4 +266,4 @@ function gitIO({ root, sha, timeoutMs = 30 * 60 * 1000 }) {
   };
 }
 
-module.exports = { classifyPushError, redact, defaultPushConcurrency, pushAll, dispatchAll, mergeResume, gitIO, PERMANENT_PUSH, TRANSIENT_PUSH };
+module.exports = { classifyPushError, redact, defaultPushConcurrency, pushAll, dispatchAll, confirmRuns, mergeResume, gitIO, PERMANENT_PUSH, TRANSIENT_PUSH };

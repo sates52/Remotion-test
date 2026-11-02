@@ -156,6 +156,8 @@ function generateProductionJSON() {
 
 // ── Step 3: Render ────────────────────────────────────────────
 function renderVideo() {
+    // a whole film on this PC: refused unless the operator's own --operator-local-production="<words>" (cycle 7)
+    require('./lib/render-entry-guard').guardLegacyEntry('pipeline.js --step=render');
     console.log('🎬 Step 3: Rendering video...');
     const outputPath = path.join(projectRoot, 'out', `${config.compositionId.toLowerCase()}.mp4`);
     const cmd = `npx remotion render "${config.compositionId}" "${outputPath}" --codec=h264 --concurrency=3 --force`;

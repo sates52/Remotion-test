@@ -21,6 +21,8 @@
  *     -RedirectStandardOutput auto-chain.log -RedirectStandardError auto-chain.err.log
  */
 const { spawnSync } = require("child_process");
+// renders whole films on this PC: refused unless the operator's own --operator-local-production="<words>" (cycle 7)
+require("./lib/render-entry-guard").guardLegacyEntry("auto-chain-render.js");
 const fs = require("fs");
 const path = require("path");
 

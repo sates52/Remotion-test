@@ -23,15 +23,33 @@ const ACCESS_TTL_MS = 12 * 3600 * 1000;
 const git = (argv, cwd) => { try { return execFileSync("git", argv, { cwd, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch { return null; } };
 const commonDir = (root) => { const c = git(["rev-parse", "--path-format=absolute", "--git-common-dir"], root); return c ? path.resolve(c) : null; };
 
-/** where the accounts file is, in order — never copies anything */
+/** the main checkout of the repository `root` belongs to (the parent of the shared git dir), or null */
+function mainCheckout(root) { const cd = commonDir(root); return cd ? path.dirname(cd) : null; }
+
+/** where the accounts file is, in order — never copies anything. Central discovery (cycle 7, 2026-11-02): only
+ *  $RENDER_ACCOUNTS_FILE or the MAIN checkout's file; a linked worktree's own copy is never a source (see findCopies). */
 function locate(root) {
   const cands = [];
   if (process.env.RENDER_ACCOUNTS_FILE) cands.push({ file: path.resolve(process.env.RENDER_ACCOUNTS_FILE), source: "RENDER_ACCOUNTS_FILE" });
-  cands.push({ file: path.join(root, NAME), source: "this checkout" });
-  const cd = commonDir(root);
-  if (cd) { const main = path.join(path.dirname(cd), NAME); if (path.resolve(main) !== path.resolve(path.join(root, NAME))) cands.push({ file: main, source: "main checkout (read in place, not copied)" }); }
+  const main = mainCheckout(root);
+  if (main) cands.push({ file: path.join(main, NAME), source: path.resolve(main) === path.resolve(root) ? "this checkout (the main checkout)" : "main checkout (read in place, not copied)" });
+  else cands.push({ file: path.join(root, NAME), source: "this checkout" });
   const hit = cands.find((c) => fs.existsSync(c.file));
   return hit ? { ...hit, searched: cands.map((c) => c.source) } : { file: null, source: null, searched: cands.map((c) => c.source) };
+}
+
+/** token-file COPIES in linked worktrees (cycle 7): 2026-10-31 an agent copied the file into its book worktree; four book
+ *  worktrees held one. Existence + path only — a copy is never opened. The main checkout's own file is not a copy. */
+function findCopies(roots) {
+  const out = [];
+  for (const r of [...new Set((roots || []).filter(Boolean).map((x) => path.resolve(x)))]) {
+    const main = mainCheckout(r);
+    if (main && path.resolve(main) === r) continue;
+    let names = [];
+    try { names = fs.readdirSync(r).filter((n) => /^render-accounts.*.json$/i.test(n)); } catch {}
+    for (const n of names) out.push(path.join(r, n));
+  }
+  return out;
 }
 
 /** a token file must be gitignored and untracked in the repo it lives in (else one `git add -A` publishes it) */
@@ -50,7 +68,12 @@ function readState(root) { try { return JSON.parse(fs.readFileSync(stateFile(roo
 function writeState(root, patch) { const f = stateFile(root); const s = { ...readState(root), ...patch }; try { fs.writeFileSync(f, JSON.stringify(s, null, 2) + "\n"); } catch { /* best effort */ } return s; }
 
 /** load the pool: the file's content, with the round-robin pointer from the state file. Throws a CLASSED error. */
-function loadAccounts(root) {
+function loadAccounts(root, { alsoCheck = [] } = {}) {
+  const copies = findCopies([root, ...alsoCheck]);
+  if (copies.length) {
+    const e = new Error(`a COPY of the render-worker token file sits in a worktree: ${copies.join(", ")} — not used, not read. The only source is the main checkout's render-accounts.json (or $RENDER_ACCOUNTS_FILE); a copy is one more place the tokens can leak from. The operator removes it; then rerun.`);
+    e.code = "CREDENTIALS_COPY"; e.copies = copies; throw e;
+  }
   const loc = locate(root);
   if (!loc.file) { const e = new Error(`render-accounts.json not found (looked in: ${loc.searched.join(", ")}) — the operator provides the worker pool; never recreate or copy it`); e.code = "CREDENTIALS_MISSING"; throw e; }
   const safety = sourceSafety(loc.file);
@@ -59,10 +82,7 @@ function loadAccounts(root) {
   try { acc = JSON.parse(fs.readFileSync(loc.file, "utf8")); } catch { const e = new Error(`render-accounts.json (${loc.source}) is not valid JSON`); e.code = "CREDENTIALS_UNREADABLE"; throw e; }
   const st = readState(root);
   if (typeof st.lastUsedWorkerIndex === "number") acc.lastUsedWorkerIndex = st.lastUsedWorkerIndex;
-  // a copy in a linked book worktree (an earlier workaround) is still read, but named: the main checkout's file is the source
-  const cd = commonDir(root), main = cd ? path.join(path.dirname(cd), NAME) : null;
-  const copy = loc.source === "this checkout" && !!main && path.resolve(main) !== path.resolve(loc.file) && fs.existsSync(main);
-  Object.defineProperty(acc, "__source", { value: { source: loc.source, file: loc.file, mtimeMs: fs.statSync(loc.file).mtimeMs, copy }, enumerable: false });
+  Object.defineProperty(acc, "__source", { value: { source: loc.source, file: loc.file, mtimeMs: fs.statSync(loc.file).mtimeMs, copy: false }, enumerable: false });
   return acc;
 }
 
@@ -124,4 +144,4 @@ function summary(ins) {
   return `render-accounts.json: ${ins.source}${ins.copy ? " (a COPY of the main checkout's token file sits in this worktree — the main checkout's is the source; removing the copy is the operator's call)" : ""} · ${ins.usable}/${ins.active} active worker(s) usable · access ${ins.verified} verified${ins.active - ins.verified - ins.refused.length > 0 ? `, ${ins.active - ins.verified - ins.refused.length} unverified` : ""}${ins.refused.length ? `, refused: ${ins.refused.join("; ")}` : ""}${ins.malformed.length ? `, malformed: ${ins.malformed.join("; ")}` : ""}`;
 }
 
-module.exports = { NAME, locate, sourceSafety, loadAccounts, inspect, verifyAccess, usableWorkers, summary, stateFile, readState, writeState, TOKEN_SHAPE };
+module.exports = { findCopies, mainCheckout, NAME, locate, sourceSafety, loadAccounts, inspect, verifyAccess, usableWorkers, summary, stateFile, readState, writeState, TOKEN_SHAPE };
