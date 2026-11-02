@@ -48,10 +48,14 @@ jobs:
         run: |
           MODEL=$(node -e 'console.log(require("./ab/manifest.json").model || "claude-haiku-5-5")')
           MAXUSD=$(node -e 'console.log(require("./ab/manifest.json").maxUsd || 3)')
-          node scripts/visual-ab.js rate --manifest=ab/manifest.json --out=out-ab --model="$MODEL" --k=2 --max-usd="$MAXUSD"
+          RUBRICS=$(node -e 'console.log((require("./ab/manifest.json").rubrics || ["current"]).join(" "))')
+          K=$(node -e 'console.log(require("./ab/manifest.json").k || 2)')
+          N=$(echo $RUBRICS | wc -w)
+          EACH=$(node -e "console.log(($MAXUSD / $N).toFixed(2))")
+          for R in $RUBRICS; do node scripts/visual-ab.js rate --manifest=ab/manifest.json --out=out-ab --model="$MODEL" --k=$K --max-usd="$EACH" --rubric=$R; done
       - name: Tally against the pre-registered rule
         run: |
-          node scripts/visual-ab.js tally --manifest=ab/manifest.json --out=out-ab
+          for R in $(node -e 'console.log((require("./ab/manifest.json").rubrics || ["current"]).join(" "))'); do node scripts/visual-ab.js tally --manifest=ab/manifest.json --out=out-ab --rubric=$R; done
           node scripts/visual-ab-cloud.js seal --manifest=ab/manifest.json --out=out-ab
       - name: Upload result (hash-sealed)
         if: always()
@@ -59,9 +63,11 @@ jobs:
         with:
           name: visual-ab-result
           path: |
-            out-ab/result.json
+            out-ab/result*.json
             out-ab/key.json
-            out-ab/ratings.jsonl
+            out-ab/ratings*.jsonl
+            out-ab/strips.json
+            out-ab/strips/
             out-ab/render-timing.json
             out-ab/seal.json
             out-ab/stills/

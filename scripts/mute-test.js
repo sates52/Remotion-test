@@ -282,7 +282,7 @@ You are a blind rater in a mute test. You will look at ${order.length} still fra
 Images (read each with the Read tool): ${path.join(imgDir, "img-01.png")} through img-${String(order.length).padStart(2, "0")}.png in the same folder.
 
 Work ONE image at a time: open img-NN, write its entry, then open the next. Never describe from memory of an earlier image.
-For EACH image, write: "text" (every word printed on the image, exactly as written, or "none"), "sees" (literal description: people, what they do, their faces, objects, text, diagram, setting; 1-3 sentences), "message" (what the narrator is saying at this moment, one sentence, from the image only), "confidence" (low/medium/high), "wouldConfuse" (anything that could mislead, or "none").
+${require("./lib/mute-rubric").DESCRIBER_FIELDS}
 
 Write ONLY a JSON array [{"img":"img-01.png","text":"...","sees":"...","message":"...","confidence":"...","wouldConfuse":"..."}, ...] to ${path.join(OUT, "blind.json")}. Verify it parses and has ${order.length} entries. Reply with one line: "written ${order.length}".
 
@@ -386,11 +386,7 @@ function identityOf(label, { quiet = false } = {}) {
   return { rows, problems };
 }
 
-const JUDGE_RULES = `For each item give:
-A. correctness — CORRECT (the viewer's understood message matches the narration), NEUTRAL (neither matches nor contradicts: just a person, abstract/empty), WRONG (suggests a different or opposite meaning: unrelated object, wrong emotion over tragedy, emphasis where the narration rejects, etc.).
-B. contribution — ADDS (the image itself — people's actions/expressions, objects, icons, not only copied text — conveys something the narration means), TEXT_ONLY (only on-screen text carries meaning), NONE.
-C. explains — YES only when contribution is ADDS AND the picture itself shows the narration's mechanism, relationship or cause→effect (who does what to whom, what leads to what), not just its subject or mood; otherwise NO.
-One short reason each. Be strict and literal; do not reward a version for being prettier or busier.`;
+const { JUDGE_RULES } = require("./lib/mute-rubric"); // the official text, shared with the cloud rater (cycle 7)
 
 function judge() {
   const A = describe(LABEL);

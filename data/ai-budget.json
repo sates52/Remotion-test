@@ -14,8 +14,11 @@
       "why": "max-ai-credits 10 (agent) + 5 (threat detection); 1 AIC = $0.01"
     },
     "visual-ab.yml": {
-      "perRunMaxUsd": 5,
-      "why": "cloud blind A/B: describer + judge calls through the Claude API, capped by the manifest maxUsd (<= 5) inside the runner"
+      "perRunMaxUsd": 10,
+      "why": "cloud blind A/B / calibration: describer + judge calls through the Claude API, capped by the manifest maxUsd (<= 10) inside the runner (2026-11-02: two rubrics per run; month/day lines unchanged)",
+      "paidSteps": [
+        "Blind describer + judge (Claude API, capped)"
+      ]
     }
   },
   "prices": {

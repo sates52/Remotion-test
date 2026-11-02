@@ -32,7 +32,8 @@ const CODE_PATHS = ["src", "scripts", "data", "package.json", "tsconfig.json", "
 
 function inputFiles(man) {
   const out = [];
-  for (const p of man.passages) for (const slug of Object.values(p.arms)) {
+  for (const im of man.images || []) out.push(String(im.file).split(path.sep).join("/"));
+  for (const p of man.passages || []) for (const slug of Object.values(p.arms)) {
     const dir = path.join("books", slug);
     for (const f of fs.readdirSync(path.join(ROOT, dir))) if (fs.statSync(path.join(ROOT, dir, f)).isFile()) out.push(path.posix.join("books", slug, f));
     for (const f of [`public/captions/${slug}.vtt`, `public/audio/${slug}.m4a`]) if (fs.existsSync(path.join(ROOT, f))) out.push(f);
@@ -40,7 +41,7 @@ function inputFiles(man) {
   return [...new Set(out)].sort();
 }
 const hashFiles = (files) => Object.fromEntries(files.map((f) => [f, sha(fs.readFileSync(path.join(ROOT, f)))]));
-const inputHashOf = (man, files) => sha(JSON.stringify({ files, model: man.model, k: man.k || 2, rule: man.rule, passages: man.passages })).slice(0, 16);
+const inputHashOf = (man, files) => sha(JSON.stringify({ files, model: man.model, k: man.k || 2, rule: man.rule, passages: man.passages, ...(man.images ? { images: man.images } : {}), ...(man.rubrics ? { rubrics: man.rubrics } : {}), ...(man.strips ? { strips: true } : {}) })).slice(0, 16);
 
 if (cmd === "push") {
   const man = JSON.parse(fs.readFileSync(path.resolve(args.manifest), "utf8"));
@@ -60,6 +61,8 @@ if (cmd === "push") {
   const git = (a, opts = {}) => execFileSync("git", a, { cwd: ROOT, env, encoding: "utf8", maxBuffer: 256 * 1024 * 1024, ...opts });
   const manPath = path.join(tmp, "manifest.json");
   fs.writeFileSync(manPath, JSON.stringify(final, null, 1));
+  // inputs travel byte-exact (--no-filters: their sha256 in the manifest is over the local bytes; 2026-11-02 a CRLF->LF
+  // conversion failed verify); code keeps git's normal conversion (LF on the Linux runner)
   // the REAL index lists the tracked code (the temporary index is empty until we fill it — the first push, 2026-10-31,
   // shipped 55 files and no code because of this)
   const tracked = execFileSync("git", ["ls-files", "-z", "--", ...CODE_PATHS], { cwd: ROOT, encoding: "utf8", maxBuffer: 256 * 1024 * 1024 }).split("\0").filter(Boolean);
@@ -68,10 +71,10 @@ if (cmd === "push") {
   git(["read-tree", "--empty"]);
   for (let i = 0; i < all.length; i += 200) {
     const chunk = all.slice(i, i + 200);
-    const lines = chunk.map((f) => `100644 ${git(["hash-object", "-w", "--", f]).trim()}\t${f}`).join("\n") + "\n";
+    const lines = chunk.map((f) => `100644 ${git(["hash-object", "-w", ...(files[f] ? ["--no-filters"] : []), "--", f]).trim()}\t${f}`).join("\n") + "\n";
     execFileSync("git", ["update-index", "--add", "--index-info"], { cwd: ROOT, env, input: lines });
   }
-  const mb = git(["hash-object", "-w", "--", manPath]).trim();
+  const mb = git(["hash-object", "-w", "--no-filters", "--", manPath]).trim();
   execFileSync("git", ["update-index", "--add", "--cacheinfo", `100644,${mb},ab/manifest.json`], { cwd: ROOT, env });
   const tree = git(["write-tree"]).trim();
   const commit = execFileSync("git", ["commit-tree", tree, "-m", `visual A/B ${man.name} · inputHash ${inputHash}`], { cwd: ROOT, env, encoding: "utf8" }).trim();
@@ -89,7 +92,7 @@ if (cmd === "push") {
 } else if (cmd === "seal") {
   const man = JSON.parse(fs.readFileSync(path.resolve(args.manifest), "utf8"));
   const OUT = path.resolve(args.out);
-  const files = ["result.json", "key.json", "ratings.jsonl", "render-timing.json"].filter((f) => fs.existsSync(path.join(OUT, f)));
+  const files = ["result.json", "key.json", "ratings.jsonl", "render-timing.json", "strips.json", ...fs.readdirSync(OUT).filter((f) => /^(ratings|result)-[a-z]+\.(jsonl|json)$/.test(f))].filter((f, i, a) => a.indexOf(f) === i && fs.existsSync(path.join(OUT, f)));
   const seal = { inputHash: man.inputHash, name: man.name, model: man.model, commit: process.env.GITHUB_SHA || null, run: process.env.GITHUB_RUN_ID || null, files: Object.fromEntries(files.map((f) => [f, sha(fs.readFileSync(path.join(OUT, f)))])) };
   fs.writeFileSync(path.join(OUT, "seal.json"), JSON.stringify(seal, null, 1));
   console.log(`sealed ${files.length} files for inputHash ${man.inputHash}`);
@@ -118,7 +121,8 @@ if (cmd === "push") {
   const dest = path.join(ROOT, "audit", "cloud-ab", seal.inputHash);
   fs.mkdirSync(dest, { recursive: true });
   for (const f of [...Object.keys(seal.files), "seal.json"]) fs.copyFileSync(path.join(x, f), path.join(dest, f));
-  const res = JSON.parse(fs.readFileSync(path.join(dest, "result.json"), "utf8"));
+  const resFile = ["result.json", ...Object.keys(seal.files).filter((f) => /^result-/.test(f))].find((f) => fs.existsSync(path.join(dest, f)));
+  const res = resFile ? JSON.parse(fs.readFileSync(path.join(dest, resFile), "utf8")) : {};
   fs.writeFileSync(path.join(dest, "run.json"), JSON.stringify({ run: run.id, conclusion: run.conclusion, created: run.created_at, updated: run.updated_at, wallSec: (Date.parse(run.updated_at) - Date.parse(run.created_at)) / 1000 }, null, 1));
   console.log(`✓ run ${run.id} (${run.conclusion}) · seal verified · stored in audit/cloud-ab/${seal.inputHash}/ · decision ${res.decision}`);
 } else { console.error("usage: visual-ab-cloud.js push|verify|seal|fetch ..."); process.exit(2); }

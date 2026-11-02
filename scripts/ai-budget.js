@@ -48,7 +48,7 @@ function unzipTo(zip, dir) {
 function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
 
 /** USD of one finished run from its `usage` artifact; null when it cannot be read */
-function runUsd(runId) {
+function runUsd(runId, wf = null) {
   if (cache[runId] !== undefined) return cache[runId];
   let usd = null;
   try {
@@ -65,6 +65,17 @@ function runUsd(runId) {
       fs.rmSync(dir, { recursive: true, force: true });
     }
   } catch { usd = null; }
+  // no usage artifact: a run that never STARTED a paid step spent nothing (2026-11-02: a visual A/B that failed at the
+  // input check was counted at its $10 cap and stopped the next run on the daily line). Only workflows whose budget
+  // entry names their paid steps; the step states come from the run's jobs. Anything unreadable stays at the max.
+  if (usd == null && wf && (cfg.paidWorkflows[wf] || {}).paidSteps) {
+    try {
+      const jobs = JSON.parse(gh(["api", `repos/${cfg.repo}/actions/runs/${runId}/jobs?per_page=50`])).jobs || [];
+      const names = cfg.paidWorkflows[wf].paidSteps;
+      const steps = jobs.flatMap((j) => j.steps || []).filter((st) => names.includes(st.name));
+      if (jobs.length && jobs.every((j) => j.status === "completed") && steps.length === names.length && steps.every((st) => st.conclusion === "skipped")) usd = 0;
+    } catch {}
+  }
   if (usd != null) { cache[runId] = usd; try { fs.writeFileSync(cacheFile, JSON.stringify(cache)); } catch {} }
   return usd;
 }
@@ -80,7 +91,7 @@ function monthRuns() {
     for (const r of list.workflow_runs || []) {
       const done = r.status === "completed";
       const skipped = done && ["skipped", "cancelled"].includes(r.conclusion) && Date.parse(r.updated_at) - Date.parse(r.created_at) < 120e3;
-      out.push({ id: r.id, workflow: wf, createdAt: r.created_at, status: `${r.status}/${r.conclusion || "-"}`, usd: skipped ? 0 : done ? runUsd(r.id) : null });
+      out.push({ id: r.id, workflow: wf, createdAt: r.created_at, status: `${r.status}/${r.conclusion || "-"}`, usd: skipped ? 0 : done ? runUsd(r.id, wf) : null });
     }
   }
   return out;
