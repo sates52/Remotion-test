@@ -1,0 +1,103 @@
+{
+  "schema": "c7-calibration-prereg/1",
+  "date": "2026-11-02",
+  "written": "before any calibration rating",
+  "question": "How far do the cloud API rater and the local official procedure agree, and where do they differ (rubric/prompt vs model/infrastructure vs the procedure's own noise)?",
+  "reference": "R0 = the RECORDED official verdicts of 8 sealed mute runs (the official independent blind procedure: one fresh describer per run, one fresh judge, JUDGE_RULES). This is procedure conformance, NOT human truth.",
+  "set": {
+    "draw": "audit/c7-pilots/calib-select.js (seeded sha256('c7-calibration'); Antidote, explains recorded, dated >= 2026-10-01, one run per book, 4 recorded PASS + 4 FAIL; P1 holdout books excluded)",
+    "runs": [
+      {
+        "id": "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+        "set": "dev",
+        "pass": true,
+        "judged": {
+          "wrong": 1,
+          "dead": 0
+        }
+      },
+      {
+        "id": "the-paradox-of-choice/run1",
+        "set": "dev",
+        "pass": true,
+        "judged": {
+          "wrong": 0,
+          "dead": 0
+        }
+      },
+      {
+        "id": "the-new-one-minute-manager/final",
+        "set": "test",
+        "pass": true,
+        "judged": {
+          "wrong": 1,
+          "dead": 5
+        }
+      },
+      {
+        "id": "ready-player-one/run6",
+        "set": "test",
+        "pass": true,
+        "judged": {
+          "wrong": 0,
+          "dead": 0
+        }
+      },
+      {
+        "id": "the-lightning-thief/holdout2",
+        "set": "dev",
+        "pass": false,
+        "judged": {
+          "wrong": 5,
+          "dead": 2
+        }
+      },
+      {
+        "id": "the-knave-and-the-moon/final",
+        "set": "dev",
+        "pass": false,
+        "judged": {
+          "wrong": 2,
+          "dead": 0
+        }
+      },
+      {
+        "id": "the-art-of-saying-no/run2",
+        "set": "test",
+        "pass": false,
+        "judged": {
+          "wrong": 4,
+          "dead": 4
+        }
+      },
+      {
+        "id": "maybe-you-should-talk-to-someone/run3",
+        "set": "test",
+        "pass": false,
+        "judged": {
+          "wrong": 4,
+          "dead": 0
+        }
+      }
+    ],
+    "split": "DEV (2 PASS + 2 FAIL) may be used to align prompts/protocol; TEST (2 PASS + 2 FAIL) is rated ONCE at the end and changes nothing"
+  },
+  "raters": {
+    "R0": "recorded official",
+    "R1": "cloud API, current visual-ab rubric (cycle 6)",
+    "R2": "cloud API, the official rubric text (scripts/lib/mute-rubric.js), one image per call",
+    "R3": "a re-run of the official procedure on the same images (fresh local sonnet describer per run + fresh judge) = the procedure's own noise floor",
+    "R4": "adjudication: on items where R2 and R0 disagree on WRONG or dead, a third independent blind chain (fresh describer + fresh judge, official rubric) decides by majority"
+  },
+  "metrics": [
+    "per-item agreement on correctness, contribution, explains (% and Cohen kappa)",
+    "WRONG and dead (NONE): false positives / negatives vs R0",
+    "run-level verdict (WRONG <= 1, dead <= 5 of 30): false PASS / false FAIL vs R0",
+    "the same for R3 vs R0 = the noise floor the others are compared with"
+  ],
+  "decision": {
+    "policy": "the cloud rater never gives a PASS alone (operator, cycle 7). It may serve as the SECOND rater only if, on TEST: its run verdict matches R0 on >= 7/8 runs AND its per-item WRONG and dead agreement with R0 is within 5 points of R3's",
+    "else": "report-only"
+  },
+  "budget": "cloud API rating via ai-budget.js (estimate); local subagent ratings are not API-billed"
+}
