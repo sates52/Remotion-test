@@ -301,6 +301,9 @@ export const characterSchema = z.object({
   body: bodyPlan.optional(),
   /** What this character is holding — a glyph anchored to the right hand. */
   holds: handProp.optional(),
+  /** SPEECH (CSD 1.1, cycle 8): the words this person SAYS, drawn in a balloon tied to them — the narration's own
+   *  words (merge refuses anything else). `at` = scene frame where it is said (the planner anchors it on the words). */
+  says: z.object({ text: z.string().min(1).max(80), at: z.number().optional() }).optional(),
   /**
    * Start this character's pose clock N frames in.
    *

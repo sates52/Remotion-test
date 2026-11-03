@@ -127,6 +127,9 @@ function visible(b, bible, own, mech, causal) {
       return p;
     });
   }
+  // SPEECH (CSD 1.1): a balloon above a person's head, as drawn
+  if (framed && cast.length && typeof b.says === "string" && b.says.trim()) v.speech = [`the first person says, in a speech balloon above their head: "${b.says.trim()}"`];
+  if (framed && cast.length === 2 && typeof b.partnerSays === "string" && b.partnerSays.trim()) (v.speech = v.speech || []).push(`the second person answers, in a speech balloon above their head: "${b.partnerSays.trim()}"`);
   // LEAVE / FLEE (Action 2.0, leaveLayout.ts): the person goes away and is gone — say where, as the renderer draws it
   if ((b.action === "leave" || b.action === "flee") && framed && cast.length) v.motion = `the first person ${b.action === "flee" ? "runs away" : "walks out"}${cast.length === 2 ? (b.action === "flee" ? " from the second" : ", past the second,") : ""} ${b.concept ? `through the ${b.concept}` : "off the edge of the picture"} and is gone`;
   // PLACE (Action 3.0): the object goes from the hand to a rest in front of the person and stays there

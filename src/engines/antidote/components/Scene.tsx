@@ -17,6 +17,7 @@ import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
 import { enter, pose, ambient, arcOf, parallax, PLACE_OUT, PLACE_HOLD } from "../movements";
 import { interpolate } from "remotion";
 import { camera } from "../movements";
+import { SpeechBalloon } from "./SpeechBalloon";
 import { resolveChoreographedLookAt, resolveDynamicExpression, resolveVisualArcTransform } from "../choreography";
 import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPlan, HandProp, CharEmotion } from "../schema";
 import type { ScenePlan, RestCarry } from "../continuity";
@@ -244,6 +245,13 @@ const CharacterLayer: React.FC<{
         emotion={spec.emotion}
         emotionAt={spec.emotionAt}
       />
+      {/* SPEECH (CSD 1.1): the balloon leans away from the partner (screen side), converted into this mirrored layer */}
+      {spec.says && spec.says.text ? (() => {
+        const partnerRight = lookAtPoint ? lookAtPoint.x > st.x : index === 0;
+        const screenSide: "left" | "right" = partnerRight ? "left" : "right";
+        const side: "left" | "right" = faceFlip ? (screenSide === "left" ? "right" : "left") : screenSide;
+        return <SpeechBalloon text={spec.says.text} at={spec.says.at ?? 0} scale={scale} flip={faceFlip} side={side} />;
+      })() : null}
     </div>
   );
 };
