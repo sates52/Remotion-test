@@ -1,0 +1,48 @@
+{
+  "slug": "zz-sp-rr3a",
+  "title": "Red Rising",
+  "author": "Pierce Brown",
+  "genre": "science fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): speculative fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%) RISK: violence/death is central to the key scenes → Flux refuses many of those images (CONTENT_FILTERED); Antidote draws them symbolically",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "speculative",
+    "era": 2319,
+    "realPeople": false,
+    "format": "story",
+    "violence": "central",
+    "minorHarm": false,
+    "mustSee": [
+      "the color-caste underground mines of Mars",
+      "the Gold elite society ballroom",
+      "the Institute battle arena",
+      "a Red miner boy in a dust-choked tunnel",
+      "the Golden Sun arena fight"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-03",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 26.2,
+    "signals": {
+      "year": 0,
+      "history": 0,
+      "second": 39.1,
+      "abstract": 15.6,
+      "sensitive": 3.9,
+      "era": 2319,
+      "words": 256
+    },
+    "reasons": [
+      "the narration addresses the viewer (\"you\" 39.1/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)",
+      "idea vocabulary 15.6/1k (habits, decisions, attention, money…) → concepts need icons/diagrams, not photographs (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": true
+  }
+}

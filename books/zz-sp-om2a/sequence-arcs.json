@@ -1,0 +1,140 @@
+{
+  "slug": "zz-sp-om2a",
+  "totalSequences": 3,
+  "totalScenes": 12,
+  "averageDurationSecs": 31.1,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "authored",
+      "fromFrame": 15,
+      "durationFrames": 1997,
+      "durationSeconds": 66.6,
+      "sceneCount": 8,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 240,
+          "role": "authored-start",
+          "narration": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. H"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 255,
+          "durationFrames": 298,
+          "role": "authored-kept",
+          "narration": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new relea"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 553,
+          "durationFrames": 309,
+          "role": "authored-kept",
+          "narration": "And then the manager expresses his feelings about the impact. I am deeply frustrated by this error. "
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 862,
+          "durationFrames": 173,
+          "role": "authored-kept",
+          "narration": "Strong words. And then that signature move, a painful, heavy, unblinking pause."
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1035,
+          "durationFrames": 231,
+          "role": "authored-kept",
+          "narration": "The manager just lets the dread sink in. John is sitting there stewing in the reality of his own mis"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1266,
+          "durationFrames": 280,
+          "role": "authored-kept",
+          "narration": "Oh, he expects to be handed a cardboard box to pack up his desk. But just when Jon thinks it's over,"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1546,
+          "durationFrames": 197,
+          "role": "authored-kept",
+          "narration": "His tone changes completely. The pivot. He looks Jon in the eye and says, \"You are better than this "
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1743,
+          "durationFrames": 269,
+          "role": "authored-kept",
+          "narration": "You are one of my best engineers. I have complete trust in you, and I look forward to working with y"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 2012,
+      "durationFrames": 384,
+      "durationSeconds": 12.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2012,
+          "durationFrames": 175,
+          "role": "setup",
+          "narration": "roller coaster, but it is a highly engineered one based on profound behavioral psychology."
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2187,
+          "durationFrames": 209,
+          "role": "reveal",
+          "narration": "Think about the duality of what just We are not just our behavior. We are the human being managing o"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 2396,
+      "durationFrames": 406,
+      "durationSeconds": 13.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2396,
+          "durationFrames": 278,
+          "role": "authored-start",
+          "narration": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectiv"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2674,
+          "durationFrames": 128,
+          "role": "authored-kept",
+          "narration": "supportive of the person. The text mentions a concept called gunny sacking,"
+        }
+      ]
+    }
+  ]
+}

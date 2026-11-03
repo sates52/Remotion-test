@@ -1,0 +1,289 @@
+{
+  "book": {
+    "slug": "zz-sp-gm1b",
+    "title": "A Good Man Is Hard to Find",
+    "author": "Flannery O'Connor",
+    "genre": "literary"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "The reader is annoyed by her, just like her family is, but we excuse it as harmless. O'Connor shows us it is the opposite of harmless.",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "HARMLESS",
+          "OPPOSITE OF HARMLESS"
+        ],
+        "values": [
+          0.95
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "We excuse the grandmother as merely annoying and harmless, but O'Connor shows she is the opposite of harmless.",
+        "concreteVisual": "A spectrum from HARMLESS to OPPOSITE OF HARMLESS with the marker pushed to the harmful end; no people.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "Opens the chunk: the verdict on the grandmother's 'harmless' annoyance.",
+        "addedInformation": "The marker shows the reversal of the reader's judgment as a position, not only a word."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "And here is where the story takes a turn that completely upends our moral expectations. Because if the grandmother's goodness is a sham, what about the villain? O'Connor sets it up so that",
+      "concept": "mask",
+      "diagram": null,
+      "callout": {
+        "text": "her goodness is a sham",
+        "style": "reveal"
+      },
+      "cast": [],
+      "storyboard": {
+        "claim": "If the grandmother's goodness is a sham, the story turns to ask what the villain is.",
+        "concreteVisual": "A mask icon alone on screen: the false face of her goodness.",
+        "onScreenText": "her goodness is a sham",
+        "relationToPrevious": "From 'not harmless' to 'her goodness is fake'.",
+        "addedInformation": "The mask reads as pretending, the literal claim about her goodness."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "the murderer is the only real theologian in the book. This is undoubtedly one of the most brilliant and unsettling inversions in all of American literature.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "the only real theologian",
+        "style": "highlight"
+      },
+      "set": "forest",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "book",
+      "storyboard": {
+        "claim": "O'Connor makes the murderer the only real theologian in the story, a brilliant and unsettling inversion.",
+        "concreteVisual": "The Misfit standing by the woods holding a book, calm, under the label 'the only real theologian'.",
+        "onScreenText": "the only real theologian",
+        "relationToPrevious": "Answers the question 'what about the villain?'.",
+        "addedInformation": "weak: the held book suggests study of faith; the callout carries 'theologian'."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Let's drop back into that post-crash scene. The family is sitting in this red gutted ditch. A big black battered hearse-like automobile",
+      "concept": "crash",
+      "diagram": null,
+      "callout": {
+        "text": "a red gutted ditch",
+        "style": "reveal"
+      },
+      "set": "highway",
+      "cast": [],
+      "storyboard": {
+        "claim": "Back to the post-crash scene: the family sits in a red gutted ditch as a big black battered car approaches.",
+        "concreteVisual": "A crash icon by an empty highway: the wreck the family is stranded beside.",
+        "onScreenText": "a red gutted ditch",
+        "relationToPrevious": "Leaves the analysis and drops back into the story scene.",
+        "addedInformation": "The crash and the road place the viewer at the wreck site."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "slowly approaches and stops on the hill above them. The Misfit steps out.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The Misfit steps out",
+        "style": "reveal"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "blank",
+      "action": "walk",
+      "storyboard": {
+        "claim": "The car slowly approaches, stops on the hill above them, and the Misfit steps out.",
+        "concreteVisual": "The Misfit walking in on the highway with a blank, unreadable face.",
+        "onScreenText": "The Misfit steps out",
+        "relationToPrevious": "The approaching car delivers its passenger: the Misfit arrives.",
+        "addedInformation": "His arrival is shown as a deed, the man walking in."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "He is shirtless. He's wearing blue jeans that are too tight for him, holding a black hat and a gun. But the physical detail that stands out is that his hair is just beginning to gray.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "hair just beginning to gray",
+        "style": "highlight"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "blank",
+      "action": "idle",
+      "continue": true,
+      "storyboard": {
+        "claim": "He is shirtless in too-tight jeans holding a black hat and a gun, but what stands out is his hair beginning to gray.",
+        "concreteVisual": "The same Misfit standing still on the highway, now facing us.",
+        "onScreenText": "hair just beginning to gray",
+        "relationToPrevious": "Same stage; he stops walking and the narration describes him.",
+        "addedInformation": "weak: the details are text only; the figure stays the same man."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "And he wears these delicate silver rim spectacles that give him a distinctly scholarly look. Right. He doesn't look like a monster.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "doesn't look like a monster",
+        "style": "reveal"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "neutral",
+      "action": "idle",
+      "continue": true,
+      "storyboard": {
+        "claim": "His delicate silver-rim spectacles give him a scholarly look; he does not look like a monster.",
+        "concreteVisual": "The same Misfit, his face softening from blank to an ordinary neutral look.",
+        "onScreenText": "doesn't look like a monster",
+        "relationToPrevious": "Same stage; only his face changes from blank to plain.",
+        "addedInformation": "weak: the ordinary face supports 'not a monster'; the scholarly spectacles are text only."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "No. And when he speaks, he isn't a ranting lunatic. He's calm. He's polite. Almost embarrassed by the situation. He apologizes to the women for not wearing a shirt, which is such a bizarre thing to care",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "He is calm and polite",
+        "style": "stack"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "sad",
+      "action": "talk",
+      "continue": true,
+      "storyboard": {
+        "claim": "When he speaks he is not a ranting lunatic: calm, polite, almost embarrassed, apologizing to the women for not wearing a shirt.",
+        "concreteVisual": "The same Misfit now speaking quietly, a sheepish downcast face, no shouting.",
+        "onScreenText": "calm, polite, almost embarrassed",
+        "relationToPrevious": "Same stage; he starts to talk, and his face turns sheepish.",
+        "addedInformation": "The quiet talking pose with a soft face shows politeness instead of rage."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "about right before you murder someone. Totally. He talks about his father. He talks about his time in the penitentiary. And then amidst this impending violence, he delivers this incredible theological thesis. Jesus",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a theological thesis",
+        "style": "highlight"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "continue": true,
+      "storyboard": {
+        "claim": "He talks about his father and the penitentiary, then delivers an incredible theological thesis about Jesus.",
+        "concreteVisual": "The same Misfit still talking, steady and composed, under the label 'a theological thesis'.",
+        "onScreenText": "a theological thesis",
+        "relationToPrevious": "Same stage; his face steadies as his talk turns to theology.",
+        "addedInformation": "weak: the talking figure shows he keeps speaking; the subject of the speech is in the callout."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "thrown everything off balance. If we connect this to the bigger picture, the murderer is the only person in the story asking the right questions. The Misfit's crisis is not a performance. It is completely genuine.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "completely genuine",
+        "style": "highlight"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "storyboard": {
+        "claim": "The murderer is the only one asking the right questions; his crisis is not a performance but completely genuine.",
+        "concreteVisual": "The same Misfit bowed and sad, troubled rather than menacing.",
+        "onScreenText": "completely genuine",
+        "relationToPrevious": "Same stage; he stops talking and sinks into his crisis.",
+        "addedInformation": "The bowed sad posture shows real inner trouble, not a show."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "He lays out a perfect terrifying theological binary for the grandmother. He says, \"If he did what he said, then it's nothing for you to do",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a terrifying theological binary",
+        "style": "reveal"
+      },
+      "set": "highway",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "continue": true,
+      "says": "If he did what he said",
+      "storyboard": {
+        "claim": "He lays out a terrifying theological binary: if Jesus did what he said, there is nothing to do but follow him.",
+        "concreteVisual": "The same Misfit speaking, a balloon over his head: 'If he did what he said'.",
+        "onScreenText": "a terrifying theological binary",
+        "relationToPrevious": "Same stage; he straightens and speaks the first half of the binary.",
+        "addedInformation": "The balloon puts the condition in his own mouth."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "but throw away everything and follow him. And if he didn't, then it's nothing for you to do but enjoy the few minutes you got left the best way you can by killing somebody or burning down his house or doing some other",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "FOLLOW HIM",
+          "ENJOY THE FEW MINUTES"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Either throw away everything and follow him, or, if he didn't, enjoy the few minutes left by killing or burning.",
+        "concreteVisual": "A two-bucket sorter: FOLLOW HIM versus ENJOY THE FEW MINUTES; no people.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From his spoken condition to the two outcomes laid side by side.",
+        "addedInformation": "The sorter shows the either/or as two exclusive options."
+      }
+    }
+  ]
+}

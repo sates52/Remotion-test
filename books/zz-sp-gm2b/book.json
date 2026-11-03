@@ -1,0 +1,47 @@
+{
+  "slug": "zz-sp-gm2b",
+  "title": "A Good Man Is Hard to Find",
+  "author": "Flannery O'Connor",
+  "genre": "literary",
+  "engine": "antidote",
+  "engineRationale": "Southern Gothic short-story collection: no real people to depict, only fictional everyman figures (the Grandmother, the Misfit). Abstract moral/theological concepts (grace, violence, self-deception) suit flat-vector rig + kinetic typography — cheaper render, higher conversion.",
+  "bgTint": true,
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "realistic",
+    "era": 1950,
+    "realPeople": false,
+    "format": "story",
+    "violence": "central",
+    "minorHarm": true,
+    "mustSee": [
+      "a family car trip",
+      "the Misfit",
+      "the grandmother"
+    ],
+    "note": "sandbox mini book (cycle 8 A/B): profile written for the copy only; the published source predates engine profiles"
+  },
+  "engineCheck": {
+    "at": "2026-11-03",
+    "fit": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 30.2,
+    "signals": {
+      "year": 0,
+      "history": 0,
+      "second": 12.3,
+      "abstract": 3.1,
+      "sensitive": 21.6,
+      "era": 1995,
+      "words": 324
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [
+      "violence/death 21.6/1k (> 6) → Flux will refuse many Vox images of the key scenes (CONTENT_FILTERED); Antidote draws them symbolically"
+    ],
+    "confirmed": true
+  }
+}

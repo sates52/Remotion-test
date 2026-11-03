@@ -1,0 +1,331 @@
+{
+  "book": {
+    "slug": "zz-sp-om1b",
+    "title": "The New One Minute Manager",
+    "author": "Kenneth H. Blanchard, Spencer Johnson",
+    "genre": "business"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "Absolutely. [clears throat] You can't review a 50-page manual every morning. Your brain just rejects it. But you can review a single paragraph and that completely changes the dynamic between her and her boss.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a single paragraph",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "notes",
+      "partnerExpression": "happy",
+      "storyboard": {
+        "claim": "Nobody can review a 50-page manual daily, but a single paragraph can be reviewed and it changes the dynamic between Teresa and her boss.",
+        "concreteVisual": "Teresa in the office holding one sheet of paper, smiling, her manager beside her smiling too.",
+        "onScreenText": "a single paragraph",
+        "relationToPrevious": "Opens the chunk: the one-page goal as the alternative to a long manual.",
+        "addedInformation": "Shows the goal as one page in the employee's own hand, shared with the boss."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "You aren't hiding behind corporate jargon. You are establishing a radically clear, honest standard of what winning looks like.",
+      "concept": "target",
+      "diagram": null,
+      "callout": {
+        "text": "A clear, honest standard",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "happy",
+      "storyboard": {
+        "claim": "The page is not jargon; it sets a radically clear, honest standard of what winning looks like.",
+        "concreteVisual": "Same pair, Teresa still holding her page; a target appears beside them.",
+        "onScreenText": "what winning looks like",
+        "relationToPrevious": "Same stage; the target is added to name what the page defines.",
+        "addedInformation": "The target icon makes the page read as a goal both can aim at."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "Which brings up a really crucial logistical question for me. How does that one page actually get written? Ah, the process, right?",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "how does it get written?",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "teresa"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "notes",
+      "partnerExpression": "neutral",
+      "storyboard": {
+        "claim": "The hosts ask how that one page actually gets written: the process.",
+        "concreteVisual": "The manager in the office holding a single sheet out toward Teresa, who stands facing him.",
+        "onScreenText": "how does it get written?",
+        "relationToPrevious": "From what the page is to how it is made.",
+        "addedInformation": "weak: sets up the hand-over that the next beat criticizes."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Because if the manager just types it up in their office, hands Teresa that piece of paper, and walks away, that's just another form of autocracy.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "another form of autocracy",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "sad",
+      "action": "take",
+      "holds": "notes",
+      "continue": true,
+      "actionCue": "hands Teresa",
+      "partnerExpression": "neutral",
+      "partnerAction": "reach",
+      "storyboard": {
+        "claim": "If the manager types the page alone, hands it to Teresa and walks away, it is just another form of autocracy.",
+        "concreteVisual": "The manager's arm outstretched as Teresa takes the sheet from his hand with a sad face.",
+        "onScreenText": "another form of autocracy",
+        "relationToPrevious": "The sheet passes from the manager to Teresa.",
+        "addedInformation": "Shows the one-way hand-over that makes the goal an order rather than an agreement."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "and just dictating from on high. Exactly. And that leads us to the collaborative process of how these goals are born.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "dictating from on high",
+        "style": "strike"
+      },
+      "set": "office",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "sad",
+      "action": "hold",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "storyboard": {
+        "claim": "That is dictating from on high, which leads to the collaborative process of how goals are born.",
+        "concreteVisual": "Teresa keeps holding the handed-down sheet, unhappy, the manager beside her.",
+        "onScreenText": "dictating from on high (struck through)",
+        "relationToPrevious": "Same stage; the handed sheet stays in her hand and the method is struck out.",
+        "addedInformation": "The strike marks dictating as the wrong method before the right one is shown."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Imagine a manager and an employee sitting side by side. I love this visual from the text. Me too. They are not sitting across a massive mahogany desk from each other because the desk is a barricade. It implies hierarchy, They're sitting",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "No desk between them",
+        "style": "highlight"
+      },
+      "set": "workstation",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "teresa"
+      ],
+      "expression": "happy",
+      "action": "sit",
+      "partnerExpression": "happy",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "Manager and employee sit side by side, not across a mahogany desk that acts as a barricade implying hierarchy.",
+        "concreteVisual": "The manager and Teresa seated next to each other at one workstation, both smiling.",
+        "onScreenText": "side by side",
+        "relationToPrevious": "From the dictated page to the collaborative setting.",
+        "addedInformation": "Shows the seating itself: equals at one desk, no barrier between them."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "side by side looking at the exact same monitor. They are typing out the goal together.",
+      "concept": "target",
+      "diagram": null,
+      "callout": {
+        "text": "typing out the goal together",
+        "style": "reveal"
+      },
+      "set": "workstation",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "laptop",
+      "continue": true,
+      "partnerExpression": "happy",
+      "storyboard": {
+        "claim": "They look at the same monitor and type the goal out together.",
+        "concreteVisual": "Teresa, still seated beside the manager, holds the laptop they both look at; a target beside them.",
+        "onScreenText": "typing out the goal together",
+        "relationToPrevious": "Same seated pair; now the shared screen and the goal appear.",
+        "addedInformation": "The shared laptop and target show the goal being made jointly."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "And when the employee is stuck, the manager asks this incredibly powerful specific question.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "when the employee is stuck",
+        "style": "reveal"
+      },
+      "set": "workstation",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "laptop",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "talk",
+      "storyboard": {
+        "claim": "When the employee is stuck, the manager asks a powerful, specific question.",
+        "concreteVisual": "Teresa, seated with the laptop, looks worried; the manager beside her starts to talk.",
+        "onScreenText": "when the employee is stuck",
+        "relationToPrevious": "Same stage; Teresa's face turns worried and the manager speaks.",
+        "addedInformation": "Shows who is stuck and who asks."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "What do you want to be happening? What do you want to be happening? It's such a strange phrasing at first, but that phrasing is intentional and it's deeply psychological.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "deeply psychological",
+        "style": "highlight"
+      },
+      "set": "workstation",
+      "cast": [
+        "manager",
+        "teresa"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "surprised",
+      "says": "What do you want to be happening?",
+      "storyboard": {
+        "claim": "The question is 'What do you want to be happening?', a strange but intentional, deeply psychological phrasing.",
+        "concreteVisual": "The seated manager talking to Teresa, a speech balloon with the question over his head; Teresa looks surprised.",
+        "onScreenText": "balloon: What do you want to be happening? / callout: deeply psychological",
+        "relationToPrevious": "Same stage; the manager now asks the question out loud.",
+        "addedInformation": "The balloon puts the exact question in the manager's mouth, addressed to her."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "As a leader, you do not dictate the answer. You facilitate the thinking. The text defines a problem in a very specific almost mathematical way that I find fascinating.",
+      "concept": "lightbulb",
+      "diagram": null,
+      "callout": {
+        "text": "facilitate the thinking",
+        "style": "highlight"
+      },
+      "set": "workstation",
+      "cast": [
+        "teresa",
+        "manager"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "happy",
+      "storyboard": {
+        "claim": "A leader does not dictate the answer but facilitates the thinking; the text defines a problem almost mathematically.",
+        "concreteVisual": "Teresa, seated, now talking with a lightbulb beside her; the manager listens with a smile.",
+        "onScreenText": "facilitate the thinking",
+        "relationToPrevious": "Same stage; the speaker switches from the manager to Teresa.",
+        "addedInformation": "Shows the idea coming from the employee, not the boss."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Oh, the gap definition. Yes. A problem only exists if there is a difference between what is actually happening right now and what you desire to be happening.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "What is happening now",
+          "The difference",
+          "Desired"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "A problem exists only if there is a difference between what is actually happening and what you desire.",
+        "concreteVisual": "A three-part flow: ACTUALLY HAPPENING, then THE DIFFERENCE, then DESIRED.",
+        "onScreenText": "Actually happening / The difference / Desired",
+        "relationToPrevious": "From the question to the definition of a problem behind it.",
+        "addedInformation": "Lays out the gap definition as two states with the difference between them."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "That is such a brilliant filter for everyday work. If you can't articulate what you desire to be happening, you don't actually have a problem yet.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Know what you desire first",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "teresa"
+      ],
+      "expression": "surprised",
+      "action": "hold",
+      "holds": "notes",
+      "storyboard": {
+        "claim": "If you can't articulate what you desire to be happening, you don't actually have a problem yet.",
+        "concreteVisual": "Teresa in the office holding her sheet, surprised.",
+        "onScreenText": "you don't have a problem yet",
+        "relationToPrevious": "Applies the gap definition as a filter for everyday work.",
+        "addedInformation": "weak: the filter's logic is carried mostly by the callout."
+      }
+    }
+  ]
+}

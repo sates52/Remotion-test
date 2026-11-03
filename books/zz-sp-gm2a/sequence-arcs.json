@@ -1,0 +1,182 @@
+{
+  "slug": "zz-sp-gm2a",
+  "totalSequences": 6,
+  "totalScenes": 12,
+  "averageDurationSecs": 18.2,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 336,
+      "durationSeconds": 11.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 336,
+          "role": "reveal",
+          "narration": "You have this little boy named Harry who tells people his name is Bevel. Well, this story breaks my "
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 351,
+      "durationFrames": 511,
+      "durationSeconds": 17,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 351,
+          "durationFrames": 341,
+          "role": "authored-start",
+          "narration": "Mrs. Connin, takes him out to a rural river healing. There is a preacher standing waist deep in the "
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 692,
+          "durationFrames": 170,
+          "role": "authored-kept",
+          "narration": "upside down, and violently plunges his head into the water, telling him he now counts."
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 862,
+      "durationFrames": 238,
+      "durationSeconds": 7.9,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 862,
+          "durationFrames": 238,
+          "role": "reveal",
+          "narration": "Later, to escape the miserable, silent neglect of his parents' apartment, where he's just wandering "
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1100,
+      "durationFrames": 487,
+      "durationSeconds": 16.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1100,
+          "durationFrames": 225,
+          "role": "authored-start",
+          "narration": "the boy returns to the river He wads in, trying to baptize himself looking for the kingdom of Christ"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1325,
+          "durationFrames": 262,
+          "role": "authored-kept",
+          "narration": "He fights the water. He's choking, but eventually the current catches him like a long gentle hand an"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "engine",
+      "fromFrame": 1587,
+      "durationFrames": 1027,
+      "durationSeconds": 34.2,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1587,
+          "durationFrames": 324,
+          "role": "setup",
+          "narration": "It is horrifying on a literal physical A neglected child drowns, but spiritually, textually, the riv"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1911,
+          "durationFrames": 338,
+          "role": "question",
+          "narration": "Grace is a terrifying physical force that often ends in death in these stories. Wait, I have to stop"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2249,
+          "durationFrames": 365,
+          "role": "reveal",
+          "narration": "neglected 5-year-old drowning alone in a muddy river grace to a modern listener? To me, that's just "
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "engine",
+      "fromFrame": 2614,
+      "durationFrames": 658,
+      "durationSeconds": 21.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2614,
+          "durationFrames": 250,
+          "role": "setup",
+          "narration": "as religion. It absolutely feels hopeless if you were looking at it through our modern secular mater"
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2864,
+          "durationFrames": 168,
+          "role": "question",
+          "narration": "Exactly. Today, we generally believe that the ultimate good is a long, comfortable, painless physica"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 3032,
+          "durationFrames": 240,
+          "role": "reveal",
+          "narration": "But to understand this trap, you have to completely immerse yourself in O'Connor's fiercely strictly"
+        }
+      ]
+    }
+  ]
+}

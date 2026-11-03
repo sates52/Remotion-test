@@ -1,0 +1,141 @@
+{
+  "slug": "zz-sp-gm1a",
+  "totalSequences": 3,
+  "totalScenes": 12,
+  "averageDurationSecs": 38,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 785,
+      "durationSeconds": 26.2,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 211,
+          "role": "setup",
+          "narration": "The reader is annoyed by her, just like her family is, but we excuse it as harmless. O'Connor shows "
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 226,
+          "durationFrames": 315,
+          "role": "question",
+          "narration": "And here is where the story takes a turn that completely upends our moral expectations. Because if t"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 541,
+          "durationFrames": 259,
+          "role": "reveal",
+          "narration": "the murderer is the only real theologian in the book. This is undoubtedly one of the most brilliant "
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 800,
+      "durationFrames": 1985,
+      "durationSeconds": 66.2,
+      "sceneCount": 7,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 800,
+          "durationFrames": 297,
+          "role": "authored-start",
+          "narration": "Let's drop back into that post-crash scene. The family is sitting in this red gutted ditch. A big bl"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1097,
+          "durationFrames": 159,
+          "role": "authored-kept",
+          "narration": "slowly approaches and stops on the hill above them. The Misfit steps out."
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1256,
+          "durationFrames": 281,
+          "role": "authored-kept",
+          "narration": "He is shirtless. He's wearing blue jeans that are too tight for him, holding a black hat and a gun. "
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1537,
+          "durationFrames": 211,
+          "role": "authored-kept",
+          "narration": "And he wears these delicate silver rim spectacles that give him a distinctly scholarly look. Right. "
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1748,
+          "durationFrames": 319,
+          "role": "authored-kept",
+          "narration": "No. And when he speaks, he isn't a ranting lunatic. He's calm. He's polite. Almost embarrassed by th"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2067,
+          "durationFrames": 331,
+          "role": "authored-kept",
+          "narration": "about right before you murder someone. Totally. He talks about his father. He talks about his time i"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2398,
+          "durationFrames": 387,
+          "role": "authored-kept",
+          "narration": "thrown everything off balance. If we connect this to the bigger picture, the murderer is the only pe"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 2785,
+      "durationFrames": 634,
+      "durationSeconds": 21.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2785,
+          "durationFrames": 283,
+          "role": "authored-start",
+          "narration": "He lays out a perfect terrifying theological binary for the grandmother. He says, \"If he did what he"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 3068,
+          "durationFrames": 351,
+          "role": "authored-kept",
+          "narration": "but throw away everything and follow him. And if he didn't, then it's nothing for you to do but enjo"
+        }
+      ]
+    }
+  ]
+}

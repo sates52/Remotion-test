@@ -1,0 +1,57 @@
+{
+  "slug": "zz-sp-mi3a",
+  "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+  "author": "Howard Marks",
+  "genre": "finance",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "market cycle pendulum swinging between euphoria and panic",
+      "second-level thinking decision matrix",
+      "risk vs return bell curve distortion",
+      "margin of safety barrier guarding an asset"
+    ]
+  },
+  "engineRubric": {
+    "pick": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 45,
+    "reasons": [
+      "an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": []
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-03",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 14.4,
+    "antidoteScore": 17.2,
+    "signals": {
+      "year": 3.6,
+      "history": 0,
+      "second": 32.6,
+      "abstract": 7.2,
+      "sensitive": 0,
+      "era": 2008,
+      "words": 276
+    },
+    "reasons": [
+      "real-world / dated references (3.6 years, 0 history terms per 1k words) → photoreal shows the actual world (Vox)",
+      "the narration addresses the viewer (\"you\" 32.6/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": true
+  },
+  "audioSource": "public/audio/the-most-important-thing.mp3"
+}

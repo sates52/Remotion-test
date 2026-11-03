@@ -1,0 +1,255 @@
+{
+  "book": {
+    "slug": "zz-sp-gm2a",
+    "title": "A Good Man Is Hard to Find",
+    "author": "Flannery O'Connor",
+    "genre": "literary"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "You have this little boy named Harry who tells people his name is Bevel. Well, this story breaks my heart. He's 5 years old, completely neglected by his hungover, perpetually partying parents. His babysitter,",
+      "concept": "home",
+      "diagram": null,
+      "callout": {
+        "text": "completely neglected",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [],
+      "storyboard": {
+        "claim": "Harry, who calls himself Bevel, is five and completely neglected by his hungover, partying parents.",
+        "concreteVisual": "An empty apartment room with a house icon and nobody in it.",
+        "onScreenText": "completely neglected",
+        "relationToPrevious": "Opens the story of 'The River'.",
+        "addedInformation": "weak: the empty home shows absence; the boy's age and name are carried by the audio."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "Mrs. Connin, takes him out to a rural river healing. There is a preacher standing waist deep in the slow red river, singing and preaching to a crowd. Mhm. He takes this little boy, swings him",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "a rural river healing",
+        "style": "reveal"
+      },
+      "set": "shore",
+      "cast": [],
+      "storyboard": {
+        "claim": "Mrs. Connin takes him to a river healing where a preacher stands waist deep, preaching to a crowd.",
+        "concreteVisual": "A riverbank with the water icon, empty of people.",
+        "onScreenText": "a rural river healing",
+        "relationToPrevious": "Moves from the neglected home to the river.",
+        "addedInformation": "The scene shifts from indoors to the river where the story turns."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "upside down, and violently plunges his head into the water, telling him he now counts.",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "he now counts",
+        "style": "highlight"
+      },
+      "set": "shore",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The preacher plunges the boy's head into the water and tells him he now counts.",
+        "concreteVisual": "The same riverbank and water icon, kept.",
+        "onScreenText": "he now counts",
+        "relationToPrevious": "Same river; the callout names the preacher's promise.",
+        "addedInformation": "The promise that he counts is what draws him back later."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Later, to escape the miserable, silent neglect of his parents' apartment, where he's just wandering around, emptying ashtrays on the rug and watching them sleep off hangovers,",
+      "concept": "home",
+      "diagram": null,
+      "callout": {
+        "text": "the silent neglect",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [],
+      "storyboard": {
+        "claim": "To escape the silent neglect of the apartment, where he empties ashtrays and watches his parents sleep,",
+        "concreteVisual": "The empty apartment room with the house icon again.",
+        "onScreenText": "the silent neglect",
+        "relationToPrevious": "Back from the river to the home of beat 0.",
+        "addedInformation": "Restates why he leaves: nothing at home holds him."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "the boy returns to the river He wads in, trying to baptize himself looking for the kingdom of Christ the preacher promised him.",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "trying to baptize himself",
+        "style": "reveal"
+      },
+      "set": "shore",
+      "cast": [],
+      "storyboard": {
+        "claim": "The boy returns to the river and wades in, trying to baptize himself to find the kingdom of Christ.",
+        "concreteVisual": "The riverbank with the water icon, empty.",
+        "onScreenText": "trying to baptize himself",
+        "relationToPrevious": "Returns to the river of beats 1-2.",
+        "addedInformation": "He seeks the promise alone, without the preacher."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "He fights the water. He's choking, but eventually the current catches him like a long gentle hand and pulls him swiftly forward and down to his drowning death.",
+      "concept": "water",
+      "diagram": null,
+      "callout": {
+        "text": "the current catches him",
+        "style": "highlight"
+      },
+      "set": "shore",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "He fights the water, but the current catches him like a long gentle hand and pulls him down to his death.",
+        "concreteVisual": "The same riverbank and water icon, kept, still empty.",
+        "onScreenText": "the current catches him",
+        "relationToPrevious": "Same river; now the current takes him.",
+        "addedInformation": "weak: the empty river implies he is gone; the death is carried by audio and callout."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "It is horrifying on a literal physical A neglected child drowns, but spiritually, textually, the river current catching him like a gentle hand is the arrival of grace.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "A neglected child drowns",
+          "The current brings grace"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Literally a neglected child drowns, but spiritually the current catching him is the arrival of grace.",
+        "concreteVisual": "A sorter with two buckets: the literal drowning and the spiritual grace.",
+        "onScreenText": "Literally: a child drowns / Spiritually: grace arrives",
+        "relationToPrevious": "Steps back from the story to the two ways of reading it.",
+        "addedInformation": "Shows the double reading the analysis rests on."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "Grace is a terrifying physical force that often ends in death in these stories. Wait, I have to stop here and really interrogate this. How on earth is getting shot in the chest three times by a serial killer or a",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a terrifying physical force",
+        "style": "highlight"
+      },
+      "set": "forest",
+      "cast": [
+        "misfit"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "storyboard": {
+        "claim": "Grace is a terrifying physical force that often ends in death, like being shot by a serial killer.",
+        "concreteVisual": "The Misfit standing in the woods with an angry, threatening face.",
+        "onScreenText": "a terrifying physical force",
+        "relationToPrevious": "From the drowning to the other death the hosts name: the Misfit's killing.",
+        "addedInformation": "Puts the killer the host mentions on screen as the face of violent grace."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "neglected 5-year-old drowning alone in a muddy river grace to a modern listener? To me, that's just a bleak, horrifying, utterly hopeless tragedy. It feels like total nihilism masked",
+      "concept": "grave",
+      "diagram": null,
+      "callout": {
+        "text": "utterly hopeless tragedy",
+        "style": "reveal"
+      },
+      "set": "forest",
+      "cast": [],
+      "storyboard": {
+        "claim": "To a modern listener a child drowning alone is a bleak, horrifying, hopeless tragedy, nihilism masked as religion.",
+        "concreteVisual": "A grave icon in the woods, nobody present.",
+        "onScreenText": "utterly hopeless tragedy",
+        "relationToPrevious": "The host objects to calling these deaths grace.",
+        "addedInformation": "The grave states the plain reading: death, nothing more."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "as religion. It absolutely feels hopeless if you were looking at it through our modern secular materialist lens. Right. Because we value life.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Modern secular lens",
+          "Feels hopeless"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "It feels hopeless only if you look at it through our modern secular materialist lens, because we value life.",
+        "concreteVisual": "A flow: Modern secular lens -> Feels hopeless.",
+        "onScreenText": "Modern secular lens -> Feels hopeless",
+        "relationToPrevious": "Explains where the objection of beat 8 comes from.",
+        "addedInformation": "Ties the hopelessness to the lens, not to the story."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "Exactly. Today, we generally believe that the ultimate good is a long, comfortable, painless physical life.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "a long, painless life",
+        "style": "box"
+      },
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "Today we believe the ultimate good is a long, comfortable, painless physical life.",
+        "concreteVisual": "A text card on an abstract background.",
+        "onScreenText": "a long, painless life",
+        "relationToPrevious": "Names the value behind the modern lens.",
+        "addedInformation": "weak: text-carried; states the value the lens measures by."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "But to understand this trap, you have to completely immerse yourself in O'Connor's fiercely strictly orthodox Catholic Okay. So, how does she see it?",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Modern secular lens",
+          "O'Connor's Catholic lens"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "To understand the story you have to immerse yourself in O'Connor's strictly orthodox Catholic view.",
+        "concreteVisual": "A sorter with two buckets: the modern secular lens and O'Connor's Catholic lens.",
+        "onScreenText": "Modern secular lens / O'Connor's Catholic lens",
+        "relationToPrevious": "Turns from the modern view to O'Connor's.",
+        "addedInformation": "Sets up the two lenses the next passage compares."
+      }
+    }
+  ]
+}

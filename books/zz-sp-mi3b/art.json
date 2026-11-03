@@ -1,0 +1,317 @@
+{
+  "book": {
+    "slug": "zz-sp-mi3b",
+    "title": "The Most Important Thing: Uncommon Sense for the Thoughtful Investor",
+    "author": "Howard Marks",
+    "genre": "finance"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "It feels like the global financial system is literally ending. There are real fears that ATMs might stop dispensing cash by Friday.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Stop dispensing cash by Friday",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "investor"
+      ],
+      "expression": "afraid",
+      "action": "hold",
+      "holds": "wallet",
+      "storyboard": {
+        "claim": "In the 2008 panic it felt like the financial system was ending, with fears ATMs would stop dispensing cash.",
+        "concreteVisual": "The consensus investor at a desk of red tickers, afraid, clutching his wallet to his chest.",
+        "onScreenText": "Stop dispensing cash by Friday",
+        "relationToPrevious": "Opening beat: sets the panic.",
+        "addedInformation": "The afraid face plus the clutched wallet shows the fear is about cash itself disappearing."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "I remember that panic. And in the middle of this total despair, you have to be the lone contrarian looking at a spreadsheet whispering to yourself, \"No, things can't possibly be that bad.\" That is the ultimate crucible",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Can't possibly be that bad",
+        "style": "highlight"
+      },
+      "set": "room",
+      "shotOverride": "twoShot",
+      "cast": [
+        "marks",
+        "investor"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "In the middle of despair the contrarian must look at the numbers and tell himself things can't be that bad - the crucible of investing.",
+        "concreteVisual": "Marks, calm, holding his spreadsheet notes, standing next to the afraid, bowed trader.",
+        "onScreenText": "Can't possibly be that bad",
+        "relationToPrevious": "Keeps the panicking trader; Marks enters calm with his spreadsheet.",
+        "addedInformation": "Calm vs afraid side by side shows the lone contrarian against the crowd's despair."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "of investing. What this means for you is that true contrarianism is deeply",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "True contrarianism",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "marks"
+      ],
+      "expression": "worried",
+      "action": "hold",
+      "holds": "notes",
+      "storyboard": {
+        "claim": "What this means for you: true contrarianism is deeply uncomfortable.",
+        "concreteVisual": "Marks alone in his office, holding his notes, with a worried face.",
+        "onScreenText": "True contrarianism",
+        "relationToPrevious": "From the scene of panic to what it means for the contrarian himself.",
+        "addedInformation": "weak: the worried face hints the stance is uneasy; the idea of contrarianism is carried by the text."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "deeply uncomfortable. It is not a fun detached intellectual exercise you do on a",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Deeply uncomfortable",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "marks"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "holds": "notes",
+      "continue": true,
+      "storyboard": {
+        "claim": "Contrarianism is deeply uncomfortable, not a fun detached intellectual exercise.",
+        "concreteVisual": "Marks, still holding his notes, now bowed and worried in the same office.",
+        "onScreenText": "Deeply uncomfortable",
+        "relationToPrevious": "Same Marks and notes; his posture sinks from holding to slumped.",
+        "addedInformation": "The slump shows the discomfort as felt, not merely thought about."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "It's physical. It is. Being too far ahead of your time, taking a position before the pendulum starts to swing back is practically indistinguishable from being wrong.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Indistinguishable from being wrong",
+        "style": "reveal"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "investor",
+        "marks"
+      ],
+      "expression": "smirk",
+      "action": "point",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "It is physical; being too far ahead of your time, before the pendulum swings back, is practically indistinguishable from being wrong.",
+        "concreteVisual": "The trader smirks and points at Marks, who stands bowed and worried.",
+        "onScreenText": "Indistinguishable from being wrong",
+        "relationToPrevious": "Marks stays slumped; the trader walks in and points at him.",
+        "addedInformation": "The pointing crowd shows that an early contrarian is judged as simply wrong."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Your friends think you're crazy. Your clients think you're reckless. But standing alone in that discomfort is the absolute",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Your friends think you're crazy",
+        "style": "reveal"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "investor",
+        "marks"
+      ],
+      "expression": "angry",
+      "action": "point",
+      "continue": true,
+      "partnerExpression": "neutral",
+      "partnerAction": "hold",
+      "storyboard": {
+        "claim": "Your friends think you're crazy and clients think you're reckless, but standing alone in that discomfort is the only path.",
+        "concreteVisual": "The trader, now angry, keeps pointing at Marks, who straightens up and holds steady with a neutral face.",
+        "onScreenText": "Your friends think you're crazy",
+        "relationToPrevious": "The trader's smirk turns to anger; Marks rises from his slump and holds his ground.",
+        "addedInformation": "The accusation and Marks standing firm show enduring the crowd's judgment."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "only path to asymmetrical The numbers from that exact era are staggering and they prove the point. In the fourth quarter of 2008,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The fourth quarter of 2008",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "marks"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "notes",
+      "storyboard": {
+        "claim": "That discomfort is the only path to asymmetrical returns, and the numbers from Q4 2008 prove it.",
+        "concreteVisual": "Marks alone, holding his notes up as the evidence.",
+        "onScreenText": "The fourth quarter of 2008",
+        "relationToPrevious": "Leaves the confrontation for the evidence: the date of the proof.",
+        "addedInformation": "weak: the notes show evidence is coming; the date is carried by text."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "when everyone on television was screaming that the world was ending and cash was the only safe asset,",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Cash is safe"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "Everyone on television was screaming the world was ending and cash was the only safe asset.",
+        "concreteVisual": "A flow diagram begins with its first box: CASH ONLY.",
+        "onScreenText": "Cash only",
+        "relationToPrevious": "From the date to the first step of what happened then.",
+        "addedInformation": "Starts the cause-to-result chain with the crowd's belief."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "Oak Tree and a few other distressed debt specialists were actually buying up the debt of fundamentally sound companies for pennies on the dollar.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Cash is safe",
+          "Debt for pennies"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Oaktree and a few distressed debt specialists were buying the debt of sound companies for pennies on the dollar.",
+        "concreteVisual": "The flow grows: CASH ONLY -> DEBT FOR PENNIES.",
+        "onScreenText": "Cash only -> Debt for pennies",
+        "relationToPrevious": "Same diagram; adds the contrarian purchase as the second step.",
+        "addedInformation": "Shows the contrarian move as the response to the panic."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Backing up the truck. Exactly. [snorts] And those distressed debt purchases yielded returns of 50 to 100% over the next 18 months. Skepticism isn't just saying,",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Cash is safe",
+          "Debt for pennies",
+          "50-100% returns"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "Backing up the truck: those distressed debt purchases returned 50 to 100% over the next 18 months.",
+        "concreteVisual": "The flow completes: CASH ONLY -> DEBT FOR PENNIES -> 50-100% RETURNS.",
+        "onScreenText": "Cash only -> Debt for pennies -> 50-100% returns",
+        "relationToPrevious": "Same diagram; adds the result as the third step.",
+        "addedInformation": "The finished chain shows panic buying paying off."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "\"Well, that's too good to be true during a tech bubble.\" It's having the guts, the pure",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Too good to be true",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "investor"
+      ],
+      "expression": "happy",
+      "action": "celebrate",
+      "storyboard": {
+        "claim": "Skepticism isn't just saying 'that's too good to be true' during a tech bubble.",
+        "concreteVisual": "The trader at his desk, celebrating with a big happy face.",
+        "onScreenText": "Too good to be true",
+        "relationToPrevious": "From the 2008 numbers to the general lesson, starting with the bubble side.",
+        "addedInformation": "The euphoric trader shows what a bubble looks like, the case people usually doubt."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "analytical courage to look at a market in freef fall and say, \"That's too bad to be true during a global panic.\" That is a brilliant way to frame it. Skepticism applies to extreme pessimism",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Too bad to be true",
+        "style": "highlight"
+      },
+      "set": "room",
+      "shotOverride": "twoShot",
+      "cast": [
+        "marks",
+        "investor"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "It takes analytical courage to look at a market in free fall and say it's too bad to be true; skepticism applies to extreme pessimism.",
+        "concreteVisual": "Marks calm with his notes beside the same trader, who has gone from celebrating to afraid and bowed.",
+        "onScreenText": "Too bad to be true",
+        "relationToPrevious": "Same trader, now in despair; Marks enters calm beside him.",
+        "addedInformation": "The trader's flip from euphoria to fear, against calm Marks, shows skepticism working in both directions."
+      }
+    }
+  ]
+}

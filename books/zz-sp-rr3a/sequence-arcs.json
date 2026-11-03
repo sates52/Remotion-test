@@ -1,0 +1,178 @@
+{
+  "slug": "zz-sp-rr3a",
+  "totalSequences": 6,
+  "totalScenes": 12,
+  "averageDurationSecs": 16.8,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 569,
+      "durationSeconds": 19,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 369,
+          "role": "setup",
+          "narration": "They are feudal lords. Now, you are looking at this through the lens of a society that values econom"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 384,
+          "durationFrames": 200,
+          "role": "reveal",
+          "narration": "To them, the Helium 3 is necessary, sure, but maintaining absolute unquestioned dominance"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 584,
+      "durationFrames": 693,
+      "durationSeconds": 23.1,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 584,
+          "durationFrames": 276,
+          "role": "authored-start",
+          "narration": "is See, if they reward Darrow based purely on his merit, they are implicitly agreeing to a social co"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 860,
+          "durationFrames": 232,
+          "role": "authored-kept",
+          "narration": "they are saying if you do X, we are obligated to give you Y. That implies the Reds have leverage."
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1092,
+          "durationFrames": 185,
+          "role": "authored-kept",
+          "narration": "Oh, wow. Right. Because if the reds realize their labor commands a guaranteed price,"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 1277,
+      "durationFrames": 315,
+      "durationSeconds": 10.5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1277,
+          "durationFrames": 315,
+          "role": "reveal",
+          "narration": "they realize they have Exactly. By rigging the math and giving the laurel to gamma, regardless of ou"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "authored",
+      "fromFrame": 1592,
+      "durationFrames": 434,
+      "durationSeconds": 14.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1592,
+          "durationFrames": 220,
+          "role": "authored-start",
+          "narration": "violently asserting that merit means absolutely nothing. Down in the mines, the rulers decide who ea"
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1812,
+          "durationFrames": 214,
+          "role": "authored-kept",
+          "narration": "and who starves entirely on a whim, just to prove they can. Yes, it reinforces the hierarchy."
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 2026,
+      "durationFrames": 389,
+      "durationSeconds": 13,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2026,
+          "durationFrames": 226,
+          "role": "authored-start",
+          "narration": "The laurel isn't a performance incentive. It's a psychological weapon. It's designed to keep the Red"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2252,
+          "durationFrames": 163,
+          "role": "authored-kept",
+          "narration": "while reminding them they are utterly powerless. Here's what that means for you."
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "engine",
+      "fromFrame": 2415,
+      "durationFrames": 610,
+      "durationSeconds": 20.3,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2415,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "If you're trapped in a rigged system, you can't win by playing harder because the story of the game "
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2631,
+          "durationFrames": 394,
+          "role": "reveal",
+          "narration": "It keeps them completely exhausted. If you're constantly agonizing over how to beat gamma next month"
+        }
+      ]
+    }
+  ]
+}

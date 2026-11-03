@@ -1,0 +1,335 @@
+{
+  "book": {
+    "slug": "zz-sp-om2a",
+    "title": "The New One Minute Manager",
+    "author": "Kenneth H. Blanchard, Spencer Johnson",
+    "genre": "business"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. He confirms the facts first, which is key.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Confronts John instantly",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "neutral",
+      "action": "point",
+      "holds": "notes",
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "The manager does not wait or schedule a meeting; he confronts John at once, after confirming the facts.",
+        "concreteVisual": "In the office the manager, sheet of paper in hand, points at John; John stands facing him, worried.",
+        "onScreenText": "Confronts John instantly",
+        "relationToPrevious": "Opens the John redirect story: the manager and John face to face.",
+        "addedInformation": "Shows who confronts whom and that the facts (the sheet) come first."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new release and it resulted in a system crash for our top Just stating exactly what happened.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Bypassed the QA protocol",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "neutral",
+      "action": "talk",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "He states exactly what happened: John bypassed the QA protocol and caused a system crash for a top client.",
+        "concreteVisual": "Same office: the manager talks, the sheet still in hand; John's shoulders drop.",
+        "onScreenText": "Bypassed the QA protocol",
+        "relationToPrevious": "Same two people; the manager now speaks the facts and John slumps.",
+        "addedInformation": "Names the concrete mistake the facts are about."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "And then the manager expresses his feelings about the impact. I am deeply frustrated by this error. I am angry because it puts our reputation at risk and creates chaos for the support team.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Deeply frustrated by this error",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "talk",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "The manager expresses his feelings about the impact: frustrated and angry because it risks the reputation and creates chaos for support.",
+        "concreteVisual": "The manager talks with an angry face; John, bowed, looks afraid.",
+        "onScreenText": "Deeply frustrated by this error",
+        "relationToPrevious": "The manager's face turns from neutral to angry; John's from worried to afraid.",
+        "addedInformation": "Shows the second step: from facts to the manager's feelings."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Strong words. And then that signature move, a painful, heavy, unblinking pause.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A heavy, unblinking pause",
+        "style": "box"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "slump",
+      "storyboard": {
+        "claim": "After the strong words comes the signature move: a painful, heavy, unblinking pause.",
+        "concreteVisual": "The manager stands silent and stern, sheet in hand; John stays bowed and afraid.",
+        "onScreenText": "A heavy, unblinking pause",
+        "relationToPrevious": "The manager stops talking (talk -> idle); the stare stays.",
+        "addedInformation": "weak: silence is shown only as the manager no longer talking; the label names the pause."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "The manager just lets the dread sink in. John is sitting there stewing in the reality of his own mistake. He's probably terrified.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Stewing in his own mistake",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "john",
+        "manager"
+      ],
+      "expression": "afraid",
+      "action": "sit",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "The manager lets the dread sink in; John sits stewing in his mistake, probably terrified.",
+        "concreteVisual": "John, now in front, sits with a frightened face; the manager stands over him, stern and silent.",
+        "onScreenText": "Stewing in his own mistake",
+        "relationToPrevious": "The focus moves to John: he sits down, afraid, while the stare continues.",
+        "addedInformation": "Shows the effect of the pause on John."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Oh, he expects to be handed a cardboard box to pack up his desk. But just when Jon thinks it's over, the manager softens. His body language changes.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The manager softens",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "idle",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "John expects to be handed a box to pack his desk, but the manager softens; his body language changes.",
+        "concreteVisual": "The manager's face changes from stern to warm; John, still seated, still looks afraid.",
+        "onScreenText": "The manager softens",
+        "relationToPrevious": "The manager's face changes from angry to warm; John has not caught up yet.",
+        "addedInformation": "Shows the pivot as a visible change of the manager's face while John still fears the worst."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "His tone changes completely. The pivot. He looks Jon in the eye and says, \"You are better than this mistake.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "You are better than this mistake",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "surprised",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "His tone changes completely; he looks John in the eye and says he is better than this mistake.",
+        "concreteVisual": "The warm manager talks to the seated John, who looks up in surprise.",
+        "onScreenText": "You are better than this mistake",
+        "relationToPrevious": "The manager speaks again, now warmly; John's fear turns to surprise.",
+        "addedInformation": "Shows the reassurance landing on John."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "You are one of my best engineers. I have complete trust in you, and I look forward to working with you to make sure this never happens again.\" It is an absolute emotional",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Complete trust in you",
+        "style": "reveal"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "happy",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "You are one of my best engineers, I have complete trust in you, and we will make sure it never happens again.",
+        "concreteVisual": "The manager keeps talking warmly; John, seated, now smiles back.",
+        "onScreenText": "Complete trust in you",
+        "relationToPrevious": "John's face changes from surprised to happy: the result of the redirect.",
+        "addedInformation": "Closes the story: fear has turned into trust."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Deeply frustrated",
+          "Heavy pause",
+          "Complete trust"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "It is an emotional roller coaster, but a highly engineered one based on behavioral psychology.",
+        "concreteVisual": "A three-step flow: Deeply frustrated -> Heavy pause -> Complete trust.",
+        "onScreenText": "Deeply frustrated -> Heavy pause -> Complete trust",
+        "relationToPrevious": "Steps back from the scene to lay out the redirect's designed order.",
+        "addedInformation": "Makes 'engineered' visible as an order of steps the scene just showed."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Think about the duality of what just We are not just our behavior. We are the human being managing our behavior.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Not just our behavior",
+          "We manage our behavior"
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "We are not just our behavior; we are the human being managing our behavior.",
+        "concreteVisual": "A sorter with two buckets: Our behavior | The human being.",
+        "onScreenText": "Our behavior / The human being",
+        "relationToPrevious": "From the scene's order to the principle underneath it.",
+        "addedInformation": "Shows the duality as two distinct things, the core of the redirect."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Tough on the performance",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "point",
+      "holds": "notes",
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "To correct someone without destroying them, be ruthlessly, objectively tough on the performance...",
+        "concreteVisual": "In the office the manager, stern, points with the sheet of facts toward a worried John.",
+        "onScreenText": "Tough on the performance",
+        "relationToPrevious": "Applies the behavior bucket: the toughness goes at the work.",
+        "addedInformation": "Ties 'tough on performance' to the facts sheet seen in the John scene."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "supportive of the person. The text mentions a concept called gunny sacking,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Supportive of the person",
+        "style": "highlight"
+      },
+      "set": "office",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "happy",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "...but fundamentally supportive of the person. The text also mentions a concept called gunny sacking.",
+        "concreteVisual": "Same office and pair: the manager now talks warmly, John smiles back.",
+        "onScreenText": "Supportive of the person",
+        "relationToPrevious": "Same two people; the manager's face changes from stern to warm, John's from worried to happy.",
+        "addedInformation": "Shows the second half of the rule as the same manager, two stances. weak: gunny sacking is only named here, not shown."
+      }
+    }
+  ]
+}

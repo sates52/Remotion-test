@@ -1,0 +1,159 @@
+{
+  "slug": "zz-sp-mi4b",
+  "totalSequences": 4,
+  "totalScenes": 12,
+  "averageDurationSecs": 27.8,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 1131,
+      "durationSeconds": 37.7,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 288,
+          "role": "setup",
+          "narration": "class is hopelessly, permanently clouded over. It's a great image for the futility of macro forecast"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 303,
+          "durationFrames": 255,
+          "role": "question",
+          "narration": "in the book and it perfectly encapsulates this humility. Experience is what you got when you didn't "
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 558,
+          "durationFrames": 326,
+          "role": "complication",
+          "narration": "What this means for you is that the I know school of investing, the people who confidently go on tel"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 884,
+          "durationFrames": 262,
+          "role": "reveal",
+          "narration": "of the next election, is incredibly dangerous to your wealth. so dangerous. You must instead proudly"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 1146,
+      "durationFrames": 549,
+      "durationSeconds": 18.3,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1146,
+          "durationFrames": 324,
+          "role": "setup",
+          "narration": "Because you humbly accept that you don't know the future, you are forced to manage your downside pro"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1470,
+          "durationFrames": 225,
+          "role": "reveal",
+          "narration": "started their careers in the early 1980s and worked all the way through the late 1990s. Oh yeah. For"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1695,
+      "durationFrames": 1143,
+      "durationSeconds": 38.1,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1695,
+          "durationFrames": 183,
+          "role": "authored-start",
+          "narration": "dropping interest rates and a massive economic expansion, they never saw a market decline exceed 5%."
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1878,
+          "durationFrames": 360,
+          "role": "authored-kept",
+          "narration": "Incredible run it was. But they were completely lulled to sleep. They genuinely believe they knew th"
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2238,
+          "durationFrames": 240,
+          "role": "authored-kept",
+          "narration": "risk simply didn't exist They confused a very long, very pleasant economic cycle with a permanent st"
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2478,
+          "durationFrames": 360,
+          "role": "authored-kept",
+          "narration": "And they paid for it dearly when the.com bubble burst. But I have to ask, if we truly can't know the"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 2838,
+      "durationFrames": 492,
+      "durationSeconds": 16.4,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2838,
+          "durationFrames": 328,
+          "role": "setup",
+          "narration": "gambling blindly? I mean, why bother doing any deep analysis at all if we just throw our hands up an"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 3166,
+          "durationFrames": 164,
+          "role": "reveal",
+          "narration": "forces you to focus hyperintensely on the micro realities of the specific businesses you are buying."
+        }
+      ]
+    }
+  ]
+}

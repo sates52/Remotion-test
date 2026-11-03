@@ -1,0 +1,6377 @@
+{
+  "meta": {
+    "slug": "zz-sp-om2a",
+    "title": "The New One Minute Manager",
+    "author": "Kenneth H. Blanchard, Spencer Johnson",
+    "genre": "business",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "audio": "audio/zz-sp-om2a.m4a",
+    "durationInFrames": 2802,
+    "multiplane": true,
+    "hud": {
+      "enabled": true,
+      "accent": "#D9603C",
+      "title": "THE NEW ONE MINUTE MANAGER",
+      "showProgress": true,
+      "showBadge": true
+    },
+    "thumbnail": {
+      "hook": "MANAGER MINUTE",
+      "_needsClaudeRefine": true,
+      "variant": {
+        "skin": "#D9A77C",
+        "hair": "#4A3524",
+        "suit": "#2C3E50",
+        "shirt": "#2C3E50",
+        "expression": "happy",
+        "hairStyle": "messy",
+        "glasses": false,
+        "beard": "none",
+        "gender": "m",
+        "age": "young",
+        "outfit": "casual",
+        "headwear": "none",
+        "accessory": "satchel",
+        "build": "slight",
+        "height": 1,
+        "headScale": 1,
+        "overlay": []
+      },
+      "action": "celebrate",
+      "expression": "happy",
+      "motif": "risingBars"
+    },
+    "cast": {
+      "young": {
+        "name": "The young employee",
+        "role": "protagonist, searching for a truly effective boss",
+        "variant": {
+          "skin": "#D9A77C",
+          "hair": "#4A3524",
+          "suit": "#2C3E50",
+          "shirt": "#2C3E50",
+          "expression": "neutral",
+          "hairStyle": "messy",
+          "glasses": false,
+          "beard": "none",
+          "gender": "m",
+          "age": "young",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "satchel",
+          "build": "slight",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "manager": {
+        "name": "The manager",
+        "role": "the one-minute manager who uses short goals, praise and redirects",
+        "variant": {
+          "skin": "#D9A77C",
+          "hair": "#9A9A9A",
+          "suit": "#1F2A44",
+          "shirt": "#F4F4F4",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "m",
+          "age": "old",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "tie",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "teresa": {
+        "name": "Teresa Lee",
+        "role": "field operations manager who learns to own problems",
+        "variant": {
+          "skin": "#D9A77C",
+          "hair": "#3B2A1E",
+          "suit": "#5D6D7E",
+          "shirt": "#3498DB",
+          "expression": "neutral",
+          "hairStyle": "ponytail",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "badge",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "paul": {
+        "name": "Paul Trenel",
+        "role": "employee who presents a client deck and gets specific praise",
+        "variant": {
+          "skin": "#D9A77C",
+          "hair": "#2E2218",
+          "suit": "#7F8C8D",
+          "shirt": "#D5DBDB",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": false,
+          "beard": "stubble",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "casual",
+          "headwear": "none",
+          "accessory": "satchel",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      },
+      "john": {
+        "name": "John Levy",
+        "role": "experienced engineer who makes a costly mistake and is redirected",
+        "variant": {
+          "skin": "#D9A77C",
+          "hair": "#1C1C1C",
+          "suit": "#1B2631",
+          "shirt": "#AEB6BF",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "hoodie",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        }
+      }
+    }
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "fromFrame": 15,
+      "durationFrames": 240,
+      "hud": {
+        "hidden": true
+      },
+      "_narration": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. He confirms the facts first, which is key.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "title",
+      "_act": "setup",
+      "shot": "lowAngle",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(244,242,237)",
+          "rgb(239,237,230)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          18,
+          -10
+        ],
+        "punch": {
+          "at": 114,
+          "amount": 0.055
+        },
+        "pulses": [
+          72,
+          192
+        ]
+      },
+      "characters": [
+        {
+          "id": "c0-0",
+          "rig": "everyman",
+          "identity": "young",
+          "role": "young",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "THE NEW ONE MINUTE MANAGER",
+          "style": "plain",
+          "color": "#1E1E22",
+          "enter": "down",
+          "at": 6,
+          "duration": 80
+        },
+        {
+          "text": "CONFRONTS JOHN INSTANTLY",
+          "style": "box",
+          "color": "#EAE7DE",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 114,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.7,
+        "semanticSignature": {
+          "action": "talk",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. He confirms the facts first, which is key."
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "title"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"...; visualJob: undefined -> \"surprise\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"character\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"HOOK\",\"payoffPromise\":\"promise-01\",\"escalates\":true,\"conceptual\"... -> {\"function\":\"HOOK\",\"escalates\":true,\"conceptual\":false,\"emotional\":false,\"pro...",
+            "sigBefore": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "HOOK",
+        "escalates": true,
+        "conceptual": false,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "setup",
+        "payoffPromise": "p-01"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "character",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 6,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "The manager doesn't wait.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "The manager doesn't wait.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"The manager doesn't wait.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 1.97,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.25,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "speaker",
+        "visualSubject": "young",
+        "secondarySubject": "office",
+        "relationship": "exposition",
+        "cameraIntent": "observe spoken discourse",
+        "composition": "foreground: speaker center; background: office",
+        "blocking": "foreground: speaker center; background: office",
+        "compositionRationale": "observe spoken discourse",
+        "motionIntent": "steady contemplative hold",
+        "revealOrder": [
+          "speaker",
+          "environment"
+        ]
+      }
+    },
+    {
+      "id": "scene-01",
+      "fromFrame": 255,
+      "durationFrames": 298,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new release and it resulted in a system crash for our top Just statin",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "BYPASSED THE QA PROTOCOL",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 95,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "neutral",
+          "action": "talk",
+          "holds": "notes",
+          "partnerAction": "slump",
+          "partnerExpression": "worried",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "setup",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(251,154,87)",
+          "rgb(219,101,19)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "setup"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 95,
+          "amount": 0.055
+        },
+        "pulses": [
+          67,
+          173,
+          240
+        ]
+      },
+      "characters": [
+        {
+          "id": "c1-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "neutral",
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c1-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "worried",
+          "enter": "right",
+          "action": "slump",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "BYPASSED THE QA PROTOCOL",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 95,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "talk+slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new release and it resulted in a system crash for our top Just statin"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"...",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "setup",
+        "payoffPromise": "p-02"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 95,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Never assume without the facts, right?",
+        "claimType": "question",
+        "epistemicStance": "questioned",
+        "thesis": "Never assume without the facts, right?",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Never assume without the facts, right?\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-02",
+      "fromFrame": 553,
+      "durationFrames": 309,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "And then the manager expresses his feelings about the impact. I am deeply frustrated by this error. I am angry because it puts our reputation at risk and create",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "DEEPLY FRUSTRATED BY THIS ERROR",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 109,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "angry",
+          "action": "talk",
+          "holds": "notes",
+          "partnerAction": "slump",
+          "partnerExpression": "afraid",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "cause_effect",
+        "requiredActions": [
+          "depict_trigger_to_consequence_flow"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "cause_effect",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "depict_trigger_to_consequence_flow"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "shot": "split",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(218,216,211)",
+          "rgb(201,199,192)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 109,
+          "amount": 0.055
+        },
+        "pulses": [
+          77,
+          187,
+          261
+        ]
+      },
+      "characters": [
+        {
+          "id": "c2-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "angry",
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c2-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "afraid",
+          "enter": "right",
+          "action": "slump",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "DEEPLY FRUSTRATED BY THIS ERROR",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 109,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "talk+slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fals...",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"twoShot\" -> \"split\"",
+            "sigBefore": {
+              "action": "talk+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+slump",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "explain",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 109,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "comparison_split",
+      "visualProposition": {
+        "claim": "And then the manager expresses his feelings about the impact.",
+        "claimType": "causal",
+        "epistemicStance": "affirmed",
+        "thesis": "And then the manager expresses his feelings about the impact.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"And then the manager expresses his feelings about the impact.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 3.81,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.95,
+        "mechanismCoverage": 0.85,
+        "stateChange": 0.8,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-03",
+      "fromFrame": 862,
+      "durationFrames": 173,
+      "hud": {
+        "badge": "INSIGHT 01 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Strong words. And then that signature move, a painful, heavy, unblinking pause.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "A HEAVY, UNBLINKING PAUSE",
+              "style": "box",
+              "color": "#EAE7DE",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 80,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "angry",
+          "action": "idle",
+          "holds": "notes",
+          "partnerAction": "slump",
+          "partnerExpression": "afraid",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "tension",
+      "_take": "sustained",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(218,216,211)",
+          "rgb(201,199,192)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 80,
+          "amount": 0.05
+        },
+        "pulses": [
+          72
+        ]
+      },
+      "characters": [
+        {
+          "id": "c3-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "angry",
+          "enter": "left",
+          "poseAt": 60,
+          "action": "idle",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c3-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "afraid",
+          "enter": "right",
+          "poseAt": 60,
+          "action": "slump",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "A HEAVY, UNBLINKING PAUSE",
+          "style": "box",
+          "color": "#EAE7DE",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 80,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "idle+slump",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+            "sigBefore": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+slump",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 80,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Strong words.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Strong words.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Strong words.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-04",
+      "fromFrame": 1035,
+      "durationFrames": 231,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "The manager just lets the dread sink in. John is sitting there stewing in the reality of his own mistake. He's probably terrified.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "STEWING IN HIS OWN MISTAKE",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 114,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "john",
+            "manager"
+          ],
+          "expression": "afraid",
+          "action": "sit",
+          "holds": null,
+          "partnerAction": "idle",
+          "partnerExpression": "angry",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "character_psychology",
+        "requiredActions": [
+          "visualize_internal_tension_or_rupture"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "character_psychology",
+          "domain": "psychology",
+          "requiredActions": [
+            "visualize_internal_tension_or_rupture"
+          ],
+          "requiredAttributes": {
+            "mood": "neutral",
+            "visualRegister": "cinematic_grounded",
+            "lightingOrTone": "subdued"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "tension",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(187,186,181)",
+          "rgb(171,168,163)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 114,
+          "amount": 0.055
+        },
+        "pulses": [
+          82,
+          187
+        ]
+      },
+      "characters": [
+        {
+          "id": "c4-0",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "afraid",
+          "enter": "left",
+          "action": "sit",
+          "lookAt": "partner",
+          "silhouette": false
+        },
+        {
+          "id": "c4-1",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "angry",
+          "enter": "right",
+          "action": "idle",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "STEWING IN HIS OWN MISTAKE",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 114,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "sit+idle",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: \"explain\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "sit+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "reminder"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 114,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "The manager just lets the dread sink in.",
+        "claimType": "negation",
+        "epistemicStance": "refuted",
+        "thesis": "The manager just lets the dread sink in.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"The manager just lets the dread sink in.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "refutes_premise",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 2.58,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.42,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "john_and_manager",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: john; right: manager; background: office",
+        "blocking": "left: john; right: manager; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "john",
+          "manager"
+        ]
+      }
+    },
+    {
+      "id": "scene-05",
+      "fromFrame": 1266,
+      "durationFrames": 280,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Oh, he expects to be handed a cardboard box to pack up his desk. But just when Jon thinks it's over, the manager softens. His body language changes.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "THE MANAGER SOFTENS",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 180,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "happy",
+          "action": "idle",
+          "holds": "notes",
+          "partnerAction": "sit",
+          "partnerExpression": "afraid",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "tension",
+      "_take": "sustained",
+      "shot": "medium",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(187,186,181)",
+          "rgb(171,168,163)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 180,
+          "amount": 0.05
+        },
+        "pulses": [
+          69,
+          144
+        ]
+      },
+      "characters": [
+        {
+          "id": "c5-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "happy",
+          "enter": "left",
+          "poseAt": 60,
+          "action": "idle",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c5-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "afraid",
+          "enter": "right",
+          "poseAt": 60,
+          "action": "sit",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "THE MANAGER SOFTENS",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 180,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "idle+sit",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"pr...",
+            "sigBefore": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "semantic_relevance",
+            "pass": "9",
+            "field": "shot",
+            "from": null,
+            "to": null,
+            "fields": [
+              "shot"
+            ],
+            "reason": "conceptual alignment enforcement",
+            "detail": "shot: \"twoShot\" -> \"medium\"",
+            "sigBefore": {
+              "action": "idle+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "idle+sit",
+              "subject": "argument",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [
+              "subject"
+            ],
+            "semanticChange": true,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": true
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-01",
+        "promiseRole": "payoff",
+        "payoff": "p-01"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 180,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "Oh, he expects to be handed a cardboard box to pack up his desk.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Oh, he expects to be handed a cardboard box to pack up his desk.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Oh, he expects to be handed a cardboard box to pack up his desk.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "dynamic coverage shift to medium preventing visual stagnation",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-06",
+      "fromFrame": 1546,
+      "durationFrames": 197,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "His tone changes completely. The pivot. He looks Jon in the eye and says, \"You are better than this mistake.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "YOU ARE BETTER THAN THIS MISTAKE",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 133,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "happy",
+          "action": "talk",
+          "holds": "notes",
+          "partnerAction": "sit",
+          "partnerExpression": "surprised",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "tension",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(171,169,165)",
+          "rgb(154,152,147)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 133,
+          "amount": 0.055
+        },
+        "pulses": [
+          82
+        ]
+      },
+      "characters": [
+        {
+          "id": "c6-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "happy",
+          "enter": "left",
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c6-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "surprised",
+          "enter": "right",
+          "action": "sit",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "YOU ARE BETTER THAN THIS MISTAKE",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 133,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "UNRESOLVED",
+        "risks": [
+          "UNKNOWN_CAPABILITY:expression:surprised"
+        ],
+        "capabilityConfidence": null,
+        "semanticSignature": {
+          "action": "talk+sit",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {
+          "unknownKeys": [
+            "expression:surprised"
+          ],
+          "note": "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)",
+          "fallbackCandidatesChecked": [
+            "shot:illustration",
+            "shot:diorama",
+            "shot:medium",
+            "shot:closeUp"
+          ]
+        },
+        "resolution": {
+          "kind": "unresolved_no_proof",
+          "repairs": [],
+          "invalidActions": [],
+          "note": "unknown capability with unproven action safety — measure first (PHASE G holdout closes this)"
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: undefined -> \"contrast\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "escalation"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 133,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "His tone changes completely.",
+        "claimType": "negation",
+        "epistemicStance": "refuted",
+        "thesis": "His tone changes completely.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"His tone changes completely.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "refutes_premise",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 2.58,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.42,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-07",
+      "fromFrame": 1743,
+      "durationFrames": 269,
+      "hud": {
+        "badge": "INSIGHT 02 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "You are one of my best engineers. I have complete trust in you, and I look forward to working with you to make sure this never happens again.\" It is an absolute",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "COMPLETE TRUST IN YOU",
+              "style": "reveal",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 61,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "happy",
+          "action": "talk",
+          "holds": "notes",
+          "partnerAction": "sit",
+          "partnerExpression": "happy",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "negative",
+      "_act": "tension",
+      "_take": "sustained",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(171,169,165)",
+          "rgb(154,152,147)"
+        ],
+        "set": "office",
+        "texture": "grid",
+        "accent": "#18181B",
+        "act": "tension"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 61,
+          "amount": 0.05
+        },
+        "pulses": [
+          132,
+          226
+        ]
+      },
+      "characters": [
+        {
+          "id": "c7-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "happy",
+          "enter": "left",
+          "poseAt": 60,
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c7-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "happy",
+          "enter": "right",
+          "poseAt": 60,
+          "action": "sit",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "COMPLETE TRUST IN YOU",
+          "style": "reveal",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 61,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "talk+sit",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "You are one of my best engineers. I have complete trust in you, and I look forward to working with you to make sure this never happens again.\" It is an absolute"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"surprise\"",
+            "sigBefore": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"QUESTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"...",
+            "sigBefore": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+sit",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "QUESTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "surprise",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "pop",
+          "frameOffset": 61,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "You are one of my best engineers.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "You are one of my best engineers.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"You are one of my best engineers.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-08",
+      "fromFrame": 2012,
+      "durationFrames": 175,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "abstract",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "turn",
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Deeply frustrated",
+          "Heavy pause",
+          "Complete trust"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "whipLeft",
+        "frames": 12,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(252,197,158)",
+          "rgb(239,237,230)"
+        ],
+        "set": "abstract",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "turn",
+        "split": [
+          "rgb(241,239,233)",
+          "rgb(252,196,157)"
+        ]
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.048
+        ],
+        "panX": [
+          -26,
+          26
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "pulses": [
+          72,
+          139
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "DIRECT_SCENE",
+        "risks": [],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [],
+        "requirement": null,
+        "evidence": {},
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "no_requirement"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false}; visualJob: undefined -> \"ground\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"SETUP\",\"escalates\":false,\"conceptual\":false,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa... -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":false,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "EXPLANATION",
+        "escalates": false,
+        "conceptual": false,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "ground",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -6,
+          "volume": 0.14,
+          "durationFrames": 17,
+          "reason": "transition_whipLeft"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"roller coaster, but it is a highly engineered one based on profound behavioral psychology.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-09",
+      "fromFrame": 2187,
+      "durationFrames": 209,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "Think about the duality of what just We are not just our behavior. We are the human being managing our behavior.",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": true,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "insert",
+          "shot": "insert",
+          "set": "room",
+          "cast": [],
+          "expression": null,
+          "action": null,
+          "holds": null,
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "neutral",
+      "_act": "turn",
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Not just our behavior",
+          "We manage our behavior"
+        ],
+        "authored": true
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "wipeRight",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(253,197,159)",
+          "rgb(240,238,232)"
+        ],
+        "set": "room",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "turn"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 115,
+          "amount": 0.05
+        },
+        "pulses": [
+          79
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.938,
+        "semanticSignature": {
+          "action": "",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "Think about the duality of what just We are not just our behavior. We are the human being managing our behavior."
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true...; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"REVEAL\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":true... -> {\"function\":\"TENSION\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":tru...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"TENSION\",\"payoff\":\"promise-01\",\"escalates\":true,\"conceptual\":tru... -> {\"function\":\"TENSION\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"p...",
+            "sigBefore": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "TENSION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "surface_facade",
+        "endState": "underlying_reality",
+        "transformation": "reveal_truth"
+      },
+      "attention": [
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeRight"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.14,
+          "durationFrames": 20,
+          "reason": "narrative_tension"
+        },
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        }
+      ],
+      "visualMode": "causal_diagram",
+      "visualProposition": {
+        "claim": "Think about the duality of what just We are not just our behavior.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "Think about the duality of what just We are not just our behavior.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"Think about the duality of what just We are not just our behavior.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "high",
+      "vigScore": 3.83,
+      "vigBreakdown": {
+        "claimCoverage": 0.9,
+        "relationshipCoverage": 1,
+        "mechanismCoverage": 0.6,
+        "stateChange": 0.4,
+        "audioSurplus": 0.95
+      },
+      "director": {
+        "viewerFocus": "causal_diagram_flow",
+        "visualSubject": "systemic_causal_nodes",
+        "secondarySubject": "presenter",
+        "relationship": "systemic_causal_feedback",
+        "cameraIntent": "deconstruct causal mechanism through visual anatomy",
+        "composition": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "blocking": "center: hero diagram nodes; left-flank: presenter yielding focus",
+        "compositionRationale": "deconstruct causal mechanism through visual anatomy",
+        "motionIntent": "dramatic steady hold with animated node illumination",
+        "revealOrder": [
+          "primary_cause",
+          "relational_vectors",
+          "systemic_consequence"
+        ]
+      }
+    },
+    {
+      "id": "scene-10",
+      "fromFrame": 2396,
+      "durationFrames": 278,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "TOUGH ON THE PERFORMANCE",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 171,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "angry",
+          "action": "point",
+          "holds": "notes",
+          "partnerAction": "idle",
+          "partnerExpression": "worried",
+          "concept": null,
+          "props": [],
+          "propTypes": []
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "contrast",
+        "requiredActions": [
+          "show_two_opposing_states_or_polarities"
+        ],
+        "reason": "preserved_authored_composition",
+        "applied": false,
+        "provenance": {
+          "archetype": "contrast",
+          "domain": "philosophy_ideas",
+          "requiredActions": [
+            "show_two_opposing_states_or_polarities"
+          ],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence",
+            "two_distinct_comparative_elements"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "contrast",
+      "_act": "resolution",
+      "shot": "twoShot",
+      "transition": {
+        "type": "wipeLeft",
+        "frames": 10,
+        "color": "#F97316"
+      },
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(231,210,173)",
+          "rgb(236,233,225)"
+        ],
+        "set": "office",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.08
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 171,
+          "amount": 0.055
+        },
+        "pulses": [
+          77,
+          156
+        ]
+      },
+      "characters": [
+        {
+          "id": "c10-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "angry",
+          "enter": "left",
+          "action": "point",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c10-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "worried",
+          "enter": "right",
+          "action": "idle",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "TOUGH ON THE PERFORMANCE",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 171,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "CONTRAST_ABSENCE",
+        "risks": [
+          "NEGATION"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "point+idle",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:insert|split",
+          "text:strike",
+          "prop-arc:shrink|closein",
+          "expression:neutral|sad|worried"
+        ],
+        "requirement": {
+          "kind": "absence",
+          "textStyles": [
+            "strike"
+          ],
+          "propArcs": [
+            "shrink",
+            "closein"
+          ]
+        },
+        "evidence": {
+          "negatedClaim": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally"
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...; visualJob: \"explain\" -> \"contrast\"",
+            "sigBefore": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa... -> {\"function\":\"CONTRADICTION\",\"escalates\":true,\"conceptual\":true,\"emotional\":fa...",
+            "sigBefore": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "point+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "CONTRADICTION",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseRole": "standalone"
+      },
+      "visualJob": "contrast",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "whoosh",
+          "frameOffset": -5,
+          "volume": 0.14,
+          "durationFrames": 15,
+          "reason": "transition_wipeLeft"
+        },
+        {
+          "type": "thud",
+          "frameOffset": 4,
+          "volume": 0.18,
+          "durationFrames": 20,
+          "reason": "counter_intuitive_turn"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 171,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the per\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    },
+    {
+      "id": "scene-11",
+      "fromFrame": 2674,
+      "durationFrames": 128,
+      "hud": {
+        "badge": "INSIGHT 03 / 03",
+        "topic": "SETUP"
+      },
+      "_narration": "supportive of the person. The text mentions a concept called gunny sacking,",
+      "_noIcon": true,
+      "_authorship": {
+        "src": "art",
+        "propTypes": [],
+        "diagramAuthored": false,
+        "conceptAuthored": null,
+        "intent": null,
+        "lock": {
+          "planShot": "twoShot",
+          "artTexts": [
+            {
+              "text": "SUPPORTIVE OF THE PERSON",
+              "style": "highlight",
+              "color": "#1E1E22",
+              "boxColor": "#D9603C",
+              "enter": "pop",
+              "at": 0,
+              "src": "art"
+            }
+          ],
+          "shot": "twoShot",
+          "set": "office",
+          "cast": [
+            "manager",
+            "john"
+          ],
+          "expression": "happy",
+          "action": "talk",
+          "holds": "notes",
+          "partnerAction": "idle",
+          "partnerExpression": "happy",
+          "concept": null,
+          "props": [],
+          "propTypes": [],
+          "continue": true,
+          "carryState": true
+        }
+      },
+      "_semanticAdapter": {
+        "archetype": "static_reflection",
+        "requiredActions": [],
+        "reason": "no_semantic_requirement",
+        "applied": false,
+        "provenance": {
+          "archetype": "static_reflection",
+          "domain": "philosophy_ideas",
+          "requiredActions": [],
+          "requiredAttributes": {
+            "mood": "analytical",
+            "visualRegister": "diagrammatic_editorial",
+            "lightingOrTone": "neutral"
+          },
+          "forbiddenTropes": [
+            "static_idle_actor_wallpaper",
+            "meaningless_abstract_blobs"
+          ],
+          "semanticRequirements": [
+            "cognitive_domain_coherence"
+          ]
+        },
+        "grammar": null,
+        "payload": null
+      },
+      "_beat": "story",
+      "_act": "resolution",
+      "_take": "sustained",
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "carryState": true,
+      "bg": {
+        "type": "gradient",
+        "colors": [
+          "rgb(231,210,173)",
+          "rgb(236,233,225)"
+        ],
+        "set": "office",
+        "texture": "grain",
+        "accent": "#18181B",
+        "act": "resolution"
+      },
+      "camera": {
+        "zoom": [
+          1.08,
+          1.1440000000000001
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "punch": {
+          "at": 0,
+          "amount": 0.05
+        },
+        "pulses": [
+          80
+        ]
+      },
+      "characters": [
+        {
+          "id": "c11-0",
+          "rig": "everyman",
+          "identity": "manager",
+          "role": "manager",
+          "expression": "happy",
+          "enter": "left",
+          "poseAt": 60,
+          "action": "talk",
+          "lookAt": "heldProp",
+          "silhouette": false,
+          "holds": "notes"
+        },
+        {
+          "id": "c11-1",
+          "rig": "everyman",
+          "identity": "john",
+          "role": "john",
+          "expression": "happy",
+          "enter": "right",
+          "poseAt": 60,
+          "action": "idle",
+          "lookAt": "partner",
+          "silhouette": false
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "SUPPORTIVE OF THE PERSON",
+          "style": "highlight",
+          "color": "#1E1E22",
+          "boxColor": "#D9603C",
+          "enter": "pop",
+          "at": 0,
+          "src": "art"
+        }
+      ],
+      "_visualStrategy": {
+        "strategy": "SAFE_REPRESENTATION",
+        "risks": [
+          "LOW_CAPABILITY"
+        ],
+        "capabilityConfidence": 0.65,
+        "semanticSignature": {
+          "action": "talk+idle",
+          "subject": "",
+          "relation": "",
+          "state": "",
+          "world": "",
+          "metaphor": ""
+        },
+        "levers": [
+          "shot:illustration|diorama|medium|closeUp",
+          "characterIntent:identity+gaze+state"
+        ],
+        "requirement": {
+          "kind": "fallback",
+          "lever": "closeUp",
+          "confidence": 0.917
+        },
+        "evidence": {
+          "lowestCapabilityConfidence": 0.65,
+          "unknownKeys": []
+        },
+        "resolution": {
+          "kind": "none",
+          "repairs": [],
+          "invalidActions": [],
+          "note": null
+        },
+        "staging": {
+          "staged": [],
+          "skipped": "authored"
+        },
+        "provenance": {
+          "decidedAt": "plan",
+          "capabilityMap": "data/visual-capability.json"
+        },
+        "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+        "postPlanDeltas": [
+          {
+            "engine": "semantic_beat",
+            "pass": "1-story+visual-director",
+            "field": "narrative+visualJob+visualArc+attention",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob",
+              "visualArc",
+              "attention"
+            ],
+            "reason": "narrative function + visual director layer rewrite",
+            "detail": "narrative: null -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"explain\"; visualArc: null -> {\"startState\":\"normal\",\"endState\":\"normal\",\"transformation\":\"none\"}; attention: null -> [\"partner\",\"motif\",\"text\"]",
+            "sigBefore": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "chapter_arcs",
+            "pass": "3",
+            "field": "narrative+visualJob",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative",
+              "visualJob"
+            ],
+            "reason": "chapter curiosity cycles",
+            "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: \"explain\" -> \"reveal\"",
+            "sigBefore": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          },
+          {
+            "engine": "promise_engine",
+            "pass": "4",
+            "field": "narrative",
+            "from": null,
+            "to": null,
+            "fields": [
+              "narrative"
+            ],
+            "reason": "multi-beat curiosity lifecycles",
+            "detail": "narrative: {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"PAYOFF\",\"escalates\":true,\"conceptual\":true,\"emotional\":false,\"pr...",
+            "sigBefore": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "sigAfter": {
+              "action": "talk+idle",
+              "subject": "",
+              "relation": "",
+              "state": "",
+              "world": "",
+              "metaphor": ""
+            },
+            "changedKeys": [],
+            "semanticChange": false,
+            "stagedOverride": null,
+            "requirementBroken": null,
+            "reviewRequired": false
+          }
+        ]
+      },
+      "narrative": {
+        "function": "PAYOFF",
+        "escalates": true,
+        "conceptual": true,
+        "emotional": false,
+        "promiseId": "p-02",
+        "promiseRole": "payoff",
+        "payoff": "p-02"
+      },
+      "visualJob": "reveal",
+      "visualArc": {
+        "startState": "normal",
+        "endState": "normal",
+        "transformation": "none"
+      },
+      "attention": [
+        "partner",
+        "motif",
+        "text"
+      ],
+      "audioEvents": [
+        {
+          "type": "ding",
+          "frameOffset": 6,
+          "volume": 0.16,
+          "durationFrames": 36,
+          "reason": "promise_payoff_revelation"
+        },
+        {
+          "type": "pop",
+          "frameOffset": 0,
+          "volume": 0.11,
+          "durationFrames": 12,
+          "reason": "kinetic_text_pop"
+        }
+      ],
+      "visualMode": "character_drama",
+      "visualProposition": {
+        "claim": "supportive of the person.",
+        "claimType": "assertion",
+        "epistemicStance": "affirmed",
+        "thesis": "supportive of the person.",
+        "counterThesisEvidence": "absent",
+        "visualQuestion": "What must the viewer see while hearing: \"supportive of the person.\"?",
+        "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+        "subject": "argument",
+        "mechanism": "exposition",
+        "stakes": "theoretical_principle",
+        "stateIndex": 0,
+        "stateTotal": 1,
+        "statePhase": "discourse"
+      },
+      "visualInformationGain": "medium",
+      "vigScore": 2.31,
+      "vigBreakdown": {
+        "claimCoverage": 0.8,
+        "relationshipCoverage": 0.6,
+        "mechanismCoverage": 0.2,
+        "stateChange": 0.4,
+        "audioSurplus": 0.35
+      },
+      "director": {
+        "viewerFocus": "two_character_exchange",
+        "visualSubject": "manager_and_john",
+        "secondarySubject": "office",
+        "relationship": "exchange",
+        "cameraIntent": "two-shot capturing the tension between the two speakers",
+        "composition": "left: manager; right: john; background: office",
+        "blocking": "left: manager; right: john; background: office",
+        "compositionRationale": "two-shot capturing the tension between the two speakers",
+        "motionIntent": "steady hold on the exchange",
+        "revealOrder": [
+          "manager",
+          "john"
+        ]
+      }
+    }
+  ],
+  "captions": [
+    {
+      "text": "The manager doesn't wait.",
+      "startFrame": 15,
+      "endFrame": 58,
+      "words": [
+        {
+          "w": "The",
+          "s": 15,
+          "e": 22
+        },
+        {
+          "w": "manager",
+          "s": 22,
+          "e": 32
+        },
+        {
+          "w": "doesn't",
+          "s": 32,
+          "e": 42
+        },
+        {
+          "w": "wait.",
+          "s": 42,
+          "e": 58
+        }
+      ]
+    },
+    {
+      "text": "He doesn't schedule a meeting for next week.",
+      "startFrame": 58,
+      "endFrame": 126,
+      "words": [
+        {
+          "w": "He",
+          "s": 58,
+          "e": 66
+        },
+        {
+          "w": "doesn't",
+          "s": 66,
+          "e": 70
+        },
+        {
+          "w": "schedule",
+          "s": 70,
+          "e": 80
+        },
+        {
+          "w": "a",
+          "s": 80,
+          "e": 87
+        },
+        {
+          "w": "meeting",
+          "s": 87,
+          "e": 94
+        },
+        {
+          "w": "for",
+          "s": 94,
+          "e": 102
+        },
+        {
+          "w": "next",
+          "s": 102,
+          "e": 109
+        },
+        {
+          "w": "week.",
+          "s": 109,
+          "e": 126
+        }
+      ]
+    },
+    {
+      "text": "He confronts Jon instantly.",
+      "startFrame": 126,
+      "endFrame": 183,
+      "words": [
+        {
+          "w": "He",
+          "s": 126,
+          "e": 133
+        },
+        {
+          "w": "confronts",
+          "s": 133,
+          "e": 147
+        },
+        {
+          "w": "Jon",
+          "s": 147,
+          "e": 157
+        },
+        {
+          "w": "instantly.",
+          "s": 157,
+          "e": 183
+        }
+      ]
+    },
+    {
+      "text": "He confirms the facts first, which is key.",
+      "startFrame": 183,
+      "endFrame": 255,
+      "words": [
+        {
+          "w": "He",
+          "s": 183,
+          "e": 190
+        },
+        {
+          "w": "confirms",
+          "s": 190,
+          "e": 200
+        },
+        {
+          "w": "the",
+          "s": 200,
+          "e": 207
+        },
+        {
+          "w": "facts",
+          "s": 207,
+          "e": 214
+        },
+        {
+          "w": "first,",
+          "s": 214,
+          "e": 226
+        },
+        {
+          "w": "which",
+          "s": 226,
+          "e": 234
+        },
+        {
+          "w": "is",
+          "s": 234,
+          "e": 238
+        },
+        {
+          "w": "key.",
+          "s": 238,
+          "e": 255
+        }
+      ]
+    },
+    {
+      "text": "Never assume without the facts, right?",
+      "startFrame": 255,
+      "endFrame": 313,
+      "words": [
+        {
+          "w": "Never",
+          "s": 255,
+          "e": 262
+        },
+        {
+          "w": "assume",
+          "s": 262,
+          "e": 272
+        },
+        {
+          "w": "without",
+          "s": 272,
+          "e": 279
+        },
+        {
+          "w": "the",
+          "s": 279,
+          "e": 284
+        },
+        {
+          "w": "facts,",
+          "s": 284,
+          "e": 298
+        },
+        {
+          "w": "right?",
+          "s": 298,
+          "e": 313
+        }
+      ]
+    },
+    {
+      "text": "He says, \"John, you bypassed the QA protocol on",
+      "startFrame": 313,
+      "endFrame": 397,
+      "words": [
+        {
+          "w": "He",
+          "s": 313,
+          "e": 318
+        },
+        {
+          "w": "says,",
+          "s": 318,
+          "e": 322
+        },
+        {
+          "w": "\"John,",
+          "s": 322,
+          "e": 346
+        },
+        {
+          "w": "you",
+          "s": 346,
+          "e": 354
+        },
+        {
+          "w": "bypassed",
+          "s": 354,
+          "e": 366
+        },
+        {
+          "w": "the",
+          "s": 366,
+          "e": 369
+        },
+        {
+          "w": "QA",
+          "s": 368,
+          "e": 382
+        },
+        {
+          "w": "protocol",
+          "s": 382,
+          "e": 392
+        },
+        {
+          "w": "on",
+          "s": 392,
+          "e": 397
+        }
+      ]
+    },
+    {
+      "text": "the new release and it resulted in a system",
+      "startFrame": 397,
+      "endFrame": 454,
+      "words": [
+        {
+          "w": "the",
+          "s": 397,
+          "e": 402
+        },
+        {
+          "w": "new",
+          "s": 402,
+          "e": 406
+        },
+        {
+          "w": "release",
+          "s": 406,
+          "e": 416
+        },
+        {
+          "w": "and",
+          "s": 416,
+          "e": 423
+        },
+        {
+          "w": "it",
+          "s": 423,
+          "e": 428
+        },
+        {
+          "w": "resulted",
+          "s": 428,
+          "e": 438
+        },
+        {
+          "w": "in",
+          "s": 438,
+          "e": 442
+        },
+        {
+          "w": "a",
+          "s": 442,
+          "e": 447
+        },
+        {
+          "w": "system",
+          "s": 447,
+          "e": 454
+        }
+      ]
+    },
+    {
+      "text": "crash for our top Just stating exactly what happened.",
+      "startFrame": 454,
+      "endFrame": 553,
+      "words": [
+        {
+          "w": "crash",
+          "s": 454,
+          "e": 464
+        },
+        {
+          "w": "for",
+          "s": 464,
+          "e": 469
+        },
+        {
+          "w": "our",
+          "s": 469,
+          "e": 474
+        },
+        {
+          "w": "top",
+          "s": 474,
+          "e": 495
+        },
+        {
+          "w": "Just",
+          "s": 495,
+          "e": 502
+        },
+        {
+          "w": "stating",
+          "s": 502,
+          "e": 517
+        },
+        {
+          "w": "exactly",
+          "s": 517,
+          "e": 526
+        },
+        {
+          "w": "what",
+          "s": 526,
+          "e": 534
+        },
+        {
+          "w": "happened.",
+          "s": 534,
+          "e": 553
+        }
+      ]
+    },
+    {
+      "text": "And then the manager expresses his feelings about the",
+      "startFrame": 553,
+      "endFrame": 630,
+      "words": [
+        {
+          "w": "And",
+          "s": 553,
+          "e": 558
+        },
+        {
+          "w": "then",
+          "s": 558,
+          "e": 570
+        },
+        {
+          "w": "the",
+          "s": 570,
+          "e": 577
+        },
+        {
+          "w": "manager",
+          "s": 577,
+          "e": 589
+        },
+        {
+          "w": "expresses",
+          "s": 589,
+          "e": 601
+        },
+        {
+          "w": "his",
+          "s": 601,
+          "e": 608
+        },
+        {
+          "w": "feelings",
+          "s": 608,
+          "e": 618
+        },
+        {
+          "w": "about",
+          "s": 618,
+          "e": 622
+        },
+        {
+          "w": "the",
+          "s": 622,
+          "e": 630
+        }
+      ]
+    },
+    {
+      "text": "impact. I am deeply frustrated by this error.",
+      "startFrame": 630,
+      "endFrame": 714,
+      "words": [
+        {
+          "w": "impact.",
+          "s": 630,
+          "e": 654
+        },
+        {
+          "w": "I",
+          "s": 654,
+          "e": 661
+        },
+        {
+          "w": "am",
+          "s": 661,
+          "e": 666
+        },
+        {
+          "w": "deeply",
+          "s": 666,
+          "e": 678
+        },
+        {
+          "w": "frustrated",
+          "s": 678,
+          "e": 690
+        },
+        {
+          "w": "by",
+          "s": 690,
+          "e": 694
+        },
+        {
+          "w": "this",
+          "s": 694,
+          "e": 704
+        },
+        {
+          "w": "error.",
+          "s": 704,
+          "e": 714
+        }
+      ]
+    },
+    {
+      "text": "I am angry because it puts our reputation at",
+      "startFrame": 714,
+      "endFrame": 783,
+      "words": [
+        {
+          "w": "I",
+          "s": 714,
+          "e": 721
+        },
+        {
+          "w": "am",
+          "s": 721,
+          "e": 726
+        },
+        {
+          "w": "angry",
+          "s": 726,
+          "e": 740
+        },
+        {
+          "w": "because",
+          "s": 740,
+          "e": 747
+        },
+        {
+          "w": "it",
+          "s": 747,
+          "e": 754
+        },
+        {
+          "w": "puts",
+          "s": 754,
+          "e": 759
+        },
+        {
+          "w": "our",
+          "s": 759,
+          "e": 766
+        },
+        {
+          "w": "reputation",
+          "s": 766,
+          "e": 778
+        },
+        {
+          "w": "at",
+          "s": 778,
+          "e": 783
+        }
+      ]
+    },
+    {
+      "text": "risk and creates chaos for the support team.",
+      "startFrame": 783,
+      "endFrame": 862,
+      "words": [
+        {
+          "w": "risk",
+          "s": 783,
+          "e": 795
+        },
+        {
+          "w": "and",
+          "s": 795,
+          "e": 805
+        },
+        {
+          "w": "creates",
+          "s": 805,
+          "e": 814
+        },
+        {
+          "w": "chaos",
+          "s": 814,
+          "e": 826
+        },
+        {
+          "w": "for",
+          "s": 826,
+          "e": 831
+        },
+        {
+          "w": "the",
+          "s": 831,
+          "e": 836
+        },
+        {
+          "w": "support",
+          "s": 836,
+          "e": 846
+        },
+        {
+          "w": "team.",
+          "s": 846,
+          "e": 862
+        }
+      ]
+    },
+    {
+      "text": "Strong words. And then that signature move, a",
+      "startFrame": 862,
+      "endFrame": 956,
+      "words": [
+        {
+          "w": "Strong",
+          "s": 862,
+          "e": 872
+        },
+        {
+          "w": "words.",
+          "s": 872,
+          "e": 891
+        },
+        {
+          "w": "And",
+          "s": 891,
+          "e": 898
+        },
+        {
+          "w": "then",
+          "s": 898,
+          "e": 910
+        },
+        {
+          "w": "that",
+          "s": 910,
+          "e": 920
+        },
+        {
+          "w": "signature",
+          "s": 920,
+          "e": 934
+        },
+        {
+          "w": "move,",
+          "s": 934,
+          "e": 946
+        },
+        {
+          "w": "a",
+          "s": 946,
+          "e": 956
+        }
+      ]
+    },
+    {
+      "text": "painful, heavy, unblinking pause.",
+      "startFrame": 956,
+      "endFrame": 1035,
+      "words": [
+        {
+          "w": "painful,",
+          "s": 956,
+          "e": 973
+        },
+        {
+          "w": "heavy,",
+          "s": 973,
+          "e": 990
+        },
+        {
+          "w": "unblinking",
+          "s": 990,
+          "e": 1011
+        },
+        {
+          "w": "pause.",
+          "s": 1011,
+          "e": 1035
+        }
+      ]
+    },
+    {
+      "text": "The manager just lets the dread sink in.",
+      "startFrame": 1035,
+      "endFrame": 1117,
+      "words": [
+        {
+          "w": "The",
+          "s": 1035,
+          "e": 1045
+        },
+        {
+          "w": "manager",
+          "s": 1045,
+          "e": 1057
+        },
+        {
+          "w": "just",
+          "s": 1057,
+          "e": 1064
+        },
+        {
+          "w": "lets",
+          "s": 1064,
+          "e": 1071
+        },
+        {
+          "w": "the",
+          "s": 1071,
+          "e": 1076
+        },
+        {
+          "w": "dread",
+          "s": 1076,
+          "e": 1086
+        },
+        {
+          "w": "sink",
+          "s": 1086,
+          "e": 1093
+        },
+        {
+          "w": "in.",
+          "s": 1093,
+          "e": 1117
+        }
+      ]
+    },
+    {
+      "text": "John is sitting there stewing in the reality of",
+      "startFrame": 1117,
+      "endFrame": 1184,
+      "words": [
+        {
+          "w": "John",
+          "s": 1117,
+          "e": 1124
+        },
+        {
+          "w": "is",
+          "s": 1124,
+          "e": 1131
+        },
+        {
+          "w": "sitting",
+          "s": 1131,
+          "e": 1138
+        },
+        {
+          "w": "there",
+          "s": 1138,
+          "e": 1153
+        },
+        {
+          "w": "stewing",
+          "s": 1153,
+          "e": 1162
+        },
+        {
+          "w": "in",
+          "s": 1162,
+          "e": 1167
+        },
+        {
+          "w": "the",
+          "s": 1167,
+          "e": 1172
+        },
+        {
+          "w": "reality",
+          "s": 1172,
+          "e": 1179
+        },
+        {
+          "w": "of",
+          "s": 1179,
+          "e": 1184
+        }
+      ]
+    },
+    {
+      "text": "his own mistake. He's probably terrified.",
+      "startFrame": 1184,
+      "endFrame": 1266,
+      "words": [
+        {
+          "w": "his",
+          "s": 1184,
+          "e": 1189
+        },
+        {
+          "w": "own",
+          "s": 1189,
+          "e": 1196
+        },
+        {
+          "w": "mistake.",
+          "s": 1196,
+          "e": 1222
+        },
+        {
+          "w": "He's",
+          "s": 1222,
+          "e": 1234
+        },
+        {
+          "w": "probably",
+          "s": 1234,
+          "e": 1244
+        },
+        {
+          "w": "terrified.",
+          "s": 1244,
+          "e": 1266
+        }
+      ]
+    },
+    {
+      "text": "Oh, he expects to be handed a cardboard box",
+      "startFrame": 1266,
+      "endFrame": 1328,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 1266,
+          "e": 1275
+        },
+        {
+          "w": "he",
+          "s": 1275,
+          "e": 1280
+        },
+        {
+          "w": "expects",
+          "s": 1280,
+          "e": 1290
+        },
+        {
+          "w": "to",
+          "s": 1290,
+          "e": 1294
+        },
+        {
+          "w": "be",
+          "s": 1294,
+          "e": 1297
+        },
+        {
+          "w": "handed",
+          "s": 1297,
+          "e": 1306
+        },
+        {
+          "w": "a",
+          "s": 1306,
+          "e": 1311
+        },
+        {
+          "w": "cardboard",
+          "s": 1311,
+          "e": 1323
+        },
+        {
+          "w": "box",
+          "s": 1323,
+          "e": 1328
+        }
+      ]
+    },
+    {
+      "text": "to pack up his desk.",
+      "startFrame": 1328,
+      "endFrame": 1378,
+      "words": [
+        {
+          "w": "to",
+          "s": 1328,
+          "e": 1335
+        },
+        {
+          "w": "pack",
+          "s": 1335,
+          "e": 1340
+        },
+        {
+          "w": "up",
+          "s": 1340,
+          "e": 1345
+        },
+        {
+          "w": "his",
+          "s": 1345,
+          "e": 1350
+        },
+        {
+          "w": "desk.",
+          "s": 1350,
+          "e": 1378
+        }
+      ]
+    },
+    {
+      "text": "But just when Jon thinks it's over, the manager",
+      "startFrame": 1378,
+      "endFrame": 1470,
+      "words": [
+        {
+          "w": "But",
+          "s": 1378,
+          "e": 1386
+        },
+        {
+          "w": "just",
+          "s": 1386,
+          "e": 1390
+        },
+        {
+          "w": "when",
+          "s": 1390,
+          "e": 1400
+        },
+        {
+          "w": "Jon",
+          "s": 1400,
+          "e": 1410
+        },
+        {
+          "w": "thinks",
+          "s": 1410,
+          "e": 1417
+        },
+        {
+          "w": "it's",
+          "s": 1417,
+          "e": 1426
+        },
+        {
+          "w": "over,",
+          "s": 1426,
+          "e": 1450
+        },
+        {
+          "w": "the",
+          "s": 1450,
+          "e": 1458
+        },
+        {
+          "w": "manager",
+          "s": 1458,
+          "e": 1470
+        }
+      ]
+    },
+    {
+      "text": "softens. His body language changes.",
+      "startFrame": 1470,
+      "endFrame": 1546,
+      "words": [
+        {
+          "w": "softens.",
+          "s": 1470,
+          "e": 1496
+        },
+        {
+          "w": "His",
+          "s": 1496,
+          "e": 1503
+        },
+        {
+          "w": "body",
+          "s": 1503,
+          "e": 1510
+        },
+        {
+          "w": "language",
+          "s": 1510,
+          "e": 1522
+        },
+        {
+          "w": "changes.",
+          "s": 1522,
+          "e": 1546
+        }
+      ]
+    },
+    {
+      "text": "His tone changes completely.",
+      "startFrame": 1546,
+      "endFrame": 1597,
+      "words": [
+        {
+          "w": "His",
+          "s": 1546,
+          "e": 1554
+        },
+        {
+          "w": "tone",
+          "s": 1554,
+          "e": 1563
+        },
+        {
+          "w": "changes",
+          "s": 1563,
+          "e": 1575
+        },
+        {
+          "w": "completely.",
+          "s": 1575,
+          "e": 1597
+        }
+      ]
+    },
+    {
+      "text": "The pivot. He looks Jon in the eye and",
+      "startFrame": 1597,
+      "endFrame": 1664,
+      "words": [
+        {
+          "w": "The",
+          "s": 1597,
+          "e": 1604
+        },
+        {
+          "w": "pivot.",
+          "s": 1604,
+          "e": 1623
+        },
+        {
+          "w": "He",
+          "s": 1623,
+          "e": 1628
+        },
+        {
+          "w": "looks",
+          "s": 1628,
+          "e": 1635
+        },
+        {
+          "w": "Jon",
+          "s": 1635,
+          "e": 1642
+        },
+        {
+          "w": "in",
+          "s": 1642,
+          "e": 1647
+        },
+        {
+          "w": "the",
+          "s": 1647,
+          "e": 1652
+        },
+        {
+          "w": "eye",
+          "s": 1652,
+          "e": 1657
+        },
+        {
+          "w": "and",
+          "s": 1657,
+          "e": 1664
+        }
+      ]
+    },
+    {
+      "text": "says, \"You are better than this mistake.",
+      "startFrame": 1664,
+      "endFrame": 1743,
+      "words": [
+        {
+          "w": "says,",
+          "s": 1664,
+          "e": 1683
+        },
+        {
+          "w": "\"You",
+          "s": 1683,
+          "e": 1695
+        },
+        {
+          "w": "are",
+          "s": 1695,
+          "e": 1700
+        },
+        {
+          "w": "better",
+          "s": 1700,
+          "e": 1705
+        },
+        {
+          "w": "than",
+          "s": 1705,
+          "e": 1712
+        },
+        {
+          "w": "this",
+          "s": 1712,
+          "e": 1719
+        },
+        {
+          "w": "mistake.",
+          "s": 1719,
+          "e": 1743
+        }
+      ]
+    },
+    {
+      "text": "You are one of my best engineers.",
+      "startFrame": 1743,
+      "endFrame": 1798,
+      "words": [
+        {
+          "w": "You",
+          "s": 1743,
+          "e": 1748
+        },
+        {
+          "w": "are",
+          "s": 1748,
+          "e": 1753
+        },
+        {
+          "w": "one",
+          "s": 1753,
+          "e": 1758
+        },
+        {
+          "w": "of",
+          "s": 1758,
+          "e": 1761
+        },
+        {
+          "w": "my",
+          "s": 1760,
+          "e": 1765
+        },
+        {
+          "w": "best",
+          "s": 1765,
+          "e": 1772
+        },
+        {
+          "w": "engineers.",
+          "s": 1772,
+          "e": 1798
+        }
+      ]
+    },
+    {
+      "text": "I have complete trust in you, and I look",
+      "startFrame": 1798,
+      "endFrame": 1861,
+      "words": [
+        {
+          "w": "I",
+          "s": 1798,
+          "e": 1803
+        },
+        {
+          "w": "have",
+          "s": 1803,
+          "e": 1808
+        },
+        {
+          "w": "complete",
+          "s": 1808,
+          "e": 1820
+        },
+        {
+          "w": "trust",
+          "s": 1820,
+          "e": 1827
+        },
+        {
+          "w": "in",
+          "s": 1827,
+          "e": 1832
+        },
+        {
+          "w": "you,",
+          "s": 1832,
+          "e": 1844
+        },
+        {
+          "w": "and",
+          "s": 1844,
+          "e": 1849
+        },
+        {
+          "w": "I",
+          "s": 1849,
+          "e": 1856
+        },
+        {
+          "w": "look",
+          "s": 1856,
+          "e": 1861
+        }
+      ]
+    },
+    {
+      "text": "forward to working with you to make sure this",
+      "startFrame": 1861,
+      "endFrame": 1914,
+      "words": [
+        {
+          "w": "forward",
+          "s": 1861,
+          "e": 1870
+        },
+        {
+          "w": "to",
+          "s": 1870,
+          "e": 1875
+        },
+        {
+          "w": "working",
+          "s": 1875,
+          "e": 1882
+        },
+        {
+          "w": "with",
+          "s": 1882,
+          "e": 1887
+        },
+        {
+          "w": "you",
+          "s": 1887,
+          "e": 1892
+        },
+        {
+          "w": "to",
+          "s": 1892,
+          "e": 1899
+        },
+        {
+          "w": "make",
+          "s": 1899,
+          "e": 1902
+        },
+        {
+          "w": "sure",
+          "s": 1902,
+          "e": 1906
+        },
+        {
+          "w": "this",
+          "s": 1906,
+          "e": 1914
+        }
+      ]
+    },
+    {
+      "text": "never happens again.\" It is an absolute emotional",
+      "startFrame": 1914,
+      "endFrame": 2012,
+      "words": [
+        {
+          "w": "never",
+          "s": 1914,
+          "e": 1923
+        },
+        {
+          "w": "happens",
+          "s": 1923,
+          "e": 1933
+        },
+        {
+          "w": "again.\"",
+          "s": 1933,
+          "e": 1947
+        },
+        {
+          "w": "It",
+          "s": 1947,
+          "e": 1954
+        },
+        {
+          "w": "is",
+          "s": 1954,
+          "e": 1959
+        },
+        {
+          "w": "an",
+          "s": 1959,
+          "e": 1969
+        },
+        {
+          "w": "absolute",
+          "s": 1969,
+          "e": 1993
+        },
+        {
+          "w": "emotional",
+          "s": 1993,
+          "e": 2012
+        }
+      ]
+    },
+    {
+      "text": "roller coaster, but it is a highly engineered one",
+      "startFrame": 2012,
+      "endFrame": 2108,
+      "words": [
+        {
+          "w": "roller",
+          "s": 2012,
+          "e": 2024
+        },
+        {
+          "w": "coaster,",
+          "s": 2024,
+          "e": 2046
+        },
+        {
+          "w": "but",
+          "s": 2046,
+          "e": 2053
+        },
+        {
+          "w": "it",
+          "s": 2053,
+          "e": 2060
+        },
+        {
+          "w": "is",
+          "s": 2060,
+          "e": 2063
+        },
+        {
+          "w": "a",
+          "s": 2062,
+          "e": 2070
+        },
+        {
+          "w": "highly",
+          "s": 2070,
+          "e": 2084
+        },
+        {
+          "w": "engineered",
+          "s": 2084,
+          "e": 2098
+        },
+        {
+          "w": "one",
+          "s": 2098,
+          "e": 2108
+        }
+      ]
+    },
+    {
+      "text": "based on profound behavioral psychology.",
+      "startFrame": 2108,
+      "endFrame": 2169,
+      "words": [
+        {
+          "w": "based",
+          "s": 2108,
+          "e": 2113
+        },
+        {
+          "w": "on",
+          "s": 2113,
+          "e": 2120
+        },
+        {
+          "w": "profound",
+          "s": 2120,
+          "e": 2134
+        },
+        {
+          "w": "behavioral",
+          "s": 2134,
+          "e": 2151
+        },
+        {
+          "w": "psychology.",
+          "s": 2151,
+          "e": 2169
+        }
+      ]
+    },
+    {
+      "text": "Think about the duality of what just We are",
+      "startFrame": 2187,
+      "endFrame": 2259,
+      "words": [
+        {
+          "w": "Think",
+          "s": 2187,
+          "e": 2192
+        },
+        {
+          "w": "about",
+          "s": 2192,
+          "e": 2197
+        },
+        {
+          "w": "the",
+          "s": 2197,
+          "e": 2202
+        },
+        {
+          "w": "duality",
+          "s": 2202,
+          "e": 2214
+        },
+        {
+          "w": "of",
+          "s": 2214,
+          "e": 2218
+        },
+        {
+          "w": "what",
+          "s": 2218,
+          "e": 2226
+        },
+        {
+          "w": "just",
+          "s": 2226,
+          "e": 2247
+        },
+        {
+          "w": "We",
+          "s": 2247,
+          "e": 2254
+        },
+        {
+          "w": "are",
+          "s": 2254,
+          "e": 2259
+        }
+      ]
+    },
+    {
+      "text": "not just our behavior.",
+      "startFrame": 2259,
+      "endFrame": 2302,
+      "words": [
+        {
+          "w": "not",
+          "s": 2259,
+          "e": 2266
+        },
+        {
+          "w": "just",
+          "s": 2266,
+          "e": 2271
+        },
+        {
+          "w": "our",
+          "s": 2271,
+          "e": 2281
+        },
+        {
+          "w": "behavior.",
+          "s": 2281,
+          "e": 2302
+        }
+      ]
+    },
+    {
+      "text": "We are the human being managing our behavior.",
+      "startFrame": 2302,
+      "endFrame": 2396,
+      "words": [
+        {
+          "w": "We",
+          "s": 2302,
+          "e": 2310
+        },
+        {
+          "w": "are",
+          "s": 2310,
+          "e": 2313
+        },
+        {
+          "w": "the",
+          "s": 2312,
+          "e": 2319
+        },
+        {
+          "w": "human",
+          "s": 2319,
+          "e": 2329
+        },
+        {
+          "w": "being",
+          "s": 2329,
+          "e": 2350
+        },
+        {
+          "w": "managing",
+          "s": 2350,
+          "e": 2362
+        },
+        {
+          "w": "our",
+          "s": 2362,
+          "e": 2370
+        },
+        {
+          "w": "behavior.",
+          "s": 2370,
+          "e": 2396
+        }
+      ]
+    },
+    {
+      "text": "If you want to correct someone effectively without destroying",
+      "startFrame": 2396,
+      "endFrame": 2473,
+      "words": [
+        {
+          "w": "If",
+          "s": 2396,
+          "e": 2401
+        },
+        {
+          "w": "you",
+          "s": 2401,
+          "e": 2404
+        },
+        {
+          "w": "want",
+          "s": 2403,
+          "e": 2408
+        },
+        {
+          "w": "to",
+          "s": 2408,
+          "e": 2411
+        },
+        {
+          "w": "correct",
+          "s": 2410,
+          "e": 2420
+        },
+        {
+          "w": "someone",
+          "s": 2420,
+          "e": 2427
+        },
+        {
+          "w": "effectively",
+          "s": 2427,
+          "e": 2442
+        },
+        {
+          "w": "without",
+          "s": 2442,
+          "e": 2456
+        },
+        {
+          "w": "destroying",
+          "s": 2456,
+          "e": 2473
+        }
+      ]
+    },
+    {
+      "text": "them, you must be ruthlessly, objectively",
+      "startFrame": 2473,
+      "endFrame": 2571,
+      "words": [
+        {
+          "w": "them,",
+          "s": 2473,
+          "e": 2494
+        },
+        {
+          "w": "you",
+          "s": 2494,
+          "e": 2502
+        },
+        {
+          "w": "must",
+          "s": 2502,
+          "e": 2506
+        },
+        {
+          "w": "be",
+          "s": 2506,
+          "e": 2518
+        },
+        {
+          "w": "ruthlessly,",
+          "s": 2518,
+          "e": 2552
+        },
+        {
+          "w": "objectively",
+          "s": 2552,
+          "e": 2571
+        }
+      ]
+    },
+    {
+      "text": "tough on the performance, but incredibly fundamentally",
+      "startFrame": 2571,
+      "endFrame": 2674,
+      "words": [
+        {
+          "w": "tough",
+          "s": 2571,
+          "e": 2578
+        },
+        {
+          "w": "on",
+          "s": 2578,
+          "e": 2583
+        },
+        {
+          "w": "the",
+          "s": 2583,
+          "e": 2588
+        },
+        {
+          "w": "performance,",
+          "s": 2588,
+          "e": 2610
+        },
+        {
+          "w": "but",
+          "s": 2610,
+          "e": 2624
+        },
+        {
+          "w": "incredibly",
+          "s": 2624,
+          "e": 2650
+        },
+        {
+          "w": "fundamentally",
+          "s": 2650,
+          "e": 2674
+        }
+      ]
+    },
+    {
+      "text": "supportive of the person.",
+      "startFrame": 2674,
+      "endFrame": 2715,
+      "words": [
+        {
+          "w": "supportive",
+          "s": 2674,
+          "e": 2686
+        },
+        {
+          "w": "of",
+          "s": 2686,
+          "e": 2691
+        },
+        {
+          "w": "the",
+          "s": 2691,
+          "e": 2696
+        },
+        {
+          "w": "person.",
+          "s": 2696,
+          "e": 2715
+        }
+      ]
+    },
+    {
+      "text": "The text mentions a concept called gunny sacking,",
+      "startFrame": 2715,
+      "endFrame": 2802,
+      "words": [
+        {
+          "w": "The",
+          "s": 2715,
+          "e": 2722
+        },
+        {
+          "w": "text",
+          "s": 2722,
+          "e": 2734
+        },
+        {
+          "w": "mentions",
+          "s": 2734,
+          "e": 2746
+        },
+        {
+          "w": "a",
+          "s": 2746,
+          "e": 2754
+        },
+        {
+          "w": "concept",
+          "s": 2754,
+          "e": 2763
+        },
+        {
+          "w": "called",
+          "s": 2763,
+          "e": 2775
+        },
+        {
+          "w": "gunny",
+          "s": 2775,
+          "e": 2787
+        },
+        {
+          "w": "sacking,",
+          "s": 2787,
+          "e": 2802
+        }
+      ]
+    }
+  ],
+  "promises": [
+    {
+      "promiseId": "p-01",
+      "question": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon in",
+      "setupBeat": 0,
+      "reminderBeats": [
+        2,
+        3
+      ],
+      "payoffBeat": 5,
+      "status": "resolved"
+    },
+    {
+      "promiseId": "p-02",
+      "question": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the",
+      "setupBeat": 1,
+      "reminderBeats": [
+        4,
+        6
+      ],
+      "payoffBeat": 11,
+      "status": "resolved"
+    }
+  ],
+  "audioEvents": [
+    {
+      "frame": 21,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_0_text_pop"
+    },
+    {
+      "frame": 350,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_1_text_pop"
+    },
+    {
+      "frame": 662,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_2_text_pop"
+    },
+    {
+      "frame": 866,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_3_contradiction"
+    },
+    {
+      "frame": 942,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_3_text_pop"
+    },
+    {
+      "frame": 1039,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_4_contradiction"
+    },
+    {
+      "frame": 1149,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_4_text_pop"
+    },
+    {
+      "frame": 1212,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_5"
+    },
+    {
+      "frame": 1272,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_5_payoff"
+    },
+    {
+      "frame": 1446,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_5_text_pop"
+    },
+    {
+      "frame": 1550,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_6_contradiction"
+    },
+    {
+      "frame": 1679,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_6_text_pop"
+    },
+    {
+      "frame": 1804,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_7_text_pop"
+    },
+    {
+      "frame": 2006,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "scene_8_transition"
+    },
+    {
+      "frame": 2182,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_9_transition"
+    },
+    {
+      "frame": 2191,
+      "type": "thud",
+      "volume": 0.14,
+      "durationFrames": 20,
+      "reason": "scene_9_tension"
+    },
+    {
+      "frame": 2133,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_9"
+    },
+    {
+      "frame": 2193,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_9_payoff"
+    },
+    {
+      "frame": 2391,
+      "type": "whoosh",
+      "volume": 0.14,
+      "durationFrames": 15,
+      "reason": "scene_10_transition"
+    },
+    {
+      "frame": 2400,
+      "type": "thud",
+      "volume": 0.18,
+      "durationFrames": 20,
+      "reason": "scene_10_contradiction"
+    },
+    {
+      "frame": 2567,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_10_text_pop"
+    },
+    {
+      "frame": 2620,
+      "type": "silence",
+      "volume": 0,
+      "durationFrames": 54,
+      "reason": "pre_revelation_pause_for_scene_11"
+    },
+    {
+      "frame": 2680,
+      "type": "ding",
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "scene_11_payoff"
+    },
+    {
+      "frame": 2674,
+      "type": "pop",
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "scene_11_text_pop"
+    }
+  ]
+}

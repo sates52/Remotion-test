@@ -1,0 +1,346 @@
+{
+  "book": {
+    "slug": "zz-sp-om2b",
+    "title": "The New One Minute Manager",
+    "author": "Kenneth H. Blanchard, Spencer Johnson",
+    "genre": "business"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "The manager doesn't wait. He doesn't schedule a meeting for next week. He confronts Jon instantly. He confirms the facts first, which is key.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "He confronts John instantly",
+        "style": "reveal"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "neutral",
+      "action": "hold",
+      "holds": "notes",
+      "partnerExpression": "worried",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "The manager does not wait for a meeting; he confronts John at once, confirming the facts first.",
+        "concreteVisual": "In the office the gray-haired manager stands facing John, holding the sheet of paper with the facts; John, seated, looks up worried.",
+        "onScreenText": "He confronts John instantly",
+        "relationToPrevious": "Start of the redirect scene: the manager and John face each other.",
+        "addedInformation": "Shows who confronts whom and that the facts are in his hand before he speaks."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "Never assume without the facts, right? He says, \"John, you bypassed the QA protocol on the new release and it resulted in a system crash for our top Just stating exactly what happened.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "John bypassed the QA protocol",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "neutral",
+      "action": "point",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "sit",
+      "says": "John, you bypassed the QA protocol on the new release",
+      "storyboard": {
+        "claim": "He names the mistake plainly: John bypassed the QA protocol and it crashed the system for a top client.",
+        "concreteVisual": "Same office: the manager points at John while a speech balloon carries his words; John sits worried.",
+        "onScreenText": "Exactly what happened",
+        "relationToPrevious": "Same stage; the manager now points and speaks the facts.",
+        "addedInformation": "The balloon shows the exact accusation and who it is aimed at."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "And then the manager expresses his feelings about the impact. I am deeply frustrated by this error. I am angry because it puts our reputation at risk and creates chaos for the support team.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Our reputation at risk",
+        "style": "box"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "sit",
+      "says": "I am deeply frustrated by this error.",
+      "storyboard": {
+        "claim": "Next the manager voices his feelings about the impact: frustration and anger at the risk to their reputation.",
+        "concreteVisual": "Same office: the manager's face turns angry as he talks, balloon 'I am deeply frustrated by this error.'; John sits worried.",
+        "onScreenText": "Our reputation at risk",
+        "relationToPrevious": "Facts give way to feelings: the manager's face changes from neutral to angry.",
+        "addedInformation": "The angry face shows the emotional weight of the impact, not just the words."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "Strong words. And then that signature move, a painful, heavy, unblinking pause.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "A heavy, unblinking pause",
+        "style": "reveal"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "worried",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "After the strong words comes his signature move: a heavy, unblinking pause.",
+        "concreteVisual": "Same office: the manager stands still and silent, angry face fixed on John, no balloon; John sits worried.",
+        "onScreenText": "A heavy, unblinking pause",
+        "relationToPrevious": "The manager stops talking: the balloon is gone, only the stare remains.",
+        "addedInformation": "weak: silence is shown only as the absence of speech; the callout names it."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "The manager just lets the dread sink in. John is sitting there stewing in the reality of his own mistake. He's probably terrified.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "John stews in his mistake",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "john",
+        "manager"
+      ],
+      "expression": "afraid",
+      "action": "sit",
+      "continue": true,
+      "partnerExpression": "angry",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "The manager lets the dread sink in while John stews in the reality of his mistake, probably terrified.",
+        "concreteVisual": "Same office, now led by John: seated, afraid face; the manager stands silent and angry beside him.",
+        "onScreenText": "Lets the dread sink in",
+        "relationToPrevious": "Focus moves to John: his face goes from worried to afraid.",
+        "addedInformation": "Shows the effect of the pause on John: fear."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "Oh, he expects to be handed a cardboard box to pack up his desk. But just when Jon thinks it's over, the manager softens. His body language changes.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The manager softens",
+        "style": "reveal"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "idle",
+      "continue": true,
+      "partnerExpression": "afraid",
+      "partnerAction": "sit",
+      "storyboard": {
+        "claim": "John expects to be handed a box and fired, but the manager softens and his body language changes.",
+        "concreteVisual": "Same office: the manager's angry face relaxes into a warm one; John, seated, is still afraid.",
+        "onScreenText": "The manager softens",
+        "relationToPrevious": "The turn: the manager's face changes from angry to warm while John's fear remains.",
+        "addedInformation": "The contrast of a warm manager and a still-afraid John marks the moment of the shift."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "His tone changes completely. The pivot. He looks Jon in the eye and says, \"You are better than this mistake.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "The pivot",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "surprised",
+      "partnerAction": "sit",
+      "says": "You are better than this mistake.",
+      "storyboard": {
+        "claim": "His tone changes completely; he looks John in the eye and says he is better than this mistake.",
+        "concreteVisual": "Same office: the warm manager talks to John, balloon 'You are better than this mistake.'; John looks up, surprised.",
+        "onScreenText": "The pivot",
+        "relationToPrevious": "The manager speaks again, now warmly; John's face turns from afraid to surprised.",
+        "addedInformation": "The balloon gives the exact reassuring words and John's surprise shows they were unexpected."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "You are one of my best engineers. I have complete trust in you, and I look forward to working with you to make sure this never happens again.\" It is an absolute emotional",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "One of my best engineers",
+        "style": "box"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "talk",
+      "continue": true,
+      "partnerExpression": "happy",
+      "partnerAction": "sit",
+      "says": "I have complete trust in you",
+      "storyboard": {
+        "claim": "He calls John one of his best engineers, says he trusts him completely and will work with him so it never happens again.",
+        "concreteVisual": "Same office: the manager, smiling, says 'I have complete trust in you'; John smiles back.",
+        "onScreenText": "One of my best engineers",
+        "relationToPrevious": "John's face changes from surprised to happy.",
+        "addedInformation": "The scene ends with trust restored, visible on both faces."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "roller coaster, but it is a highly engineered one based on profound behavioral psychology.",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "labels": [
+          "Deeply frustrated",
+          "Unblinking pause",
+          "Complete trust"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "It is an emotional roller coaster, but a deliberately engineered one based on behavioral psychology.",
+        "concreteVisual": "A three-step flow: 'Deeply frustrated' -> 'Unblinking pause' -> 'Complete trust'.",
+        "onScreenText": "Deeply frustrated / Unblinking pause / Complete trust",
+        "relationToPrevious": "Leaves the scene to show the steps it was built from.",
+        "addedInformation": "Makes the 'engineered' point visible as a designed order of steps taken from the scene."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "Think about the duality of what just We are not just our behavior. We are the human being managing our behavior.",
+      "concept": null,
+      "diagram": {
+        "type": "sorter",
+        "labels": [
+          "Our behavior",
+          "The human managing it"
+        ]
+      },
+      "callout": null,
+      "set": "abstract",
+      "cast": [],
+      "storyboard": {
+        "claim": "The duality: we are not just our behavior; we are the human being managing our behavior.",
+        "concreteVisual": "Two buckets side by side: 'Our behavior' and 'The human managing it'.",
+        "onScreenText": "Our behavior / The human managing it",
+        "relationToPrevious": "From the steps of the redirect to the idea underneath it.",
+        "addedInformation": "Separates the two things the redirect treats differently."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "If you want to correct someone effectively without destroying them, you must be ruthlessly, objectively tough on the performance, but incredibly fundamentally",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Tough on the performance",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "angry",
+      "action": "point",
+      "holds": "notes",
+      "partnerExpression": "worried",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "To correct someone without destroying them, be ruthlessly, objectively tough on the performance...",
+        "concreteVisual": "Office: the manager, stern, points with the sheet of facts held; John listens, worried.",
+        "onScreenText": "Tough on the performance",
+        "relationToPrevious": "Back to the two men to show the first half of the rule: hard on the work.",
+        "addedInformation": "The sheet of facts ties the toughness to the performance, not the person."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "supportive of the person. The text mentions a concept called gunny sacking,",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Supportive of the person",
+        "style": "highlight"
+      },
+      "set": "office",
+      "shotOverride": "twoShot",
+      "cast": [
+        "manager",
+        "john"
+      ],
+      "expression": "happy",
+      "action": "hold",
+      "holds": "notes",
+      "continue": true,
+      "partnerExpression": "happy",
+      "partnerAction": "idle",
+      "storyboard": {
+        "claim": "...but fundamentally supportive of the person. The text then mentions a concept called gunny sacking.",
+        "concreteVisual": "Same office: the manager holds the sheet at his chest with a warm face; John smiles back.",
+        "onScreenText": "Supportive of the person",
+        "relationToPrevious": "Same stage; the manager's face turns from stern to warm and he stops pointing.",
+        "addedInformation": "The before/after on the same two men shows the split: hard on the work, warm to the man."
+      }
+    }
+  ]
+}

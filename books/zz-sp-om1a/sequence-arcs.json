@@ -1,0 +1,154 @@
+{
+  "slug": "zz-sp-om1a",
+  "totalSequences": 4,
+  "totalScenes": 12,
+  "averageDurationSecs": 25,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 15,
+      "durationFrames": 571,
+      "durationSeconds": 19,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 15,
+          "durationFrames": 336,
+          "role": "setup",
+          "narration": "Absolutely. [clears throat] You can't review a 50-page manual every morning. Your brain just rejects"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 351,
+          "durationFrames": 235,
+          "role": "reveal",
+          "narration": "You aren't hiding behind corporate jargon. You are establishing a radically clear, honest standard o"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "authored",
+      "fromFrame": 586,
+      "durationFrames": 646,
+      "durationSeconds": 21.5,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 586,
+          "durationFrames": 243,
+          "role": "authored-start",
+          "narration": "Which brings up a really crucial logistical question for me. How does that one page actually get wri"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 829,
+          "durationFrames": 213,
+          "role": "authored-kept",
+          "narration": "Because if the manager just types it up in their office, hands Teresa that piece of paper, and walks"
+        },
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1042,
+          "durationFrames": 190,
+          "role": "authored-kept",
+          "narration": "and just dictating from on high. Exactly. And that leads us to the collaborative process of how thes"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "authored",
+      "fromFrame": 1232,
+      "durationFrames": 1279,
+      "durationSeconds": 42.6,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1232,
+          "durationFrames": 381,
+          "role": "authored-start",
+          "narration": "Imagine a manager and an employee sitting side by side. I love this visual from the text. Me too. Th"
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1613,
+          "durationFrames": 152,
+          "role": "authored-kept",
+          "narration": "side by side looking at the exact same monitor. They are typing out the goal together."
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1765,
+          "durationFrames": 175,
+          "role": "authored-kept",
+          "narration": "And when the employee is stuck, the manager asks this incredibly powerful specific question."
+        },
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 1940,
+          "durationFrames": 297,
+          "role": "authored-kept",
+          "narration": "What do you want to be happening? What do you want to be happening? It's such a strange phrasing at "
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2237,
+          "durationFrames": 274,
+          "role": "authored-kept",
+          "narration": "As a leader, you do not dictate the answer. You facilitate the thinking. The text defines a problem "
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 2511,
+      "durationFrames": 490,
+      "durationSeconds": 16.3,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2511,
+          "durationFrames": 266,
+          "role": "setup",
+          "narration": "Oh, the gap definition. Yes. A problem only exists if there is a difference between what is actually"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2777,
+          "durationFrames": 224,
+          "role": "reveal",
+          "narration": "That is such a brilliant filter for everyday work. If you can't articulate what you desire to be hap"
+        }
+      ]
+    }
+  ]
+}

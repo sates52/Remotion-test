@@ -1,0 +1,409 @@
+{
+  "book": {
+    "slug": "zz-sp-rr3b",
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "genre": "science fiction"
+  },
+  "storyboard": {
+    "method": "authored storyboard (STORYBOARD_RUNBOOK.md)",
+    "authoredBy": "claude",
+    "date": "2026-11-03"
+  },
+  "beats": [
+    {
+      "i": 0,
+      "narration": "They are feudal lords. Now, you are looking at this through the lens of a society that values economic output over social control. The Golds already have more wealth than they could ever spend in a thousand lifetimes.",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "They are feudal lords",
+        "style": "reveal"
+      },
+      "set": "court",
+      "cast": [
+        "titus"
+      ],
+      "expression": "smirk",
+      "action": "hold",
+      "holds": "coin",
+      "storyboard": {
+        "claim": "The Golds are feudal lords with more wealth than they could spend in a thousand lifetimes; output is not what they value.",
+        "concreteVisual": "Titus, a Gold in a gilded uniform, stands in a court holding a coin with a cold smirk.",
+        "onScreenText": "They are feudal lords",
+        "relationToPrevious": "Opens the argument about why the Golds rig the laurel.",
+        "addedInformation": "Shows the ruler as already rich, so money cannot be his motive."
+      }
+    },
+    {
+      "i": 1,
+      "narration": "To them, the Helium 3 is necessary, sure, but maintaining absolute unquestioned dominance",
+      "concept": null,
+      "diagram": {
+        "type": "spectrum",
+        "labels": [
+          "HELIUM 3",
+          "DOMINANCE"
+        ],
+        "values": [
+          0.85
+        ]
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Helium 3 is necessary to the Golds, but maintaining absolute dominance matters more.",
+        "concreteVisual": "A spectrum from HELIUM 3 to DOMINANCE with the marker far toward DOMINANCE.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From the rich lord to what he actually prioritizes.",
+        "addedInformation": "Places the Golds' priority visibly on the dominance side."
+      }
+    },
+    {
+      "i": 2,
+      "narration": "is See, if they reward Darrow based purely on his merit, they are implicitly agreeing to a social contract.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Reward on merit",
+              "glyph": "check"
+            },
+            {
+              "label": "Social contract",
+              "glyph": "speech"
+            },
+            {
+              "label": "Reds have leverage",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Guaranteed price",
+              "glyph": "coin"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Darrow",
+            "from": 0
+          },
+          "cues": {
+            "n0": "based purely on his merit",
+            "token": "Darrow",
+            "n1": "social contract"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "Rewarding Darrow purely on merit would implicitly agree to a social contract.",
+        "concreteVisual": "A causal chain: REWARD ON MERIT, carrying a token tagged DARROW, leads to SOCIAL CONTRACT; later stations still dashed.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "Turns from what the Golds value to what a fair reward would cost them.",
+        "addedInformation": "Shows merit reward as the first link in a chain the Golds want to avoid."
+      }
+    },
+    {
+      "i": 3,
+      "narration": "they are saying if you do X, we are obligated to give you Y. That implies the Reds have leverage.",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Reward on merit",
+              "glyph": "check"
+            },
+            {
+              "label": "Social contract",
+              "glyph": "speech"
+            },
+            {
+              "label": "Reds have leverage",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Guaranteed price",
+              "glyph": "coin"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Darrow",
+            "from": 0
+          },
+          "cues": {
+            "n2": "have leverage"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "A contract of 'do X, we owe you Y' implies the Reds have leverage.",
+        "concreteVisual": "The same causal chain adds the station REDS HAVE LEVERAGE after SOCIAL CONTRACT.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "Same chain, one more station: contract leads to leverage.",
+        "addedInformation": "Names the consequence the contract creates for the Reds."
+      }
+    },
+    {
+      "i": 4,
+      "narration": "Oh, wow. Right. Because if the reds realize their labor commands a guaranteed price,",
+      "concept": null,
+      "diagram": {
+        "type": "causal",
+        "labels": [],
+        "scale": 1.25,
+        "causal": {
+          "stations": [
+            {
+              "label": "Reward on merit",
+              "glyph": "check"
+            },
+            {
+              "label": "Social contract",
+              "glyph": "speech"
+            },
+            {
+              "label": "Reds have leverage",
+              "glyph": "bolt"
+            },
+            {
+              "label": "Guaranteed price",
+              "glyph": "coin"
+            }
+          ],
+          "token": {
+            "glyph": "person",
+            "tag": "Darrow",
+            "from": 0
+          },
+          "cues": {
+            "n3": "guaranteed price"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "If the Reds realize their labor commands a guaranteed price, they realize they have power.",
+        "concreteVisual": "The same causal chain adds its last station, GUARANTEED PRICE, after REDS HAVE LEVERAGE.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "Completes the chain from merit to a guaranteed price.",
+        "addedInformation": "Shows the end point the Golds fear: labor with a price."
+      }
+    },
+    {
+      "i": 5,
+      "narration": "they realize they have Exactly. By rigging the math and giving the laurel to gamma, regardless of output, the gold are demonstrating absolute godlike power. They are",
+      "concept": null,
+      "diagram": null,
+      "callout": {
+        "text": "Rigging the math",
+        "style": "highlight"
+      },
+      "set": "court",
+      "cast": [
+        "titus",
+        "darrow"
+      ],
+      "expression": "smirk",
+      "action": "hold",
+      "holds": "trophy",
+      "partnerExpression": "angry",
+      "storyboard": {
+        "claim": "By rigging the math and giving the laurel to Gamma regardless of output, the Golds demonstrate godlike power.",
+        "concreteVisual": "Titus holds the laurel trophy with a smirk while Darrow, the Red miner, stands beside him angry.",
+        "onScreenText": "Rigging the math",
+        "relationToPrevious": "From the chain they avoid to what they do instead: rig the prize.",
+        "addedInformation": "Shows who controls the prize and the Red's anger at being cheated."
+      }
+    },
+    {
+      "i": 6,
+      "narration": "violently asserting that merit means absolutely nothing. Down in the mines, the rulers decide who eats",
+      "concept": "food",
+      "diagram": null,
+      "callout": {
+        "text": "The rulers decide who eats",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "dan",
+        "darrow"
+      ],
+      "expression": "smirk",
+      "action": "point",
+      "partnerExpression": "worried",
+      "partnerAction": "reach",
+      "storyboard": {
+        "claim": "Merit means nothing; down in the mines the rulers decide who eats.",
+        "concreteVisual": "Dan, the armoured Gold guard, smirks and points while Darrow reaches worriedly toward a plate of food.",
+        "onScreenText": "The rulers decide who eats",
+        "relationToPrevious": "From the laurel to its daily meaning: food decided from above.",
+        "addedInformation": "Makes the power over survival concrete: the ruler holds the meal."
+      }
+    },
+    {
+      "i": 7,
+      "narration": "and who starves entirely on a whim, just to prove they can. Yes, it reinforces the hierarchy.",
+      "concept": "food",
+      "diagram": null,
+      "callout": {
+        "text": "Who starves, on a whim",
+        "style": "reveal"
+      },
+      "set": "room",
+      "cast": [
+        "darrow",
+        "dan"
+      ],
+      "expression": "sad",
+      "action": "slump",
+      "continue": true,
+      "partnerExpression": "smirk",
+      "storyboard": {
+        "claim": "The rulers decide who starves on a whim, just to prove they can; it reinforces the hierarchy.",
+        "concreteVisual": "The same stage: Darrow now slumps, sad, beside the plate, while Dan keeps smirking.",
+        "onScreenText": "Who starves, on a whim",
+        "relationToPrevious": "Same stage; Darrow's reach turns into a defeated slump.",
+        "addedInformation": "Shows the result of the whim: the Red goes without."
+      }
+    },
+    {
+      "i": 8,
+      "narration": "The laurel isn't a performance incentive. It's a psychological weapon. It's designed to keep the Reds striving endlessly",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OUTPUT LENS SAYS",
+          "claim": "The laurel is a performance incentive",
+          "inputs": [
+            "Output",
+            "Merit"
+          ],
+          "hub": "The laurel",
+          "output": "A performance incentive",
+          "verdict": "The laurel isn't one",
+          "reason": "It keeps the Reds powerless",
+          "truth": "A psychological weapon",
+          "cues": {
+            "links": "The laurel",
+            "result": "performance incentive",
+            "rejected": {
+              "phrase": "It's a psychological",
+              "occurrence": 1
+            },
+            "truth": "psychological weapon"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "storyboard": {
+        "claim": "The laurel isn't a performance incentive; it's a psychological weapon designed to keep the Reds striving endlessly.",
+        "concreteVisual": "A refute diagram: OUTPUT and MERIT feed THE LAUREL, claimed to be a performance incentive; the claim greys out and A PSYCHOLOGICAL WEAPON appears.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "From the starving miner to the verdict on the laurel itself.",
+        "addedInformation": "Shows the reward model rejected and replaced, not just named."
+      }
+    },
+    {
+      "i": 9,
+      "narration": "while reminding them they are utterly powerless. Here's what that means for you.",
+      "concept": null,
+      "diagram": {
+        "type": "refute",
+        "labels": [],
+        "scale": 1.3,
+        "refute": {
+          "owner": "THE OUTPUT LENS SAYS",
+          "claim": "The laurel is a performance incentive",
+          "inputs": [
+            "Output",
+            "Merit"
+          ],
+          "hub": "The laurel",
+          "output": "A performance incentive",
+          "verdict": "The laurel isn't one",
+          "reason": "It keeps the Reds powerless",
+          "truth": "A psychological weapon",
+          "cues": {
+            "reason": "utterly powerless"
+          }
+        }
+      },
+      "callout": null,
+      "cast": [],
+      "continue": true,
+      "storyboard": {
+        "claim": "The laurel reminds the Reds they are utterly powerless; then the hosts turn to what it means for the listener.",
+        "concreteVisual": "The same refute diagram adds its reason: keep the Reds striving endlessly, utterly powerless.",
+        "onScreenText": "none (diagram)",
+        "relationToPrevious": "Same diagram; the reason for the rejection draws in.",
+        "addedInformation": "Explains why the laurel works as a weapon."
+      }
+    },
+    {
+      "i": 10,
+      "narration": "If you're trapped in a rigged system, you can't win by playing harder because the story of the game is the real cage.",
+      "concept": "chains",
+      "diagram": null,
+      "callout": {
+        "text": "The story is the real cage",
+        "style": "reveal"
+      },
+      "set": "abstract",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "worried",
+      "action": "slump",
+      "storyboard": {
+        "claim": "Trapped in a rigged system, you can't win by playing harder; the story of the game is the real cage.",
+        "concreteVisual": "Darrow stands bowed and worried beside a set of chains.",
+        "onScreenText": "The story is the real cage",
+        "relationToPrevious": "From the Reds to the listener: the lesson of the rigged laurel.",
+        "addedInformation": "Shows being bound, not merely losing."
+      }
+    },
+    {
+      "i": 11,
+      "narration": "It keeps them completely exhausted. If you're constantly agonizing over how to beat gamma next month, you literally don't have the mental bandwidth to ask why you are in the mind in the first But you know, gamification",
+      "concept": "trophy",
+      "diagram": null,
+      "callout": {
+        "text": "No bandwidth to ask why",
+        "style": "highlight"
+      },
+      "set": "abstract",
+      "cast": [
+        "darrow"
+      ],
+      "expression": "worried",
+      "action": "reach",
+      "storyboard": {
+        "claim": "The chase keeps them exhausted: agonizing over beating Gamma leaves no bandwidth to ask why they are in the mine.",
+        "concreteVisual": "Darrow, worried, reaches toward the laurel trophy in front of him.",
+        "onScreenText": "No bandwidth to ask why",
+        "relationToPrevious": "Same idea, now the mechanism: the chase uses up the mind.",
+        "addedInformation": "Shows the prize as the thing that absorbs all his effort."
+      }
+    }
+  ]
+}
