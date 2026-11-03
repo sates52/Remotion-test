@@ -109,6 +109,16 @@ try {
     t("…a sealed open label on the operator's word: recorded with the approval", r.status === 0 && JSON.parse(fs.readFileSync(path.join(tree, "audit", "mute", slug, "STATUS.json"), "utf8")).seal2.operatorApproved === "the old film is gone");
   } finally { fs.rmSync(tree, { recursive: true, force: true }); }
 
+  // (C2) a sealed holdout whose file lists ids in numeric order (scene-17 before scene-100) still verifies: the sealer
+  // hashes the sorted ids (mute-test.js idsSha), so the verifier must too
+  {
+    const ids = ["scene-17", "scene-100", "scene-20"];
+    const seal = { label: "sx", ids, idsSha256: sha(JSON.stringify([...ids].sort())) };
+    W(path.join(MD, "sx", "seal.json"), seal);
+    t("a seal whose ids are stored unsorted still verifies (hash of the sorted ids, as the sealer writes it)", MV.sealHolds(tmp, slug, { label: "sx", sealed: true, sealSha256: seal.idsSha256 }) === true);
+    t("…and a seal whose ids were really changed does not", MV.sealHolds(tmp, slug, { label: "sx", sealed: true, sealSha256: seal.idsSha256 }) === true && (W(path.join(MD, "sx", "seal.json"), { ...seal, ids: ["scene-17", "scene-100", "scene-21"] }), MV.sealHolds(tmp, slug, { label: "sx", sealed: true, sealSha256: seal.idsSha256 }) === false));
+  }
+
   // (D) identity stamped at prep and copied by tally (wiring)
   const src = fs.readFileSync(path.join(REPO, "scripts", "mute-test.js"), "utf8");
   t("prep stamps createdAt / configSha256 / renderInputHash / codeHead into sample-meta.json", /identity = \{ createdAt: new Date\(\)\.toISOString\(\), configSha256:/.test(src) && /renderInputHash: require\("\.\/lib\/render-preflight"\)\.inputHashOf\(cfgPath\)/.test(src));

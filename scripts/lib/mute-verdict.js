@@ -23,7 +23,8 @@ const RETIRED = new Set(["SUPERSEDED", "STALE", "VOID"]);
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const mtime = (p) => { try { return fs.statSync(p).mtimeMs; } catch { return 0; } };
 const sha = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
-const idsSha = (ids) => sha(JSON.stringify(ids));
+// Same hash the sealer writes (scripts/mute-test.js idsSha): sorted ids, so the file's order never decides it.
+const idsSha = (ids) => sha(JSON.stringify([...ids].sort()));
 
 function muteDir(root, slug) { return path.join(root, "audit", "mute", slug); }
 function statusFile(root, slug) { return path.join(muteDir(root, slug), "STATUS.json"); }
@@ -118,4 +119,4 @@ function staleOpenReason({ root, slug, label, scopeFrom = 0, configSha256 = null
   return null;
 }
 
-module.exports = { currentVerdict, staleOpenReason, labelStatus, labelIdentity, currentIdentity, runMatches, statusFile, RETIRED };
+module.exports = { currentVerdict, staleOpenReason, labelStatus, labelIdentity, currentIdentity, runMatches, statusFile, sealHolds, RETIRED };
