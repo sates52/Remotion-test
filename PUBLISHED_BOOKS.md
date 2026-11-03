@@ -77,6 +77,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 63 | `their-eyes-were-watching-god` | **Their Eyes Were Watching God** — Zora Neale Hurston | 2026-10-27 | 40:57 | *Vox; 73,721 frames; operator-confirmed upload (detailed record below; row added 2026-10-27)* | see books/their-eyes-were-watching-god/youtube.md |
 | 64 | `inside-out` | **Inside Out** — Demi Moore | 2026-10-22 | 33:38 | *Antidote; config 60,553 frames. Publication OPERATOR-CONFIRMED 2026-10-28; date from the main checkout's WIP record "PUBLISHED & CLEANED 2026-10-22" (that row says 60,832 frames / 33.8 min — not reconciled); YouTube URL, live title and render SHA NOT recorded* | not recorded |
 | 65 | `the-art-of-strategy` | **The Art of Strategy** — Avinash K. Dixit & Barry J. Nalebuff | 2026-10-31 | 49:02 | *The Art of Strategy Summary: Why Being Stronger Doesn't Win (Dixit & Nalebuff)* (candidate title from `youtube-meta.json` titles[0]; the live title is not recorded) | `STRONGER DOESN'T WIN` |
+| 66 | `the-first-90-days` | **The First 90 Days** — Michael D. Watkins | 2026-11-03 | 34:36 | *The First 90 Days Summary by Michael D. Watkins* | `THE FAST START TRAP` |
 ---
 
 ## 📖 Detailed Book Records
@@ -1415,3 +1416,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Earlier unintended deletions:** the post-render finalizer removed the raw `.vtt` and the split state file before the cleanup order. `clean.vtt` was not affected.
 - **trust-fall** — Lynn Painter, Antidote. Published on YouTube 2026-10-31. Pin `efdad434`, render input `d01af6b27ab6e933`, sealed holdout run2 PASS (WRONG 0/30, DEAD 4/30, ADDS 23/30). Quality debt accepted for this render input only. Cloud run 41097267324, 66,277 frames, cleaned (GitHub artifacts and runs, render/ refs, local film).
 - procrastinate-on-purpose — Procrastinate on Purpose (Rory Vaden), Antidote, YouTube live 2026-11-03 (operator-confirmed; 39.7 min, 71,144 frames, 10-way GitHub split, cloud-verified, sha256 matches cloud report). Cleanup done 2026-11-03: GitHub artifacts + runs (render-github-cleanup.js), render/ refs purged on 10 workers (purge-render-branches.js), local film + thumbnails + audio (render-purge.js). Production firewall 477 REVIEW carried as operator-accepted quality debt.
+
+## The First 90 Days — Michael D. Watkins (`the-first-90-days`, Antidote)
+
+- **Status:** Published on YouTube (operator-confirmed, 2026-11-03).
+- **Length:** 62,079 frames (34.6 min); technical VERIFIED in cloud assembly (run 41627601789), full decode clean, audio present, 624 MB.
+- **Render:** 10-worker GitHub split render, all 10 segments success on render input `9716bbb06a9bdef5`, bundle `9c1be1be`.
+- **Quality provenance:** sealed blind mute test cast2 PASS (WRONG 0/30, dead 0/30, ADDS 15/30 text-carried, EXPLAINS 6/30). Operator-accepted quality debt for this render input only.
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail hook THE FAST START TRAP.
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-03: render-github-cleanup.js (10 artifacts, 10 runs, ~587 MB), purge-render-branches.js (11 refs), render-purge.js (film and thumbnail). Local MP3 and mastered audio removed by the GitHub cleanup step.
+- **Kept:** committed source under `books/the-first-90-days/`, and `public/captions/the-first-90-days.clean.vtt`.
