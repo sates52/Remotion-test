@@ -1,0 +1,23 @@
+{
+  "schema": "c8-shadow-prereg/1",
+  "date": "2026-11-03",
+  "written": "before any new description or judgement in this study",
+  "status": "SHADOW MODE — research only; the official gate, its procedure and its bars do not change (operator, cycle 8)",
+  "truth": "There is NO human-labelled gold reference. The recorded official verdict (R0) is one sample of the procedure, not the truth; every agreement number here is procedure-to-procedure.",
+  "set": "the same 8 sealed official runs / 240 images as the cycle-7 calibration (audit/c7-pilots/calibration-set.json): 4 recorded PASS, 4 recorded FAIL",
+  "design": {
+    "descriptions": "D0 = the recorded official blind.json; D1 = the cycle-7 re-run (fresh describer, official PROMPTS §1); D2, D3 = two NEW fresh sonnet describers per run (official §1 verbatim, images in clean folders)",
+    "judgements": "J0 = the recorded judge on D0; J1 = the cycle-7 judge on D1; NEW: a second judge on D0 and D1, two judges on D2 and D3 (fresh sonnet, official §3 verbatim). Total: 8 description x judge chains per image",
+    "questions": {
+      "Q1": "judge noise: agreement of two judges on the SAME description",
+      "Q2": "describer noise: agreement of judgements across DIFFERENT descriptions of the same image (judge noise taken out)",
+      "Q3": "sample-selection noise: the spread of a 30-frame run verdict (WRONG<=1, dead<=5) drawn from each run's item-level label rates (binomial / bootstrap), separate from Q1/Q2",
+      "Q4": "where the rubric is ambiguous: confusion matrices CORRECT/NEUTRAL/WRONG and ADDS/TEXT_ONLY/NONE across chains; which boundary carries the disagreement",
+      "Q5": "does replication help: run-verdict stability of single chains vs majority-of-3 chains vs majority-of-5, measured as the agreement between two DISJOINT sets of chains on the same run",
+      "Q6": "wrong majorities: how often a majority-of-3 WRONG/dead label is outvoted by the remaining chains; and the asymmetric rule (a WRONG flagged by any one chain goes to an independent adjudicating chain, WRONG counts if the adjudicator agrees)"
+    },
+    "image": "image-quality / scale effect: NOT tested in this round (the cloud copies were lossless; a down-scaled replicate would need its own pre-registration) — reported as open"
+  },
+  "decision": "no gate change in cycle 8 whatever the result. A candidate method is RECOMMENDED for a later operator decision only if its run-verdict stability (disjoint-chain agreement) is >= 7/8 runs AND it does not raise the false-PASS count against EITHER the recorded verdict or the full 8-chain majority",
+  "budget": "local fresh subagents only (not API-billed)"
+}
