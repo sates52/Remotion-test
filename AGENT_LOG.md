@@ -19,7 +19,7 @@ Conventions:
 | agent | area / files | status | notes |
 |---|---|---|---|
 | _(done)_ procrastinate-on-purpose | `books/procrastinate-on-purpose/`, `PUBLISHED_BOOKS.md` | ✅ PUBLISHED & CLEANED 2026-11-03 | Antidote; 39.7 min (71,144 frames), 10-way split; YouTube live; GitHub artifacts/runs + 11 render refs purged; local film, thumbnails, audio cleaned. Accepted 477 REVIEW quality debt (operator order 2026-11-02). |
-| dev/cycle8 (render CLI guard, mute evidence integrity, operator approvals, CSD 1.1 A/B) | `scripts/{gen-vox-images.py,make-book.js}` (done 81a6c250), `scripts/book-start.js` + a guard on the shared `node_modules/@remotion/cli` render subcommand, `scripts/{mute-test,readcheck,preview-ready,preview-state}.js`, `scripts/lib/{render-preflight,next-step}.js`, `src/engines/antidote/{schema.ts,components/Scene.tsx,components/SpeechBalloon.tsx}`, `scripts/{plan-antidote,storyboard}.js` | in progress (2026-11-03) from `../wt-c4` + `../wt-c8-*` | No book worktree, pin or sealed evidence is touched. **Hamnet (Vox) video agent:** targeted images without re-trying old failures, run with current tools against your pinned worktree (no re-pin): `python scripts/gen-vox-images.py books/hamnet/config.vox.json --root=../wt-book-hamnet --beats=<the 11 beat ids> --dry-run` (plan, zero calls) then without --dry-run (add --max-calls=N). An unchanged failed prompt is never re-tried. |
+| _(done)_ dev/cycle8 (Vox image retry, CSD 1.1 speech A/B, mute shadow study, render CLI guard, evidence integrity, operator approvals) | see the 2026-11-03 Cycle 8 changelog entry | ✅ done 2026-11-03 | No book worktree, pin or sealed evidence touched. Hamnet (Vox) agent: targeted images with current tools against your pinned worktree: `python scripts/gen-vox-images.py books/hamnet/config.vox.json --root=../wt-book-hamnet --beats=<ids> --dry-run`, then without --dry-run (add --max-calls=N). |
 | _(done)_ dev/cycle7 (P4 render guard + Causal Story Director A/B) | `scripts/render.js`, `scripts/lib/{render-entry-guard (new),render-accounts,render-dispatch,run-lock,render-preflight}.js`, `local_chunk_renderer.js`, `scripts/{auto-chain-render,render-queue,pipeline,book-start}.js`, `package.json` (render scripts), `scripts/test-render-*.js`, agent docs (AGENTS.md, CLAUDE.md, render skills); visual A/B tooling (`scripts/visual-ab*.js`) | _(done)_ 2026-11-02: pushed to god-mode (5974cc0f … see the 2026-11-02 changelog) | P4: no default local render, unknown flags refused, local production only with a separate operator approval, credentials only from the main checkout (copies refused), dispatch counted only with real run ids. No book, pin, sealed evidence or gate threshold touched. |
 | _(done)_ dev/cycle3 (production reliability + autonomy + cloud pilot) | `scripts/render.js`, `scripts/lib/{book-root,preview-record,mute-verdict,mute-manifest,render-preflight,run-lock,next-step,merge-recovery}.js`, `scripts/{maintenance-upgrade,render-decision,preview-ready,preview-state,mute-test,plan-bible,storyboard,ci-run-tests,mute-cloud-poc}.js`, `.github/workflows/{regression.yml,ci-failure-analyst.*}`, skills | _(done)_ 2026-10-30: pushed to god-mode (… 238ca499) | No book, pin, render, WIP file, gate or threshold changed. Motive r2 NO SHIP (stays on dev/motive-1). See the 2026-10-30 changelog. |
 | _(done)_ render-farsighted | `books/farsighted/` | ✅ PUBLISHED & CLEANED 2026-10-27 | Antidote; 55.5 min (99,435 frames), 10-way split; YouTube live; GitHub runs/artifacts + 11 render refs purged; local film, thumbnails, audio, captions, worktree removed. |
@@ -2097,6 +2097,48 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 ---
 
 ## Changelog (newest first)
+
+### 2026-11-03 — Cycle 8: CSD 1.1 speech NO SHIP, mute shadow study (no gate change), render CLI guard + evidence integrity + operator approvals SHIPPED, Vox image retry control SHIPPED
+
+- **Vox image retry control (81a6c250, earlier today):** `gen-vox-images.py --beats/--dry-run/--max-calls/--retry-failed/--root`;
+  a prompt-hash record per beat; an unchanged failed prompt is never re-tried; zero calls for unselected beats; PNGs kept;
+  `make-book --images-only` + pass-through flags. No content-filter evasion. Test: `scripts/test-gen-vox-images.js` (23).
+- **CSD 1.1 — speech tied to a speaker (`says`/`partnerSays` balloons, c1f29641): NO SHIP.** Pre-registered A/B
+  (audit/c8-pilots/preregistration-c8-speech.json), 7 fresh holdout passages × 2 arms, official describer + `--vs` judge,
+  2 replicates. Pooled WRONG 2→3, DEAD 19→24, ADDS 104→97 (CORRECT 104→111, EXPLAINS 31→36); on the 12 balloon frames
+  CORRECT 8→12, EXPLAINS 1→5 but CORRECT+ADDS 8→9 (+2 needed). Fresh authors used a balloon on 6 of 84 beats. The rules
+  text stays off (`STORYBOARD_SPEECH` unset); the code stays dark. Cloud second rater (audit/cloud-ab/6f1eff37778cbdaa):
+  NO SHIP. Result: audit/c8-pilots/result-c8-speech.json.
+- **Mute-test reliability, SHADOW MODE (no gate change, no human gold reference):** 8 sealed runs × 8 describer/judge
+  chains (audit/c8-pilots/result-c8-mute-shadow.json). The recorded verdict does not replicate (recorded-PASS runs pass on
+  2/8 chains; every recorded-FAIL run passes the 8-chain majority). Describer noise > judge noise (item agreement 83-86%
+  same description vs 71% across descriptions; WRONG flags overlap 39% vs 23%). Sampling alone puts a fresh 30-frame
+  pass at 5-40% for these runs. Majority-of-3 does not stabilise the run verdict (0/8 runs stable, single chain 0/8);
+  55% of majority-of-3 WRONG labels are outvoted by the other 5 chains. No candidate meets the pre-registered bar → no
+  recommendation; the official gate and bars are unchanged. Image quality/scale: not tested (open).
+- **for-review — parallel rater agents can corrupt evidence:** judges writing through shared `/tmp` helper scripts
+  overwrote each other's results (one file held another passage's verdicts; several "written" judges left no file). All
+  affected files were set aside (*.v1.json) and re-run with a per-job tag + per-item echo + "Write tool only, no helper
+  scripts"; every counted file is verified. Cycle-7 rater files show no cross-passage contamination, but replicate
+  swaps cannot be ruled out. Any future parallel rating should carry the same job tag + echo check.
+- **Render CLI guard (shared `node_modules/@remotion/cli`):** a shim on the `render` subcommand only, fail-open,
+  installed/refreshed by `book-start.js`; refuses a full-length or chunk local render from a checkout without
+  `scripts/lib/render-entry-guard.js` (old pins); allows short clips (<= 1800 frames, not chunk files), current code, the
+  Actions runner, and `REMOTION_LOCAL_PRODUCTION_APPROVED="<operator's words>"`. Installs into the shared node_modules on the
+  next non-`--check` book-start. Remaining escape paths: direct `@remotion/renderer` calls, a worktree with its own real
+  node_modules, `npm install` overwriting the CLI until the next book-start, many short clips. Test: `test-cli-guard.js` (49).
+- **Evidence integrity:** see the entry below. Calibration trips only TMIT (mute + readcheck), great-at-work run1 and
+  piranesi run1 — both published books, runs written 10-17 (after publication), blind "message" fields carry narration
+  text a blind describer cannot know: true positives; the frozen books are untouched.
+- **Operator approvals for routine work:** `books/<slug>/operator-approvals.json` (append-only, bound to engine + pin +
+  audio/VTT hashes) + `preview-state.js approve`; raises the fix-round limit / image-call cap / keeps a confirmed engine
+  check for THAT attempt only; production render, quality debt, upload, publish, cleanup are refused as scopes. No file =
+  today's behaviour exactly. Test: `test-operator-approvals.js` (45).
+- **TMIT (the-most-important-thing): NOT READY** — its READY rested on template-generated evidence (now EVIDENCE_INVALID)
+  and the pinned preview-ready.js:153 `head` crash; the audio and film are gone. Old-pin escape paths (render) are covered by
+  the CLI guard above. Token copies (essentialism, thinking-fast-and-slow, TMIT worktrees): identical to the canonical file,
+  untracked, unreferenced — per-file deletion proposed to the operator, NOT executed. Vox pacing: no engine padding
+  (Hamnet timeline 2019.53 s vs audio 2019.49 s); runtime follows the narration. L3: WAITING_FOR_REAL_BOOK.
 
 ### 2026-11-03 — Cycle 8: evidence integrity for mute-test / readcheck (EVIDENCE_INVALID)
 

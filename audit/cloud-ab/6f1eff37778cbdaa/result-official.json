@@ -1,0 +1,143 @@
+{
+ "name": "c8-speech-balloons",
+ "totals": {
+  "A": {
+   "n": 77,
+   "WRONG": 6,
+   "CORRECT": 51,
+   "ADDS": 43,
+   "DEAD": 11,
+   "EXPLAINS": 1
+  },
+  "A:GM1": {
+   "n": 11,
+   "WRONG": 3,
+   "CORRECT": 5,
+   "ADDS": 4,
+   "DEAD": 4,
+   "EXPLAINS": 0
+  },
+  "A:GM2": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 6,
+   "ADDS": 5,
+   "DEAD": 1,
+   "EXPLAINS": 0
+  },
+  "A:RR3": {
+   "n": 11,
+   "WRONG": 1,
+   "CORRECT": 9,
+   "ADDS": 6,
+   "DEAD": 1,
+   "EXPLAINS": 0
+  },
+  "A:MI3": {
+   "n": 11,
+   "WRONG": 1,
+   "CORRECT": 6,
+   "ADDS": 5,
+   "DEAD": 3,
+   "EXPLAINS": 0
+  },
+  "A:MI4": {
+   "n": 11,
+   "WRONG": 1,
+   "CORRECT": 8,
+   "ADDS": 6,
+   "DEAD": 2,
+   "EXPLAINS": 1
+  },
+  "A:OM1": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 10,
+   "ADDS": 9,
+   "DEAD": 0,
+   "EXPLAINS": 0
+  },
+  "A:OM2": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 7,
+   "ADDS": 8,
+   "DEAD": 0,
+   "EXPLAINS": 0
+  },
+  "B": {
+   "n": 77,
+   "WRONG": 6,
+   "CORRECT": 51,
+   "ADDS": 45,
+   "DEAD": 10,
+   "EXPLAINS": 0
+  },
+  "B:GM1": {
+   "n": 11,
+   "WRONG": 2,
+   "CORRECT": 7,
+   "ADDS": 6,
+   "DEAD": 3,
+   "EXPLAINS": 0
+  },
+  "B:GM2": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 6,
+   "ADDS": 5,
+   "DEAD": 2,
+   "EXPLAINS": 0
+  },
+  "B:RR3": {
+   "n": 11,
+   "WRONG": 1,
+   "CORRECT": 8,
+   "ADDS": 8,
+   "DEAD": 0,
+   "EXPLAINS": 0
+  },
+  "B:MI3": {
+   "n": 11,
+   "WRONG": 3,
+   "CORRECT": 4,
+   "ADDS": 4,
+   "DEAD": 3,
+   "EXPLAINS": 0
+  },
+  "B:MI4": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 8,
+   "ADDS": 3,
+   "DEAD": 2,
+   "EXPLAINS": 0
+  },
+  "B:OM1": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 10,
+   "ADDS": 11,
+   "DEAD": 0,
+   "EXPLAINS": 0
+  },
+  "B:OM2": {
+   "n": 11,
+   "WRONG": 0,
+   "CORRECT": 8,
+   "ADDS": 8,
+   "DEAD": 0,
+   "EXPLAINS": 0
+  }
+ },
+ "rule": {
+  "wrongPerPassage": false,
+  "deadPooled": true,
+  "adds": false,
+  "explainsNoLoss": false,
+  "addsNeeded": 8
+ },
+ "decision": "NO SHIP",
+ "rows": 154,
+ "rubric": "official"
+}

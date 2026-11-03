@@ -1,0 +1,19 @@
+{
+  "name": "c8-speech-balloons",
+  "prereg": "audit/c8-pilots/preregistration-c8-speech.json",
+  "model": "claude-sonnet-5-5",
+  "k": 1,
+  "maxUsd": 7,
+  "rubrics": ["official", "sequence"],
+  "strips": true,
+  "rule": { "addsPlusPct": 10, "explainsNoLoss": true, "note": "the cloud rater is the SECOND rater: the ship decision is the local official procedure (preregistration)" },
+  "passages": [
+    { "id": "GM1", "genre": "fiction", "arms": { "A": "zz-sp-gm1a", "B": "zz-sp-gm1b" } },
+    { "id": "GM2", "genre": "fiction", "arms": { "A": "zz-sp-gm2a", "B": "zz-sp-gm2b" } },
+    { "id": "RR3", "genre": "fiction", "arms": { "A": "zz-sp-rr3a", "B": "zz-sp-rr3b" } },
+    { "id": "MI3", "genre": "ideas", "arms": { "A": "zz-sp-mi3a", "B": "zz-sp-mi3b" } },
+    { "id": "MI4", "genre": "ideas", "arms": { "A": "zz-sp-mi4a", "B": "zz-sp-mi4b" } },
+    { "id": "OM1", "genre": "ideas", "arms": { "A": "zz-sp-om1a", "B": "zz-sp-om1b" } },
+    { "id": "OM2", "genre": "ideas", "arms": { "A": "zz-sp-om2a", "B": "zz-sp-om2b" } }
+  ]
+}

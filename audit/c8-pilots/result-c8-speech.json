@@ -1,0 +1,260 @@
+{
+ "schema": "c8-pilot-result/1",
+ "date": "2026-11-03",
+ "prereg": "audit/c8-pilots/preregistration-c8-speech.json",
+ "decision": "NO SHIP",
+ "rule": {
+  "wrongPerGenre": false,
+  "wrongPooled": false,
+  "deadPooled": false,
+  "speechCorrectAdds": false,
+  "addsPooled": false,
+  "correctPooled": true,
+  "explainsPooled": true
+ },
+ "speechNeeded": 2,
+ "speechFrames": 6,
+ "totals": {
+  "A": {
+   "n": 154,
+   "CORRECT": 104,
+   "WRONG": 2,
+   "ADDS": 104,
+   "CORRECT_ADDS": 91,
+   "DEAD": 19,
+   "EXPLAINS": 31
+  },
+  "A:speech": {
+   "n": 12,
+   "CORRECT": 8,
+   "WRONG": 0,
+   "ADDS": 9,
+   "CORRECT_ADDS": 8,
+   "DEAD": 2,
+   "EXPLAINS": 1
+  },
+  "A:fiction": {
+   "n": 66,
+   "CORRECT": 42,
+   "WRONG": 2,
+   "ADDS": 38,
+   "CORRECT_ADDS": 32,
+   "DEAD": 9,
+   "EXPLAINS": 10
+  },
+  "A:ideas": {
+   "n": 88,
+   "CORRECT": 62,
+   "WRONG": 0,
+   "ADDS": 66,
+   "CORRECT_ADDS": 59,
+   "DEAD": 10,
+   "EXPLAINS": 21
+  },
+  "A:GM1": {
+   "n": 22,
+   "CORRECT": 15,
+   "WRONG": 1,
+   "ADDS": 16,
+   "CORRECT_ADDS": 14,
+   "DEAD": 4,
+   "EXPLAINS": 0
+  },
+  "A:GM2": {
+   "n": 22,
+   "CORRECT": 9,
+   "WRONG": 1,
+   "ADDS": 5,
+   "CORRECT_ADDS": 4,
+   "DEAD": 5,
+   "EXPLAINS": 2
+  },
+  "A:RR3": {
+   "n": 22,
+   "CORRECT": 18,
+   "WRONG": 0,
+   "ADDS": 17,
+   "CORRECT_ADDS": 14,
+   "DEAD": 0,
+   "EXPLAINS": 8
+  },
+  "A:MI3": {
+   "n": 22,
+   "CORRECT": 15,
+   "WRONG": 0,
+   "ADDS": 13,
+   "CORRECT_ADDS": 12,
+   "DEAD": 3,
+   "EXPLAINS": 6
+  },
+  "A:MI4": {
+   "n": 22,
+   "CORRECT": 13,
+   "WRONG": 0,
+   "ADDS": 16,
+   "CORRECT_ADDS": 13,
+   "DEAD": 4,
+   "EXPLAINS": 6
+  },
+  "A:OM1": {
+   "n": 22,
+   "CORRECT": 16,
+   "WRONG": 0,
+   "ADDS": 17,
+   "CORRECT_ADDS": 16,
+   "DEAD": 3,
+   "EXPLAINS": 4
+  },
+  "A:OM2": {
+   "n": 22,
+   "CORRECT": 18,
+   "WRONG": 0,
+   "ADDS": 20,
+   "CORRECT_ADDS": 18,
+   "DEAD": 0,
+   "EXPLAINS": 5
+  },
+  "A:rep1": {
+   "n": 77,
+   "CORRECT": 50,
+   "WRONG": 0,
+   "ADDS": 50,
+   "CORRECT_ADDS": 42,
+   "DEAD": 9,
+   "EXPLAINS": 14
+  },
+  "A:rep2": {
+   "n": 77,
+   "CORRECT": 54,
+   "WRONG": 2,
+   "ADDS": 54,
+   "CORRECT_ADDS": 49,
+   "DEAD": 10,
+   "EXPLAINS": 17
+  },
+  "B": {
+   "n": 154,
+   "CORRECT": 111,
+   "WRONG": 3,
+   "ADDS": 97,
+   "CORRECT_ADDS": 91,
+   "DEAD": 24,
+   "EXPLAINS": 36
+  },
+  "B:speech": {
+   "n": 12,
+   "CORRECT": 12,
+   "WRONG": 0,
+   "ADDS": 9,
+   "CORRECT_ADDS": 9,
+   "DEAD": 0,
+   "EXPLAINS": 5
+  },
+  "B:fiction": {
+   "n": 66,
+   "CORRECT": 42,
+   "WRONG": 2,
+   "ADDS": 35,
+   "CORRECT_ADDS": 31,
+   "DEAD": 15,
+   "EXPLAINS": 13
+  },
+  "B:ideas": {
+   "n": 88,
+   "CORRECT": 69,
+   "WRONG": 1,
+   "ADDS": 62,
+   "CORRECT_ADDS": 60,
+   "DEAD": 9,
+   "EXPLAINS": 23
+  },
+  "B:GM1": {
+   "n": 22,
+   "CORRECT": 12,
+   "WRONG": 2,
+   "ADDS": 8,
+   "CORRECT_ADDS": 8,
+   "DEAD": 10,
+   "EXPLAINS": 0
+  },
+  "B:GM2": {
+   "n": 22,
+   "CORRECT": 12,
+   "WRONG": 0,
+   "ADDS": 10,
+   "CORRECT_ADDS": 8,
+   "DEAD": 5,
+   "EXPLAINS": 6
+  },
+  "B:RR3": {
+   "n": 22,
+   "CORRECT": 18,
+   "WRONG": 0,
+   "ADDS": 17,
+   "CORRECT_ADDS": 15,
+   "DEAD": 0,
+   "EXPLAINS": 7
+  },
+  "B:MI3": {
+   "n": 22,
+   "CORRECT": 14,
+   "WRONG": 1,
+   "ADDS": 10,
+   "CORRECT_ADDS": 9,
+   "DEAD": 4,
+   "EXPLAINS": 2
+  },
+  "B:MI4": {
+   "n": 22,
+   "CORRECT": 18,
+   "WRONG": 0,
+   "ADDS": 15,
+   "CORRECT_ADDS": 15,
+   "DEAD": 3,
+   "EXPLAINS": 10
+  },
+  "B:OM1": {
+   "n": 22,
+   "CORRECT": 18,
+   "WRONG": 0,
+   "ADDS": 18,
+   "CORRECT_ADDS": 18,
+   "DEAD": 2,
+   "EXPLAINS": 5
+  },
+  "B:OM2": {
+   "n": 22,
+   "CORRECT": 19,
+   "WRONG": 0,
+   "ADDS": 19,
+   "CORRECT_ADDS": 18,
+   "DEAD": 0,
+   "EXPLAINS": 6
+  },
+  "B:rep1": {
+   "n": 77,
+   "CORRECT": 58,
+   "WRONG": 1,
+   "ADDS": 50,
+   "CORRECT_ADDS": 48,
+   "DEAD": 12,
+   "EXPLAINS": 20
+  },
+  "B:rep2": {
+   "n": 77,
+   "CORRECT": 53,
+   "WRONG": 2,
+   "ADDS": 47,
+   "CORRECT_ADDS": 43,
+   "DEAD": 12,
+   "EXPLAINS": 16
+  }
+ },
+ "uptake": "fresh B authors placed a balloon on 6 of 84 beats (3 of 7 passages); the capability rarely fires",
+ "secondary": {
+  "cloud": "audit/cloud-ab/6f1eff37778cbdaa (official: NO SHIP, WRONG 6->6, EXPLAINS 1->0; sequence: report-only)"
+ },
+ "integrity": "v1 judge files were contaminated by judges sharing /tmp helper scripts (OM2-1 held MI4 verdicts); all were set aside (*.v1.json) and re-run with job tag + per-item echo + no-scripts rule; 14/14 verified",
+ "note": "most A/B differences sit outside the balloon frames (GM1: ADDS 16->8, DEAD 4->10) = authoring variance between fresh authors, not the balloon",
+ "action": "NO SHIP: STORYBOARD_SPEECH stays off; the says/partnerSays code stays dark"
+}

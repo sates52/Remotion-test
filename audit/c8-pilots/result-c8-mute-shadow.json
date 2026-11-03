@@ -1,0 +1,283 @@
+{
+ "truth": "no human gold reference; every number is procedure-to-procedure",
+ "runs": [
+  {
+   "k": 1,
+   "run": "learned-optimism-how-to-change-your-mind-and-your-life/run2",
+   "recordedPass": true,
+   "chains": {
+    "C1": "PASS w1 d0",
+    "C2": "PASS w0 d0",
+    "C3": "FAIL w4 d7",
+    "C4": "FAIL w3 d9",
+    "C5": "FAIL w0 d11",
+    "C6": "FAIL w0 d11",
+    "C7": "FAIL w1 d7",
+    "C8": "FAIL w2 d8"
+   },
+   "passCount": 2,
+   "majority8": "FAIL w0 d7"
+  },
+  {
+   "k": 2,
+   "run": "the-paradox-of-choice/run1",
+   "recordedPass": true,
+   "chains": {
+    "C1": "PASS w0 d0",
+    "C2": "PASS w0 d4",
+    "C3": "FAIL w1 d13",
+    "C4": "FAIL w0 d8",
+    "C5": "FAIL w1 d11",
+    "C6": "FAIL w1 d13",
+    "C7": "FAIL w0 d15",
+    "C8": "FAIL w0 d12"
+   },
+   "passCount": 2,
+   "majority8": "FAIL w0 d9"
+  },
+  {
+   "k": 3,
+   "run": "the-new-one-minute-manager/final",
+   "recordedPass": true,
+   "chains": {
+    "C1": "PASS w1 d5",
+    "C2": "PASS w1 d4",
+    "C3": "FAIL w2 d2",
+    "C4": "FAIL w2 d2",
+    "C5": "FAIL w2 d6",
+    "C6": "FAIL w2 d4",
+    "C7": "FAIL w1 d6",
+    "C8": "FAIL w2 d7"
+   },
+   "passCount": 2,
+   "majority8": "PASS w1 d2"
+  },
+  {
+   "k": 4,
+   "run": "ready-player-one/run6",
+   "recordedPass": true,
+   "chains": {
+    "C1": "PASS w0 d0",
+    "C2": "PASS w1 d0",
+    "C3": "FAIL w6 d8",
+    "C4": "FAIL w2 d7",
+    "C5": "FAIL w0 d7",
+    "C6": "FAIL w0 d10",
+    "C7": "PASS w1 d4",
+    "C8": "PASS w0 d5"
+   },
+   "passCount": 4,
+   "majority8": "PASS w0 d4"
+  },
+  {
+   "k": 5,
+   "run": "the-lightning-thief/holdout2",
+   "recordedPass": false,
+   "chains": {
+    "C1": "FAIL w5 d2",
+    "C2": "FAIL w3 d0",
+    "C3": "FAIL w2 d0",
+    "C4": "FAIL w2 d0",
+    "C5": "PASS w0 d0",
+    "C6": "PASS w1 d0",
+    "C7": "PASS w1 d1",
+    "C8": "FAIL w2 d1"
+   },
+   "passCount": 3,
+   "majority8": "PASS w1 d0"
+  },
+  {
+   "k": 6,
+   "run": "the-knave-and-the-moon/final",
+   "recordedPass": false,
+   "chains": {
+    "C1": "FAIL w2 d0",
+    "C2": "FAIL w2 d0",
+    "C3": "FAIL w0 d9",
+    "C4": "FAIL w2 d8",
+    "C5": "FAIL w1 d6",
+    "C6": "PASS w0 d5",
+    "C7": "FAIL w2 d7",
+    "C8": "FAIL w1 d7"
+   },
+   "passCount": 1,
+   "majority8": "PASS w0 d5"
+  },
+  {
+   "k": 7,
+   "run": "the-art-of-saying-no/run2",
+   "recordedPass": false,
+   "chains": {
+    "C1": "FAIL w4 d4",
+    "C2": "FAIL w2 d5",
+    "C3": "PASS w0 d2",
+    "C4": "FAIL w4 d8",
+    "C5": "FAIL w2 d8",
+    "C6": "FAIL w3 d5",
+    "C7": "PASS w1 d4",
+    "C8": "PASS w1 d2"
+   },
+   "passCount": 3,
+   "majority8": "PASS w1 d3"
+  },
+  {
+   "k": 8,
+   "run": "maybe-you-should-talk-to-someone/run3",
+   "recordedPass": false,
+   "chains": {
+    "C1": "FAIL w4 d0",
+    "C2": "PASS w1 d0",
+    "C3": "FAIL w5 d5",
+    "C4": "FAIL w2 d9",
+    "C5": "FAIL w1 d7",
+    "C6": "PASS w1 d4",
+    "C7": "FAIL w1 d6",
+    "C8": "FAIL w2 d2"
+   },
+   "passCount": 2,
+   "majority8": "PASS w1 d1"
+  }
+ ],
+ "Q1_judgeNoise_sameDescription": {
+  "correctness": 0.83,
+  "contribution": 0.859,
+  "wrongFlagOverlap": "27/70 (39%)",
+  "deadFlagOverlap": "123/200 (62%)"
+ },
+ "Q2_differentDescriptions": {
+  "correctness": 0.71,
+  "contribution": 0.711,
+  "wrongFlagOverlap": "107/475 (23%)",
+  "deadFlagOverlap": "451/1487 (30%)"
+ },
+ "Q3_sampling": [
+  {
+   "k": 1,
+   "pWrong": 0.046,
+   "pDead": 0.221,
+   "pPassFresh30": 0.19
+  },
+  {
+   "k": 2,
+   "pWrong": 0.013,
+   "pDead": 0.317,
+   "pPassFresh30": 0.05
+  },
+  {
+   "k": 3,
+   "pWrong": 0.054,
+   "pDead": 0.15,
+   "pPassFresh30": 0.36
+  },
+  {
+   "k": 4,
+   "pWrong": 0.042,
+   "pDead": 0.171,
+   "pPassFresh30": 0.38
+  },
+  {
+   "k": 5,
+   "pWrong": 0.067,
+   "pDead": 0.017,
+   "pPassFresh30": 0.4
+  },
+  {
+   "k": 6,
+   "pWrong": 0.042,
+   "pDead": 0.175,
+   "pPassFresh30": 0.37
+  },
+  {
+   "k": 7,
+   "pWrong": 0.071,
+   "pDead": 0.158,
+   "pPassFresh30": 0.24
+  },
+  {
+   "k": 8,
+   "pWrong": 0.071,
+   "pDead": 0.138,
+   "pPassFresh30": 0.28
+  }
+ ],
+ "Q4_confusion_sameDescription": {
+  "correctness": {
+   "CORRECT|CORRECT": 508,
+   "CORRECT|NEUTRAL": 120,
+   "NEUTRAL|NEUTRAL": 262,
+   "NEUTRAL|WRONG": 27,
+   "WRONG|WRONG": 27,
+   "CORRECT|WRONG": 16
+  },
+  "contribution": {
+   "TEXT_ONLY|TEXT_ONLY": 167,
+   "ADDS|ADDS": 535,
+   "ADDS|TEXT_ONLY": 58,
+   "NONE|NONE": 123,
+   "ADDS|NONE": 50,
+   "NONE|TEXT_ONLY": 24,
+   "NEUTRAL|NONE": 3
+  }
+ },
+ "Q5_replication": {
+  "note": "per run: share of DISJOINT chain-set pairs whose run verdicts agree; a run is stable at >= 0.9",
+  "single": [
+   0.57,
+   0.57,
+   0.57,
+   0.43,
+   0.46,
+   0.75,
+   0.46,
+   0.57
+  ],
+  "majorityOf3": [
+   0.79,
+   0.79,
+   0.36,
+   0.31,
+   0.34,
+   0.57,
+   0.27,
+   0.36
+  ],
+  "stableRuns": {
+   "single": 0,
+   "majorityOf3": 0
+  }
+ },
+ "errorRates": {
+  "note": "expected number of the 8 runs wrongly passed / failed by one draw of the method; the references are procedures, not truth",
+  "single": {
+   "falsePassVsRecorded": 1.13,
+   "falseFailVsRecorded": 2.75,
+   "falsePassVsMaj8": 0.5,
+   "falseFailVsMaj8": 4.13
+  },
+  "majorityOf3": {
+   "falsePassVsRecorded": 2.34,
+   "falseFailVsRecorded": 2.88,
+   "falsePassVsMaj8": 0.21,
+   "falseFailVsMaj8": 2.75
+  }
+ },
+ "Q6_wrongMajorities": {
+  "majority3WrongItems": 442,
+  "outvotedByRemaining5": 244,
+  "outvotedPct": 55,
+  "asymmetricRule_adjudicatorConfirmsPct": 39
+ },
+ "imageQuality": "not tested this round (pre-registered as open)",
+ "schema": "c8-shadow-result/1",
+ "date": "2026-11-03",
+ "prereg": "audit/c8-pilots/preregistration-c8-mute-shadow.json",
+ "integrity": "v1 judge files set aside (shared /tmp helper-script collisions); all 48 new judges re-run with job tag + per-item echo + Write-tool-only; 48/48 verified (3 echoes dropped one trailing word: same file content). C1 = recorded judge, C3 = cycle-7 judge: both pre-date the safeguard (cycle-7 files show no cross-passage contamination; replicate swaps not detectable)",
+ "decision": "NO candidate method meets the pre-registered bar (run-verdict stability >= 7/8 runs): single chain 0/8 stable, majority-of-3 0/8 stable. No gate change (as pre-registered).",
+ "reading": [
+  "The recorded run verdict does not replicate: recorded-PASS runs r1/r2 pass on 2 of 8 chains, all 4 recorded-FAIL runs pass the 8-chain majority.",
+  "Describer noise > judge noise: item agreement 83-86% on the same description vs 71% across descriptions; WRONG flags overlap 39% (same description) vs 23% (different descriptions).",
+  "Sampling noise alone makes a 30-frame verdict near a coin flip: at the pooled item rates a fresh draw passes 5-40% of the time, because the bars (WRONG<=1, dead<=5 per 30) sit at the rates the procedure produces.",
+  "Replication does not stabilise it: majority-of-3 agreement between disjoint chain sets 0.27-0.79 per run (single 0.43-0.75).",
+  "Wrong majorities: 55% of majority-of-3 WRONG labels are outvoted by the remaining 5 chains; an independent adjudicator confirms a single WRONG 39% of the time."
+ ]
+}
