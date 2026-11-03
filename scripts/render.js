@@ -717,18 +717,24 @@ async function dispatchSplit(safeMax) {
     ...(args["preview-only"] ? { preview_only: "true" } : {}),
   } });
   const workerOf = (sg) => workers.find((w) => w.id === sg.workerId) || workers.find((w) => w.username === sg.username);
-  // On a resume, a segment pushed but not recorded as dispatched may still have a run (the process died between the
-  // dispatch and the save): a run on its ref created after its push counts as dispatched — never trigger it twice.
+  // RECONCILE with GitHub before every dispatch (cycle 9 — not only on a resume): a run of THIS bundle (head sha) on the
+  // segment's ref that is queued, running or succeeded means the segment is dispatched — never trigger it twice, whatever
+  // the local state says (a killed process, another session). Only failed/cancelled runs of the bundle → dispatch again.
+  // A legacy branch push (no bundle commit) falls back to "created after its push".
+  const ghRuns = (w, fields, n = 30) => {
+    const { execFileSync: efs0 } = require("child_process");
+    return JSON.parse(efs0("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", String(n), "--json", fields],
+      { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
+  };
+  const onRef = (r, sg) => r.headBranch === sg.ref || r.headBranch === `refs/heads/${sg.ref}`;
+  const ofThisRender = (r, sg) => onRef(r, sg) && (bundleSha ? r.headSha === bundleSha : new Date(r.createdAt).getTime() >= new Date(sg.pushedAt || 0).getTime() - 60000);
   const runExistsFor = async (sg) => {
     const w = workerOf(sg);
-    if (!w || !sg.pushedAt) return undefined;
+    if (!w) return undefined;
     try {
-      const { execFileSync: efs0 } = require("child_process");
-      const runs = JSON.parse(efs0("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", "20", "--json", "headBranch,createdAt"],
-        { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-      const since = new Date(sg.pushedAt).getTime() - 60000;
-      const hit = runs.find((r) => (r.headBranch === sg.ref || r.headBranch === `refs/heads/${sg.ref}`) && new Date(r.createdAt).getTime() >= since);
-      return hit ? { createdAt: hit.createdAt } : false;
+      const mine = ghRuns(w, "headBranch,headSha,createdAt,databaseId,url,status,conclusion").filter((r) => ofThisRender(r, sg));
+      const live = mine.find((r) => r.status !== "completed" || r.conclusion === "success");
+      return live ? { createdAt: live.createdAt, id: live.databaseId, url: live.url } : false;
     } catch { return undefined; }
   };
   const gio = rd.gitIO({ root: BOOK_ROOT, sha: pushSrc });
@@ -737,7 +743,11 @@ async function dispatchSplit(safeMax) {
   const pushConc = Number(args["push-concurrency"]) || rd.defaultPushConcurrency(bundleBytes);
   console.log(`\n↑ Bundle ${String(pushSrc).slice(0, 8)} (${(bundleBytes / 1048576).toFixed(1)} MB) → ${state.segments.length} ref(s), ${pushConc} push(es) at a time`);
   const pr = await rd.pushAll({ state, sha: pushSrc, io: gio, concurrency: pushConc, save, log: (m) => console.log(m) });
-  if (!pr.ok) {
+  if (pr.partial) {
+    // cycle 9 (the-first-90-days): one segment's network failure no longer holds back the others — the pushed segments
+    // are dispatched now, the missing ones are pushed + dispatched by render-deliver / redispatch (exit stays non-zero)
+    console.error(`\n⚠ PARTIAL PUSH: ${pr.failed.length} segment ref(s) not pushed (network: seg ${pr.failed.map((f) => f.seg).join(", ")}) — dispatching the ${state.segments.filter((g) => g.pushed === pushSrc).length} pushed segment(s); the rest are retried by: node scripts/render-deliver.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}`);
+  } else if (!pr.ok) {
     console.error(`\n❌ ${pr.failed.length} segment ref(s) not pushed — NOTHING was dispatched.`);
     for (const f of pr.failed) console.error(`   seg${f.seg}: ${f.kind}${f.kind === "not-attempted" ? "" : ` — ${String(f.error).split("\n").slice(-2).join(" | ")}`}`);
     if (pr.failed.some((f) => f.kind === "permanent")) console.error(`   A permanent refusal (size limit, pre-receive hook, auth) is not retried. Fix its cause, then rerun the same command.`);
@@ -751,12 +761,12 @@ async function dispatchSplit(safeMax) {
     state, sha: pushSrc, save, log: (m) => console.log(m),
     io: {
       dispatch: (sg) => dispatchWithRetry(https.default, workerOf(sg), payloadFor(sg), sg, sg.ref).then((r) => ({ code: r && r.code, body: r && r.b })),
-      runExists: async (sg) => (state.resumedAt ? runExistsFor(sg) : false),
+      runExists: runExistsFor,
     },
   });
   if (!dr.ok) {
     console.error(`\n❌ ${dr.failed.length} segment(s) not dispatched: ${dr.failed.map((f) => `seg${f.seg} (${f.error})`).join(", ")}`);
-    console.error(`   Rerun the same command: dispatched segments are not dispatched again.`);
+    console.error(`   Next: node scripts/render-deliver.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}   (reconciles with GitHub; dispatched segments are never dispatched again)`);
   }
   // 3) CONFIRM each dispatched segment by its own run id (cycle 7): an HTTP 204 is not a render. "dispatched" is said
   //    only when every segment's run exists; the state file then holds the segment manifest with run ids.
@@ -764,27 +774,30 @@ async function dispatchSplit(safeMax) {
     const w = workerOf(sg);
     if (!w) return undefined;
     try {
-      const { execFileSync: efs1 } = require("child_process");
-      const runs = JSON.parse(efs1("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", "30", "--json", "headBranch,createdAt,databaseId,url"],
-        { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-      const since = new Date(sg.pushedAt || sg.dispatchedAt || 0).getTime() - 60000;
-      const hit = runs.find((x) => (x.headBranch === sg.ref || x.headBranch === `refs/heads/${sg.ref}`) && new Date(x.createdAt).getTime() >= since);
+      // the newest run of THIS bundle on the ref that is not a failure (a failed earlier attempt is not this dispatch)
+      const since = new Date(sg.dispatchedAt || sg.pushedAt || 0).getTime() - 60000;
+      const hit = ghRuns(w, "headBranch,headSha,createdAt,databaseId,url,status,conclusion")
+        .filter((x) => ofThisRender(x, sg) && new Date(x.createdAt).getTime() >= since && !(x.status === "completed" && x.conclusion !== "success"))
+        .sort((a, b) => b.databaseId - a.databaseId)[0];
       return hit ? { id: hit.databaseId, url: hit.url, createdAt: hit.createdAt } : null;
     } catch { return undefined; }
   };
-  const cr = dr.ok ? await rd.confirmRuns({ state, sha: pushSrc, save, log: (m) => console.log(m), io: { findRun } }) : { ok: false, confirmed: 0, missing: state.segments.map((g) => g.seg) };
+  // confirm every segment that WAS dispatched, also on a partial dispatch (its run ids belong in the record)
+  const cr = state.segments.some((g) => g.dispatchedSha === pushSrc) ? await rd.confirmRuns({ state, sha: pushSrc, save, log: (m) => console.log(m), io: { findRun } }) : { ok: false, confirmed: 0, missing: state.segments.map((g) => g.seg) };
   if (!cr.ok) {
-    console.error(`\n❌ NOT CONFIRMED: ${cr.missing.length} segment(s) without a run on the pool (seg ${cr.missing.join(", ")}). GitHub accepting a dispatch (HTTP 204) is not a render — do not report this render as started.`);
-    console.error(`   Check: node scripts/render-status.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}   ·   rescue: node scripts/render-github-redispatch.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}`);
+    const without = state.segments.filter((g) => !g.runId).map((g) => g.seg);
+    console.error(`\n❌ NOT CONFIRMED: ${without.length} of ${state.segments.length} segment(s) without a run on the pool (seg ${without.join(", ")}). GitHub accepting a dispatch (HTTP 204) is not a render — do not report this render as started.`);
+    console.error(`   Next (one command, runs to the verified film): node scripts/render-deliver.js --slug=${slug}${FOREIGN_BOOK ? ` --book-root=${BOOK_ROOT}` : ""}`);
   } else console.log(`✓ ${cr.confirmed} segment run(s) confirmed on the pool (run ids in ${stateFile})`);
   // whether this process saw the render through (lib/run-lock.js renderInFlight): a --no-wait dispatch, or a process
   // that died before the end, leaves segments running on the pool
   const waits = args.wait !== false && args["no-wait"] === undefined;
   process.on("exit", (code) => { try { const s = JSON.parse(fs.readFileSync(stateFile, "utf8")); if (s.dispatchedAt === state.dispatchedAt) { s.endedAt = new Date().toISOString(); s.waited = waits; s.exitCode = code; fs.writeFileSync(stateFile, JSON.stringify(s, null, 2) + "\n"); } } catch {} });
   if (FOREIGN_BOOK) {
-    console.log(`\n🚀 ${segs.length} segment(s) dispatched from ${BOOK_ROOT} (pinned engine). This process stops here (--book-root never waits).`);
-    console.log(`   Next: node scripts/render-status.js --slug=${slug} --book-root=${BOOK_ROOT}   — then run only the command it prints (cloud assembly).`);
-    process.exit(dr.ok && cr.ok ? 0 : 1);
+    console.log(`\n🚀 ${state.segments.filter((g) => g.runId).length}/${segs.length} segment run(s) confirmed from ${BOOK_ROOT} (pinned engine). This process stops here (--book-root never waits).`);
+    console.log(`   Next (no new approval needed — same render input): node scripts/render-deliver.js --slug=${slug} --book-root=${BOOK_ROOT}`);
+    console.log(`   It tracks the runs, re-sends only failed/missing segments, assembles in the cloud, downloads + verifies the film and writes the delivery report.`);
+    process.exit(pr.ok && dr.ok && cr.ok ? 0 : 1);
   }
   console.log(`\n🚀 ${segs.length} segment dispatched. Doğrulama bekleniyor (20s)...`);
 
@@ -825,16 +838,19 @@ async function dispatchSplit(safeMax) {
     const bare = sg.ref.replace("refs/heads/", "");
     // push only if the worker's ref does not hold the bundle; a permanent refusal is never repeated
     if (sg.pushErrorKind === "permanent") { console.error(`   ❌ seg${sg.seg}: its push was refused permanently — not retried (${String(sg.pushError || "").split("\n").slice(-1)[0]})`); return false; }
-    const have = await gio.remoteSha({ ...sg, ref: bare, remoteName: sg.remoteName || w.remoteName });
+    const at = { ...sg, ref: bare, remoteName: sg.remoteName || w.remoteName };
+    const have = await gio.remoteSha(at);
+    if (have === undefined) { console.warn(`   ⚠ seg${sg.seg}: worker ref unreadable — not pushed or dispatched blind`); return false; }
     if (have !== pushSrc) {
-      const r = await gio.push({ ...sg, ref: bare, remoteName: sg.remoteName || w.remoteName });
-      if (!r.ok) {
+      const r = await gio.push({ ...at, expect: have }); // lease on what the ref held (cycle 9)
+      if (!r.ok && (await gio.remoteSha(at)) !== pushSrc) {
         const kind = rd.classifyPushError(r.output);
         Object.assign(sg, { pushError: rd.redact(r.output).slice(-600), pushErrorKind: kind });
         save(state);
         console.warn(`   ⚠ push (${kind}): ${rd.redact(r.output).trim().split("\n").slice(-2).join(" | ")}`);
-        if (kind === "permanent") return false;
-      } else { Object.assign(sg, { pushed: pushSrc, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); save(state); }
+        return false; // a dispatch at a ref without the bundle only answers 422 — the next poll heals again (bounded)
+      }
+      Object.assign(sg, { pushed: pushSrc, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); save(state);
     }
     const payload = JSON.stringify({ ref: bare, inputs: {
       slug, composition, chunk_size: String(chunkSize), concurrency: String(args.concurrency || 2),

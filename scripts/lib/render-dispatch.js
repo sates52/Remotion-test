@@ -91,10 +91,10 @@ async function pushAll({ state, sha, io, concurrency = 2, retries = 3, backoffMs
   let running = 0;
   let next = 0;
 
+  const remoteOf = async (sg) => { try { return await io.remoteSha(sg); } catch { return undefined; } };
   const one = async (sg) => {
     // the worker may already hold the bundle (a previous run pushed it, the record was lost): never re-upload
-    let have;
-    try { have = await io.remoteSha(sg); } catch { have = undefined; }
+    let have = await remoteOf(sg);
     if (have === sha) {
       Object.assign(sg, { pushed: sha, pushedAt: sg.pushedAt || new Date().toISOString(), pushError: null, pushErrorKind: null });
       result.skipped++;
@@ -105,8 +105,23 @@ async function pushAll({ state, sha, io, concurrency = 2, retries = 3, backoffMs
     for (let attempt = 1; attempt <= retries; attempt++) {
       if (stop) return;
       const t0 = Date.now();
-      const r = await io.push(sg);
+      // cycle 9: the push is a LEASE on what the worker's ref holds right now (null = must not exist) — a ref that moved
+      // since we looked is never overwritten. A ref we cannot read is never pushed blind: that attempt fails (transient).
+      const r = have === undefined ? { ok: false, output: "remote ref state unreadable (ls-remote failed) — not pushed blind" } : await io.push({ ...sg, expect: have });
       sg.pushAttempts = (sg.pushAttempts || 0) + 1;
+      if (!r.ok) {
+        // cycle 9 (the-first-90-days, 2026-11-03): "failed to push some refs" was recorded for seg1 while the worker's ref
+        // DID hold the bundle. Ask the worker before counting a failure or retrying: the remote is the truth.
+        const now = await remoteOf(sg);
+        if (now === sha) {
+          Object.assign(sg, { pushed: sha, pushedAt: new Date().toISOString(), pushSeconds: Math.round((Date.now() - t0) / 100) / 10, pushError: null, pushErrorKind: null, pushReconciled: true });
+          result.pushed++;
+          save(state);
+          log(`  seg${sg.seg} → ${sg.username}: push reported an error but the ref holds ${sha.slice(0, 8)} — counted as pushed (reconciled with the worker)`);
+          return;
+        }
+        if (now !== undefined) have = now;
+      }
       if (r.ok) {
         Object.assign(sg, { pushed: sha, pushedAt: new Date().toISOString(), pushSeconds: Math.round((Date.now() - t0) / 100) / 10, pushError: null, pushErrorKind: null });
         result.pushed++;
@@ -151,6 +166,9 @@ async function pushAll({ state, sha, io, concurrency = 2, retries = 3, backoffMs
   });
   if (stop) for (const sg of queue) if (sg.pushed !== sha && !result.failed.some((f) => f.seg === sg.seg)) result.failed.push({ seg: sg.seg, kind: "not-attempted", error: "not pushed: the queue stopped on a permanent refusal" });
   result.ok = result.failed.length === 0;
+  // PARTIAL (cycle 9): only network failures, and at least one ref holds the bundle — the pushed segments may be
+  // dispatched; the others are retried later (render-deliver / redispatch). A permanent refusal is never partial.
+  result.partial = !result.ok && result.failed.every((f) => f.kind === "transient") && state.segments.some((sg) => sg.pushed === sha);
   return result;
 }
 
@@ -169,18 +187,18 @@ async function dispatchAll({ state, sha, io, save = () => {}, log = () => {} }) 
     if (exists === true || (exists && typeof exists === "object")) {
       // the run's OWN creation time: "now" would make the run check treat that (older) run as stale and dispatch again
       const at = exists && exists.createdAt ? new Date(exists.createdAt).toISOString() : sg.dispatchedAt || sg.pushedAt || new Date().toISOString();
-      Object.assign(sg, { dispatchedAt: at, dispatchedSha: sha, dispatchCode: "run-exists" });
+      Object.assign(sg, { dispatchedAt: at, dispatchedSha: sha, dispatchCode: "run-exists", ...(exists && exists.id ? { runId: exists.id, runUrl: exists.url || null, runCreatedAt: exists.createdAt || null } : {}) });
       out.skipped++;
       save(state);
       log(`  seg${sg.seg} → ${sg.username}: a run for ${sg.ref} already exists — not dispatched again`);
       continue;
     }
-    if (exists === undefined && sg.dispatchCode !== undefined && sg.dispatchedSha !== sha && sg.dispatchAttemptSha === sha) {
-      // a dispatch of THIS bundle was attempted and its outcome is unknown (crash, API down): firing again could start
-      // a second run — leave it to the run check (render.js wait loop / render-github-redispatch.js), which re-dispatches
-      // only after the run is seen to be absent
-      out.skipped++;
-      log(`  seg${sg.seg} → ${sg.username}: earlier dispatch outcome unknown and the run list cannot be read — not dispatched blind`);
+    if (exists === undefined) {
+      // cycle 9: "could not read the run list" is never "no run" — a run of this bundle may exist (an earlier attempt,
+      // another session). Not dispatched; reported as unknown so the caller exits non-zero and reconciles later.
+      out.unknown = (out.unknown || 0) + 1;
+      out.failed.push({ seg: sg.seg, error: "run list unreadable — not dispatched blind", unknown: true });
+      log(`  seg${sg.seg} → ${sg.username}: run list unreadable — not dispatched blind (reconcile later)`);
       continue;
     }
     sg.dispatchAttemptSha = sha;
@@ -229,6 +247,24 @@ async function confirmRuns({ state, sha, io, timeoutMs = 4 * 60 * 1000, pollMs =
 }
 
 /**
+ * One segment's runs, as GitHub has them (cycle 9). runs: gh `run list --json databaseId,status,conclusion,headBranch,
+ * headSha,createdAt` (or the REST shape: id/head_branch/head_sha/created_at). A run is THIS render's when it is on the
+ * segment's ref and built from the render's bundle commit (legacy push without one: created after `since` - 60 s).
+ * → { state: "live" (queued/running/succeeded — never dispatch again) | "failed" (only failed/cancelled runs) | "none", live, mine }
+ */
+function segmentRunState({ runs, ref, bundleSha = null, since = 0 }) {
+  const bare = String(ref).replace(/^refs\/heads\//, "");
+  const n = (r) => ({ id: r.databaseId != null ? r.databaseId : r.id, branch: r.headBranch || r.head_branch, sha: r.headSha || r.head_sha, created: Date.parse(r.createdAt || r.created_at || 0), status: r.status, conclusion: r.conclusion });
+  const mine = (runs || []).filter((r) => {
+    const x = n(r);
+    if (x.branch !== bare && x.branch !== `refs/heads/${bare}`) return false;
+    return bundleSha ? x.sha === bundleSha : !(x.created < since - 60000) || x.status !== "completed";
+  }).sort((a, b) => n(b).id - n(a).id);
+  const live = mine.find((r) => r.status !== "completed") || mine.find((r) => r.conclusion === "success") || null;
+  return { state: live ? "live" : mine.length ? "failed" : "none", live, mine };
+}
+
+/**
  * Resume rule: a previous run that never FINISHED (its process stopped before the end: a refused or failed push, a
  * crash) with the same slug, bundle, mode, settings and segmentation keeps its push/dispatch marks. Anything else —
  * including a finished render whose segment failed on the runner — starts fresh, so every segment is dispatched
@@ -248,8 +284,12 @@ const pick = (o) => Object.fromEntries(KEEP.filter((k) => o[k] !== undefined).ma
 function gitIO({ root, sha, timeoutMs = 30 * 60 * 1000 }) {
   const env = { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" };
   return {
+    // sg.expect (cycle 9): the sha the worker's ref held when we looked (null = absent) → --force-with-lease on exactly
+    // that value, so a ref that moved meanwhile is refused instead of overwritten. Without it (older callers) the
+    // per-render ref is force-updated as before; render/<slug>-segN refs are this render's alone (never a shared branch).
     push: (sg) => new Promise((resolve) => {
-      const p = spawn("git", ["push", "--force", sg.remoteName, `${sha}:refs/heads/${sg.ref}`], { cwd: root, env, windowsHide: true });
+      const how = sg.expect === undefined ? ["--force"] : [`--force-with-lease=refs/heads/${sg.ref}:${sg.expect || ""}`];
+      const p = spawn("git", ["push", ...how, sg.remoteName, `${sha}:refs/heads/${sg.ref}`], { cwd: root, env, windowsHide: true });
       let out = "";
       const t = setTimeout(() => { out += "\n(timed out)"; p.kill(); }, timeoutMs);
       p.stdout.on("data", (d) => (out += d));
@@ -266,4 +306,4 @@ function gitIO({ root, sha, timeoutMs = 30 * 60 * 1000 }) {
   };
 }
 
-module.exports = { classifyPushError, redact, defaultPushConcurrency, pushAll, dispatchAll, confirmRuns, mergeResume, gitIO, PERMANENT_PUSH, TRANSIENT_PUSH };
+module.exports = { classifyPushError, redact, defaultPushConcurrency, pushAll, dispatchAll, confirmRuns, segmentRunState, mergeResume, gitIO, PERMANENT_PUSH, TRANSIENT_PUSH };

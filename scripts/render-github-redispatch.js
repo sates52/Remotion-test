@@ -90,10 +90,20 @@ async function ensureRef(w, sg) {
   let sha;
   try { sha = bundleSha(); } catch (e) { console.error(`    ❌ bundle refused before any push:\n${e.message}`); return false; }
   const io = rd.gitIO({ root: BOOK, sha });
-  if ((await io.remoteSha(seg)) === sha) { console.log(`    ref already holds ${sha.slice(0, 8)} — not pushed again`); return true; }
+  const landed = () => { Object.assign(sg, { pushed: sha, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); saveSplit(); return true; };
   for (let attempt = 1; attempt <= 3; attempt++) {
-    const r = await io.push(seg);
-    if (r.ok) { Object.assign(sg, { pushed: sha, pushedAt: new Date().toISOString(), pushError: null, pushErrorKind: null }); saveSplit(); return true; }
+    // cycle 9: read the ref first (the remote is the truth), push as a lease on exactly that value, never blind
+    const have = await io.remoteSha(seg);
+    if (have === sha) { console.log(`    ref holds ${sha.slice(0, 8)}${attempt > 1 ? " (an earlier attempt landed)" : ""} — not pushed again`); return landed(); }
+    if (have === undefined) {
+      console.error(`    ⚠ ref unreadable (ls-remote) — not pushed blind${attempt < 3 ? ", retrying" : ""}`);
+      if (attempt === 3) return false;
+      await sleep(5000 * 2 ** (attempt - 1));
+      continue;
+    }
+    const r = await io.push({ ...seg, expect: have });
+    if (r.ok) return landed();
+    if ((await io.remoteSha(seg)) === sha) { console.log("    push reported an error but the ref holds the bundle — counted as pushed"); sg.pushReconciled = true; return landed(); }
     const kind = rd.classifyPushError(r.output);
     Object.assign(sg, { pushError: rd.redact(r.output).slice(-600), pushErrorKind: kind });
     saveSplit();
@@ -138,50 +148,52 @@ async function dispatch(w, sg) {
 
 (async () => {
   console.log(`\n🔍 ${SLUG} — ${split.segments.length} segment kontrol ediliyor...\n`);
-  let ok = 0, redispatched = 0, failed = 0;
+  let ok = 0, redispatched = 0, failed = 0, unknown = 0;
+  const listRuns = (w) => JSON.parse(execFileSync("gh", ["run", "list", "--repo", `${w.username}/${w.repo}`, "--workflow", "render-video.yml", "-L", "30",
+    "--json", "databaseId,url,status,conclusion,headBranch,headSha,createdAt"], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
+  const stateOf = (runs, sg) => rd.segmentRunState({ runs, ref: sg.ref, bundleSha: split.bundleSha, since: Date.parse(sg.dispatchedAt || sg.pushedAt || split.dispatchedAt || 0) });
 
   for (const sg of split.segments) {
     if (onlySegs && !onlySegs.includes(sg.seg)) continue;
     const w = workers.find((x) => x.username === sg.username) || workers.find((x) => x.id === sg.workerId);
-    if (!w) { console.log(`  seg${sg.seg}: worker ${sg.username} bulunamadı`); failed++; continue; }
+    if (!w) { console.log(`  seg${sg.seg}: worker ${sg.username} not in render-accounts.json`); failed++; continue; }
 
-    const ref = sg.ref.replace("refs/heads/", "");
-    let found = null;
-    let unreadable = false;
-    try {
-      const runs = JSON.parse(execFileSync("gh", [
-        "run", "list", "--repo", `${w.username}/${w.repo}`,
-        "--workflow", "render-video.yml", "-L", "30",
-        "--json", "status,conclusion,headBranch,createdAt",
-      ], { encoding: "utf8", env: { ...process.env, GH_TOKEN: w.token, GITHUB_TOKEN: w.token, NO_COLOR: "1" } }) || "[]");
-      // only a run of THIS render counts: created after this segment (or the render) was dispatched
-      const since = Date.parse(sg.dispatchedAt || sg.pushedAt || split.dispatchedAt || 0) - 60000;
-      found = runs.find((r) => (r.headBranch === ref || r.headBranch === sg.ref) && (r.status !== "completed" || !(Date.parse(r.createdAt) < since)));
-    } catch { unreadable = true; }
-
-    if (unreadable && !forceAll) {
+    let runs = null;
+    try { runs = listRuns(w); } catch { runs = null; }
+    if (!runs && !forceAll) {
       // "could not read" is not "absent": re-dispatching blind can start a second run of the same frames
       console.log(`  seg${sg.seg} @${w.username}: run list unreadable — not re-dispatched (retry later, or --force)`);
-      failed++;
+      unknown++;
       continue;
     }
-
-    if (found && !forceAll) {
-      const st = found.status === "completed"
-        ? (found.conclusion === "success" ? "✅" : `❌ ${found.conclusion}`)
-        : `⏳ ${found.status}`;
-      console.log(`  seg${sg.seg} @${w.username}: ${st}`);
+    // cycle 9: only a queued / running / SUCCEEDED run of this render counts. A segment whose runs all FAILED is re-sent
+    // (before: a failed run counted as "found", so the segment render-status sent here was never re-dispatched).
+    const rs = stateOf(runs || [], sg);
+    if (rs.state === "live" && !forceAll) {
+      const live = rs.live;
+      console.log(`  seg${sg.seg} @${w.username}: ${live.status === "completed" ? "✅ success" : `⏳ ${live.status}`} (run ${live.databaseId}) — not dispatched again`);
+      if (sg.runId !== live.databaseId) { Object.assign(sg, { runId: live.databaseId, runUrl: live.url || null, runCreatedAt: live.createdAt || null }); saveSplit(); }
       ok++;
-    } else {
-      const reason = forceAll ? "(--force)" : "workflow bulunamadı";
-      console.log(`  seg${sg.seg} @${w.username}: ${reason} → bundle push + yeniden tetikleniyor...`);
-      if (!(await ensureRef(w, sg))) { failed++; continue; }
-      const success = await dispatch(w, sg);
-      if (success) { console.log(`    ✓ tetiklendi`); redispatched++; Object.assign(sg, { dispatchedAt: new Date().toISOString(), dispatchCode: 204 }); saveSplit(); }
-      else { failed++; }
+      continue;
     }
+    console.log(`  seg${sg.seg} @${w.username}: ${forceAll ? "(--force)" : rs.state === "failed" ? `its run failed (${rs.mine[0].conclusion})` : "no run of this render"} → bundle push (if missing) + re-dispatch`);
+    if (!(await ensureRef(w, sg))) { failed++; continue; }
+    const t0 = Date.now();
+    if (!(await dispatch(w, sg))) { failed++; continue; }
+    // the record says what happened: dispatched with THIS bundle, the old run id is history, the attempt is counted
+    Object.assign(sg, { dispatchedAt: new Date().toISOString(), dispatchedSha: split.bundleSha || null, dispatchCode: 204, runId: null, runUrl: null, redispatches: (sg.redispatches || 0) + 1 });
+    saveSplit();
+    // HTTP 204 is not a run (cycle 7): wait for this dispatch's own run and record its id
+    let run = null;
+    for (let i = 0; i < 16 && !run; i++) {
+      await sleep(15000);
+      try { const s2 = rd.segmentRunState({ runs: listRuns(w), ref: sg.ref, bundleSha: split.bundleSha, since: t0 }); run = s2.state === "live" ? s2.live : null; } catch { run = null; }
+    }
+    if (run) { Object.assign(sg, { runId: run.databaseId, runUrl: run.url || null, runCreatedAt: run.createdAt || null }); saveSplit(); console.log(`    ✓ re-dispatched — run ${run.databaseId} confirmed`); redispatched++; }
+    else { console.error(`    ❌ dispatched (HTTP 204) but no run appeared in 4 min — not counted as started`); failed++; }
   }
 
-  console.log(`\n${ok} çalışıyor/bitti · ${redispatched} yeniden tetiklendi · ${failed} başarısız`);
+  console.log(`\n${ok} running/done · ${redispatched} re-dispatched (run confirmed) · ${failed} failed · ${unknown} unreadable`);
   if (failed > 0) process.exit(1);
+  if (unknown > 0) process.exit(4);
 })();
