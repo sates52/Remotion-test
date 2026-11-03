@@ -297,11 +297,13 @@ function bookState(slug, root = ROOT) {
   const cfgM = mtime(cfgPath);
   if (engine === "antidote") {
     const rc = readJSON(path.join(B, "readcheck.json"));
+    let rcEv = null;
     const rcM = mtime(path.join(B, "readcheck.json"));
     // legacy only: a film that already went through blind mute verdicts without a readcheck is not sent back
     const judgedBefore = ((((readJSON(path.join(B, "mute-test.json")) || {}).runs) || []).some((r) => r.totals));
     if (!rc && cfgM && cfgM >= artM && judgedBefore) stage("readcheck", "n/a", "no readcheck.json — this film was judged without one (runbook §2b runs it before the first make-book)");
     else if (!rc) { stage("readcheck", "todo", "not run"); go("readcheck", "Readcheck every beat (runbook §2b): prep → blind readers (fresh sonnet, parallel) → judge → judges → tally", `node scripts/readcheck.js prep --slug=${slug}`); return finish(st); }
+    else if (!(rcEv = require("./lib/evidence-integrity").readcheckEvidence(B, rc)).ok) { stage("readcheck", "failed", `EVIDENCE_INVALID — ${rcEv.reasons.slice(0, 2).join("; ")}`); go("readcheck", "The readings look template-generated (not PASS, not FAIL): re-run the blind readers and the judges with FRESH agents (their own words per beat), then tally", `node scripts/readcheck.js tally --slug=${slug}`); return finish(st); }
     else if (rc.n < rc.total) { stage("readcheck", "todo", `${rc.n}/${rc.total} beats judged`); go("readcheck", "Finish the readcheck: every reader/judge file must exist (tally warns 'only n/total')", `node scripts/readcheck.js tally --slug=${slug}`); return finish(st); }
     else if (rcM < artM) { stage("readcheck", "todo", "art.json changed after the readcheck"); go("readcheck", "Re-read the beats you changed: prep --beats=<ids> → readers → judge --recheck=N → judges → tally (rewrites readcheck.json)", null); return finish(st); }
     else stage("readcheck", "done", `WRONG ${((rc.totals || {}).WRONG) || 0}/${rc.n} (${Math.round((rc.wrongRate || 0) * 1000) / 10}%; runbook aim ≤ 3%)`);
@@ -345,7 +347,11 @@ function bookState(slug, root = ROOT) {
   const metaOf = new Map(all.map((x) => [x.l, x.meta]));
   let pol = {}; try { pol = (readJSON(path.join(root, "data", "quality-policy.json")) || {}).muteTest || {}; } catch {}
   const W = pol.blocking?.wrongPer30 ?? 1, D = pol.blocking?.deadPer30 ?? 5;
-  const passOf = (r) => (r.totals.WRONG || 0) <= Math.floor((W * r.n) / 30) && (r.totals.NONE || 0) <= Math.floor((D * r.n) / 30);
+  // a run whose evidence looks template-generated (lib/evidence-integrity.js) is EVIDENCE_INVALID: never a PASS
+  const EI = require("./lib/evidence-integrity");
+  const evOf = new Map();
+  const evidenceOf = (r) => { if (!evOf.has(r.label)) evOf.set(r.label, EI.runEvidence({ root, slug, run: r })); return evOf.get(r.label); };
+  const passOf = (r) => (r.totals.WRONG || 0) <= Math.floor((W * r.n) / 30) && (r.totals.NONE || 0) <= Math.floor((D * r.n) / 30) && evidenceOf(r).ok;
   const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
   const scopeFrom = pin && pin.at ? Date.parse(pin.at) || 0 : 0;
   const inScope = mt.filter((r) => r.totals && (Date.parse(r.date) || 0) >= scopeFrom);
@@ -390,9 +396,16 @@ function bookState(slug, root = ROOT) {
   if (!attempts.length) { stage("mute", "todo", "no holdout run in this production"); go("mute", "Draw a fresh holdout", `node scripts/mute-test.js prep --slug=${slug} --label=${nextLabel()}`); return finish(st); }
   const last = attempts[attempts.length - 1];
   const lastTally = Date.parse(last.date) || 0;
-  const line = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}, EXPLAINS ${r.totals.EXPLAINS || 0}/${r.n} → ${r.pass ? "PASS" : "FAIL"}${r.fresh ? "" : " (reused frames: not a verdict)"}`;
+  const line = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}, EXPLAINS ${r.totals.EXPLAINS || 0}/${r.n} → ${!evidenceOf(r).ok ? EI.STATUS_INVALID : r.pass ? "PASS" : "FAIL"}${r.fresh ? "" : " (reused frames: not a verdict)"}`;
   st.fixRounds = { used: attempts.length - 1, max: MAX_FIX_ROUNDS };
   const filmChanged = filmM > lastTally;
+  // the last attempt measured nothing (template-generated blind/judge files): not a fix round — the same frames are read
+  // again by FRESH agents and tallied again under the same label
+  if (!evidenceOf(last).ok && !filmChanged) {
+    stage("mute", "failed", `${line(last)} — ${evidenceOf(last).reasons.slice(0, 2).join("; ")}`);
+    go("mute", `${last.label}: ${EI.STATUS_INVALID} (not PASS, not FAIL) — a FRESH sonnet describer re-runs audit/mute/${slug}/${last.label}/PROMPTS.md §1 (one image at a time), then judge, a FRESH judge (§3), then tally ${last.label} again`, `node scripts/mute-test.js judge --slug=${slug} --label=${last.label}`);
+    return finish(st);
+  }
   // READY only on a fresh PASS judged on the film as it is now
   if (last.fresh && last.pass && !filmChanged) {
     stage("mute", "done", line(last));

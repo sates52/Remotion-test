@@ -2089,6 +2089,24 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-03 — Cycle 8: evidence integrity for mute-test / readcheck (EVIDENCE_INVALID)
+
+- **Case:** the-most-important-thing showed "preview READY" on template-generated evidence: 30/30 blind entries with one
+  `message` and one `sees` shape, a judge with one `why`/`whyC` + one verdict on 30/30 written 16 s after its input, and a
+  readcheck of 272 guesses of one template with one CORRECT reason on every beat.
+- **New `scripts/lib/evidence-integrity.js`** (deterministic, no LLM): (a) blind — one message / one `sees` template
+  (on-screen words removed) / empty-or-boilerplate fields on >= 50%; (b) judge — one identical reason WITH one identical
+  verdict on >= 90% (a stock reason with varied verdicts is only a signal); (c) timing — a signal, never a block alone;
+  (d) readcheck — one guess template on >= 50%, or one reason on the non-CORRECT beats / on every beat when no verdict
+  varies. n >= 10 everywhere. Bars and how totals are computed are untouched (`data/quality-policy.json` unchanged).
+- **Wired:** `mute-test.js tally` and `readcheck.js tally` print EVIDENCE_INVALID (not PASS, not FAIL; exit 3), record
+  `evidence` in totals.json / mute-test.json / readcheck.json, and write no engine-outcomes row; `preview-ready` and
+  `preview-state` re-check every run from its files (older tallies carry no field) and never count an invalid one.
+- **Calibrated read-only** on 133 distinct mute runs + 104 readcheck folders: trips = the-most-important-thing final +
+  its readcheck, plus test/ great-at-work run1 and piranesi run1 (both: one `why` + CORRECT on 30/30, blind `message` =
+  pasted narration). No other run trips; closest honest: the-new-one-minute-manager final (why+verdict 77%).
+  Test: `node scripts/test-evidence-integrity.js`.
+
 ### 2026-11-02 — Cycle 7: render entry guard (P4) SHIPPED, place narrow fixes SHIPPED, Causal Story Director 1.0 NO SHIP, rater calibration
 
 All evidence is in `audit/c7-pilots` and `audit/cloud-ab`. Every rule was written and committed before any reader ran.

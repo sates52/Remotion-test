@@ -296,10 +296,23 @@ function tally() {
     neutral: [...flagged.keys()].filter((i) => (latest.get(i) || {}).correctness === "NEUTRAL").map((i) => ({ i, code: flagged.get(i) })),
     cleared: [...flagged.keys()].filter((i) => (latest.get(i) || {}).correctness === "CORRECT").length,
     unread: [...flagged.keys()].filter((i) => !latest.has(i)) } : null;
-  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i), ...(reviewRequired ? { reviewRequired } : {}) };
+  // evidence integrity (2026-11-03, lib/evidence-integrity.js): readings filled in from one template are not readings —
+  // the tally is EVIDENCE_INVALID (not PASS, not FAIL); the totals stay as recorded
+  const EI = require("./lib/evidence-integrity");
+  const ev = EI.readcheckEvidence(BOOK), evSig = ev.signals;
+  const evidence = !ev.ok ? { status: ev.status, reasons: ev.reasons, signals: evSig } : evSig.length ? { status: "OK", signals: evSig } : null;
+  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), ...(evidence ? { evidence } : {}), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i), ...(reviewRequired ? { reviewRequired } : {}) };
   fs.writeFileSync(path.join(BOOK, "readcheck.json"), JSON.stringify(summary, null, 2) + "\n");
   if (n < total) console.log(`⚠ only ${n}/${total} beats have a verdict — the readcheck is incomplete; run a full prep + readers + judges before trusting this tally`);
+  if (evidence && evidence.status === EI.STATUS_INVALID) {
+    console.log(`${SLUG} readcheck: ${EI.STATUS_INVALID} — not PASS, not FAIL: the readings do not look like fresh blind readers (totals recorded, never counted)`);
+    evidence.reasons.forEach((r) => console.log(`   - ${r}`));
+    console.log(`   Re-run the blind readers and the judges of PROMPTS.md with FRESH agents (their own words per beat), then tally again.`);
+    process.exitCode = 3;
+    return;
+  }
   console.log(`${SLUG} readcheck: ${n} beats · CORRECT ${T.CORRECT} · NEUTRAL ${T.NEUTRAL} · WRONG ${T.WRONG} (${Math.round((T.WRONG / (n || 1)) * 100)}%)`);
+  if (evSig.length) evSig.forEach((x) => console.log(`   evidence signal (reported, not counted): ${x}`));
   console.log(`   blame: ${JSON.stringify(blame)}${Object.keys(iconBlame).length ? `   icons: ${JSON.stringify(iconBlame)}` : ""}`);
   bad.filter((x) => x.verdict === "WRONG").forEach((x) => console.log(`   - ${x.i} WRONG [${x.blame}${x.concept ? `:${x.concept}` : ""}] ${x.why}`));
   if (reviewRequired) console.log(`   REVIEW_REQUIRED (merge-report): ${reviewRequired.flagged} flagged · read WRONG ${reviewRequired.wrong.length}${reviewRequired.wrong.length ? ` (${reviewRequired.wrong.map((x) => `${x.i} ${x.code}`).join(", ")}) → confirmed: fix them in the fix round` : ""} · NEUTRAL ${reviewRequired.neutral.length} · cleared ${reviewRequired.cleared} · unread ${reviewRequired.unread.length}`);

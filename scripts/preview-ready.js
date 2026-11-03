@@ -79,7 +79,11 @@ if (engine) {
   // one rule for every run on record (two-tier bar, 2026-09-28), whatever rule tallied it
   let pol = {}; try { pol = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "quality-policy.json"), "utf8")).muteTest || {}; } catch {}
   const W = pol.blocking?.wrongPer30 ?? 1, D = pol.blocking?.deadPer30 ?? 5, A = pol.targets?.adds ?? 0.6;
-  for (const r of runs) r.pass = (r.totals.WRONG || 0) <= Math.floor((W * r.n) / 30) && (r.totals.NONE || 0) <= Math.floor((D * r.n) / 30);
+  // evidence integrity (2026-11-03, lib/evidence-integrity.js): a run whose blind/judge files look template-generated is
+  // EVIDENCE_INVALID — never a pass, whatever its totals (the bars and how they are computed are unchanged)
+  const EI = require("./lib/evidence-integrity");
+  for (const r of runs) { const ev = EI.runEvidence({ root: ROOT, slug, run: r }); r.evidenceInvalid = ev.ok ? null : ev.reasons; }
+  for (const r of runs) r.pass = (r.totals.WRONG || 0) <= Math.floor((W * r.n) / 30) && (r.totals.NONE || 0) <= Math.floor((D * r.n) / 30) && !r.evidenceInvalid;
   const isFresh = (r) => (r.sample ? r.sample === "fresh" : !r.vs);
   const verdict = [...runs].reverse().find(isFresh);
   const ok = !!(last && last.pass && verdict && verdict.pass);
@@ -88,6 +92,7 @@ if (engine) {
   check("blind mute test (fresh holdout sample)", ok,
     !last ? (allRuns.length ? `no run judged this film${notCounted} — node scripts/preview-state.js status --slug=${slug}` : "not run — node scripts/mute-test.js prep --slug=" + slug)
       : ok ? tot(verdict) + (verdict !== last ? ` · latest ${tot(last)}` : "") + (verdict.matchedBy ? ` [bound by ${verdict.matchedBy}]` : "")
+      : (verdict && verdict.evidenceInvalid) || (last && last.evidenceInvalid) ? `${(verdict && verdict.evidenceInvalid ? verdict : last).label}: ${EI.STATUS_INVALID} (not PASS, not FAIL) — ${(verdict && verdict.evidenceInvalid ? verdict : last).evidenceInvalid.slice(0, 3).join("; ")} — re-run the describer and the judge with FRESH agents, then tally again`
       : last.pass && (!verdict || !verdict.pass) ? `${tot(last)} is on reused frames; latest fresh run ${verdict ? tot(verdict) + " FAIL" : "none"} — node scripts/mute-test.js prep --slug=${slug} --label=holdout1 (fresh sample)`
       : tot(last));
   // Machine record (advisory, never a block): which code each step ran on, and whether the report-only
@@ -129,7 +134,12 @@ if (engine) {
   }
   // the mute summary preview-ready.json records (2026-10-28): the production preflight prints it next to a NOT READY
   const mr = verdict || last;
-  if (mr) muteSummary = { label: mr.label || null, sample: mr.sample || (mr.vs ? "reused" : "fresh"), n: mr.n, wrong: mr.totals.WRONG || 0, dead: mr.totals.NONE || 0, adds: mr.totals.ADDS || 0, pass: !!mr.pass };
+  if (mr) muteSummary = { label: mr.label || null, sample: mr.sample || (mr.vs ? "reused" : "fresh"), n: mr.n, wrong: mr.totals.WRONG || 0, dead: mr.totals.NONE || 0, adds: mr.totals.ADDS || 0, pass: !!mr.pass, ...(mr.evidenceInvalid ? { evidence: EI.STATUS_INVALID } : {}) };
+  if (engine === "antidote" && fs.existsSync(path.join(BOOK, "readcheck.json"))) {
+    // a readcheck whose readings look template-generated does not count as a readcheck (it is not PASS, not FAIL)
+    const rce = EI.readcheckEvidence(BOOK, readJSON(path.join(BOOK, "readcheck.json")));
+    check("readcheck evidence (fresh blind readers)", rce.ok, rce.ok ? "" : `${EI.STATUS_INVALID} — ${rce.reasons.slice(0, 3).join("; ")} — re-run the readers and judges with FRESH agents, then readcheck.js tally`);
+  }
   // YouTube pack — ADVISORY, for upload, never part of the preview verdict. One row from title-lint's lintPack(slug, root)
   // when that module offers it (2026-10-28, feature-detected: another change adds it); else the two rows below.
   const tlMod = require("./lib/title-lint");
