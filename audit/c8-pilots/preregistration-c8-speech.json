@@ -1,0 +1,91 @@
+{
+  "schema": "c8-pilot-prereg/1",
+  "date": "2026-11-03",
+  "written": "before any passage was read, authored, rendered or rated",
+  "hypothesis": "Putting a reported line in a balloon tied to its speaker (says / partnerSays) lets a muted viewer see WHO says WHAT to WHOM, raising CORRECT+ADDS on the beats where a line is said, without raising WRONG or dead frames.",
+  "change": {
+    "code": "34596178 (schema says, SpeechBalloon, planner, merge verbatim check, readcheck)",
+    "rules": "the SPEECH section of storyboard.js, in rules.md only for arm B (prep with STORYBOARD_SPEECH=1)"
+  },
+  "arms": {
+    "A": "fresh author, current rules.md (no speech section)",
+    "B": "fresh author, rules.md + SPEECH section, same author prompt",
+    "both": "same prep, same planner/renderer code (34596178), same routine merge-fix round(s); no director step"
+  },
+  "passages": {
+    "draw": "audit/c8-pilots/select-speech-passages.js: windows of 12 beats with >= 2 beats whose narration has a speech verb (relaxed from 3 before reading: 3 yielded 2 books), never a mute-sampled beat, not the first/last 5%, no overlap (+-2) with cycle-7 windows; seeded per slug; books in a fixed order",
+    "selected": [
+      {
+        "slug": "a-good-man-is-hard-to-find",
+        "genre": "fiction",
+        "windows": [
+          [
+            91,
+            102
+          ],
+          [
+            134,
+            145
+          ]
+        ]
+      },
+      {
+        "slug": "red-rising",
+        "genre": "fiction",
+        "windows": [
+          [
+            64,
+            75
+          ]
+        ]
+      },
+      {
+        "slug": "the-most-important-thing",
+        "genre": "ideas",
+        "windows": [
+          [
+            192,
+            203
+          ],
+          [
+            235,
+            246
+          ]
+        ]
+      },
+      {
+        "slug": "the-new-one-minute-manager",
+        "genre": "ideas",
+        "windows": [
+          [
+            69,
+            80
+          ],
+          [
+            144,
+            155
+          ]
+        ]
+      }
+    ],
+    "excluded": "we-were-liars 151-162: it is the reference book whose art.json rules.md tells authors to read (contamination risk); beloved, wonder, how-to-talk-to-anyone, the-art-of-saying-no: no window"
+  },
+  "frames": "one still per scene longer than 2 s at 60% of the scene from arm A's config (identical frames, segmentation verified equal), caption layer off",
+  "primary": {
+    "instrument": "official procedure: per passage x arm a fresh sonnet describer (PROMPTS §1 verbatim), per passage a fresh sonnet judge in --vs mode (X/Y random, JUDGE_RULES verbatim), 2 independent replicates"
+  },
+  "shipRule": {
+    "all": [
+      "WRONG(B) <= WRONG(A) in EACH genre, pooled",
+      "DEAD(B) <= DEAD(A) pooled",
+      "on the SPEECH frames (frames whose scene in arm B carries a balloon): CORRECT+ADDS(B) >= CORRECT+ADDS(A) + ceil(15% of those judged items)",
+      "overall ADDS(B) >= ADDS(A) and CORRECT(B) >= CORRECT(A) and EXPLAINS(B) >= EXPLAINS(A), pooled"
+    ],
+    "else": "NO SHIP: the speech rules stay off (the code stays dark)"
+  },
+  "secondary": {
+    "instrument": "cloud 3-frame strips with the sequence rubric, reported per arm and for the speech frames; cannot bypass the primary"
+  },
+  "secondRater": "cloud API official rubric on the same stills, report-only (P2: never decides)",
+  "budget": "cloud <= $10 (ai-budget per-run cap)"
+}
