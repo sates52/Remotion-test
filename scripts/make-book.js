@@ -29,6 +29,7 @@
  *             out/<slug>.mp4 — i.e. audio+VTT in, finished video out, one command.
  *
  * Options: --audio=..  --vtt=..  --until=<sec>  --skip-images  --skip-master  --no-llm
+ *          Vox images: --images-only  --image-beats=<ids>  --image-max-calls=N  --images-dry-run  --image-retry-failed
  *          --render [--segments=pool|N]
  */
 const { execSync } = require("child_process");
@@ -378,6 +379,32 @@ step(
 //   other video on the platform (hard to hear on a phone, reads as amateur).
 //   Duration is preserved, so VTT/beat timings are unaffected; the plan below is
 //   simply pointed at the mastered file.
+// IMAGE CONTROL (cycle 8, 2026-11-02 — Hamnet: 58 CONTENT_FILTERED images were re-tried on every make-book run although
+// only 11 beats had new prompts). Flags pass through to gen-vox-images.py:
+//   --image-beats=beat-012,beat-019   only these beats' images (zero Flux calls for every other image)
+//   --image-max-calls=N               at most N Flux requests
+//   --images-dry-run                  print the call plan, no call, nothing written
+//   --image-retry-failed              also retry UNCHANGED prompts that failed before (default: never)
+// --images-only runs ONLY what new images need: the authorship gate (nothing unauthored is paid for), images, cut-outs
+// and the asset check — no mastering, plan, audits, metadata or thumbnails. The config must already exist.
+const IMAGE_FLAGS = [
+  typeof args["image-beats"] === "string" ? ` --beats=${args["image-beats"]}` : "",
+  args["image-max-calls"] != null ? ` --max-calls=${args["image-max-calls"]}` : "",
+  args["images-dry-run"] ? " --dry-run" : "",
+  args["image-retry-failed"] ? " --retry-failed" : "",
+].join("");
+if (args["images-only"]) {
+  if (!fs.existsSync(path.join(ROOT, CFG))) { console.error(`❌ --images-only: ${CFG} yok — önce plan üret.`); process.exit(1); }
+  step(1.9, "Authorship Gate (every beat authored before any image is generated)", `node scripts/gate-authorship.js --slug=${SLUG} --engine=vox`);
+  step(2, "Görseller (NVIDIA Flux)", `python scripts/gen-vox-images.py ${CFG}${IMAGE_FLAGS}`);
+  if (!args["images-dry-run"]) {
+    step(3, "Cut-out'lar (rembg)", `python scripts/cutout.py ${CFG}`);
+    step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);
+  }
+  console.log(`\n✓ --images-only: images${args["images-dry-run"] ? " (dry run)" : ", cut-outs, asset check"} done; nothing else ran (no plan, audits, metadata or thumbnails).`);
+  process.exit(0);
+}
+
 let PLAN_AUDIO = AUDIO;
 if (!args["skip-master"]) {
   // With --skip-plan the config is NOT rewritten below, so master-audio has to
@@ -439,7 +466,7 @@ step(1.9, "Authorship Gate (every beat authored before any image is generated)",
 
 // 2) images + 3) cutouts
 if (!args["skip-images"]) {
-  step(2, "Görseller (NVIDIA Flux)", `python scripts/gen-vox-images.py ${CFG}`);
+  step(2, "Görseller (NVIDIA Flux)", `python scripts/gen-vox-images.py ${CFG}${IMAGE_FLAGS}`);
   step(3, "Cut-out'lar (rembg)", `python scripts/cutout.py ${CFG}`);
 } else {
   console.log("\n── [2-3] Görseller/cut-out atlandı (--skip-images)");
