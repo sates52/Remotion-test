@@ -389,6 +389,17 @@ function toolRoute(v) {
 }
 
 // Authored actions with a moment (2026-10-20): the action HAPPENS on screen, on the author's word.
+// EXPERIMENT (cycle 8, CSD 1.1): only in the rules when prep runs with STORYBOARD_SPEECH=1 (the A/B arm) until it SHIPs
+const SPEECH_LINE = `SPEECH (optional, new in cycle 8 — measured in its A/B, not yet in a production book): when the narration QUOTES or
+reports what a person on screen SAYS, asks or answers ("she says: I have a problem", "he answers: right for you", a phone
+call, someone repeating the other's words), put those words in THAT person's mouth: \`"says": "<their words, verbatim
+from this beat's narration, at most 12 words>"\` (the first cast member) and, for the other side of an exchange,
+\`"partnerSays": "<the second person's words, verbatim>"\` (two cast members). A balloon appears above the speaker's head
+on the words, its tail pointing at them, and stays for the beat — who says what TO WHOM is then visible without sound.
+Never invent a line, never put the hosts' own commentary in a character's mouth, never use a balloon for a thought or
+a narrator's summary; merge refuses words the beat does not say. A callout can still label the idea; do not print the
+same words twice (balloon and callout).
+`;
 const ACTION_LINE =`Actions that HAPPEN (optional): when the narration says someone DOES it (picks up, grabs, hugs), stage the deed, not a face + caption — check every such sentence before you reach for a face.
   - \`"action": "take", "holds": "<object>"\` — the object rests in front of the first cast member, who reaches for it; on the cue the hand closes on it and brings it in; it stays in hand ("grabs their phone", "picks up the letter").
   - \`"action": "offer", "holds": "<object>"\` — the hand holds the object OUT to someone's face, a little below the shoulder ("holds the cigarette to her lips", "gives him a sip of water", "feeds her"): cast the receiver second. \`hold\` keeps the object at one's own chest; \`reach\` touches an icon in front — neither reads as giving it to a person.
@@ -500,7 +511,7 @@ If nothing reads literally: \`concept: null\` and stage your \`explainedBy\` ans
 an object, two people in a visible relation, or a diagram); when the sentence narrates an event or a mechanism,
 a face with a callout is the last resort.
 A wrong icon is worse than none.
-${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
+${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${process.env.STORYBOARD_SPEECH === "1" ? SPEECH_LINE : ""}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -968,7 +979,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1059,6 +1070,20 @@ function merge() {
       if (a.action === "embrace" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "embrace" needs exactly two cast members ["<who moves>", "<who is embraced>"] (got ${JSON.stringify(a.cast)})`);
       if (a.action === "lift" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `action "lift" needs exactly two cast members [who lifts, who is lifted] (got ${JSON.stringify(a.cast)})`);
       if (a.action === "place" && !a.holds) P(i, `action "place" needs "holds": the object that is set down`);
+      // SPEECH (CSD 1.1, cycle 8): a balloon carries the narration's OWN words, said by a person on screen — never
+      // invented dialogue, never the hosts' commentary put in a character's mouth
+      for (const field of ["says", "partnerSays"]) {
+        if (a[field] == null) continue;
+        const txt = typeof a[field] === "string" ? a[field].trim() : "";
+        const nwS = (t) => String(t || "").toLowerCase().replace(/[\u2018\u2019]/g, "'").replace(/[^a-z0-9' ]/g, " ").replace(/\s+/g, " ").trim();
+        const words = nwS(txt).split(" ").filter(Boolean).length;
+        if (!txt) P(i, `${field} must be the words the person says (a string)`);
+        else if (words > 12) P(i, `${field} "${txt}" is ${words} words — a balloon holds at most 12 (quote the key words)`);
+        else if (!(" " + nwS(narration) + " ").includes(" " + nwS(txt) + " ")) P(i, `${field} "${txt}" is not said in this beat — a balloon quotes the narration word for word (never invented dialogue)`);
+        if (field === "says" && !(Array.isArray(a.cast) && a.cast.length >= 1)) P(i, `says needs the speaker on screen: cast ["<who says it>"]`);
+        if (field === "partnerSays" && !(Array.isArray(a.cast) && a.cast.length === 2)) P(i, `partnerSays is the second person's line: it needs exactly two cast members`);
+        if (a.stageRelationship) P(i, `${field} cannot be combined with stageRelationship`);
+      }
       if ((a.action === "leave" || a.action === "flee") && a.diagram) P(i, `action "${a.action}" with a diagram: the person steps aside for the diagram and cannot walk out — stage the leaving without a diagram`);
       // cycle 6 (2026-10-31, blind 20 readers, preregistration-c6-flee-shot.json): the same flee on a full-body shot read
       // "runs away" 10/10, on a medium 0/10 ("slides off the edge") — the walk / run IS the legs. Only shots that draw
@@ -1222,6 +1247,8 @@ function merge() {
         ...(a.actionCue ? { actionCue: a.actionCue } : {}),
         ...(a.partnerExpression ? { partnerExpression: a.partnerExpression } : {}),
         ...(a.partnerAction ? { partnerAction: a.partnerAction } : {}),
+        ...(typeof a.says === "string" && a.says.trim() ? { says: a.says.trim() } : {}),
+        ...(typeof a.partnerSays === "string" && a.partnerSays.trim() ? { partnerSays: a.partnerSays.trim() } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         storyboard: sb,
       });

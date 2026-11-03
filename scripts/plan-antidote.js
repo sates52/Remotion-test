@@ -1085,6 +1085,16 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           if ((L.action === "embrace" || L.action === "lift") && characters[1]) characters[1].actionAt = at;
         }
       }
+      // SPEECH (CSD 1.1, cycle 8): the words a person says, in a balloon tied to them, appearing ON the words (anchored
+      // like a callout: the quoted words themselves); merge already checked they are the narration's own words.
+      for (const [k, field] of [[0, "says"], [1, "partnerSays"]]) {
+        const text = typeof a[field] === "string" ? a[field].trim() : "";
+        if (!text || !characters[k]) continue;
+        if (k === 1 && !authoredPair) { warn(`${field} needs a two-person cast`); continue; }
+        const at = anchorAt(s, text, null, durationFrames + MIN_HOLD);
+        if (at == null) warn(`${field} "${text}" is not spoken in this beat — the balloon appears at the start`);
+        characters[k].says = { text, at: at == null ? 0 : Math.min(at, Math.max(0, durationFrames - 1)) };
+      }
       // The illustration/diorama presets draw the lead as a flat black cut-out —
       // which hides exactly what was just authored (face, held object, WHO it is).
       // A staged lead is drawn as the person. (The silhouette shot and the
