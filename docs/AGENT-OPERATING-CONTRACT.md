@@ -172,7 +172,13 @@ the code refuses each step of that, for every harness alike:
 - **One render per render input**, across methods: the same `renderInputHash` is not dispatched or rendered twice
   without the operator's `--new-render="<reason>"`.
 
-Tests: `scripts/test-render-entry-guard.js`, `scripts/test-render-credentials.js`.
+- **The shared Remotion CLI refuses old code too (2026-11-03).** Every worktree links the main `node_modules`, so
+  `scripts/lib/remotion-cli-guard.js` shims `node_modules/@remotion/cli/remotion-cli.js`: `remotion render` from a
+  checkout WITHOUT `scripts/lib/render-entry-guard.js` (a pre-guard pin) exits 2 unless it is a test clip (`--frames=a-b`,
+  ≤ 1800, not an `out_*_chunks/chunk-*.mp4`) or the operator set `REMOTION_LOCAL_PRODUCTION_APPROVED="<their words>"`.
+  Stills, Studio, lambda and the runner pass. `book-start.js` installs / refreshes it on every run (`--status`/`--install`/`--uninstall`).
+
+Tests: `scripts/test-render-entry-guard.js`, `scripts/test-render-credentials.js`, `scripts/test-cli-guard.js`.
 
 ## 8. No automatic cleanup
 

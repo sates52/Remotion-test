@@ -89,6 +89,36 @@ function renderHazards(wt) {
   return lines;
 }
 
+// ---- the shared Remotion CLI guard (cycle 8, 2026-11-03) -------------------------------------------------------------
+// A pinned worktree's OWN render.js cannot be fixed (a pin is never edited), but every worktree links node_modules to the
+// main checkout's. scripts/lib/remotion-cli-guard.js puts a shim in node_modules/@remotion/cli/remotion-cli.js that refuses
+// a heavy local `remotion render` from old code. Installed (or refreshed) from ORIGIN's copy on every run - never the
+// calling checkout's, which may not have it - so it reaches pins made before it existed. --check reports only.
+// It never blocks book-start: a failure is printed and the run continues.
+function renderGuard() {
+  const src = git(["show", `${ORIGIN}:scripts/lib/remotion-cli-guard.js`], MAIN);
+  if (!src) { out("  render guard: NOT available (origin has no scripts/lib/remotion-cli-guard.js)"); return; }
+  const seen = new Set();
+  for (const root of [MAIN, ...worktrees().map((w) => w.path)]) {
+    let nm; try { nm = fs.realpathSync(path.join(root, "node_modules")); } catch { continue; }
+    if (seen.has(nm.toLowerCase())) continue;
+    seen.add(nm.toLowerCase());
+    if (!exists(path.join(nm, "@remotion", "cli", "remotion-cli.js"))) continue;
+    try {
+      // compiled in memory (no temp file, nothing required from this checkout); install() copies it into node_modules
+      const file = path.join(nm, ".render-guard", "decide.js");
+      const m = new module.constructor(file, module);
+      m.filename = file;
+      m.paths = [];
+      m._compile(src, file);
+      const r = CHECK ? m.exports.status({ nodeModules: nm, source: src }) : m.exports.install({ nodeModules: nm, source: src });
+      const label = { installed: "installed", updated: "updated", present: "present", missing: "NOT installed", stale: "OUT OF DATE" }[r.state] || r.state;
+      out(`  render guard: ${label} (shared node_modules ${nm})${CHECK && r.state !== "present" ? " - book-start without --check installs it" : ""}`);
+    } catch (e) { out(`  render guard: NOT installed (${nm}: ${String((e && e.message) || e).slice(0, 160)})`); }
+  }
+}
+renderGuard();
+
 // ---- --launcher: refresh the shared launcher worktree (clean only) --------------------------------------------------
 if (args.launcher) {
   const L = path.join(PARENT, "wt-production-base");
