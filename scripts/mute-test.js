@@ -478,8 +478,13 @@ function tally() {
   const vsLabel = args.vs || Object.values(key)[0]?.vs;
   // holdout: only a PASS on frames no earlier run showed can be the verdict
   const fresh = !meta.framesFrom && !vsLabel && (meta.repeatedUnits || 0) <= Math.floor((MAX_REPEAT_PER30 * n) / 30);
-  const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass,
-    sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh, dead, addsTargetMet: addsMet,
+  // evidence integrity (2026-11-03, lib/evidence-integrity.js): a blind/judge file filled in from one template measured
+  // nothing — EVIDENCE_INVALID, neither PASS nor FAIL. The totals and the bars are untouched; the run just does not count.
+  const EI = require("./lib/evidence-integrity");
+  const ev = EI.checkMuteDir(OUT);
+  const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass: pass && ev.ok,
+    ...(ev.ok ? (ev.signals.length ? { evidence: { status: "OK", signals: ev.signals } } : {}) : { evidence: { status: ev.status, reasons: ev.reasons, signals: ev.signals } }),
+    sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh && ev.ok, dead, addsTargetMet: addsMet,
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100),
     // what this verdict judged (2026-10-30): the film's identity at prep + the config the stills were rendered from
     ...(() => { let framesConfigSha = null; try { framesConfigSha = fs.readFileSync(path.join(OUT, "stills", ".config-sha"), "utf8").trim() || null; } catch {}
@@ -491,6 +496,15 @@ function tally() {
   const hist = readJSON(histFile, { runs: [] });
   hist.runs = hist.runs.filter((x) => x.label !== LABEL).concat([summary]);
   fs.writeFileSync(histFile, JSON.stringify(hist, null, 2) + "\n");
+  if (!ev.ok) {
+    // not a measurement: no engine-outcomes row, no cause-ledger, no PASS/FAIL line
+    console.log(`${SLUG}/${LABEL}${V2 ? " [v2 diagnostic]" : ""}: ${EI.STATUS_INVALID} — not PASS, not FAIL: the evidence does not look like fresh blind readers (the totals are recorded, never counted)`);
+    ev.reasons.forEach((r) => console.log(`   - ${r}`));
+    console.log(`   Re-run PROMPTS.md §1 with a FRESH describer (one image at a time, its own words) and §3 with a FRESH judge, then tally ${LABEL} again.`);
+    process.exitCode = 3;
+    return;
+  }
+  if (ev.signals.length) ev.signals.forEach((s) => console.log(`   evidence signal (reported, not counted): ${s}`));
   if (V2) {
     console.log(`${SLUG}/${LABEL} [v2 diagnostic]: CORRECT ${T.CORRECT || 0} · NEUTRAL ${T.NEUTRAL || 0} · WRONG ${wrong} · dead ${dead} · ADDS ${T.ADDS || 0}/${n} · explains ${T.EXPLAINS || 0}/${n} — not a verdict (books/${SLUG}/mute-test.v2.json)`);
     if (weak.length) { console.log("   not CORRECT+ADDS:"); weak.forEach((w) => console.log("   - " + w)); }
