@@ -120,8 +120,11 @@ function bookState(slug, root = ROOT) {
   // the operator's recorded approvals for THIS attempt (engine, pin, audio, VTT) — 2026-11-03 Hamnet: a third fix round,
   // 11 Vox images and "keep Vox" were approved in chat and asked again by every new session. Only routine scopes live
   // there; quality debt / render / upload / publish / cleanup never do (render-decision.js does not read the file).
-  const OA = require("./lib/operator-approvals");
-  const appr = OA.matching(root, slug);
+  // no file = the behaviour before approvals existed, without even loading the module (a status from a copied or older
+  // checkout must still reach its own stops, e.g. BOOK_START_STALE — test-book-start copies preview-state.js alone)
+  const hasAppr = fs.existsSync(path.join(B, "operator-approvals.json"));
+  const OA = hasAppr ? require("./lib/operator-approvals") : null;
+  const appr = OA ? OA.matching(root, slug) : { matches: [], stale: [] };
   st.approvals = { matches: appr.matches, stale: appr.stale };
   const latestOf = (scope) => { const m = appr.matches.filter((a) => a.scope === scope); return m.length ? m[m.length - 1] : null; };
   const engineKeep = latestOf("engineKeep");

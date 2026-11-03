@@ -800,7 +800,7 @@ function prep() {
   // the operator's recorded "keep" for THIS attempt (books/<slug>/operator-approvals.json, engineKeep; same engine, pin,
   // audio, VTT) confirms like --confirm-engine. 2026-11-03 Hamnet: every prep run without the flag reset confirmed to
   // false and printed "Ask the operator" — the operator had already said keep Vox, in chat, twice.
-  const keep = require("./lib/operator-approvals").latest(ROOT, SLUG, "engineKeep");
+  const keep = fs.existsSync(path.join(BOOK, "operator-approvals.json")) ? require("./lib/operator-approvals").latest(ROOT, SLUG, "engineKeep") : null;
   const confirmed = !!args["confirm-engine"] || !!keep;
   const askLine = `node scripts/preview-state.js approve --slug=${SLUG} --scope=engineKeep --limits='{"conditions":"<what they said>"}' --words="<their words, verbatim>"`;
   // the check travels with the book, so a reviewer (and the outcomes ledger) can see why
