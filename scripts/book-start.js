@@ -127,12 +127,12 @@ if (args.launcher) {
   const dirty = (git(["status", "--porcelain", "--untracked-files=no"], L) || "").split(/\r?\n/).filter(Boolean);
   if (dirty.length) { err(`REFUSED --launcher: ${L} has ${dirty.length} modified tracked file(s) - not touching it (${dirty.slice(0, 3).join("; ")})`); process.exit(2); }
   const hazards = () => { for (const w of worktrees().filter((x) => /^wt-book-/.test(path.basename(x.path)))) for (const l of renderHazards(w.path)) out(`  ${l}`); };
-  if (reg.head === ORIGIN) { out(`OK launcher ${L} is already at ${ORIGIN.slice(0, 8)}${reg.locked ? " (locked)" : ""}. Production render: cd "${L}" && node scripts/render.js --method=github --slug=<slug> --book-root="<the book's worktree>"`); hazards(); process.exit(0); }
+  if (reg.head === ORIGIN) { out(`OK launcher ${L} is already at ${ORIGIN.slice(0, 8)}${reg.locked ? " (locked)" : ""}. Production delivery after the operator's GO (one command, no further approvals): cd "${L}" && node scripts/render-deliver.js --slug=<slug> --book-root="<the book's worktree>"`); hazards(); process.exit(0); }
   if (CHECK) { out(`CHECK launcher ${L} is at ${(reg.head || "?").slice(0, 8)}; would move it to ${ORIGIN.slice(0, 8)}`); hazards(); process.exit(0); }
   if (git(["checkout", "--detach", "--quiet", ORIGIN], L) === null) { err(`ERROR --launcher: git checkout in ${L} failed`); process.exit(1); }
   out(`OK launcher ${L} -> ${ORIGIN.slice(0, 8)}${reg.locked ? " (still locked)" : ""}. Run current tools there, e.g.:`);
   out(`   cd "${L}" && node scripts/render-status.js --slug=<slug> --book-root="<the checkout that holds the book>"`);
-  out(`   cd "${L}" && node scripts/render.js --method=github --slug=<slug> --book-root="<the book's worktree>"   (production render)`);
+  out(`   cd "${L}" && node scripts/render-deliver.js --slug=<slug> --book-root="<the book's worktree>"   (after the operator's GO: dispatch → verified MP4, one command)`);
   hazards();
   process.exit(0);
 }

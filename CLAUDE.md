@@ -220,6 +220,10 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   harness). Cloud assembly only — never download segments or ffmpeg-concat locally; the local join
   (`render-github-assemble.js`) refuses without the operator's `--operator-approved="<reason>"`. Interrupted or
   picked-up render → `node scripts/render-status.js --slug=<slug>` and run only the command it prints.
+- **One production GO → one command (cycle 9, 2026-11-03):** after the operator's GO is recorded for the render input,
+  `node scripts/render-deliver.js --slug=<slug> [--book-root=<book worktree>]` runs dispatch → segment recovery →
+  cloud assembly → verified download → final media check (A/V sync; loudness report-only) without asking again. It never
+  uploads, publishes, cleans up or records a debt/authorization. Exit 0 done · 1 failed · 4 blocked · 6 rerun it.
 - Manual rescue, if you ever need it:
   `node scripts/render-github-redispatch.js --slug=<slug>` (pushes missing refs too).
 - **End to end in one command** once `public/audio/<slug>.mp3` (or `.m4a`) + `public/captions/<slug>.vtt`

@@ -8,7 +8,8 @@ differ, the canonical file wins). Read `AGENTS.md` and `docs/AGENT-OPERATING-CON
 
 Antigravity specifics:
 
-1. Use the same commands as every other harness. The state of any render: `node scripts/render-status.js --slug=<slug>`
-   — run only the next command it prints.
+1. Use the same commands as every other harness. After the operator's GO: `node scripts/render-deliver.js --slug=<slug>
+   [--book-root=<book worktree>]` — it runs the whole chain to a verified MP4; do not ask again between its steps.
+   Read-only state: `node scripts/render-status.js --slug=<slug>` (or `render-deliver.js --check`).
 2. Never download segments, never write an ffmpeg concat, never run `render-github-assemble.js` without the operator's
    explicit reason. A failed cloud assembly is retried with the same cloud command or reported — no local fallback.

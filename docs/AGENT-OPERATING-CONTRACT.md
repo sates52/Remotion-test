@@ -157,7 +157,9 @@ the code refuses each step of that, for every harness alike:
   never edited); `book-start.js` prints a `RENDER never run …` line for every such worktree. Current `render.js` also
   refuses to start a production render from a checkout that is behind `origin/god-mode`.
 - **A GitHub failure never becomes a local render.** Stop, run `node scripts/render-status.js --slug=<slug>` and do only
-  the command it prints.
+  the command it prints — or let `node scripts/render-deliver.js --slug=<slug> [--book-root=…]` run it (cycle 9: one
+  recorded production GO covers dispatch, segment re-sends, cloud assembly, download and verification; never ask again
+  for those, never treat reporting as a reason to stop).
 - **A heavy local (or Lambda) render needs the operator's own separate approval:** `--operator-local-production="<the
   operator's words>"` (≥ 6 words, not the quality-debt or render-authorization text). Quality debt and render
   authorization never imply it. Allowed without it: Remotion Studio, still renders (mute test, framecheck, visual A/B)
