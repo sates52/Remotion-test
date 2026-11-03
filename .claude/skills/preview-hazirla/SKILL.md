@@ -120,7 +120,7 @@ inputs changed is shown stale), the sealed sample is never re-drawn, an unchange
 | `FROZEN` | a published book — never re-planned |
 | `BOOK_START_STALE`, or production-guard exit 2 at the book start | the checkout's engine code is not the current `origin/god-mode`: the book starts in its own worktree (`preview-state.js worktree --slug=<s>` from the main checkout — yours to run when your session may); if that fails (origin cannot be fetched) or the operator wants older code, only the operator can allow it (`PRODUCTION_ALLOW_BEHIND`, recorded) |
 | `TECHNICAL_RETRY_LIMIT` | the same step failed transiently 3 times in a row (§4) |
-| `FIX_ROUNDS_EXHAUSTED` | 2 fix rounds used and there is still no fresh PASS on the current film |
+| `FIX_ROUNDS_EXHAUSTED` | 2 fix rounds used (or the total the operator approved: `fixRounds` below) and there is still no fresh PASS on the current film |
 | `HOLDOUT_EXHAUSTED` | the last holdout had to reuse frames (a short book has no unseen beats left): no fresh verdict is possible — a PASS on reused frames is never READY |
 | `ENGINE_LIMIT` (or your own finding) | a gate or mute failure that no storyboard change can clear: the cause-ledger attributes every failure to ENGINE / VOCABULARY / RATER, or you looked at the stills and found no authoring class — after `prep` refreshed the vocabulary (never report a limit that was already fixed). Log it as `for-review: <slug> — <problem>` (scene id, file, what you saw); work around it in the storyboard where you can |
 | operator authority | a full render, accepting quality debt, the YouTube pack upload, publishing, any cleanup — never yours |
@@ -136,6 +136,16 @@ data you do not own; input or commit mismatches the tools cannot resolve (the `s
 pre-flight, `ENGINE_CONTRADICTION`, `PRODUCTION_ALLOW_*`); accepting quality debt or ending at the fix-round /
 holdout limits; a full / final render, upload, publishing; any cleanup; any credential change. If unsure: if
 `node scripts/preview-state.js status --slug=<slug>` prints CONTINUE, continue.
+**Approved = not asked again (2026-11-03).** The moment the operator approves routine work in chat — more fix rounds,
+re-generating named Vox images with a call cap, keeping the engine despite the narration check, a named technical fix —
+record it with their words verbatim (at least 6 words), then continue:
+`node scripts/preview-state.js approve --slug=<s> --scope=fixRounds|images|engineKeep|technicalFix --limits='<json>' --words="<their words>"`
+(`{"max":3}` · `{"beats":["beat-012"],"maxCalls":12}` · `{"conditions":"…"}` · `{"files":[…]}` or `{"beats":[…]}`; short form: `--scope=fix-rounds --limit=4 --reason="…"`).
+`status` lists every approval that still matches (same engine, pin, audio and VTT) with what is used / left, and
+applies it: the fix-round limit, no `ENGINE_CONTRADICTION`, prep keeps the engine confirmed, the Vox `--images-only`
+command (afterwards `preview-state.js approval-use --slug=<s> --id=<id> --n=<calls made>`). A listed approval is not a
+question any more; one marked "no longer matches" is a new one. Quality debt, the production render, upload, publish
+and cleanup are never recorded there (the writer refuses them) — they keep their own records below.
 **Already decided = not asked again.** Before asking the operator about quality debt or the production render, run
 `node scripts/render-decision.js --slug=<slug>` (read-only). COVERED / AUTHORIZED = the operator's records for THIS
 exact render input already exist: the quality debt (if any) accepted with `--accept-quality-debt`, and the production

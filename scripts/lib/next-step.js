@@ -8,7 +8,9 @@
 // and The Art of Strategy (after the bible PASS) both received CONTINUE + the next command + this contract — and ended
 // the turn anyway with a question ("Devam edeyim mi?", "Storyboard'a devam etmemi ister misiniz?") through the
 // harness's wrap-up / ask tool. Knowing the next step was not the gap; nothing said the turn may not end on CONTINUE.
-const GATES = "cost (a new or uncertain paid use), data loss, a credential change, another agent's WIP, an input mismatch the tools cannot resolve, accepting quality debt, the final render, upload / publish, cleanup";
+// 2026-11-03: "cost" names its exception — a cost the operator already approved for this attempt is recorded in
+// books/<slug>/operator-approvals.json and listed by status (Hamnet: 11 approved Vox images were asked about again).
+const GATES = "cost (a new or uncertain paid use — unless status lists an operator approval that covers it), data loss, a credential change, another agent's WIP, an input mismatch the tools cannot resolve, accepting quality debt, the final render, upload / publish, cleanup";
 
 const KEEP_GOING = "Do NOT end your turn while status says CONTINUE: no wrap-up / ask tool, no \"Devam edeyim mi?\", no interim \"HAZIR DEĞİL\" report — a long pipeline is never a reason to stop. The turn ends only at READY (report HAZIR), at an OPERATOR stop (report it), or while you wait for background agents you started (then continue when they finish).";
 

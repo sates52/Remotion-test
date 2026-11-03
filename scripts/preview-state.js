@@ -12,6 +12,11 @@
  *        -> ../wt-book-<s>: a linked worktree, detached at origin/god-mode, with this book's inputs copied in
  *   node scripts/preview-state.js note       --slug=<s> --step=<key> --result=ok|transient|quality --msg="<text>" [--root=<dir>]
  *        -> audit/preview-run/<s>/attempts.jsonl (status stops after 3 transient failures of the same step)
+ *   node scripts/preview-state.js approve    --slug=<s> --scope=fixRounds|images|engineKeep|technicalFix --limits='<json>' --words="<operator's words>"
+ *        -> books/<s>/operator-approvals.json (append-only; prints the stored record). Refuses quality debt, render,
+ *           upload, publish, cleanup — those keep their own records / orders (lib/operator-approvals.js)
+ *   node scripts/preview-state.js approval-use --slug=<s> --id=<appr-N> --n=<count> [--msg="<what>"]
+ *        -> appends a use to that approval (images: n = Flux calls spent, so status can print the calls left)
  *
  * status prints one of:
  *   CONTINUE     the next action is the agent's (a command, an agent run, a storyboard fix)
@@ -112,15 +117,23 @@ function bookState(slug, root = ROOT) {
   st.engine = engine;
   if (engine !== "antidote" && engine !== "vox") { stage("inputs", "missing", "book.json has no engine"); stop("STEP0_ENGINE", "no engine in book.json: Step 0 (notebooklm-prompt) was not done"); return finish(st); }
   if (!book.engineProfile || !Object.keys(book.engineProfile).length) { stage("inputs", "missing", "book.json has no engineProfile"); stop("STEP0_ENGINE", "no engineProfile in book.json: Step 0 is incomplete (storyboard prep refuses)"); return finish(st); }
+  // the operator's recorded approvals for THIS attempt (engine, pin, audio, VTT) — 2026-11-03 Hamnet: a third fix round,
+  // 11 Vox images and "keep Vox" were approved in chat and asked again by every new session. Only routine scopes live
+  // there; quality debt / render / upload / publish / cleanup never do (render-decision.js does not read the file).
+  const OA = require("./lib/operator-approvals");
+  const appr = OA.matching(root, slug);
+  st.approvals = { matches: appr.matches, stale: appr.stale };
+  const latestOf = (scope) => { const m = appr.matches.filter((a) => a.scope === scope); return m.length ? m[m.length - 1] : null; };
+  const engineKeep = latestOf("engineKeep");
   const ec = book.engineCheck;
   // the operator decided "keep" once (engineCheck.confirmed): every later prep must carry it, or prep asks again
   const CE = ec && ec.confirmed ? " --confirm-engine" : "";
-  if (ec && !ec.confirmed && ((ec.confidence === "strong" && ec.fit && ec.fit !== engine) || (engine === "vox" && (ec.risks || []).length))) {
+  if (ec && !ec.confirmed && !engineKeep && ((ec.confidence === "strong" && ec.fit && ec.fit !== engine) || (engine === "vox" && (ec.risks || []).length))) {
     stage("inputs", "blocked", `narration fit ${ec.fit} (${ec.confidence}) vs book.json ${engine}`);
-    stop("ENGINE_CONTRADICTION", `storyboard prep stopped: the narration points to ${String(ec.fit).toUpperCase()} (${ec.confidence}) but the book was recorded for ${engine.toUpperCase()}. Keep (--confirm-engine) or switch (new prompt + audio + VTT) is the operator's decision`, (ec.reasons || []).slice(0, 4));
+    stop("ENGINE_CONTRADICTION", `storyboard prep stopped: the narration points to ${String(ec.fit).toUpperCase()} (${ec.confidence}) but the book was recorded for ${engine.toUpperCase()}. Keep (--confirm-engine) or switch (new prompt + audio + VTT) is the operator's decision — when they say keep, record their words: node scripts/preview-state.js approve --slug=${slug} --scope=engineKeep --limits='{"conditions":"<what they said>"}' --words="<their words>"`, (ec.reasons || []).slice(0, 4));
     return finish(st);
   }
-  stage("inputs", "done", `${engine}; audio ${path.basename(audio)}; ${ec ? `engine check ${ec.fit}/${ec.confidence}${ec.confirmed ? " (confirmed)" : ""}` : "engine check runs at prep"}`);
+  stage("inputs", "done", `${engine}; audio ${path.basename(audio)}; ${ec ? `engine check ${ec.fit}/${ec.confidence}${ec.confirmed ? " (confirmed)" : engineKeep ? ` (kept: operator approval ${engineKeep.id})` : ""}` : "engine check runs at prep"}`);
 
   // 2. code: one pinned commit, clean, for the whole book
   const pin = readJSON(path.join(B, "production-base.json"));
@@ -330,6 +343,16 @@ function bookState(slug, root = ROOT) {
   if (!doneOk && !legacyOk) {
     if (gates.length) { stage("makeBook", "failed", gates.join("; ")); go("makeBook", "Fix the gate failure in the STORYBOARD (authored-K.json → merge --write → make-book). An engine-owned failure: AGENT_LOG for-review, work around it in the storyboard; if no storyboard change can clear it, the operator decides", mbCmd, gates.join("; ")); return finish(st); }
     stage("makeBook", "todo", !cfgM ? "no config" : mark.exists ? mark.why : "make-book has not finished on this storyboard");
+    // Vox: the operator approved re-generating exactly these beats' images with a call cap — run that first, once
+    // (until a use is recorded), with the calls that are left; then the full make-book as usual
+    const imgs = engine === "vox" ? latestOf("images") : null;
+    const left = imgs ? imgs.limits.maxCalls - OA.usedCount(imgs) : 0;
+    if (imgs && left > 0 && !(imgs.used || []).length) {
+      go("makeBook", `Vox images covered by operator approval ${imgs.id}: generate ONLY beats ${imgs.limits.beats.join(",")} with at most ${left} Flux call(s) — no question, the cost is approved — then record the calls it made, then status again (the full make-book follows)`,
+        `${mbCmd} --images-only --image-beats=${imgs.limits.beats.join(",")} --image-max-calls=${left}   # then: node scripts/preview-state.js approval-use --slug=${slug} --id=${imgs.id} --n=<calls made>`,
+        "only those beats, only that many calls: any other image, or more calls, is a new cost question");
+      return finish(st);
+    }
     go("makeBook", "make-book with every gate (runbook §3). It finished only if it printed ✅ HAZIR (and wrote make-book.done.json). A blocking step's ❌ ADIM BAŞARISIZ: a gate → fix the storyboard; step 0 VTT pre-flight → input problem, stop for the operator; a crash → note it (transient) and re-run",
       mbCmd);
     return finish(st);
@@ -391,7 +414,10 @@ function bookState(slug, root = ROOT) {
   const last = attempts[attempts.length - 1];
   const lastTally = Date.parse(last.date) || 0;
   const line = (r) => `${r.label}: WRONG ${r.totals.WRONG || 0}/${r.n}, dead ${r.totals.NONE || 0}/${r.n}, ADDS ${r.totals.ADDS || 0}/${r.n}, EXPLAINS ${r.totals.EXPLAINS || 0}/${r.n} → ${r.pass ? "PASS" : "FAIL"}${r.fresh ? "" : " (reused frames: not a verdict)"}`;
-  st.fixRounds = { used: attempts.length - 1, max: MAX_FIX_ROUNDS };
+  // the limit is the runbook's 2 unless the operator approved more rounds for THIS attempt (never fewer)
+  const roundsAppr = latestOf("fixRounds");
+  const maxRounds = Math.max(MAX_FIX_ROUNDS, roundsAppr ? roundsAppr.limits.max : 0);
+  st.fixRounds = { used: attempts.length - 1, max: maxRounds, ...(roundsAppr && roundsAppr.limits.max > MAX_FIX_ROUNDS ? { approval: roundsAppr.id } : {}) };
   const filmChanged = filmM > lastTally;
   // READY only on a fresh PASS judged on the film as it is now
   if (last.fresh && last.pass && !filmChanged) {
@@ -412,8 +438,8 @@ function bookState(slug, root = ROOT) {
     return finish(st);
   }
   stage("mute", last.pass && last.fresh ? "stale" : "failed", attempts.map(line).join(" · ") + (last.pass && last.fresh ? " — the film changed after this PASS: it is not a verdict for the current film" : ""));
-  if (attempts.length > MAX_FIX_ROUNDS) {
-    stop("FIX_ROUNDS_EXHAUSTED", `${attempts.length - 1} fix rounds used (limit ${MAX_FIX_ROUNDS}) and there is no fresh PASS on the current film — report the remaining failures with evidence (antidote-quality-handoff); the operator decides`, attempts.map(line));
+  if (attempts.length > maxRounds) {
+    stop("FIX_ROUNDS_EXHAUSTED", `${attempts.length - 1} fix rounds used (limit ${maxRounds}${st.fixRounds.approval ? `, operator approval ${st.fixRounds.approval}` : ""}) and there is no fresh PASS on the current film — report the remaining failures with evidence (antidote-quality-handoff); the operator decides`, attempts.map(line));
     return finish(st);
   }
   // the last holdout had to reuse frames (a short book: no unseen beats left) — no later holdout can be fresh either
@@ -433,7 +459,7 @@ function bookState(slug, root = ROOT) {
       stop("ENGINE_LIMIT", "the latest holdout FAILs and the cause-ledger attributes no failure to the storyboard (ENGINE / VOCABULARY / RATER only) — no authoring fix can clear it; log for-review items, check the stills, report", [`ENGINE ${n("ENGINE")}, VOCABULARY ${n("VOCABULARY")}, RATER ${n("RATER")}, AUTHORING 0 (${path.basename(ledgers[0])})`, line(last)]);
       return finish(st);
     }
-    stage("fixRound", "todo", `round ${attempts.length} of ${MAX_FIX_ROUNDS}: the film has not changed since ${last.label}`);
+    stage("fixRound", "todo", `round ${attempts.length} of ${maxRounds}: the film has not changed since ${last.label}`);
     go("fixRound", `Fix round ${attempts.length}: storyboard prep → fix only CONFIRMED authoring classes on their REVIEW beats (soft cap ~25) → merge --write → readcheck the changed beats → make-book. ENGINE/VOCABULARY → AGENT_LOG for-review; RATER → noted. If no authoring class is confirmed after you looked at the stills, nothing in the storyboard can fix it: stop and report (engine limit)`,
       `node scripts/storyboard.js prep --slug=${slug}${CE}`, "never draw a new holdout on an unchanged film");
     return finish(st);
@@ -465,7 +491,14 @@ function print(st) {
   console.log(`── preview state · ${st.slug}${st.engine ? ` [${st.engine}]` : ""} → ${st.state}`);
   if (st.procedureDrift) console.log(`   ⓘ ${st.procedureDrift.note}`);
   for (const s of st.stages) console.log(`   ${{ done: "✓", "n/a": "·", todo: "→", failed: "✗", blocked: "✗", missing: "✗", elsewhere: "↗", stale: "✗" }[s.status] || "?"} ${s.key.padEnd(9)} ${s.status.padEnd(7)} ${s.detail}`);
-  if (st.fixRounds) console.log(`   fix rounds used: ${st.fixRounds.used}/${st.fixRounds.max}`);
+  if (st.fixRounds) console.log(`   fix rounds used ${st.fixRounds.used}/${st.fixRounds.max}${st.fixRounds.approval ? ` (operator approval ${st.fixRounds.approval})` : ""}`);
+  // what the operator already approved for this attempt — a new session reads it here instead of asking again
+  if (st.approvals && (st.approvals.matches.length || st.approvals.stale.length)) {
+    const OA = require("./lib/operator-approvals");
+    console.log(`   operator approvals (books/${st.slug}/operator-approvals.json):`);
+    st.approvals.matches.forEach((a) => console.log(`     ✓ ${OA.describe(a, { fixRoundsUsed: st.fixRounds ? st.fixRounds.used : null })}`));
+    st.approvals.stale.forEach((a) => console.log(`     ✗ ${a.id} ${a.scope} no longer matches: ${a.why.join(", ")} — a new question for the operator`));
+  }
   if (st.operator) {
     console.log(`\nOPERATOR · ${st.operator.code}: ${st.operator.reason}`);
     (st.operator.evidence || []).forEach((e) => console.log(`   - ${e}`));
@@ -636,6 +669,36 @@ if (CMD === "unlink") {
   process.exit(0);
 }
 
+if (CMD === "approve") {
+  // the operator's approval, recorded the moment it is given (their words verbatim), so no later session asks again
+  // --reason is an alias of --words; --limit=N is shorthand for fixRounds {max:N} / images {maxCalls:N, beats from --beats}
+  const OA0 = require("./lib/operator-approvals");
+  const words = typeof args.words === "string" ? args.words : args.reason;
+  const sc = OA0.canonScope(args.scope);
+  let limits;
+  if (typeof args.limits === "string") { try { limits = JSON.parse(args.limits); } catch { console.error("❌ --limits is not valid JSON"); process.exit(1); } }
+  else if (args.limit != null && sc === "fixRounds") limits = { max: Number(args.limit) };
+  else if (limits === undefined && sc === "engineKeep" && typeof words === "string") limits = { conditions: words };
+  else if (args.limit != null && sc === "images") limits = { beats: String(args.beats || "").split(",").map((x) => x.trim()).filter(Boolean), maxCalls: Number(args.limit) };
+  if (!SLUG || !args.scope || typeof words !== "string" || (limits === undefined && !/^(quality|render|production|final|upload|publish|clean|purge)/i.test(String(args.scope)))) { console.error("Usage: node scripts/preview-state.js approve --slug=<s> --scope=fixRounds|images|engineKeep|technicalFix --limits='<json>' --words=\"<the operator's words, verbatim>\"   (aliases: --scope=fix-rounds|image-calls|engine-confirm, --limit=N [--beats=a,b], --reason=)"); process.exit(1); }
+  try {
+    const rec = require("./lib/operator-approvals").record(ROOT, SLUG, { scope: String(args.scope), limits: limits === undefined ? {} : limits, words });
+    console.log(`✓ books/${SLUG}/operator-approvals.json ← ${rec.id}`);
+    console.log(JSON.stringify(rec, null, 2));
+    process.exit(0);
+  } catch (e) { console.error(`❌ not recorded: ${e.message}`); process.exit(1); }
+}
+
+if (CMD === "approval-use") {
+  if (!SLUG || !args.id) { console.error("Usage: node scripts/preview-state.js approval-use --slug=<s> --id=<appr-N> --n=<count> [--msg=\"...\"]"); process.exit(1); }
+  try {
+    const OA = require("./lib/operator-approvals");
+    const rec = OA.use(ROOT, SLUG, String(args.id), { n: args.n == null ? 1 : Number(args.n), note: args.msg || "" });
+    console.log(`✓ ${OA.describe(rec)}`);
+    process.exit(0);
+  } catch (e) { console.error(`❌ ${e.message}`); process.exit(1); }
+}
+
 if (CMD === "note") {
   if (!SLUG || !args.step || !["ok", "transient", "quality"].includes(args.result)) { console.error("Usage: node scripts/preview-state.js note --slug=<s> --step=<stage key> --result=ok|transient|quality --msg=\"...\""); process.exit(1); }
   const dir = path.join(ROOT, "audit", "preview-run", SLUG);
@@ -645,5 +708,5 @@ if (CMD === "note") {
   process.exit(0);
 }
 
-console.error("Usage: node scripts/preview-state.js status|candidates|pin|worktree|note --slug=<slug> …");
+console.error("Usage: node scripts/preview-state.js status|candidates|pin|worktree|note|approve|approval-use --slug=<slug> …");
 process.exit(1);

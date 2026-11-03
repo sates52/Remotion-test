@@ -797,20 +797,29 @@ function prep() {
   console.log(`  narration fit: ${sig.pick.toUpperCase()} (${sig.confidence}; vox ${sig.voxScore} vs antidote ${sig.antidoteScore})`);
   sig.reasons.forEach((r) => console.log(`   · ${r}`));
   sig.risks.forEach((r) => console.log(`   ⚠ ${r}`));
+  // the operator's recorded "keep" for THIS attempt (books/<slug>/operator-approvals.json, engineKeep; same engine, pin,
+  // audio, VTT) confirms like --confirm-engine. 2026-11-03 Hamnet: every prep run without the flag reset confirmed to
+  // false and printed "Ask the operator" — the operator had already said keep Vox, in chat, twice.
+  const keep = require("./lib/operator-approvals").latest(ROOT, SLUG, "engineKeep");
+  const confirmed = !!args["confirm-engine"] || !!keep;
+  const askLine = `node scripts/preview-state.js approve --slug=${SLUG} --scope=engineKeep --limits='{"conditions":"<what they said>"}' --words="<their words, verbatim>"`;
   // the check travels with the book, so a reviewer (and the outcomes ledger) can see why
-  book.engineCheck = { at: new Date().toISOString().slice(0, 10), fit: sig.pick, confidence: sig.confidence, voxScore: sig.voxScore, antidoteScore: sig.antidoteScore, signals: sig.signals, reasons: sig.reasons, risks: sig.risks, confirmed: !!args["confirm-engine"] };
+  book.engineCheck = { at: new Date().toISOString().slice(0, 10), fit: sig.pick, confidence: sig.confidence, voxScore: sig.voxScore, antidoteScore: sig.antidoteScore, signals: sig.signals, reasons: sig.reasons, risks: sig.risks, confirmed, ...(keep && !args["confirm-engine"] ? { confirmedBy: keep.id } : {}) };
+  if (keep) console.log(`  engine kept by operator approval ${keep.id} ("${keep.words.slice(0, 80)}") — not asked again`);
   fs.writeFileSync(path.join(BOOK, "book.json"), JSON.stringify(book, null, 2) + "\n");
   // This is a CONFIRMATION of the Step 0 decision, not a second decision: the
   // NotebookLM prompt was written for ${ENGINE}, so the audio already follows it.
   // Switching now = a new prompt, a new recording and a new VTT. Default: keep.
-  if (sig.confidence === "strong" && sig.pick !== ENGINE && !args["confirm-engine"]) {
+  if (sig.confidence === "strong" && sig.pick !== ENGINE && !confirmed) {
     console.error(`❌ The narration points strongly to ${sig.pick.toUpperCase()}; the book was set up (and recorded) for ${ENGINE.toUpperCase()} (${book.engineDecidedBy || "step 0"}).`);
-    console.error(`   Ask the operator. Usually KEEP it (the audio was written for ${ENGINE}): re-run with --confirm-engine.`);
+    console.error(`   Ask the operator ONCE. Usually KEEP it (the audio was written for ${ENGINE}): record their words, then re-run prep:`);
+    console.error(`   ${askLine}`);
     console.error(`   Switching to ${sig.pick} means: make-prompt --engine=${sig.pick} → new NotebookLM audio → new VTT → start again.`);
     process.exit(1);
   }
-  if (ENGINE === "vox" && sig.risks.length && !args["confirm-engine"]) {
-    console.error(`❌ Vox + violence/death risk: Flux will refuse many of the key images. Ask the operator: keep Vox (--confirm-engine) or switch to Antidote.`);
+  if (ENGINE === "vox" && sig.risks.length && !confirmed) {
+    console.error(`❌ Vox + violence/death risk: Flux will refuse many of the key images. Ask the operator ONCE: keep Vox or switch to Antidote.`);
+    console.error(`   Keep → record their words, then re-run prep: ${askLine}`);
     process.exit(1);
   }
   }
