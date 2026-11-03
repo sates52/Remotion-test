@@ -4,7 +4,12 @@
  *
  * Called automatically by render.js after any method (local/lambda/github) produces
  * out/<slug>.mp4, or run standalone:
- *   node scripts/post-render.js --slug=<slug>
+ *   node scripts/post-render.js --slug=<slug> [--book-root=<checkout>]
+ *
+ * --book-root (cycle 9): the checkout that owns out/, books/<slug>, the captions and the render state (a pinned book
+ * worktree); this checkout's current code checks it. The render state (.render-github-split.<slug>.json) is NOT
+ * deleted here any more: it is the per-segment run record and the "already dispatched" guard — removing it at
+ * delivery let the same input be dispatched again. The post-upload cleanup removes it (render-github-cleanup.js).
  *
  * Steps:
  *   1. Verify MP4: ffprobe duration + head/tail decode check
@@ -29,11 +34,13 @@ process.argv.slice(2).forEach((arg) => {
 
 const slug = args.slug;
 if (!slug) {
-  console.error("Kullanım: node scripts/post-render.js --slug=<slug>");
+  console.error("Kullanım: node scripts/post-render.js --slug=<slug> [--book-root=<checkout>]");
   process.exit(1);
 }
+const BOOK = typeof args["book-root"] === "string" && args["book-root"] ? path.resolve(args["book-root"]) : ROOT;
+if (BOOK !== ROOT && !fs.existsSync(path.join(BOOK, "books", slug))) { console.error(`❌ books/${slug} not found under ${BOOK}`); process.exit(1); }
 
-const mp4 = path.join(ROOT, "out", `${slug}.mp4`);
+const mp4 = path.join(BOOK, "out", `${slug}.mp4`);
 
 console.log(`\n📋 POST-RENDER FİNALİZASYON — ${slug}`);
 console.log("─".repeat(60));
@@ -46,7 +53,7 @@ let sizeMB = "?";
 // Cloud assembly (render-github-cloud-assemble.js): the film was joined and verified on a runner — duration, frame
 // count, FULL decode (a superset of the head/tail check below) and audio. Accept that report when the local film is
 // absent (it lives in the run's artifact) or is byte-identical to it (sha256), so no local ffmpeg is needed.
-const cloudFile = path.join(ROOT, `.render-github-cloud.${slug}.json`);
+const cloudFile = path.join(BOOK, `.render-github-cloud.${slug}.json`);
 const cloud = fs.existsSync(cloudFile) ? (() => { try { return JSON.parse(fs.readFileSync(cloudFile, "utf8")); } catch { return null; } })() : null;
 const cf = cloud && cloud.verified && cloud.report && cloud.report.final;
 const sha256Of = (f) => { const h = require("crypto").createHash("sha256"); const fd = fs.openSync(f, "r"); const b = Buffer.alloc(8 << 20); let n; while ((n = fs.readSync(fd, b, 0, b.length, null)) > 0) h.update(b.subarray(0, n)); fs.closeSync(fd); return h.digest("hex"); };
@@ -97,8 +104,8 @@ console.log(`\n📦 YouTube Pack kontrolü:`);
 
 // Captions = the clean upload file ONLY (2026-10-28: TFS was accepted here with the raw rolling VTT, and YouTube
 // rejected it). No clean file but a raw one → build it now (deterministic); then it must pass the upload validator.
-const cleanVttPath = path.join(ROOT, "public", "captions", `${slug}.clean.vtt`);
-const rawVttPath = path.join(ROOT, "public", "captions", `${slug}.vtt`);
+const cleanVttPath = path.join(BOOK, "public", "captions", `${slug}.clean.vtt`);
+const rawVttPath = path.join(BOOK, "public", "captions", `${slug}.vtt`);
 if (!fs.existsSync(cleanVttPath) && fs.existsSync(rawVttPath)) {
   spawnSync(process.execPath, [path.join(ROOT, "scripts", "clean-vtt.js"), rawVttPath, cleanVttPath], { cwd: ROOT, stdio: "inherit" });
 }
@@ -108,8 +115,8 @@ const checks = [
   {
     label: "Thumbnail",
     paths: [
-      path.join(ROOT, "out", `thumbnail-${slug}.png`),
-      path.join(ROOT, "out", `thumbnail-${slug}.jpg`),
+      path.join(BOOK, "out", `thumbnail-${slug}.png`),
+      path.join(BOOK, "out", `thumbnail-${slug}.jpg`),
     ],
   },
   {
@@ -120,13 +127,13 @@ const checks = [
   {
     label: "YouTube meta",
     paths: [
-      path.join(ROOT, "books", slug, "youtube-meta.json"),
+      path.join(BOOK, "books", slug, "youtube-meta.json"),
     ],
   },
   {
     label: "YouTube upload guide",
     paths: [
-      path.join(ROOT, "books", slug, "youtube.md"),
+      path.join(BOOK, "books", slug, "youtube.md"),
     ],
   },
 ];
@@ -137,7 +144,7 @@ const missing = [];
 for (const c of checks) {
   const found = c.paths.find((p) => fs.existsSync(p));
   if (found) {
-    const rel = path.relative(ROOT, found);
+    const rel = path.relative(BOOK, found);
     const extra = c.label === "Thumbnail"
       ? ` (${(fs.statSync(found).size / 1e3).toFixed(0)} KB)`
       : "";
@@ -150,7 +157,7 @@ for (const c of checks) {
 }
 
 // YouTube READY (titles, description, chapters, tags, hook, youtube.md, captions) — reported, never blocks the film.
-const pack = require("./lib/title-lint").lintPack(slug, ROOT);
+const pack = require("./lib/title-lint").lintPack(slug, BOOK);
 if (pack.status === "READY") console.log(`   ✅ YouTube READY (lint-titles.js --pack)`);
 else {
   allReady = false;
@@ -163,17 +170,14 @@ else {
 const cleanVtt = cleanVttPath;
 const rawVtt = rawVttPath;
 // the raw VTT is the only source to rebuild the upload file from — removed only once the clean file is valid
-if (vttCheck.ok && fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
+// --no-cleanup (render-deliver.js passes it): delivery never deletes a file, not even the raw VTT
+if (!args["no-cleanup"] && vttCheck.ok && fs.existsSync(cleanVtt) && fs.existsSync(rawVtt)) {
   fs.unlinkSync(rawVtt);
   console.log(`\n🧹 Temizlik: ${slug}.vtt silindi (clean.vtt mevcut)`);
 }
-const splitState = path.join(ROOT, `.render-github-split.${slug}.json`);
-if (fs.existsSync(splitState)) {
-  fs.unlinkSync(splitState);
-  console.log(`🧹 Temizlik: .render-github-split.${slug}.json silindi`);
-}
-const asmDir = path.join(ROOT, "out", `gh-asm-${slug}`);
-if (fs.existsSync(asmDir)) {
+// the split state is kept (cycle 9): it is the run record + the "already dispatched" guard; the post-upload cleanup removes it
+const asmDir = path.join(BOOK, "out", `gh-asm-${slug}`);
+if (!args["no-cleanup"] && fs.existsSync(asmDir)) {
   fs.rmSync(asmDir, { recursive: true, force: true });
   console.log(`🧹 Temizlik: out/gh-asm-${slug}/ silindi`);
 }

@@ -41,8 +41,14 @@ t("status: an assembly already running → ASSEMBLING (a rerun attaches, never a
 const cloud = { verified: true, bundleSha: BUNDLE, run: { url: "u" }, report: { final: { file: "bk.mp4", frames: 300, expected: 300, sha256: "s".repeat(64) } } };
 d = decide({ slug: "bk", split: split(), cloudState: cloud, film: { exists: false } });
 t("status: cloud-verified, not downloaded → FETCH (no new run)", d.verdict === "FETCH" && /--fetch/.test(d.next));
-d = decide({ slug: "bk", split: split(), cloudState: cloud, film: { exists: true }, localState: { source: "cloud", verified: true, sha256: "s".repeat(64) } });
-t("status: verified film on disk (sha = cloud report) → VERIFIED, next = delivery checks", d.verdict === "VERIFIED" && /post-render\.js/.test(d.next));
+d = decide({ slug: "bk", split: split(), cloudState: cloud, film: { exists: true }, localState: { slug: "bk", source: "cloud", verified: true, sha256: "s".repeat(64) } });
+t("status: verified film on disk (sha = cloud report) → VERIFIED, next = render-deliver (final media check + record)", d.verdict === "VERIFIED" && /render-deliver\.js --slug=bk/.test(d.next));
+d = decide({ slug: "bk", split: split(), cloudState: cloud, film: { exists: false }, localState: { slug: "bk", source: "cloud", verified: true, sha256: "s".repeat(64) } });
+t("status: downloaded + verified once, film later removed (upload/cleanup) → DELIVERED, never fetched again by itself", d.verdict === "DELIVERED" && !d.next);
+d = decide({ slug: "bk", split: null, cloudState: cloud });
+t("status: render state removed by cleanup, cloud verification on record → DELIVERED (not NO_RENDER: nothing re-dispatched)", d.verdict === "DELIVERED" && !d.next);
+d = decide({ slug: "bk", split: split(), cloudState: cloud, film: { exists: false }, published: true });
+t("status: in PUBLISHED_BOOKS.md → PUBLISHED, no command", d.verdict === "PUBLISHED" && !d.next);
 d = decide({ slug: "bk", split: split({ bundleSha: undefined }), segRuns: allDone });
 t("status: a legacy push without a bundle commit → LEGACY_NO_BUNDLE (operator decides, no command)", d.verdict === "LEGACY_NO_BUNDLE" && !d.next);
 

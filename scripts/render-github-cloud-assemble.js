@@ -96,6 +96,15 @@ async function fetchFilm(host, state) {
     slug: SLUG, mode: state.mode, output: film, split: true, segments: entries.length, verified: true, source: "cloud", cloudRun: state.run.url,
     frames: f.frames, sha256: f.sha256, repos: [...new Set(entries.map((e) => e.repo))],
   }, null, 2) + "\n");
+  // the per-slug download record (cycle 9): .render-github-state.json is shared by every book of the checkout and is
+  // deleted by cleanup; without a durable record a film removed after upload looked "not downloaded" (Yesteryear) and
+  // a driver would have fetched 1 GB again. The cloud state file is kept until the post-upload cleanup.
+  const cf = CA.cloudStateFile(BOOK, SLUG);
+  const cs = readJson(cf);
+  if (cs && cs.report && cs.report.final && cs.report.final.sha256 === f.sha256) {
+    cs.fetched = { at: new Date().toISOString(), sha256: f.sha256, file: path.relative(BOOK, film), bytes: fs.statSync(film).size };
+    fs.writeFileSync(cf, JSON.stringify(cs, null, 2) + "\n");
+  }
   console.log(`⬇  ${path.relative(BOOK, film)} (sha256 matches the cloud report; no local ffmpeg)`);
 }
 
