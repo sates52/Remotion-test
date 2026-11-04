@@ -1,0 +1,18 @@
+[
+{"img":"f15cbd56fe","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got only the action-item phrase from the text; no permanent vs temporary contrast or paralysis.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the copied narration text carries meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, only background drift."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, no picture of cause or effect."}]},
+{"img":"87092df79a","cause":"NA","effect":"NA","message":"MATCH","wrongInference":"NO","why":"Viewer states thermostat as feedback loop with two competing loops, matching the key.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Thermostat picture conveys the subject but not the two loops."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same thermostat; subject only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Thermostat plus caption on two loops; the battle is conveyed by text, not shown."}]},
+{"img":"26c87c5cc3","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got only the passivity topic from the whiteboard; no training-equals-safety or predicted freezing.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Whiteboard title carries the topic; characters just stand."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Characters talk, nothing enacted."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Camera push-in only."}]},
+{"img":"7f0ba5947e","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got money covering a deeper problem from the title, but no crater, grief, or the misread-as-snobs point.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Wallet and dollar coin signal money; no crater or covering shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Growing coin emphasizes money only."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Giant coin with a calmly smiling woman; no emotional hole or paving shown."}]}
+]

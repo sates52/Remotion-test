@@ -1,0 +1,18 @@
+[
+{"img":"a45eb0b8a5","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer says cause is unclear; effect 'motivation takes care of itself' is only from the text card. Message gets the half about motivation taking care of itself but misses feedback and money.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Cheering man with no visible cause; no link to feedback."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Nearly identical pose; nothing new."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text card carries the meaning; the cheering fits a positive outcome but shows no mechanism."}]},
+{"img":"2faa9d9456","cause":"NA","effect":"NA","message":"MATCH","wrongInference":"NO","why":"Viewer states that refusing doesn't require a loud blunt no, which matches the key. The meaning comes entirely from the text.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text card matches the narration; backdrop is empty."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1; text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1; text only."}]},
+{"img":"cb4ea2152f","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer gets observation as first step but misses the radio-frequency idea and that real work follows. Cause and effect are unclear.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Text card states the first step; the background is decorative."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Only drifting decoration; text unchanged."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same text; no image of radio or tuning."}]},
+{"img":"2d64cfa1d1","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer reports the 'trained that doing nothing is safe' cause from the text, but its stated effect (people behaved passively) is not the key's prediction that the dogs fuse to the floor. It also guesses students instead of dogs. Effect is not shown.","frames":[
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"The classroom suggests school, not a dog shuttle-box experiment; the text carries the meaning."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"Same classroom; the text only."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"Same classroom; the text only."}]}
+]

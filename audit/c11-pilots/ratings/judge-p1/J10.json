@@ -1,0 +1,18 @@
+[
+{"img":"90df83a2ef","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"MISS","wrongInference":"NO","why":"Viewer reads values filling the map; no conflict, no widening before choosing, no avoided binary choice.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Values scale and empty map shown; subject only, no clash or mechanism."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Arrow values-to-map reading as values fill the map misses the conflict-then-widen meaning."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Same held frame, same misreading of values building the map."}]},
+{"img":"e2f5cfd318","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer sees bearing depleted (matches effect) but cause is unclear and attributes it to the person's own actions, not absence of cafeteria talk.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Person, cafeteria mug, full bearing: subject only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Drained bearing container conveys losing bearing, but link to missing cafeteria talk is not shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same held state; loss shown, cause not."}]},
+{"img":"cffe2794e4","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Mask breaks safety matches pretense making safety an illusion; Jack, betrayal and popularity motive absent.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Mask and shield icons dimmed; subjects only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Mask arrow to cracked shield shows pretense breaking safety."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Held same mask-to-cracked-shield mechanism."}]},
+{"img":"946c30a84e","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer gets someone chosen for being kind from the title text; no visible cause, who, or locked room.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Meaning carried by the title; figures show no action."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Camera move only; no relation shown."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Push-in, expressions unchanged; text only."}]}
+]

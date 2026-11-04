@@ -1,0 +1,47 @@
+{
+ "schema": "c11-result/1",
+ "date": "2026-11-04",
+ "experiment": "Semantic Film Director 1.0 vs current storyboard — pre-registered blind A/B (preregistration-c11-director.json)",
+ "raters": "AGENT raters only: 80 fresh sonnet describers (one strip each, image only), 2 x 20 fresh sonnet judges (4 descriptions of 4 different beats each, frozen answer key + narration). No human rating was collected — human reference prepared, NOT run.",
+ "verdict": "NO SHIP",
+ "shipRule": {
+  "plus20": { "pass": false, "value": "+5.3 pp (A 43.3 % -> B 48.6 %), paired bootstrap 95 % CI -7.8 ... +16.4" },
+  "wrongNotUp": { "pass": false, "value": "WRONG frames A 2 -> B 4 (mean of two judge passes, 90 frames per arm)" },
+  "deadNotUp": { "pass": true, "value": "DEAD A 14 -> B 2.5" },
+  "addsUp": { "pass": false, "value": "ADDS A 35 -> B 34.5" },
+  "explainsUp": { "pass": true, "value": "EXPLAINS A 0.5 -> B 14" },
+  "bothGenreGroups": { "pass": true, "value": "fiction +3.8 pp (n 13), nonfiction +6.4 pp (n 17)" },
+  "regressionWithin10": { "pass": true, "value": "action beats A 42.5 % -> B 55 % (+12.5 pp, CI -8.3 ... +31.7), WRONG 0 -> 0" }
+ },
+ "agreement_kappa": { "cause": 0.92, "effect": 0.82, "message": 0.64, "wrongInference": 0.74, "frameCorrectness": 0.45, "contribution": 0.68, "explains": 0.93 },
+ "subgroups_exploratory": {
+  "note": "not pre-registered as decision criteria (only the Lemo subgroup report was); n is small — read as direction, not proof",
+  "byKeyCausality": { "narrationStatesCause_n17": "+12.3 pp (CI -2.9 ... +27.5)", "noCausality_n13": "-3.8 pp" },
+  "byStratum": { "causal_n15": "+1.7 pp", "abstract_n15": "+8.9 pp" },
+  "lemo_causePauseEffect_n11": "A 37.9 % -> B 44.7 % (+6.8 pp); ADDS 17 -> 28, EXPLAINS 0.5 -> 10, DEAD 3 -> 0.5, WRONG 0 -> 1",
+  "otherStaged_C_D_F_G_n4": "A 33.3 % -> B 70.8 % (+37.5 pp)",
+  "textOnly_H_n15": "A 50 % -> B 45.6 % (-4.4 pp); ADDS 12 -> 0; 6 of B's 8 WRONG frame judgements (two passes; mean 4) came from quote cards (B05: the quote read as a concession; B09: the quote over the source scene's classroom set)",
+  "allStagedB_main_n15": "A 36.7 % -> B 51.7 % (+15 pp)"
+ },
+ "findings": [
+  "The director's staged representations make the mechanism visible: EXPLAINS rose from 0.5 to 14 frames, dead frames fell from 14 to 2.5; where B staged a change, comprehension rose ~15 pp.",
+  "The director chose text-only (H) for 18 of 40 beats (15 of the 30 main beats). 12 of those 18 are beats the frozen key says state no causality; 6 had a stated cause the author did not stage. A quote card carries no picture (ADDS 0) and lost ~4 pp on average — it pulled the pooled result below the bar.",
+  "WRONG rose 2 -> 4 (mean of passes; 8 B judgements): 6 from quote cards — B05 (the quote read as a concession) and B09 (the source set behind the quote, a classroom, read as school) — and 2 from an arrow read as the wrong direction of influence (B17 values -> map). Causal arrows can be read as a mechanism the narration does not state.",
+  "Action beats did not regress (+12.5 pp): the regression guard holds.",
+  "Ceiling not reached: comprehension of both arms is under 50 % — most narration-level claims in a two-host discussion are hard to show; the answer key's own 'no causality' rate (17/40 = 43 %) bounds what any picture can explain."
+ ],
+ "authoringBias": {
+  "B": "5 fresh sonnet authors, one pass + one compile-fix pass (8 contracts: 7 missing camera.purpose on H, 1 label, 1 uncausal B) — no visual iteration; the experimenter wrote the spec and the code, not a contract; 2 renderer fixes were made on SYNTHETIC contracts before any benchmark render (logged).",
+  "A": "the shipped storyboard: authored, gated, multi-round fixed (mute tests, readcheck) per book — more authoring effort than B received.",
+  "direction": "the budget favours A; B's gain is not explained by extra effort. A risk on the other side: the B spec was written by the experimenter who also designed the renderer; the authors were blind to the key and the rating."
+ },
+ "deviations": "audit/c11-pilots/deviations.json (render moved to GitHub Actions on the operator's order; 26 local strips + 16 local descriptions unused; decided before any rating) + ratings/repairs.log (one describer JSON missing a ']' — syntax only).",
+ "humanReference": { "status": "NOT RUN", "materials": "human-reference.md, human-sheet-c11.js (30 scenes, X/Y order by seeded coin), answer-key.json, rating-prompts.md", "estimatedCost": "≈ 7.5 h rater time (5 raters) + ≈ 3.5 h scoring (2 scorers)" },
+ "costAndScale": {
+  "authoring": "≈ 62 k sonnet tokens per 8-beat author pass (≈ 8 k per beat, mostly the spec as input); a 250-beat book ≈ 2 M tokens, minutes of wall time; compile + validation instant",
+  "render": "SemanticStage is plain SVG + the existing rig: same CPU class as an Antidote scene; cloud stills 4 s each on GitHub runners (80 strips / 240 stills in 3 min wall on 8 runners)",
+  "rating": "80 describers + 40 judges ≈ 6.7 M sonnet tokens (agent session budget hit once; resumed after reset)",
+  "fullBookImpact": "opt-in scene field; the old configs draw unchanged; production integration NOT done (NO SHIP)"
+ },
+ "evidence": { "strips": "audit/c11-pilots/strips/*.jpg (A + B, real names B##-A/B)", "ratings": "audit/c11-pilots/ratings/", "contracts": "audit/c11-pilots/contracts/", "cloudRun": "GitHub Actions run 41848984767 (ci/stills/c11-director-ab)" }
+}

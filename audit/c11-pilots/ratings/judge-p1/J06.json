@@ -1,0 +1,18 @@
+[
+{"img":"2faa9d9456","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","why":"Viewer got the don't-shout-no half but not the softer, nuanced delivery.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the text card carries meaning; backdrop is empty."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1; text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical; text only."}]},
+{"img":"0c3a12e59b","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer sees first-room experience carried into second room, but not the outcome of not moving the hand.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dot starts leaving first room; carryover only begins, no mechanism shown yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Dot passing through expectation node toward second room shows the carryover relationship."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Dot reaching second room shows first-room expectation carried over."}]},
+{"img":"6e04775276","cause":"NA","effect":"NA","message":"MISS","wrongInference":"YES","why":"Viewer read it as conceding her intellect is useless; the speaker is pushing back.","frames":[
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"Text only, led to a conceding reading; empty room adds nothing."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"Only slight drift; text only."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"No added image meaning; text only."}]},
+{"img":"f29e831a26","cause":"CORRECT","effect":"CORRECT","message":"MATCH","wrongInference":"NO","why":"Viewer states direct result boosts motivation, matching the key.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Target and empty gauge show the elements but not yet the link."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from direct result to gauge filling shows cause to effect."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Held arrow and full gauge show result driving motivation."}]}
+]

@@ -1,0 +1,18 @@
+[
+{"img":"39b03f5b96","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got survival depends on the reign (from headline text) but no bond and no wager; cause/effect read as camera zoom.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Headline carries the meaning; worried figure and shield only vaguely relate."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Shield just scaled up, no relationship shown."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Larger shield, same figure; no mechanism."}]},
+{"img":"a98440fe1d","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer states efficient fishing lets industry grow (from the card text) but misses technology, months at sea, and breeding assumption.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Only a text card over generic sea backdrop."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged text card."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged text card."}]},
+{"img":"6e2bbe2352","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Traffic patterns make the listener annoyed matches the traffic cause and the drives-you-crazy effect, but no 40 minutes, taxes or unseen variables.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Traffic icon and listener shown, but no link between them yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from road to man and his worried face show traffic acting on him."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Angry face with the road-to-man arrow shows traffic causing frustration."}]},
+{"img":"4935892823","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer gets a stressed person from compression into fewer days, matching burnout loosely; no meetings, bottleneck or Thursday.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Worried woman conveys stress; the compression comes only from the sign text."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Worried look persists; no mechanism shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Stress mood only; nothing shows compression or bottleneck."}]}
+]

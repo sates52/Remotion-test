@@ -1,0 +1,18 @@
+[
+{"img":"312eae0fce","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got the self-defense claim from the text but said cause/effect unclear and missed the second-strike/heat-of-the-moment half.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the text box carries the self-defense line; forest is generic."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1, text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical again, text only."}]},
+{"img":"224ee2b89b","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","why":"Viewer caught hair dyed black plus a death/mourning link but not that she doesn't know why; it frames a man, not her.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Tombstone suggests mourning and question marks suggest not knowing, but no hair change is drawn and the figure is a man."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same scene with slight drift; subject and mood only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same scene; nothing new, no mechanism."}]},
+{"img":"6c554d2fb9","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer saw capital directed at a crater but called cause unclear and read it as unfilled gap, not covering over grief; missed the misread-book point.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Coin and full container show the two subjects only, no relationship."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Arrow capital to crater shows direction, but the emptying container is ambiguous (fill vs drain) and no paving-over is conveyed."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Same as frame 2, mechanism ambiguous."}]},
+{"img":"0c3a12e59b","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer read carry-over from first room into the second through expectation, but no inescapable noise and no outcome of not moving the hand.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Nodes first room, expectation, second room show the structure; dot just starting."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Dot travelling through the expectation node into the second room shows the carry-over mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Dot nearly reaching the second room completes the carry-over, though outcome is not shown."}]}
+]

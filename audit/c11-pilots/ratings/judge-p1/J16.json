@@ -1,0 +1,18 @@
+[
+{"img":"7e687dc5bb","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer says the cause is unclear; sees philosophy emptied, but misattributes it as Grace's philosophy and reads it as drained, not overturned by her touch.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Grace and a full philosophy container set up the before state, but no relation is shown yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from Grace to philosophy, which empties: shows grace acting on and undoing the philosophy."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same arrow and emptied philosophy container, showing the effect of grace."}]},
+{"img":"f3af7ed46d","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer reads action item turning into permanent flaw; misses the contrast and the paralysis effect.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Two labeled circles; labels carry the meaning."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Moving dot has no clear meaning and suggests conversion, not contrast."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Dot at permanent flaw; ambiguous, does not show paralysis or contrast."}]},
+{"img":"3f034c1161","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","why":"Viewer got the translation matrix as a four-color grid framework but missed the goal of not becoming Stewart.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Man pointing at a four-quadrant grid depicts a matrix, but only the subject."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same grid enlarged; subject only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"The text 'TRANSLATION MATRIX' carries the meaning."}]},
+{"img":"edea7d6133","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer got the dopamine and anxiety relief from texting but not that the person does not want to paint, and generalized to checking phones; direction of cause is unclear.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Phone, anxiety and dopamine containers set the subject; no relation yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Text leads via arrows to anxiety dropping and dopamine rising: shows the mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same text-to-meters shift shown, matches narration's mechanism."}]}
+]

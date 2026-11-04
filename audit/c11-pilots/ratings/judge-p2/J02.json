@@ -1,0 +1,18 @@
+[
+{"img":"e2f5cfd318","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","why":"Viewer sees bearing drained but cannot name the cause (no cafeteria conversation); effect of lost bearing matches.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Full BEARING container with labels only; no cause or loss shown yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Bearing container emptying conveys the loss, but the cafeteria is not linked as the missing cause."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same drained state; shows outcome only, not the mechanism of skipping social talk."}]},
+{"img":"b749c19372","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","why":"Viewer links Sethe with endurance but misses her collapsed state and being found by Amy.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labeled figure and blank rectangle; meaning only from labels."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"No change; labels only."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"No change; labels only."}]},
+{"img":"0eb4cd21a4","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","why":"Viewer gets the aristocracy self-view claim from the text card but not the contrast with tech billionaires or Harvard lineage.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text card carries the claim; background is abstract."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text card only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text card only."}]},
+{"img":"1296808fae","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","why":"Viewer sees hidden costs adding up in buckets but not that unseen factors cause 40 extra commute minutes.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labeled containers with dots; meaning only from labels."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Dots settle equally; suggests equal costs, no cause to effect shown."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same as frame 2; labels carry the meaning."}]}
+]
