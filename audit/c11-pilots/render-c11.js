@@ -14,6 +14,10 @@ const frames = JSON.parse(fs.readFileSync(path.join(BUILD, "frames.json"), "utf8
 const only = args.only ? new Set(String(args.only).split(",")) : null;
 const arms = String(args.arms || "A,B").split(",");
 
+// local runs are held to the PC budget (operator 2026-11-04); the full A/B renders on GitHub: scripts/stills-cloud.js
+const nStills = Object.entries(frames).filter(([P]) => !only || only.has(P)).reduce((t, [P, f]) => t + f.length * arms.filter((a) => fs.existsSync(path.join(BUILD, "configs", `${P}-${a}.json`))).length, 0);
+require(path.join(ROOT, "scripts", "lib", "local-load-guard.js")).guardStills({ what: "render-c11", stills: nStills, operatorLocal: args["operator-local"] });
+
 (async () => {
   const { bundle } = require("@remotion/bundler");
   const { renderStill, selectComposition, openBrowser } = require("@remotion/renderer");

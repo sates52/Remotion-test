@@ -1,0 +1,11 @@
+{
+ "schema": "c11-deviations/1",
+ "items": [
+  {
+   "at": "2026-11-04T17:15+03:00",
+   "what": "stimulus rendering moved from the PC to GitHub Actions (operator order: the local render was choking the machine)",
+   "detail": "The local render (render-c11.js, 4 processes) was stopped after 26 of 80 strips (B01-B06 both arms, B07-A, B14/B15/B23/B24/B32/B33 both, B34-A); 16 of them had been described blind. For ONE rendering environment across all 80 stimuli, all 80 strips are re-rendered in the cloud (scripts/stills-cloud.js, render-stills.yml, Linux runners, same code commit, same configs and frames) and every strip is described afresh from the cloud render. The 26 local strips and 16 descriptions are kept untouched in the scratch folder and are NOT used. Decided before any description was read and before any judge ran; no B strip was looked at by the experimenter.",
+   "effect": "none on the design: same configs, frames, protocol; a selftest showed the cloud strip matches the local render pixel-for-pixel apart from hairline HUD font differences"
+  }
+ ]
+}
