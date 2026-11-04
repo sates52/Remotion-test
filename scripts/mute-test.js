@@ -388,7 +388,16 @@ function identityOf(label, { quiet = false } = {}) {
 
 const { JUDGE_RULES } = require("./lib/mute-rubric"); // the official text, shared with the cloud rater (cycle 7)
 
+/** a sealed label whose verdict was tallied: its judge evidence is final (cycle 9 P0b) */
+function talliedSealed(label) {
+  const D = DIR(label);
+  const meta = readJSON(path.join(D, "sample-meta.json"), {}) || {};
+  return !!(meta.sealed && fs.existsSync(path.join(D, "totals.json")));
+}
+const evidenceSha = (D) => require("crypto").createHash("sha256").update(["judge-input.json", "judge-key.json", "judge-result.json", "judge-run.json"].map((f) => { try { return fs.readFileSync(path.join(D, f)); } catch { return ""; } }).join("|")).digest("hex");
+
 function judge() {
+  if (talliedSealed(LABEL)) { console.error(`❌ ${SLUG}/${LABEL} is a sealed label with a tallied verdict — its judge input/key are evidence and are never written over. A new judgement is a new label.`); process.exit(3); }
   const A = describe(LABEL);
   const vs = args.vs ? describe(args.vs) : null;
   const rnd = rng(0xC0FFEE);
@@ -408,15 +417,18 @@ function judge() {
   });
   fs.writeFileSync(path.join(OUT, "judge-input.json"), JSON.stringify(items, null, 2));
   fs.writeFileSync(path.join(OUT, "judge-key.json"), JSON.stringify(key, null, 2));
+  // RUN TOKEN (cycle 9 P0b): the result must echo it — a result from another judge run / label is EVIDENCE_INVALID
+  const runToken = `${LABEL}-${require("crypto").randomBytes(6).toString("hex")}`;
+  fs.writeFileSync(path.join(OUT, "judge-run.json"), JSON.stringify({ run: runToken, label: LABEL, at: new Date().toISOString(), inputSha256: require("crypto").createHash("sha256").update(fs.readFileSync(path.join(OUT, "judge-input.json"))).digest("hex") }, null, 2));
   const idCheck = identityOf(LABEL, { quiet: true });
   if (idCheck.problems.length) { console.error(`❌ identity chain broken:\n   ${idCheck.problems.join("\n   ")}`); process.exit(1); }
-  const shape = vs ? `{"items":[{"id":"item-01","X":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"},"Y":{...}}, ...]}` : `{"items":[{"id":"item-01","V":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"}}, ...]}`;
+  const shape = vs ? `{"run":"${runToken}","label":"${LABEL}","items":[{"id":"item-01","X":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"},"Y":{...}}, ...]}` : `{"run":"${runToken}","label":"${LABEL}","items":[{"id":"item-01","V":{"correctness":"...","why":"...","contribution":"...","whyC":"...","explains":"YES|NO"}}, ...]}`;
   fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `
 ## 3. Judge (a fresh agent)
 You are an impartial judge in a mute test of an animated book-summary video. Read ONLY this file: ${path.join(OUT, "judge-input.json")}. Do NOT open any other file (never judge-key.json, key.json, books/, scripts/, or image folders).
 Each item has the narration spoken around a moment and ${vs ? "two blind descriptions (X and Y, assigned randomly per item) of two versions" : "a blind description (V)"} of what a viewer with the sound OFF saw.
 ${JUDGE_RULES}
-Write ONLY JSON to ${path.join(OUT, "judge-result.json")}: ${shape} (${items.length} items). Verify it parses. Reply with one line: "written ${items.length}".
+Write ONLY JSON to ${path.join(OUT, "judge-result.json")}: ${shape} (${items.length} items, each id exactly once; keep "run" and "label" exactly as given). Verify it parses. Reply with one line: "written ${items.length}".
 
 ## 4. Then
     node scripts/mute-test.js tally --slug=${SLUG} --label=${LABEL}
@@ -429,6 +441,20 @@ function tally() {
   const r = readJSON(path.join(OUT, "judge-result.json"));
   const key = readJSON(path.join(OUT, "judge-key.json"));
   if (!r || !key) { console.error("❌ judge-result.json / judge-key.json missing"); process.exit(1); }
+  // a sealed label's tallied verdict is final evidence (cycle 9 P0b): a re-tally is allowed only on byte-identical
+  // judge evidence (same numbers, recorded again); anything else would overwrite the record — refused
+  if (talliedSealed(LABEL)) {
+    const prev = readJSON(path.join(OUT, "totals.json"), {}) || {};
+    if (!prev.evidenceSha256 || prev.evidenceSha256 !== evidenceSha(OUT)) { console.error(`❌ ${SLUG}/${LABEL} is sealed and already tallied${prev.evidenceSha256 ? " from other judge evidence" : " (before evidence hashes were recorded)"} — the recorded verdict is not overwritten. A new judgement is a new label.`); process.exit(3); }
+  }
+  // BINDING (cycle 9 P0b, lib/judge-binding.js): the result answers exactly this input, this run, this film
+  const binding = require("./lib/judge-binding").checkBinding({
+    input: readJSON(path.join(OUT, "judge-input.json"), []) || [], key, result: r, runFile: readJSON(path.join(OUT, "judge-run.json"), null), label: LABEL,
+    inputSha256: fs.existsSync(path.join(OUT, "judge-input.json")) ? require("crypto").createHash("sha256").update(fs.readFileSync(path.join(OUT, "judge-input.json"))).digest("hex") : null,
+    meta: readJSON(path.join(OUT, "sample-meta.json"), {}) || {}, stillsConfigSha: (() => { try { return fs.readFileSync(path.join(OUT, "stills", ".config-sha"), "utf8"); } catch { return null; } })(),
+  });
+  // count only answers the key knows, each once — a broken result is recorded as INVALID below, never crashes the tally
+  { const seen = new Set(); r.items = (r.items || []).filter((it) => it && key[it.id] && !seen.has(it.id) && seen.add(it.id) && (it.V || (it.X && it.Y))); }
   const tOf = Object.fromEntries((readJSON(path.join(OUT, "judge-input.json"), []) || []).map((x) => [x.id, x.t]));
   // Vox diagnostic: which sampled frames had an image at all. The VERDICT stays on
   // the pre-registered bar (ADDS over ALL frames): a muted viewer of a Vox film with
@@ -482,9 +508,12 @@ function tally() {
   // nothing — EVIDENCE_INVALID, neither PASS nor FAIL. The totals and the bars are untouched; the run just does not count.
   const EI = require("./lib/evidence-integrity");
   const ev = EI.checkMuteDir(OUT);
+  if (!binding.ok) Object.assign(ev, { ok: false, status: EI.STATUS_INVALID, reasons: [...(ev.reasons || []), ...binding.reasons] });
+  ev.signals = [...(ev.signals || []), ...binding.signals];
   const summary = { label: LABEL, date: new Date().toISOString(), n, totals: T, ...(vsLabel ? { vs: vsLabel, vsTotals: V } : {}), bars: BARS, pass: pass && ev.ok,
     ...(ev.ok ? (ev.signals.length ? { evidence: { status: "OK", signals: ev.signals } } : {}) : { evidence: { status: ev.status, reasons: ev.reasons, signals: ev.signals } }),
     sample: fresh ? "fresh" : "reused", ...(meta.sealed ? { sealed: true, sealSha256: meta.idsSha256 } : {}), verdict: pass && fresh && ev.ok, dead, addsTargetMet: addsMet,
+    evidenceSha256: evidenceSha(OUT), binding: binding.legacy ? "LEGACY" : binding.ok ? "BOUND" : "INVALID",
     imageBeats, imageAdds, addsAll: Math.round(addsAll * 100),
     // what this verdict judged (2026-10-30): the film's identity at prep + the config the stills were rendered from
     ...(() => { let framesConfigSha = null; try { framesConfigSha = fs.readFileSync(path.join(OUT, "stills", ".config-sha"), "utf8").trim() || null; } catch {}
