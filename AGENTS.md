@@ -75,6 +75,12 @@ Do not re-derive these from prose — run the command and follow what it prints.
   current config after the last mute tally. Studio opening is not READY.
 - **Production render (every harness):** `docs/AGENT-OPERATING-CONTRACT.md` §7b — `--method=github` from current tools
   (launcher + `--book-root`), never a book worktree's own `render.js`, no local fallback, no token-file copies.
+- **Machine load (operator, 2026-11-04):** heavy work never runs on the operator's PC. Still renders beyond a quick look
+  (> 12 stills: A/B strips, contact sheets, framecheck sweeps) go to GitHub Actions: `node scripts/stills-cloud.js push
+  --manifest=<stills/1 manifest> --tag=<name>` → `fetch --tag=<name> --out=<dir>` (`.github/workflows/render-stills.yml`,
+  parallel runners). `scripts/lib/local-load-guard.js` refuses more locally (exit 2) and allows one local still render at a
+  time; an exception only with `--operator-local="<the operator's own words>"`. Never start several local render
+  processes in parallel. Films: the GitHub pool (above).
 - **One long job at a time:** a second `mute-test.js prep` of the same label, or a second `render.js` of the same book,
   refuses while the first runs (exit 3); a split render still in flight is not dispatched again (rescue:
   `render-github-redispatch.js`). Never cancel and restart a running prep or render.

@@ -78,6 +78,9 @@ async function render() {
     console.log(`image mode: ${man.images.length} given images copied (no render)`);
     return;
   }
+  // heavy still work belongs on the runner (visual-ab-cloud.js); this PC gets a small budget (local-load-guard.js)
+  const stillCount = man.passages.reduce((s, p) => s + framesOf(p).length * Object.keys(p.arms).length * (man.strips ? 4 : 1), 0);
+  require("./lib/local-load-guard").guardStills({ what: "visual-ab render", stills: stillCount, operatorLocal: args["operator-local"] });
   const { bundle } = require("@remotion/bundler");
   const { renderStill, selectComposition, openBrowser } = require("@remotion/renderer");
   const t0 = Date.now();
