@@ -1,0 +1,42 @@
+{
+  "schema": "c11-pilot-prereg/1",
+  "date": "2026-11-04",
+  "written": "after the benchmark was drawn by script (benchmark.json, select-benchmark.js) and BEFORE any answer key, director code, authoring, render or rating",
+  "hypothesis": "A director that first fixes, per beat, what a muted viewer must understand (a visible mechanism, comparison, change or result grounded in the narration) and stages it as before -> cause -> pause -> visible effect in one wide, locked frame, lets a muted viewer state the beat's cause, effect and point more often than the current storyboard, without more WRONG or dead frames.",
+  "benchmark": {
+    "file": "audit/c11-pilots/benchmark.json",
+    "main": "30 beats: 15 causal-mechanism + 15 abstract-concept (scene router, claim-bearing narration >= 18 words), 15 books, max 3 per book",
+    "regression": "10 beats: concrete-action / interaction, 7 books, max 2 per book",
+    "noExclusions": "every frozen item is rated and counted; an item B cannot render is counted as B's failure (its A strip is still rated)"
+  },
+  "arms": {
+    "A": "the committed production scene of that beat (books/<slug>/config.antidote.json scene i) rendered unchanged, caption layer off — the current pipeline's own authored output (not written in this cycle)",
+    "B": "Semantic Director 1.0: a renderer-neutral contract per beat written by a FRESH agent (not the experimenter) from the Director spec + the narration + the book's cast list + the A scene's set and cast, compiled to an Antidote scene by the director compiler; same duration, set and cast bible; B may change only the representation (what is shown and how it changes)",
+    "budget": "B: one authoring pass per beat + at most one compile-fix pass (compiler errors only). No visual iteration after seeing renders. A: none in this cycle (its production fix rounds already happened). The experimenter writes the director code and the spec, never a beat's contract, and does not look at B strips before rating except a technical render check (blank / crashed frame) that is logged."
+  },
+  "answerKey": "per beat, written by a FRESH agent from the narration ONLY (no image, no arm, before any authoring) and frozen: the intended muted understanding (a mechanism / comparison / event / result, never just a theme word), the cause, the effect or change, and up to 3 plausible WRONG inferences. A beat whose narration supports no cause/effect is keyed as such (no invented causality).",
+  "stimulus": "per beat x arm one 3-frame strip at 30 / 60 / 90 % of the beat, caption layer off, blind file names (hash-shuffled), no arm in any file a rater sees",
+  "raters": {
+    "describer": "one FRESH sonnet agent per strip (image only, never the narration, never both arms of a beat): free description per frame + what changed, what caused it, what the point is",
+    "judge": "FRESH sonnet agents, each judging 4 descriptions of 4 DIFFERENT beats (never two arms of one beat), with the frozen answer key + narration: cause CORRECT / WRONG / NOT_SHOWN, effect CORRECT / WRONG / NOT_SHOWN, message MATCH / PARTIAL / MISS, a WRONG-inference flag, and the standard mute rubric per frame (JUDGE_RULES verbatim)",
+    "stability": "every description is judged by TWO independent judge passes; agreement (Cohen's kappa) is reported per measure, and the primary score is the mean of the two passes",
+    "human": "the 30-item human reference (main set) is prepared as a blind sheet (A/B order and labels hidden) with the answer key separate; if no human ratings exist when results are reported, the report says 'human reference not run' — agent results are never presented as human"
+  },
+  "measures": {
+    "primary": "causal comprehension per strip = mean(cause CORRECT, effect CORRECT, message MATCH=1 / PARTIAL=0.5 / MISS=0), averaged over the two judge passes",
+    "secondary": "WRONG (frames), DEAD (contribution NONE), ADDS, EXPLAINS, WRONG-inference flags; per stratum and per genre group (fiction = fiction / literary / mystery / fantasy / science fiction / young adult; nonfiction = the rest)"
+  },
+  "shipRule": {
+    "main": [
+      "comprehension(B) - comprehension(A) >= +20 percentage points, pooled over the 30 main beats",
+      "WRONG(B) <= WRONG(A) and DEAD(B) <= DEAD(A)",
+      "ADDS(B) > ADDS(A) and EXPLAINS(B) > EXPLAINS(A)",
+      "B - A > 0 in BOTH genre groups"
+    ],
+    "regression": [ "comprehension(B) >= comprehension(A) - 10 pp on the 10 action beats", "WRONG(B) <= WRONG(A) on them" ],
+    "uncertainty": "paired bootstrap 95 % CI over beats; judge agreement (kappa) per measure; n = 30 is a pilot signal",
+    "else": "NO SHIP (stays on branch dev/c11)",
+    "scope": "experiment criteria only — never a production gate"
+  },
+  "lemoPilot": "the 'cause -> pause -> visible effect in one locked wide shot' representation is the director's default staging for causal beats (DIRECTOR §3/§6 of lemo-opuscar, MIT); its subgroup result is reported separately (beats where B used it vs not)"
+}
