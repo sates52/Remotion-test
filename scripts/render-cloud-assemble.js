@@ -93,10 +93,31 @@ async function fetchSegment(e) {
     const out = path.join(OUT, name);
     const expected = entries[entries.length - 1].end + 1;
     console.log(`🔗 concat ${got.length} → out/${name} (expect ${expected} frames)`);
-    const fin = CA.concatAndVerify(got.map((g) => g.file), out, expected);
+    let fin = CA.concatAndVerify(got.map((g) => g.file), out, expected);
+    fs.rmSync(WORK, { recursive: true, force: true }); // free the runner disk (the repair below needs room for one copy)
+    // JOIN REPAIR (cycle 9, 2026-11-04): every chunk join carries the chunk's AAC encoder delay as inserted silence and a
+    // held video frame (Hamnet: 159 joins, ~4.4 s of digital silence mid-speech). scripts/repair-joins.js puts audio and
+    // video back on the composition clock (same frames, every content sample, one AAC encode). It refuses when the joins
+    // do not look like that — then the film is delivered exactly as before. --no-join-repair skips it.
+    if (fin.ok && !args["no-join-repair"]) {
+      const fixed = out + ".joins.mp4";
+      const jr = spawnSync(process.execPath, [path.join(__dirname, "repair-joins.js"), `--in=${out}`, `--out=${fixed}`, "--json"], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+      let j = null;
+      try { j = JSON.parse(String(jr.stdout || "").slice(String(jr.stdout || "").indexOf("{"))); } catch {}
+      const v = jr.status === 0 && j && j.ok && !j.nothingToRepair && fs.existsSync(fixed) ? CA.verifyFilm(fixed, expected) : null;
+      if (v && v.ok && v.frames === expected) {
+        fs.renameSync(fixed, out);
+        report.joinRepair = { status: "REPAIRED", joins: j.joins, encoderDelaySamples: j.encoderDelaySamples, removedSec: j.insertedSec, audioDiffSamples: j.audioDiffSamples };
+        fin = v;
+        console.log(`🔧 joins repaired: ${j.joins} joins, ${j.insertedSec}s of inserted audio removed, frames on the composition clock`);
+      } else {
+        fs.rmSync(fixed, { force: true });
+        report.joinRepair = { status: j && j.nothingToRepair ? "NOTHING_TO_REPAIR" : "NOT_REPAIRED", reason: (j && (j.reason || (j.problems || []).join("; "))) || (v ? `repaired film failed verification: ${v.problems.join("; ") || `frames ${v.frames}`}` : `repair-joins exit ${jr.status}`) };
+        console.log(`ℹ join repair: ${report.joinRepair.status}${report.joinRepair.reason ? ` — ${report.joinRepair.reason}` : ""} (the film is delivered as concatenated)`);
+      }
+    }
     if (fin.bytes) fin.sha256 = await CA.sha256File(out);
     report.final = { file: name, ...fin };
-    fs.rmSync(WORK, { recursive: true, force: true }); // free the runner disk before the upload step
     if (!fin.ok) throw new Error(`final film failed verification: ${fin.problems.join("; ")}`);
     report.ok = true;
     writeReport();

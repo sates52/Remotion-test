@@ -162,6 +162,11 @@ function concatAndVerify(segFiles, outFile, expectedTotal) {
   const c = spawnSync("ffmpeg", ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", outFile], { encoding: "utf8" });
   fs.rmSync(list, { force: true });
   if (c.status !== 0) return { ok: false, problems: [`concat failed: ${String(c.stderr || "").slice(0, 300)}`] };
+  return verifyFilm(outFile, expectedTotal);
+}
+
+/** Verify a whole film: frame count vs expected, full decode, audio stream, a valid duration. */
+function verifyFilm(outFile, expectedTotal) {
   const frames = probeFrames(outFile);
   const dec = decodesClean(outFile);
   const problems = [];
@@ -184,6 +189,6 @@ function sha256File(file) {
 }
 
 module.exports = {
-  buildManifest, parseManifest, pickSegmentRun, segArtifact, FINAL_ARTIFACT, VERIFY_ARTIFACT, verifySegment, concatAndVerify, probeFrames, sha256File,
+  buildManifest, parseManifest, pickSegmentRun, segArtifact, FINAL_ARTIFACT, VERIFY_ARTIFACT, verifySegment, concatAndVerify, verifyFilm, probeFrames, sha256File,
   cloudStateFile, assembleRef, dispatchedAtOf, verifiedFor, activeAssembleRun, planCloudAssemble, checkManifestTotal, ACTIVE_STATUSES: ACTIVE,
 };
