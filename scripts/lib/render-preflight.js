@@ -91,6 +91,21 @@ function gitHead(root) {
   catch { return null; }
 }
 
+/**
+ * PROVENANCE (cycle 9 P0b, 2026-11-04): a production record names TWO code identities. `commit` (unchanged meaning, every
+ * old record has it) = the checkout that holds the book — its pin when it is a pinned worktree: the engine that rendered.
+ * `tools` = the code that ran this step (the launcher / production base: preflight, dispatch, assembly, verification).
+ * The-first-90-days was pinned at cb0d0311 and delivered by eadb0371 tools: before, only the pin was recorded, so a
+ * shared verifier fix looked like a reason to re-pin. `pin` = production-base.json when the book has one. Additive.
+ */
+const TOOLS_ROOT = path.join(__dirname, "..", "..");
+function provenance(root, slug = null) {
+  const tools = gitHead(TOOLS_ROOT);
+  let pin = null;
+  if (slug) { const p = readJson(path.join(root, "books", slug, "production-base.json"), null); pin = p && (p.productionBase || p.pin || p.sha) ? String(p.productionBase || p.pin || p.sha).slice(0, 12) : null; }
+  return { tools, ...(pin ? { pin } : {}) };
+}
+
 function decisionFile(root, slug) { return path.join(root, "books", slug, "render-decision.json"); }
 function factsFile(root, slug) { return path.join(root, "books", slug, "render-facts.json"); }
 
@@ -104,7 +119,7 @@ function loadDecisions(root, slug) {
 function recordDecision(root, slug, { hash, inputHash = null, commit, reason, keys, preview = null }) {
   const file = decisionFile(root, slug);
   const doc = readJson(file, { note: "Operator render decisions. Written only by render.js --accept-quality-debt. Each binds to one config hash; BLOCK findings are never accepted.", decisions: [] });
-  const entry = { kind: "quality-debt", at: new Date().toISOString(), commit, configHash: hash, ...(inputHash ? { renderInputHash: inputHash } : {}), reason, keys, ...(preview && inputHash ? { preview } : {}) };
+  const entry = { kind: "quality-debt", at: new Date().toISOString(), commit, ...provenance(root, slug), configHash: hash, ...(inputHash ? { renderInputHash: inputHash } : {}), reason, keys, ...(preview && inputHash ? { preview } : {}) };
   doc.decisions = (doc.decisions || []).concat([entry]);
   writeJson(file, doc);
   return entry;
@@ -121,7 +136,7 @@ function recordDecision(root, slug, { hash, inputHash = null, commit, reason, ke
 function recordAuthorization(root, slug, { hash, inputHash, commit, reason, preview = null, quality = null }) {
   const file = decisionFile(root, slug);
   const doc = readJson(file, { note: "Operator render decisions: quality-debt acceptances (--accept-quality-debt) and production render authorizations (--authorize-render), each bound to one render input. BLOCK findings are never accepted.", decisions: [] });
-  const entry = { kind: "render-authorization", at: new Date().toISOString(), commit, configHash: hash, renderInputHash: inputHash, reason, keys: [], ...(preview ? { preview } : {}), ...(quality ? { quality } : {}) };
+  const entry = { kind: "render-authorization", at: new Date().toISOString(), commit, ...provenance(root, slug), configHash: hash, renderInputHash: inputHash, reason, keys: [], ...(preview ? { preview } : {}), ...(quality ? { quality } : {}) };
   doc.decisions = (doc.decisions || []).concat([entry]);
   writeJson(file, doc);
   return entry;
@@ -385,7 +400,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, auth
   const modeLabel = preview ? "PREVIEW-ONLY (full-length review render, all frames; not a short clip; not delivery-approved)" : "PRODUCTION (delivery)";
   console.log("\n── Pre-dispatch check ─────────────────────────────────────────");
   console.log(`  mode      : ${modeLabel}`);
-  console.log(`  commit    : ${commit || "unknown"}`);
+  console.log(`  commit    : ${commit || "unknown"} (book)   tools: ${provenance(root, slug).tools || "unknown"} (this code)`);
   console.log(`  config    : ${configFile || "n/a"}${hash ? ` (version ${hash}, render input ${inputHash || "unreadable"})` : ""}`);
   if (audio) console.log(`  audio     : ${audio.ok ? "OK" : "STOP"} — ${audio.detail}`);
   console.log(`  quality   : ${firewall ? `${quality} — ${firewall.blocks} BLOCK, ${firewall.reviews} REVIEW (firewall ${firewall.status})` : firewallNote}`);
@@ -416,7 +431,7 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, auth
   // --dry-run (cycle 7): the check runs and prints, but leaves no preflight fact behind (a dry run is not a render)
   if (dryRun) return { ok, mode, decision: ev.decision, record: null };
   const record = appendFacts(root, slug, {
-    kind: "preflight", mode, commit, configHash: hash, renderInputHash: inputHash,
+    kind: "preflight", mode, commit, ...provenance(root, slug), configHash: hash, renderInputHash: inputHash,
     ...(audio ? { audio: { ok: audio.ok, detail: audio.detail } } : {}),
     quality: { status: quality, blocks: firewall ? firewall.blocks : null, reviews: firewall ? firewall.reviews : null },
     preview: { state: pv.state, covered: ev.previewCovered, mute: pv.mute || null },
@@ -428,4 +443,4 @@ function preflight({ root, slug, engine, method, mode, acceptReason = null, auth
   return { ok, mode, decision: ev.decision, record };
 }
 
-module.exports = { MODE, configHash, inputHashOf, decisionMatches, checkMasteredAudio, findingKey, evaluate, readPreview, muteLine, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, recordAuthorization, authorizationFor, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };
+module.exports = { provenance, MODE, configHash, inputHashOf, decisionMatches, checkMasteredAudio, findingKey, evaluate, readPreview, muteLine, classifyDispatchCode, workerCompat, expectedFramesFor, verifyRenderOutput, preflight, recordDecision, recordAuthorization, authorizationFor, appendFacts, loadDecisions, decisionFile, factsFile, readQuality };

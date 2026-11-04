@@ -688,7 +688,7 @@ async function dispatchSplit(safeMax) {
   // two agents dispatch different books at once (seen: the-odyssey clobbered martyr).
   const stateFile = path.join(BOOK_ROOT, `.render-github-split.${slug}.json`);
   const renderInputHash = configFile ? require("./lib/render-preflight").inputHashOf(path.join(BOOK_ROOT, configFile)) : null;
-  const fresh = { slug, composition, totalFrames, bundleSha, bundleBytes, renderInputHash, ...(FOREIGN_BOOK ? { bookRoot: BOOK_ROOT, tools: (execSync("git rev-parse HEAD", { cwd: ROOT, encoding: "utf8" }) || "").trim() } : {}), chunkSize: String(chunkSize), concurrency: String(args.concurrency || 2), mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
+  const fresh = { slug, composition, totalFrames, bundleSha, bundleBytes, renderInputHash, ...(FOREIGN_BOOK ? { bookRoot: BOOK_ROOT } : {}), tools: (execSync("git rev-parse HEAD", { cwd: ROOT, encoding: "utf8" }) || "").trim(), bookCommit: (() => { try { return execSync("git rev-parse HEAD", { cwd: BOOK_ROOT, encoding: "utf8" }).trim(); } catch { return null; } })(), chunkSize: String(chunkSize), concurrency: String(args.concurrency || 2), mode: args["preview-only"] ? "PREVIEW-ONLY" : "PRODUCTION", segments: [], dispatchedAt: new Date().toISOString() };
   for (const sg of segs) {
     const worker = workers[(sg.seg - 1) % workers.length];
     const remote = worker.remoteName || `render-worker-${(sg.seg - 1) % workers.length + 1}`;
