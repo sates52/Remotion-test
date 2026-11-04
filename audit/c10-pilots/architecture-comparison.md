@@ -13,7 +13,7 @@ discussion). Rules are crude; the order of magnitude is the point. A capability 
 ## A — Antidote + persistent world state
 - Built: object id / one place / deeds (pickup, place, hang, drop, give) compiled into ordinary scene fields;
   teleport and duplication are compiler errors (0 in the 10 passages); opt-in, old configs draw byte-identical.
-- Measured: the 10-passage blind A/B (see result file — the comprehension delta, WRONG/DEAD/ADDS/EXPLAINS).
+- Measured (10 passages, blind, agent-rated, 1 replicate): state comprehension A 76.7 % vs B 75.0 % (−1.7 pp, CI −6.7…+3.3) → **NO SHIP**. WRONG 3→2, DEAD 9→7, ADDS 21→23, EXPLAINS 3→3; consequence is the weakest question in both arms (40 % / 20 %).
 - Seen in the renders: the state is right, but a bust shot cuts the table at the frame edge (P01) — world state is
   only as legible as the shot that shows it (Lemo DIRECTOR §8: the subject at least a third of the frame height).
 - Cost: render ≈ 0 (a glyph + furniture in SVG); authoring: one `world` block + per-beat deeds per scene that moves an
@@ -42,7 +42,7 @@ discussion). Rules are crude; the order of magnitude is the point. A capability 
 ## Comparison
 | criterion | A world state | B character engine | C director + hybrid |
 |---|---|---|---|
-| muted comprehension | measured (A/B) on deed beats | not measured; better contact on reachable targets | not measured |
+| muted comprehension | measured: no gain on 3-beat deeds (−1.7 pp) | not measured; better contact on reachable targets | not measured |
 | action / character accuracy | object state exact; contact as today | contact exact within reach; floor fails | per engine |
 | prop / world continuity | yes (compiler-guaranteed) | needs A | needs A for deed scenes |
 | render cost | ≈ 0 | ≈ 0 | images for Vox scenes (API, filter loss) |
@@ -58,7 +58,7 @@ discussion). Rules are crude; the order of magnitude is the point. A capability 
    causal beats. Build it as a *director that first writes, per scene, "what must a muted viewer understand?"* and
    picks the representation that can show it (causal diagram with a visible effect, a world-state deed, a data
    comparison, a period image) — and says the claim in text when nothing can show it, instead of decorating.
-2. **A is its deed component** (ship to production only on its own A/B rule; see result).
+2. **A is NOT shipped** (its A/B failed): keep it as the deed component of C only where long object chains matter, and re-test it there; the failure says the missing piece is the visible CONSEQUENCE and the framing, not the bookkeeping.
 3. **B is deferred**: whole-body IK is real work with a ~7 % reach; the cheap parts (arm IK + step for reachable
    targets) can be folded into A when a scene needs a shelf / partner hand.
 4. Lemo-Opuscar: take technique 2 ("whole incident" locked wide: cause → hold → visible effect, accent only on the

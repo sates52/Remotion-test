@@ -1,0 +1,30 @@
+{
+  "schema": "c10-pilot-result/1",
+  "date": "2026-11-04",
+  "preregistration": "audit/c10-pilots/preregistration-c10-world-state.json (commit de760b3a, before any code)",
+  "verdict": "NO SHIP — the pre-registered rule fails on its first criterion (state comprehension >= +20 pp): B − A = −1.7 pp, paired bootstrap 95 % CI [−6.7, +3.3] over 10 passages",
+  "replicate1": {
+    "A": { "ratings": 10, "stateComprehension": 0.767, "wrong": 3, "dead": 9, "adds": 21, "explains": 3, "frames": 30 },
+    "B": { "ratings": 10, "stateComprehension": 0.750, "wrong": 2, "dead": 7, "adds": 23, "explains": 3, "frames": 30 },
+    "perQuestion": {
+      "A": { "actor": 1.0, "object": 1.0, "before": 0.6, "after": 0.8, "change": 0.8, "consequence": 0.4 },
+      "B": { "actor": 1.0, "object": 1.0, "before": 0.7, "after": 0.8, "change": 0.8, "consequence": 0.2 }
+    },
+    "perPassage": { "P01": [1, 1], "P02": [0.67, 0.67], "P03": [0.83, 0.83], "P04": [0.5, 0.33], "P05": [0.33, 0.33], "P06": [1, 0.83], "P07": [0.83, 0.83], "P08": [0.83, 0.83], "P09": [0.83, 1], "P10": [0.83, 0.83] },
+    "rule": { "comprehensionPlus20": false, "wrongNotWorse": true, "noTeleportNoDup": true, "addsExplainsNoLoss": true },
+    "files": "audit/c10-pilots/world-ab-ratings/ (key, descriptions, judgements, tally) and world-ab-strips/ (the 20 rated strips)"
+  },
+  "deviations": [
+    "A rendering bug was found by the author inspecting P02-B BEFORE any rating: the hang deed was drawn as a table place and the next beat showed the object on the wall (a visual teleport). Fixed (the deed beat names its destination) and BOTH arms re-rendered from one new bundle; no rating had been done.",
+    "Replicate 2 (pre-registered: 2 replicates) was not run: its describer pass hit a session rate limit, and after replicate 1 the outcome is decided — with A at 76.7 %, even B = 100 % with A unchanged in replicate 2 would pool to at most about +10.7 pp, under the +20 pp bar. Reported as a single-replicate pilot.",
+    "The human rating sheet was not produced this cycle; the result is agent-rated only (fresh sonnet describers + judges, blind, one strip each) and is never presented as human judgement."
+  ],
+  "reading": [
+    "Ceiling: the current vocabulary at its best (take / place / hand-over, floating icons) already gives a muted reader the actor and the object 100 % and the state 77 %. On single-step deeds the old engine is not as weak as assumed.",
+    "Consequence is the weakest question in BOTH arms (A 40 %, B 20 %): neither arm stages what follows from the deed. That is a directing problem (the effect is not shown), not a world-state problem.",
+    "B is correct but smaller: the object at its true place (on the table beside the person, on the floor) is a small glyph near the frame edge, where A shows a large floating icon (P01). Correct state does not read unless the shot frames it (Lemo-Opuscar DIRECTOR §8: the subject at least a third of the frame height).",
+    "World state guarantees what A can get wrong silently (teleport / duplication: 0 in B by construction). Its value would be in long chains — one object across many beats with other events between — which 3-beat strips do not test."
+  ],
+  "integrity": { "teleportB": 0, "duplicationB": 0, "compilerErrors": 0 },
+  "cost": { "renderSec": 1252, "stills": 60, "bundleSec": 87, "perFrame": "about 0 extra (one SVG glyph + furniture)", "raters": "20 describers + 20 judges (sonnet)" }
+}

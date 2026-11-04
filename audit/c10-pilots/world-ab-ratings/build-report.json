@@ -1,0 +1,432 @@
+[
+ {
+  "id": "P01",
+  "frames": [
+   185,
+   408,
+   661
+  ],
+  "total": 727,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "phone": "table:everyman"
+    },
+    "after": {
+     "phone": "table:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman pickup phone"
+    ],
+    "before": {
+     "phone": "table:everyman"
+    },
+    "after": {
+     "phone": "hand:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "phone": "hand:everyman"
+    },
+    "after": {
+     "phone": "hand:everyman"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P02",
+  "frames": [
+   297,
+   553,
+   798
+  ],
+  "total": 862,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [
+     "everyman hang sword"
+    ],
+    "before": {
+     "sword": "hand:everyman"
+    },
+    "after": {
+     "sword": "wall:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman pickup sword"
+    ],
+    "before": {
+     "sword": "wall:everyman"
+    },
+    "after": {
+     "sword": "hand:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "sword": "hand:everyman"
+    },
+    "after": {
+     "sword": "hand:everyman"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P03",
+  "frames": [
+   176,
+   406,
+   642
+  ],
+  "total": 701,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "box": "hand:everyman"
+    },
+    "after": {
+     "box": "hand:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman drop box"
+    ],
+    "before": {
+     "box": "hand:everyman"
+    },
+    "after": {
+     "box": "floor:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "box": "floor:everyman"
+    },
+    "after": {
+     "box": "floor:everyman"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P04",
+  "frames": [
+   207,
+   480,
+   762
+  ],
+  "total": 833,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [
+     "everyman pickup mug"
+    ],
+    "before": {
+     "mug": "table:everyman"
+    },
+    "after": {
+     "mug": "hand:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [],
+    "before": {
+     "mug": "hand:everyman"
+    },
+    "after": {
+     "mug": "hand:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "mug": "hand:everyman"
+    },
+    "after": {
+     "mug": "hand:everyman"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P05",
+  "frames": [
+   209,
+   442,
+   702
+  ],
+  "total": 770,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "notebook": "table:darwin"
+    },
+    "after": {
+     "notebook": "table:darwin"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [],
+    "before": {
+     "notebook": "table:darwin"
+    },
+    "after": {
+     "notebook": "table:darwin"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "notebook": "table:darwin"
+    },
+    "after": {
+     "notebook": "table:darwin"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P06",
+  "frames": [
+   237,
+   540,
+   731
+  ],
+  "total": 770,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "money": "hand:edwin-davis"
+    },
+    "after": {
+     "money": "hand:edwin-davis"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [],
+    "before": {
+     "money": "hand:edwin-davis"
+    },
+    "after": {
+     "money": "hand:edwin-davis"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [
+     "edwin-davis give money -> buffett"
+    ],
+    "before": {
+     "money": "hand:edwin-davis"
+    },
+    "after": {
+     "money": "hand:buffett"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P07",
+  "frames": [
+   133,
+   460,
+   756
+  ],
+  "total": 823,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "bag": "floor:everyman"
+    },
+    "after": {
+     "bag": "floor:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman pickup bag"
+    ],
+    "before": {
+     "bag": "floor:everyman"
+    },
+    "after": {
+     "bag": "hand:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "bag": "hand:everyman"
+    },
+    "after": {
+     "bag": "hand:everyman"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P08",
+  "frames": [
+   125,
+   318,
+   595
+  ],
+  "total": 670,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "card": "hand:everyman"
+    },
+    "after": {
+     "card": "hand:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman give card -> friend"
+    ],
+    "before": {
+     "card": "hand:everyman"
+    },
+    "after": {
+     "card": "hand:friend"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "card": "hand:friend"
+    },
+    "after": {
+     "card": "hand:friend"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P09",
+  "frames": [
+   155,
+   342,
+   542
+  ],
+  "total": 593,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "book": "hand:reader"
+    },
+    "after": {
+     "book": "hand:reader"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "reader place book"
+    ],
+    "before": {
+     "book": "hand:reader"
+    },
+    "after": {
+     "book": "table:reader"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "book": "table:reader"
+    },
+    "after": {
+     "book": "table:reader"
+    }
+   }
+  ]
+ },
+ {
+  "id": "P10",
+  "frames": [
+   176,
+   473,
+   763
+  ],
+  "total": 833,
+  "worldTrace": [
+   {
+    "beat": 0,
+    "deeds": [],
+    "before": {
+     "phone": "hand:everyman"
+    },
+    "after": {
+     "phone": "hand:everyman"
+    }
+   },
+   {
+    "beat": 1,
+    "deeds": [
+     "everyman place phone"
+    ],
+    "before": {
+     "phone": "hand:everyman"
+    },
+    "after": {
+     "phone": "table:everyman"
+    }
+   },
+   {
+    "beat": 2,
+    "deeds": [],
+    "before": {
+     "phone": "table:everyman"
+    },
+    "after": {
+     "phone": "table:everyman"
+    }
+   }
+  ]
+ }
+]
