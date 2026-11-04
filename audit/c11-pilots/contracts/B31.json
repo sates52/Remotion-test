@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B31","type":"F","representation":"concept-model",
+"understanding":"The expectation of helplessness was carried from the first room into the second, and the person did not move.",
+"evidence":"They carried the cognitive expectation of helplessness from the first room directly into the second.",
+"before":"helplessness in the first room, a person at the second room","transformation":"the helplessness is carried from the first room into the second, then the person goes blank",
+"after":"helplessness sits at the second room, the person blank",
+"camera":{"framing":"wide-locked","purpose":"both rooms and the person in one frame to see the carry-over"},
+"entities":[{"id":"r1","kind":"object","glyph":"door","label":"first room"},{"id":"h","kind":"object","glyph":"chains","label":"helplessness"},{"id":"r2","kind":"object","glyph":"door","label":"second room"},{"id":"p","kind":"person","mood":"neutral"}],
+"events":[{"at":0.3,"cause":"r1","effects":[{"entity":"h","moveTo":"r2"}]},{"at":0.6,"cause":"h","effects":[{"entity":"p","mood":"blank"}]}],
+"required":["the two rooms","helplessness moving between them","the blank person"],"omitted":["moving their hand"]}

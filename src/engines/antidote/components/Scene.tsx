@@ -374,7 +374,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       <AbsoluteFill style={t.style}>
         <Backdrop bg={bg} cam={camera({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, local, scene.durationFrames)} />
         <Sequence from={transIn} layout="none" name="semantic">
-          <SemanticStage spec={scene.semantic as SemanticCompiled} accent={accent} ink={ink} cast={cast} />
+          <SemanticStage spec={scene.semantic as SemanticCompiled} accent={accent.toLowerCase() !== ink.toLowerCase() ? accent : "#E23B57"} ink={ink} cast={cast} />
         </Sequence>
         {t.overlay}
       </AbsoluteFill>

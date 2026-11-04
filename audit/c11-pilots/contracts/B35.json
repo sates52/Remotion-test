@@ -1,0 +1,46 @@
+{
+ "schema": "semantic-director/1",
+ "beat": "B35",
+ "understanding": "The setting is a weekly corporate status meeting where you sit.",
+ "evidence": "you are sitting in a weekly corporate status meeting.",
+ "type": "G",
+ "representation": "environment",
+ "before": "a professional and a manager at a meeting",
+ "transformation": "none",
+ "after": "same",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "both people and the meeting together"
+ },
+ "entities": [
+  {
+   "id": "you",
+   "kind": "person",
+   "cast": "everyman",
+   "mood": "neutral",
+   "label": "you"
+  },
+  {
+   "id": "boss",
+   "kind": "person",
+   "cast": "boss",
+   "mood": "neutral"
+  },
+  {
+   "id": "m",
+   "kind": "object",
+   "glyph": "work",
+   "label": "meeting"
+  }
+ ],
+ "events": [],
+ "required": [
+  "the professional",
+  "the manager",
+  "the meeting"
+ ],
+ "omitted": [
+  "fluorescent lights",
+  "pitch"
+ ]
+}

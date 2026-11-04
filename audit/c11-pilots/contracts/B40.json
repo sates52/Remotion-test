@@ -1,0 +1,49 @@
+{
+ "schema": "semantic-director/1",
+ "beat": "B40",
+ "understanding": "His devotion to her overrode his moral compass.",
+ "evidence": "Love can make a person willingly, proactively embrace corruption. Pip didn't have to drag him kicking and screaming. His devotion to her completely overrode his moral compass.",
+ "type": "B",
+ "representation": "cause-pause-effect",
+ "before": "a heart labelled devotion beside a full moral compass tank",
+ "transformation": "devotion drains the moral compass",
+ "after": "the compass tank nearly empty, old level dashed",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "devotion and compass in one frame so the override reads as caused"
+ },
+ "entities": [
+  {
+   "id": "d",
+   "kind": "object",
+   "glyph": "heart",
+   "label": "devotion"
+  },
+  {
+   "id": "mc",
+   "kind": "stock",
+   "label": "moral compass",
+   "value": 0.9
+  }
+ ],
+ "events": [
+  {
+   "at": 0.3,
+   "cause": "d",
+   "effects": [
+    {
+     "entity": "mc",
+     "value": 0.1
+    }
+   ]
+  }
+ ],
+ "required": [
+  "the heart",
+  "the compass level falling"
+ ],
+ "omitted": [
+  "Pip",
+  "the dark"
+ ]
+}

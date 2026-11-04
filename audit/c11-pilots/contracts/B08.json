@@ -1,0 +1,58 @@
+{
+ "understanding": "Julian was chosen for the room with Darrow because he was kind.",
+ "evidence": "Julian was chosen to be locked in the room with Darrow precisely because Julian was kind",
+ "type": "B",
+ "representation": "cause-pause-effect",
+ "before": "Darrow alone beside a kindness icon",
+ "transformation": "kindness causes Julian to be placed in the room",
+ "after": "Julian stands beside Darrow",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "kindness, Julian and Darrow together so the choice reads as caused by kindness"
+ },
+ "entities": [
+  {
+   "id": "k",
+   "kind": "object",
+   "glyph": "heart",
+   "label": "kind"
+  },
+  {
+   "id": "j",
+   "kind": "person",
+   "cast": "julian",
+   "mood": "neutral",
+   "label": "Julian",
+   "present": false
+  },
+  {
+   "id": "d",
+   "kind": "person",
+   "cast": "darrow",
+   "mood": "neutral",
+   "label": "Darrow"
+  }
+ ],
+ "events": [
+  {
+   "at": 0.35,
+   "cause": "k",
+   "effects": [
+    {
+     "entity": "j",
+     "present": true
+    }
+   ]
+  }
+ ],
+ "required": [
+  "kindness icon",
+  "Julian appearing beside Darrow"
+ ],
+ "omitted": [
+  "Mickey",
+  "no ambition"
+ ],
+ "schema": "semantic-director/1",
+ "beat": "B08"
+}

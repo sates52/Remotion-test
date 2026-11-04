@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B21","type":"C","representation":"before-after",
+"understanding":"The talent eventually leaves, so few people remain.",
+"evidence":"Eventually, the talent just leaves, right?",
+"before":"a full row of ten figures labelled talent","transformation":"over time the talent leaves",
+"after":"only a few figures remain, the full row dashed",
+"camera":{"framing":"wide-locked","purpose":"one row so before and after read together"},
+"entities":[{"id":"t","kind":"group","label":"talent","value":1}],
+"events":[{"at":0.45,"cause":"t","effects":[{"entity":"t","value":0.2}]}],
+"required":["the full row","the shrunken row"],"omitted":["they win","human cost"]}

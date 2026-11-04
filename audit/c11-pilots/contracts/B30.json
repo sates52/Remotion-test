@@ -1,0 +1,38 @@
+{
+ "schema": "semantic-director/1",
+ "beat": "B30",
+ "understanding": "Sethe is at the absolute end of her physical endurance.",
+ "evidence": "She is at the absolute end of her physical endurance.",
+ "type": "G",
+ "representation": "environment",
+ "before": "Sethe beside a nearly empty endurance tank",
+ "transformation": "none",
+ "after": "same",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "Sethe and her endurance level together"
+ },
+ "entities": [
+  {
+   "id": "s",
+   "kind": "person",
+   "cast": "sethe",
+   "mood": "neutral",
+   "label": "Sethe"
+  },
+  {
+   "id": "e",
+   "kind": "stock",
+   "label": "endurance",
+   "value": 0.05
+  }
+ ],
+ "events": [],
+ "required": [
+  "Sethe",
+  "the almost empty endurance tank"
+ ],
+ "omitted": [
+  "Amy Denver finding her"
+ ]
+}

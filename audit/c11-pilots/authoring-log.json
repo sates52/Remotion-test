@@ -1,0 +1,23 @@
+{
+ "authors": "5 fresh sonnet agents, 8 beats each (interleaved ids), inputs: director-spec.md + in-N.json (prev / narration / next, cast list, A scene set + cast); no answer key, no image, no code",
+ "pass1": {
+  "compiled": 32,
+  "invalid": 8,
+  "errors": {
+   "camera.purpose missing (type H)": 7,
+   "label not narration words (B26)": 1,
+   "type B evidence without causal link (B32)": 1
+  }
+ },
+ "fixPass": "one compile-fix pass per failing author with the compiler errors only (B06 B11 B26 / B32 / B09 B14 B24 B39); all 40 compile",
+ "technicalCheck": "3 SYNTHETIC contracts on non-benchmark scenes (T01-T03, invented narration) rendered before any benchmark B render; fixes: cause accent = ink when bg.accent is the only colour (now distinct), a moved object landed on the receiver and its label collided (now beside, label at the ghost). No benchmark strip seen.",
+ "typeMix": {
+  "B": 10,
+  "H": 18,
+  "A": 4,
+  "C": 3,
+  "G": 3,
+  "D": 1,
+  "F": 1
+ }
+}

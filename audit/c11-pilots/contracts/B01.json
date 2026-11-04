@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B01","type":"B","representation":"cause-pause-effect",
+"understanding":"If the secret gets out, the whole society is destroyed.",
+"evidence":"if the secret gets out, the entire society burns",
+"before":"a secret beside a full society of ten figures","transformation":"the secret gets out and the society burns",
+"after":"almost no figures of the society remain, the full row dashed",
+"camera":{"framing":"wide-locked","purpose":"secret and society in one frame so the loss reads as caused by the secret"},
+"entities":[{"id":"s","kind":"object","glyph":"letter","label":"secret"},{"id":"soc","kind":"group","label":"society","value":1}],
+"events":[{"at":0.4,"cause":"s","effects":[{"entity":"soc","value":0.1}]}],
+"required":["the secret","the society row shrinking"],"omitted":["Apollo's warning","drafters","golds watching from orbit"]}

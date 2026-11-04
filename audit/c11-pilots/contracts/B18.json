@@ -1,0 +1,57 @@
+{
+ "understanding": "The professor reports Elizabeth to the disciplinary committee for plagiarism.",
+ "evidence": "this same professor formally reports her to the disciplinary committee for plagiarism",
+ "type": "A",
+ "representation": "cause-pause-effect",
+ "before": "a professor and Elizabeth, no committee",
+ "transformation": "the professor reports her; a committee appears",
+ "after": "the committee is present beside Elizabeth",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "professor, Elizabeth and the committee together"
+ },
+ "entities": [
+  {
+   "id": "pr",
+   "kind": "person",
+   "mood": "neutral",
+   "label": "professor"
+  },
+  {
+   "id": "e",
+   "kind": "person",
+   "cast": "elizabeth",
+   "mood": "neutral",
+   "label": "Elizabeth"
+  },
+  {
+   "id": "c",
+   "kind": "object",
+   "glyph": "law",
+   "label": "disciplinary committee",
+   "present": false
+  }
+ ],
+ "events": [
+  {
+   "at": 0.35,
+   "cause": "pr",
+   "effects": [
+    {
+     "entity": "c",
+     "present": true
+    }
+   ]
+  }
+ ],
+ "required": [
+  "professor",
+  "committee appearing"
+ ],
+ "omitted": [
+  "3 days",
+  "oral exams"
+ ],
+ "schema": "semantic-director/1",
+ "beat": "B18"
+}

@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B36","type":"B","representation":"cause-pause-effect",
+"understanding":"Darrow fears the truth because it demands action, so he puts the blinders back on.",
+"evidence":"He wants to put the blinders back on because acknowledging the truth demands action",
+"before":"Darrow calm beside the truth, no blinders","transformation":"the truth frightens Darrow, and he puts the blinders on",
+"after":"Darrow afraid with blinders now present",
+"camera":{"framing":"wide-locked","purpose":"truth, Darrow and blinders in one frame"},
+"entities":[{"id":"t","kind":"object","glyph":"lightbulb","label":"truth"},{"id":"d","kind":"person","cast":"darrow","label":"Darrow","mood":"neutral"},{"id":"bl","kind":"object","glyph":"mask","label":"blinders","present":false}],
+"events":[{"at":0.25,"cause":"t","effects":[{"entity":"d","mood":"afraid"}]},{"at":0.55,"cause":"d","effects":[{"entity":"bl","present":true}]}],
+"required":["the truth","Darrow's fear","the blinders appearing"],"omitted":["certain death","action against the golds"]}

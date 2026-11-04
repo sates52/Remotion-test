@@ -102,7 +102,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
   const at = (id: string) => {
     const p = pos[id], s = st[id];
     if (!p || !s || !s.moveTo || !pos[s.moveTo]) return p;
-    const q = pos[s.moveTo], dest = { x: q.x + 150 * q.s, y: q.y + 40 * q.s };
+    const q = pos[s.moveTo], dest = { x: q.x + 200 * q.s, y: q.y + 70 * q.s }; // beside the receiver, not on them
     return { x: p.x + (dest.x - p.x) * s.moveK, y: p.y + (dest.y - p.y) * s.moveK, s: p.s };
   };
   return (
@@ -175,7 +175,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
               <g key={e.id}>
                 {moved || gone ? <rect x={p.x - r} y={p.y - r} width={2 * r} height={2 * r} rx={30} fill="none" stroke={ink} strokeWidth={5} strokeDasharray="14 12" opacity={0.75} /> : null}
                 {moved ? <line x1={p.x} y1={p.y} x2={q.x} y2={q.y} stroke={ink} strokeWidth={5} strokeDasharray="2 14" strokeLinecap="round" opacity={0.7} /> : null}
-                <Label x={moved ? q.x : p.x} y={(moved ? q.y : p.y) + r + 50 * p.s} text={e.label} ink={ink} s={p.s} />
+                <Label x={p.x} y={p.y + r + 50 * p.s} text={e.label} ink={ink} s={p.s} />
               </g>
             );
           }
@@ -199,7 +199,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
             return (
               <AbsoluteFill key={e.id}>
                 <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, opacity: s.vis }}>
-                  <g transform={`translate(${q.x} ${q.y}) scale(${3.2 * p.s})`}><HeldProp prop={e.glyph as HandProp} ink={ink} accent={acc} /></g>
+                  <g transform={`translate(${q.x} ${q.y}) scale(${3.2 * p.s * (1 - 0.3 * (s.moveTo ? s.moveK : 0))})`}><HeldProp prop={e.glyph as HandProp} ink={ink} accent={acc} /></g>
                 </svg>
                 {crack}
               </AbsoluteFill>
@@ -208,7 +208,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
           return (
             <AbsoluteFill key={e.id}>
               <AbsoluteFill style={{ opacity: s.vis }}>
-                <Motif spec={{ type: e.glyph, x: q.x, y: q.y, scale: SIZE.icon * p.s, at: 0, enter: "none", arc: "none" } as any} accent={acc} ink={ink} />
+                <Motif spec={{ type: e.glyph, x: q.x, y: q.y, scale: SIZE.icon * p.s * (1 - 0.3 * (s.moveTo ? s.moveK : 0)), at: 0, enter: "none", arc: "none" } as any} accent={acc} ink={ink} />
               </AbsoluteFill>
               {crack}
             </AbsoluteFill>

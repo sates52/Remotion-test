@@ -1,0 +1,43 @@
+{
+ "understanding": "The Lumnos Council room is full of arguing and panicking elites.",
+ "evidence": "The Lumnos Council is arguing. The elites are panicking.",
+ "type": "G",
+ "representation": "environment",
+ "before": "a council room with angry and panicked people",
+ "transformation": "nothing changes",
+ "after": "the same tense room",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "the council and the elites in one room"
+ },
+ "entities": [
+  {
+   "id": "r",
+   "kind": "object",
+   "glyph": "law",
+   "label": "Lumnos Council"
+  },
+  {
+   "id": "a",
+   "kind": "person",
+   "mood": "angry",
+   "label": "council"
+  },
+  {
+   "id": "p",
+   "kind": "person",
+   "mood": "afraid",
+   "label": "elites"
+  }
+ ],
+ "events": [],
+ "required": [
+  "council icon",
+  "angry and afraid faces"
+ ],
+ "omitted": [
+  "Luther's entrance"
+ ],
+ "schema": "semantic-director/1",
+ "beat": "B33"
+}

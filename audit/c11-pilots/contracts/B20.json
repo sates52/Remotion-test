@@ -1,0 +1,50 @@
+{
+ "schema": "semantic-director/1",
+ "beat": "B20",
+ "understanding": "When mom tells the story to the kids, they end up laughing.",
+ "evidence": "when mom tells the story to the kids, they always end up laughing",
+ "type": "B",
+ "representation": "cause-pause-effect",
+ "before": "mom and a kid, kid neutral",
+ "transformation": "mom tells the story and the kid starts laughing",
+ "after": "the kid is happy, neutral face dashed",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "mom and kid in one frame so laughter reads as caused by the telling"
+ },
+ "entities": [
+  {
+   "id": "mom",
+   "kind": "person",
+   "cast": "isabel",
+   "mood": "neutral",
+   "label": "mom"
+  },
+  {
+   "id": "kid",
+   "kind": "person",
+   "cast": "via",
+   "mood": "neutral",
+   "label": "kids"
+  }
+ ],
+ "events": [
+  {
+   "at": 0.3,
+   "cause": "mom",
+   "effects": [
+    {
+     "entity": "kid",
+     "mood": "happy"
+    }
+   ]
+  }
+ ],
+ "required": [
+  "mom",
+  "the kid face changing to happy"
+ ],
+ "omitted": [
+  "the harrowing events"
+ ]
+}

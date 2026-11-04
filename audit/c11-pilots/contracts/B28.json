@@ -1,0 +1,49 @@
+{
+ "understanding": "Compressing meetings into fewer days bottlenecks the burden and causes burnout on Thursday.",
+ "evidence": "you are just bottlenecking it and causing massive burnout on Thursday",
+ "type": "B",
+ "representation": "cause-pause-effect",
+ "before": "a burden icon beside a low burnout tank",
+ "transformation": "the compressed burden fills the burnout tank",
+ "after": "burnout tank nearly full, old level dashed",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "burden and burnout in one frame"
+ },
+ "entities": [
+  {
+   "id": "b",
+   "kind": "object",
+   "glyph": "notes",
+   "label": "burden"
+  },
+  {
+   "id": "s",
+   "kind": "stock",
+   "label": "burnout",
+   "value": 0.2
+  }
+ ],
+ "events": [
+  {
+   "at": 0.35,
+   "cause": "b",
+   "effects": [
+    {
+     "entity": "s",
+     "value": 0.9
+    }
+   ]
+  }
+ ],
+ "required": [
+  "burden icon",
+  "burnout level rising"
+ ],
+ "omitted": [
+  "fewer days",
+  "deep work"
+ ],
+ "schema": "semantic-director/1",
+ "beat": "B28"
+}

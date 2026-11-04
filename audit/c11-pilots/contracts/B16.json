@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B16","type":"B","representation":"cause-pause-effect",
+"understanding":"Without kicking things around with colleagues, you lose your bearing on what problems matter.",
+"evidence":"If you don't kick things around in the cafeteria or the faculty lounge, you lose your bearing on what problems actually matter",
+"before":"a person beside a cafeteria with a mostly full bearing tank","transformation":"the person stays away and the bearing drains",
+"after":"the bearing tank is nearly empty, its old level dashed",
+"camera":{"framing":"wide-locked","purpose":"person, cafeteria and bearing together so the loss is read as caused by staying away"},
+"entities":[{"id":"p","kind":"person","label":"you","mood":"neutral"},{"id":"c","kind":"object","glyph":"coffee","label":"cafeteria"},{"id":"b","kind":"stock","label":"bearing","value":0.9}],
+"events":[{"at":0.4,"cause":"p","effects":[{"entity":"b","value":0.1}]}],
+"required":["the person apart from the cafeteria","the bearing level falling"],"omitted":["faculty lounge","the domain"]}

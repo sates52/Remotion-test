@@ -1,0 +1,51 @@
+{
+ "understanding": "Unseen traffic patterns add friction to the commute and drive you crazy.",
+ "evidence": "add 40 minutes of friction to your daily commute which will drive you crazy",
+ "type": "B",
+ "representation": "cause-pause-effect",
+ "before": "a calm person beside a traffic icon",
+ "transformation": "the traffic patterns add friction and the person's face turns angry",
+ "after": "the person is angry",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "traffic and the commuter in one frame"
+ },
+ "entities": [
+  {
+   "id": "t",
+   "kind": "object",
+   "glyph": "road",
+   "label": "traffic patterns"
+  },
+  {
+   "id": "p",
+   "kind": "person",
+   "cast": "everyman",
+   "mood": "neutral",
+   "label": "The Listener"
+  }
+ ],
+ "events": [
+  {
+   "at": 0.35,
+   "cause": "t",
+   "effects": [
+    {
+     "entity": "p",
+     "mood": "angry"
+    }
+   ]
+  }
+ ],
+ "required": [
+  "road icon",
+  "face changing"
+ ],
+ "omitted": [
+  "tax economy",
+  "zoning",
+  "40 minutes"
+ ],
+ "schema": "semantic-director/1",
+ "beat": "B13"
+}

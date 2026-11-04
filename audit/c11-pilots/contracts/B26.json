@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"B26","type":"A","representation":"cause-pause-effect",
+"understanding":"Graham dug through the records and found railroad bonds the company held.",
+"evidence":"Graham had dug through the Interstate Commerce Commission records and realized that on top of its pipeline business",
+"before":"Graham beside the records, nothing else","transformation":"Graham digs through the records and the bonds are found",
+"after":"the railroad bonds now appear beside the records",
+"camera":{"framing":"wide-locked","purpose":"Graham, records and bonds together"},
+"entities":[{"id":"g","kind":"person","cast":"benjamin-graham","label":"Graham","mood":"neutral"},{"id":"r","kind":"object","glyph":"notes","label":"records"},{"id":"bd","kind":"object","glyph":"coin","label":"portfolio","present":false}],
+"events":[{"at":0.4,"cause":"g","effects":[{"entity":"bd","present":true}]}],
+"required":["Graham","the records","the bonds appearing"],"omitted":["pipeline business","the bonds' value"]}
