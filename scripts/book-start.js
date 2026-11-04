@@ -132,7 +132,7 @@ if (args.launcher) {
   if (git(["checkout", "--detach", "--quiet", ORIGIN], L) === null) { err(`ERROR --launcher: git checkout in ${L} failed`); process.exit(1); }
   out(`OK launcher ${L} -> ${ORIGIN.slice(0, 8)}${reg.locked ? " (still locked)" : ""}. Run current tools there, e.g.:`);
   out(`   cd "${L}" && node scripts/render-status.js --slug=<slug> --book-root="<the checkout that holds the book>"`);
-  out(`   cd "${L}" && node scripts/render-deliver.js --slug=<slug> --book-root="<the book's worktree>"   (after the operator's GO: dispatch → verified MP4, one command)`);
+  out(`   cd "${L}" && node scripts/render-deliver.js --slug=<slug> --book-root="<the book's worktree>"   (after the operator's GO: dispatch -> verified MP4, one command)`);
   hazards();
   process.exit(0);
 }
