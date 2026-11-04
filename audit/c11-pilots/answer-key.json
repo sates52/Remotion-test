@@ -1,0 +1,711 @@
+{
+ "schema": "c11-answer-key/1",
+ "frozen": "written by 5 fresh sonnet agents from narration (+prev/next beat) only, before any director authoring, render or rating; merged unedited",
+ "items": [
+  {
+   "id": "B01",
+   "understanding": "Apollo warns Darrow that if the drafters (powerful golds watching from orbit) learn the Institute was rigged, the whole society collapses, which is why the cheating is a fragile secret.",
+   "cause": "The secret of the rigged games getting out to the drafters",
+   "effect": "The entire society burns (civil war, per the next line)",
+   "keyFacts": [
+    "Cheating is a fragile secret",
+    "Drafters are powerful golds watching from orbit",
+    "If it gets out, society burns",
+    "Apollo warns Darrow explicitly"
+   ],
+   "wrong": [
+    "Apollo is threatening to kill Darrow and hide the body",
+    "The golds are celebrating the games",
+    "The secret is about Darrow's own origin only"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B02",
+   "understanding": "A blunt shouted 'no' at a stared-at colleague is contrasted with a softer, nuanced way of delivering a refusal, so you can cancel without being socially abrasive.",
+   "cause": "none stated",
+   "effect": "none stated (claim: a refusal can be delivered with nuance instead of a harsh flat no)",
+   "keyFacts": [
+    "there is nuance in how the cancellation is delivered",
+    "you don't have to literally shout no",
+    "no staring blankly at your colleague",
+    "a softer way is needed"
+   ],
+   "wrong": [
+    "You should shout no at colleagues",
+    "Saying no is always rude and should be avoided",
+    "Cancellations should be silent"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B03",
+   "understanding": "Because the king is magically bonded to the queen, he ties the survival of all half mortals to her reign, a wager where if she falls his whole people fall with her.",
+   "cause": "His magical bond to her",
+   "effect": "He stakes all half mortals' survival on her reign",
+   "keyFacts": [
+    "He is bonded to her",
+    "He ties half mortals' survival to her reign",
+    "It is a terrifying wager",
+    "If she falls, they all burn"
+   ],
+   "wrong": [
+    "He is abandoning her to save his people",
+    "The half mortals are choosing to rebel against her",
+    "The bond protects her from any danger"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B04",
+   "understanding": "A person texts 'sure' to a friend's painting request not because they want to paint, but because agreeing gives a quick dopamine hit and relieves the immediate anxiety of the request.",
+   "cause": "The urge to get a dopamine hit and relieve immediate anxiety",
+   "effect": "Texting 'sure' back (saying yes) to the painting request",
+   "keyFacts": [
+    "texting 'sure' back",
+    "not because they want to paint a living room",
+    "done for a dopamine hit",
+    "to relieve immediate anxiety"
+   ],
+   "wrong": [
+    "The person eagerly wants to help paint the living room",
+    "The person says yes out of generosity toward a friend",
+    "The person says no and feels relieved"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B05",
+   "understanding": "A second speaker interrupts to push back on the claim that Pip's intellect is useless against a psychopath, signalling that her brain actually did help her in the warehouse.",
+   "cause": "none stated",
+   "effect": "none stated (the speaker begins to contest the point; the payoff comes in the next line: deduction helped her in the warehouse)",
+   "keyFacts": [
+    "Speaker interjects / disagrees",
+    "Claim: her intellect is useless against his psychopathy",
+    "Counter: her brain did help her"
+   ],
+   "wrong": [
+    "Her intellect is useless and she is helpless against him",
+    "The two speakers agree that logic cannot work on him",
+    "Pip is being interrupted by the killer"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B06",
+   "understanding": "The goal of the lesson is to avoid becoming the clueless character Stewart, and to do that the speakers will build a translation matrix of behavior types.",
+   "cause": "none stated",
+   "effect": "none stated (goal: not becoming Stewart; plan: build a translation matrix)",
+   "keyFacts": [
+    "Do not become Stewart",
+    "A translation matrix will be constructed today",
+    "Based on Thomas Ericson's framework"
+   ],
+   "wrong": [
+    "Stewart is a role model to copy",
+    "The matrix is a financial spreadsheet",
+    "The matrix is about translating foreign languages"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B07",
+   "understanding": "A home thermostat/heating system is shown as a balancing loop that is really two competing balancing loops pulling against each other.",
+   "cause": "none stated (two competing balancing loops)",
+   "effect": "none stated (claim: the heating system is a battle between two balancing loops)",
+   "keyFacts": [
+    "home heating system is a classic balancing loop",
+    "actually two competing balancing loops",
+    "a battle between them",
+    "digital thermostat example"
+   ],
+   "wrong": [
+    "A thermostat is a single simple on/off switch",
+    "The heating system is a runaway reinforcing loop",
+    "The thermostat only cools the house"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B08",
+   "understanding": "Julian was picked to be locked in the room with Darrow because he was kind and had no ambition, which marks him as the one the system would sacrifice.",
+   "cause": "Julian's kindness and lack of ambition",
+   "effect": "He was chosen to be locked in the room with Darrow",
+   "keyFacts": [
+    "Mickey notes the choice",
+    "Julian was kind",
+    "Julian had no ambition",
+    "Locked in the room with Darrow"
+   ],
+   "wrong": [
+    "Julian was chosen as the strongest, most ambitious candidate",
+    "Julian and Darrow were rewarded together",
+    "Julian was chosen at random"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B09",
+   "understanding": "Dogs previously trained that doing nothing equals safety would, by the behaviorist argument, be expected to freeze passively in the shuttle box where jumping the barrier is the only escape from shock.",
+   "cause": "Prior training that doing nothing equals safety",
+   "effect": "Predicted (by the behaviorist argument) that the dogs would fuse to the floor and stay passive",
+   "keyFacts": [
+    "dogs trained that doing nothing equals safety",
+    "moved to the shuttle box",
+    "behaviorist prediction: they should fuse to the floor",
+    "Meyer's experiment sets up a twist"
+   ],
+   "wrong": [
+    "The dogs immediately jump the barrier to escape",
+    "The dogs were trained to jump and are active",
+    "Dogs are being rewarded with food for staying still"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B10",
+   "understanding": "Contrast between temporary causes (a fixable mistake that gives you an action item) and permanent causes ('I am inherently flawed'), which paralyze you.",
+   "cause": "Explaining failure with a permanent cause (I am inherently flawed, I lack genetic charisma)",
+   "effect": "paralysis, while temporary causes give you something to do",
+   "keyFacts": [
+    "Temporary causes give an action item",
+    "Permanent causes: 'I am inherently flawed', 'I lack genetic charisma'",
+    "Permanent causes paralyze you"
+   ],
+   "wrong": [
+    "Blaming yourself for specific mistakes is what paralyzes you",
+    "Permanent causes are the more realistic explanation",
+    "Temporary causes make failure feel less honest or not your fault"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B11",
+   "understanding": "Observing a person is just finding their frequency, like tuning a radio, and once found the real work of adapting how you communicate begins.",
+   "cause": "Identifying the other person's frequency (observation)",
+   "effect": "Makes the real work of adapting your transmission possible",
+   "keyFacts": [
+    "Observation is the first step of translation",
+    "Like tuning a radio to a frequency",
+    "Real work begins after identifying the frequency"
+   ],
+   "wrong": [
+    "Observation means stereotyping people",
+    "Tuning in is the whole job and nothing else is needed",
+    "The advice is about fixing a radio"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B12",
+   "understanding": "The schoolteacher is shown as an accountant who prices enslaved people like goods, seeing commodities rather than souls, while Paul D cannot even price his own brother.",
+   "cause": "none stated (schoolteacher's accounting view of people)",
+   "effect": "none stated (claim: he sees commodities, not souls)",
+   "keyFacts": [
+    "schoolteacher knew the worth of everything",
+    "ultimate accountant of this horror",
+    "doesn't see souls",
+    "Paul D doesn't know his brother's market value"
+   ],
+   "wrong": [
+    "The schoolteacher is a kind educator",
+    "Paul D is a trader who profits from prices",
+    "The scene is about a school lesson in math"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B13",
+   "understanding": "Unseen local factors like zoning changes, tax shifts and traffic patterns add 40 minutes of commute friction to a house purchase that the buyer did not factor in.",
+   "cause": "Unseen variables: zoning, local tax economy, traffic patterns",
+   "effect": "40 extra minutes of daily commute that will drive the buyer crazy",
+   "keyFacts": [
+    "Shifting local tax economy",
+    "Traffic patterns",
+    "40 minutes of added commute friction",
+    "Unseen variables"
+   ],
+   "wrong": [
+    "The house is cheap and convenient to commute from",
+    "The buyer has fully considered all factors",
+    "Taxes will fall and commuting will get shorter"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B14",
+   "understanding": "Better sonar, bigger nets and onboard freezing let boats stay out for months and catch fish more efficiently, so the industry assumes it can keep growing because the fish keep breeding.",
+   "cause": "Improved fishing technology (sonar, nets, freezing, longer trips)",
+   "effect": "More efficient catching and continued economic growth of the industry, on the assumption fish keep breeding",
+   "keyFacts": [
+    "better sonar, bigger nets, onboard freezing",
+    "boats stay out for months instead of days",
+    "catch fish more efficiently",
+    "fish keep breeding (stated assumption)"
+   ],
+   "wrong": [
+    "Fishing is declining because of new technology",
+    "Fish stocks are collapsing right now",
+    "Boats stay out shorter times"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B15",
+   "understanding": "Balancing loops pull toward a goal and reinforcing loops snowball out of control, but relying on these feedback loops to save a system has a fatal flaw that is posed as a question.",
+   "cause": "none stated (the flaw is only announced, not yet explained)",
+   "effect": "reinforcing loops snowball out of control; the flaw in feedback loops is teased",
+   "keyFacts": [
+    "Reinforcing loops snowball out of control",
+    "Feedback loops have a fatal flaw",
+    "The flaw is posed as a question"
+   ],
+   "wrong": [
+    "Feedback loops reliably save any system",
+    "Balancing loops are the ones that snowball",
+    "The flaw has already been explained"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B16",
+   "understanding": "Without chatting ideas around in the cafeteria or faculty lounge, a creator loses sense of which problems matter to the field and may drift off course.",
+   "cause": "Not kicking ideas around with colleagues",
+   "effect": "Losing your bearing on which problems matter to the domain",
+   "keyFacts": [
+    "Cafeteria or faculty lounge conversations",
+    "Lose your bearing on important problems",
+    "Problem finding is social",
+    "Risk of solving an irrelevant problem"
+   ],
+   "wrong": [
+    "Isolation makes creators more productive",
+    "Cafeteria talk is a distraction from work",
+    "Colleagues steal your ideas"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B17",
+   "understanding": "When two deep values clash, instead of picking one and crushing the other, the conflict makes you widen the map of options before choosing.",
+   "cause": "irreconcilable deep values in conflict",
+   "effect": "you widen the map (find more options) before choosing, rather than forcing a binary choice",
+   "keyFacts": [
+    "deep values are irreconcilable",
+    "don't force a binary choice that crushes one",
+    "let the conflict force you to widen the map",
+    "widen before you choose"
+   ],
+   "wrong": [
+    "Always pick the higher-weighted value and drop the other",
+    "Avoid deciding altogether",
+    "Modeling gives a single magic number"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B18",
+   "understanding": "Three days before her oral exams, the professor whose ideas she used reports Elizabeth to the disciplinary committee for plagiarism, sabotaging her graduation.",
+   "cause": "The professor's formal plagiarism report against her",
+   "effect": "Her graduation is threatened just before the oral exams",
+   "keyFacts": [
+    "Three days before oral exams",
+    "Same professor reports her",
+    "Disciplinary committee",
+    "Charge is plagiarism"
+   ],
+   "wrong": [
+    "The professor is praising her thesis",
+    "She reports the professor for plagiarism",
+    "She graduates without trouble"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B19",
+   "understanding": "August discovers that Jack, his trusted safe harbor, was only pretending to be his friend and secretly betrayed him to win points with the popular kids, so the safety was an illusion.",
+   "cause": "Jack wearing a mask of friendship to score points with the popular kids",
+   "effect": "August learns his sense of safety was an illusion and feels betrayed",
+   "keyFacts": [
+    "safety was an illusion, a performance",
+    "Jack wore a mask of friendship",
+    "stabbing him in the back",
+    "to score points with popular kids"
+   ],
+   "wrong": [
+    "Jack genuinely defends August against the popular kids",
+    "August betrays Jack",
+    "August is happy to find new friends"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B20",
+   "understanding": "A mother tells the harrowing birth story to the kids and they end up laughing anyway, mixing trauma with dark humor.",
+   "cause": "the mom telling the story to the kids",
+   "effect": "the kids laugh even though the events are genuinely harrowing",
+   "keyFacts": [
+    "Mom tells the birth story to the kids",
+    "The kids laugh",
+    "The events themselves are harrowing"
+   ],
+   "wrong": [
+    "The birth story is funny because nothing bad happened",
+    "The kids are upset and crying at the story",
+    "The story is told by doctors to the parents"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B21",
+   "understanding": "Managers who hit targets by driving people hard win on results while their people lose, and eventually the talent leaves.",
+   "cause": "Winning at the expense of people (burning them out)",
+   "effect": "Human cost and eventually talented people quit",
+   "keyFacts": [
+    "They win but their people lose",
+    "Human cost is staggering",
+    "Eventually the talent leaves"
+   ],
+   "wrong": [
+    "These managers are loved by their teams",
+    "Employees stay and thrive",
+    "Both managers and staff win"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B22",
+   "understanding": "The families are shown as old-money New England WASPs going from earliest-colonist lineage through elite prep school to Harvard, an unofficial aristocracy, unlike newly rich hoodie-wearing tech billionaires.",
+   "cause": "none stated",
+   "effect": "none stated (claim: they view themselves as the unofficial American aristocracy, inherited rather than new money)",
+   "keyFacts": [
+    "kids funneled to Harvard",
+    "view themselves as unofficial aristocracy of the US",
+    "not newly rich tech billionaires in hoodies",
+    "lineage from earliest colonists"
+   ],
+   "wrong": [
+    "They are self-made tech entrepreneurs",
+    "They are poor immigrant families",
+    "They are a Southern farming family"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B23",
+   "understanding": "The narration introduces the temple chaos as a scene showing how the different bonds play out, a clash of mind versus fire.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "keyFacts": [
+    "Different types of bonds manifest",
+    "Chaos at the temple",
+    "Battle of mind versus fire"
+   ],
+   "wrong": [
+    "A peaceful ceremony at the temple",
+    "The bonds are being celebrated",
+    "The war has ended"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B24",
+   "understanding": "Peak productivity works like a wave: successful people surge with effort and then must recover, respecting their biology rather than grinding nonstop.",
+   "cause": "Respecting biology; productivity naturally rises and falls like a wave",
+   "effect": "Surge followed by necessary recovery",
+   "keyFacts": [
+    "he respects his biology",
+    "peak productivity is a wave",
+    "you surge and then you must recover"
+   ],
+   "wrong": [
+    "Successful people work continuously without rest",
+    "Productivity rises steadily in a straight line",
+    "Rest is a sign of laziness"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B25",
+   "understanding": "Cadence has dyed her signature Sinclair blonde hair stark black, as if in mourning without knowing why, after returning with amnesia about the fire.",
+   "cause": "none stated (she is described as in mourning but doesn't know why)",
+   "effect": "her appearance has changed from blonde to stark black hair",
+   "keyFacts": [
+    "Signature Sinclair blonde hair dyed stark black",
+    "Looks like mourning",
+    "She doesn't know why",
+    "Comes after amnesia about the fire"
+   ],
+   "wrong": [
+    "She dyed her hair black because she remembers the fire and grieves",
+    "She is celebrating a new style",
+    "She has kept her blonde Sinclair look"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B26",
+   "understanding": "Graham dug through Interstate Commerce Commission records and found that Northern Pipeline, an unglamorous oil transporter, secretly also held a portfolio of railroad bonds.",
+   "cause": "Graham digging through ICC records",
+   "effect": "Discovery of a hidden bond portfolio beyond the pipeline business",
+   "keyFacts": [
+    "Northern Pipeline is an unglamorous oil transporter",
+    "Graham searched ICC records",
+    "Company held a portfolio of railroad bonds"
+   ],
+   "wrong": [
+    "Northern Pipeline was a glamorous growth company",
+    "The company was going bankrupt",
+    "Graham invented the bonds"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B27",
+   "understanding": "Expensive objects are piled over an emotional hole: the family uses money to cover up grief and trauma, and the book is not merely about snobby rich people.",
+   "cause": "using capital (expensive things) to cover over an emotional crater",
+   "effect": "the trauma and absence are papered over rather than faced",
+   "keyFacts": [
+    "capital used to pave over a gaping emotional crater",
+    "overwriting his existence and memory with expensive objects",
+    "many misread it as just about snobby rich people"
+   ],
+   "wrong": [
+    "The book is simply a satire of snobby rich people",
+    "Money heals the family's grief",
+    "The family is celebrating a purchase"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B28",
+   "understanding": "Meetings are not eliminated by a no-meeting day; the same communication is compressed into fewer days, creating a bottleneck and burnout on Thursday.",
+   "cause": "Compressing the same volume of meetings into fewer days",
+   "effect": "A bottleneck and massive burnout on Thursday",
+   "keyFacts": [
+    "Meetings do not vanish",
+    "Same communication volume compressed into fewer days",
+    "Bottleneck and burnout on Thursday",
+    "A common objection that misunderstands deep work"
+   ],
+   "wrong": [
+    "No-meeting days reduce total meetings and stress",
+    "Meetings truly disappear",
+    "Burnout happens on Wednesday"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B29",
+   "understanding": "The same notes in the lockers land differently: Jack sees them as juvenile jokes like 'You stink, big cheese,' while August experiences them as vicious, targeted hate speech.",
+   "cause": "Julian slipping notes into the boys' lockers",
+   "effect": "Jack reads them as juvenile, August as vicious targeted hate",
+   "keyFacts": [
+    "notes in lockers",
+    "Jack: juvenile stuff, 'You stink, big cheese'",
+    "August: vicious targeted hate speech"
+   ],
+   "wrong": [
+    "Both boys find the notes funny",
+    "The notes are friendly messages",
+    "Jack is the one hurt most by the notes"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B30",
+   "understanding": "Sethe, crawling and at the end of her physical endurance, is found by Amy Denver.",
+   "cause": "Sethe has collapsed from exhaustion after running (implied by context: dead feet, crawling)",
+   "effect": "she is found by Amy Denver",
+   "keyFacts": [
+    "Sethe is in terrible shape",
+    "At absolute end of physical endurance",
+    "Found by Amy Denver"
+   ],
+   "wrong": [
+    "Sethe is safe and resting",
+    "Sethe is being captured by slave catchers",
+    "Sethe finds Amy deliberately and strong"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B31",
+   "understanding": "People who had endured the inescapable noise did not even try the easy hand wave in the second room, carrying learned helplessness over from the first room.",
+   "cause": "Experience of inescapable noise in the first room",
+   "effect": "They did not try to move their hand in the second room (expectation of helplessness carried over)",
+   "keyFacts": [
+    "Moving the hand took almost no effort",
+    "Most just sat there",
+    "Expectation of helplessness carried from room one to two"
+   ],
+   "wrong": [
+    "They could not physically move their hands",
+    "They did not notice the noise",
+    "They were lazy by nature"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B32",
+   "understanding": "The Misfit, once believing meanness was the only honest response to a godless world, now finds even meanness gives him no pleasure because the grandmother's touch of grace changed him.",
+   "cause": "the grandmother's act of grace, touching him",
+   "effect": "his nihilistic philosophy is overturned and even meanness no longer pleases him",
+   "keyFacts": [
+    "before: no pleasure but meanness",
+    "meanness was the honest response to a godless universe",
+    "now even meanness gives him no pleasure",
+    "her touch infected him, philosophy undone"
+   ],
+   "wrong": [
+    "The Misfit enjoys violence more than ever",
+    "The grandmother angers him into more cruelty",
+    "The Misfit's philosophy is confirmed"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B33",
+   "understanding": "In the Lumnos Council room the council argues and the elites panic, setting up a tense scene before Luther arrives.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "keyFacts": [
+    "Lumnos Council room",
+    "Council is arguing",
+    "Elites are panicking",
+    "Scene is tense"
+   ],
+   "wrong": [
+    "A calm, orderly council meeting",
+    "A celebration among the elites",
+    "Luther is already leading the room"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B34",
+   "understanding": "When people can immediately see the direct result of their own actions, accurate timely feedback motivates them more than money, so motivation takes care of itself once a baseline pay is met.",
+   "cause": "Seeing the direct result of their actions immediately (accurate, timely feedback)",
+   "effect": "Motivation takes care of itself; feedback motivates more than money",
+   "keyFacts": [
+    "accurate, timely feedback is the number one motivator",
+    "far more than money",
+    "once a baseline is met",
+    "people see direct results of their actions immediately"
+   ],
+   "wrong": [
+    "Money is the strongest motivator",
+    "Employees need constant supervision to stay motivated",
+    "Feedback should be delayed and given annually"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B35",
+   "understanding": "The scene shifts to a practical example: you are sitting in a weekly corporate status meeting, used to show how helplessness plays out.",
+   "cause": "none stated",
+   "effect": "none stated (sets up the scenario to illustrate the anatomy of helplessness)",
+   "keyFacts": [
+    "Practical situation chosen",
+    "Weekly corporate status meeting",
+    "You are the one sitting in it",
+    "Purpose: see the anatomy of helplessness"
+   ],
+   "wrong": [
+    "It is a celebration or a team success story",
+    "A classroom lecture on theory",
+    "A one-on-one job interview"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B36",
+   "understanding": "Darrow prefers the familiar dark mine over the truth because facing the truth demands action against the golds, which means certain death.",
+   "cause": "Truth demands action, and action against the golds means certain death",
+   "effect": "Darrow wants to put the blinders back on and stay in the mine",
+   "keyFacts": [
+    "Darrow prefers the familiar mine to the truth",
+    "Truth demands action",
+    "Action against golds means death",
+    "He wants the blinders back on"
+   ],
+   "wrong": [
+    "Darrow eagerly embraces the truth and rebels",
+    "Darrow is ignorant and never learned the truth",
+    "The golds welcome his action"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B37",
+   "understanding": "Innovation must come from the edges of the company rather than the top of a slow hierarchy, and this is where the protagonist meets a manager doing the seemingly impossible.",
+   "cause": "none stated (old hierarchy is too slow)",
+   "effect": "none stated (claim: innovation happens at the edges; he meets a seemingly impossible manager)",
+   "keyFacts": [
+    "innovation has to happen at the edges of the company",
+    "old hierarchy too slow",
+    "he meets a manager doing what seems impossible"
+   ],
+   "wrong": [
+    "Innovation comes only from top executives",
+    "Hierarchy is the fastest way to decide",
+    "The company is shutting down its edges"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B38",
+   "understanding": "She urges the crowd to love their own bodies part by part, such as hands, liver and heart, instead of giving a generic sermon about self-love.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "keyFacts": [
+    "Love your hands, raise and kiss them",
+    "The dark liver",
+    "A beating heart",
+    "A detailed anatomical ledger of grace"
+   ],
+   "wrong": [
+    "She tells the crowd to hate their bodies",
+    "She gives a vague generic sermon",
+    "She tells them to love only their spirit"
+   ],
+   "supportsCausality": false
+  },
+  {
+   "id": "B39",
+   "understanding": "Legally, the first strike to the back of his head counts as self-defense because he was a threat and she neutralized him, while the second strike as he falls is debatable as heat of the moment.",
+   "cause": "He was a threat; she neutralized him (first strike); second strike as he falls",
+   "effect": "First strike is self-defense; second strike is arguable as heat of the moment",
+   "keyFacts": [
+    "first strike to the back of his head is self-defense",
+    "he was a threat, she neutralized him",
+    "second strike as he falls",
+    "maybe argue heat of the moment"
+   ],
+   "wrong": [
+    "Both strikes are clearly murder",
+    "She was never in danger and the first strike is unjustified",
+    "The man attacked her again after falling"
+   ],
+   "supportsCausality": true
+  },
+  {
+   "id": "B40",
+   "understanding": "Pip's love-driven devotion made Ravi willingly choose to step into corruption with her, not dragged but overriding his own moral compass.",
+   "cause": "love and devotion to Pip overriding his moral compass",
+   "effect": "Ravi proactively embraces corruption and steps into the dark",
+   "keyFacts": [
+    "Love can make a person willingly embrace corruption",
+    "Pip didn't drag him",
+    "His devotion overrode his moral compass",
+    "He chose to step into the dark"
+   ],
+   "wrong": [
+    "Pip forced Ravi at gunpoint to help",
+    "Ravi resisted and refused to take part",
+    "Ravi acted from hatred or greed"
+   ],
+   "supportsCausality": true
+  }
+ ]
+}
