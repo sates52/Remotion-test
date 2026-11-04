@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ dev/c9 part 2 (join repair, P0b A–E, post-delivery records) | `scripts/{repair-joins,render-cloud-assemble,mute-test,mute-reliability,mute-cloud-poc,ai-budget,plan-antidote,verify-render-output,render}.js`, `scripts/lib/{join-repair,mute-ids,judge-binding,render-preflight,mute-verdict,mute-manifest,cloud-assemble}.js`, tests | _(done)_ 2026-11-04: pushed to god-mode | No gate or threshold changed; old seals/results keep their reading; one record appended (Hamnet render-facts). |
 | _(done)_ dev/c9 P0a (render-deliver, dispatch truth, media check) | `scripts/render-deliver.js` (new), `scripts/lib/{deliver,media-verify}.js` (new), `scripts/lib/render-dispatch.js`, `scripts/{render,render-status,render-github-redispatch,render-github-cloud-assemble,verify-render-output,post-render,book-start}.js`, `scripts/test-deliver-chain.js` (new), render-deliver skills, CLAUDE.md, AGENTS.md, contract | _(done)_ 2026-11-03: pushed to god-mode | No book worktree, pin, sealed evidence, gate or threshold touched; real books checked read-only. See the 2026-11-03 cycle 9 entry. |
 | _(done)_ procrastinate-on-purpose | `books/procrastinate-on-purpose/`, `PUBLISHED_BOOKS.md` | ✅ PUBLISHED & CLEANED 2026-11-03 | Antidote; 39.7 min (71,144 frames), 10-way split; YouTube live; GitHub artifacts/runs + 11 render refs purged; local film, thumbnails, audio cleaned. Accepted 477 REVIEW quality debt (operator order 2026-11-02). |
 | _(done)_ dev/cycle8 (Vox image retry, CSD 1.1 speech A/B, mute shadow study, render CLI guard, evidence integrity, operator approvals) | see the 2026-11-03 Cycle 8 changelog entry | ✅ done 2026-11-03 | No book worktree, pin or sealed evidence touched. Hamnet (Vox) agent: targeted images with current tools against your pinned worktree: `python scripts/gen-vox-images.py books/hamnet/config.vox.json --root=../wt-book-hamnet --beats=<ids> --dry-run`, then without --dry-run (add --max-calls=N). |
@@ -49,6 +50,78 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🔊 2026-11-04 — Cycle 9 (part 2): chunk-join audio repair (SHIP), P0b evidence integrity + provenance, post-delivery records, authorization audit
+
+**Audio dropouts — root cause** (Hamnet, measured at sample level):
+- Every pool chunk (`remotion render --frames`, its own MP4) carries 2048 AAC encoder-delay samples as real audio, with no edit list. `ffmpeg -f concat -c copy` keeps them and holds the video frame for the same time.
+- Narration vs the source: lag exactly 2048 samples before the first join, 4096 after (r = 0.9998, gain 1.0). It is pure insertion: no speech is lost.
+- Each head is digital zeros in the middle with codec leakage at the edges (≤ 1600 next to 13000–25000 speech).
+- The narration sat a constant 42.7 ms behind the picture.
+- A plain ffmpeg chunk with an edit list does NOT reproduce it. An ADTS-muxed chunk does (fixture).
+
+**Audio — A/B and fix:**
+- Fix: `scripts/lib/join-repair.js` + `scripts/repair-joins.js`.
+  - The geometry comes from the film's own holds. The encoder delay is the pool's known 2048; the holds only bound it (1857–2048).
+  - Keeps exactly frames × 1600 content samples per chunk, with one AAC encode (SFX kept: Antidote has an SFX layer, so the narration is not swapped in).
+  - Video packets are re-timed to N/30 without a re-encode.
+- A/B on a Hamnet excerpt (93.3 s, 6 joins):
+
+  | Measure | A (current) | B (repaired) |
+  |---|---|---|
+  | Decoded frames | 2800 | identical |
+  | Inserted silence | 0.186 s at joins (19–42 ms each), 0.299 s inserted in total | 0 |
+  | Zero-level runs | 7 | 1 (the source's own) |
+  | Lag vs source | +42.7 ms per join | 0 at every point (r 0.97–0.9999) |
+  | A/V offset | 42.7 ms | 0 |
+  | Length | stretched | = frames/30 |
+
+- Listenable pairs (`join1/join5 A/B.wav`, 93 s A/B mp4) are kept in the session scratchpad for the operator.
+- **SHIP:** `render-cloud-assemble.js` repairs after the concat and verifies the result; the sha256 is taken after the repair. If the repair refuses or fails verification, the film is delivered as before (`report.joinRepair`).
+- Refusals:
+  - holds that don't fit the delay;
+  - irregular frame timing inside a chunk;
+  - audio length mismatch;
+  - a head that doesn't look inserted (a wrong-H fixture would have cut 128 content samples per chunk and was refused).
+- `test-join-repair.js` (24). The first production film is the end-to-end check.
+
+**P0b:**
+- **A** — `lib/mute-ids.js` is the one id-set serialization for sealer, verifier and manifest.
+  - Over the 35 distinct sealed runs in the book worktrees (read-only): the old manifest rule verified 8/35, the canonical rule 35/35.
+  - One altered id is caught 35/35. No seal changes meaning.
+- **B** — `lib/judge-binding.js`: the tally counts a result only when its ids equal the judge input's (missing, extra or duplicate → EVIDENCE_INVALID; it no longer crashes or shrinks n).
+  - New runs also check: the judge-run token + label (`judge-run.json`), the input unchanged since, rubric words, and stills from the recorded config.
+  - Legacy runs keep their reading. Over the 138 real judge results: 138 LEGACY, 0 INVALID.
+  - A sealed + tallied label is final: re-tally only on byte-identical evidence (`evidenceSha256`), else exit 3; `judge` is refused. `test-judge-binding.js` (21).
+- **C** — temp isolation:
+  - `mute-cloud-poc`: mkdtemp per call.
+  - `ai-budget`: cache merged and replaced atomically.
+  - `plan-antidote`: cast draft is per book (`books/<slug>/.cast.draft.json`), not `/tmp`.
+- **D** — `mute-reliability`:
+  - prompts go in `reliability/PROMPTS.md` (it used to append to the official run's PROMPTS.md);
+  - the result is labelled shadow, and the book copy is `SHADOW-reliability.json`;
+  - one job per label (lock);
+  - no gate reads it. `test-shadow-isolation.js`.
+- **E** — decisions and preflight/technical facts carry `tools` (the code that ran) + `pin` next to `commit` (the book's checkout). This is additive; render input hashes are unchanged. The split state records `tools` + `bookCommit` always. `test-provenance.js` (11).
+
+**Post-delivery records:**
+- **Hamnet:** the film and the mastered audio were removed by its operator-ordered cleanup (2026-11-04 05:48Z) before a local record existed.
+  - `verify-render-output --from-cloud` appended one entry to `books/hamnet/render-facts.json`: CLOUD_VERIFIED from cloud run 41627239986, 60586/60586 frames, decode clean, sha256 791751c2d911, labelled `localMediaCheck: NOT_DONE`.
+  - The existing entry is byte-identical, and a rerun writes nothing.
+  - The entry's `tools` is 6fe35a76: `--from-cloud` itself was committed right after, in 5e060f6c.
+  - The local A/V measurement of 2026-11-03 (sync PASS, 159 dropouts, −14.3 LUFS) was a `--no-record` run and is NOT in the record.
+- **Yesteryear:** `books/yesteryear` was purged, so there is no record folder; nothing was written or recreated. Cloud verification on file (`.render-github-cloud.yesteryear.json`): run 41627272951, 78346/78346 frames, decode clean, 989,792,153 bytes, sha256 baf51456440f, bundle a9cc70e3.
+
+**Authorization audit (read-only, session transcripts):** all three cleanups were on an explicit operator order.
+- The First 90 Days: "video youtube da yayında. local ve github dosyaalrını silebilirsin." (2026-11-03 15:42Z; the publish commit followed).
+- Yesteryear: same order, 2026-11-03 15:23Z.
+- Hamnet: 2026-11-04 05:48Z.
+- No boundary violation.
+
+**Open:**
+- `readcheck.js` has the same id-set / overwrite risks as the mute tally (not changed in this cycle).
+- P1: cut-out opacity gate still only on `hamnet-cutout-gate`; slim still bundle; Vox image loss; engine calibration; READY semantics.
+- P2: Action → Visible Consequence + prop persistence; Lemo-Opuscar review not started.
 
 ### 🚚 2026-11-03 — Cycle 9 P0a: one production GO → verified MP4 (`render-deliver.js`), dispatch truth, final media check
 

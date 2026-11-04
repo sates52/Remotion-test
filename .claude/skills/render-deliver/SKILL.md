@@ -97,6 +97,10 @@ frames against the book's config; the download is checked by sha256. On this PC 
 start/end offsets, audio timeline, where the video holds; join dropouts vs the source narration; stretch; loudness,
 REPORT ONLY) into `books/<slug>/render-facts.json`, then `post-render.js --no-cleanup [--book-root]` (delivery files;
 it no longer deletes the render state). An A/V sync FAIL fails the delivery; dropouts and loudness are reported.
+The cloud assembly also REPAIRS the chunk joins (2026-11-04, `scripts/repair-joins.js`): every 400-frame chunk carried its
+AAC encoder delay as ~43 ms of inserted silence + a held frame. The film comes back on the composition clock (same
+frames, every content sample, narration no longer 43 ms late); `report.joinRepair` says REPAIRED / NOT_REPAIRED (then
+the film is delivered exactly as before). Never run it on a delivered film by hand.
 Then the YouTube pack:
 ```bash
 node scripts/lint-titles.js --slug=<slug> --pack      # YouTube READY (titles, description, chapters, hook, clean.vtt)
