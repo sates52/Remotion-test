@@ -1,0 +1,894 @@
+{
+ "schema": "stills/1",
+ "name": "c11 director A/B (40 beats x 2 arms)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "shards": 8,
+ "silent": true,
+ "jobs": [
+  {
+   "id": "B01-A",
+   "config": "configs/B01-A.json",
+   "frames": [
+    449,
+    553,
+    656
+   ],
+   "strip": true
+  },
+  {
+   "id": "B01-B",
+   "config": "configs/B01-B.json",
+   "frames": [
+    449,
+    553,
+    656
+   ],
+   "strip": true
+  },
+  {
+   "id": "B02-A",
+   "config": "configs/B02-A.json",
+   "frames": [
+    277,
+    364,
+    451
+   ],
+   "strip": true
+  },
+  {
+   "id": "B02-B",
+   "config": "configs/B02-B.json",
+   "frames": [
+    277,
+    364,
+    451
+   ],
+   "strip": true
+  },
+  {
+   "id": "B03-A",
+   "config": "configs/B03-A.json",
+   "frames": [
+    323,
+    418,
+    513
+   ],
+   "strip": true
+  },
+  {
+   "id": "B03-B",
+   "config": "configs/B03-B.json",
+   "frames": [
+    323,
+    418,
+    513
+   ],
+   "strip": true
+  },
+  {
+   "id": "B04-A",
+   "config": "configs/B04-A.json",
+   "frames": [
+    328,
+    420,
+    513
+   ],
+   "strip": true
+  },
+  {
+   "id": "B04-B",
+   "config": "configs/B04-B.json",
+   "frames": [
+    328,
+    420,
+    513
+   ],
+   "strip": true
+  },
+  {
+   "id": "B05-A",
+   "config": "configs/B05-A.json",
+   "frames": [
+    392,
+    464,
+    537
+   ],
+   "strip": true
+  },
+  {
+   "id": "B05-B",
+   "config": "configs/B05-B.json",
+   "frames": [
+    392,
+    464,
+    537
+   ],
+   "strip": true
+  },
+  {
+   "id": "B06-A",
+   "config": "configs/B06-A.json",
+   "frames": [
+    274,
+    342,
+    409
+   ],
+   "strip": true
+  },
+  {
+   "id": "B06-B",
+   "config": "configs/B06-B.json",
+   "frames": [
+    274,
+    342,
+    409
+   ],
+   "strip": true
+  },
+  {
+   "id": "B07-A",
+   "config": "configs/B07-A.json",
+   "frames": [
+    418,
+    523,
+    627
+   ],
+   "strip": true
+  },
+  {
+   "id": "B07-B",
+   "config": "configs/B07-B.json",
+   "frames": [
+    418,
+    523,
+    627
+   ],
+   "strip": true
+  },
+  {
+   "id": "B08-A",
+   "config": "configs/B08-A.json",
+   "frames": [
+    407,
+    471,
+    535
+   ],
+   "strip": true
+  },
+  {
+   "id": "B08-B",
+   "config": "configs/B08-B.json",
+   "frames": [
+    407,
+    471,
+    535
+   ],
+   "strip": true
+  },
+  {
+   "id": "B09-A",
+   "config": "configs/B09-A.json",
+   "frames": [
+    412,
+    491,
+    569
+   ],
+   "strip": true
+  },
+  {
+   "id": "B09-B",
+   "config": "configs/B09-B.json",
+   "frames": [
+    412,
+    491,
+    569
+   ],
+   "strip": true
+  },
+  {
+   "id": "B10-A",
+   "config": "configs/B10-A.json",
+   "frames": [
+    311,
+    401,
+    491
+   ],
+   "strip": true
+  },
+  {
+   "id": "B10-B",
+   "config": "configs/B10-B.json",
+   "frames": [
+    311,
+    401,
+    491
+   ],
+   "strip": true
+  },
+  {
+   "id": "B11-A",
+   "config": "configs/B11-A.json",
+   "frames": [
+    315,
+    409,
+    504
+   ],
+   "strip": true
+  },
+  {
+   "id": "B11-B",
+   "config": "configs/B11-B.json",
+   "frames": [
+    315,
+    409,
+    504
+   ],
+   "strip": true
+  },
+  {
+   "id": "B12-A",
+   "config": "configs/B12-A.json",
+   "frames": [
+    468,
+    556,
+    643
+   ],
+   "strip": true
+  },
+  {
+   "id": "B12-B",
+   "config": "configs/B12-B.json",
+   "frames": [
+    468,
+    556,
+    643
+   ],
+   "strip": true
+  },
+  {
+   "id": "B13-A",
+   "config": "configs/B13-A.json",
+   "frames": [
+    332,
+    401,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "B13-B",
+   "config": "configs/B13-B.json",
+   "frames": [
+    332,
+    401,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "B14-A",
+   "config": "configs/B14-A.json",
+   "frames": [
+    416,
+    510,
+    605
+   ],
+   "strip": true
+  },
+  {
+   "id": "B14-B",
+   "config": "configs/B14-B.json",
+   "frames": [
+    416,
+    510,
+    605
+   ],
+   "strip": true
+  },
+  {
+   "id": "B15-A",
+   "config": "configs/B15-A.json",
+   "frames": [
+    330,
+    397,
+    463
+   ],
+   "strip": true
+  },
+  {
+   "id": "B15-B",
+   "config": "configs/B15-B.json",
+   "frames": [
+    330,
+    397,
+    463
+   ],
+   "strip": true
+  },
+  {
+   "id": "B16-A",
+   "config": "configs/B16-A.json",
+   "frames": [
+    221,
+    290,
+    359
+   ],
+   "strip": true
+  },
+  {
+   "id": "B16-B",
+   "config": "configs/B16-B.json",
+   "frames": [
+    221,
+    290,
+    359
+   ],
+   "strip": true
+  },
+  {
+   "id": "B17-A",
+   "config": "configs/B17-A.json",
+   "frames": [
+    400,
+    488,
+    576
+   ],
+   "strip": true
+  },
+  {
+   "id": "B17-B",
+   "config": "configs/B17-B.json",
+   "frames": [
+    400,
+    488,
+    576
+   ],
+   "strip": true
+  },
+  {
+   "id": "B18-A",
+   "config": "configs/B18-A.json",
+   "frames": [
+    358,
+    440,
+    523
+   ],
+   "strip": true
+  },
+  {
+   "id": "B18-B",
+   "config": "configs/B18-B.json",
+   "frames": [
+    358,
+    440,
+    523
+   ],
+   "strip": true
+  },
+  {
+   "id": "B19-A",
+   "config": "configs/B19-A.json",
+   "frames": [
+    386,
+    477,
+    568
+   ],
+   "strip": true
+  },
+  {
+   "id": "B19-B",
+   "config": "configs/B19-B.json",
+   "frames": [
+    386,
+    477,
+    568
+   ],
+   "strip": true
+  },
+  {
+   "id": "B20-A",
+   "config": "configs/B20-A.json",
+   "frames": [
+    316,
+    385,
+    453
+   ],
+   "strip": true
+  },
+  {
+   "id": "B20-B",
+   "config": "configs/B20-B.json",
+   "frames": [
+    316,
+    385,
+    453
+   ],
+   "strip": true
+  },
+  {
+   "id": "B21-A",
+   "config": "configs/B21-A.json",
+   "frames": [
+    339,
+    403,
+    466
+   ],
+   "strip": true
+  },
+  {
+   "id": "B21-B",
+   "config": "configs/B21-B.json",
+   "frames": [
+    339,
+    403,
+    466
+   ],
+   "strip": true
+  },
+  {
+   "id": "B22-A",
+   "config": "configs/B22-A.json",
+   "frames": [
+    402,
+    472,
+    541
+   ],
+   "strip": true
+  },
+  {
+   "id": "B22-B",
+   "config": "configs/B22-B.json",
+   "frames": [
+    402,
+    472,
+    541
+   ],
+   "strip": true
+  },
+  {
+   "id": "B23-A",
+   "config": "configs/B23-A.json",
+   "frames": [
+    427,
+    500,
+    574
+   ],
+   "strip": true
+  },
+  {
+   "id": "B23-B",
+   "config": "configs/B23-B.json",
+   "frames": [
+    427,
+    500,
+    574
+   ],
+   "strip": true
+  },
+  {
+   "id": "B24-A",
+   "config": "configs/B24-A.json",
+   "frames": [
+    406,
+    490,
+    574
+   ],
+   "strip": true
+  },
+  {
+   "id": "B24-B",
+   "config": "configs/B24-B.json",
+   "frames": [
+    406,
+    490,
+    574
+   ],
+   "strip": true
+  },
+  {
+   "id": "B25-A",
+   "config": "configs/B25-A.json",
+   "frames": [
+    280,
+    354,
+    428
+   ],
+   "strip": true
+  },
+  {
+   "id": "B25-B",
+   "config": "configs/B25-B.json",
+   "frames": [
+    280,
+    354,
+    428
+   ],
+   "strip": true
+  },
+  {
+   "id": "B26-A",
+   "config": "configs/B26-A.json",
+   "frames": [
+    430,
+    512,
+    595
+   ],
+   "strip": true
+  },
+  {
+   "id": "B26-B",
+   "config": "configs/B26-B.json",
+   "frames": [
+    430,
+    512,
+    595
+   ],
+   "strip": true
+  },
+  {
+   "id": "B27-A",
+   "config": "configs/B27-A.json",
+   "frames": [
+    320,
+    412,
+    504
+   ],
+   "strip": true
+  },
+  {
+   "id": "B27-B",
+   "config": "configs/B27-B.json",
+   "frames": [
+    320,
+    412,
+    504
+   ],
+   "strip": true
+  },
+  {
+   "id": "B28-A",
+   "config": "configs/B28-A.json",
+   "frames": [
+    333,
+    452,
+    570
+   ],
+   "strip": true
+  },
+  {
+   "id": "B28-B",
+   "config": "configs/B28-B.json",
+   "frames": [
+    333,
+    452,
+    570
+   ],
+   "strip": true
+  },
+  {
+   "id": "B29-A",
+   "config": "configs/B29-A.json",
+   "frames": [
+    255,
+    332,
+    410
+   ],
+   "strip": true
+  },
+  {
+   "id": "B29-B",
+   "config": "configs/B29-B.json",
+   "frames": [
+    255,
+    332,
+    410
+   ],
+   "strip": true
+  },
+  {
+   "id": "B30-A",
+   "config": "configs/B30-A.json",
+   "frames": [
+    334,
+    403,
+    473
+   ],
+   "strip": true
+  },
+  {
+   "id": "B30-B",
+   "config": "configs/B30-B.json",
+   "frames": [
+    334,
+    403,
+    473
+   ],
+   "strip": true
+  },
+  {
+   "id": "B31-A",
+   "config": "configs/B31-A.json",
+   "frames": [
+    404,
+    485,
+    565
+   ],
+   "strip": true
+  },
+  {
+   "id": "B31-B",
+   "config": "configs/B31-B.json",
+   "frames": [
+    404,
+    485,
+    565
+   ],
+   "strip": true
+  },
+  {
+   "id": "B32-A",
+   "config": "configs/B32-A.json",
+   "frames": [
+    437,
+    558,
+    678
+   ],
+   "strip": true
+  },
+  {
+   "id": "B32-B",
+   "config": "configs/B32-B.json",
+   "frames": [
+    437,
+    558,
+    678
+   ],
+   "strip": true
+  },
+  {
+   "id": "B33-A",
+   "config": "configs/B33-A.json",
+   "frames": [
+    467,
+    537,
+    608
+   ],
+   "strip": true
+  },
+  {
+   "id": "B33-B",
+   "config": "configs/B33-B.json",
+   "frames": [
+    467,
+    537,
+    608
+   ],
+   "strip": true
+  },
+  {
+   "id": "B34-A",
+   "config": "configs/B34-A.json",
+   "frames": [
+    488,
+    579,
+    671
+   ],
+   "strip": true
+  },
+  {
+   "id": "B34-B",
+   "config": "configs/B34-B.json",
+   "frames": [
+    488,
+    579,
+    671
+   ],
+   "strip": true
+  },
+  {
+   "id": "B35-A",
+   "config": "configs/B35-A.json",
+   "frames": [
+    325,
+    400,
+    476
+   ],
+   "strip": true
+  },
+  {
+   "id": "B35-B",
+   "config": "configs/B35-B.json",
+   "frames": [
+    325,
+    400,
+    476
+   ],
+   "strip": true
+  },
+  {
+   "id": "B36-A",
+   "config": "configs/B36-A.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "B36-B",
+   "config": "configs/B36-B.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "B37-A",
+   "config": "configs/B37-A.json",
+   "frames": [
+    383,
+    457,
+    531
+   ],
+   "strip": true
+  },
+  {
+   "id": "B37-B",
+   "config": "configs/B37-B.json",
+   "frames": [
+    383,
+    457,
+    531
+   ],
+   "strip": true
+  },
+  {
+   "id": "B38-A",
+   "config": "configs/B38-A.json",
+   "frames": [
+    463,
+    553,
+    642
+   ],
+   "strip": true
+  },
+  {
+   "id": "B38-B",
+   "config": "configs/B38-B.json",
+   "frames": [
+    463,
+    553,
+    642
+   ],
+   "strip": true
+  },
+  {
+   "id": "B39-A",
+   "config": "configs/B39-A.json",
+   "frames": [
+    292,
+    368,
+    445
+   ],
+   "strip": true
+  },
+  {
+   "id": "B39-B",
+   "config": "configs/B39-B.json",
+   "frames": [
+    292,
+    368,
+    445
+   ],
+   "strip": true
+  },
+  {
+   "id": "B40-A",
+   "config": "configs/B40-A.json",
+   "frames": [
+    390,
+    501,
+    613
+   ],
+   "strip": true
+  },
+  {
+   "id": "B40-B",
+   "config": "configs/B40-B.json",
+   "frames": [
+    390,
+    501,
+    613
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "68bf1a3bc0496337",
+ "files": {
+  "stills/configs/B01-A.json": "ee56f13171444c0824609ec3d0dc2f404b367e56aa3efedef872936698d7a002",
+  "stills/configs/B01-B.json": "feedb719ba95340227eb2477e1fced607ca82308a16bee6d3660cad9c6120947",
+  "stills/configs/B02-A.json": "59fc01d0c80bf5c71ded2a671166487f4eb7cb123132c8eb47e00db7e859527d",
+  "stills/configs/B02-B.json": "f88620f7b79a9fa7537add09b31b515ab3caf8d8b5e55d02e8d90d7f6ddbf180",
+  "stills/configs/B03-A.json": "af288a5caad6d8e7c4c94f11e880a99ea875c6e9cbe73b91335b854cff6dc958",
+  "stills/configs/B03-B.json": "cc5610e67b4d7f6c78715b9f577abee6d5c965dba2a736b9a88f60ccac06a03a",
+  "stills/configs/B04-A.json": "dd0b54af3c72c184a76c38c7b49dac5048fd8051109456e353901d173a8b06cb",
+  "stills/configs/B04-B.json": "73c72a5d19cdfbb1ddb9903139abf8f340f4d50b459c5d297e0124ad9042d292",
+  "stills/configs/B05-A.json": "d268725077176dc81fe747d9d860c714712a0f7503cb68ec3d46da534675a30b",
+  "stills/configs/B05-B.json": "3fdd8e57ffef784b4fd093ab06cef610d00600cc1342262f7a7dc7cf810ad5d4",
+  "stills/configs/B06-A.json": "2c08a5c82b6373e9ad392f20b6051ea7a1bbae94b967cfedb05b7d376c1f5076",
+  "stills/configs/B06-B.json": "979aa50b2f903c6ab27cd3eaf487347bf36d9b699035af6f2aa2d4dde3d567e2",
+  "stills/configs/B07-A.json": "b47c642dac1fb97d77c0a8660e08a1297c76fa30875ba3b605bf48185db39fb5",
+  "stills/configs/B07-B.json": "b9ccf5552b39ebefd477428b25eb0415f262f8940eaba00a752d116fadd6b94c",
+  "stills/configs/B08-A.json": "d285e2ebd196db40b499e9673fd10ca8413e7115b7634ae35a18f7254e54ef6c",
+  "stills/configs/B08-B.json": "b7301f8e15d46a67006e90808500631803570eceda0c6a38fbab2036b966b70a",
+  "stills/configs/B09-A.json": "5c6aac5ada6fa5e69fb77c65e78a8e807dec68a3babffc387bd8e959b8bb60db",
+  "stills/configs/B09-B.json": "6c728ba3727d7547092556101aec174c83b63386100f3f796648d0e92c3e0d4d",
+  "stills/configs/B10-A.json": "a239ac114b1510348f06abb5b47d4a8eae8f55b6e8c3d0c43df39e87fa90fd47",
+  "stills/configs/B10-B.json": "ee7a5c1027825411a5a10aa3542ae23acc63d5f0dfd199f95d5ad97ddded095c",
+  "stills/configs/B11-A.json": "e40ef30dd5f43e6353edf298402d5fc190f3dc5759d21905982dd39ad1f42b83",
+  "stills/configs/B11-B.json": "e9dc8cc9ceb0a83f248429e9d0b54fa9a4d1515a372a044cbe5b564bd1832a55",
+  "stills/configs/B12-A.json": "30bc85ff4a0082dcda14b4c61a9131f1a63bab959bbf20281fbc218d30f733cf",
+  "stills/configs/B12-B.json": "c1c96449dd82386eaf6973d4b7ffd47710f57c266de2c87adb34acf1275a256c",
+  "stills/configs/B13-A.json": "f40b118057917bb0ac7814ea766dbd055338bb15c5c2a46ee81a0ca44f2d0344",
+  "stills/configs/B13-B.json": "2b3a32ee229520814b0af25a7499bc807f97dff2eff43f3d92795f8483138304",
+  "stills/configs/B14-A.json": "45007c3f36c71304245a04f1010aceb3105859a4017b44c841aa0effdbc33d71",
+  "stills/configs/B14-B.json": "16654d21ad865b14bb5565948a4854ec2942f15d33c5fe45936effa645bc77b7",
+  "stills/configs/B15-A.json": "3ffff8ebf23ba59e8bdd12fbffd4053d69ccd1686ae902a83837bdaa3bb58d48",
+  "stills/configs/B15-B.json": "f816b323becba506724d7ae96cdbdb1457e6f656e2266d72138913cd4db79369",
+  "stills/configs/B16-A.json": "99f8f367ed96fafe4821bf1ef590a0b62f64d4ec1da68b1fd90e0adb27116b47",
+  "stills/configs/B16-B.json": "b6e6851b9a19bd00028a52abb78a599902eb79fc47036f804cb0b10a67189763",
+  "stills/configs/B17-A.json": "b9ae30f9ec02b40c787543c07765fb8bd9f18d9180623aadc059f0e405bc8cef",
+  "stills/configs/B17-B.json": "1a1661b78677d6d1b6f02a4bb82b5852c71a328eb1ad0a29a6ee9711584790f9",
+  "stills/configs/B18-A.json": "c99c3f94df1d34471a55d89d9ea5aaee56df81443518829d36224179b0fa64e5",
+  "stills/configs/B18-B.json": "bf62c8b7b8f7b944d9d5dbc2ccfa4ddc1064ec5f6d51f6a3de4730d4c24d3ef5",
+  "stills/configs/B19-A.json": "557429baeaa8260e26336b5f01890b6a7e0e700e264ff3e241af0a267d10bd01",
+  "stills/configs/B19-B.json": "e914fb270e6d89b0d18784b15d26e27b7d13a6b41b5a0ef76934b10abf27905b",
+  "stills/configs/B20-A.json": "4167bec510b8e10a9b919de59b148434a70ee3fd7ab1dddde50cebf9f7692a84",
+  "stills/configs/B20-B.json": "6221f64bec0e0825e64ddc4a4aa308cb7f1fcc77f776dd133d1b4db03c5101c2",
+  "stills/configs/B21-A.json": "9291047fe02e6eb5b6c5732e502652040cb25fa05595d49d8f56062989d7ce3a",
+  "stills/configs/B21-B.json": "26528da838683a32095cb7b54110e15fd1d62eb0180071bd83f9251c54adc6fb",
+  "stills/configs/B22-A.json": "76ba5d0e20d4549294293e749281ea5945e25768626c2d59fa882238397ae5bd",
+  "stills/configs/B22-B.json": "33736314551fd020d3d974cd8ad9187a2f72c69263cab4bdfd06fef1e0654d4b",
+  "stills/configs/B23-A.json": "1a729bd3243c787d042c507b8c16762b78f7c05c90f470878b553b74b9b9fa18",
+  "stills/configs/B23-B.json": "094fbd32fbff0f6cb93d3206d20a321373871704f9d080c6ae8c750418e3a000",
+  "stills/configs/B24-A.json": "0f95d5e6d1e891a371623d2fdd07d360c486a8b6c7c02af2e66d180f9bddff56",
+  "stills/configs/B24-B.json": "cd38dc5416dd1b871e94ab462abf9ff28181c8fd596904e7ccdad588f557da8b",
+  "stills/configs/B25-A.json": "642e31b0fb8bcd72f34bdee8c5b003684a96ccd8236b050c0baaf8c1bb0370c3",
+  "stills/configs/B25-B.json": "9ccec8d19791a17c9cb4acd7ab0bf89a62fbc037e314722fdedfa2d59932857a",
+  "stills/configs/B26-A.json": "f01c4627179236fa81e4db2488d5fc363e9a3db8d9d2efa2e91a074186984632",
+  "stills/configs/B26-B.json": "545af2eb1508df9da901eeee812e435a1e42ce38dc67d704995478f1ac944a91",
+  "stills/configs/B27-A.json": "ce5a8731ab6083cc9cdb5784f34a16393588e9dc969a5be0a28c62b58349c4b6",
+  "stills/configs/B27-B.json": "9145ac17a4b052737684bf8e6e2b435bb6bef0d99c54eb46389bc2139dc09011",
+  "stills/configs/B28-A.json": "eb253c6d95d265e1cd7e8f9e27266505422c9dfa53a8dc195b7875fb3cab2872",
+  "stills/configs/B28-B.json": "133a72d703b72c33af6b79db61719d34f708defe3b95cadfd61236d02d2acf23",
+  "stills/configs/B29-A.json": "bfba363e0885b63a37c56a0dfde7969f975e42078eab6fa107889e04de392219",
+  "stills/configs/B29-B.json": "679a736e0d6c63100c4c9449d80f062206bb20ced825a35a1b2d7ff8a310c338",
+  "stills/configs/B30-A.json": "f1f75d8bf2887149f4aeab84033539198808b5f5efd2530e27e8004ccfbd25b5",
+  "stills/configs/B30-B.json": "e0076a2a382ee0115d80d168dda8222d1ad9e45289b79eebec16d74372f29b12",
+  "stills/configs/B31-A.json": "c4134fa06d53bdd90630fb1c4546037b49c3a96f18bc280cc1da536f8fb43ccc",
+  "stills/configs/B31-B.json": "64939eee4e793976bcc07c1138ced8b24cfcfca003c2484ea85bb3b54c802d1f",
+  "stills/configs/B32-A.json": "7a7abc9ba26ed448e5a959cec312bc6ba675068aba7f43750a70e1f0c7ade546",
+  "stills/configs/B32-B.json": "3aae3630fc37e7c7fdf88cd72a0416c64f8cf75443e8e582d9e0ecd6318e6370",
+  "stills/configs/B33-A.json": "cde9fe36d0c6a18edc7742431addfafcab80c7962a7116252122fadbf61c1e97",
+  "stills/configs/B33-B.json": "234ebeb931813773f657f51aebd6332f871622bb90026e498d7494fc7f25a252",
+  "stills/configs/B34-A.json": "61542390eaa981b8f1082aa7c2e3ea9ca943518b02642272d6975be05b2f4876",
+  "stills/configs/B34-B.json": "0dba0dc812fbe76d31f83f56c92572a8847236c59bf559cd6a9c02cf3eaa156a",
+  "stills/configs/B35-A.json": "67b9e706713d7a65212dfcd854c458eeec9f89cd93b9b826cc5d3565b5854d61",
+  "stills/configs/B35-B.json": "00d42eb5b2cdb06820cc538d5c9b16528d69847cc650949da9508cabfafc9af4",
+  "stills/configs/B36-A.json": "8007620cadcd2e4850c38e4bb28dc8e05ecbfbb21ef020f70ead029cd01482a7",
+  "stills/configs/B36-B.json": "4a0c2eeaf7eb634dc44e976e65271a177659b1200a2d002d506c4942e6a2b3af",
+  "stills/configs/B37-A.json": "72153dae76879e2f304981d5a51673162d40e66cd6c20eada8e083ab7162a095",
+  "stills/configs/B37-B.json": "6e83d7009811e1441b6324486649af8aac019f58c6927ca169397d1ce3140ac2",
+  "stills/configs/B38-A.json": "6848346dd44d3676ccd30778fba51030aa439d114710fadb4db1dd676c2ff5fa",
+  "stills/configs/B38-B.json": "af350de3283468d737fec44c2eaec76b0dc9ed63f493e4ab61ef910386c9b6ec",
+  "stills/configs/B39-A.json": "47459f05ed09a1568b0afe9c894d614a00895afe1f064a82af887c5eab5e05e4",
+  "stills/configs/B39-B.json": "56ffc07e3e706286b5899634bd28dacb6795adb750348147fba885bc070c437c",
+  "stills/configs/B40-A.json": "87b8b2a01c2fef9f4a0cd793551f9fbd7ea4f4df0f155257fa1263d00352a969",
+  "stills/configs/B40-B.json": "432738e5985b32cb1749a37a66f338e049390c0f575c4f5aedd73e38ff86d99b"
+ },
+ "builtAt": "2026-11-04T14:32:41.074Z"
+}
