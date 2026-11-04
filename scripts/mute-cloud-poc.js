@@ -19,7 +19,8 @@ const { buildManifest, verifyManifest } = require("./lib/mute-manifest");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
 if (!args.slug || !args.label) { console.error("usage: node scripts/mute-cloud-poc.js --slug=<slug> --label=<label> [--root=<book worktree>] [--out=<dir>]"); process.exit(1); }
 const root = path.resolve(args.root || path.join(__dirname, ".."));
-const out = path.resolve(args.out || path.join(os.tmpdir(), "mute-cloud-poc"));
+// a fresh directory per invocation unless --out is given (cycle 9 P0b): parallel runs never write the same manifest file
+const out = path.resolve(args.out || fs.mkdtempSync(path.join(os.tmpdir(), `mute-cloud-poc-${args.slug}-${args.label}-`)));
 const m = buildManifest({ root, slug: args.slug, label: args.label });
 const v = verifyManifest(m, { root });
 fs.mkdirSync(out, { recursive: true });

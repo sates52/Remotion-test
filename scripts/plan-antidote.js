@@ -1697,8 +1697,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
   console.log(`   yanlış okunmuş beat'lerde "shot"u değiştirmek ve motif'i anlatıya oturtmak.`);
   console.log(`   Staging (x/y/size) bilerek boş — shot preset'i yerleştiriyor; sadece override gerekirse yaz.`);
   console.log(`   KADRO: kitabın gerçek karakterleriyle yeniden dök —`);
-  console.log(`     node scripts/plan-antidote.js --emit-cast=/tmp/${SLUG}.cast.json --vtt=${VTT} --slug=${SLUG} --title="${TITLE}" --genre=${GENRE}`);
-  console.log(`     (Claude isimleri + kostümleri yazar) → aynı komutu --cast=/tmp/${SLUG}.cast.json ile tekrar çalıştır.`);
+  console.log(`     node scripts/plan-antidote.js --emit-cast=books/${SLUG}/.cast.draft.json --vtt=${VTT} --slug=${SLUG} --title="${TITLE}" --genre=${GENRE}`);
+  console.log(`     (Claude isimleri + kostümleri yazar) → aynı komutu --cast=books/${SLUG}/.cast.draft.json ile tekrar çalıştır.`);
   console.log(`   DENETİM: node scripts/audit-antidote.js --slug=${SLUG}  (8sn'den uzun ölü pencere varsa düşer)`);
   console.log(`   Sonra: node scripts/gen-books-registry.js`);
   console.log(`   Önizle: http://localhost:3001/Antidote-${SLUG}`);

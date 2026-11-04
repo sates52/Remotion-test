@@ -76,7 +76,17 @@ function runUsd(runId, wf = null) {
       if (jobs.length && jobs.every((j) => j.status === "completed") && steps.length === names.length && steps.every((st) => st.conclusion === "skipped")) usd = 0;
     } catch {}
   }
-  if (usd != null) { cache[runId] = usd; try { fs.writeFileSync(cacheFile, JSON.stringify(cache)); } catch {} }
+  // a shared cache keyed by run id (cycle 9 P0b): merge with what other processes wrote meanwhile, then write a unique
+  // temp file and rename it into place — two parallel budget checks never truncate or clobber each other's entries
+  if (usd != null) {
+    cache[runId] = usd;
+    try {
+      const now = (() => { try { return JSON.parse(fs.readFileSync(cacheFile, "utf8")); } catch { return {}; } })();
+      const tmp = `${cacheFile}.${process.pid}.${Date.now()}.tmp`;
+      fs.writeFileSync(tmp, JSON.stringify({ ...now, ...cache }));
+      fs.renameSync(tmp, cacheFile);
+    } catch {}
+  }
   return usd;
 }
 

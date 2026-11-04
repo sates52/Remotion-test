@@ -135,8 +135,17 @@ function frames() {
 
 function mkdirs() { fs.mkdirSync(REL, { recursive: true }); }
 
+// SHADOW ISOLATION (cycle 9 P0b, 2026-11-04): this study never writes into the official run. Its prompts live in
+// reliability/PROMPTS.md (before: appended to the official run's PROMPTS.md), its result is labelled shadow, and one
+// reliability job per label runs at a time (two would write the same blind-<k>.json / judge-<k>.json).
+function takeShadowLock() {
+  mkdirs();
+  require("./lib/run-lock").takeRunLock(path.join(REL, ".lock.json"), `mute-reliability ${SLUG}/${LABEL}`);
+}
+
 function writePromptBlock(marker, text) {
-  const p = path.join(RUN, "PROMPTS.md");
+  const p = path.join(REL, "PROMPTS.md");
+  fs.mkdirSync(REL, { recursive: true });
   const cur = fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "";
   if (cur.includes(`<!-- ${marker} -->`)) return false;
   fs.appendFileSync(p, `\n<!-- ${marker} -->\n${text}`);
@@ -336,7 +345,7 @@ function tally(quiet = false) {
     perPass,
     note: "Diagnostic only — the bars are unchanged and preview-ready does not read this file. A reused-frame run can never be the verdict.",
   };
-  const out = { slug: SLUG, label: LABEL, date: new Date().toISOString(), bars: BARS, summary, frames: rows };
+  const out = { shadow: true, notAVerdict: "SHADOW study (mute-reliability.js): never read by preview-ready, preview-state, render-decision or mute-verdict", slug: SLUG, label: LABEL, date: new Date().toISOString(), bars: BARS, summary, frames: rows };
   mkdirs();
   fs.writeFileSync(path.join(REL, "reliability.json"), JSON.stringify(out, null, 2) + "\n");
   // the plan's path — but a published book's folder is frozen, so only an
@@ -345,8 +354,8 @@ function tally(quiet = false) {
   if (!isFrozen(SLUG)) {
     const dest = path.join(BOOK, "mute-test", LABEL);
     fs.mkdirSync(dest, { recursive: true });
-    fs.writeFileSync(path.join(dest, "reliability.json"), JSON.stringify(out, null, 2) + "\n");
-    bookCopy = rel(path.join(dest, "reliability.json"));
+    fs.writeFileSync(path.join(dest, "SHADOW-reliability.json"), JSON.stringify(out, null, 2) + "\n");
+    bookCopy = rel(path.join(dest, "SHADOW-reliability.json"));
   }
   if (!quiet) {
     const P = (x, w = 11) => String(x).padEnd(w);
@@ -505,6 +514,7 @@ async function runScripted() {
 }
 
 (async () => {
+  takeShadowLock(); // one reliability job per label (prep, judge, tally and run all write into reliability/)
   if (CMD === "prep") writeDescriberPrompts();
   else if (CMD === "judge") judgeCLI();
   else if (CMD === "tally") tally();
