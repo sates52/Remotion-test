@@ -1,0 +1,36 @@
+{
+ "schema": "stills/1",
+ "name": "stills-cloud selftest",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "shards": 2,
+ "silent": true,
+ "jobs": [
+  {
+   "id": "B01-A",
+   "config": "configs/B01-A.json",
+   "frames": [
+    449,
+    553,
+    656
+   ],
+   "strip": true
+  },
+  {
+   "id": "B02-A",
+   "config": "configs/B02-A.json",
+   "frames": [
+    277,
+    364,
+    451
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "af5bbe58d1519167",
+ "files": {
+  "stills/configs/B01-A.json": "ee56f13171444c0824609ec3d0dc2f404b367e56aa3efedef872936698d7a002",
+  "stills/configs/B02-A.json": "59fc01d0c80bf5c71ded2a671166487f4eb7cb123132c8eb47e00db7e859527d"
+ },
+ "builtAt": "2026-11-04T14:27:06.977Z"
+}
