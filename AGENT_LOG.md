@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ dev/cloud-stills (machine load: heavy still work → GitHub Actions) | `scripts/lib/local-load-guard.js` (new), `scripts/render-stills.js` (new), `scripts/stills-cloud.js` (new), `.github/workflows/render-stills.yml` (new), `scripts/visual-ab.js` (guard), `scripts/test-local-load-guard.js` (new), CLAUDE.md, AGENTS.md | _(done)_ 2026-11-04: pushed to god-mode | Operator order. No book, pin, sealed evidence, gate, threshold, film render path or render pool changed. |
 | _(done)_ dev/c10 (cycle 10 architecture study + readcheck binding) | god-mode: `scripts/readcheck.js`, `scripts/lib/{readcheck-binding,evidence-integrity}.js`, tests; branch `dev/c10`: world-state prototype, IK + hybrid spikes, `audit/c10-pilots/` | _(done)_ 2026-11-04: readcheck pushed (20941526); experiments on branch dev/c10 (b5b06c42), not merged | World state A/B NO SHIP; no book, pin, sealed evidence or gate touched. |
 | _(done)_ dev/c9 part 2 (join repair, P0b A–E, post-delivery records) | `scripts/{repair-joins,render-cloud-assemble,mute-test,mute-reliability,mute-cloud-poc,ai-budget,plan-antidote,verify-render-output,render}.js`, `scripts/lib/{join-repair,mute-ids,judge-binding,render-preflight,mute-verdict,mute-manifest,cloud-assemble}.js`, tests | _(done)_ 2026-11-04: pushed to god-mode | No gate or threshold changed; old seals/results keep their reading; one record appended (Hamnet render-facts). |
 | _(done)_ dev/c9 P0a (render-deliver, dispatch truth, media check) | `scripts/render-deliver.js` (new), `scripts/lib/{deliver,media-verify}.js` (new), `scripts/lib/render-dispatch.js`, `scripts/{render,render-status,render-github-redispatch,render-github-cloud-assemble,verify-render-output,post-render,book-start}.js`, `scripts/test-deliver-chain.js` (new), render-deliver skills, CLAUDE.md, AGENTS.md, contract | _(done)_ 2026-11-03: pushed to god-mode | No book worktree, pin, sealed evidence, gate or threshold touched; real books checked read-only. See the 2026-11-03 cycle 9 entry. |
@@ -51,6 +52,41 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🖥️ 2026-11-04 — Machine load: heavy still work runs on GitHub Actions (operator order), local guard
+
+- **Operator:** "makineyi çok kasıyor, bu tür işlemleri GitHub Actions'ta yap, makineyi kasacak işlemlerden kaçınalım,
+  sistemleştir".
+- **Incident:** cycle 11 rendered 240 A/B stills on the PC.
+  - 4 parallel Node processes, each with its own Remotion bundle, plus 23 chrome-headless-shell processes.
+  - About 2 minutes per still; the PC was unusable for about an hour.
+- **Why nothing stopped it:**
+  - `render-entry-guard.js` guards film renders.
+  - `remotion-cli-guard.js` guards the CLI `render` subcommand.
+  - Still renders call @remotion/renderer directly; render-entry-guard's own header says they "do not go through here".
+- **New:**
+  - `scripts/lib/local-load-guard.js`:
+    - on the PC, refuses more than 12 stills per run (exit 2) and a second concurrent local still render (machine-wide lock);
+    - passes on a genuine runner;
+    - local exception only with `--operator-local="<operator's words>"`.
+    - Used by the new `render-stills.js` and by `visual-ab.js render`.
+  - `node scripts/stills-cloud.js push --manifest=<stills/1> --tag=<t>` → `fetch --tag=<t> --out=<dir>`:
+    - a parentless bundle (working-tree code + the manifest's configs, sha256 in the manifest) pushed to `ci/stills/<t>`;
+    - `.github/workflows/render-stills.yml` renders it on N parallel runners;
+    - fetch checks every PNG against its shard's sha256 list.
+  - Engine: `scripts/render-stills.js`, which also runs locally within the budget.
+- **Measured (selftest, run 41847940473):**
+  - 2 shards, 6 stills; runner bundle ~4 s, ~4 s per still (PC: ~120 s per still).
+  - All sha256 OK; the strip matches the local render (only hairline font differences in the HUD).
+- **Pitfall found:**
+  - `npm install` with the lockfile in the bundle fails ERESOLVE: it adds @remotion/three's missing peer
+    @react-three/fiber → react-native → react ^19.3.
+  - The workflow uses `npm ci --legacy-peer-deps` (exactly the lockfile).
+  - render-video.yml / visual-ab.yml ship no lockfile and are not affected.
+- **Rule:** CLAUDE.md (🖥️ Machine load) + AGENTS.md (Decided by code).
+- **Not yet covered:**
+  - `mute-test.js` (≈ 30 stills per preview) and `framecheck.js` still render locally inside preview-hazirla. Moving
+    them onto stills-cloud is the next step; not done here, so no preview flow changes underneath a running book.
 
 ### 🧭 2026-11-04 — Cycle 10: architecture study (world state A/B NO SHIP, IK + hybrid spikes, Lemo-Opuscar, VSB-1), readcheck evidence binding (SHIP)
 

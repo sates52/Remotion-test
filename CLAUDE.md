@@ -168,6 +168,18 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 - Guard: `node scripts/test-thumbnail-grammar.js` must pass after any thumbnail/engine change.
   Details: [`SKILL.md`](SKILL.md) → "Thumbnail grammar", `AGENT_LOG.md` 2026-09-24.
 
+## 🖥️ Machine load — heavy work runs on GitHub Actions, not the PC (STRICT, operator 2026-11-04)
+
+- The operator works on this PC while agents run: "makineyi kasacak işlemlerden kaçınalım". Local = authoring, code,
+  tests, a quick look (≤ 12 stills, one render process). Everything heavier runs in the cloud.
+- **Stills** (A/B strips, experiment renders, contact sheets): `node scripts/stills-cloud.js push --manifest=<stills/1
+  manifest> --tag=<name>`, then `fetch --tag=<name> --out=<dir>` — parallel runners, sha256-checked results
+  (`.github/workflows/render-stills.yml`, engine `scripts/render-stills.js`). `scripts/lib/local-load-guard.js` refuses
+  more than 12 local stills (exit 2) and a second local still render at the same time; an exception only with
+  `--operator-local="<the operator's own words>"`. **Films:** the GitHub pool only (below). **Paid blind A/B:**
+  `visual-ab-cloud.js`.
+- Never start several local Remotion / Chrome processes in parallel, and stop your own orphans when you stop a run.
+
 ## Where the real docs are
 
 - **[`STORYBOARD_RUNBOOK.md`](STORYBOARD_RUNBOOK.md)** — how a NEW book reaches a clean preview: authored storyboard
