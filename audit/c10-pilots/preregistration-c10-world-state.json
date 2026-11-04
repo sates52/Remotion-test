@@ -1,0 +1,50 @@
+{
+  "schema": "c10-pilot-prereg/1",
+  "date": "2026-11-04",
+  "written": "before any world-state code was written and before any passage was authored, rendered or rated",
+  "question": "Does a persistent WORLD STATE (stable object ids, owner / location, deeds that change them, the result kept on screen in the following beats) let a muted viewer read who did what to which object and where it is now, better than the current engine?",
+  "arms": {
+    "A": "current engine (origin/god-mode e837a6cb renderer) — the passage authored with today's vocabulary only: per-beat cast, action (take / place / hold / reach / offer ...), holds, props; written by the same author in the same session as B",
+    "B": "the same beats, same narration, same timing, same shots and cast, authored with the prototype's world declarations (objects with id / owner / location; per-beat deeds) compiled by the prototype into the scene; the prototype renderer draws resting objects at their location and keeps every object where its last deed left it",
+    "same": "one Remotion bundle renders both arms (B's renderer path is opt-in per config, so A is drawn exactly as today); captions off; identical frame times"
+  },
+  "passages": {
+    "rule": "narration beats in committed Antidote books (books/*/art.json + config.antidote.json) where a person physically moves a concrete object (verb + object noun regex, scratchpad c10/find-transfers.js, 30 hits), minus hypothetical / rhetorical / metaphorical uses (judged on the narration text only, before authoring); each passage = the event beat with one beat of context so the sequence shows before -> deed -> after",
+    "selected": [
+      { "id": "P01", "slug": "15-secrets-successful-people-know-about-time-management", "beats": [73, 74, 75], "object": "phone", "event": "phone on the nightstand -> grabbed -> in hand, screen lit (52 unread)" },
+      { "id": "P02", "slug": "the-second-mountain", "beats": [199, 200, 201], "object": "sword", "event": "sword hangs on the wall -> taken off the wall -> carried out the door" },
+      { "id": "P03", "slug": "thinking-in-systems", "beats": [7, 8, 9], "object": "box", "event": "box held on the palm -> hand pulled away -> box falls, lies on the floor" },
+      { "id": "P04", "slug": "thinking-in-systems", "beats": [75, 76, 77], "object": "cup", "event": "mug cupped in the hands -> kept in hand while it cools" },
+      { "id": "P05", "slug": "farsighted", "beats": [2, 3, 4], "object": "pen / notebook", "event": "notebook open on the desk -> takes a pen -> rules a line in the notebook" },
+      { "id": "P06", "slug": "buffett-the-making-of-an-american-capitalist", "beats": [111, 112, 113], "object": "money", "event": "the Davis family keep their money -> handed over -> Buffett holds it" },
+      { "id": "P07", "slug": "the-art-of-saying-no", "beats": [51, 52, 53], "object": "bag", "event": "bag beside the person -> grabbed -> carried away to the elevator" },
+      { "id": "P08", "slug": "the-art-of-saying-no", "beats": [42, 43, 44], "object": "debit card", "event": "card in the person's hand -> handed over to the friend -> the friend has it" },
+      { "id": "P09", "slug": "nobody-wants-to-read-your-sh-t", "beats": [91, 92, 93], "object": "book", "event": "reader holds the book -> puts the book down -> book on the table, reader leaves it" },
+      { "id": "P10", "slug": "stolen-focus", "beats": [282, 283, 284], "object": "phone", "event": "phone in hand -> put down -> on the table, hand free" }
+    ],
+    "excluded": "the-new-one-minute-manager 149 (hypothetical), creativity 101 (rhetorical), buffett 166 (metaphor: cash out of a company), learned-optimism 23/25 (animals, not a hand object), wonder 229 / surrounded-by-idiots 57 / 114 / as-good-as-dead 22 / nobody-wants 57 / 127 / 15-secrets 162 (idiom), 15-secrets 68 and stolen-focus 183 (generic habit, already covered by P01 / P10), burn-of-the-everflame 164 (touch, no state change)"
+  },
+  "stimulus": "per passage x arm ONE 3-frame strip: the three beats at 75 % of each beat (after the default action cue at 40 %), left to right, caption layer off; plus the three single frames for the standard rubric",
+  "raters": {
+    "describer": "a FRESH sonnet agent per strip, never shown both arms of a passage, never the narration: describes the three frames, then answers: who acts (which figure), what object, who / where had it in frame 1, who / where has it in frame 3, what changed, what follows from it",
+    "judge": "a FRESH sonnet agent per passage-arm: the narration of the three beats + the description only (no image); scores each state question CORRECT / WRONG / NOT_SHOWN against the narration, and the standard mute rubric per frame (CORRECT / NEUTRAL / WRONG; ADDS / TEXT_ONLY / NONE; EXPLAINS YES / NO) — JUDGE_RULES verbatim (scripts/lib/mute-rubric.js)",
+    "replicates": "2 independent describer+judge replicates per strip (cycle 8: describer variance is high)",
+    "human": "a blind human rating sheet (strips shuffled, arm hidden) is produced for the operator; its result is reported separately when filled — the agent result is never presented as human judgement"
+  },
+  "measures": {
+    "stateComprehension": "per strip: the share of the 6 state questions (actor, object, before-holder/location, after-holder/location, change, consequence) judged CORRECT",
+    "rubric": "WRONG, DEAD (contribution NONE), ADDS, EXPLAINS over the 3 frames of each strip",
+    "integrity": "teleportation (object at a place it never reached by a deed) and duplication (one object drawn twice) counted by the compiler on B and by inspection of the strips on both arms"
+  },
+  "shipRule": {
+    "all": [
+      "stateComprehension(B) - stateComprehension(A) >= +20 percentage points (pooled over passages and replicates)",
+      "WRONG(B) <= WRONG(A) (pooled)",
+      "0 teleportation and 0 duplication in B",
+      "ADDS(B) >= ADDS(A) and EXPLAINS(B) >= EXPLAINS(A)"
+    ],
+    "else": "NO SHIP (the prototype stays on its branch)",
+    "uncertainty": "paired bootstrap 95 % interval over passages (10) for the comprehension difference; with n = 10 the result is a pilot signal, never a general claim",
+    "scope": "an experiment criterion, never a production gate; nothing reaches production without the operator"
+  }
+}
