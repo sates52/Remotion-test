@@ -23,6 +23,7 @@ import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPl
 import type { ScenePlan, RestCarry } from "../continuity";
 import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME } from "../continuity";
 import { composeRest } from "../endState";
+import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -362,6 +363,19 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     return (
       <AbsoluteFill style={t.style}>
         <ChapterCard spec={cardSpec} accent={accent} durationFrames={scene.durationFrames} />
+        {t.overlay}
+      </AbsoluteFill>
+    );
+  }
+
+  if (scene.semantic) {
+    // Semantic Director 1.0 (dev/c11): the set, the locked wide stage, nothing else — the camera does not move
+    return (
+      <AbsoluteFill style={t.style}>
+        <Backdrop bg={bg} cam={camera({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, local, scene.durationFrames)} />
+        <Sequence from={transIn} layout="none" name="semantic">
+          <SemanticStage spec={scene.semantic as SemanticCompiled} accent={accent} ink={ink} cast={cast} />
+        </Sequence>
         {t.overlay}
       </AbsoluteFill>
     );

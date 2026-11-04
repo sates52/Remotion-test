@@ -901,6 +901,9 @@ export const sceneSchema = z.object({
   visualContract: visualContractSchema.optional(),
   /** Scene Director Layer (God Mode 8.0): Cinematic composition, focal hierarchy, and reveal order */
   director: directorSchema.optional(),
+  /** SEMANTIC FILM DIRECTOR 1.0 (cycle 11, dev/c11 experiment): a compiled director contract (scripts/lib/semantic-director.js) —
+   *  when present the scene draws its set + components/SemanticStage.tsx in a locked wide frame instead of cast / props / texts. */
+  semantic: z.any().optional(),
   /** Visual Progression: intra-scene transformation from startState to endState. */
   visualArc: visualArcSchema.optional(),
   /** Attention Choreography: ordered sequence of where the viewer's eye should go. */
