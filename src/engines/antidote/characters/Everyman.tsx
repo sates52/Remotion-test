@@ -2,7 +2,8 @@ import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import type { BodyPlan, CharEmotion, HandProp, VariantSpec } from "../schema";
 import type { Pose } from "../movements";
-import { PLACE_FULL_SCALE, PLACE_REST, PLACE_TABLE, PLACE_TABLE_TOP, TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
+import { PLACE_FULL_SCALE, PLACE_REST, PLACE_TABLE, PLACE_TABLE_TOP, REST_ON, TAKE_REST_ARM, TAKE_REST_ELBOW } from "../movements";
+const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 import { HeldProp } from "../handprops";
 import { Accessory, BackHair, Beard, darken, FrontHair, Headwear, HeadwearBack, Torso } from "../wardrobe";
 import { EmotionOverlay } from "./Emotions";
@@ -180,7 +181,9 @@ export const Everyman: React.FC<{
   emotion?: CharEmotion;
   /** Frame when the emotion appears (defaults to 8) */
   emotionAt?: number;
-}> = ({ variant, pose, width = 400, body = "bust", holds, accent, emotion, emotionAt }) => {
+  /** WORLD STATE prototype (cycle 10): an object resting beside this person (table / wall hook / floor) */
+  restsOn?: { prop: HandProp; on: "table" | "wall" | "floor" };
+}> = ({ variant, pose, width = 400, body = "bust", holds, accent, emotion, emotionAt, restsOn }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { skin, hair, suit, shirt, expression, hairStyle, glasses, beard, gender, age, outfit } = variant;
@@ -369,11 +372,42 @@ export const Everyman: React.FC<{
                 <rect x={PLACE_TABLE.x} y={PLACE_TABLE_TOP} width={PLACE_TABLE.w} height={20} rx={6} fill="#A8743F" stroke="#4A2E14" strokeWidth={5} />
               </g>
             ) : null}
-            {holds && pose.take === 0 && (pose.table ?? 0) > 0 ? (
+            {/* WORLD STATE prototype (cycle 10): the RESTING object beside its person, every beat it is there — on the
+                table (the place table above), on a wall hook, or lying on the floor — and a dropped object falling to the
+                floor. Hidden once the hand holds it (a pickup from its cue: Scene passes it as `holds`). */}
+            {restsOn && restsOn.on === "wall" ? (
+              <g>
+                <rect x={REST_ON.wall.x - 46} y={REST_ON.wall.y - 30} width={92} height={12} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
+                <rect x={REST_ON.wall.x - 6} y={REST_ON.wall.y - 22} width={12} height={22} rx={3} fill="#4A2E14" />
+              </g>
+            ) : null}
+            {restsOn && !(holds === restsOn.prop && pose.take === 1) ? (() => {
+              const R = restsOn.on === "floor" ? { x: REST_ON.floor.x, y: ground - 43 } : REST_ON[restsOn.on];
+              return (
+                <g>
+                  {restsOn.on === "floor" ? <ellipse cx={R.x} cy={ground + 2} rx={70} ry={12} fill="#000" opacity={0.16} /> : null}
+                  <g transform={`translate(${R.x} ${R.y}) scale(${0.82 / buildW} 0.82)`}>
+                    <HeldProp prop={restsOn.prop} ink={holdInk} accent={holdAccent} />
+                  </g>
+                </g>
+              );
+            })() : null}
+            {holds && pose.fall != null ? (() => {
+              const x = lerp(330, REST_ON.floor.x, pose.fall), y = lerp(470, ground - 43, pose.fall);
+              return (
+                <g>
+                  <ellipse cx={REST_ON.floor.x} cy={ground + 2} rx={70 * pose.fall} ry={12 * pose.fall} fill="#000" opacity={0.16} />
+                  <g transform={`translate(${x} ${y}) rotate(${pose.fall * 14}) scale(${0.82 / buildW} 0.82)`}>
+                    <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
+                  </g>
+                </g>
+              );
+            })() : null}
+            {holds && pose.take === 0 && pose.fall == null && !restsOn && (pose.table ?? 0) > 0 ? (
               <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
                 <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
               </g>
-            ) : holds && pose.take === 0 ? (
+            ) : holds && pose.take === 0 && pose.fall == null && !restsOn ? (
               <g transform={`rotate(${TAKE_REST_ARM} 304 322)`}>
                 <g transform={`rotate(${TAKE_REST_ELBOW} 304 410)`}>
                   <g transform={`translate(304 462) rotate(${-(TAKE_REST_ARM + TAKE_REST_ELBOW) - pose.lean}) scale(${0.82 / buildW} 0.82)`}>

@@ -99,15 +99,15 @@ const mute = (hex: string, amt = 0.55) => {
 const Rig: React.FC<{
   variant: VariantSpec; poseValue: ReturnType<typeof pose>; silhouette?: boolean;
   body?: BodyPlan; holds?: HandProp; accent?: string;
-  emotion?: CharEmotion; emotionAt?: number;
-}> = ({ variant, poseValue, silhouette, body, holds, accent, emotion, emotionAt }) => {
-  if (!silhouette) return <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} />;
+  emotion?: CharEmotion; emotionAt?: number; restsOn?: CharacterSpec["restsOn"];
+}> = ({ variant, poseValue, silhouette, body, holds, accent, emotion, emotionAt, restsOn }) => {
+  if (!silhouette) return <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} restsOn={restsOn} />;
   // Flat dark cut-out: the overShoulder foreground and the silhouette shot.
   // Fully opaque on purpose — any transparency lets the backdrop bleed through
   // the shoulder and turns the rig's overlapping parts into visible seams.
   return (
     <div style={{ filter: "brightness(0)" }}>
-      <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} />
+      <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} restsOn={restsOn} />
     </div>
   );
 };
@@ -162,7 +162,9 @@ const CharacterLayer: React.FC<{
   // already passed (continuity.ts) — the embrace / the taken object is the starting state, never replayed
   const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
-  let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
+  let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole, spec.restsOn ? spec.restsOn.on : "table");
+  // WORLD STATE prototype (cycle 10): an object resting on the table beside this person keeps the table drawn
+  if (spec.restsOn && spec.restsOn.on === "table") p = { ...p, table: 1 };
   // the carried rest (settled: the deed is over) under this beat's own action — seated keeps its seat, down keeps its body
   if (rest) p = composeRest(pose(rest.restAction as CharacterSpec["action"], SETTLED_FRAME, fps), p, rest.posture, spec.action);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
@@ -240,10 +242,11 @@ const CharacterLayer: React.FC<{
         poseValue={p}
         silhouette={st.silhouette}
         body={body}
-        holds={spec.holds}
+        holds={spec.action === "pickup" ? (p.take === 1 && spec.restsOn ? spec.restsOn.prop : undefined) : spec.holds}
         accent={accent}
         emotion={spec.emotion}
         emotionAt={spec.emotionAt}
+        restsOn={spec.restsOn}
       />
       {/* SPEECH (CSD 1.1): the balloon leans away from the partner (screen side), converted into this mirrored layer */}
       {spec.says && spec.says.text ? (() => {

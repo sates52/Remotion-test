@@ -147,6 +147,8 @@ export type Pose = {
   placed?: number;
   /** `place` 2.0 (cycle 6): 1 = the rig draws a table beside the reaching hand; the object rests ON it once let go */
   table?: number;
+  /** WORLD STATE prototype (cycle 10): `drop` — 0..1 the let-go object falling from the hand to the floor (1 = lying there) */
+  fall?: number;
   /** `lift` release (10x P1): 0..1 the lifter steps back from her grip to stand BESIDE the destination */
   back?: number;
   /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
@@ -184,6 +186,15 @@ export const PLACE_OUT = 22, PLACE_HOLD = 10, PLACE_BACK = 20;
 /** PLACE 2.0 (cycle 6): the straight arm angled down-out puts the hand-object anchor (140 px down the arm from the
  *  shoulder at 304,322) at PLACE_REST — the object's base lands on the table top (PLACE_TABLE_TOP) beside the body */
 export const PLACE_ARM = -41, PLACE_REST = { x: 397, y: 427 }, PLACE_TABLE_TOP = 470;
+/** WORLD STATE prototype (cycle 10): where a RESTING object lies beside its person (rig units), and the straight-arm
+ *  angle (+ lean) that puts the hand-object anchor (140 px down the arm from the shoulder at 304,322) on it:
+ *  table = PLACE_REST (the place table), wall = a hook above shoulder height, floor = in front of the feet (bent) */
+export const REST_ON = {
+  table: { arm: -41, lean: 0, x: 397, y: 427 },
+  wall: { arm: -115, lean: -4, x: 431, y: 263 },
+  floor: { arm: -24, lean: 16, x: 390, y: 0 }, // y: the rig's ground line (bust 600 / full 896), set by the rig
+} as const;
+export type RestOn = keyof typeof REST_ON;
 /** the table under the placed object (rig units): narrow enough to stay in frame when the placer stands near the edge
  *  (cycle 6 WON: 336-550 ran off the right edge), wide enough to read as a table under the object (centred on PLACE_REST.x) */
 export const PLACE_TABLE = { x: 332, w: 130 };
@@ -252,10 +263,31 @@ function blinkAt(frame: number): number {
  * and `embrace` read it). Every value is a pure function of (frame, cue): a frame rendered on its own, on any
  * worker, draws the same body as inside the clip.
  */
-export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN, role: "lead" | "partner" = "lead"): Pose {
+export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN, role: "lead" | "partner" = "lead", restOn: RestOn = "table"): Pose {
   const t = frame / fps;
   const blink = blinkAt(frame);
   switch (action) {
+    case "pickup": {
+      // WORLD STATE prototype (cycle 10): `place` in reverse. START: the object rests beside the person (restsOn), the
+      // hand at the side. Before the cue the empty hand goes OUT to it (PLACE_OUT); MOMENT (cue): it closes on it there;
+      // RESULT: the arm brings it in to the chest (PLACE_BACK) — held from now on (the compiler writes holds next beat).
+      const R = REST_ON[restOn];
+      const held = { ...BASE, armR: -6, elbowR: 82, armL: 12, lean: -2, headY: bob(frame, 2, 140), blink, gazeX: 0.3, gazeY: 0.35 };
+      const side = { ...BASE, headY: bob(frame, 2, 140), blink, gazeX: 0.6, gazeY: 0.5 };
+      const out = easeInOut((frame - (cue - PLACE_OUT)) / PLACE_OUT);
+      if (frame < cue) return { ...side, armR: lerp(-8, R.arm, out), elbowR: 0, lean: lerp(0, R.lean, out), gazeX: lerp(0.6, 0.8, out), gazeY: lerp(0.5, 0.8, out), take: 0, table: restOn === "table" ? 1 : 0 };
+      const k = easeInOut((frame - cue) / (PLACE_BACK + 6));
+      return { ...held, armR: lerp(R.arm, held.armR, k), elbowR: lerp(0, held.elbowR, k), lean: lerp(R.lean, held.lean, k), armL: lerp(8, 12, k), take: 1, bring: k, table: restOn === "table" ? 1 : 0 };
+    }
+    case "drop": {
+      // WORLD STATE prototype (cycle 10): LETTING GO. START: held at the chest. MOMENT (cue): the hand opens and drops
+      // away (the arm falls to the side); the object FALLS to the floor (fall 0..1, ~12 frames) and lies there.
+      const held = { ...BASE, armR: -6, elbowR: 82, armL: 12, lean: -2, headY: bob(frame, 2, 140), blink, gazeX: 0.3, gazeY: 0.35 };
+      if (frame < cue) return { ...held, take: 1, bring: 1 };
+      const a = easeInOut((frame - cue) / 10);
+      const fall = Math.min(1, Math.max(0, (frame - cue) / 12));
+      return { ...held, armR: lerp(-6, -10, a), elbowR: lerp(82, 4, a), lean: lerp(-2, 0, a), gazeX: lerp(0.3, 0.4, fall), gazeY: lerp(0.35, 0.9, fall), take: 0, fall: fall * fall };
+    }
     case "leave":
     case "flee": {
       // Action 2.0 (2026-10-28): GOING AWAY. Before the cue: standing. On the cue: the turn (the body faces its exit),
@@ -313,9 +345,13 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
       // height) — blind: "holds a cup out to him", the object floated. Now: a TABLE stands beside the placer from the
       // first frame (pose.table), the straight arm goes DOWN-OUT onto it, the object is let go ON the table and stays;
       // Scene turns the placer so this arm points away from the partner.
-      const at = { armR: PLACE_ARM, elbowR: 0, armL: 8, lean: 0, headY: 4, gazeX: 0.7, gazeY: 0.7 };
+      // WORLD STATE prototype (cycle 10): the destination can be a wall hook (`hang`) — the arm goes UP to it, no table.
+      // A place with no world destination (every existing config) is the table exactly as before.
+      const dest = REST_ON[restOn];
+      const tbl = restOn === "table" ? 1 : 0;
+      const at = { armR: restOn === "table" ? PLACE_ARM : dest.arm, elbowR: 0, armL: 8, lean: restOn === "table" ? 0 : dest.lean, headY: 4, gazeX: 0.7, gazeY: restOn === "wall" ? -0.4 : 0.7 };
       const held = { ...BASE, armR: -6, elbowR: 82, armL: 12, lean: -2, headY: bob(frame, 2, 140), blink, gazeX: 0.3, gazeY: 0.35 };
-      if (frame < cue) return { ...held, take: 1, bring: 1, table: 1 };
+      if (frame < cue) return { ...held, take: 1, bring: 1, table: tbl };
       const out = easeInOut((frame - cue) / PLACE_OUT);
       const back = easeInOut((frame - cue - PLACE_OUT - PLACE_HOLD) / PLACE_BACK);
       const ext = out * (1 - back); // 0 at the chest / back at the side, 1 at full reach
@@ -326,7 +362,7 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         armL: armTo(12, at.armL, 8), lean: armTo(-2, at.lean, 0),
         headY: lerp(held.headY, at.headY, ext), blink,
         gazeX: lerp(0.3, at.gazeX, out), gazeY: lerp(0.35, at.gazeY, out),
-        take: out < 1 ? 1 : 0, bring: 1 - out, table: 1,
+        take: out < 1 ? 1 : 0, bring: 1 - out, table: tbl,
       };
     }
     case "lift": {

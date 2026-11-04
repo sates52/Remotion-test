@@ -6,6 +6,7 @@ import { ChapterCard } from './engines/antidote/components/ChapterCard';
 import { pickHeroScenes, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
 import { ANTIDOTE_LAB } from './engines/antidote/lab';
 import { ANTIDOTE_LAB4 } from './engines/antidote/lab4';
+import { SpikeIK, SpikeHybrid } from './spikes/Cycle10Spikes';
 import { CastSheet } from './engines/antidote/CastSheet';
 import { RemocnShowcase } from './compositions/RemocnShowcase';
 import { AntidoteShowcase } from './compositions/AntidoteShowcase';
@@ -145,6 +146,9 @@ export const RemotionRoot: React.FC = () => {
                 schema={antidoteBookSchema}
                 defaultProps={{ config: ANTIDOTE_LAB } as any}
             />
+            {/* cycle 10 spikes (experiment branch only): IK reach, hybrid per-scene renderers */}
+            <Composition id="Spike-IK" component={SpikeIK} durationInFrames={240} fps={30} width={1920} height={1080} />
+            <Composition id="Spike-Hybrid" component={SpikeHybrid as any} durationInFrames={1200} fps={30} width={1920} height={1080} defaultProps={{ causal: ANTIDOTE_LAB, deed: ANTIDOTE_LAB, vox: null } as any} />
 
             {/* Antidote 4.0 Phase A — MULTIPLANE (2.5D depth parallax) + LOOK-AT
                 (characters orient toward each other / the motif). Same render

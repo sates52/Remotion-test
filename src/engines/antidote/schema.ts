@@ -48,6 +48,9 @@ export const charAction = z.enum([
   "embrace", // two people: the lead closes the gap and they hold each other from the cue (the partner embraces back)
   "lift", // two people (2026-10-26): the lead lifts the partner on the cue, carries her to the beat's icon and sets her down in it
   "lifted", // the partner of a lift (never authored alone): rises, is carried, is set down in the destination and stays there
+  // ── WORLD STATE prototype (cycle 10, experiment branch): the object's place is state, kept between beats ─────────
+  "pickup", // the object RESTING beside the person (`restsOn`) is picked up on the cue: the hand goes out to it, closes, brings it in
+  "drop", // the held object leaves the hand on the cue, falls and lies on the floor (it stays there: `restsOn` floor next beat)
 ]);
 export type CharAction = z.infer<typeof charAction>;
 
@@ -301,6 +304,9 @@ export const characterSchema = z.object({
   body: bodyPlan.optional(),
   /** What this character is holding — a glyph anchored to the right hand. */
   holds: handProp.optional(),
+  /** WORLD STATE prototype (cycle 10): an object RESTING beside this person — on a table, on a wall hook or on the
+   *  floor — drawn with the rig's own geometry every beat it is there (the world compiler writes it, worldState.ts). */
+  restsOn: z.object({ prop: handProp, on: z.enum(["table", "wall", "floor"]) }).optional(),
   /** SPEECH (CSD 1.1, cycle 8): the words this person SAYS, drawn in a balloon tied to them — the narration's own
    *  words (merge refuses anything else). `at` = scene frame where it is said (the planner anchors it on the words). */
   says: z.object({ text: z.string().min(1).max(80), at: z.number().optional() }).optional(),
