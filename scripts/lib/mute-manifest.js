@@ -51,7 +51,8 @@ function buildManifest({ root, slug, label, now = new Date() }) {
   let stills16 = null; try { stills16 = fs.readFileSync(path.join(dir, "stills", ".config-sha"), "utf8").trim(); } catch {}
   const pin = readJSON(path.join(book, "production-base.json"), {}) || {};
   const ids = sample.map((s) => s.id);
-  const sealIdsSha = seal ? sha(JSON.stringify(seal.ids || [])) : null;
+  const MI = require("./mute-ids"); // the sealer's own serialization (sorted): order never decides a seal
+  const sealIdsSha = seal ? MI.idsSha(seal.ids || []) : null;
   const judgeInput = path.join(dir, "judge-input.json");
   const judgeItems = readJSON(judgeInput, []) || [];
   const narrations = (Array.isArray(judgeItems) ? judgeItems : Object.values(judgeItems)).map((x) => x && x.narration).filter(Boolean);
@@ -60,8 +61,8 @@ function buildManifest({ root, slug, label, now = new Date() }) {
     schema: "mute-cloud-manifest/1", slug, label, createdAt: now.toISOString(),
     engine: { codeHead: (seal && seal.codeHead) || meta.codeHead || null, pin: pin.productionBase || null },
     film: { configSha256: cfgFile ? sha(fs.readFileSync(cfgFile)) : null, renderInputHash, stillsConfigSha: stills16 },
-    seal: { sealed: !!seal, idsSha256: seal ? seal.idsSha256 : null, verified: !!seal && sealIdsSha === seal.idsSha256 && JSON.stringify(seal.ids) === JSON.stringify(ids) },
-    sample: { n: ids.length, idsSha256: sha(JSON.stringify(ids)) },
+    seal: { sealed: !!seal, idsSha256: seal ? seal.idsSha256 : null, verified: !!seal && Array.isArray(seal.ids) && sealIdsSha === seal.idsSha256 && MI.sameIdSet(seal.ids, ids) },
+    sample: { n: ids.length, idsSha256: MI.idsSha(ids), duplicates: MI.duplicates(ids) },
     frames,
     keySha256: fs.existsSync(path.join(dir, "key.json")) ? sha(fs.readFileSync(path.join(dir, "key.json"))) : null,
     describer: { inputs: frames.map((f) => `mute/${f.img}`), promptSha256: sha(prompt), leak: leakCheck(prompt, narrations) },

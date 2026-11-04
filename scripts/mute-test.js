@@ -138,7 +138,7 @@ function narrationAt(f) {
 // current scene), stale stills/answers removed first. A missing beat or a changed sample stops the run
 // (never a silent replacement); a label already tallied as a verdict cannot be re-sampled. Selection
 // algorithm, bars and judging are unchanged.
-const idsSha = (ids) => require("crypto").createHash("sha256").update(JSON.stringify([...ids].sort())).digest("hex");
+const { idsSha } = require("./lib/mute-ids"); // the one id-set serialization (sealer = verifier = manifest)
 // ONE prep per label at a time (2026-10-24): a long prep (one bundle + 30 stills) that is checked, cancelled and
 // started again by an impatient agent only ever pays the bundle again (do-over: 4 stills in 51 min). A second prep of
 // the same label is refused while the first one's process is alive; a stale lock (dead pid) is taken over.
