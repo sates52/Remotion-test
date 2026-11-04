@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ dev/c10 (cycle 10 architecture study + readcheck binding) | god-mode: `scripts/readcheck.js`, `scripts/lib/{readcheck-binding,evidence-integrity}.js`, tests; branch `dev/c10`: world-state prototype, IK + hybrid spikes, `audit/c10-pilots/` | _(done)_ 2026-11-04: readcheck pushed (20941526); experiments on branch dev/c10 (b5b06c42), not merged | World state A/B NO SHIP; no book, pin, sealed evidence or gate touched. |
 | _(done)_ dev/c9 part 2 (join repair, P0b A–E, post-delivery records) | `scripts/{repair-joins,render-cloud-assemble,mute-test,mute-reliability,mute-cloud-poc,ai-budget,plan-antidote,verify-render-output,render}.js`, `scripts/lib/{join-repair,mute-ids,judge-binding,render-preflight,mute-verdict,mute-manifest,cloud-assemble}.js`, tests | _(done)_ 2026-11-04: pushed to god-mode | No gate or threshold changed; old seals/results keep their reading; one record appended (Hamnet render-facts). |
 | _(done)_ dev/c9 P0a (render-deliver, dispatch truth, media check) | `scripts/render-deliver.js` (new), `scripts/lib/{deliver,media-verify}.js` (new), `scripts/lib/render-dispatch.js`, `scripts/{render,render-status,render-github-redispatch,render-github-cloud-assemble,verify-render-output,post-render,book-start}.js`, `scripts/test-deliver-chain.js` (new), render-deliver skills, CLAUDE.md, AGENTS.md, contract | _(done)_ 2026-11-03: pushed to god-mode | No book worktree, pin, sealed evidence, gate or threshold touched; real books checked read-only. See the 2026-11-03 cycle 9 entry. |
 | _(done)_ procrastinate-on-purpose | `books/procrastinate-on-purpose/`, `PUBLISHED_BOOKS.md` | ✅ PUBLISHED & CLEANED 2026-11-03 | Antidote; 39.7 min (71,144 frames), 10-way split; YouTube live; GitHub artifacts/runs + 11 render refs purged; local film, thumbnails, audio cleaned. Accepted 477 REVIEW quality debt (operator order 2026-11-02). |
@@ -50,6 +51,55 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🧭 2026-11-04 — Cycle 10: architecture study (world state A/B NO SHIP, IK + hybrid spikes, Lemo-Opuscar, VSB-1), readcheck evidence binding (SHIP)
+
+- **Shipped to god-mode — readcheck evidence binding** (20941526): the same four rules as the cycle-9 mute fix.
+  - **Exact id sets:** missing, extra or duplicated ids give EVIDENCE_INVALID, never a silent n.
+  - **Run tokens:** prep writes `run.json`, judge writes `judge-run.json`, and verdicts must echo the run as `{run, items}`.
+  - **Frozen evidence:** a re-tally of tallied evidence is allowed only on byte-identical files (exit 3 otherwise).
+  - **No deletion:** a full prep MOVES the previous run to `storyboard/readcheck-history/` instead of deleting it.
+  - **Old records unchanged:** an INVALID comes only from a new record's `binding` field.
+  - **Read-only scan:** 599 folders / 290 books; 0 recorded results flip. 5 test-book runs that were prepped but never filled read INVALID.
+- **Everything else is on branch `dev/c10`** (origin, b5b06c42). It is NOT in production; files are in `audit/c10-pilots/`.
+- **Capability map** (Explore audit):
+  - FK rig with no IK; contact is faked by sliding bodies.
+  - One right-hand prop; no object location state.
+  - A placed object vanishes next beat; held objects are re-authored per beat.
+  - The camera never follows information; no in-scene cut.
+- **World-state prototype (architecture A):**
+  - Model: objects with one place (in a hand, or beside someone on a table / wall / floor); deeds pickup / place / hang / drop / give.
+  - Compiled into ordinary scene fields; teleport and duplication are compiler errors; opt-in.
+  - Pre-registered blind A/B, 10 passages from 7 books (sonnet describer + judge, 1 replicate):
+
+    | measure | A | B |
+    |---|---|---|
+    | state comprehension | 76.7 % | 75.0 % |
+    | WRONG | 3 | 2 |
+    | DEAD | 9 | 7 |
+    | ADDS | 21 | 23 |
+    | EXPLAINS | 3 | 3 |
+
+  - Difference −1.7 pp, CI −6.7…+3.3 → **NO SHIP**.
+  - Reading: a ceiling on single-step deeds; the consequence is not staged in either arm (40 % / 20 %); the correct state is too small in frame.
+  - Deviations, recorded in the result file:
+    - a hang→wall teleport was fixed before any rating and both arms were re-rendered;
+    - replicate 2 was skipped after a rate limit, since it could no longer reach +20 pp;
+    - no human sheet.
+- **Spike B (IK):**
+  - The arm reaches 1/5 narration targets (140 rig px); step + IK reaches 5/5 in the solver test.
+  - In the render, a floor target fails: it needs whole-body poses (crouch).
+- **Spike C (hybrid director):**
+  - The rule router over 2 022 beats gives ~70 % abstract, ~14 % causal, ~5 % concrete action.
+  - One film can mix three renderers (Antidote diagram, Antidote world deed, Vox image); render is fine.
+- **Lemo-Opuscar** (MIT code / CC BY 4.0 demos; nothing integrated):
+  - Candidate techniques: a holder-tracked prop (= A), and a "whole incident" locked wide shot (cause → hold → visible effect, accent on the cause).
+- **VSB-1 benchmark design:**
+  - 3 strata; 3 separate questions (correct / explains vs reminds / muted message).
+  - k=3 describers; a 30-item human reference with kappa.
+  - "Aesthetic but empty" never passes.
+- **Recommendation:** C — a director that decides per scene what a muted viewer must understand and picks the representation — is the only route that reaches the abstract + causal ~84 %. A stays on the branch; B is deferred.
+- **No book, pin, sealed evidence, gate or threshold touched.** One new bundle per render; no full-book render.
 
 ### 🔊 2026-11-04 — Cycle 9 (part 2): chunk-join audio repair (SHIP), P0b evidence integrity + provenance, post-delivery records, authorization audit
 
