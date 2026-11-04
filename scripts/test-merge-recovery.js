@@ -127,6 +127,9 @@ try {
   const RC = path.join(SB, "readcheck");
   fs.mkdirSync(RC, { recursive: true });
   fs.writeFileSync(path.join(RC, "key.json"), JSON.stringify({ b1: iNo, b2: iWord, b3: iPick }));
+  // what the readers were shown and read: the tally binds the verdicts to exactly these ids (cycle 10)
+  fs.writeFileSync(path.join(RC, "visible-1.json"), JSON.stringify([{ id: "b1" }, { id: "b2" }, { id: "b3" }]));
+  fs.writeFileSync(path.join(RC, "guess-1.json"), JSON.stringify([{ id: "b1", guess: "g1" }, { id: "b2", guess: "g2" }, { id: "b3", guess: "g3" }]));
   fs.writeFileSync(path.join(RC, "verdict-1.json"), JSON.stringify([{ id: "b1", correctness: "WRONG", blame: "words", why: "fixture" }, { id: "b2", correctness: "CORRECT", blame: null, why: "fixture" }, { id: "b3", correctness: "CORRECT", blame: null, why: "fixture" }]));
   const rc = run([path.join(__dirname, "readcheck.js"), "tally", `--slug=${SLUG}`, `--root=${tmp}`]);
   const RJ = read(path.join(BOOK, "readcheck.json"));

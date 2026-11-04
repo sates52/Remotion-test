@@ -185,7 +185,8 @@ function checkReadcheckDir(dir) {
     for (const v of rj(path.join(dir, f)) || []) if (v && v.id) vis.set(v.id, v);
     const g = rj(path.join(dir, `guess-${k}.json`));
     if (Array.isArray(g)) { guesses.push(...g); signals.push(timingSignal(path.join(dir, f), path.join(dir, `guess-${k}.json`), g.length, `readers ${k}`)); }
-    const v = rj(path.join(dir, `verdict-${k}.json`));
+    // a verdict file is the legacy array or, since cycle 10, { run, items } (lib/readcheck-binding.js)
+    const v = require("./readcheck-binding").verdictItems(rj(path.join(dir, `verdict-${k}.json`))).items;
     if (Array.isArray(v)) { verdicts.push(...v); signals.push(timingSignal(path.join(dir, `judge-${k}.json`), path.join(dir, `verdict-${k}.json`), v.length, `judges ${k}`)); }
   }
   // the CORRECT beats' stock reason is not counted (see checkReasons); only a failure must be explained per beat
@@ -203,6 +204,12 @@ function checkReadcheckDir(dir) {
  * A readcheck tallied before this check (no `evidence` field) is checked from its files; with no files, the record decides.
  */
 function readcheckEvidence(bookDir, record = null) {
+  // a tally since cycle 10 records its id-set / run binding (readcheck.js); only such a record can say INVALID here —
+  // an older record has no `binding` field and is read exactly as before (no retroactive flip)
+  if (record && record.binding === "INVALID") {
+    const e = record.evidence || {};
+    return { ok: false, status: STATUS_INVALID, reasons: e.reasons || ["readcheck tally: the verdicts are not the answer to exactly these beats / this run"], signals: e.signals || [] };
+  }
   const base = path.join(bookDir, "storyboard", "readcheck");
   let dirs = [];
   try { dirs = [base, ...fs.readdirSync(base).filter((d) => /^recheck-\d+$/.test(d)).map((d) => path.join(base, d))]; } catch { dirs = []; }

@@ -23,6 +23,12 @@
  * After fixing, re-check only the changed beats: prep --beats=<ids>. A re-check goes to its own
  * folder readcheck/recheck-N/ (judge --recheck=N) and never touches the full run; tally merges the
  * full run with every re-check, the newest verdict per beat winning.
+ *
+ * EVIDENCE BINDING (cycle 10, lib/readcheck-binding.js): tally counts a folder only when its guess/verdict ids are
+ * exactly its visible ids (none missing, extra or twice) — otherwise EVIDENCE_INVALID, exit 3 (not PASS, not FAIL);
+ * prep writes run.json, judge writes judge-run.json and the judges echo its run ({ "run", "items" }). A folder whose
+ * verdicts were tallied is frozen: re-tally only on byte-identical evidence (readcheck.json `tallied`), judge refused.
+ * A full prep never deletes the previous run: it is moved to storyboard/readcheck-history/<stamp>/.
  */
 const fs = require("fs");
 const path = require("path");
@@ -51,6 +57,28 @@ function outDir() {
 }
 const OUT = outDir();
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
+const RB = require("./lib/readcheck-binding");
+const runOf = (dir) => ((readJSON(path.join(dir, "run.json")) || {}).run || null);
+const folderName = (dir) => (dir === BASE ? "readcheck" : path.basename(dir));
+const folderDir = (name) => (name === "readcheck" ? BASE : path.join(BASE, name));
+// the folders a previous tally counted, while this full run is still the one it counted (a new full prep = a new run)
+function frozenFolders() {
+  const T = (readJSON(path.join(BOOK, "readcheck.json")) || {}).tallied;
+  if (!T || !T.folders || (T.baseRun || null) !== runOf(BASE)) return {};
+  return T.folders;
+}
+// recorded evidence is never overwritten (cycle 10): every frozen folder must still be byte-identical
+function frozenProblems() {
+  const out = [];
+  for (const [name, rec] of Object.entries(frozenFolders())) {
+    const dir = folderDir(name);
+    if (!fs.existsSync(path.join(dir, "key.json"))) out.push(`${name}: its tallied evidence is gone`);
+    else if (runOf(dir) !== (rec.run || null)) out.push(`${name}: prepared again after its verdicts were tallied`);
+    else if (RB.folderSha(dir) !== rec.evidenceSha256) out.push(`${name}: its evidence files changed after they were tallied`);
+  }
+  return out;
+}
+const newRun = (what) => `${SLUG}-${what}-${require("crypto").randomBytes(6).toString("hex")}`;
 
 // What each shared icon LOOKS like — literal, never its intended metaphor.
 const DRAWN = {
@@ -216,9 +244,17 @@ function prep() {
   const causal = causalReached(beats);
   const only = args.beats ? new Set(String(args.beats).split(",").map(Number)) : null;
   if (only) beats = beats.filter((b) => only.has(b.i));
-  if (OUT === BASE) fs.rmSync(OUT, { recursive: true, force: true }); // full run: start clean (drops old re-checks too)
-  else if (fs.existsSync(OUT)) { console.error(`❌ ${OUT} already exists`); process.exit(1); }
+  // full run: start clean — the previous run (with its re-checks) is MOVED to readcheck-history/, never deleted (cycle 10)
+  if (OUT === BASE) {
+    if (fs.existsSync(OUT) && fs.readdirSync(OUT).length) {
+      const hist = path.join(BOOK, "storyboard", "readcheck-history", new Date().toISOString().replace(/[:.]/g, "-"));
+      fs.mkdirSync(path.dirname(hist), { recursive: true });
+      try { fs.renameSync(OUT, hist); } catch { fs.cpSync(OUT, hist, { recursive: true }); fs.rmSync(OUT, { recursive: true, force: true }); }
+      console.log(`  the previous readcheck run is kept in ${path.relative(ROOT, hist)}`);
+    }
+  } else if (fs.existsSync(OUT)) { console.error(`❌ ${OUT} already exists`); process.exit(1); }
   fs.mkdirSync(OUT, { recursive: true });
+  fs.writeFileSync(path.join(OUT, "run.json"), JSON.stringify({ run: newRun("prep"), at: new Date().toISOString(), beats: beats.length }, null, 1));
   const size = parseInt(args.chunk || "140", 10); // each agent costs a fixed ~60k of context — fewer, larger chunks
   const chunks = [];
   for (let s = 0; s < beats.length; s += size) chunks.push(beats.slice(s, s + size));
@@ -242,6 +278,10 @@ Write ONLY a JSON array [{"id":"b001","guess":"...","misleading":"..."}, ...] to
 function judge() {
   const key = readJSON(path.join(OUT, "key.json"));
   if (!key) { console.error("❌ run prep first"); process.exit(1); }
+  const fz = frozenFolders()[folderName(OUT)];
+  if (fz && (fz.run || null) === runOf(OUT)) { console.error(`❌ ${path.relative(ROOT, OUT)} was tallied — its judge inputs and verdicts are evidence and are never written over. Re-read changed beats with prep --beats=<ids>.`); process.exit(3); }
+  const judgeRun = newRun("judge"), inputs = {};
+  const sha = (f) => require("crypto").createHash("sha256").update(fs.readFileSync(f)).digest("hex");
   const byI = new Map(beatsOf().map((b) => [b.i, b]));
   const files = fs.readdirSync(OUT).filter((f) => /^visible-\d+\.json$/.test(f)).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/)));
   const prompts = [];
@@ -253,11 +293,14 @@ function judge() {
     const g = new Map(guess.map((x) => [x.id, x]));
     const items = vis.map((v) => ({ id: v.id, narration: byI.get(key[v.id]).narration, onScreen: { ...v, id: undefined }, viewerGuess: (g.get(v.id) || {}).guess || "(no guess)" }));
     fs.writeFileSync(path.join(OUT, `judge-${k}.json`), JSON.stringify(items, null, 1));
+    inputs[k] = { guess: sha(path.join(OUT, `guess-${k}.json`)), judge: sha(path.join(OUT, `judge-${k}.json`)) };
     prompts.push(`### Judge ${k}
 Read ONLY ${path.join(OUT, `judge-${k}.json`)}. Each item has the narration spoken at a moment, what was on screen, and what a blind viewer (sound off) guessed the narrator was saying.
 For each item decide "correctness": CORRECT (the guess carries the narration's meaning), NEUTRAL (vague, neither right nor contradicting), WRONG (the viewer would believe something different or opposite); "blame": which on-screen element caused a non-CORRECT reading (icon / people / face / body / words / diagram / place / nothing-fits), and "why" in one sentence.
-Judge meaning, not wording. Write ONLY a JSON array [{"id":"b001","correctness":"...","blame":"...","why":"..."}, ...] to ${path.join(OUT, `verdict-${k}.json`)}. Validate it parses and has ${items.length} entries. Reply with one line: "written ${items.length}".`);
+Judge meaning, not wording. Write ONLY this JSON object to ${path.join(OUT, `verdict-${k}.json`)}: {"run":"${judgeRun}","items":[{"id":"b001","correctness":"...","blame":"...","why":"..."}, ...]} — keep "run" exactly as given; ${items.length} items, each id exactly once. Validate it parses. Reply with one line: "written ${items.length}".`);
   }
+  // RUN TOKEN (cycle 10): the verdicts must echo it; the inputs it was issued for are recorded beside it
+  fs.writeFileSync(path.join(OUT, "judge-run.json"), JSON.stringify({ run: judgeRun, prepRun: runOf(OUT), at: new Date().toISOString(), inputs }, null, 1));
   fs.appendFileSync(path.join(OUT, "PROMPTS.md"), `\n## Judges (fresh agents, model: sonnet, parallel). Then: node scripts/readcheck.js tally --slug=${SLUG}\n\n${prompts.join("\n\n")}\n`);
   console.log(`✓ ${files.length} judge inputs. Run the Judges section of PROMPTS.md (sonnet, parallel).`);
   console.log(`  Running the judges is a ${require("./lib/next-step").ROUTINE}`);
@@ -268,15 +311,20 @@ function tally() {
   const T = { CORRECT: 0, NEUTRAL: 0, WRONG: 0 }, blame = {}, bad = [];
   // the full run, then recheck-1, recheck-2, ...: the newest verdict per beat wins
   const sources = [BASE, ...recheckDirs().map((d) => path.join(BASE, d))];
-  const latest = new Map();
+  // a tallied folder is final evidence (cycle 10): re-tally only on byte-identical evidence, never over changed files
+  const frozen = frozenProblems();
+  if (frozen.length) { console.error(`❌ ${SLUG} readcheck: the recorded verdicts are not overwritten —\n   ${frozen.join("\n   ")}\n   A new reading is a re-check (prep --beats=<ids>) or a new full run (prep).`); process.exit(3); }
+  const latest = new Map(), binding = { reasons: [], signals: [], folders: {} };
   for (const dir of sources) {
     const key = readJSON(path.join(dir, "key.json"));
     if (!key) continue;
-    for (const f of fs.readdirSync(dir).filter((x) => /^verdict-\d+\.json$/.test(x))) {
-      for (const v of readJSON(path.join(dir, f), []) || []) {
-        if (v && key[v.id] !== undefined) latest.set(key[v.id], { ...v, from: path.basename(dir) });
-      }
-    }
+    // BINDING (lib/readcheck-binding.js): only this folder's beats, each answered once, are counted; any id-set break
+    // (or, for a token run, a verdict of another run) makes the tally EVIDENCE_INVALID below
+    const b = RB.checkFolder(RB.readFolder(dir)), name = folderName(dir);
+    binding.reasons.push(...b.reasons.map((x) => `${name}: ${x}`));
+    binding.signals.push(...b.signals.map((x) => `${name}: ${x}`));
+    binding.folders[name] = { status: !b.ok ? "INVALID" : b.legacy ? "LEGACY" : "BOUND", run: runOf(dir), evidenceSha256: RB.folderSha(dir) };
+    for (const [id, v] of b.counted) if (key[id] !== undefined) latest.set(key[id], { ...v, from: path.basename(dir) });
   }
   for (const [i, v] of latest) {
     T[v.correctness] = (T[v.correctness] || 0) + 1;
@@ -302,13 +350,20 @@ function tally() {
   // evidence integrity (2026-11-03, lib/evidence-integrity.js): readings filled in from one template are not readings —
   // the tally is EVIDENCE_INVALID (not PASS, not FAIL); the totals stay as recorded
   const EI = require("./lib/evidence-integrity");
-  const ev = EI.readcheckEvidence(BOOK), evSig = ev.signals;
+  const ev = EI.readcheckEvidence(BOOK);
+  if (binding.reasons.length) Object.assign(ev, { ok: false, status: EI.STATUS_INVALID, reasons: [...(ev.reasons || []), ...binding.reasons] });
+  const evSig = [...(ev.signals || []), ...binding.signals];
+  // the folders a VALID tally counted become frozen evidence; an INVALID tally freezes nothing new (its readers / judges
+  // are re-run in place) and keeps what an earlier valid tally froze
+  const prevTallied = (readJSON(path.join(BOOK, "readcheck.json")) || {}).tallied || null;
+  const tallied = !ev.ok ? prevTallied : { baseRun: runOf(BASE), folders: Object.fromEntries(Object.entries(binding.folders).map(([k, x]) => [k, { run: x.run, evidenceSha256: x.evidenceSha256 }])) };
+  const bindingStatus = binding.reasons.length ? "INVALID" : Object.values(binding.folders).some((x) => x.status === "LEGACY") ? "LEGACY" : "BOUND";
   const evidence = !ev.ok ? { status: ev.status, reasons: ev.reasons, signals: evSig } : evSig.length ? { status: "OK", signals: evSig } : null;
-  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), ...(evidence ? { evidence } : {}), totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i), ...(reviewRequired ? { reviewRequired } : {}) };
+  const summary = { date: new Date().toISOString(), n, total, sources: sources.map((d) => path.basename(d)), ...(evidence ? { evidence } : {}), binding: bindingStatus, tallied, totals: T, wrongRate: n ? +(T.WRONG / n).toFixed(3) : 0, blame, iconBlame, beats: bad.sort((a, b) => a.i - b.i), ...(reviewRequired ? { reviewRequired } : {}) };
   fs.writeFileSync(path.join(BOOK, "readcheck.json"), JSON.stringify(summary, null, 2) + "\n");
   if (n < total) console.log(`⚠ only ${n}/${total} beats have a verdict — the readcheck is incomplete; run a full prep + readers + judges before trusting this tally`);
   if (evidence && evidence.status === EI.STATUS_INVALID) {
-    console.log(`${SLUG} readcheck: ${EI.STATUS_INVALID} — not PASS, not FAIL: the readings do not look like fresh blind readers (totals recorded, never counted)`);
+    console.log(`${SLUG} readcheck: ${EI.STATUS_INVALID} — not PASS, not FAIL: ${binding.reasons.length ? "the verdicts are not the answer to exactly these beats / this run" : "the readings do not look like fresh blind readers"} (totals recorded, never counted)`);
     evidence.reasons.forEach((r) => console.log(`   - ${r}`));
     console.log(`   Re-run the blind readers and the judges of PROMPTS.md with FRESH agents (their own words per beat), then tally again.`);
     process.exitCode = 3;
@@ -335,7 +390,7 @@ function misleading() {
     const key = readJSON(path.join(dir, "key.json"));
     if (!key) continue;
     for (const f of fs.readdirSync(dir).filter((x) => /^verdict-\d+\.json$/.test(x)))
-      for (const v of readJSON(path.join(dir, f), []) || []) if (v && key[v.id] !== undefined) latest.set(key[v.id], v);
+      for (const v of RB.verdictItems(readJSON(path.join(dir, f))).items || []) if (v && key[v.id] !== undefined) latest.set(key[v.id], v);
   }
   const r = { slug: SLUG, created: new Date().toISOString(), ...ML.misleadingReport(ML.readHints(sources), latest) };
   const out = path.join(ROOT, "audit", "readcheck-misleading", SLUG);

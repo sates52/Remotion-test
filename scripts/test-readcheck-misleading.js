@@ -38,6 +38,7 @@ try {
     { id: "b005", correctness: "NEUTRAL", blame: "words", why: "vague" },
   ];
   W(path.join(RC, "verdict-1.json"), verdicts);
+  W(path.join(RC, "visible-1.json"), verdicts.map((v) => ({ id: v.id }))); // what the readers saw: the tally binds verdicts to it (cycle 10)
   W(path.join(RC, "guess-1.json"), verdicts.map((v) => ({ id: v.id, guess: "g", misleading: "none" })));
   let r = rc("tally");
   const base = fs.readFileSync(path.join(B, "readcheck.json"), "utf8"), baseOut = r.stdout;
@@ -49,9 +50,11 @@ try {
     { id: "b004", guess: "g", misleading: "none" },
     { id: "b005", guess: "g", misleading: "no clock shown" },
   ]);
+  // the guesses are evidence: a tallied folder is frozen (cycle 10), so this comparison re-tallies from no record
+  fs.rmSync(path.join(B, "readcheck.json"));
   r = rc("tally");
   const withNotes = fs.readFileSync(path.join(B, "readcheck.json"), "utf8");
-  const strip = (j) => { const o = JSON.parse(j); delete o.date; return JSON.stringify(o); };
+  const strip = (j) => { const o = JSON.parse(j); delete o.date; delete o.tallied; return JSON.stringify(o); }; // tallied = evidence hashes
   t("DEFAULT tally: readcheck.json identical with and without notes (no misleading section)", strip(base) === strip(withNotes) && !("misleading" in JSON.parse(withNotes)));
   t("DEFAULT tally: console output identical — no notes, no ranking", r.stdout === baseOut && !/misleading|review priority/i.test(r.stdout), r.stdout);
   // the optional diagnostic
