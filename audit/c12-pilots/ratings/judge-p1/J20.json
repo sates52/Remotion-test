@@ -1,0 +1,18 @@
+[
+{"img":"4da0633787","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Novel reading raises empathy matches the pair; the simulation mechanism is not conveyed.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Novel icon and near-empty empathy meter only name the subjects."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from book fills empathy meter: reading leads to empathy."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same arrow and filled meter show the cause to effect."}]},
+{"img":"431aaaf38e","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got knocked off by failure from caption only; cause not shown in image; hollow-success half missed.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Worried figure with no event; only mood."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Nearly identical, nothing added."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Caption KNOCKED OFF BY FAILURE carries the meaning; picture shows no knocking."}]},
+{"img":"a0c80db95e","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer restated the on-screen text about invisible borders; no seeing-clearly effect or contrast with liars.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Abstract grey landscape; text card only."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Essentially identical."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Only background drift."}]},
+{"img":"35f54711ba","cause":"NOT_SHOWN","effect":"WRONG","message":"MISS","wrongInference":"YES","polarityError":"NO","why":"Viewer reads Buffett withholding money from the company; no bankruptcy or priority over shareholders.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Company, money, Buffett shown but no relationship."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Empty money slot and coin by Buffett suggest he keeps cash, not priority repayment."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Same misleading staging, no bankruptcy or shareholders."}]}
+]

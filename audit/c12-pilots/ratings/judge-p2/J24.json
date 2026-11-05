@@ -1,0 +1,18 @@
+[
+{"img":"eba7a72835","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer only got 'something fills in the blanks'; no brain, no unnoticed fragments, no seamlessness.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the on-screen text 'FILLS IN THE BLANKS' carries meaning; the figure shows nothing."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same static scene, text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same static scene, text only."}]},
+{"img":"8343429044","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got the stink-bomb-over-wall proposal but not the 37 brainstormed schemes or the divergence context.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text box copies the narration; background is an empty room."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical, text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical, text only."}]},
+{"img":"d7a442ed09","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer sees Buffett sending letters to CEOs but not that they are scathing criticism of vanity, greed, junk-bond LBOs.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Buffett, annual letters, CEOs are shown as subjects, but no relationship or criticism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Letters move toward CEOs, but criticism and its grounds are not shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Letters at the CEOs; the mechanism (criticism of greed/LBOs) is not shown."}]},
+{"img":"6cfafc654b","cause":"CORRECT","effect":"CORRECT","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Stanton's act destroys Buffett's trust and he is angry, matching breach of trust and fury; the lie/squeeze detail is absent.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Setup with full trust meter and neutral faces; no narration meaning yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from Stanton drains the trust meter and Buffett turns angry: shows cause to effect."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Settled state still shows Stanton's act, empty trust, angry Buffett."}]}
+]

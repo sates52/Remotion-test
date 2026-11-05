@@ -1,0 +1,18 @@
+[
+{"img":"b75123a076","cause":"NA","effect":"NA","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer states the seventh force stealing focus is physiological/body, matching the key; no causality in key.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the sentence text carries meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, only progress bar moves."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, no illustration."}]},
+{"img":"1dff53741b","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer links a minute to a cost of 45 (probably time loss), but frames it as phone use, with no unit or black-hole idea.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from 'A MINUTE' to 45 shows the minute leading to a much larger cost."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Filled phone and bold 45 show the outcome but not the mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2, no added relationship."}]},
+{"img":"f5490328d9","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets that Darrow despises 'them' but not who they are or the bombing/tantrum link.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Angry pointing figure conveys contempt but not toward whom or why."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Static, same staging."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Static, no consequence shown."}]},
+{"img":"d5214f3541","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer sees only an abstract gravity-to-force link; no Mars, low gravity, gallows or neck.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labels GRAVITY and FORCE with meter shapes; meaning rests on the words."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Arrow from gravity to force hints at a link but not weaker gravity or the drop."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same abstract arrow, no concrete mechanism."}]}
+]

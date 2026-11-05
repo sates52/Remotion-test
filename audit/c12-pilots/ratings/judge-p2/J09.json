@@ -1,0 +1,22 @@
+[
+{"img":"3ce855df28","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer restates the asserted claim from the text card; no cause/effect read from the image.",
+"frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Card text matches the narration; background bookshelves show nothing."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1; text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1; text only."}]},
+{"img":"631747f911","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets only the get-in-shape scene from the text, not the ABCDE model as the cure; framed as description, not as fact.",
+"frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Classroom is unrelated to getting in shape; caption carries the meaning."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same classroom with slight drift; text only."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same again; text only."}]},
+{"img":"f682c35dca","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer sees the right three elements but reads a message relay to the Death Star, not setup-and-payoff of the climax.",
+"frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Chain of Leia's message, Obi-Wan, Death Star shows the elements in sequence, but no mechanism of setup to payoff."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dot moving along the chain suggests sequence, read by viewer as relaying."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dot reaches Death Star; implies progression but not that the incident sets up the climax."}]},
+{"img":"acab8725e1","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer only identifies Milken's junk bonds as the topic; misses Buffett's scathing letters criticizing CEOs.",
+"frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Generic man with notepad; meaning comes from the Milken title text."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Only slight drift; text carries it."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same again; no visible criticism or consequence."}]}
+]

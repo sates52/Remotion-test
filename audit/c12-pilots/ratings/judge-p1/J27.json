@@ -1,0 +1,18 @@
+[
+{"img":"b46f9e7673","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer states who recruits whom but misses the faction and the pause to explain the houses/laws.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only caption text carries the meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical text-only frame."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Identical text-only frame."}]},
+{"img":"45664e3206","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Gets the company-wide scaling by Moskovitz but not the 'one mode' principle.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Empty room; only the caption conveys meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same, only text."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same, only text."}]},
+{"img":"0319943208","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets deformity being hidden and the reader fooled, but not the invisibility-causes-excusing link.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Labeled deformed figure and invisible mask show the subjects, not a mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Reader and arrow add a relation, but viewer found the mechanism unclear."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same; wary reader hints at reaction but excusing is not shown."}]},
+{"img":"8c801228c0","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"YES","polarityError":"NO","why":"Viewer reads the tribe as providing little information, i.e. lacking information, not people suppressing it to belong.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Worried man next to the tribe icon conveys belonging/anxiety but not the mechanism."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Arrow to a nearly empty container was misread as tribe lacking information."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Same ambiguous container image."}]}
+]

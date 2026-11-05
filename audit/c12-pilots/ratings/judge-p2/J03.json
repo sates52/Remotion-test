@@ -1,0 +1,18 @@
+[
+{"img":"d787586461","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets competition leading to a reward for winners, but misses the runaway reinforcing loop / winners winning more.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Winners figure and competition knight set the subjects, no mechanism yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Arrow competition to reward to winner shows a link, but no loop or compounding."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2; no reinforcing loop shown."}]},
+{"img":"7e4dba13e7","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer links Option B to Five Points damaging it, but effect is vague and the missing option C is not understood.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labels carry the meaning; icons are generic."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from Option B to a cracked skyline shows the choice causing harm to the place."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same arrow and crack show choice leading to damage."}]},
+{"img":"9b627c7894","cause":"CORRECT","effect":"WRONG","message":"PARTIAL","wrongInference":"YES","polarityError":"NO","why":"Interruption cause is right, but viewer reads it as eating part of a minute rather than costing 45 minutes.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Clock and minute bar set up subjects only."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Drain of the minute bar suggests a minute is consumed, not that it costs 45."},
+{"correctness":"WRONG","contribution":"ADDS","explains":"NO","why":"Same as frame 2."}]},
+{"img":"ee00ebc781","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"YES","polarityError":"NO","why":"Viewer gets Taran and the disenfranchised group, but claims Taran causes disenfranchisement instead of recruiting them.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Taran pointing toward a group of figures is compatible with recruiting but unspecific."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"More figures highlighted can read as recruited, but the picture does not say so."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Same as frame 2."}]}
+]

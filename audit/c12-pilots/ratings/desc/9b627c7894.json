@@ -1,0 +1,6 @@
+{"img":"9b627c7894","sees":["frame 1: a clock labeled INTERRUPTION on the left and a full dark battery/phone-like bar labeled MINUTE on the right, on a pale office-like background; no link between them","frame 2: the clock now has a green ring around it and a green hand; a grey curved arrow runs from the clock to the MINUTE bar, whose fill has dropped to a small amount at the bottom, with a dashed line marking the old level","frame 3: same as frame 2; the clock hands moved slightly, the green ring stays, the MINUTE bar stays low"],
+"changed":"The MINUTE bar went from full to nearly empty, and a green ring and arrow linking the clock to the bar appeared.",
+"cause":"The interruption (clock) is shown drawing down the minute bar via the arrow.",
+"effect":"An interruption uses up most of a minute (or a chunk of time/energy); the minute is drained.",
+"message":"An interruption eats away a large share of your available minute or time.",
+"wouldConfuse":"The bar looks like a battery or phone, so it could read as energy rather than time; the green ring on the clock could read as a positive or active state rather than a cost."}

@@ -1,0 +1,18 @@
+[
+{"img":"e25fb058c9","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer names blue, radius and tourist from labels but sees no stepping in or stepping back, no crossed arms.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labeled figures and shield in a row; meaning comes from labels, no action."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged layout, only drift."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; no step-back shown."}]},
+{"img":"f3658850d7","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"YES","polarityError":"NO","why":"Viewer reads the person as a temporary part of the electorate, contradicting the narration; only electorate-to-votes is right, not voting for the person.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Hourglass, person, electorate with labels; no relation shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Arrow from electorate to VOTES conveys voting, but not voting for the person who frames setbacks."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2; the framing to preference link is absent."}]},
+{"img":"9bf6423cde","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets winners gaining means to compete more from the on-screen text, but not competitive exclusion or an explicit loop.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text states the means to compete; the man with raised arms shows no mechanism."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; text carries meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; text only."}]},
+{"img":"e1e6948eea","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets a dog pacing the grounds being noticed, but nothing about the red team forcing a search for contrary evidence.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Woman pointing at a dog shows noticing it, but not the mechanism of the search."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dog plus text A DOG PACING; no cause shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same; dog is static and the setup is not shown."}]}
+]

@@ -1,0 +1,18 @@
+[
+{"img":"5164281694","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"YES","polarityError":"NO","why":"Viewer gets the body-under-load subject but misses the seventh force/physiological framing and reverses direction (stolen focus strains the body).","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the on-screen text 'body under load' carries meaning; the man is generic."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; text only."}]},
+{"img":"8d4d7d8ccd","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets author spending years but not mapping Odyssey stars/weather/distances or the manuscript.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Author with stars, weather, years icons shows the subjects but no relationship."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Arrow from author to filled years bar shows time invested, but stars/weather mapping is faded, not shown as the work."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2."}]},
+{"img":"0e5e1a2a79","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets 'stay in one mode' but nothing about Moskovitz or corporate scale.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the 'STAY IN ONE MODE' text carries meaning."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only drift; text only."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only drift; text only."}]},
+{"img":"7e4dba13e7","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Option B leading to damaged Five Points matches the causality, but option C and the slum nature are missing.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Option B and Five Points icons show the subjects, no link yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from Option B to the cracked skyline shows choice leading to damage."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same as frame 2."}]}
+]

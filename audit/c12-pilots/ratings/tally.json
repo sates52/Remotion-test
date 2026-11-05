@@ -1,0 +1,924 @@
+{
+ "main": {
+  "n": 30,
+  "A": {
+   "comprehension": 30.6,
+   "WRONG": 3,
+   "DEAD": 21.5,
+   "ADDS": 32,
+   "EXPLAINS": 0,
+   "wrongInference": 2,
+   "polarityErrors": 2,
+   "effectCorrect": 3.5,
+   "failedStrips": 0
+  },
+  "B": {
+   "comprehension": 47.2,
+   "WRONG": 1,
+   "DEAD": 3,
+   "ADDS": 43,
+   "EXPLAINS": 18.5,
+   "wrongInference": 1.5,
+   "polarityErrors": 0,
+   "effectCorrect": 8,
+   "failedStrips": 0
+  },
+  "C": {
+   "comprehension": 38.9,
+   "WRONG": 4.5,
+   "DEAD": 11,
+   "ADDS": 65,
+   "EXPLAINS": 11.5,
+   "wrongInference": 4.5,
+   "polarityErrors": 0,
+   "effectCorrect": 4.5,
+   "failedStrips": 1
+  },
+  "CminusA": {
+   "diffPP": 8.3,
+   "ci95PP": [
+    0,
+    17.5
+   ]
+  },
+  "CminusB": {
+   "diffPP": -8.3,
+   "ci95PP": [
+    -20.3,
+    1.7
+   ]
+  },
+  "BminusA": {
+   "diffPP": 16.7,
+   "ci95PP": [
+    6.1,
+    28.9
+   ]
+  }
+ },
+ "regression": {
+  "n": 10,
+  "A": {
+   "comprehension": 33.3,
+   "WRONG": 1.5,
+   "DEAD": 4,
+   "ADDS": 4.5,
+   "EXPLAINS": 0,
+   "wrongInference": 1,
+   "polarityErrors": 0,
+   "effectCorrect": 1,
+   "failedStrips": 0
+  },
+  "B": {
+   "comprehension": 44.2,
+   "WRONG": 2,
+   "DEAD": 2,
+   "ADDS": 15,
+   "EXPLAINS": 2,
+   "wrongInference": 1,
+   "polarityErrors": 0.5,
+   "effectCorrect": 1,
+   "failedStrips": 0
+  },
+  "C": {
+   "comprehension": 41.7,
+   "WRONG": 2,
+   "DEAD": 1.5,
+   "ADDS": 18,
+   "EXPLAINS": 0.5,
+   "wrongInference": 2,
+   "polarityErrors": 0,
+   "effectCorrect": 1,
+   "failedStrips": 0
+  },
+  "CminusA": {
+   "diffPP": 8.3,
+   "ci95PP": [
+    -15,
+    36.7
+   ]
+  },
+  "CminusB": {
+   "diffPP": -2.5,
+   "ci95PP": [
+    -14.2,
+    10
+   ]
+  },
+  "BminusA": {
+   "diffPP": 10.8,
+   "ci95PP": [
+    -8.3,
+    31.7
+   ]
+  }
+ },
+ "genre": {
+  "fiction": {
+   "n": 8,
+   "A": {
+    "comprehension": 31.3,
+    "WRONG": 0,
+    "DEAD": 8.5,
+    "ADDS": 8,
+    "EXPLAINS": 0,
+    "wrongInference": 0,
+    "polarityErrors": 1,
+    "effectCorrect": 1,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 41.7,
+    "WRONG": 0,
+    "DEAD": 1.5,
+    "ADDS": 5.5,
+    "EXPLAINS": 1,
+    "wrongInference": 0,
+    "polarityErrors": 0,
+    "effectCorrect": 1.5,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 35.4,
+    "WRONG": 0,
+    "DEAD": 2.5,
+    "ADDS": 15.5,
+    "EXPLAINS": 0,
+    "wrongInference": 1.5,
+    "polarityErrors": 0,
+    "effectCorrect": 0.5,
+    "failedStrips": 0
+   },
+   "CminusA": {
+    "diffPP": 4.2,
+    "ci95PP": [
+     -4.2,
+     14.6
+    ]
+   },
+   "CminusB": {
+    "diffPP": -6.3,
+    "ci95PP": [
+     -25,
+     6.3
+    ]
+   },
+   "BminusA": {
+    "diffPP": 10.4,
+    "ci95PP": [
+     -6.2,
+     37.5
+    ]
+   }
+  },
+  "nonfiction": {
+   "n": 22,
+   "A": {
+    "comprehension": 30.3,
+    "WRONG": 3,
+    "DEAD": 13,
+    "ADDS": 24,
+    "EXPLAINS": 0,
+    "wrongInference": 2,
+    "polarityErrors": 1,
+    "effectCorrect": 2.5,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 49.2,
+    "WRONG": 1,
+    "DEAD": 1.5,
+    "ADDS": 37.5,
+    "EXPLAINS": 17.5,
+    "wrongInference": 1.5,
+    "polarityErrors": 0,
+    "effectCorrect": 6.5,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 40.2,
+    "WRONG": 4.5,
+    "DEAD": 8.5,
+    "ADDS": 49.5,
+    "EXPLAINS": 11.5,
+    "wrongInference": 3,
+    "polarityErrors": 0,
+    "effectCorrect": 4,
+    "failedStrips": 1
+   },
+   "CminusA": {
+    "diffPP": 9.8,
+    "ci95PP": [
+     -1.5,
+     22
+    ]
+   },
+   "CminusB": {
+    "diffPP": -9.1,
+    "ci95PP": [
+     -23.5,
+     5.3
+    ]
+   },
+   "BminusA": {
+    "diffPP": 18.9,
+    "ci95PP": [
+     7.2,
+     30.7
+    ]
+   }
+  }
+ },
+ "stratum": {
+  "causal": {
+   "n": 15,
+   "A": {
+    "comprehension": 26.1,
+    "WRONG": 0,
+    "DEAD": 15,
+    "ADDS": 15,
+    "EXPLAINS": 0,
+    "wrongInference": 0.5,
+    "polarityErrors": 1,
+    "effectCorrect": 2,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 45.6,
+    "WRONG": 0,
+    "DEAD": 1.5,
+    "ADDS": 21,
+    "EXPLAINS": 10,
+    "wrongInference": 0,
+    "polarityErrors": 0,
+    "effectCorrect": 4,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 39.4,
+    "WRONG": 0,
+    "DEAD": 3,
+    "ADDS": 37.5,
+    "EXPLAINS": 7,
+    "wrongInference": 2.5,
+    "polarityErrors": 0,
+    "effectCorrect": 3,
+    "failedStrips": 0
+   },
+   "CminusA": {
+    "diffPP": 13.3,
+    "ci95PP": [
+     3.3,
+     25
+    ]
+   },
+   "CminusB": {
+    "diffPP": -6.1,
+    "ci95PP": [
+     -22.2,
+     7.2
+    ]
+   },
+   "BminusA": {
+    "diffPP": 19.4,
+    "ci95PP": [
+     4.4,
+     37.2
+    ]
+   }
+  },
+  "abstract": {
+   "n": 15,
+   "A": {
+    "comprehension": 35,
+    "WRONG": 3,
+    "DEAD": 6.5,
+    "ADDS": 17,
+    "EXPLAINS": 0,
+    "wrongInference": 1.5,
+    "polarityErrors": 1,
+    "effectCorrect": 1.5,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 48.9,
+    "WRONG": 1,
+    "DEAD": 1.5,
+    "ADDS": 22,
+    "EXPLAINS": 8.5,
+    "wrongInference": 1.5,
+    "polarityErrors": 0,
+    "effectCorrect": 4,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 38.3,
+    "WRONG": 4.5,
+    "DEAD": 8,
+    "ADDS": 27.5,
+    "EXPLAINS": 4.5,
+    "wrongInference": 2,
+    "polarityErrors": 0,
+    "effectCorrect": 1.5,
+    "failedStrips": 1
+   },
+   "CminusA": {
+    "diffPP": 3.3,
+    "ci95PP": [
+     -9.4,
+     16.7
+    ]
+   },
+   "CminusB": {
+    "diffPP": -10.6,
+    "ci95PP": [
+     -28.3,
+     6.7
+    ]
+   },
+   "BminusA": {
+    "diffPP": 13.9,
+    "ci95PP": [
+     0,
+     30
+    ]
+   }
+  }
+ },
+ "preregisteredSecondary_keyStatesCausality": {
+  "n": 21,
+  "A": {
+   "comprehension": 23.4,
+   "WRONG": 0,
+   "DEAD": 16.5,
+   "ADDS": 25.5,
+   "EXPLAINS": 0,
+   "wrongInference": 0.5,
+   "polarityErrors": 0,
+   "effectCorrect": 3.5,
+   "failedStrips": 0
+  },
+  "B": {
+   "comprehension": 44.8,
+   "WRONG": 1,
+   "DEAD": 3,
+   "ADDS": 34,
+   "EXPLAINS": 17.5,
+   "wrongInference": 1.5,
+   "polarityErrors": 0,
+   "effectCorrect": 8,
+   "failedStrips": 0
+  },
+  "C": {
+   "comprehension": 30.6,
+   "WRONG": 2,
+   "DEAD": 7.5,
+   "ADDS": 49.5,
+   "EXPLAINS": 9.5,
+   "wrongInference": 2.5,
+   "polarityErrors": 0,
+   "effectCorrect": 4.5,
+   "failedStrips": 1
+  },
+  "CminusA": {
+   "diffPP": 7.1,
+   "ci95PP": [
+    -1.6,
+    16.7
+   ]
+  },
+  "CminusB": {
+   "diffPP": -14.3,
+   "ci95PP": [
+    -27.4,
+    -2.4
+   ]
+  },
+  "BminusA": {
+   "diffPP": 21.4,
+   "ci95PP": [
+    7.5,
+    36.5
+   ]
+  }
+ },
+ "exploratory": {
+  "keyHasNotAsserted": {
+   "n": 18,
+   "A": {
+    "comprehension": 28.7,
+    "WRONG": 3,
+    "DEAD": 10,
+    "ADDS": 24,
+    "EXPLAINS": 0,
+    "wrongInference": 1.5,
+    "polarityErrors": 2,
+    "effectCorrect": 2.5,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 43.5,
+    "WRONG": 0,
+    "DEAD": 2,
+    "ADDS": 29.5,
+    "EXPLAINS": 13.5,
+    "wrongInference": 1,
+    "polarityErrors": 0,
+    "effectCorrect": 5.5,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 38,
+    "WRONG": 2,
+    "DEAD": 4.5,
+    "ADDS": 43.5,
+    "EXPLAINS": 6.5,
+    "wrongInference": 2,
+    "polarityErrors": 0,
+    "effectCorrect": 3.5,
+    "failedStrips": 0
+   },
+   "CminusA": {
+    "diffPP": 9.3,
+    "ci95PP": [
+     0.9,
+     19.9
+    ]
+   },
+   "CminusB": {
+    "diffPP": -5.6,
+    "ci95PP": [
+     -20.4,
+     9.7
+    ]
+   },
+   "BminusA": {
+    "diffPP": 14.8,
+    "ci95PP": [
+     2.3,
+     27.3
+    ]
+   }
+  },
+  "cTextOnly": {
+   "n": 1,
+   "A": {
+    "comprehension": 50,
+    "WRONG": 0,
+    "DEAD": 0,
+    "ADDS": 0,
+    "EXPLAINS": 0,
+    "wrongInference": 0.5,
+    "polarityErrors": 0,
+    "effectCorrect": 0,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 100,
+    "WRONG": 0,
+    "DEAD": 0,
+    "ADDS": 0,
+    "EXPLAINS": 0,
+    "wrongInference": 0,
+    "polarityErrors": 0,
+    "effectCorrect": 0,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 100,
+    "WRONG": 0,
+    "DEAD": 0,
+    "ADDS": 0,
+    "EXPLAINS": 0,
+    "wrongInference": 0,
+    "polarityErrors": 0,
+    "effectCorrect": 0,
+    "failedStrips": 0
+   },
+   "CminusA": {
+    "diffPP": 50,
+    "ci95PP": [
+     50,
+     50
+    ]
+   },
+   "CminusB": {
+    "diffPP": 0,
+    "ci95PP": [
+     0,
+     0
+    ]
+   },
+   "BminusA": {
+    "diffPP": 50,
+    "ci95PP": [
+     50,
+     50
+    ]
+   }
+  },
+  "bTextOnly": {
+   "n": 11,
+   "A": {
+    "comprehension": 35.6,
+    "WRONG": 0,
+    "DEAD": 9.5,
+    "ADDS": 10,
+    "EXPLAINS": 0,
+    "wrongInference": 0.5,
+    "polarityErrors": 1,
+    "effectCorrect": 2,
+    "failedStrips": 0
+   },
+   "B": {
+    "comprehension": 49.2,
+    "WRONG": 0,
+    "DEAD": 0,
+    "ADDS": 0,
+    "EXPLAINS": 0,
+    "wrongInference": 0,
+    "polarityErrors": 0,
+    "effectCorrect": 2,
+    "failedStrips": 0
+   },
+   "C": {
+    "comprehension": 44.7,
+    "WRONG": 2.5,
+    "DEAD": 4,
+    "ADDS": 21.5,
+    "EXPLAINS": 4,
+    "wrongInference": 2,
+    "polarityErrors": 0,
+    "effectCorrect": 1.5,
+    "failedStrips": 0
+   },
+   "CminusA": {
+    "diffPP": 9.1,
+    "ci95PP": [
+     -7.6,
+     25
+    ]
+   },
+   "CminusB": {
+    "diffPP": -4.5,
+    "ci95PP": [
+     -24.2,
+     14.4
+    ]
+   },
+   "BminusA": {
+    "diffPP": 13.6,
+    "ci95PP": [
+     -4.5,
+     36.4
+    ]
+   }
+  }
+ },
+ "perBeat": [
+  {
+   "id": "C01",
+   "A": 0,
+   "B": 100,
+   "C": 33.3,
+   "bType": "H",
+   "cType": "B"
+  },
+  {
+   "id": "C02",
+   "A": 16.7,
+   "B": 50,
+   "C": 66.7,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C03",
+   "A": 16.7,
+   "B": 66.7,
+   "C": 83.3,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C04",
+   "A": 66.7,
+   "B": 50,
+   "C": 50,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C05",
+   "A": 16.7,
+   "B": 83.3,
+   "C": 16.7,
+   "bType": "B",
+   "cType": "A"
+  },
+  {
+   "id": "C06",
+   "A": 16.7,
+   "B": 16.7,
+   "C": 16.7,
+   "bType": "B",
+   "cType": "A"
+  },
+  {
+   "id": "C07",
+   "A": 8.3,
+   "B": 33.3,
+   "C": 16.7,
+   "bType": "H",
+   "cType": "F"
+  },
+  {
+   "id": "C08",
+   "A": 16.7,
+   "B": 16.7,
+   "C": 33.3,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C09",
+   "A": 16.7,
+   "B": 33.3,
+   "C": 16.7,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C10",
+   "A": 33.3,
+   "B": 50,
+   "C": 33.3,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C11",
+   "A": 16.7,
+   "B": 16.7,
+   "C": 16.7,
+   "bType": "G",
+   "cType": "G"
+  },
+  {
+   "id": "C12",
+   "A": 16.7,
+   "B": 50,
+   "C": 50,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C13",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C14",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "H",
+   "cType": "G"
+  },
+  {
+   "id": "C15",
+   "A": 50,
+   "B": 16.7,
+   "C": 58.3,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C16",
+   "A": 16.7,
+   "B": 83.3,
+   "C": 16.7,
+   "bType": "D",
+   "cType": "B"
+  },
+  {
+   "id": "C17",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C18",
+   "A": 50,
+   "B": 33.3,
+   "C": 33.3,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C19",
+   "A": 50,
+   "B": 50,
+   "C": 100,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C20",
+   "A": 16.7,
+   "B": 8.3,
+   "C": 0,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C21",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "G",
+   "cType": "G"
+  },
+  {
+   "id": "C22",
+   "A": 50,
+   "B": 50,
+   "C": 75,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C23",
+   "A": 50,
+   "B": 100,
+   "C": 100,
+   "bType": "H",
+   "cType": "H"
+  },
+  {
+   "id": "C24",
+   "A": 50,
+   "B": 50,
+   "C": 0,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C25",
+   "A": 25,
+   "B": 25,
+   "C": 50,
+   "bType": "B",
+   "cType": "C"
+  },
+  {
+   "id": "C26",
+   "A": 33.3,
+   "B": 100,
+   "C": 50,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C27",
+   "A": 16.7,
+   "B": 8.3,
+   "C": 16.7,
+   "bType": "G",
+   "cType": "G"
+  },
+  {
+   "id": "C28",
+   "A": 16.7,
+   "B": 41.7,
+   "C": 16.7,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C29",
+   "A": 16.7,
+   "B": 0,
+   "C": 0,
+   "bType": "B",
+   "cType": "A"
+  },
+  {
+   "id": "C30",
+   "A": 33.3,
+   "B": 83.3,
+   "C": 16.7,
+   "bType": "A",
+   "cType": "G"
+  },
+  {
+   "id": "C31",
+   "A": 33.3,
+   "B": 33.3,
+   "C": 8.3,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C32",
+   "A": 16.7,
+   "B": 50,
+   "C": 83.3,
+   "bType": "F",
+   "cType": "D"
+  },
+  {
+   "id": "C33",
+   "A": 100,
+   "B": 75,
+   "C": 75,
+   "bType": "G",
+   "cType": "A"
+  },
+  {
+   "id": "C34",
+   "A": 0,
+   "B": 75,
+   "C": 100,
+   "bType": "H",
+   "cType": "H"
+  },
+  {
+   "id": "C35",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "H",
+   "cType": "G"
+  },
+  {
+   "id": "C36",
+   "A": 16.7,
+   "B": 33.3,
+   "C": 16.7,
+   "bType": "A",
+   "cType": "A"
+  },
+  {
+   "id": "C37",
+   "A": 16.7,
+   "B": 8.3,
+   "C": 0,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C38",
+   "A": 0,
+   "B": 50,
+   "C": 16.7,
+   "bType": "B",
+   "cType": "B"
+  },
+  {
+   "id": "C39",
+   "A": 50,
+   "B": 16.7,
+   "C": 16.7,
+   "bType": "H",
+   "cType": "A"
+  },
+  {
+   "id": "C40",
+   "A": 50,
+   "B": 50,
+   "C": 50,
+   "bType": "H",
+   "cType": "A"
+  }
+ ],
+ "agreement": {
+  "strips": 119,
+  "cause": 0.85,
+  "effect": 0.84,
+  "message": 0.68,
+  "wrongInference": 0.63,
+  "polarityError": 0.8,
+  "correctness": 0.55,
+  "contribution": 0.69,
+  "explains": 0.71
+ },
+ "shipRule": {
+  "plus20": false,
+  "wrongNotUp": false,
+  "addsUp": true,
+  "explainsUp": true,
+  "bothGenreGroups": true,
+  "regressionWithin10": true,
+  "regressionWrongNotUp": false
+ },
+ "verdict": "NO SHIP",
+ "componentsAddValue": false,
+ "ablationsTriggered": false,
+ "missingJudgements": []
+}

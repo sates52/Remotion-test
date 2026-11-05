@@ -1,0 +1,18 @@
+[
+{"img":"e1e6948eea","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer sees a dog being pointed out but no red team or contrary-evidence cause; the dog noticed matches effect.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Woman pointing at a dog conveys noticing the dog, but not the exercise or mechanism."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Headline text carries the meaning; picture unchanged."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Text 'A DOG PACING THE GROUNDS' carries it; dog stands still."}]},
+{"img":"be1c2b48c2","cause":"NOT_SHOWN","effect":"CORRECT","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer gets dissociated rather than engaged and time going missing; stimuli/no-skill cause not read.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"X over engaged figure vs dissociated figure shows the contrast but not the mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from dissociated person to empty TIME box shows time lost through dissociation."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same arrow-to-empty-TIME relationship persists."}]},
+{"img":"562dbbe1e0","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"YES","polarityError":"YES","why":"Viewer states walk away as the point, which is the rejected cultural advice; only 'fragile vibes' subject matches.","frames":[
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Person walking to an exit door suggests leaving, the rejected advice."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"'WALK AWAY FROM' emphasizes the rejected premise."},
+{"correctness":"WRONG","contribution":"TEXT_ONLY","explains":"NO","why":"Text endorses walking away; door reinforces it."}]},
+{"img":"920576e991","cause":"WRONG","effect":"WRONG","message":"MISS","wrongInference":"YES","polarityError":"NO","why":"Viewer reads models draining blanks, contradicting models filling blanks to make reality seamless.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Bulb and container only labeled MODELS and BLANKS."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Emptying container reads as depletion, not filling in; suggests the opposite."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Same depletion image, no seamlessness or unnoticed loss shown."}]}
+]

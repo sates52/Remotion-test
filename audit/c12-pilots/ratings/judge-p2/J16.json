@@ -1,0 +1,18 @@
+[
+{"img":"6c2c6c0c3b","cause":"CORRECT","effect":"CORRECT","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer's message states invisible deformity leads people to excuse it, matching the key; it came from the on-screen text only.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Card text carries the meaning; background adds nothing."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text card, no change."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same text card, no change."}]},
+{"img":"e41e7addb9","cause":"CORRECT","effect":"WRONG","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets gravity linked to force via an arrow, but reads it as gravity feeding force, not low gravity giving too little force to snap the neck; no Mars or hanging.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Gravity and force icons shown, relationship not yet shown."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Arrow gravity to force is shown, but the viewer read it as building up, with no low or insufficient reading."},
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Same as frame 2; the mechanism is ambiguous and the neck/gallows is absent."}]},
+{"img":"06a8fda50a","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got only 'before regular shareholders' from the text; no bankruptcy and no repayment priority.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Two men in an office, no meaning tied to the narration."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the caption text carries the 'before' idea."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Same caption; the picture shows no handover or bankruptcy."}]},
+{"img":"17c2afd56e","cause":"NA","effect":"NA","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer reads a choice between old and new job weighed as pros and cons, matching the key's setup.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"The pros/cons sheet and old-or-new-job title show the subject, with no mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same sheet, slight zoom."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same sheet, slight zoom."}]}
+]

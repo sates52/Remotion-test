@@ -1,0 +1,14 @@
+[
+{"img":"7e17e65aa4","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"MISS","wrongInference":"NO","polarityError":"NO","why":"Viewer saw only a cut-off text and idle man animation; no gravity, Mars, or hanging understood.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Only the text fragment 'A fraction of Earth's' carries anything; the worried man shows no mechanism."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, only head position shifts."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same text, idle animation only."}]},
+{"img":"c2b9274a84","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer read tragedy affecting the person (matches the cause), but saw emotional burden, not being knocked off the mountain.","frames":[
+{"correctness":"NEUTRAL","contribution":"ADDS","explains":"NO","why":"Tragedy cloud icon is related, but no mountain or fall is shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Arrow from tragedy cloud to person and worried face convey tragedy hitting someone, but not the knocked-off-mountain mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same, deeper distress; no fall or mountain shown."}]},
+{"img":"44a45f0cf0","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got that good vibes are broken or fragile, but missed the cultural advice to walk away.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Broken-heart good-vibes icon conveys fragility, but the walk-away advice and contrast are not shown."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same layout, slight zoom; no added mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same layout, further zoom; no added mechanism."}]}
+]

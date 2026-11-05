@@ -1,0 +1,66 @@
+{
+ "schema": "c12-result/1",
+ "date": "2026-11-05",
+ "experiment": "Semantic Film Director 2.0 (claim logic + shot reads + visual proof + camera purpose) — pre-registered blind A / B / C (preregistration-c12.json): A = shipped storyboard, B = Director 1.0 (C11), C = Director 2.0",
+ "raters": "AGENT raters only: 119 fresh sonnet describers (one strip each, image only), 2 x 30 fresh sonnet judges (up to 4 descriptions of 4 different beats each, frozen answer key + narration). No human rating was collected — human reference prepared for three arms, NOT run.",
+ "verdict": "NO SHIP",
+ "shipRule": {
+  "plus20": { "pass": false, "value": "C - A = +8.3 pp (A 30.6 % -> C 38.9 %), paired bootstrap 95 % CI 0 ... +17.5" },
+  "wrongNotUp": { "pass": false, "value": "WRONG frames A 3 -> C 4.5 (mean of two judge passes, 90 frames per arm)" },
+  "addsUp": { "pass": true, "value": "ADDS A 32 -> C 65" },
+  "explainsUp": { "pass": true, "value": "EXPLAINS A 0 -> C 11.5" },
+  "bothGenreGroups": { "pass": true, "value": "fiction +4.2 pp (n 8), nonfiction +9.8 pp (n 22)" },
+  "regressionWithin10": { "pass": true, "value": "regression set C - A +8.3 pp (n 10, CI -15 ... +36.7)" },
+  "regressionWrongNotUp": { "pass": false, "value": "regression WRONG A 1.5 -> C 2" }
+ },
+ "componentsAddValue": { "pass": false, "value": "C - B = -8.3 pp (B 47.2 % -> C 38.9 %), CI -20.3 ... +1.7; pre-registered rule needed diff > 0 and CI lower bound > -5" },
+ "ablations": "NOT RUN — pre-registered trigger (SHIP and C - B >= +10 pp) not met",
+ "BvsA_replication": "B - A = +16.7 pp on this fresh holdout (A 30.6 % -> B 47.2 %); C11 measured +5.3 pp on its own set. Exploratory: B was not the arm under test.",
+ "agreement_kappa": { "cause": 0.85, "effect": 0.84, "message": 0.68, "wrongInference": 0.63, "polarityError": 0.8, "frameCorrectness": 0.55, "contribution": 0.69, "explains": 0.71 },
+ "claimPolarity": {
+  "polarityErrors_main": "A 2, B 0, C 0 (beats whose key lists notAsserted parts: n 18)",
+  "regressionTests": "scripts/test-semantic-director-v2.js — 13 / 13 pass, incl. dev-set B05 (rejected premise must not become the quote card) and B17 (setup half of a contrast drawn as negated)",
+  "note": "C removed polarity errors, but so did B on this set; the claim-logic layer is not what separated the arms."
+ },
+ "subgroups_exploratory": {
+  "note": "not decision criteria; n is small — read as direction, not proof",
+  "preregisteredSecondary_keyStatesCausality_n21": "A 23.4 % / B 44.8 % / C 30.6 %; C - B -14.3 pp (CI -27.4 ... -2.4)",
+  "causalStratum_n15": "A 26.1 / B 45.6 / C 39.4",
+  "abstractStratum_n15": "A 35.0 / B 48.9 / C 38.3",
+  "textOnlyUse": "B chose a quote card (H) on 11 of 30 main beats, C on 1 (the recorded-reason rule worked as intended)",
+  "BtextOnly_Cpicture_n10": "A 34.2 / B 44.2 / C 39.2 — replacing B's quote cards with C's pictures lost ~5 pp",
+  "bothPicture_n19": "A 27.6 / B 46.0 / C 35.5 — C's picture lost ~10 pp to B's picture on the same beats",
+  "biggestCLosses": "C01 (100 -> 33), C05 (83 -> 17), C16 (83 -> 17), C24 (50 -> 0, car crash read as the outcome), C26 (100 -> 50), C30 (83 -> 17), C38 (50 -> 17)",
+  "biggestCWins": "C15 (17 -> 58), C19 (50 -> 100), C32 (50 -> 83)"
+ },
+ "findings": [
+  "Director 2.0 makes pictures carry more (ADDS 32 -> 65 vs A, 43 -> 65 vs B) but the muted viewer understood LESS than with Director 1.0: comprehension C 38.9 % vs B 47.2 %. Busier frames that each say something are not the same as a clearer point.",
+  "The loss is not only the quote-card swap: on the 19 beats where both B and C drew a picture, C still lost ~10 pp. The progressive build split the proof into timed reads (entities per staged beat barely changed: B 2.6, C 2.8) and the viewer read the parts, not the relation (C30: three elements seen, the setup -> payoff link missed; C16: only the first half of the reward schedule).",
+  "Dropping text-only from 11 to 1 beat removed B's best scorers where the sentence IS the point (C01, C23, C34): the recorded-reason rule was too strict for beats whose meaning is verbal.",
+  "Claim logic did its narrow job (0 polarity errors, B05 / B17 regressions pass) but polarity was not the bottleneck on this holdout (A made 2 errors, B 0).",
+  "WRONG rose A 3 -> C 4.5: new verbs (cover / reveal) and staged objects were read literally (C24: a planned stink-bomb read as an actual car crash).",
+  "Director 1.0 replicated better than in C11 (+16.7 pp vs A on a fresh holdout, CI not computed against the +20 bar for B); it remains the stronger of the two research directors."
+ ],
+ "authoringBias": {
+  "B": "fresh sonnet authors from the C11 spec, one pass + one compile-fix pass; 40 / 40 compile",
+  "C": "fresh sonnet authors from director-spec-v2.md, one pass + one compile-fix pass; 39 / 40 compile (C29 reads 1.48 s < 1.5 s minimum = arm C failure, scored 0)",
+  "A": "the shipped storyboard: authored, gated, multi-round fixed per book — more effort than B or C",
+  "direction": "B and C had the same authoring budget; the experimenter wrote both specs and the renderers, not the contracts; authors were blind to the key and the rating"
+ },
+ "deviations": "deviations.json (2, both before any benchmark render or rating: v2 cover read-target validator fix; v2 before-state / outline / reveal-line render fix) + ratings/repairs.log (one describer JSON missing a ']' — syntax only).",
+ "humanReference": { "status": "NOT RUN", "materials": "human-reference.md, human-sheet-c12.js (30 scenes x 3 strips, X / Y / Z order by seeded permutation), answer-key.json, rating-prompts.md", "estimatedCost": "≈ 11 h rater time (5 raters) + ≈ 5 h scoring (2 scorers)" },
+ "subjectMotionCheck": "report-only design in cinecode-audit.md §3 (camera-motion-subtracted residual); not built — still-based verdicts cannot see motion, so it cannot move this metric",
+ "animaticFeasibility": "cinecode-audit.md §2: feasible with existing Remotion (frame range at --scale=0.33, low CRF, on the cloud stills runner); ~1/9 the pixels of a full render; nothing to port. Not built in C12 because the rating is still-based.",
+ "costAndScale": {
+  "authoring": "same order as C11: ≈ 8 k sonnet tokens per beat (spec as input); v2 spec is longer (claim + reads) — ≈ 1.3x per beat",
+  "render": "SemanticStage2 is plain SVG; 119 strips / 357 stills on 12 cloud runners in 159 s wall (run 41980783311); 0 local renders",
+  "rating": "119 describers + 60 judges ≈ 9.6 M sonnet tokens (session limit hit once; resumed)",
+  "fullBookImpact": "opt-in scene field (semantic.v === 2); old configs draw unchanged; production integration NOT done (NO SHIP)"
+ },
+ "evidence": {
+  "branch": "dev/c12",
+  "strips": "audit/c12-pilots/strips/<id>-<arm>.jpg (119)",
+  "ratings": "audit/c12-pilots/ratings/{desc,judge-p1,judge-p2,blind-key.json,tally.json,cloud-run.json,judge-instructions.txt,repairs.log}",
+  "contracts": "audit/c12-pilots/contractsB, contractsC, compile-log.json"
+ }
+}

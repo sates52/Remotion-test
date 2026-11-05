@@ -1,0 +1,18 @@
+[
+{"img":"431aaaf38e","cause":"CORRECT","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets failure knocking a person off course (from text) but misses the hollow-success betrayal half.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Worried figure on a hill, no specific meaning."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Same figure, nothing added."},
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Only the caption 'KNOCKED OFF BY FAILURE' carries meaning; figure just tilts."}]},
+{"img":"b84837e436","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer reads reward going to winners, which matches the cause, but never reads a runaway reinforcing loop or competitive exclusion.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Trophy, coin, winner icons show the subject only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Coin moves from reward slot to the winner, showing winners getting the reward."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Holds the same reward-to-winner relationship."}]},
+{"img":"81912e8c67","cause":"NA","effect":"NA","message":"MISS","wrongInference":"YES","polarityError":"NO","why":"Viewer reads a car crashing into a wall; nothing about brainstormed schemes, and implies a stink bomb plan with a crash outcome.","frames":[
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Woman, empty stink bombs box and toy car do not convey brainstormed schemes."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Car hitting a wall suggests a different event."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Crash image contradicts throwing stink bombs over a wall."}]},
+{"img":"922ef53a31","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer links Max to a defamation claim against Pip, but misses the podcast outing and beating the charges.","frames":[
+{"correctness":"CORRECT","contribution":"TEXT_ONLY","explains":"NO","why":"Labels MAX, CHARGES, DEFAMATION carry the meaning; boxes are empty."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Envelope is ambiguous; emphasis on DEFAMATION label is text."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Envelope on Pip does not show a lawsuit; meaning stays in labels."}]}
+]

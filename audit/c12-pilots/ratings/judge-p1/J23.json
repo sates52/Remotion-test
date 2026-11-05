@@ -1,0 +1,18 @@
+[
+{"img":"d787586461","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer gets winners receiving a reward from competition but no runaway reinforcing loop or ecology term.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Winners and competition figures shown, no mechanism yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Competition to reward to winners shown, but not the self-reinforcing loop."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2; reward flow only, no loop."}]},
+{"img":"fd13696327","cause":"NOT_SHOWN","effect":"CORRECT","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer contrasts every-time (drops) with random (stays strong); cause framed via every-time rather than random, but contrast matches.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Static full bars; labels carry meaning."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Pellet arrow to emptying pecks bar versus unchanged random row shows the contrast."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same contrast held."}]},
+{"img":"58f396d442","cause":"NA","effect":"NA","message":"MISS","wrongInference":"YES","polarityError":"NO","why":"Viewer claims zero-stakes scene is boring/ineffective, contradicting narration that it is a training scene.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Card text only; woman generic."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Nearly identical, only eye movement."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Nearly identical, only eye movement."}]},
+{"img":"5977ba1413","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"MISS","wrongInference":"NO","polarityError":"NO","why":"Viewer sees only a generic insight with two people in a library.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Two generic characters, no link to deformity."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Minor expression changes only."},
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Same talking-heads scene."}]}
+]

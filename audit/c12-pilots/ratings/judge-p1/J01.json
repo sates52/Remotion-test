@@ -1,0 +1,18 @@
+[
+{"img":"582e62d826","cause":"NA","effect":"NA","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Viewer got a low-stakes everyday example scene being introduced; matches the key.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Faded cafe background with no action; the text carries the meaning."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged from frame 1."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Unchanged; no picture-level meaning."}]},
+{"img":"00be81eb26","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got that the blond one is kind, but not the locked room with only two people or the cruelty of the pairing.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"One man alone in a room; no meaning about Julian or cruelty."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Smiling figure beside a KIND label conveys Julian's kindness, but not the cruelty or the relationship."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Same as frame 2; a subject-level read only."}]},
+{"img":"2f25cc8178","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got the charges dropping away and a defamation matter involving Pip, but missed the podcast outing and that Max is the one suing; the direction was left unclear.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Gavel for criminal charges, scale for defamation, and Max and Pip show the subjects but no relationship."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"The gavel struck through reads as charges beaten, but this is a single element and not a mechanism."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Charges struck out and the defamation scale moved to Pip's side show the sequence from beaten charges to a defamation claim against her."}]},
+{"img":"ec18a4bb6a","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer tied GAT to the invisible borders but did not get that this makes him see the island clearly, or the contrast with the liars.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"GAT beside the chain and INVISIBLE BORDERS label shows he is subject to them, but not what it leads to."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Grayed man, overlapping circles and an arc are ambiguous; only the ISLAND label gives meaning."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Near-identical to frame 2, with no added meaning."}]}
+]

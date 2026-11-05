@@ -1,0 +1,18 @@
+[
+{"img":"e41e7addb9","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer links gravity to force but says it builds up, never that low gravity yields too little force to snap the neck.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Two labeled items, no relation shown yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from gravity to a low force container shows gravity driving a small force."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same cause-to-low-effect depiction."}]},
+{"img":"9b627c7894","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Interruption drains time is right, but viewer says it eats part of a minute, not that it costs about 45.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labeled clock and bar, no link."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from interruption clock to a drained bar shows interruption draining time."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same drained-bar depiction."}]},
+{"img":"7add048587","cause":"NOT_SHOWN","effect":"WRONG","message":"MISS","wrongInference":"YES","polarityError":"NO","why":"Viewer says the manager becomes cast as victim, contradicting that the victim stance is stripped from the employee.","frames":[
+{"correctness":"NEUTRAL","contribution":"NONE","explains":"NO","why":"Two figures, no meaning of the narration conveyed."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Read as the highlighted manager heading to the victim role; opposite of the point."},
+{"correctness":"WRONG","contribution":"NONE","explains":"NO","why":"Same misleading reading."}]},
+{"img":"f682c35dca","cause":"CORRECT","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer sees Leia's message and Obi-Wan leading to the Death Star but frames it as a relay, not setup and payoff.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Labeled circles in a chain; text carries it."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dot moving along the chain shows progression but not setup and payoff."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dot reaches the Death Star; sequence shown, mechanism not."}]}
+]
