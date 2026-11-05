@@ -1,0 +1,42 @@
+{
+ "schema": "c14-result/1",
+ "date": "2026-11-05",
+ "cycle": "14 — from capability ship to real book impact",
+ "raters": "AGENT raters only. Human video package ready to send (NOT RUN).",
+ "agentDiscoveryAudit": {
+  "before": "No canonical source mentioned the capability (AGENTS.md, CLAUDE.md, contract, runbook, preview-hazirla, antidote-visual-authoring (.claude + .agents), book-start, storyboard, preview-state, preview-ready, mute-test: 0 mentions) — only apply-single-relation.js itself. Every harness: 1 aware? no · 2 when? no · 3 how to author? no · 4 apply order? no · 5 old pins lack it? no · 6 who checks? nobody.",
+  "after": {
+   "1_aware": "yes — preview agent: preview-hazirla stage row `singleRelation` (+ .agents workflow pointer); storyboard authors: antidote-visual-authoring SKILL section → single-relation.md; AGENTS.md / CLAUDE.md one-line pointers",
+   "2_when": "after the readcheck, once per new Antidote book pinned ≥ a270192d (runbook §2c)",
+   "3_how_to_author": ".claude/skills/antidote-visual-authoring/single-relation.md: when / when not, schema, kinds, effects, claim polarity, examples",
+   "4_apply_order": "scan → one fresh author → validate (per contract) → isolated before/after on Actions; apply-single-relation.js --write NOT allowed before Level 2 or an explicit operator decision (runbook §2c, skill row, CLAUDE.md)",
+   "5_old_pins": "runbook §2c + skill row: books pinned before a270192d do not have it — never repin silently",
+   "6_who_checks": "the preview agent runs and records it (books/<slug>/single-relation/: candidates.json, contracts.json, A/B result); the validator (lib/single-relation.js) is the authority on each contract; the blind A/B (fresh describers / judges) is the authority on benefit; production gates are unchanged and never see it",
+   "blindIndependence": "contract §6 + single-relation.md: blind readers / describers / judges are never told the capability, which version is new or what is expected; mute-test.js / readcheck.js prompts untouched (0 mentions)"
+  }
+ },
+ "pipelineIntegration": {
+  "tools": ["scripts/single-relation-scan.js (scan + per-contract validate, read-only, refuses published)", "scripts/single-relation-preview.js (isolated A/B configs + stills manifest; the book is never edited)", "scripts/test-single-relation-scan.js (6 tests)"],
+  "fixesFoundOnRealBooks": ["compile dropped the source scene's hud → the insight badge read 'INSIGHT 2/2' instead of '07/08' (fixed: hud + narration metadata carried)", "'without <doing>' was not a negation cue → deep-work 250 drew 'without demanding focus' as focus falling (fixed + fixture test)"],
+  "productionConfigChanged": false
+ },
+ "firstBookShipStatus": {
+  "newAntidoteBooksChecked": "7 unpublished Antidote books scanned (4 with a storyboard: the-most-important-thing, how-to-talk-to-anyone, deep-work, radical-compassion; 3 without a storyboard yet: cujo, gardens-of-the-moon, the-maze-runner → 0 candidates)",
+  "eligibleScenes": "18 scan candidates (TMIT 4, how-to-talk 5, deep-work 5, radical-compassion 4); 57 causal beats rejected by the scan with a reason (object already shown, planned / negation / reported cue)",
+  "authoredContracts": "2 (4 fresh authors; 16 candidates skipped with reasons — identity / normative claims, ASR garble, hypothetical framing, effect not drawable)",
+  "validContracts": "2 at authoring; 1 after the cycle-14 'without' rule (deep-work 250 now refused)",
+  "cloudABScenesRendered": "2 scenes x 2 arms (strips + silent clips), GitHub Actions runs 42030303486 + 42032270610 (B redo after the hud fix)",
+  "improvedComprehension": "1 of 2 — radical-compassion 128: A 16.7 → B 50 (effect CORRECT and what-changed CORRECT in both passes; cause 'stop resisting' still NOT_SHOWN); deep-work 250: A 0 → B 0",
+  "wrongInferenceCount": "A 0, B 1 (deep-work 250, pass 1: 'nature depletes focus') → that candidate is not enabled",
+  "actualBookOptIn": "none — no unpublished Antidote book is pinned at ≥ a270192d and none has production render not started (deep-work, radical-compassion, the-most-important-thing, how-to-talk-to-anyone all had a production preflight); repinning was not done (not authorized). The isolated A/B used read-only copies.",
+  "previewGateStatus": "unchanged — no production config changed, so readcheck / firewall / framecheck / mute / preview-ready are untouched for every book",
+  "level2HoldoutStatus": "pre-registered (audit/c14/preregistration-level2-holdout.json: 40 books x 1 beat, criteria frozen, ≤ 3 M tokens), NOT run",
+  "humanValidationStatus": "package ready (ZIP, 7.8 MB, 10 scenes x 2 silent clips, index.html, JSON export, key private) — NOT RUN"
+ },
+ "scanPrecision": "authored / candidates = 2 / 18 (11 %): the cheap scan is a recall filter; the author is the precision step. Next improvement: drop identity / normative 'proves you are', 'you have to' sentences and ASR fragments in the scan.",
+ "lessons": ["a person + a ring cannot show 'stop doing X' — the cause stays invisible (radical-compassion 128); an action cause needs an action glyph or a quote of the cause", "negated or 'without' clauses must never become the drawn effect (now enforced)"],
+ "cost": {
+  "agentTokens": "≈ 0.7 M (5 authors ≈ 0.29 M, 2 key writers ≈ 0.1 M, 2 describers ≈ 0.11 M, 4 judges ≈ 0.22 M)",
+  "cloud": "3 stills runs (A/B + B redo) ≈ 8 runner-min; 2 regression runs ≈ 2 min; 0 local renders"
+ }
+}

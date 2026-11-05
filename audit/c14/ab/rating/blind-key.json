@@ -1,0 +1,52 @@
+{
+ "key": {
+  "a4b69f5e28": {
+   "id": "deep-work-250",
+   "arm": "A"
+  },
+  "ac1b20e56f": {
+   "id": "deep-work-250",
+   "arm": "B"
+  },
+  "28b3b29dbe": {
+   "id": "radical-compassion-128",
+   "arm": "A"
+  },
+  "d36de157b7": {
+   "id": "radical-compassion-128",
+   "arm": "B"
+  }
+ },
+ "describers": [
+  [
+   "a4b69f5e28",
+   "d36de157b7"
+  ],
+  [
+   "28b3b29dbe",
+   "ac1b20e56f"
+  ]
+ ],
+ "judges": {
+  "1": [
+   [
+    "a4b69f5e28",
+    "d36de157b7"
+   ],
+   [
+    "28b3b29dbe",
+    "ac1b20e56f"
+   ]
+  ],
+  "2": [
+   [
+    "a4b69f5e28",
+    "28b3b29dbe"
+   ],
+   [
+    "ac1b20e56f",
+    "d36de157b7"
+   ]
+  ]
+ }
+}

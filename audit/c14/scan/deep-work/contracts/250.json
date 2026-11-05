@@ -1,0 +1,10 @@
+{ "schema": "single-relation/1", "type": "B",
+ "understanding": "Nature engages the mind gently, so the demand on focus drops.",
+ "evidence": "Nature is great for this, even if it's freezing, because it engages your mind softly without demanding focus.",
+ "claim": { "asserted": "Nature restores because it engages the mind softly without demanding focus.", "polarity": "asserted", "speaker": "narrator", "notAsserted": [] },
+ "before": "focus demand is high", "transformation": "nature engages the mind softly", "after": "focus demand is low",
+ "camera": { "framing": "wide-locked", "purpose": "cause and effect in one frame" },
+ "entities": [ { "id": "c", "kind": "object", "glyph": "tree", "label": "nature" },
+               { "id": "e", "kind": "stock", "label": "focus", "value": 0.8 } ],
+ "events": [ { "at": 0.3, "cause": "c", "effects": [ { "entity": "e", "value": 0.2 } ] } ],
+ "required": ["the tree", "the focus level falling"], "omitted": ["freezing"], "_author": "c14-author-deepwork" }

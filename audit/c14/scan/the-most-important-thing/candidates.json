@@ -1,0 +1,217 @@
+{
+ "schema": "single-relation-candidates/1",
+ "slug": "the-most-important-thing",
+ "at": "2026-11-05T12:43:47.971Z",
+ "capability": "single-relation/1",
+ "level": "Level 1 — default OFF; candidates are proposals, nothing is applied",
+ "scenes": 272,
+ "causalBeats": 19,
+ "listed": 4,
+ "configHash": "f4178282f4fa9942",
+ "candidates": [
+  {
+   "sceneIndex": 33,
+   "sceneId": "scene-33",
+   "evidence": "You have to outthink the crowd because first level thinking is simplistic and superficial.",
+   "cause": "first level thinking is simplistic and superficial.",
+   "effect": "You have to outthink the crowd",
+   "cue": "because",
+   "inputHash": "54c17b1c72c1e8bf",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "first level thinking is simplistic and superficial. → You have to outthink the crowd",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 171,
+   "sceneId": "scene-171",
+   "evidence": "It is a chilling experiment because it reveals a profound truth about human We want to fit in.",
+   "cause": "it reveals a profound truth about human We want to",
+   "effect": "It is a chilling experiment",
+   "cue": "because",
+   "inputHash": "58c2b0f8cea39f28",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "it reveals a profound truth about human We want to → It is a chilling experiment",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 267,
+   "sceneId": "scene-267",
+   "evidence": "absolute, undeniable urge to follow the crowd and do a sure thing because everyone else is making money.",
+   "cause": "everyone else is making money.",
+   "effect": "absolute, undeniable urge to follow the crowd and do a",
+   "cue": "because",
+   "inputHash": "f58425cca255145e",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "everyone else is making money. → absolute, undeniable urge to follow the crowd and do a",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 7,
+   "sceneId": "scene-07",
+   "evidence": "We are taking on a mission today that feels honestly almost subversive because it goes against everything human nature screams at us to do.",
+   "cause": "it goes against everything human nature screams at us to",
+   "effect": "We are taking on a mission today that feels honestly",
+   "cue": "because",
+   "inputHash": "47ff0f2a02856ef5",
+   "currentLimitation": "people + on-screen words only (shot medium) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "it goes against everything human nature screams at us to → We are taking on a mission today that feels honestly",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  }
+ ],
+ "rejected": [
+  {
+   "sceneIndex": 0,
+   "sceneId": "intro",
+   "evidence": "Everyone thinks buying a great company makes a great investment, I mean, it's the most natural instinct in the world.",
+   "cause": "Everyone thinks buying a great company",
+   "effect": "a great investment, I mean, it's the most natural instinct",
+   "cue": "makes",
+   "inputHash": "08abf5684c930cec",
+   "reason": "reported / rejected-premise cue (\"Everyone thinks\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 6,
+   "sceneId": "scene-06",
+   "evidence": "That creeping panic that you've just made a massive mistake.",
+   "cause": "That creeping panic that you've just",
+   "effect": "a massive mistake.",
+   "cue": "made",
+   "inputHash": "d5755a187d86218d",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 70,
+   "sceneId": "scene-70",
+   "evidence": "And what's fascinating is that it almost never stops in the Almost never.",
+   "cause": "And what's fascinating is that it almost never",
+   "effect": "in the Almost never.",
+   "cue": "stops",
+   "inputHash": "aa12621799bcb075",
+   "reason": "negation cue (\"never\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 75,
+   "sceneId": "scene-75",
+   "evidence": "They ignore risks because everyone is making money.",
+   "cause": "everyone is making money.",
+   "effect": "They ignore risks",
+   "cue": "because",
+   "inputHash": "1ef9ea4a50b03a69",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 80,
+   "sceneId": "scene-80",
+   "evidence": "Lenders were just handing out mortgages to anyone with a pulse because the pendulum was at maximum greed.",
+   "cause": "the pendulum was at maximum greed.",
+   "effect": "Lenders were just handing out mortgages to anyone with a",
+   "cue": "because",
+   "inputHash": "1bcb4102e0371ddc",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 117,
+   "sceneId": "scene-117",
+   "evidence": "in a week because of a broad market panic, but the underlying business is incredibly sound.",
+   "cause": "a broad market panic, but the underlying business is incredibly",
+   "effect": "in a week",
+   "cue": "because of",
+   "inputHash": "e7933596f3036570",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 141,
+   "sceneId": "scene-141",
+   "evidence": "They believe that because these companies were so dominant, you could pay any multiple of earnings for them and just hold them forever.",
+   "cause": "these companies were so dominant, you could pay any multiple",
+   "effect": "They believe that",
+   "cue": "because",
+   "inputHash": "5578585ae6ced9cd",
+   "reason": "planned / hypothetical cue (\"could\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 156,
+   "sceneId": "scene-156",
+   "evidence": "The stock could drift down to $20 because it's in an unloved sector.",
+   "cause": "it's in an unloved sector.",
+   "effect": "The stock could drift down to $20",
+   "cue": "because",
+   "inputHash": "5f124ceef2519642",
+   "reason": "planned / hypothetical cue (\"could\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 183,
+   "sceneId": "scene-183",
+   "evidence": "I agree completely and Markx makes this distinction very clearly in the book.",
+   "cause": "I agree completely and Markx",
+   "effect": "this distinction very clearly in the book.",
+   "cue": "makes",
+   "inputHash": "000870d883c23215",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 192,
+   "sceneId": "scene-192",
+   "evidence": "There are real fears that ATMs might stop dispensing cash by Friday.",
+   "cause": "There are real fears that ATMs might",
+   "effect": "dispensing cash by Friday.",
+   "cue": "stop",
+   "inputHash": "15b9ff01ad17a148",
+   "reason": "planned / hypothetical cue (\"might\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 211,
+   "sceneId": "scene-211",
+   "evidence": "You have to trust the math over the Because exceptional returns only come from exploiting those pendulum extremes.",
+   "cause": "exceptional returns only come from exploiting those pendulum extremes.",
+   "effect": "You have to trust the math over the",
+   "cue": "Because",
+   "inputHash": "a2bea5825e688608",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 223,
+   "sceneId": "scene-223",
+   "evidence": "By avoiding catastrophic permanent losses, they allow the math of compounding to do all the heavy lifting over time.",
+   "cause": "By avoiding catastrophic permanent losses, they",
+   "effect": "the math of compounding to do all the heavy lifting",
+   "cue": "allow",
+   "inputHash": "6fe9e79495f30026",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 231,
+   "sceneId": "scene-231",
+   "evidence": "or the CEO makes a strategic mistake, the financial outcome remains tolerable.",
+   "cause": "or the CEO",
+   "effect": "a strategic mistake, the financial outcome remains tolerable.",
+   "cue": "makes",
+   "inputHash": "6dc1411843953ab7",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 232,
+   "sceneId": "scene-232",
+   "evidence": "It's not about avoiding risk entirely because you have to take risk to get a return.",
+   "cause": "you have to take risk to get a return.",
+   "effect": "It's not about avoiding risk entirely",
+   "cue": "because",
+   "inputHash": "cbfe3038682eca2a",
+   "reason": "negation cue (\"not\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 265,
+   "sceneId": "scene-265",
+   "evidence": "The rules change because human beings change.",
+   "cause": "human beings change.",
+   "effect": "The rules change",
+   "cue": "because",
+   "inputHash": "ae59becf77e67fca",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  }
+ ]
+}

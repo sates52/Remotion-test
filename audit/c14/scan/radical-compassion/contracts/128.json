@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"When the person stops resisting, the adrenaline level drops.",
+"evidence":"And once you stop resisting, the adrenaline starts to clear.",
+"claim":{"asserted":"Once you stop resisting, the adrenaline starts to clear.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Adrenaline high while resisting","transformation":"Resistance stops","after":"Adrenaline level low",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"person","role":"mitch","cast":"mitch","mood":"worried","label":"you"},{"id":"e","kind":"stock","label":"adrenaline","value":0.9}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.1}]}],
+"required":["the person","the adrenaline level falling"],"omitted":[],"_author":"c14-author-radical"}

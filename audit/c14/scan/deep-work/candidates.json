@@ -1,0 +1,210 @@
+{
+ "schema": "single-relation-candidates/1",
+ "slug": "deep-work",
+ "at": "2026-11-05T12:43:49.704Z",
+ "capability": "single-relation/1",
+ "level": "Level 1 — default OFF; candidates are proposals, nothing is applied",
+ "scenes": 299,
+ "causalBeats": 18,
+ "listed": 5,
+ "configHash": "0b9f3abfdacd94a8",
+ "candidates": [
+  {
+   "sceneIndex": 101,
+   "sceneId": "scene-101",
+   "evidence": "You have to read these resumes and make a hypothetical hiring decision immediately.",
+   "cause": "You have to read these resumes and",
+   "effect": "a hypothetical hiring decision immediately.",
+   "cue": "make",
+   "inputHash": "e791c7286bd9f9bd",
+   "currentLimitation": "people + on-screen words only (shot wide) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "You have to read these resumes and → a hypothetical hiring decision immediately.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 157,
+   "sceneId": "scene-157",
+   "evidence": "removes the need to make a decision about when and where to work.",
+   "cause": "removes the need to",
+   "effect": "a decision about when and where to work.",
+   "cue": "make",
+   "inputHash": "a489cea9ae11b8d0",
+   "currentLimitation": "people + on-screen words only (shot medium) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "removes the need to → a decision about when and where to work.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 252,
+   "sceneId": "scene-252",
+   "evidence": "You have to step away and let your background unconscious processing crunch the numbers.",
+   "cause": "You have to step away and",
+   "effect": "your background unconscious processing crunch the numbers.",
+   "cue": "let",
+   "inputHash": "c8ac869a7dd0fa75",
+   "currentLimitation": "people + on-screen words only (shot medium) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "You have to step away and → your background unconscious processing crunch the numbers.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 150,
+   "sceneId": "scene-150",
+   "evidence": "Well, you know, you have a free 45 minutes because a Zoom meeting ended early.",
+   "cause": "a Zoom meeting ended early.",
+   "effect": "Well, you know, you have a free 45 minutes",
+   "cue": "because",
+   "inputHash": "c34e74f3b4e6b9a8",
+   "currentLimitation": "people + on-screen words only (shot medium) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "a Zoom meeting ended early. → Well, you know, you have a free 45 minutes",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 250,
+   "sceneId": "scene-250",
+   "evidence": "Nature is great for this, even if it's freezing, because it engages your mind softly without demanding focus.",
+   "cause": "it engages your mind softly without demanding focus.",
+   "effect": "Nature is great for this, even if it's freezing",
+   "cue": "because",
+   "inputHash": "b34f6cb9fd71f0e0",
+   "currentLimitation": "people + on-screen words only (shot diorama) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "it engages your mind softly without demanding focus. → Nature is great for this, even if it's freezing",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  }
+ ],
+ "rejected": [
+  {
+   "sceneIndex": 16,
+   "sceneId": "scene-16",
+   "evidence": "It really is because Jung was a man trying to fundamentally change the world.",
+   "cause": "Jung was a man trying to fundamentally change the world.",
+   "effect": "It really is",
+   "cue": "because",
+   "inputHash": "2a56bcc4b18fa3ad",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 18,
+   "sceneId": "scene-18",
+   "evidence": "He could easily destroy Young's career if Jung missed the mark.",
+   "cause": "He could easily",
+   "effect": "Young's career if Jung missed the mark.",
+   "cue": "destroy",
+   "inputHash": "f357d725c54d4702",
+   "reason": "planned / hypothetical cue (\"could\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 46,
+   "sceneId": "scene-46",
+   "evidence": "So he's the programmer who created the Ruby on Rails I love Ruby on Rails.",
+   "cause": "So he's the programmer who",
+   "effect": "the Ruby on Rails I love Ruby on Rails.",
+   "cue": "created",
+   "inputHash": "68d69624bdc8f857",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 47,
+   "sceneId": "scene-47",
+   "evidence": "And he's just he's dictating his absolute own terms to the because his skill is so rare.",
+   "cause": "his skill is so rare.",
+   "effect": "And he's just he's dictating his absolute own terms to",
+   "cue": "because",
+   "inputHash": "2703533e17e45ae7",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 90,
+   "sceneId": "scene-90",
+   "evidence": "And when they actually forced these teams to disconnect for scheduled periods, it didn't hurt the bottom line at all.",
+   "cause": "And when they actually",
+   "effect": "these teams to disconnect for scheduled periods, it didn't hurt",
+   "cue": "forced",
+   "inputHash": "099f1f810a597bf9",
+   "reason": "negation cue (\"didn't\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 115,
+   "sceneId": "scene-115",
+   "evidence": "High quality work produced equals time spent multiplied by the intensity of focus.",
+   "cause": "High quality work",
+   "effect": "equals time spent multiplied by the intensity of focus.",
+   "cue": "produced",
+   "inputHash": "6fb180fe964dd77e",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 120,
+   "sceneId": "scene-120",
+   "evidence": "Surely that doesn't cause a 20-minute attention hangover.",
+   "cause": "Surely that doesn't",
+   "effect": "a 20-minute attention hangover.",
+   "cue": "cause",
+   "inputHash": "6d789f2c8b290f4a",
+   "reason": "negation cue (\"doesn't\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 146,
+   "sceneId": "scene-146",
+   "evidence": "and then as he built the muscle, he eventually pushed it to 4:45 a.m.",
+   "cause": "and then as he built the muscle, he eventually",
+   "effect": "it to 4:45 a.m.",
+   "cue": "pushed",
+   "inputHash": "654b5866446da46e",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 236,
+   "sceneId": "scene-236",
+   "evidence": "Yes, a random lucky tweet might lead to a coffee meeting once in a decade.",
+   "cause": "Yes, a random lucky tweet might",
+   "effect": "a coffee meeting once in a decade.",
+   "cue": "lead to",
+   "inputHash": "1f68f202f3feb840",
+   "reason": "planned / hypothetical cue (\"might\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 237,
+   "sceneId": "scene-237",
+   "evidence": "But deep work produces substantial, measurable, undeniable career capital every single day.",
+   "cause": "But deep work",
+   "effect": "substantial, measurable, undeniable career capital every single day.",
+   "cue": "produces",
+   "inputHash": "aee193c2a4f6e6bc",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 248,
+   "sceneId": "scene-248",
+   "evidence": "You simply cannot force yourself to focus anymore.",
+   "cause": "You simply cannot",
+   "effect": "yourself to focus anymore.",
+   "cue": "force",
+   "inputHash": "3d30bbcde56d304a",
+   "reason": "negation cue (\"cannot\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 275,
+   "sceneId": "scene-275",
+   "evidence": "all day or I can dedicate three hours of uninterrupted time every morning to produce this high-value strategy report that the client desperately needs.",
+   "cause": "all day or I can dedicate three hours of uninterrupted",
+   "effect": "this high-value strategy report that the client desperately needs.",
+   "cue": "produce",
+   "inputHash": "8e917f8dc9b92c93",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 284,
+   "sceneId": "scene-284",
+   "evidence": "It was the kind of news that stops your It changes everything.",
+   "cause": "It was the kind of news that",
+   "effect": "your It changes everything.",
+   "cue": "stops",
+   "inputHash": "d75f957a2260ed04",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  }
+ ]
+}

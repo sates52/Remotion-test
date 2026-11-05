@@ -1,0 +1,23 @@
+{
+ "schema": "single-relation-level2-preregistration/1",
+ "date": "2026-11-05",
+ "written": "before any holdout beat is selected, authored, rendered or rated; criteria may not change after this commit",
+ "capability": "single-relation/1 (scripts/lib/single-relation.js, god-mode a270192d), Level 1, default OFF",
+ "question": "On cause-present beats of books not used in cycles 10–14, does production + the capability (B) make a muted agent viewer understand more than production alone (A), without more wrong inferences or polarity errors?",
+ "population": "Antidote book configs on disk (books/<slug>/config.antidote.json, any status incl. published — read-only, isolated experiment configs only), excluding every book used in cycles 10–14 development (c10 / c11 / c12 benchmarks, c13 pilot, c14 pilot: the-most-important-thing, how-to-talk-to-anyone, deep-work, radical-compassion).",
+ "sampling": "single-relation-scan.js scan on every eligible book (deterministic); then a FRESH key author marks, per candidate, from the narration only, whether the narration states a cause → effect (supportsCausality). One cause-present beat per book, chosen by a seeded hash (seed 'c14-holdout') among that book's cause-present candidates; 40 books. If fewer than 40 books qualify: run with what exists and report the realised power — never top up from development books.",
+ "authoring": "fresh sonnet contract authors (single-relation.md, one pass + one compile-fix pass), blind to the key and the rating. An author may SKIP a beat (no honest single relation): that beat is reported as 'skipped' and scored as A = B (the production scene stays) in the primary analysis; a contract that does not validate after the fix pass is arm B's failure (scored 0).",
+ "arms": "A = the production scene; B = the compiled contract, meta.singleRelation on (isolated config). Same previous scene, timing, set; captions off; 3-frame strip at 30 / 60 / 90 %; GitHub Actions only.",
+ "rating": "describers: 4 strips of 4 different beats each (cycle-13 calibration EQUIVALENT), the two arms of a beat never to the same describer, under random names; judges: 8 items of 8 different beats, 2 passes, cycle-13 pilot judge instructions verbatim; answer key frozen before any render. All agent raters; reported as such.",
+ "primary": "mean paired B − A of the per-beat primary score (mean of cause, effect, message; MATCH 1 / PARTIAL 0.5), 95 % bootstrap CI over beats (one beat per book: no clustering).",
+ "power": "planning effect +15 pp, paired SD 33.9 pp (cycle 12) → 78 % power at n 40 (simulation, audit/c13/power.json); a true +10 pp is detected only ~40 % of the time.",
+ "decision": {
+  "SELECTIVE_SHIP": "ALL of: CI lower bound > 0; point estimate ≥ +10 pp; wrongInference(B) ≤ wrongInference(A); polarityErrors(B) ≤ polarityErrors(A); no B beat judged to state a cause the narration does not (wrongInference with that reason) more often than A; arm-B validation failures ≤ 10 % of authored beats. Scope: cause-present beats chosen by the scan + an author, in new books, opt-in per book.",
+  "INCONCLUSIVE": "CI lower bound ≤ 0 with a non-negative point estimate and no safety criterion broken — the capability stays Level 1.",
+  "NO_SHIP": "point estimate < 0, or any safety criterion (wrong inferences, polarity, invented cause) broken.",
+  "secondary": "per-beat before / after table, skipped-beat rate, scan precision (authored / candidates) — descriptive only"
+ },
+ "budget": "≤ 3.0 M tokens total (≈ 2.4 M rating + ≈ 0.5 M key / authoring). Pre-registered fallback, decided before rating if the projected total exceeds the cap: ONE judge pass + a second pass on a seeded 25 % subset for kappa.",
+ "startCondition": "cycle-13 pilot progression MET (B − A +25 pp strips, wrong inferences not up; development data). The cycle-14 real-book before / after (2 beats) is a development signal only and does not change these criteria.",
+ "useOnce": "the holdout beats are used for this one decision; no fix on them, no second decision on the same beats"
+}

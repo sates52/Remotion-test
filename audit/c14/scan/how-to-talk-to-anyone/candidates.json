@@ -1,0 +1,130 @@
+{
+ "schema": "single-relation-candidates/1",
+ "slug": "how-to-talk-to-anyone",
+ "at": "2026-11-05T12:43:48.756Z",
+ "capability": "single-relation/1",
+ "level": "Level 1 — default OFF; candidates are proposals, nothing is applied",
+ "scenes": 253,
+ "causalBeats": 10,
+ "listed": 5,
+ "configHash": "d8073a6a1dfa6619",
+ "candidates": [
+  {
+   "sceneIndex": 87,
+   "sceneId": "scene-87",
+   "evidence": "The iron jaw posture proves you are a force to be reckoned with.",
+   "cause": "The iron jaw posture proves you are a",
+   "effect": "to be reckoned with.",
+   "cue": "force",
+   "inputHash": "e7b91aa89920768c",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "The iron jaw posture proves you are a → to be reckoned with.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 103,
+   "sceneId": "scene-103",
+   "evidence": "Phil picking up the author when she's utterly drained from a speaking tour.",
+   "cause": "Phil picking up the author when she's utterly",
+   "effect": "from a speaking tour.",
+   "cue": "drained",
+   "inputHash": "69c7b2ba8c8aae25",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "Phil picking up the author when she's utterly → from a speaking tour.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 210,
+   "sceneId": "scene-210",
+   "evidence": "Well, it will only escalate if you let a hint [snorts] of sarcasm, anger, or condescension bleed into your voice.",
+   "cause": "Well, it will only escalate if you",
+   "effect": "a hint [snorts] of sarcasm, anger, or condescension bleed into",
+   "cue": "let",
+   "inputHash": "aad555a20b9e19a4",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "Well, it will only escalate if you → a hint [snorts] of sarcasm, anger, or condescension bleed into",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 212,
+   "sceneId": "scene-212",
+   "evidence": "If your tone remains perfectly flat, it forces the interrogator to hear the echo of their own aggression.",
+   "cause": "If your tone remains perfectly flat, it",
+   "effect": "the interrogator to hear the echo of their own aggression.",
+   "cue": "forces",
+   "inputHash": "e5af69c73f8c83b8",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "If your tone remains perfectly flat, it → the interrogator to hear the echo of their own aggression.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  },
+  {
+   "sceneIndex": 178,
+   "sceneId": "scene-178",
+   "evidence": "The sheer joy of discovering that accidental agilation makes the recipient temporarily deaf to whatever else you were saying.",
+   "cause": "The sheer joy of discovering that accidental agilation",
+   "effect": "the recipient temporarily deaf to whatever else you were saying.",
+   "cue": "makes",
+   "inputHash": "fba2be6e3555b6b9",
+   "currentLimitation": "people + on-screen words only (shot twoShot) — no object or diagram shows the effect; a muted viewer gets it from words or a face",
+   "proposedRepresentation": "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+   "expectedUnderstanding": "The sheer joy of discovering that accidental agilation → the recipient temporarily deaf to whatever else you were saying.",
+   "risk": "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)"
+  }
+ ],
+ "rejected": [
+  {
+   "sceneIndex": 0,
+   "sceneId": "intro",
+   "evidence": "The moment you flash an instant automatic grin at someone the second you make eye contact, you haven't signaled warmth.",
+   "cause": "The moment you flash an instant automatic grin at someone",
+   "effect": "eye contact, you haven't signaled warmth.",
+   "cue": "make",
+   "inputHash": "4136dd6ae0211298",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 34,
+   "sceneId": "scene-34",
+   "evidence": "So, it's literally the difference between mass-produced affection and something customtailored just for them.",
+   "cause": "So, it's literally the difference between mass",
+   "effect": "affection and something customtailored just for them.",
+   "cue": "produced",
+   "inputHash": "c64f8fb7a4017a10",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 228,
+   "sceneId": "scene-228",
+   "evidence": "identifies you as an outsider seeking favor, you dial the number and casually let the pronoun roll off your tongue with a sigh.",
+   "cause": "identifies you as an outsider seeking favor, you dial the",
+   "effect": "the pronoun roll off your tongue with a sigh.",
+   "cue": "let",
+   "inputHash": "54f6198a0d95f2b7",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  },
+  {
+   "sceneIndex": 236,
+   "sceneId": "scene-236",
+   "evidence": "By not acting like a threat, you don't trigger the threat response.",
+   "cause": "By not acting like a threat, you don't",
+   "effect": "the threat response.",
+   "cue": "trigger",
+   "inputHash": "c3a5a3624c4e74ea",
+   "reason": "negation cue (\"not\") — would show it as a real event; stays as authored (or a quote card)"
+  },
+  {
+   "sceneIndex": 248,
+   "sceneId": "scene-248",
+   "evidence": "So the next time you walk into a crowded room, you need to stop agonizing over whether they will think you were smart, funny, or impressive.",
+   "cause": "So the next time you walk into a crowded room,",
+   "effect": "agonizing over whether they will think you were smart, funny,",
+   "cue": "stop",
+   "inputHash": "eecf457a3185b352",
+   "reason": "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard"
+  }
+ ]
+}
