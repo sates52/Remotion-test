@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Timing pressure makes people fake it: the clock ticks and a mask appears.",
+"evidence":"The timing is the pressure that causes people to fake it.",
+"claim":{"asserted":"The timing pressure causes people to fake it.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"No mask.","transformation":"The pressure of timing acts.","after":"A mask appears.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"clock","label":"timing"},{"id":"e","kind":"object","glyph":"mask","label":"fake","present":false}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","present":true}],"repeat":1}],
+"required":["the clock","the mask appearing"],"omitted":["sacrifice the battle"],"_author":"c15-author-cd"}

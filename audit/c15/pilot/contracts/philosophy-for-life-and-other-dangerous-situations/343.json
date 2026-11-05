@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Surviving being laughed at removes the terror: the terror level drops.",
+"evidence":"Once you realize in your bones that you can survive being laughed at by strangers, you stop living in terror of it.",
+"claim":{"asserted":"Surviving being laughed at makes you stop living in terror of it.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Terror is high.","transformation":"You survive being laughed at.","after":"Terror is low.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"mask","label":"laughed at"},{"id":"e","kind":"stock","label":"terror","value":0.9}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.1}],"repeat":1}],
+"required":["the laughing mask","the terror level falling"],"omitted":["strangers"],"_author":"c15-author-cd"}

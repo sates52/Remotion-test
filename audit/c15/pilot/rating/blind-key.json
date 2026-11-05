@@ -1,0 +1,93 @@
+{
+ "key": {
+  "9ca465b407": {
+   "id": "the-knave-and-the-moon-99",
+   "arm": "A"
+  },
+  "69c5b1b6c2": {
+   "id": "the-knave-and-the-moon-99",
+   "arm": "B"
+  },
+  "622c90dc06": {
+   "id": "essentialism-the-disciplined-pursuit-of-less-205",
+   "arm": "A"
+  },
+  "c1ba51ec91": {
+   "id": "essentialism-the-disciplined-pursuit-of-less-205",
+   "arm": "B"
+  },
+  "25c6fe81b8": {
+   "id": "philosophy-for-life-and-other-dangerous-situations-343",
+   "arm": "A"
+  },
+  "ddc8ea8dd4": {
+   "id": "philosophy-for-life-and-other-dangerous-situations-343",
+   "arm": "B"
+  },
+  "fed1d0c7f6": {
+   "id": "the-5-elements-of-effective-thinking-194",
+   "arm": "A"
+  },
+  "5bc1b723f6": {
+   "id": "the-5-elements-of-effective-thinking-194",
+   "arm": "B"
+  },
+  "8f46f0f08c": {
+   "id": "radical-compassion-128",
+   "arm": "B2"
+  }
+ },
+ "describers": [
+  [
+   "9ca465b407",
+   "c1ba51ec91",
+   "25c6fe81b8",
+   "5bc1b723f6"
+  ],
+  [
+   "69c5b1b6c2",
+   "622c90dc06",
+   "ddc8ea8dd4",
+   "fed1d0c7f6"
+  ],
+  [
+   "8f46f0f08c"
+  ]
+ ],
+ "judges": {
+  "1": [
+   [
+    "9ca465b407",
+    "c1ba51ec91",
+    "25c6fe81b8",
+    "5bc1b723f6"
+   ],
+   [
+    "69c5b1b6c2",
+    "622c90dc06",
+    "ddc8ea8dd4",
+    "fed1d0c7f6"
+   ],
+   [
+    "8f46f0f08c"
+   ]
+  ],
+  "2": [
+   [
+    "9ca465b407",
+    "622c90dc06",
+    "ddc8ea8dd4",
+    "5bc1b723f6"
+   ],
+   [
+    "69c5b1b6c2",
+    "c1ba51ec91",
+    "25c6fe81b8",
+    "fed1d0c7f6"
+   ],
+   [
+    "8f46f0f08c"
+   ]
+  ]
+ }
+}

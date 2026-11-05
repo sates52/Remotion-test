@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"An overwhelming noise makes thinking impossible: the thinking level collapses when the noise hits.",
+"evidence":"An overwhelming noise that vibrates in your chest and makes it impossible to think clearly.",
+"claim":{"asserted":"An overwhelming noise makes it impossible to think clearly.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Thinking is clear.","transformation":"The noise hits.","after":"Thinking is nearly gone.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"storm","label":"noise"},{"id":"e","kind":"stock","label":"thinking","value":0.9}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.1}],"repeat":3}],
+"required":["the noise","the thinking level falling"],"omitted":["drums","locusts"],"_author":"c15-author-cd"}

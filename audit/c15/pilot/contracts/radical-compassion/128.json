@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Stopping resistance lowers adrenaline: the shield labelled resisting goes, the adrenaline level falls.",
+"evidence":"And once you stop resisting, the adrenaline starts to clear.",
+"claim":{"asserted":"Once you stop resisting, the adrenaline clears.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"The shield is up, adrenaline high.","transformation":"The shield goes.","after":"Shield only a dashed outline, adrenaline low.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"shield","label":"resisting"},{"id":"e","kind":"stock","label":"adrenaline","value":0.9}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"c","present":false},{"entity":"e","value":0.1}],"repeat":1}],
+"required":["the shield going","the adrenaline falling"],"omitted":["dust"],"_author":"c15-author-cd"}

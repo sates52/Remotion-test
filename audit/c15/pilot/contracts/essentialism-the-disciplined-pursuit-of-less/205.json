@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Rejecting a friend triggers the same pain as physical injury: the pain level jumps.",
+"evidence":"Rejecting a friend to their face triggers the same pain receptors as physical injury.",
+"claim":{"asserted":"Rejecting a friend triggers the same pain as physical injury.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Pain is low.","transformation":"The rejection lands.","after":"Pain is high.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"door","label":"rejecting"},{"id":"e","kind":"stock","label":"pain","value":0.1}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.9}],"repeat":1}],
+"required":["the closing door","the pain level rising"],"omitted":["friend","injury"],"_author":"c15-author-cd"}

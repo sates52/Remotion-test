@@ -1,0 +1,42 @@
+{
+ "schema": "c15-result/1",
+ "date": "2026-11-05",
+ "cycle": "15 — creative direction + human study v2 + real book impact",
+ "raters": "Comprehension: AGENT raters (blind sonnet describers + judges, frozen narration-only key). Preference: the operator's 7 picks (development data, not blind) — no human study run yet.",
+ "operatorPreferences": {
+  "picks": "4X=C06-B, 6X=C09-B, 7X=C10-A, 7Y=C10-B, 10X=C05-B, 5Y=C15-A, 8Y=C12-B → 5 single-relation, 2 production",
+  "analysis": "operator-visual-preferences.md (from the 2 fps frame grids of every clip; hypotheses, not findings)",
+  "8Y": "the content itself travels: the coin leaves the REWARD slot (left as a dashed empty box) and lands by WINNERS while the trophy turns gold — a change of ownership with a beginning, middle and end, in one locked frame",
+  "principles": ["sentence nouns as big familiar objects; a person only as the receiver", "one accent, switched on by the cause, on a neutral ground (C04-B lost: yellow ring on a yellow card)", "before and after in one frame (dashed old level / empty slot)", "the content travels (moveTo + empty slot)", "few steps, no camera move", "quote cards help agents but were never picked"],
+  "preferenceVsComprehension": "agree on C05, C10, C12; the operator also picked C06-B, C10-A, C15-A which were not easier for agents; the text-heavy versions that helped agents (quote cards, C04-A) were not picked"
+ },
+ "shipped": {
+  "renderer": "SemanticStage (single-relation scenes only): the cause is neutral until its first cue, then takes the accent; an accent with luminance > 0.30 (< 3:1 on the light card) falls back to the stage red. Default OFF path; production unchanged.",
+  "authoring": ".claude/skills/antidote-visual-authoring/creative-direction.md (6 hypotheses, the invisible-cause pattern, do-nots) linked from the authoring skill and single-relation.md; never shown to blind agents",
+  "tools": "single-relation-scan.js --experiment (read-only scan of a published book, output outside the book); audit/c15/human-study-v2.js + .github/workflows/human-study-test.yml (Playwright Chromium + Firefox on Actions)",
+  "regression": "Actions 120 pass / 0 new fail (run 42053488377)"
+ },
+ "creativeDirectionPilot": {
+  "design": "5 fresh books (not used in cycles 11–14), the scan's candidates, ONE fresh author with single-relation.md + creative-direction.md choosing ≤ 1 beat per book (paradox-of-choice skipped honestly); A = production scene, B = the contract (isolated configs, GitHub Actions); answer key for all 20 candidates written from the narration only BEFORE the author's choice was known; 2 blind describers (4 strips of 4 different scenes, the two versions of a scene never to the same describer), 2 judge passes",
+  "results": {
+   "the-knave-and-the-moon 99 (noise → thinking)": { "A": 16.7, "B": 100 },
+   "essentialism 205 (rejecting → pain)": { "A": 16.7, "B": 91.7 },
+   "philosophy-for-life 343 (laughed at → terror falls)": { "A": 0, "B": 91.7 },
+   "the-5-elements 194 (timing → fake)": { "A": 0, "B": 83.3 },
+   "mean": { "A": 8.3, "B": 91.7 },
+   "wrongInference": { "A": 0, "B": 0 }
+  },
+  "caveats": "n = 4; agent raters; beats chosen by the author where the scan found people-only scenes with a stated relation (A is weakest exactly there); B labels are narration words (part of the gain may be the label text); development pilot — not Level-2 evidence",
+  "fixture": "radical-compassion 128 (development): cycle-14 B 50 → B2 (shield 'resisting' removed while the adrenaline falls) 100, both passes cause + effect CORRECT"
+ },
+ "humanStudyV2": {
+  "status": "READY, NOT RUN",
+  "packages": ["C:/Users/savas/Downloads/muted-video-study-v2.zip (the cycle-13 10 scenes, 7.8 MB)", "C:/Users/savas/Downloads/muted-video-study-fresh-v2.zip (the 4 fresh cycle-15 scenes, 2.8 MB)"],
+  "behaviour": "one video at a time; its questions; answers locked; then the other version; then 'which was better made' + why (required); per-participant seeded scene order and first-version (balanced); anonymous participant id = seed; JSON: studyVersion, anonymousParticipantId, randomizationSeed, scene id, presentation order, separate comprehension answers per video, wrong-inference / uncertainty, visual preference, reason, confidence, completionStatus (incomplete when any required answer is missing); no key / version identity in the package; per-package storage key",
+  "browserTest": "GitHub Actions run 42049342354: Chromium 36 / 36 and Firefox 36 / 36 checks passed (open-source builds cannot decode h264 — real Chrome / Edge / Windows Firefox can; README recommends Chrome / Edge)"
+ },
+ "singleRelationPipeline": "Level 1, default OFF, report-only in the pipeline (runbook §2c). No unpublished Antidote book is pinned ≥ a270192d with production not started → no new real-book opt-in; nothing repinned. The first new book runs §2c.",
+ "holdoutFeasibility": "40 untouched eligible books, 40 of 45 with ≥ 1 candidate (250). Under the FROZEN pre-registration (sample before authoring, skip = A=B) acceptance of 11–25 % dilutes the effect → almost certainly INCONCLUSIVE; not run. Options for the operator in holdout-feasibility.md (recommend a NEW pre-registration v2 sampling authored beats).",
+ "vox": "vox-audit.md: FLUX.2 [klein] 4B via NVIDIA API Catalog (free trial); weights Apache-2.0 but the NVIDIA API Trial terms (v. 2025-09-19 §1.2 / §1.4 / §4.2) exclude production use and distribution of generated content → operator decision before any further Flux call; no call made. Hybrid: a dev/c10 spike already nests AntidoteBook + VoxBook in one composition; minimal integration = a Hybrid-<slug> composition with one narration track + render support (not built).",
+ "cost": { "agentTokens": "≈ 0.9 M (preference analysis ≈ 0.11 M, Vox audit ≈ 0.14 M, author ≈ 0.07 M, key ≈ 0.06 M, 3 describers ≈ 0.16 M, 6 judges ≈ 0.33 M)", "cloud": "3 stills runs (≈ 12 runner-min incl. one apt hang), 2 browser-test runs, 1 regression; 0 local renders" }
+}
