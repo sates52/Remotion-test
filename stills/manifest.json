@@ -1,0 +1,980 @@
+{
+ "schema": "stills/1",
+ "name": "c13 dense-frame pilot + human clips",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 10,
+ "jobs": [
+  {
+   "id": "C01-A-s",
+   "config": "configs/C01-A.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "C01-A-d",
+   "config": "configs/C01-A.json",
+   "frames": [
+    312,
+    327,
+    342,
+    357,
+    372,
+    387,
+    402,
+    417,
+    432,
+    447,
+    462,
+    477,
+    492,
+    507,
+    522,
+    537,
+    552,
+    567
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 312,
+    "to": 577
+   }
+  },
+  {
+   "id": "C01-B-s",
+   "config": "configs/C01-B.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "C01-B-d",
+   "config": "configs/C01-B.json",
+   "frames": [
+    312,
+    327,
+    342,
+    357,
+    372,
+    387,
+    402,
+    417,
+    432,
+    447,
+    462,
+    477,
+    492,
+    507,
+    522,
+    537,
+    552,
+    567
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 312,
+    "to": 577
+   }
+  },
+  {
+   "id": "C04-A-s",
+   "config": "configs/C04-A.json",
+   "frames": [
+    452,
+    530,
+    608
+   ],
+   "strip": true
+  },
+  {
+   "id": "C04-A-d",
+   "config": "configs/C04-A.json",
+   "frames": [
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599,
+    614,
+    629
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 374,
+    "to": 633
+   }
+  },
+  {
+   "id": "C04-B-s",
+   "config": "configs/C04-B.json",
+   "frames": [
+    452,
+    530,
+    608
+   ],
+   "strip": true
+  },
+  {
+   "id": "C04-B-d",
+   "config": "configs/C04-B.json",
+   "frames": [
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599,
+    614,
+    629
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 374,
+    "to": 633
+   }
+  },
+  {
+   "id": "C05-A-s",
+   "config": "configs/C05-A.json",
+   "frames": [
+    400,
+    519,
+    637
+   ],
+   "strip": true
+  },
+  {
+   "id": "C05-A-d",
+   "config": "configs/C05-A.json",
+   "frames": [
+    281,
+    296,
+    311,
+    326,
+    341,
+    356,
+    371,
+    386,
+    401,
+    416,
+    431,
+    446,
+    461,
+    476,
+    491,
+    506,
+    521,
+    536,
+    551,
+    566,
+    581,
+    596,
+    611,
+    626,
+    641,
+    656,
+    671
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 317,
+    "to": 676
+   }
+  },
+  {
+   "id": "C05-B-s",
+   "config": "configs/C05-B.json",
+   "frames": [
+    400,
+    519,
+    637
+   ],
+   "strip": true
+  },
+  {
+   "id": "C05-B-d",
+   "config": "configs/C05-B.json",
+   "frames": [
+    281,
+    296,
+    311,
+    326,
+    341,
+    356,
+    371,
+    386,
+    401,
+    416,
+    431,
+    446,
+    461,
+    476,
+    491,
+    506,
+    521,
+    536,
+    551,
+    566,
+    581,
+    596,
+    611,
+    626,
+    641,
+    656,
+    671
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 317,
+    "to": 676
+   }
+  },
+  {
+   "id": "C06-A-s",
+   "config": "configs/C06-A.json",
+   "frames": [
+    388,
+    493,
+    597
+   ],
+   "strip": true
+  },
+  {
+   "id": "C06-A-d",
+   "config": "configs/C06-A.json",
+   "frames": [
+    284,
+    299,
+    314,
+    329,
+    344,
+    359,
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599,
+    614,
+    629
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 284,
+    "to": 631
+   }
+  },
+  {
+   "id": "C06-B-s",
+   "config": "configs/C06-B.json",
+   "frames": [
+    388,
+    493,
+    597
+   ],
+   "strip": true
+  },
+  {
+   "id": "C06-B-d",
+   "config": "configs/C06-B.json",
+   "frames": [
+    284,
+    299,
+    314,
+    329,
+    344,
+    359,
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599,
+    614,
+    629
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 284,
+    "to": 631
+   }
+  },
+  {
+   "id": "C07-A-s",
+   "config": "configs/C07-A.json",
+   "frames": [
+    401,
+    488,
+    575
+   ],
+   "strip": true
+  },
+  {
+   "id": "C07-A-d",
+   "config": "configs/C07-A.json",
+   "frames": [
+    314,
+    329,
+    344,
+    359,
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 314,
+    "to": 603
+   }
+  },
+  {
+   "id": "C07-B-s",
+   "config": "configs/C07-B.json",
+   "frames": [
+    401,
+    488,
+    575
+   ],
+   "strip": true
+  },
+  {
+   "id": "C07-B-d",
+   "config": "configs/C07-B.json",
+   "frames": [
+    314,
+    329,
+    344,
+    359,
+    374,
+    389,
+    404,
+    419,
+    434,
+    449,
+    464,
+    479,
+    494,
+    509,
+    524,
+    539,
+    554,
+    569,
+    584,
+    599
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 314,
+    "to": 603
+   }
+  },
+  {
+   "id": "C08-A-s",
+   "config": "configs/C08-A.json",
+   "frames": [
+    439,
+    525,
+    610
+   ],
+   "strip": true
+  },
+  {
+   "id": "C08-A-d",
+   "config": "configs/C08-A.json",
+   "frames": [
+    353,
+    368,
+    383,
+    398,
+    413,
+    428,
+    443,
+    458,
+    473,
+    488,
+    503,
+    518,
+    533,
+    548,
+    563,
+    578,
+    593,
+    608,
+    623,
+    638
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 353,
+    "to": 638
+   }
+  },
+  {
+   "id": "C08-B-s",
+   "config": "configs/C08-B.json",
+   "frames": [
+    439,
+    525,
+    610
+   ],
+   "strip": true
+  },
+  {
+   "id": "C08-B-d",
+   "config": "configs/C08-B.json",
+   "frames": [
+    353,
+    368,
+    383,
+    398,
+    413,
+    428,
+    443,
+    458,
+    473,
+    488,
+    503,
+    518,
+    533,
+    548,
+    563,
+    578,
+    593,
+    608,
+    623,
+    638
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 353,
+    "to": 638
+   }
+  },
+  {
+   "id": "C09-A-s",
+   "config": "configs/C09-A.json",
+   "frames": [
+    417,
+    524,
+    631
+   ],
+   "strip": true
+  },
+  {
+   "id": "C09-A-d",
+   "config": "configs/C09-A.json",
+   "frames": [
+    310,
+    325,
+    340,
+    355,
+    370,
+    385,
+    400,
+    415,
+    430,
+    445,
+    460,
+    475,
+    490,
+    505,
+    520,
+    535,
+    550,
+    565,
+    580,
+    595,
+    610,
+    625,
+    640,
+    655
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 310,
+    "to": 666
+   }
+  },
+  {
+   "id": "C09-B-s",
+   "config": "configs/C09-B.json",
+   "frames": [
+    417,
+    524,
+    631
+   ],
+   "strip": true
+  },
+  {
+   "id": "C09-B-d",
+   "config": "configs/C09-B.json",
+   "frames": [
+    310,
+    325,
+    340,
+    355,
+    370,
+    385,
+    400,
+    415,
+    430,
+    445,
+    460,
+    475,
+    490,
+    505,
+    520,
+    535,
+    550,
+    565,
+    580,
+    595,
+    610,
+    625,
+    640,
+    655
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 310,
+    "to": 666
+   }
+  },
+  {
+   "id": "C10-A-s",
+   "config": "configs/C10-A.json",
+   "frames": [
+    381,
+    496,
+    610
+   ],
+   "strip": true
+  },
+  {
+   "id": "C10-A-d",
+   "config": "configs/C10-A.json",
+   "frames": [
+    267,
+    282,
+    297,
+    312,
+    327,
+    342,
+    357,
+    372,
+    387,
+    402,
+    417,
+    432,
+    447,
+    462,
+    477,
+    492,
+    507,
+    522,
+    537,
+    552,
+    567,
+    582,
+    597,
+    612,
+    627,
+    642
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 288,
+    "to": 647
+   }
+  },
+  {
+   "id": "C10-B-s",
+   "config": "configs/C10-B.json",
+   "frames": [
+    381,
+    496,
+    610
+   ],
+   "strip": true
+  },
+  {
+   "id": "C10-B-d",
+   "config": "configs/C10-B.json",
+   "frames": [
+    267,
+    282,
+    297,
+    312,
+    327,
+    342,
+    357,
+    372,
+    387,
+    402,
+    417,
+    432,
+    447,
+    462,
+    477,
+    492,
+    507,
+    522,
+    537,
+    552,
+    567,
+    582,
+    597,
+    612,
+    627,
+    642
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 288,
+    "to": 647
+   }
+  },
+  {
+   "id": "C12-A-s",
+   "config": "configs/C12-A.json",
+   "frames": [
+    349,
+    442,
+    536
+   ],
+   "strip": true
+  },
+  {
+   "id": "C12-A-d",
+   "config": "configs/C12-A.json",
+   "frames": [
+    255,
+    270,
+    285,
+    300,
+    315,
+    330,
+    345,
+    360,
+    375,
+    390,
+    405,
+    420,
+    435,
+    450,
+    465,
+    480,
+    495,
+    510,
+    525,
+    540,
+    555
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 255,
+    "to": 566
+   }
+  },
+  {
+   "id": "C12-B-s",
+   "config": "configs/C12-B.json",
+   "frames": [
+    349,
+    442,
+    536
+   ],
+   "strip": true
+  },
+  {
+   "id": "C12-B-d",
+   "config": "configs/C12-B.json",
+   "frames": [
+    255,
+    270,
+    285,
+    300,
+    315,
+    330,
+    345,
+    360,
+    375,
+    390,
+    405,
+    420,
+    435,
+    450,
+    465,
+    480,
+    495,
+    510,
+    525,
+    540,
+    555
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 255,
+    "to": 566
+   }
+  },
+  {
+   "id": "C15-A-s",
+   "config": "configs/C15-A.json",
+   "frames": [
+    415,
+    481,
+    546
+   ],
+   "strip": true
+  },
+  {
+   "id": "C15-A-d",
+   "config": "configs/C15-A.json",
+   "frames": [
+    350,
+    365,
+    380,
+    395,
+    410,
+    425,
+    440,
+    455,
+    470,
+    485,
+    500,
+    515,
+    530,
+    545,
+    560
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 350,
+    "to": 567
+   }
+  },
+  {
+   "id": "C15-B-s",
+   "config": "configs/C15-B.json",
+   "frames": [
+    415,
+    481,
+    546
+   ],
+   "strip": true
+  },
+  {
+   "id": "C15-B-d",
+   "config": "configs/C15-B.json",
+   "frames": [
+    350,
+    365,
+    380,
+    395,
+    410,
+    425,
+    440,
+    455,
+    470,
+    485,
+    500,
+    515,
+    530,
+    545,
+    560
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   },
+   "clip": {
+    "from": 350,
+    "to": 567
+   }
+  },
+  {
+   "id": "C01-A-s-r2",
+   "config": "configs/C01-A.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "C01-B-s-r2",
+   "config": "configs/C01-B.json",
+   "frames": [
+    392,
+    472,
+    551
+   ],
+   "strip": true
+  },
+  {
+   "id": "C04-A-s-r2",
+   "config": "configs/C04-A.json",
+   "frames": [
+    452,
+    530,
+    608
+   ],
+   "strip": true
+  },
+  {
+   "id": "C04-B-s-r2",
+   "config": "configs/C04-B.json",
+   "frames": [
+    452,
+    530,
+    608
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "431b0b6447ce33ed",
+ "files": {
+  "stills/configs/C01-A.json": "c11e45f60b6ab8be9b466c9ddb37e8fb8be9f2e53f615a28ac5f152bf0fe377f",
+  "stills/configs/C01-B.json": "563e4570a5860f58914552c81884b95816cc34afdcbc48a36f5925f1a08d434b",
+  "stills/configs/C04-A.json": "d598d52be27ac578bb126f3eeff0bf32188cc7cf4abff6c08befa2ebc4c82d6d",
+  "stills/configs/C04-B.json": "5c50d61cffc7336ee98252d9cb9b10fbb73b90facec3c51511a421f690cb8d51",
+  "stills/configs/C05-A.json": "ed2e2fa8c46cd9cd9e0a5865317115ed8fc987000129f56e58b8d7f4ddaecf05",
+  "stills/configs/C05-B.json": "31437bf6a92e82c59ed8609c84cdd67daaa2f80eee06b9c7c202c32972cc4d52",
+  "stills/configs/C06-A.json": "16bb364f2102d61957202740d8ff77e8382d279c34db49b7fc4ef07d5c999303",
+  "stills/configs/C06-B.json": "7bd8e699ed3e52cbc011792422a54bad7b99e0a438cc1ae4b4b73098b8b0191c",
+  "stills/configs/C07-A.json": "ee239ee15ca8824f2d85feb49f43d2bbd172fcb5493f12e296c5fb7108bc51e6",
+  "stills/configs/C07-B.json": "c01864ad6c999f952befbd95469ac4d377bb8008706b3457c422125528faa7f9",
+  "stills/configs/C08-A.json": "8bcbbd884cd1bb72df8d5a22bb28457c6c42c6e578d681b000261b7b78d81914",
+  "stills/configs/C08-B.json": "be4095d33ab39df7c4904c44e08c788fe5a5b18766049c894c64641438137761",
+  "stills/configs/C09-A.json": "dcb637592c2de5abea0b4bcba4b826a7cb2fa92f088790f7e1b6ecef463b956f",
+  "stills/configs/C09-B.json": "f19bc2c228c5af5b67e8be4eb131c2d0d3c1cf80ab7f86b705dd8a12c2ec951d",
+  "stills/configs/C10-A.json": "3e7dbdd768a75fc6c22df5a94c0128c7c04985097a43c2459edd848ac4499c2c",
+  "stills/configs/C10-B.json": "1c01b808f4cf441dd00c4ba01c2d1904f87f7e12757f29b92985c4113acd271c",
+  "stills/configs/C12-A.json": "e023b2c8e4f5ff60e039de9c08750273fba1b63222c0799fa65ba8b94878ea54",
+  "stills/configs/C12-B.json": "9996b3d4402557fe3042bf692c2661b07672b9fcbd04189c40e690f4e517a10c",
+  "stills/configs/C15-A.json": "fd5ec17564b4a3e5ed29548b9e1c5746b18efcd0b5b773b74bebf425b4bcc1db",
+  "stills/configs/C15-B.json": "f86aab2757b5455e3c93d650adb7fc127fd925447d38bd0d32de46f1885e0d70"
+ },
+ "builtAt": "2026-11-05T10:06:57.200Z"
+}
