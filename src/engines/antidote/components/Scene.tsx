@@ -24,6 +24,7 @@ import type { ScenePlan, RestCarry } from "../continuity";
 import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME } from "../continuity";
 import { composeRest } from "../endState";
 import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
+import { SemanticStage2, type SemanticCompiled2 } from "./SemanticStage2";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -374,7 +375,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       <AbsoluteFill style={t.style}>
         <Backdrop bg={bg} cam={camera({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, local, scene.durationFrames)} />
         <Sequence from={transIn} layout="none" name="semantic">
-          <SemanticStage spec={scene.semantic as SemanticCompiled} accent={accent.toLowerCase() !== ink.toLowerCase() ? accent : "#E23B57"} ink={ink} cast={cast} />
+          {(scene.semantic as { v?: number }).v === 2
+            ? <SemanticStage2 spec={scene.semantic as SemanticCompiled2} accent={accent.toLowerCase() !== ink.toLowerCase() ? accent : "#E23B57"} ink={ink} cast={cast} />
+            : <SemanticStage spec={scene.semantic as SemanticCompiled} accent={accent.toLowerCase() !== ink.toLowerCase() ? accent : "#E23B57"} ink={ink} cast={cast} />}
         </Sequence>
         {t.overlay}
       </AbsoluteFill>
