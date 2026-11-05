@@ -1,0 +1,939 @@
+{
+ "schema": "c12-answer-key/1",
+ "frozen": "written by 5 fresh sonnet agents from narration (+prev/next) only, before any C12 authoring, render or rating; merged unedited",
+ "items": [
+  {
+   "id": "C01",
+   "understanding": "Flannery O'Connor's characters are spiritually deformed, but because that deformity is invisible we tend to excuse it, so she draws large, startling figures (her own essay's image: shout to the hard of hearing, draw large for the almost blind).",
+   "cause": "spiritual deformity is invisible",
+   "effect": "we tend to excuse it",
+   "supportsCausality": true,
+   "asserted": "Her characters are spiritually deformed, and because that is invisible we tend to excuse it.",
+   "notAsserted": [],
+   "speaker": "narrator (citing O'Connor's essay)",
+   "keyFacts": [
+    "Characters are spiritually deformed",
+    "Spiritual deformity is invisible",
+    "Viewers tend to excuse invisible deformity",
+    "O'Connor advocates large startling figures"
+   ],
+   "wrong": [
+    "O'Connor's characters are morally good",
+    "The deformity in the characters is only physical",
+    "Readers always notice the spiritual deformity"
+   ]
+  },
+  {
+   "id": "C02",
+   "understanding": "Doom scrolling is driven by flashy stimuli, needs no skill and has no goal, so lost time reflects mild dissociation rather than deep engagement.",
+   "cause": "Doom scrolling consists of bright colors, loud noises and outrage triggers with no skill or goal",
+   "effect": "Time disappears because you are mildly dissociated, not deeply engaged",
+   "supportsCausality": true,
+   "asserted": "Time vanishing while scrolling is due to mild dissociation, not deep engagement.",
+   "notAsserted": [
+    {
+     "text": "time disappears because you are deeply engaged",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Stimuli: bright colors, loud noises, outrage triggers",
+    "No skill required, no meaningful goal",
+    "Time loss comes from mild dissociation",
+    "Contrasted with deep engagement (flow)"
+   ],
+   "wrong": [
+    "Time disappears while scrolling because you are deeply engaged",
+    "Doom scrolling requires skill and has a clear goal",
+    "Outrage triggers make scrolling energizing"
+   ]
+  },
+  {
+   "id": "C03",
+   "understanding": "The area became the infamous Five Points slum, and the speaker blames it on settling for a narrow option B instead of taking time to invent an option C.",
+   "cause": "Choosing a narrow option B instead of taking time to invent an option C",
+   "effect": "The area became the notorious Five Points neighborhood",
+   "supportsCausality": true,
+   "asserted": "The Five Points outcome came from choosing a narrow option B rather than inventing an option C.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "The neighborhood was called Five Points",
+    "It was a crime-ridden, disease-infested slum",
+    "The choice was a narrow option B",
+    "They did not take time to invent an option C"
+   ],
+   "wrong": [
+    "Five Points was planned deliberately as a slum",
+    "The area failed because of lack of money, not a poor decision",
+    "Option C was tried and failed"
+   ]
+  },
+  {
+   "id": "C04",
+   "understanding": "Reaching the top and finding it hollow is the ultimate betrayal of the first mountain's promise; the alternative way to fall is being knocked off the mountain by failure or tragedy.",
+   "cause": "failure or tragedy",
+   "effect": "you get knocked off the first mountain",
+   "supportsCausality": true,
+   "asserted": "The hollow success is the ultimate betrayal of the first mountain's promise, and a second route to the fall is failure or tragedy.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Achieving the first mountain's prize can feel hollow, a betrayal of its promise",
+    "A second path to the fall is being knocked off by failure or tragedy"
+   ],
+   "wrong": [
+    "Failure is the only way people fall off the first mountain",
+    "The first mountain's promise is fulfilled by success",
+    "The fall is caused by choosing to leave"
+   ]
+  },
+  {
+   "id": "C05",
+   "understanding": "Reading a novel makes you simulate another person's consciousness in your own mind, which is how deep reading builds empathy.",
+   "cause": "reading a novel means simulating another human being's consciousness inside your own mind",
+   "effect": "deep sustained reading uniquely builds human empathy",
+   "supportsCausality": true,
+   "asserted": "Deep novel reading builds empathy because the reader simulates another person's consciousness.",
+   "notAsserted": [
+    {
+     "text": "Empathy. How does that work?",
+     "kind": "question"
+    }
+   ],
+   "speaker": "narrator (citing researcher Raymond Maher)",
+   "keyFacts": [
+    "Raymond Maher studies the psychology of fiction",
+    "Deep sustained reading of novels uniquely builds empathy",
+    "Reading = simulating another consciousness in your own mind"
+   ],
+   "wrong": [
+    "Empathy comes from watching films or any media equally",
+    "Reading novels only improves vocabulary",
+    "Empathy is innate and reading has no effect on it"
+   ]
+  },
+  {
+   "id": "C06",
+   "understanding": "Although readers expect Darrow to love the Sons of Aries as the good guys, he genuinely hates and despises them, and sees their bombings as pointless tantrums.",
+   "cause": "Sons of Aries bomb supply lines or cause disruption",
+   "effect": "Darrow views it as a pointless tantrum (delaying terraforming)",
+   "supportsCausality": true,
+   "asserted": "Darrow genuinely hates and resents the Sons of Aries.",
+   "notAsserted": [
+    {
+     "text": "these are the good guys. Darrow should love them",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Sons of Aries are a rebel/terrorist group",
+    "Readers expect Darrow to support them",
+    "Darrow despises and resents them",
+    "He sees their attacks as pointless"
+   ],
+   "wrong": [
+    "Darrow is a loyal member of the Sons of Aries",
+    "Darrow admires their bombings",
+    "Darrow is neutral toward the rebels"
+   ]
+  },
+  {
+   "id": "C07",
+   "understanding": "Buffett's folksy, rock-star public image is a projection that hides a private, emotionally stunted man, which explains how a famous figure can be isolated.",
+   "cause": "The public persona is a projection hiding his real private self",
+   "effect": "He can be isolated despite fame",
+   "supportsCausality": true,
+   "asserted": "Buffett's public persona is a projection that hides a profoundly private, emotionally stunted man.",
+   "notAsserted": [
+    {
+     "text": "He is the folksy, ukulele-playing grandfather of capitalism",
+     "kind": "setup-half-of-contrast"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Public image: folksy, ukulele, cherry coke, rock star",
+    "The persona is a projection",
+    "Real man is private and emotionally stunted",
+    "Explains isolation despite arena crowds"
+   ],
+   "wrong": [
+    "Buffett's public warmth reflects his true emotional openness",
+    "Buffett is isolated because crowds avoid him",
+    "The persona was invented by the media against his will"
+   ]
+  },
+  {
+   "id": "C08",
+   "understanding": "Unlike the liars, who see the island as a magical kingdom, the outsider character sees it for what it is almost immediately because he is subjected to its invisible borders.",
+   "cause": "He is actively subjected to the invisible borders of the island",
+   "effect": "He sees the island for what it really is almost immediately, unlike the liars who see it as magical",
+   "supportsCausality": true,
+   "asserted": "He sees the island clearly because he experiences its invisible borders, while the liars are conditioned to see it as magical.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "The liars are conditioned to see the island as a magical kingdom",
+    "He is subject to the island's invisible borders",
+    "He sees its reality almost immediately"
+   ],
+   "wrong": [
+    "He sees the island as magical like the liars",
+    "He is fully accepted by the family",
+    "He sees clearly because he is more educated than the liars"
+   ]
+  },
+  {
+   "id": "C09",
+   "understanding": "School trains you to expect an audience because teachers are paid to read your work, producing a delusion that the world awaits your words, while in the real world your copy is invisible.",
+   "cause": "teachers must read your work to grade it (artificial environment)",
+   "effect": "you develop the delusion that the world is waiting for your words",
+   "supportsCausality": true,
+   "asserted": "The artificial classroom environment creates a delusion that the world is waiting for your writing; in reality it is invisible.",
+   "notAsserted": [
+    {
+     "text": "the world is waiting for your words",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Teachers are paid and required to read student work",
+    "This builds an ingrained delusion of an eager audience",
+    "Real-world copy is invisible"
+   ],
+   "wrong": [
+    "Readers eagerly seek out new writing",
+    "Teachers read work because it is good",
+    "The delusion comes from real readers' praise"
+   ]
+  },
+  {
+   "id": "C10",
+   "understanding": "Because humans survive by belonging to the tribe, people instinctively suppress their unique, contradictory information to fit in and keep a bond with the leader.",
+   "cause": "humans survive by belonging to the tribe and want to fit in",
+   "effect": "people suppress unique contradictory information",
+   "supportsCausality": true,
+   "asserted": "People suppress contradicting information in groups because they desperately want to belong.",
+   "notAsserted": [
+    {
+     "text": "Oh wow.",
+     "kind": "uncertain"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Humans are social creatures who survive by belonging to the tribe",
+    "Suppression is natural and instinctive",
+    "They want to maintain bonding with the leader"
+   ],
+   "wrong": [
+    "People withhold information deliberately to deceive the leader",
+    "People lack contradictory information",
+    "Suppression happens only because of fear of punishment"
+   ]
+  },
+  {
+   "id": "C11",
+   "understanding": "Darrow is locked in a freezing stone room with Julian, a kind, gentle, decent gold, which makes the situation cruel since they like each other.",
+   "cause": "Darrow is locked in with exactly one other student, Julian, who is kind",
+   "effect": "the situation is especially cruel",
+   "supportsCausality": true,
+   "asserted": "Julian is one of the few kind, decent golds Darrow has met, and the cruelty lies in pairing them.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Room contains only Darrow and Julian",
+    "Julian is kind, gentle and decent",
+    "Julian is a gold",
+    "Darrow has met few decent golds"
+   ],
+   "wrong": [
+    "Julian is cruel to Darrow",
+    "Julian is a lower-caste ally",
+    "Darrow is alone in the room"
+   ]
+  },
+  {
+   "id": "C12",
+   "understanding": "The success-to-the-successful trap is called competitive exclusion in ecology: a runaway reinforcing loop where winners get resources to win even more.",
+   "cause": "Winners of a competition receive, as part of their reward, the means to compete more effectively",
+   "effect": "A runaway reinforcing loop in which winners keep winning",
+   "supportsCausality": true,
+   "asserted": "Competitive exclusion is a runaway reinforcing loop where winners are rewarded with greater ability to compete next time.",
+   "notAsserted": [
+    {
+     "text": "What's the systemic mechanism there in ecology?",
+     "kind": "question"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Called competitive exclusion in ecology",
+    "Runaway reinforcing loop",
+    "Winners' reward includes means to compete better",
+    "Same as success to the successful trap"
+   ],
+   "wrong": [
+    "It is a balancing loop that evens out winners and losers",
+    "It applies only to taxes, not ecology",
+    "Losers receive the extra resources to catch up"
+   ]
+  },
+  {
+   "id": "C13",
+   "understanding": "A faction called Eleanor's Embers recruits younger, disenfranchised descendants of the 20 houses, and the hosts pause to explain the 20 houses and progeny laws for context.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "Characters like Taran and Eleanor are actively recruiting the younger, disenfranchised descendants of the 20 houses into Eleanor's Embers.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "The faction is called Eleanor's Embers",
+    "Taran and Eleanor recruit younger disenfranchised people",
+    "They descend from the 20 houses",
+    "The 20 houses and progeny laws are about to be explained"
+   ],
+   "wrong": [
+    "Eleanor's Embers defend the old order",
+    "The embers are members of the 20 houses' ruling elite",
+    "The progeny laws are already explained here"
+   ]
+  },
+  {
+   "id": "C14",
+   "understanding": "The family's stated reason for not telling Cadence the truth is that her doctor said she must remember on her own and her fragile mental state could not handle the shock, but the narrator calls this a convenient lie.",
+   "cause": "doctor's advice and Cadence's fragile mental state (family's claimed reason)",
+   "effect": "family did not tell Cadence the truth",
+   "supportsCausality": false,
+   "asserted": "The family gives a protective excuse for silence about the truth, which the narrator goes on to reject as a rationalization.",
+   "notAsserted": [
+    {
+     "text": "They didn't tell her because the doctor said she needed to remember on her own and she couldn't handle the shock",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "the Sinclair family (claim); narrator rejects it",
+   "keyFacts": [
+    "Cadence arrived for summer without being told the truth",
+    "Family cites doctor's advice and her fragile state",
+    "Narrator says this is a convenient lie (next line)"
+   ],
+   "wrong": [
+    "The narrator agrees the family protected Cadence",
+    "The doctor forbade telling her and that is the real reason",
+    "Cadence knew the truth on arrival"
+   ]
+  },
+  {
+   "id": "C15",
+   "understanding": "In a red team exercise, analysts looking for contrary evidence spot an easily overlooked detail: a dog pacing the compound in satellite imagery.",
+   "cause": "analysts are forced to stop defending their pet theory and look for contrary evidence",
+   "effect": "someone notices the overlooked detail of a dog pacing the compound",
+   "supportsCausality": true,
+   "asserted": "Satellite imagery shows a dog pacing the grounds of the compound, a detail found through the red team exercise.",
+   "notAsserted": [
+    {
+     "text": "What was it?",
+     "kind": "question"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Red team exercise forces analysts to seek contrary evidence",
+    "Detail is easily overlooked",
+    "Satellite imagery shows a dog pacing the compound"
+   ],
+   "wrong": [
+    "The dog proves the compound is Bin Laden's",
+    "The dog was the analysts' original pet theory",
+    "The dog was found by a ground team"
+   ]
+  },
+  {
+   "id": "C16",
+   "understanding": "Skinner showed that a pigeon fed every peck eats until full and stops, but a pigeon rewarded at random intervals pecks obsessively, even to exhaustion.",
+   "cause": "rewards given at random intervals",
+   "effect": "pigeon pecks the lever obsessively, even to exhaustion (dopamine hyper-stimulated)",
+   "supportsCausality": true,
+   "asserted": "Skinner proved that unpredictable rewards drive obsessive pecking while predictable rewards lead to stopping when full.",
+   "notAsserted": [],
+   "speaker": "narrator (citing B.F. Skinner)",
+   "keyFacts": [
+    "Reward every peck: pigeon eats until full and stops",
+    "Random rewards: pigeon goes crazy pecking",
+    "Variable reward schedule",
+    "Parallels phone/scroll design"
+   ],
+   "wrong": [
+    "Predictable rewards cause obsessive pecking",
+    "Pigeons with random rewards quit quickly",
+    "Skinner's pigeons were punished"
+   ]
+  },
+  {
+   "id": "C17",
+   "understanding": "Max, whom she outed as a serial rapist on her podcast, beat the criminal charges and is now suing her for defamation.",
+   "cause": "She outed him on her podcast",
+   "effect": "He is suing her for defamation (after beating criminal charges)",
+   "supportsCausality": false,
+   "asserted": "Max, accused by her publicly as a serial rapist, beat criminal charges and is suing her for defamation.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "She outed him on her podcast",
+    "He beat the criminal charges",
+    "He is now suing for defamation",
+    "Scene is the mediation meeting"
+   ],
+   "wrong": [
+    "Max was convicted of the crimes",
+    "She is suing Max",
+    "Max is a supporter of her podcast"
+   ]
+  },
+  {
+   "id": "C18",
+   "understanding": "Without Tushman's forced interaction, fear of judgment would override Jack's natural goodness; Tushman creates an adult-approved space for the two, but it puts an unfair burden on Jack.",
+   "cause": "Fear of judgment would override Jack's goodness without the sanctioned space; Tushman creates the space",
+   "effect": "Jack bears an unfair burden in the arranged interaction",
+   "supportsCausality": true,
+   "asserted": "Tushman creates a sanctioned space because fear of judgment would otherwise override Jack's goodness, but this unfairly burdens Jack.",
+   "notAsserted": [
+    {
+     "text": "Jack never sits down with August (if Tushman doesn't force interaction)",
+     "kind": "counterfactual"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Tushman creates a sanctioned adult-approved space",
+    "Fear of judgment would override Jack's natural goodness",
+    "It places an unfair burden on Jack"
+   ],
+   "wrong": [
+    "Jack is unkind by nature",
+    "The arrangement is entirely fair to Jack",
+    "August forced the meeting"
+   ]
+  },
+  {
+   "id": "C19",
+   "understanding": "To survive, a writer must adopt a professional mindset and stop acting like an amateur who seeks validation, therapy on the page, and a pat on the back.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "Writers must adopt the professional mindset and drop the amateur's craving for validation and therapy on the page.",
+   "notAsserted": [
+    {
+     "text": "acting like an amateur seeking validation, therapy, a pat on the back",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Professional mindset is required",
+    "Amateurs seek validation, therapy and a pat on the back",
+    "This is part of a metamorphosis"
+   ],
+   "wrong": [
+    "Writing is for self-therapy",
+    "Amateurs are more successful",
+    "Validation is needed to keep writing"
+   ]
+  },
+  {
+   "id": "C20",
+   "understanding": "Telling an employee they are valued while the specific behavior was unacceptable removes their ability to play the victim.",
+   "cause": "affirming 'you are a great employee, I value you' while saying the behavior was unacceptable",
+   "effect": "you strip away their ability to play the victim",
+   "supportsCausality": true,
+   "asserted": "Pairing reaffirmation of worth with criticism of the behavior removes the employee's victim stance.",
+   "notAsserted": [
+    {
+     "text": "My boss is a tyrant. I didn't deserve that.",
+     "kind": "quoted-speech"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Reaffirm the person's worth",
+    "Criticize only the specific behavior",
+    "This removes the victim narrative"
+   ],
+   "wrong": [
+    "Praise softens the message so the behavior is excused",
+    "The boss should attack the employee's character",
+    "The employee should be reprimanded without praise"
+   ]
+  },
+  {
+   "id": "C21",
+   "understanding": "Immune cells such as macrophages and T cells physically carry receptors for endorphins on their surface, linking mind and body.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "Immune cells literally have physical receptors for endorphins on their surface.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Macrophages and T cells are immune cells",
+    "They have endorphin receptors",
+    "This is the physical link between mind and body"
+   ],
+   "wrong": [
+    "Endorphins are produced by immune cells",
+    "Immune cells have no connection to the brain's chemistry",
+    "Endorphins only affect pain, not immunity"
+   ]
+  },
+  {
+   "id": "C22",
+   "understanding": "An unknown author spent years or decades mapping stars, weather and sailing distances from Homer's Odyssey for an 800-page manuscript, hinting at a far-fetched thesis.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "The author spent years, maybe decades, painstakingly mapping the Odyssey's stars, weather and sailing distances.",
+   "notAsserted": [
+    {
+     "text": "maybe decades",
+     "kind": "uncertain"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Unknown author, 800-page manuscript",
+    "Mapped stars, weather patterns, sailing distances from the Odyssey",
+    "Years, maybe decades of painstaking work",
+    "Purpose revealed next: prove Ulysses sailed around Florida"
+   ],
+   "wrong": [
+    "The author is a famous classicist",
+    "The manuscript is a short novel",
+    "The work was done quickly"
+   ]
+  },
+  {
+   "id": "C23",
+   "understanding": "The seventh force stealing our focus is physiological, the loaded body, continuing from sludge wrecking our physical hardware.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "The seventh force stealing our focus is physiological: the loaded body.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "It is the seventh force stealing focus",
+    "It is physiological",
+    "It is called the loaded body"
+   ],
+   "wrong": [
+    "The seventh force is a technology or social media issue",
+    "It is purely psychological",
+    "It is the first force discussed"
+   ]
+  },
+  {
+   "id": "C24",
+   "understanding": "In the divergence phase the team brainstormed 37 wild schemes, such as throwing stink bombs over the compound wall to see how occupants reacted.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "The team brainstormed 37 crazy schemes, including stink bombs thrown over the wall, and these were real proposals.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Divergence phase of brainstorming",
+    "37 different schemes",
+    "Stink bombs over the wall to see the occupants' reaction",
+    "Goal was to identify occupants without alerting them"
+   ],
+   "wrong": [
+    "The stink bomb plan was carried out",
+    "Only a few ideas were considered",
+    "The schemes were hypothetical jokes"
+   ]
+  },
+  {
+   "id": "C25",
+   "understanding": "Culture tells people to leave relationships that stop meeting their emotional needs, but good vibes are fragile as a foundation.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "Vibes are incredibly fragile.",
+   "notAsserted": [
+    {
+     "text": "If a relationship stops serving your needs, walk away and prioritize your peace",
+     "kind": "rejected-premise"
+    },
+    {
+     "text": "Everyone wants the good vibes",
+     "kind": "setup-half-of-contrast"
+    }
+   ],
+   "speaker": "narrator (presenting Brooks's argument)",
+   "keyFacts": [
+    "Cultural advice is to walk away from unfulfilling relationships",
+    "Vibes are fragile",
+    "Brooks favors vows over vibes"
+   ],
+   "wrong": [
+    "The narrator endorses walking away from relationships",
+    "Vibes are a strong basis for meaning",
+    "Prioritizing your peace is Brooks's advice"
+   ]
+  },
+  {
+   "id": "C26",
+   "understanding": "Buffett saw Stanton's tiny price change as a breach of trust and felt lied to, so he reacted with fury.",
+   "cause": "a pennies-level price change violating Buffett's reliable rules; he feels Stanton lied and tried to squeeze him",
+   "effect": "Buffett is infuriated",
+   "supportsCausality": true,
+   "asserted": "Buffett was infuriated, feeling Stanton lied to him and tried to squeeze him.",
+   "notAsserted": [
+    {
+     "text": "Mathematically it is a rounding error",
+     "kind": "setup-half-of-contrast"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Difference was 11 and 1/8, pennies",
+    "Buffett lives by reliable, unbroken rules",
+    "He felt it was a breach of trust",
+    "He felt Stanton lied to him"
+   ],
+   "wrong": [
+    "The money amount was large",
+    "Buffett shrugged it off",
+    "Buffett was angry because he lost a lot of money"
+   ]
+  },
+  {
+   "id": "C27",
+   "understanding": "The blue personality type stands apart, arms crossed, keeping a wide invisible personal radius and stepping back when someone enters it.",
+   "cause": "Someone steps into the blue's personal radius",
+   "effect": "The blue steps back to reestablish the perimeter",
+   "supportsCausality": true,
+   "asserted": "Blues likely cross arms and maintain a massive invisible personal-space radius, retreating when it is entered.",
+   "notAsserted": [
+    {
+     "text": "arms are likely crossed",
+     "kind": "uncertain"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Blue stands near the edge, still, observing",
+    "Arms crossed to guard torso",
+    "Large invisible personal-space radius",
+    "Tourist stepping into it triggers the blue to step back"
+   ],
+   "wrong": [
+    "The blue approaches people who enter their space",
+    "The blue is at the center of the crowd",
+    "The blue is chatting animatedly"
+   ]
+  },
+  {
+   "id": "C28",
+   "understanding": "Under intense experimental pressure, Steve invented mental strategies to bypass his limited short-term memory, drawing on his background as a cross-country runner.",
+   "cause": "Intense, relentless pressure of the experiment (and short-term memory can't be stretched)",
+   "effect": "Steve invented unique mental strategies to bypass short-term memory, using his running background",
+   "supportsCausality": true,
+   "asserted": "Steve bypassed short-term memory by inventing strategies based on his cross-country running background.",
+   "notAsserted": [
+    {
+     "text": "stretching short-term memory like a balloon",
+     "kind": "rejected-premise"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Steve was under pressure in an experiment",
+    "He bypassed short-term memory rather than expanding it",
+    "He used his background as a cross-country runner"
+   ],
+   "wrong": [
+    "Steve stretched his short-term memory capacity",
+    "He relied on innate talent for numbers",
+    "Running physically improved his memory"
+   ]
+  },
+  {
+   "id": "C29",
+   "understanding": "Preferred means Buffett is repaid before ordinary shareholders if the company goes bankrupt.",
+   "cause": "company goes bankrupt",
+   "effect": "Buffett gets his money back before regular shareholders",
+   "supportsCausality": true,
+   "asserted": "The preferred feature gives Buffett priority repayment in bankruptcy ahead of regular shareholders.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Preferred = paid first in bankruptcy",
+    "Regular shareholders are paid after",
+    "Part of a bespoke zero coupon convertible preferred deal"
+   ],
+   "wrong": [
+    "Preferred means he gets extra upside when stock rises",
+    "Regular shareholders are paid first",
+    "Preferred means he controls the company"
+   ]
+  },
+  {
+   "id": "C30",
+   "understanding": "The finale's elements are planted in the inciting incident: in Star Wars, Luke's destroying the Death Star with the Force is set up by finding Leia's message and meeting Obi-Wan, who introduces the Force.",
+   "cause": "the inciting incident introduces the Force and the message",
+   "effect": "it sets up the climax of blowing up the Death Star",
+   "supportsCausality": true,
+   "asserted": "The inciting incident must set up what the climax pays off, as in Star Wars.",
+   "notAsserted": [
+    {
+     "text": "If the climax is Luke blowing up the Death Star",
+     "kind": "hypothesis"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Climax: Luke uses the Force to blow up the Death Star",
+    "Inciting incident: Leia's hidden message and Obi-Wan introducing the Force",
+    "Inciting incident is a promise the climax fulfills"
+   ],
+   "wrong": [
+    "The inciting incident is the Death Star battle",
+    "Obi-Wan destroys the Death Star",
+    "The Force is introduced only at the climax"
+   ]
+  },
+  {
+   "id": "C31",
+   "understanding": "Voters instinctively favor candidates who frame setbacks as temporary and localized, and the same technique was then applied to sports quotes.",
+   "cause": "candidate frames setbacks as temporary and localized",
+   "effect": "electorate instinctively votes for that person",
+   "supportsCausality": true,
+   "asserted": "The electorate votes for those who frame setbacks as temporary and localized, and researchers applied the CAVE technique to sports.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Optimistic explanatory style tends to win elections",
+    "Setbacks framed as temporary and localized",
+    "CAVE technique extended to sports",
+    "Analyzing postgame quotes of athletes"
+   ],
+   "wrong": [
+    "Voters prefer pessimistic candidates",
+    "CAVE was only used for politics",
+    "Voters consciously analyze explanatory style"
+   ]
+  },
+  {
+   "id": "C32",
+   "understanding": "The 'got a minute' interruption never takes a minute; it costs far more and acts like a black hole for your time.",
+   "cause": "Saying yes to a 'got a minute' interruption",
+   "effect": "It costs about 45 minutes and drains your time like a black hole",
+   "supportsCausality": true,
+   "asserted": "A 'got a minute' interruption never takes a minute; it costs 45 and is like a black hole.",
+   "notAsserted": [
+    {
+     "text": "that minute is going to cost you",
+     "kind": "setup-half-of-contrast"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Cost is 45 (minutes)",
+    "It never takes a minute",
+    "Described as a localized black hole",
+    "You say sure to be a team player"
+   ],
+   "wrong": [
+    "The interruption really takes only one minute",
+    "It costs 45 seconds",
+    "Interruptions are harmless to focus"
+   ]
+  },
+  {
+   "id": "C33",
+   "understanding": "The narrator sets up a hypothetical: at midnight at the kitchen table you make a pros-and-cons list on a legal pad comparing current job and new job.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "The speaker describes a pros-and-cons list with current job on the left and new job on the right.",
+   "notAsserted": [
+    {
+     "text": "You're sitting at your kitchen table with a legal pad at midnight",
+     "kind": "hypothesis"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Scene is a hypothetical job offer decision",
+    "Yellow legal pad, two columns",
+    "Left is current job, right is new job"
+   ],
+   "wrong": [
+    "It is a real story of a named person",
+    "The listener already accepted the job",
+    "The list has three options"
+   ]
+  },
+  {
+   "id": "C34",
+   "understanding": "To train the skill of saying no, the hosts introduce a zero-stakes practice scenario rather than starting with a hard case.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "You train saying no by starting with a zero-stakes scene, which is about to be described.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "You build the no muscle gradually",
+    "Do not start with the final boss",
+    "Practice scene is low-stakes (a clothing store checkout)"
+   ],
+   "wrong": [
+    "You should start with the hardest refusal",
+    "The scene is a high-stakes negotiation",
+    "Saying no needs no practice"
+   ]
+  },
+  {
+   "id": "C35",
+   "understanding": "The ABCDE model is introduced as the cognitive cure, illustrated by a scene of someone deciding to get in shape.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "The ABCDE model is the cognitive cure, and a final example scene begins with deciding to get in shape.",
+   "notAsserted": [
+    {
+     "text": "You decide to finally get in shape",
+     "kind": "hypothesis"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "We are not doomed to remain in the shuttle box",
+    "ABCDE model is the cognitive cure",
+    "Final example scenario: getting in shape"
+   ],
+   "wrong": [
+    "ABCDE is a workout program",
+    "The shuttle box is the cure",
+    "The listener really did decide to get in shape"
+   ]
+  },
+  {
+   "id": "C36",
+   "understanding": "Throughout the 1980s Buffett publicly and harshly criticized Wall Street CEOs for vanity, greed and funny money fueling the leveraged buyout craze.",
+   "cause": "CEOs' vanity, greed and funny money fueling leveraged buyouts (junk bonds)",
+   "effect": "Buffett wrote scathing letters criticizing them",
+   "supportsCausality": true,
+   "asserted": "Buffett wrote scathing annual letters criticizing CEOs and the junk-bond-fueled LBO craze.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Letters were scathing and folksy",
+    "Targets: CEO vanity, greed, funny money",
+    "LBO craze fueled by Milken's junk bonds",
+    "Spanned the 1980s"
+   ],
+   "wrong": [
+    "Buffett supported the leveraged buyout craze",
+    "Buffett praised Milken",
+    "Buffett stayed silent on Wall Street"
+   ]
+  },
+  {
+   "id": "C37",
+   "understanding": "The brain's predictive models fill in the fragments dropped while toggling between audio and text, so you don't notice the loss and reality feels seamless.",
+   "cause": "Brain predictive models fill in the blanks",
+   "effect": "You don't notice dropped fragments and reality feels seamless",
+   "supportsCausality": true,
+   "asserted": "You don't notice the dropped fragments because your brain's predictive models fill in the blanks.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Fragments are dropped when toggling audio and text",
+    "Predictive models fill in blanks",
+    "Experience feels seamless",
+    "Implies micro switching, not true parallel processing"
+   ],
+   "wrong": [
+    "The brain truly processes audio and text in parallel without loss",
+    "You notice every dropped fragment",
+    "Dropped fragments don't occur"
+   ]
+  },
+  {
+   "id": "C38",
+   "understanding": "Mars's low gravity means a hanged man's fall from a gallows lacks the force to snap the neck.",
+   "cause": "Gravity on Mars is a fraction of Earth's",
+   "effect": "The drop doesn't generate enough force to snap the cervical vertebrae",
+   "supportsCausality": true,
+   "asserted": "Because Martian gravity is weaker, a gallows drop does not break the neck.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Mars gravity is a fraction of Earth's",
+    "A man is dropped from a gallows with a rope",
+    "The fall doesn't snap the cervical vertebrae",
+    "Death is slow strangulation (next line)"
+   ],
+   "wrong": [
+    "Hanging on Mars kills instantly",
+    "Gravity on Mars is stronger than Earth's",
+    "The rope is too weak to hold"
+   ]
+  },
+  {
+   "id": "C39",
+   "understanding": "Lincoln said he would hold McClellan's horse if it brought military success, showing his ego no longer mattered because he had given himself to a larger cause and redirected his youthful drive toward a moral purpose.",
+   "cause": "he had given himself away to a larger cause",
+   "effect": "his personal pride and ego ideal no longer mattered",
+   "supportsCausality": true,
+   "asserted": "Lincoln set aside pride, willing to hold McClellan's horse for military success, because he served a larger cause.",
+   "notAsserted": [
+    {
+     "text": "John Hay wanted to explode over the slight",
+     "kind": "uncertain"
+    }
+   ],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Lincoln would hold McClellan's horse if it brought success",
+    "Personal dignity and ego were no longer the point",
+    "He redirected his youthful strategic drive toward a moral purpose",
+    "This is the second mountain posture"
+   ],
+   "wrong": [
+    "Lincoln was weak or lacked pride",
+    "Lincoln was angry like John Hay",
+    "Lincoln lost his drive entirely"
+   ]
+  },
+  {
+   "id": "C40",
+   "understanding": "Staying in one mode is the principle, and Dustin Moskovitz applied it company-wide at Asana with no-meeting Wednesdays.",
+   "cause": "none stated",
+   "effect": "none stated",
+   "supportsCausality": false,
+   "asserted": "He stays in one mode, and Moskovitz took this to a corporate scale.",
+   "notAsserted": [],
+   "speaker": "narrator",
+   "keyFacts": [
+    "Previous person batches recording in one mode",
+    "Dustin Moskovitz co-founded Facebook and Asana",
+    "He applied the idea at corporate scale"
+   ],
+   "wrong": [
+    "Moskovitz batched interviews himself",
+    "The idea was introduced at Facebook",
+    "Moskovitz is the person recording interviews"
+   ]
+  }
+ ]
+}
