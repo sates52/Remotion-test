@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ dev/c11 (Semantic Film Director 1.0 A/B) | branch `dev/c11` only: `scripts/lib/semantic-director.js`, `src/engines/antidote/components/SemanticStage.tsx`, opt-in `scene.semantic`, `audit/c11-pilots/` | _(done)_ 2026-11-04: NO SHIP, branch pushed (a04c997f), not merged | No book, pin, sealed evidence, gate or threshold touched; no full render. |
 | _(done)_ dev/cloud-stills (machine load: heavy still work → GitHub Actions) | `scripts/lib/local-load-guard.js` (new), `scripts/render-stills.js` (new), `scripts/stills-cloud.js` (new), `.github/workflows/render-stills.yml` (new), `scripts/visual-ab.js` (guard), `scripts/test-local-load-guard.js` (new), CLAUDE.md, AGENTS.md | _(done)_ 2026-11-04: pushed to god-mode | Operator order. No book, pin, sealed evidence, gate, threshold, film render path or render pool changed. |
 | _(done)_ dev/c10 (cycle 10 architecture study + readcheck binding) | god-mode: `scripts/readcheck.js`, `scripts/lib/{readcheck-binding,evidence-integrity}.js`, tests; branch `dev/c10`: world-state prototype, IK + hybrid spikes, `audit/c10-pilots/` | _(done)_ 2026-11-04: readcheck pushed (20941526); experiments on branch dev/c10 (b5b06c42), not merged | World state A/B NO SHIP; no book, pin, sealed evidence or gate touched. |
 | _(done)_ dev/c9 part 2 (join repair, P0b A–E, post-delivery records) | `scripts/{repair-joins,render-cloud-assemble,mute-test,mute-reliability,mute-cloud-poc,ai-budget,plan-antidote,verify-render-output,render}.js`, `scripts/lib/{join-repair,mute-ids,judge-binding,render-preflight,mute-verdict,mute-manifest,cloud-assemble}.js`, tests | _(done)_ 2026-11-04: pushed to god-mode | No gate or threshold changed; old seals/results keep their reading; one record appended (Hamnet render-facts). |
@@ -52,6 +53,53 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🎬 2026-11-04 — Cycle 11: Semantic Film Director 1.0 — pre-registered blind A/B → NO SHIP (branch dev/c11)
+
+- **What was built** (branch `dev/c11` only):
+  - A director that first writes, per beat, what a muted viewer must understand, as a renderer-neutral contract:
+    understanding, verbatim evidence, type A–H, before / transformation / after, camera purpose, entities, state-changing
+    events, required, omitted.
+  - `scripts/lib/semantic-director.js` validates the contract. A change must be a state change (level ≥ 0.2, face,
+    presence, move, break), never colour or zoom. Type B needs the narration's own causal link, and comparisons share one
+    scale.
+  - `SemanticStage.tsx` draws it as one locked wide frame:
+    - the accent ring sits only on the cause;
+    - a token travels from cause to effect, then a pause, then the effect;
+    - the before state stays as a dashed trace.
+- **Benchmark and protocol:**
+  - Frozen by script before any code: 30 causal and abstract beats plus 10 action regression beats, 15 books.
+  - Answer key written from the narration only and frozen before authoring.
+  - B was authored by 5 fresh sonnet agents: one pass plus one compile-fix pass, no visual iteration.
+  - 80 strips rendered on GitHub Actions; 80 blind describers; 2 × 20 judges.
+- **Result (agent raters only; human reference prepared, NOT run):**
+
+  | measure | A | B |
+  |---|---|---|
+  | comprehension | 43.3 % | 48.6 % (+5.3 pp, CI −7.8…+16.4) |
+  | WRONG | 2 | 4 |
+  | DEAD | 14 | 2.5 |
+  | ADDS | 35 | 34.5 |
+  | EXPLAINS | 0.5 | 14 |
+
+  - Fiction +3.8 pp; nonfiction +6.4 pp; action regression +12.5 pp.
+  - Kappa: cause 0.92, effect 0.82, message 0.64.
+  - **NO SHIP**: the +20 pp target was missed, WRONG went up and ADDS did not go up.
+- **Why:**
+  - The director chose a text-only quote card for 18 of 40 beats (15 of the main 30). Those beats scored −4.4 pp, ADDS
+    went 12 → 0, and they produced 6 of B's 8 WRONG judgements:
+    - B05 quoted the premise the speaker rejects;
+    - B09 put a quote over the source scene's classroom set.
+  - On the 15 main beats B actually staged, comprehension went 36.7 % → 51.7 % (exploratory).
+  - Arrows can read as a mechanism the narration does not state (B17).
+- **Next (not done):** text-only only as a last resort, quoting the claim and never a rejected premise; quote cards on a
+  neutral ground; re-test the staged representations alone.
+- **Records:** `audit/c11-pilots/{benchmark,answer-key,preregistration-c11-director,result-c11-director,deviations}.json`, contracts, ratings, strips.
+- **Deviations:**
+  - The render moved from the PC to GitHub Actions on the operator's order (machine load). The 26 local strips and their
+    16 descriptions are unused; this was decided before any rating.
+  - One describer file was missing a `]` and got a syntax-only repair.
+- **Untouched:** no book, pin, sealed evidence, gate or threshold. No full render. Nothing merged to god-mode.
 
 ### 🖥️ 2026-11-04 — Machine load: heavy still work runs on GitHub Actions (operator order), local guard
 
