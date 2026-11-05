@@ -152,6 +152,16 @@ ok("B17: a 'binary choice' entity taken from the rejected half is refused", () =
   assert(has(R.validate(c, B17), /does not assert/));
 });
 
+// ── deep-work 250 (cycle 14 real-book preview): a "without <doing>" clause drawn as the effect read as its opposite ──
+ok("deep-work 250: 'without demanding focus' cannot be staged as focus falling", () => {
+  const k = { narration: "Like nature. Nature is great for this, even if it's freezing, because it engages your mind softly without demanding focus.", cast: [], castNames: [] };
+  const c = { ...base(), evidence: "Nature is great for this, even if it's freezing, because it engages your mind softly without demanding focus",
+    claim: { asserted: "Nature engages the mind softly.", polarity: "asserted", notAsserted: [] },
+    entities: [{ id: "n", kind: "object", glyph: "tree", label: "nature" }, { id: "f", kind: "stock", label: "focus", value: 0.8 }],
+    events: [{ at: 0.3, cause: "n", effects: [{ entity: "f", value: 0.2 }] }] };
+  assert(has(R.validate(c, k), /negation cue .*without demanding/));
+});
+
 ok("quoted speech on a card needs the speaker, and the speaker reaches the screen", () => {
   const nar = 'Her coach told her "you will never make the team" and she quit the next day.';
   const c = { schema: R.SCHEMA, type: "H", understanding: "Her coach said she would never make the team.", evidence: "you will never make the team", text: '"you will never make the team"',

@@ -36,8 +36,10 @@ const MAX_ENTITIES = 4;
 const HARD = [
   // (a motive — "want to fit in", "hope to" — is a real state, not a plan: not a cue)
   { kind: "planned / hypothetical", re: /\b(propos(e|ed|es|al)|suggest(ed|s)?|plan(s|ned|ning)?|scheme[sd]?|brainstorm\w*|idea (of|to|was|is)|consider(ed|s)?|thought about|would|could|might|imagine[sd]?|what if|suppose|let'?s say|should have|supposed to|meant to|tr(y|ied|ies) to)\b/i },
-  // negation: refused unless the claim is a contrast whose negated half is listed in notAsserted (see validate)
-  { kind: "negation", re: /\b(not|no longer|never|don'?t|doesn'?t|didn'?t|isn'?t|wasn'?t|aren'?t|weren'?t|won'?t|can'?t|cannot|couldn'?t|wouldn'?t|shouldn'?t)\b/i },
+  // negation: refused unless the claim is a contrast whose negated half is listed in notAsserted (see validate).
+  // "without <doing>" too (cycle 14, deep-work 250: "engages your mind softly without demanding focus" was drawn as
+  // focus falling — the blind viewer read "nature depletes focus")
+  { kind: "negation", re: /\b(not|no longer|never|don'?t|doesn'?t|didn'?t|isn'?t|wasn'?t|aren'?t|weren'?t|won'?t|can'?t|cannot|couldn'?t|wouldn'?t|shouldn'?t|without \w+ing)\b/i },
   // the claim itself is a question (a rhetorical "How does that work? Because …" answers it: not a cue)
   { kind: "question", re: /\?\s*$/ },
 ];
