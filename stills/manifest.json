@@ -1,0 +1,74 @@
+{
+ "schema": "stills/1",
+ "name": "c13 backward compatibility",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "jobs": [
+  {
+   "id": "stolen-focus",
+   "config": "configs/stolen-focus.json",
+   "frames": [
+    204,
+    252,
+    307
+   ]
+  },
+  {
+   "id": "farsighted",
+   "config": "configs/farsighted.json",
+   "frames": [
+    353,
+    447,
+    556
+   ]
+  },
+  {
+   "id": "red-rising",
+   "config": "configs/red-rising.json",
+   "frames": [
+    248,
+    343,
+    453
+   ]
+  },
+  {
+   "id": "buffett-the-making-of-an-american-capitalist",
+   "config": "configs/buffett-the-making-of-an-american-capitalist.json",
+   "frames": [
+    376,
+    437,
+    508
+   ]
+  },
+  {
+   "id": "wonder",
+   "config": "configs/wonder.json",
+   "frames": [
+    440,
+    544,
+    666
+   ]
+  },
+  {
+   "id": "the-second-mountain",
+   "config": "configs/the-second-mountain.json",
+   "frames": [
+    434,
+    553,
+    692
+   ]
+  }
+ ],
+ "inputHash": "79442e9fad26d1e9",
+ "files": {
+  "stills/configs/stolen-focus.json": "0d13bd5620fd245c2acf79cce76fcdac2f40b344b6da7856d05f761171f5ee1f",
+  "stills/configs/farsighted.json": "cee5f584184b47a7339026f461064786e724095cc15b195590ac80abb880d774",
+  "stills/configs/red-rising.json": "e8ac9a8115e098200a9060f13ee67fb9f04529915621daf3f09fbb84c52a4b61",
+  "stills/configs/buffett-the-making-of-an-american-capitalist.json": "428937a06f48733afd18b608709df48a38f50bc960ee6a5adde5466610a61d49",
+  "stills/configs/wonder.json": "629742c17464d0e20f7fee3651badfe4f0bfadaf9e259308642b318b8d10af2a",
+  "stills/configs/the-second-mountain.json": "96b619485a5582ee03142212306767ed688324dcf8b711dd6291262a1501779f"
+ },
+ "builtAt": "2026-11-05T10:01:43.873Z"
+}
