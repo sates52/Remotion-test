@@ -1,0 +1,38 @@
+# Human Video Study v2 browser test (cycle 15) — Chromium + Firefox on a GitHub runner, never on the operator's PC.
+# Triggered by a push to ci/study/** (the pushed commit's own copy of this file runs). Builds the study page from
+# synthetic 2-second clips (no real clip, no answer key in the run) and runs audit/c15/test-human-study.js.
+name: Human study test
+on:
+  push:
+    branches:
+      - "ci/study/**"
+  workflow_dispatch:
+jobs:
+  browsers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 22
+      - name: Synthetic clips (h264, 2 s, silent)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          mkdir -p /tmp/clips
+          for i in 01 02 03; do for v in X Y; do
+            ffmpeg -v error -f lavfi -i "testsrc=size=640x360:rate=30:duration=2" -c:v libx264 -pix_fmt yuv420p -an /tmp/clips/P$i-$v.mp4
+          done; done
+      - name: Build the v2 page
+        run: node audit/c15/human-study-v2.js --clips=/tmp/clips --out=/tmp/study --scenes=3
+      - name: Playwright (Chromium + Firefox)
+        run: |
+          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i --no-audit --no-fund playwright@1.48.2 >/dev/null
+          npx playwright install --with-deps chromium firefox >/dev/null
+      - name: Run the browser test
+        run: NODE_PATH=/tmp/pw/node_modules node audit/c15/test-human-study.js --pkg=/tmp/study/send
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: human-study-test
+          path: /tmp/study/browser-test.json
