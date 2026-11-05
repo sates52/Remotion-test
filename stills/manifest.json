@@ -1,0 +1,51 @@
+{
+ "schema": "stills/1",
+ "name": "c14 A/B B-arm redo (hud kept)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "deep-work-s250-B",
+   "config": "configs/deep-work-s250-B.json",
+   "frames": [
+    383,
+    489,
+    596
+   ],
+   "strip": true,
+   "clip": {
+    "from": 276,
+    "to": 630
+   }
+  },
+  {
+   "id": "radical-compassion-s128-B",
+   "config": "configs/radical-compassion-s128-B.json",
+   "frames": [
+    305,
+    357,
+    410
+   ],
+   "strip": true,
+   "clip": {
+    "from": 252,
+    "to": 426
+   }
+  }
+ ],
+ "inputHash": "721a2b5cf6548e70",
+ "files": {
+  "stills/configs/deep-work-s250-B.json": "cefd11a4e3798f56690bf182b923098055f235887d39947a6c8d1c8a47570fa3",
+  "stills/configs/radical-compassion-s128-B.json": "92bd66076d8f8ee22550ef30150f208cbe2cb225c168272f8bd23dfa56467232"
+ },
+ "builtAt": "2026-11-05T13:01:44.008Z"
+}
