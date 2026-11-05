@@ -1,0 +1,11 @@
+{ "schema": "semantic-director/1", "beat": "C26", "type": "A", "representation": "cause-pause-effect",
+  "understanding": "Stanton's act is felt as a massive breach of trust, and Buffett becomes infuriated.",
+  "evidence": "it was a massive breach of trust. Buffett is infuriated.",
+  "before": "Stanton, a full trust tank, a calm Buffett", "transformation": "Stanton's act drains the trust and Buffett's face turns angry",
+  "after": "trust low, Buffett angry, old level dashed",
+  "camera": { "framing": "wide-locked", "purpose": "Stanton, trust and Buffett together so the breach and the reaction read as one event" },
+  "entities": [ { "id": "s", "kind": "person", "cast": "seabury-stanton", "mood": "neutral", "label": "Stanton" },
+                { "id": "t", "kind": "stock", "label": "trust", "value": 0.9 },
+                { "id": "b", "kind": "person", "cast": "buffett", "mood": "neutral", "label": "Buffett" } ],
+  "events": [ { "at": 0.35, "cause": "s", "effects": [ { "entity": "t", "value": 0.1 }, { "entity": "b", "mood": "angry" } ] } ],
+  "required": ["the trust tank falling", "Buffett's face turning angry"], "omitted": ["11 and 1/8", "rounding error", "unbroken rules", "squeeze"] }

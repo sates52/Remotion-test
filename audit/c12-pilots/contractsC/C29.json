@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C29","type":"A","representation":"cause-pause-effect",
+"understanding":"If the company goes bankrupt, Buffett is repaid first, before regular shareholders.",
+"claim":{"asserted":"Preferred means that on bankruptcy Buffett gets his money back before regular shareholders get anything.","polarity":"asserted","speaker":"narrator","notAsserted":[],"cueCheck":"'If' states the definition of 'preferred', the rule being asserted, not a hypothetical."},
+"evidence":"if the company goes bankrupt, Buffett gets his money back before any of the regular shareholders",
+"before":"a bankrupt company, Buffett and the shareholders waiting","transformation":"the money goes to Buffett first","after":"Buffett holds his money, shareholders have none",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"c","kind":"object","glyph":"crash","label":"bankrupt"},{"id":"m","kind":"object","glyph":"coin","label":"money"},{"id":"s","kind":"person","cast":"everyman","label":"shareholders"},{"id":"b","kind":"person","cast":"buffett","mood":"neutral"}],
+"events":[{"cause":"c","effects":[{"entity":"m","moveTo":"b"}]}],
+"reads":[{"at":[0.04,0.25],"focus":"c","what":"bankrupt"},{"at":[0.25,0.45],"focus":"s","what":"regular shareholders"},{"at":[0.45,0.7],"focus":"m","what":"the money goes to Buffett"},{"at":[0.7,1.0],"focus":"b","what":"paid first"}],
+"required":["bankruptcy","money going to Buffett","shareholders left"],"omitted":["convertible"]}

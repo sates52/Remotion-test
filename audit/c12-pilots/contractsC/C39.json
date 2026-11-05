@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C39","type":"A","representation":"cause-pause-effect",
+"understanding":"Lincoln gave himself to a larger cause, so his personal pride stopped mattering.",
+"claim":{"asserted":"Lincoln gave himself to a larger cause and his personal pride was no longer the point.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"if it would just bring military success","kind":"hypothesis"}]},
+"evidence":"His personal pride, his ego ideal was no longer the point",
+"before":"Lincoln with his pride full beside a larger cause","transformation":"he gives himself to the cause","after":"his pride level has dropped, old level dashed",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"l","kind":"person","cast":"lincoln","mood":"neutral"},{"id":"c","kind":"object","glyph":"target","label":"larger cause"},{"id":"p","kind":"stock","label":"personal pride","value":0.9}],
+"events":[{"cause":"l","effects":[{"entity":"p","value":0.15}]}],
+"reads":[{"at":[0.04,0.3],"focus":"l","what":"Lincoln"},{"at":[0.3,0.55],"focus":"c","what":"a larger cause"},{"at":[0.55,1.0],"focus":"p","what":"pride no longer the point"}],
+"required":["Lincoln","the larger cause","the pride level falling"],"omitted":["McClellan's horse","military strategy"]}

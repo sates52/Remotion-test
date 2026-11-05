@@ -1,0 +1,11 @@
+{"schema":"semantic-director/2","beat":"C11","type":"G","representation":"environment",
+"understanding":"Darrow is shut in with Julian, one of the few golds who is kind and decent.",
+"claim":{"asserted":"The cruelty is that Julian, Darrow's cellmate, is one of the only kind, gentle, decent golds he has met.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"Julian is one of the only golds Darrow has met so far who is actually kind and gentle and decent",
+"before":"Darrow alone in the room","transformation":"none, a situation","after":"Darrow beside kind Julian",
+"camera":{"framing":"wide-locked","purpose":"hold"},"lanes":1,
+"entities":[{"id":"d","kind":"person","cast":"darrow","mood":"neutral"},
+{"id":"j","kind":"person","cast":"julian","label":"kind","mood":"happy"}],
+"events":[],
+"reads":[{"at":[0.04,0.4],"focus":"d","what":"Darrow in the room"},{"at":[0.4,1.0],"focus":"j","what":"Julian is kind"}],
+"required":["Darrow","Julian kind"],"omitted":["stone room","gold hierarchy"]}

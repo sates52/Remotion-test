@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C04","type":"B","representation":"cause-pause-effect",
+"understanding":"Failure or tragedy knocks a person off the mountain they were climbing.",
+"claim":{"asserted":"Failure or tragedy can knock you off the mountain, causing the fall.","polarity":"asserted","speaker":"narrator","notAsserted":[],"cueCheck":"'Alternatively' introduces the second asserted route to the fall; it is not a hypothesis or rejection."},
+"evidence":"the fall happens because you get knocked off the mountain by failure or tragedy",
+"before":"a person on the mountain, a storm of failure beside it","transformation":"failure strikes the person","after":"the person is afraid, knocked off course",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"m","kind":"object","glyph":"ladder","label":"mountain"},{"id":"f","kind":"object","glyph":"storm","label":"failure"},{"id":"p","kind":"person","cast":"everyman","mood":"neutral"}],
+"events":[{"cause":"f","effects":[{"entity":"p","mood":"afraid"}]}],
+"reads":[{"at":[0.04,0.3],"focus":"m","what":"the mountain"},{"at":[0.3,0.6],"focus":"f","what":"failure strikes"},{"at":[0.6,1.0],"focus":"p","what":"knocked off"}],
+"required":["the mountain","failure","the person's reaction"],"omitted":["betrayal of the first mountain's promise"]}

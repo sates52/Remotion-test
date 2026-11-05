@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"C29","type":"B","representation":"cause-pause-effect",
+"understanding":"If the company goes bankrupt, Buffett's money goes back to him first, before regular shareholders.",
+"evidence":"if the company goes bankrupt, Buffett gets his money back before any of the regular shareholders",
+"before":"a company, a coin of money and Buffett","transformation":"the company goes bankrupt and the money moves to Buffett",
+"after":"the coin sits with Buffett, its old place dashed",
+"camera":{"framing":"wide-locked","purpose":"company, money and Buffett together so the return is read as caused by bankruptcy"},
+"entities":[{"id":"c","kind":"object","glyph":"work","label":"company"},{"id":"m","kind":"object","glyph":"coin","label":"money"},{"id":"b","kind":"person","cast":"buffett","mood":"neutral","label":"Buffett"}],
+"events":[{"at":0.35,"cause":"c","effects":[{"entity":"m","moveTo":"b"}]}],
+"required":["the company","the money moving to Buffett"],"omitted":["regular shareholders","preferred terminology"]}

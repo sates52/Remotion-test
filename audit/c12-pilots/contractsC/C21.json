@@ -1,0 +1,12 @@
+{"schema":"semantic-director/2","beat":"C21","type":"G","representation":"environment",
+"understanding":"Immune cells carry physical receptors for endorphins on their surface.",
+"claim":{"asserted":"Immune cells literally have physical receptors for endorphins on their surface.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"literally have physical receptors for endorphins on their surface",
+"before":"an immune cell","transformation":"none, a structure","after":"the immune cell with receptors, ready for endorphins",
+"camera":{"framing":"wide-locked","purpose":"hold"},"lanes":1,
+"entities":[{"id":"i","kind":"object","glyph":"shield","label":"immune cells"},
+{"id":"r","kind":"object","glyph":"key","label":"receptors"},
+{"id":"e","kind":"object","glyph":"zap","label":"endorphins"}],
+"events":[],
+"reads":[{"at":[0.04,0.3],"focus":"i","what":"immune cells"},{"at":[0.3,0.62],"focus":"r","what":"receptors on the surface"},{"at":[0.62,1.0],"focus":"e","what":"receptors for endorphins"}],
+"required":["immune cell","receptor","endorphins"],"omitted":["binding"]}

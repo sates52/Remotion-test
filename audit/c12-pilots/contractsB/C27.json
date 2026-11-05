@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C27","type":"G","representation":"environment",
+"understanding":"The blue stands with crossed arms inside a massive invisible radius, with a tourist nearby.",
+"evidence":"established a massive invisible radius of personal",
+"before":"Blue with a radius around, a tourist outside it","transformation":"nothing changes","after":"same",
+"camera":{"framing":"wide-locked","purpose":"the blue, the radius and the tourist in one frame"},
+"entities":[{"id":"b","kind":"person","cast":"blue","mood":"neutral","label":"blue"},{"id":"r","kind":"object","glyph":"shield","label":"radius"},{"id":"t","kind":"person","cast":"everyman","mood":"neutral","label":"tourist"}],
+"events":[],
+"required":["the blue","the radius","the tourist"],"omitted":["arms crossed","stepping back (not stated in this beat)"]}

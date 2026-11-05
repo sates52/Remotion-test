@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C14","type":"G","representation":"environment",
+"understanding":"The Sinclair family stood around Cadence and kept the truth from her.",
+"claim":{"asserted":"The family did not tell Cadence the truth when she arrived for the summer.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"Why didn't anyone tell Cadence the truth when she arrived for summer","kind":"question"},{"text":"because the doctor said she needed to remember on her own that her fragile mental state couldn't","kind":"quoted-speech"}],"cueCheck":"The family's stated excuse is only their claim, so it is not shown."},
+"evidence":"The family claims they didn't tell her",
+"before":"Cadence, the family and the truth","transformation":"nothing changes: the truth stays unspoken","after":"the truth still held back from Cadence",
+"camera":{"framing":"wide-locked","purpose":"hold"},"lanes":1,
+"entities":[{"id":"c","kind":"person","cast":"cadence","mood":"neutral"},{"id":"f","kind":"person","cast":"tipper","label":"family"},{"id":"t","kind":"object","glyph":"letter","label":"truth"}],
+"events":[],
+"reads":[{"at":[0.04,0.35],"focus":"c","what":"Cadence arrives"},{"at":[0.35,0.65],"focus":"f","what":"the family"},{"at":[0.65,1.0],"focus":"t","what":"the truth withheld"}],
+"required":["Cadence","the family","the truth"],"omitted":["the doctor's reason"]}

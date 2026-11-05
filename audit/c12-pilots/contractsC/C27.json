@@ -1,0 +1,29 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C27",
+  "understanding": "The blue type stands guarded behind a massive invisible radius of personal space.",
+  "claim": { "asserted": "The blue has established a massive invisible radius of personal space.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [
+      { "text": "Their arms are likely crossed to guard their torso", "kind": "uncertain" },
+      { "text": "if someone steps into it, if a tourist steps backward into that radius", "kind": "hypothesis" }
+    ] },
+  "evidence": "they have established a massive invisible radius of personal",
+  "type": "G",
+  "representation": "environment",
+  "before": "the blue person standing alone",
+  "transformation": "nothing changes",
+  "after": "the blue person inside a wide invisible radius",
+  "camera": { "framing": "wide-locked", "purpose": "hold" },
+  "lanes": 1,
+  "entities": [
+    { "id": "b", "kind": "person", "cast": "blue", "mood": "neutral", "label": "blue", "lane": 0 },
+    { "id": "r", "kind": "object", "glyph": "shield", "label": "radius", "lane": 0 }
+  ],
+  "events": [],
+  "reads": [
+    { "at": [0.04, 0.4], "focus": "b", "what": "the blue person" },
+    { "at": [0.4, 1.0], "focus": "r", "what": "the invisible radius around them" }
+  ],
+  "required": ["the blue person", "the radius around them"],
+  "omitted": ["the tourist stepping in", "the step back", "crossed arms"]
+}

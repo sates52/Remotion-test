@@ -1,0 +1,12 @@
+{"schema":"semantic-director/2","beat":"C26","type":"A","representation":"cause-pause-effect",
+"understanding":"Stanton's trick broke the rules Buffett lives by, and Buffett was infuriated.",
+"claim":{"asserted":"Buffett saw it as a massive breach of trust, felt Stanton lied to him, and was infuriated.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"it was a massive breach of trust. Buffett is infuriated. He feels Stanton lied to him",
+"before":"Stanton, intact rules, and a calm Buffett","transformation":"Stanton's move breaks the rules","after":"rules cracked and Buffett angry",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"s","kind":"person","cast":"seabury-stanton","mood":"neutral"},
+{"id":"r","kind":"object","glyph":"law","label":"rules"},
+{"id":"b","kind":"person","cast":"buffett","mood":"neutral"}],
+"events":[{"cause":"s","effects":[{"entity":"r","broken":true},{"entity":"b","mood":"angry"}]}],
+"reads":[{"at":[0.04,0.25],"focus":"s","what":"Stanton"},{"at":[0.25,0.5],"focus":"r","what":"breach of trust"},{"at":[0.5,1.0],"focus":"b","what":"Buffett infuriated"}],
+"required":["rules cracked","Buffett angry"],"omitted":["the 11 1/8 price","squeeze"]}

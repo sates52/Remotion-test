@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C37","type":"B","representation":"cause-pause-effect",
+"understanding":"The brain's predictive models fill in the dropped blanks so reality feels seamless.",
+"evidence":"because your brain predictive models fill in the blanks to make reality feel seamless",
+"before":"predictive models beside a tank of blanks","transformation":"the models fill the blanks","after":"the blanks tank is nearly empty, old level dashed",
+"camera":{"framing":"wide-locked","purpose":"models and blanks together"},
+"entities":[{"id":"m","kind":"object","glyph":"lightbulb","label":"models"},{"id":"b","kind":"stock","label":"blanks","value":0.8}],
+"events":[{"at":0.35,"cause":"m","effects":[{"entity":"b","value":0.1}]}],
+"required":["the models","the blanks level falling"],"omitted":["dropped fragments","you don't notice"]}

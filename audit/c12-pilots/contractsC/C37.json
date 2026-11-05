@@ -1,0 +1,28 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C37",
+  "understanding": "Your brain's predictive models fill in the blanks, so the dropped fragments go unnoticed.",
+  "claim": { "asserted": "Predictive models fill in the dropped fragments, so you do not notice them.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [],
+    "cueCheck": "'don't notice ... because' is the claim itself: the unnoticed gaps are caused by the filling-in." },
+  "evidence": "your brain predictive models fill in the blanks to make reality feel seamless",
+  "type": "B",
+  "representation": "cause-pause-effect",
+  "before": "the person, the models and the dropped fragments",
+  "transformation": "the predictive models fill in the blanks",
+  "after": "the fragments are gone from view, only a dashed outline",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "m", "kind": "object", "glyph": "lightbulb", "label": "predictive models", "lane": 0 },
+    { "id": "f", "kind": "object", "glyph": "notes", "label": "dropped fragments", "lane": 0 },
+    { "id": "p", "kind": "person", "cast": "everyman", "mood": "neutral", "label": "you", "lane": 0 }
+  ],
+  "events": [ { "cause": "m", "effects": [ { "entity": "f", "present": false } ] } ],
+  "reads": [
+    { "at": [0.04, 0.35], "focus": "m", "what": "brain predictive models" },
+    { "at": [0.35, 1.0], "focus": "f", "what": "fragments filled in, unnoticed" }
+  ],
+  "required": ["the predictive models", "the fragments disappearing"],
+  "omitted": ["audio and text streams", "wow reaction"]
+}

@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C25","type":"B","representation":"cause-pause-effect",
+"understanding":"When a relationship stops serving emotional needs, the advice is to walk away from it.",
+"evidence":"If a relationship stops serving your emotional needs, the cultural advice is often to walk away",
+"before":"a relationship icon beside a low emotional-needs tank","transformation":"unserved needs lead to the relationship being left","after":"the relationship gone, its outline dashed",
+"camera":{"framing":"wide-locked","purpose":"needs and relationship together so leaving is read as following from unmet needs"},
+"entities":[{"id":"n","kind":"stock","label":"emotional needs","value":0.15},{"id":"r","kind":"object","glyph":"heart","label":"relationship"}],
+"events":[{"at":0.35,"cause":"n","effects":[{"entity":"r","present":false}]}],
+"required":["the low needs level","the relationship leaving"],"omitted":["good vibes","vibes are fragile","own peace"]}

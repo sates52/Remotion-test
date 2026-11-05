@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"C04","type":"B","representation":"cause-pause-effect",
+"understanding":"Failure or tragedy knocks a person off the mountain, and he is left sad.",
+"evidence":"the fall happens because you get knocked off the mountain by failure or tragedy",
+"before":"a calm person beside a storm icon","transformation":"the storm of failure or tragedy hits the person",
+"after":"the person looks sad",
+"camera":{"framing":"wide-locked","purpose":"the blow and the person in one frame"},
+"entities":[{"id":"s","kind":"object","glyph":"storm","label":"tragedy"},{"id":"p","kind":"person","cast":"everyman","mood":"neutral"}],
+"events":[{"at":0.35,"cause":"s","effects":[{"entity":"p","mood":"sad"}]}],
+"required":["the storm","the person's face changing"],"omitted":["the first mountain's promise","betrayal"]}

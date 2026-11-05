@@ -1,0 +1,27 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C07",
+  "understanding": "Buffett's public persona is a projection that hides a deeply private, emotionally stunted man.",
+  "claim": { "asserted": "The public persona is a projection that hides a profoundly private, emotionally stunted man.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [],
+    "cueCheck": "'Because' answers the previous question directly; the sentences are plain claims, nothing is rejected or hypothetical." },
+  "evidence": "It hides a profoundly private, emotionally stunted man",
+  "type": "F",
+  "representation": "concept-model",
+  "before": "the private man alone, visible",
+  "transformation": "the persona is laid over him",
+  "after": "the persona mask covers the man",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "b", "kind": "person", "cast": "buffett", "mood": "blank", "label": "private man", "lane": 0 },
+    { "id": "p", "kind": "object", "glyph": "mask", "label": "persona", "lane": 0 }
+  ],
+  "events": [ { "cause": "p", "effects": [ { "entity": "p", "cover": "b" } ] } ],
+  "reads": [
+    { "at": [0.04, 0.35], "focus": "p", "what": "the persona" },
+    { "at": [0.35, 1.0], "focus": "b", "what": "the private man is hidden" }
+  ],
+  "required": ["the man", "the mask laid over him"],
+  "omitted": ["rock star", "arena"]
+}

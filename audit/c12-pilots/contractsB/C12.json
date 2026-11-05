@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C12","type":"A","representation":"cause-pause-effect",
+"understanding":"In competitive exclusion the winners of a competition receive a reward.",
+"evidence":"the winners of a competition receive as part of their reward",
+"before":"a competition trophy with the reward beside it, the winner apart","transformation":"the competition is decided and the reward goes to the winner","after":"the reward sits with the winner, its old place an empty outline",
+"camera":{"framing":"wide-locked","purpose":"trophy, reward and winner in one frame so the handover is read"},
+"entities":[{"id":"c","kind":"object","glyph":"trophy","label":"competition"},{"id":"r","kind":"object","glyph":"coin","label":"reward"},{"id":"w","kind":"person","cast":"ceo","mood":"neutral","label":"winners"}],
+"events":[{"at":0.4,"cause":"c","effects":[{"entity":"r","moveTo":"w"}]}],
+"required":["the trophy","the reward moving to the winner"],"omitted":["competitive exclusion name","runaway reinforcing loop","means to compete more effectively"]}

@@ -1,0 +1,13 @@
+{ "schema": "semantic-director/1", "beat": "C16", "type": "D", "representation": "same-scale",
+  "understanding": "A pigeon given a pellet every peck eats until full and stops; the random-pellet lane sets up the contrast.",
+  "evidence": "it will eat until it's full and stop. But if you give the pigeon a pellet at random intervals",
+  "before": "two lanes, each a pellet and a high pecks level", "transformation": "in the every-time lane the pellet drains the pecking to near zero; the random lane is left unresolved",
+  "after": "top lane pecks low, bottom lane still high",
+  "camera": { "framing": "wide-locked", "purpose": "both schedules on one ruler so the difference in pecking is read directly" },
+  "lanes": 2, "laneLabels": ["every time", "random intervals"],
+  "entities": [ { "id": "p1", "kind": "object", "glyph": "food", "label": "pellet", "lane": 0 },
+                { "id": "k1", "kind": "stock", "label": "pecks", "value": 0.9, "lane": 0 },
+                { "id": "p2", "kind": "object", "glyph": "food", "label": "pellet", "lane": 1 },
+                { "id": "k2", "kind": "stock", "label": "pecks", "value": 0.9, "lane": 1 } ],
+  "events": [ { "at": 0.35, "cause": "p1", "effects": [ { "entity": "k1", "value": 0.1 } ] } ],
+  "required": ["two lanes on one scale", "pecks low where pellets are every time"], "omitted": ["Skinner", "lever", "obsessive pecking", "dopamine"] }

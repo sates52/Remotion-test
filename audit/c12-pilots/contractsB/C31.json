@@ -1,0 +1,11 @@
+{ "schema": "semantic-director/1", "beat": "C31", "type": "A", "representation": "cause-pause-effect",
+  "understanding": "The electorate gives its votes to the person who frames setbacks as temporary.",
+  "evidence": "The electorate instinctively votes for the person who frames setbacks as temporary and localized.",
+  "before": "the electorate holding its votes, a person apart", "transformation": "the electorate acts and the votes go to the person",
+  "after": "the votes sit with the person, the empty outline left behind",
+  "camera": { "framing": "wide-locked", "purpose": "electorate, votes and person in one frame so the transfer is seen" },
+  "entities": [ { "id": "e", "kind": "group", "label": "electorate", "value": 1 },
+                { "id": "v", "kind": "object", "glyph": "notes", "label": "votes" },
+                { "id": "p", "kind": "person", "cast": "everyman", "mood": "neutral", "label": "person" } ],
+  "events": [ { "at": 0.35, "cause": "e", "effects": [ { "entity": "v", "moveTo": "p" } ] } ],
+  "required": ["the electorate", "the votes moving to the person"], "omitted": ["cave technique", "sports page", "temporary and localized"] }

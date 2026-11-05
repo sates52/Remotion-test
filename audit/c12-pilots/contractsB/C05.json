@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C05","type":"B","representation":"cause-pause-effect",
+"understanding":"Reading a novel builds empathy, because you simulate another person's mind.",
+"evidence":"uniquely builds human empathy. Empathy. How does that work? Because when you read a novel",
+"before":"a novel beside a nearly empty empathy tank","transformation":"reading the novel fills the empathy tank","after":"empathy high, old low level dashed",
+"camera":{"framing":"wide-locked","purpose":"novel and empathy tank together so the build is read as caused by reading"},
+"entities":[{"id":"n","kind":"object","glyph":"book","label":"novel"},{"id":"e","kind":"stock","label":"empathy","value":0.15}],
+"events":[{"at":0.3,"cause":"n","effects":[{"entity":"e","value":0.85}]}],
+"required":["the novel","the empathy level rising"],"omitted":["simulating another consciousness","Raymond Maher"]}

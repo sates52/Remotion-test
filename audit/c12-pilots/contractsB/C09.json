@@ -1,0 +1,9 @@
+{"schema":"semantic-director/1","beat":"C09","type":"B","representation":"cause-pause-effect",
+"understanding":"The artificial school environment makes the writer believe the world is waiting for his words.",
+"evidence":"Because of that artificial environment, you develop this deeply ingrained delusion that the world is waiting for your words",
+"before":"a school icon beside a neutral writer","transformation":"the artificial environment of school shapes the writer's belief",
+"after":"the writer looks happy and sure of himself",
+"camera":{"framing":"wide-locked","purpose":"school and writer together so the belief is read as caused by school"},
+"entities":[{"id":"sc","kind":"object","glyph":"school","label":"artificial environment"},{"id":"w","kind":"person","cast":"everyman","mood":"neutral"}],
+"events":[{"at":0.35,"cause":"sc","effects":[{"entity":"w","mood":"happy"}]}],
+"required":["the school","the writer's face changing"],"omitted":["dissertation grading","the real world's indifference"]}

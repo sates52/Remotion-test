@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C10","type":"B","representation":"cause-pause-effect",
+"understanding":"Wanting to belong to the tribe makes people hold back their unique information.",
+"claim":{"asserted":"People suppress their unique contradictory information because they want to fit in with the tribe.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"suppress their unique contradictory information because they desperately want to fit in",
+"before":"a tribe, a person and a full tank of unique information","transformation":"the wish to belong drains the information","after":"the information tank nearly empty, old level dashed",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"t","kind":"object","glyph":"family","label":"tribe"},{"id":"p","kind":"person","cast":"everyman","mood":"worried"},{"id":"i","kind":"stock","label":"unique information","value":1}],
+"events":[{"cause":"t","effects":[{"entity":"i","value":0.15}]}],
+"reads":[{"at":[0.04,0.28],"focus":"t","what":"belonging to the tribe"},{"at":[0.28,0.5],"focus":"p","what":"the person"},{"at":[0.5,1.0],"focus":"i","what":"information suppressed"}],
+"required":["the tribe","the information level falling"],"omitted":["the leader","bonding"]}

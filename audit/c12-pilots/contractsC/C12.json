@@ -1,0 +1,29 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C12",
+  "understanding": "In competitive exclusion the winners of a competition receive a reward, feeding a runaway reinforcing loop.",
+  "claim": { "asserted": "Competitive exclusion is a runaway reinforcing loop where the winners of a competition receive a reward.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [],
+    "cueCheck": "The opening question is answered in the next sentence, so the claim is asserted." },
+  "evidence": "winners of a competition receive as part of their reward",
+  "type": "A",
+  "representation": "cause-pause-effect",
+  "before": "a competition and its winners, no reward yet",
+  "transformation": "the reward travels to the winners",
+  "after": "the winners hold the reward",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "g", "kind": "object", "glyph": "game", "label": "competition", "lane": 0 },
+    { "id": "t", "kind": "object", "glyph": "trophy", "label": "reward", "lane": 0 },
+    { "id": "w", "kind": "person", "mood": "happy", "label": "winners", "lane": 0 }
+  ],
+  "events": [ { "cause": "g", "effects": [ { "entity": "t", "moveTo": "w" } ] } ],
+  "reads": [
+    { "at": [0.04, 0.3], "focus": "g", "what": "the competition" },
+    { "at": [0.3, 0.6], "focus": "w", "what": "the winners" },
+    { "at": [0.6, 1.0], "focus": "t", "what": "the reward goes to the winners" }
+  ],
+  "required": ["the competition", "the reward travelling to the winners"],
+  "omitted": ["ecology", "the next-round advantage"]
+}

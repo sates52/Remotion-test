@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C35","type":"G","representation":"environment",
+"understanding":"The example scene begins with a person who decides to get in shape.",
+"claim":{"asserted":"In the scene, you decide to finally get in shape.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"Let's set up one final scene.","kind":"hypothesis"}]},
+"evidence":"You decide to finally get in shape",
+"before":"nothing on screen","transformation":"none, the situation is set up","after":"a person facing the goal of being in shape",
+"camera":{"framing":"wide-locked","purpose":"hold"},"lanes":1,
+"entities":[{"id":"p","kind":"person","cast":"everyman","mood":"neutral"},{"id":"g","kind":"object","glyph":"target","label":"in shape"}],
+"events":[],
+"reads":[{"at":[0.04,0.4],"focus":"p","what":"you"},{"at":[0.4,1.0],"focus":"g","what":"the goal: get in shape"}],
+"required":["the person","the goal"],"omitted":["ABCDE model","the gym"]}

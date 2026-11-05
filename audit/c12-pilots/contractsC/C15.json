@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C15","type":"A","representation":"cause-pause-effect",
+"understanding":"Looking at satellite imagery, the analyst finds a dog pacing the compound grounds.",
+"claim":{"asserted":"Satellite imagery shows a dog pacing the compound grounds, a detail that was overlooked.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"What was it?","kind":"question"}],"cueCheck":"The question is answered immediately by the next sentence."},
+"evidence":"Satellite imagery shows there is a dog pacing the grounds of the compound",
+"before":"the analyst and the compound","transformation":"the analyst finds the detail in the imagery","after":"the dog in view",
+"camera":{"framing":"wide-locked","purpose":"reveal"},"lanes":1,
+"entities":[{"id":"a","kind":"person","cast":"analyst","mood":"neutral"},{"id":"c","kind":"object","glyph":"home","label":"compound"},{"id":"d","kind":"object","glyph":"magnifier","label":"dog","present":false}],
+"events":[{"cause":"a","effects":[{"entity":"d","reveal":true,"present":true}]}],
+"reads":[{"at":[0.04,0.4],"focus":"c","what":"the compound in satellite imagery"},{"at":[0.42,1.0],"focus":"d","what":"a dog pacing"}],
+"required":["the compound","the dog appearing"],"omitted":["devout Muslims","red team"]}

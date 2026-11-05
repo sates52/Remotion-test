@@ -1,0 +1,10 @@
+{ "schema": "semantic-director/1", "beat": "C06", "type": "B", "representation": "cause-pause-effect",
+  "understanding": "When the Sons of Aries bomb a supply line, Darrow reacts with anger instead of support.",
+  "evidence": "When the sons of Aries bomb a supply line or cause a disruption, Darrow views",
+  "before": "a bomb icon beside a calm Darrow", "transformation": "the bombing marks the cause; Darrow's face turns angry",
+  "after": "Darrow angry, his neutral face traced",
+  "camera": { "framing": "wide-locked", "purpose": "bomb and Darrow together so the reaction is read against the attack" },
+  "entities": [ { "id": "b", "kind": "object", "glyph": "fire", "label": "supply line" },
+                { "id": "d", "kind": "person", "cast": "darrow", "mood": "neutral", "label": "Darrow" } ],
+  "events": [ { "at": 0.35, "cause": "b", "effects": [ { "entity": "d", "mood": "angry" } ] } ],
+  "required": ["the attack icon", "Darrow's face changing to angry"], "omitted": ["tantrum", "terraforming", "reader expectation"] }

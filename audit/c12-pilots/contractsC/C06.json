@@ -1,0 +1,13 @@
+{"schema":"semantic-director/2","beat":"C06","type":"A","representation":"cause-pause-effect",
+"understanding":"The rebels look like the good guys, yet Darrow hates them.",
+"claim":{"asserted":"Darrow genuinely hates and resents the Sons of Aries.","polarity":"contrast","speaker":"narrator",
+"notAsserted":[{"text":"as a reader, you think, great, these are the good guys","kind":"rejected-premise"},{"text":"Darrow should love them","kind":"counterfactual"}]},
+"evidence":"But Darrow genuinely hates them, despises them. He resents them.",
+"before":"'good guys' crossed out beside the Sons of Aries and Darrow","transformation":"Darrow turns on the Sons of Aries","after":"Darrow angry",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"g","kind":"object","glyph":"heart","label":"good guys","negated":true},
+{"id":"a","kind":"object","glyph":"fire","label":"Aries"},
+{"id":"d","kind":"person","cast":"darrow","mood":"neutral"}],
+"events":[{"cause":"a","effects":[{"entity":"d","mood":"angry"}]}],
+"reads":[{"at":[0.04,0.28],"focus":"g","what":"not the good guys"},{"at":[0.28,0.5],"focus":"a","what":"the Sons of Aries"},{"at":[0.5,1.0],"focus":"d","what":"Darrow hates them"}],
+"required":["good guys crossed out","Darrow angry"],"omitted":["bombing a supply line"]}

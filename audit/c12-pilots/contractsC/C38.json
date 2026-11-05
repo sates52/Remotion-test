@@ -1,0 +1,12 @@
+{ "schema": "semantic-director/2", "beat": "C38", "type": "B", "representation": "cause-pause-effect",
+  "understanding": "Mars's low gravity leaves a hanging fall without enough force to snap the neck.",
+  "claim": { "asserted": "Because Mars's gravity is a fraction of Earth's, a gallows fall lacks the force to snap the vertebrae.", "polarity": "asserted", "speaker": "narrator", "notAsserted": [] },
+  "evidence": "Because the gravity on Mars is a fraction of Earth's. So when a man is dropped from a gallows with a rope around his neck, the fall doesn't generate enough force to snap the cervical vertebrae.",
+  "before": "a small gravity level beside a full force level", "transformation": "low gravity drains the force of the fall", "after": "force low, its old full level dashed",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" }, "lanes": 1,
+  "entities": [ { "id": "g", "kind": "stock", "label": "gravity", "value": 0.3, "lane": 0 },
+                { "id": "f", "kind": "stock", "label": "force", "value": 1, "lane": 0 } ],
+  "events": [ { "cause": "g", "effects": [ { "entity": "f", "value": 0.2 } ] } ],
+  "reads": [ { "at": [0.04, 0.4], "focus": "g", "what": "gravity a fraction of Earth's" },
+             { "at": [0.45, 1.0], "focus": "f", "what": "the fall's force is too low" } ],
+  "required": ["low gravity", "the force falling"], "omitted": ["the gallows", "the vertebrae"] }

@@ -1,0 +1,9 @@
+{ "schema": "semantic-director/1", "beat": "C21", "type": "G", "representation": "environment",
+  "understanding": "Immune cells carry physical receptors for endorphins on their surface.",
+  "evidence": "literally have physical receptors for endorphins on their surface",
+  "before": "a row of immune cells with a receptor icon", "transformation": "nothing changes", "after": "the same",
+  "camera": { "framing": "wide-locked", "purpose": "cells and receptor together as the stated fact" },
+  "entities": [ { "id": "c", "kind": "group", "label": "immune cells", "value": 1 },
+                { "id": "r", "kind": "object", "glyph": "key", "label": "receptors" } ],
+  "events": [],
+  "required": ["the immune cells", "the receptors"], "omitted": ["macrophages", "T cells", "endorphin binding"] }

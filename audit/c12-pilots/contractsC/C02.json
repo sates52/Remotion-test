@@ -1,0 +1,28 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C02",
+  "understanding": "Time vanishes while scrolling because you are mildly dissociated, not because you are deeply engaged.",
+  "claim": { "asserted": "Time disappears because you are mildly dissociated.", "polarity": "contrast", "speaker": "narrator",
+    "notAsserted": [ { "text": "you are deeply engaged", "kind": "setup-half-of-contrast" } ] },
+  "evidence": "but because you are mildly dissociated",
+  "type": "B",
+  "representation": "cause-pause-effect",
+  "before": "'deeply engaged' crossed out; a dissociated person beside a running clock",
+  "transformation": "the dissociation makes time disappear",
+  "after": "the clock faded to a dashed outline",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "e", "kind": "person", "mood": "happy", "label": "deeply engaged", "negated": true, "lane": 0 },
+    { "id": "d", "kind": "person", "cast": "everyman", "mood": "blank", "label": "mildly dissociated", "lane": 0 },
+    { "id": "t", "kind": "object", "glyph": "clock", "label": "time", "lane": 0 }
+  ],
+  "events": [ { "cause": "d", "effects": [ { "entity": "t", "present": false } ] } ],
+  "reads": [
+    { "at": [0.04, 0.3], "focus": "e", "what": "not deeply engaged" },
+    { "at": [0.3, 0.55], "focus": "d", "what": "mildly dissociated" },
+    { "at": [0.55, 1.0], "focus": "t", "what": "time disappears" }
+  ],
+  "required": ["the crossed-out engaged person", "the blank dissociated person", "the clock disappearing"],
+  "omitted": ["bright colors, loud noises, outrage triggers", "no skill, no goal"]
+}

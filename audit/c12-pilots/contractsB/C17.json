@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C17","type":"A","representation":"cause-pause-effect",
+"understanding":"Max beat the criminal charges and now sues Pip for defamation.",
+"evidence":"He beat the criminal charges and now he is suing her for defamation.",
+"before":"Max beside intact criminal charges, a defamation suit apart, Pip on the right","transformation":"Max beats the charges, then the defamation suit goes to Pip","after":"the charges are broken and the suit sits with Pip",
+"camera":{"framing":"wide-locked","purpose":"charges, Max, suit and Pip together so the reversal is read"},
+"entities":[{"id":"ch","kind":"object","glyph":"law","label":"criminal charges"},{"id":"m","kind":"person","cast":"max","mood":"neutral","label":"Max"},{"id":"s","kind":"object","glyph":"balance","label":"defamation"},{"id":"p","kind":"person","cast":"pip","mood":"neutral","label":"Pip"}],
+"events":[{"at":0.25,"cause":"m","effects":[{"entity":"ch","broken":true}]},{"at":0.55,"cause":"m","effects":[{"entity":"s","moveTo":"p"}]}],
+"required":["the charges broken","the suit moving to Pip"],"omitted":["serial rapist","podcast"]}

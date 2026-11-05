@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C40","type":"A","representation":"cause-pause-effect",
+"understanding":"Moskovitz took the stay-in-one-mode habit up to the scale of a whole company.",
+"claim":{"asserted":"Dustin Moskovitz scaled the one-mode habit to a corporate level.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"Dustin Moskovitz, the co-founder of Facebook and ASA, took this to a corporate scale",
+"before":"Moskovitz beside a small one-mode icon","transformation":"he takes it to company scale","after":"the one-mode icon much larger, old size dashed",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"p","kind":"person","mood":"neutral","label":"Moskovitz"},{"id":"m","kind":"object","glyph":"work","label":"one mode"}],
+"events":[{"cause":"p","effects":[{"entity":"m","size":2.2}]}],
+"reads":[{"at":[0.04,0.3],"focus":"p","what":"Moskovitz"},{"at":[0.3,1.0],"focus":"m","what":"one mode at corporate scale"}],
+"required":["the person","the icon growing"],"omitted":["no meeting Wednesdays"]}

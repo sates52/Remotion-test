@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C20","type":"A","representation":"cause-pause-effect",
+"understanding":"The manager's affirming-but-firm words strip away the employee's ability to play the victim.",
+"evidence":"You strip away their ability to play the victim.",
+"before":"the manager beside a high victim tank","transformation":"the manager's words strip the victim stance away","after":"victim level near empty, old level dashed",
+"camera":{"framing":"wide-locked","purpose":"manager and victim level together so the removal is read as the manager's act"},
+"entities":[{"id":"m","kind":"person","cast":"manager","mood":"neutral","label":"manager"},{"id":"v","kind":"stock","label":"victim","value":0.85}],
+"events":[{"at":0.35,"cause":"m","effects":[{"entity":"v","value":0.1}]}],
+"required":["the manager","the victim level dropping"],"omitted":["great employee","unacceptable behavior","ego defenses"]}

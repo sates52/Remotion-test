@@ -1,0 +1,27 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C32",
+  "understanding": "The 'got a minute' interruption never takes a minute; it costs 45.",
+  "claim": { "asserted": "The got-a-minute interruption never takes a minute; it costs 45.", "polarity": "contrast", "speaker": "narrator",
+    "notAsserted": [ { "text": "a minute", "kind": "setup-half-of-contrast" } ],
+    "cueCheck": "'never takes a minute' is itself the claim; the 'a minute' tank is shown only crossed out beside the real 45." },
+  "evidence": "45. It never takes a minute.",
+  "type": "D",
+  "representation": "same-scale",
+  "before": "two tanks on one scale: a tiny crossed-out 'a minute' and a large '45'",
+  "transformation": "none, a comparison",
+  "after": "the 45 tank towers over the crossed-out minute",
+  "camera": { "framing": "wide-locked", "purpose": "compare" },
+  "lanes": 2,
+  "entities": [
+    { "id": "m", "kind": "stock", "label": "a minute", "value": 0.05, "negated": true, "lane": 0 },
+    { "id": "f", "kind": "stock", "label": "45", "value": 0.1, "lane": 1 }
+  ],
+  "events": [ { "cause": "m", "effects": [ { "entity": "f", "value": 0.9 } ] } ],
+  "reads": [
+    { "at": [0.04, 0.4], "focus": "m", "what": "never a minute" },
+    { "at": [0.4, 1.0], "focus": "f", "what": "it costs 45" }
+  ],
+  "required": ["the crossed-out minute", "the much larger 45"],
+  "omitted": ["black hole"]
+}

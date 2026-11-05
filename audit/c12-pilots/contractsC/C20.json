@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C20","type":"A","representation":"cause-pause-effect",
+"understanding":"By affirming the employee's worth while naming the behavior, the manager removes the employee's ability to play the victim.",
+"claim":{"asserted":"The manager strips away the employee's ability to play the victim.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"are a great employee. I value you, but this specific behavior was unacceptable.","kind":"quoted-speech"}]},
+"evidence":"You strip away their ability to play the victim",
+"before":"manager and employee, the victim role in place","transformation":"the manager's words remove the victim role","after":"the victim role gone, outlined only",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"m","kind":"person","cast":"manager","mood":"neutral"},{"id":"y","kind":"person","cast":"young","mood":"sad"},{"id":"v","kind":"object","glyph":"mask","label":"victim"}],
+"events":[{"cause":"m","effects":[{"entity":"v","present":false}]}],
+"reads":[{"at":[0.04,0.3],"focus":"m","what":"the manager"},{"at":[0.3,0.55],"focus":"y","what":"the employee"},{"at":[0.55,1.0],"focus":"v","what":"victim role stripped away"}],
+"required":["manager and employee","the victim role disappearing"],"omitted":["ego defenses"]}

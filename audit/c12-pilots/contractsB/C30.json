@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C30","type":"A","representation":"cause-pause-effect",
+"understanding":"The message and Obi-Wan introduce the Force early, and the Force is what later destroys the Death Star.",
+"evidence":"Luke Skywalker using the Force to blow up the Death Star",
+"before":"a message and an intact Death Star; the Force absent","transformation":"the message brings the Force, then the Force destroys the Death Star","after":"the Force present, the Death Star broken",
+"camera":{"framing":"wide-locked","purpose":"message, Force and Death Star together so beginning and climax are read as one chain"},
+"entities":[{"id":"m","kind":"object","glyph":"letter","label":"message"},{"id":"f","kind":"object","glyph":"zap","label":"Force","present":false},{"id":"d","kind":"object","glyph":"target","label":"Death Star"}],
+"events":[{"at":0.2,"cause":"m","effects":[{"entity":"f","present":true}]},{"at":0.5,"cause":"f","effects":[{"entity":"d","broken":true}]}],
+"required":["the message","the Force appearing","the Death Star broken"],"omitted":["Princess Leia","Obi-Wan Kenobi","Luke as a person"]}

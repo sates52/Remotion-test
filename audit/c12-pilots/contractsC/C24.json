@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C24","type":"A","representation":"cause-pause-effect",
+"understanding":"In brainstorming, someone really proposed throwing stink bombs over the compound wall.",
+"claim":{"asserted":"Someone proposed throwing specialized stink bombs over the wall.","polarity":"asserted","speaker":"narrator","notAsserted":[],"cueCheck":"'I mean ... literally' only stresses that the proposal was real."},
+"evidence":"someone literally proposed throwing specialized stink bombs over the 15t wall",
+"before":"the analyst, the stink bombs and the wall","transformation":"the bombs are thrown over the wall","after":"the bombs landed past the wall",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"a","kind":"person","cast":"analyst","mood":"neutral"},{"id":"b","kind":"object","glyph":"crash","label":"stink bombs"},{"id":"w","kind":"object","glyph":"home","label":"wall"}],
+"events":[{"cause":"a","effects":[{"entity":"b","moveTo":"w"}]}],
+"reads":[{"at":[0.04,0.3],"focus":"a","what":"someone proposes"},{"at":[0.3,0.6],"focus":"b","what":"stink bombs"},{"at":[0.6,1.0],"focus":"w","what":"over the wall"}],
+"required":["the stink bombs","the wall","the throw"],"omitted":["37 schemes"]}

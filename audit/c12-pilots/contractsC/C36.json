@@ -1,0 +1,12 @@
+{"schema":"semantic-director/2","beat":"C36","type":"A","representation":"cause-pause-effect",
+"understanding":"Buffett sent scathing annual letters to corporate CEOs criticizing their vanity and greed.",
+"claim":{"asserted":"Buffett wrote scathing annual letters criticizing corporate CEOs for vanity, greed and funny money.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"He wrote scathing, folksy annual letters criticizing corporate CEOs for their vanity",
+"before":"Buffett with his letter, CEOs across","transformation":"the letter is sent to the CEOs","after":"the letter with the CEOs",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"b","kind":"person","cast":"buffett","mood":"neutral"},
+{"id":"l","kind":"object","glyph":"letter","label":"annual letters"},
+{"id":"c","kind":"person","label":"CEOs","mood":"neutral"}],
+"events":[{"cause":"b","effects":[{"entity":"l","moveTo":"c"}]}],
+"reads":[{"at":[0.04,0.28],"focus":"b","what":"Buffett writes"},{"at":[0.28,0.5],"focus":"c","what":"corporate CEOs"},{"at":[0.5,1.0],"focus":"l","what":"scathing letters sent"}],
+"required":["Buffett","letter","CEOs"],"omitted":["junk bonds","leveraged buyout craze"]}

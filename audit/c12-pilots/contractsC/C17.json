@@ -1,0 +1,32 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C17",
+  "understanding": "Max beat the criminal charges and now sues Pip for defamation.",
+  "claim": { "asserted": "Max beat the criminal charges and is now suing her for defamation.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [] ,
+    "cueCheck": "Plain statements of what happened; no cue changes the claim."},
+  "evidence": "He beat the criminal charges and now he is suing her for defamation",
+  "type": "A",
+  "representation": "cause-pause-effect",
+  "before": "Max faces the charges; Pip across from him",
+  "transformation": "the charges vanish, then the defamation suit travels to Pip",
+  "after": "the suit lands on Pip, the charges gone",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "m", "kind": "person", "cast": "max", "mood": "smirk", "label": "Max", "lane": 0 },
+    { "id": "c", "kind": "object", "glyph": "law", "label": "charges", "lane": 0 },
+    { "id": "l", "kind": "object", "glyph": "letter", "label": "defamation", "lane": 0 },
+    { "id": "p", "kind": "person", "cast": "pip", "mood": "worried", "label": "Pip", "lane": 0 }
+  ],
+  "events": [
+    { "cause": "m", "effects": [ { "entity": "c", "present": false } ] },
+    { "cause": "m", "effects": [ { "entity": "l", "moveTo": "p" } ] }
+  ],
+  "reads": [
+    { "at": [0.04, 0.35], "focus": "c", "what": "the charges are beaten" },
+    { "at": [0.35, 1.0], "focus": "l", "what": "now he sues for defamation" }
+  ],
+  "required": ["the charges disappearing", "the defamation suit sent to Pip"],
+  "omitted": ["serial rapist", "the podcast"]
+}

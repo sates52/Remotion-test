@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C25","type":"C","representation":"before-after",
+"understanding":"Vibes, the thing relationships are walked away over, are fragile and break.",
+"claim":{"asserted":"Vibes are incredibly fragile.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"evidence":"But vibes are incredibly fragile",
+"before":"a relationship beside whole good vibes","transformation":"the vibes crack","after":"the vibes broken",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"r","kind":"object","glyph":"family","label":"relationship"},{"id":"v","kind":"object","glyph":"heart","label":"good vibes"}],
+"events":[{"cause":"r","effects":[{"entity":"v","broken":true}]}],
+"reads":[{"at":[0.04,0.3],"focus":"r","what":"a relationship"},{"at":[0.3,1.0],"focus":"v","what":"vibes crack"}],
+"required":["the vibes","the crack"],"omitted":["walking away","I will"]}

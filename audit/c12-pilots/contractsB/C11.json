@@ -1,0 +1,9 @@
+{ "schema": "semantic-director/1", "beat": "C11", "type": "G", "representation": "environment",
+  "understanding": "Darrow is shut in with Julian, one of the few golds who is kind and gentle.",
+  "evidence": "a boy named Julian. And the cruelty here is exquisite because Julian is one of the only golds",
+  "before": "Darrow and Julian side by side", "transformation": "nothing changes", "after": "the same pair",
+  "camera": { "framing": "wide-locked", "purpose": "both boys in one frame as the situation" },
+  "entities": [ { "id": "d", "kind": "person", "cast": "darrow", "mood": "neutral", "label": "Darrow" },
+                { "id": "j", "kind": "person", "cast": "julian", "mood": "neutral", "label": "Julian" } ],
+  "events": [],
+  "required": ["Darrow", "Julian together"], "omitted": ["stone room", "rules", "cruelty", "kind and gentle"] }

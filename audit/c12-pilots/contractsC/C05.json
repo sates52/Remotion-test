@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C05","type":"A","representation":"cause-pause-effect",
+"understanding":"Reading a novel makes another person's consciousness appear inside the reader's own mind.",
+"claim":{"asserted":"Reading a novel simulates another human's consciousness inside your own mind.","polarity":"asserted","speaker":"narrator","notAsserted":[{"text":"How does that work?","kind":"question"}],"cueCheck":"The question is answered in the next sentences, so the answer is the claim."},
+"evidence":"You are simulating another human being's consciousness inside your own mind",
+"before":"a novel beside a reader","transformation":"the reader reads and another consciousness appears","after":"another person present in the reader's mind",
+"camera":{"framing":"wide-locked","purpose":"reveal"},"lanes":1,
+"entities":[{"id":"n","kind":"object","glyph":"book","label":"novel"},{"id":"r","kind":"person","cast":"everyman","mood":"neutral"},{"id":"o","kind":"person","mood":"neutral","label":"consciousness","present":false}],
+"events":[{"cause":"r","effects":[{"entity":"o","present":true}]}],
+"reads":[{"at":[0.04,0.3],"focus":"n","what":"a novel"},{"at":[0.3,0.55],"focus":"r","what":"the reader"},{"at":[0.55,1.0],"focus":"o","what":"another consciousness inside"}],
+"required":["the novel","another person appearing"],"omitted":["empathy","the question"]}

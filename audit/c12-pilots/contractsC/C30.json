@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C30","type":"G","representation":"environment",
+"understanding":"A climax like Luke blowing up the Death Star is matched by an inciting incident of the hidden message and meeting Obi-Wan.",
+"claim":{"asserted":"The inciting incident must be Luke discovering Leia's hidden message and meeting Obi-Wan, matching the Death Star climax.","polarity":"asserted","speaker":"narrator","notAsserted":[],"cueCheck":"The 'if' states a rule illustrated by a known film, not a hypothetical."},
+"evidence":"the inciting incident has to be him discovering the hidden message from Princess Leia",
+"before":"nothing on screen","transformation":"none, a structure is laid out piece by piece","after":"message, Obi-Wan and Death Star all in view",
+"camera":{"framing":"wide-locked","purpose":"hold"},"lanes":1,
+"entities":[{"id":"m","kind":"object","glyph":"letter","label":"hidden message"},{"id":"o","kind":"person","mood":"neutral","label":"Obi-Wan"},{"id":"d","kind":"object","glyph":"target","label":"Death Star"}],
+"events":[],
+"reads":[{"at":[0.04,0.3],"focus":"m","what":"the hidden message"},{"at":[0.3,0.55],"focus":"o","what":"meeting Obi-Wan"},{"at":[0.55,1.0],"focus":"d","what":"the Death Star climax"}],
+"required":["the message","Obi-Wan","the Death Star"],"omitted":["the Force explanation","planting"]}

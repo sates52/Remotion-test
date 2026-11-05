@@ -1,0 +1,10 @@
+{"schema":"semantic-director/2","beat":"C19","type":"A","representation":"cause-pause-effect",
+"understanding":"The writer must give up seeking validation and take on the professional mindset.",
+"claim":{"asserted":"You have to adopt the professional mindset.","polarity":"contrast","speaker":"narrator","notAsserted":[{"text":"an amateur who is seeking validation, seeking therapy on the page, seeking a pat on the back","kind":"setup-half-of-contrast"}],"cueCheck":"'Have to' states a requirement of the book's argument, not a hypothesis."},
+"evidence":"You have to adopt the professional mindset",
+"before":"the writer beside a crossed-out 'validation'","transformation":"the writer adopts the mindset","after":"the professional mindset in view",
+"camera":{"framing":"wide-locked","purpose":"consequence"},"lanes":1,
+"entities":[{"id":"w","kind":"person","cast":"everyman","mood":"neutral"},{"id":"v","kind":"object","glyph":"heart","label":"validation","negated":true},{"id":"p","kind":"object","glyph":"briefcase","label":"professional mindset","present":false}],
+"events":[{"cause":"w","effects":[{"entity":"p","present":true}]}],
+"reads":[{"at":[0.04,0.3],"focus":"w","what":"the writer"},{"at":[0.3,0.55],"focus":"v","what":"not seeking validation"},{"at":[0.55,1.0],"focus":"p","what":"professional mindset"}],
+"required":["validation crossed out","the professional mindset appearing"],"omitted":["therapy on the page","a pat on the back"]}

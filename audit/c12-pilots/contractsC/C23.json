@@ -1,0 +1,11 @@
+{ "schema": "semantic-director/2", "beat": "C23", "type": "H", "representation": "quote",
+  "understanding": "The seventh force stealing our focus is physiological.",
+  "claim": { "asserted": "The seventh force stealing our focus is deeply physiological.", "polarity": "asserted", "speaker": "narrator", "notAsserted": [] },
+  "evidence": "The seventh force stealing our focus is deeply physiological",
+  "before": "neutral ground", "transformation": "none", "after": "the sentence held",
+  "camera": { "framing": "wide-locked", "purpose": "hold" }, "lanes": 1,
+  "entities": [], "events": [],
+  "reads": [ { "at": [0.05, 1.0], "focus": "text", "what": "the claim" } ],
+  "text": "The seventh force stealing our focus is deeply physiological.",
+  "fallbackReason": "no-visual-mechanism",
+  "required": ["the sentence"], "omitted": ["the loaded body"] }

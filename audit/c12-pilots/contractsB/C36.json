@@ -1,0 +1,11 @@
+{ "schema": "semantic-director/1", "beat": "C36", "type": "A", "representation": "cause-pause-effect",
+  "understanding": "Buffett wrote scathing annual letters aimed at corporate CEOs.",
+  "evidence": "He wrote scathing, folksy annual letters criticizing corporate CEOs",
+  "before": "Buffett with his letters, CEOs apart", "transformation": "Buffett writes and the letters go to the CEOs",
+  "after": "the letters sit with the CEOs, empty outline at Buffett",
+  "camera": { "framing": "wide-locked", "purpose": "writer, letters and addressees in one frame" },
+  "entities": [ { "id": "b", "kind": "person", "cast": "buffett", "mood": "neutral", "label": "Buffett" },
+                { "id": "l", "kind": "object", "glyph": "letter", "label": "annual letters" },
+                { "id": "c", "kind": "person", "mood": "neutral", "label": "CEOs" } ],
+  "events": [ { "at": 0.35, "cause": "b", "effects": [ { "entity": "l", "moveTo": "c" } ] } ],
+  "required": ["Buffett", "the letters reaching the CEOs"], "omitted": ["vanity", "greed", "funny money", "Milken", "junk bonds"] }

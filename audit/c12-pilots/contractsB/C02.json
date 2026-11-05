@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C02","type":"B","representation":"cause-pause-effect",
+"understanding":"Time vanishes because the scroller is mildly dissociated, not because they are deeply engaged.",
+"evidence":"Time disappears not because you are deeply engaged, but because you are mildly dissociated.",
+"before":"a person with a full time tank","transformation":"the person's dissociation drains the time tank","after":"the time tank is nearly empty, old full level dashed",
+"camera":{"framing":"wide-locked","purpose":"person and time tank together so the loss is read beside the person"},
+"entities":[{"id":"p","kind":"person","cast":"everyman","mood":"blank","label":"dissociated"},{"id":"t","kind":"stock","label":"time","value":0.9}],
+"events":[{"at":0.35,"cause":"p","effects":[{"entity":"t","value":0.15}]}],
+"required":["the person","the time level falling"],"omitted":["bright colors, loud noises, outrage triggers","no skill, no meaningful goal"]}

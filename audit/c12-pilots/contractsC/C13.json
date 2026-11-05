@@ -1,0 +1,13 @@
+{ "schema": "semantic-director/2", "beat": "C13", "type": "A", "representation": "cause-pause-effect",
+  "understanding": "Taran is actively recruiting the younger, disenfranchised, so their ranks grow.",
+  "claim": { "asserted": "Taran and Eleanor are recruiting the younger, disenfranchised.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [], "cueCheck": "The proposal to explain the 20 houses is an aside, not a claim about the recruiting." },
+  "evidence": "Taran and Eleanor who are actively recruiting the younger, disenfranchised",
+  "before": "Taran beside a small group of the disenfranchised", "transformation": "he recruits them", "after": "a larger group, the old level dashed",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" }, "lanes": 1,
+  "entities": [ { "id": "t", "kind": "person", "cast": "taran", "mood": "neutral", "label": "Taran", "lane": 0 },
+                { "id": "r", "kind": "group", "label": "disenfranchised", "value": 0.2, "lane": 0 } ],
+  "events": [ { "cause": "t", "effects": [ { "entity": "r", "value": 0.6 } ] } ],
+  "reads": [ { "at": [0.05, 0.35], "focus": "t", "what": "Taran recruiting" },
+             { "at": [0.4, 1.0], "focus": "r", "what": "the group grows" } ],
+  "required": ["Taran", "the group growing"], "omitted": ["Eleanor", "the 20 houses"] }

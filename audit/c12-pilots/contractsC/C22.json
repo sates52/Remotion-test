@@ -1,0 +1,28 @@
+{
+  "schema": "semantic-director/2",
+  "beat": "C22",
+  "understanding": "The author spent years painstakingly mapping the Odyssey's stars, weather and sailing distances.",
+  "claim": { "asserted": "The author has spent years painstakingly mapping the stars, weather and sailing distances of the Odyssey.", "polarity": "asserted", "speaker": "narrator",
+    "notAsserted": [ { "text": "maybe decades", "kind": "uncertain" } ] },
+  "evidence": "this author has spent years",
+  "type": "A",
+  "representation": "cause-pause-effect",
+  "before": "the author with a compass, almost no time spent",
+  "transformation": "the mapping work fills the years",
+  "after": "the years tank filled, its old level dashed",
+  "camera": { "framing": "wide-locked", "purpose": "consequence" },
+  "lanes": 1,
+  "entities": [
+    { "id": "a", "kind": "person", "cast": "inventor", "mood": "neutral", "label": "author", "lane": 0 },
+    { "id": "c", "kind": "object", "glyph": "compass", "label": "mapping", "lane": 0 },
+    { "id": "y", "kind": "stock", "label": "years", "value": 0.15, "lane": 0 }
+  ],
+  "events": [ { "cause": "c", "effects": [ { "entity": "y", "value": 0.85 } ] } ],
+  "reads": [
+    { "at": [0.04, 0.3], "focus": "a", "what": "the author" },
+    { "at": [0.3, 0.55], "focus": "c", "what": "painstaking mapping" },
+    { "at": [0.55, 1.0], "focus": "y", "what": "years spent" }
+  ],
+  "required": ["the author", "the compass", "the years level rising"],
+  "omitted": ["maybe decades", "stars, weather and distances individually", "Homer's Odyssey"]
+}

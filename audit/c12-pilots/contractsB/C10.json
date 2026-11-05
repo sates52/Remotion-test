@@ -1,0 +1,8 @@
+{"schema":"semantic-director/1","beat":"C10","type":"B","representation":"cause-pause-effect",
+"understanding":"The wish to fit in with the tribe makes people suppress their unique information.",
+"evidence":"suppress their unique contradictory information because they desperately want to fit in",
+"before":"a tribe icon beside a full information tank","transformation":"the wish to belong drains the information tank","after":"information nearly gone, full level dashed",
+"camera":{"framing":"wide-locked","purpose":"tribe and information together so the suppression is read as caused by belonging"},
+"entities":[{"id":"t","kind":"object","glyph":"family","label":"tribe"},{"id":"i","kind":"stock","label":"information","value":0.9}],
+"events":[{"at":0.3,"cause":"t","effects":[{"entity":"i","value":0.1}]}],
+"required":["the tribe","the information level falling"],"omitted":["survival","the leader","bonding"]}
