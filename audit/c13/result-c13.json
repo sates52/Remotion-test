@@ -1,0 +1,65 @@
+{
+ "schema": "c13-result/1",
+ "date": "2026-11-05",
+ "cycle": "13 — stop rebuilding, start shipping visual capabilities",
+ "raters": "AGENT raters only (fresh sonnet describers + judges). No human rating collected; the human video package is prepared, NOT run.",
+ "c12Diagnosis": {
+  "file": "c12-diagnosis.json / .md (from existing evidence, no new rating; development data only)",
+  "primaryCauses": { "authoring-choice": 4, "quote-card-vs-forced-illustration": 2, "claim-polarity": 2, "single-relation-vs-progressive-build": 1, "hypothetical-drawn-as-real": 1, "literal-verb": 0 },
+  "secondary": "progressive build appears as a secondary cause in 5 of 10 beats (focus dimming greys the cause just as the effect lands); authoring choice in 4",
+  "keepFromB": ["cause stays lit while the effect changes, one relation (event + arrow) in one frame", "contrast side by side; entity count was not the problem (C16 had 4 and won)", "a quote card when the key word cannot be drawn or the act was only proposed (C01 100 vs 33, C24 50 vs 0)"],
+  "hurtInC": ["focus dimming of earlier reads", "type G with no event: a list, no relation (C30)", "moveTo on a proposed act drew it as real (C24 car-crash reading)", "authors omitted the key's effect"],
+  "safeFromC": ["claim safety (no not-asserted part as evidence / card / label)", "negated entities drawn crossed helped twice (C19, C32) — NOT carried yet: needs a renderer change, candidate for the next small capability"]
+ },
+ "capability": {
+  "name": "single-relation cause → visible effect (single-relation/1)",
+  "nature": "productisation of Semantic Film Director 1.0's successful part (dev/c11 semantic-director.js + SemanticStage.tsx, reused) — NOT a new visual invention; Director 2.0's progressive build / reads / new verbs / camera moves NOT carried",
+  "files": ["scripts/lib/single-relation.js", "scripts/lib/semantic-director.js", "scripts/apply-single-relation.js", "src/engines/antidote/components/SemanticStage.tsx", "src/engines/antidote/components/Scene.tsx", "src/engines/antidote/index.tsx", "src/engines/antidote/schema.ts", "scripts/test-single-relation.js", "scripts/test-semantic-director.js"],
+  "claimSafety": "from Director 2.0 only the checks that block a real misread, made stricter: planned / hypothetical / negation / question cues in the evidence → no staging (quote card); evidence / card text / labels never from a notAsserted part (a planned or quoted part may be shown WITH its frame, e.g. 'someone proposed …'); rejected-premise cue must be resolved (no cueCheck override); speaker shown on quoted cards. Fixtures B05, B17, C24.",
+  "calibratedOnData": "first strict version refused Director 1.0's best contracts (C05 B 83, C26 B 100): person pronouns, motives ('want to'), rhetorical questions and 'not' inside a resolved contrast were narrowed before any rating; the B05 / B17 / C24 protections still hold (tests)",
+  "coverage": "cycle 11 + 12 Director 1.0 contracts in scope (A / B / H): 53 drawn, 13 refused (mostly unresolved contrast / negation cues an author fixes by listing the not-asserted part; B05 refused as intended), 14 out of scope (C–G)"
+ },
+ "level1": {
+  "conditions": {
+   "featureFlagDefaultOff": "PASS — drawn only when meta.singleRelation === true (test + index/Scene guard); no config in books/ opts in (test)",
+   "deterministicRendering": "PASS — compile byte-identical (test); 12 / 12 frames byte-identical across two separate cloud renders (C01 / C04, A and B arms)",
+   "sourceGroundedCausality": "PASS — both ends of the relation stated where the evidence is; type B needs the narration's causal link (tests)",
+   "unsupportedClaimRejection": "PASS — not-asserted evidence / card / label refused (tests B05, B17)",
+   "hypothesisFactDistinction": "PASS — planned / hypothetical / negated / question evidence never staged (test C24)",
+   "noDuplicationOrFalseConsequence": "PASS — one event, ≤ 4 entities, no duplicated label / cast / glyph, no effect not stated (tests)",
+   "backwardCompatibility": "PASS — 18 / 18 production frames (6 books) byte-identical, god-mode code vs dev/c13 code (cloud runs 42008324556 vs 42007747088)",
+   "regressionsGreen": "PASS — regression suite on GitHub Actions: 119 pass, 0 new failure, 5 known baseline (run 42009178276); re-run on the merge commit before push"
+  },
+  "typeCheck": "not run: tsc --noEmit exceeded 5 min locally and is now cloud-only (operator standing rule); the cloud bundle builds and renders the changed TSX",
+  "decision": "LEVEL 1 CAPABILITY SHIP — scoped merge to god-mode, default OFF; production video behaviour unchanged"
+ },
+ "fourStripCalibration": {
+  "verdict": "EQUIVALENT (pre-registered)",
+  "n": 16, "meanDeltaPP": -4.2, "ci90PP": [-10.9, 2.1], "messageAgreement": 0.75, "invalidOutputs": 0,
+  "independence": "0 / 16 descriptions carry content from another strip of the same session (read against batch mates)",
+  "cost": "a four-strip describer ≈ 56–58 k tokens vs ≈ 52 k for one strip → ≈ 3.7x cheaper per item",
+  "caveat": "four-strip descriptions scored 4.2 pp lower on average (within tolerance); comparisons stay within one protocol"
+ },
+ "denseFramePilot": {
+  "label": "TEMPORAL COVERAGE / DENSE-FRAME comprehension (agents; NOT motion comprehension — agents cannot play video)",
+  "n": 10, "data": "cycle-12 development passages (diagnostic only)",
+  "comprehension": { "A-strip": 21.7, "A-dense": 12.5, "B-strip": 46.7, "B-dense": 30.8 },
+  "denseMinusStrip": { "A": "-9.2 pp (CI -23.3 … 0)", "B": "-15.8 pp (CI -31.7 … 0)" },
+  "BminusA": { "strip": "+25 pp (CI +1.7 … +48.3)", "dense": "+18.3 pp (CI +10 … +26.7)" },
+  "wrongInference": { "A-strip": 0, "A-dense": 0.5, "B-strip": 0, "B-dense": 0.5 },
+  "whatChangedCorrect": { "A-strip": "0.5/10", "A-dense": "0/10", "B-strip": "2/10", "B-dense": "1.5/10" },
+  "finalConsequence": { "A-strip": "1.5/10", "A-dense": "0/10", "B-strip": "3/10", "B-dense": "2/10" },
+  "kappa": { "cause": 0.93, "effect": 0.55, "message": 0.89, "wrongInference": -0.03, "whatChanged": 0.56, "finalConsequence": 0.72 },
+  "reading": "more frames did NOT help agent viewers — both arms scored lower with 15–27 small tiles than with 3 large frames (confound: tile width 480 px vs 640 px, labels smaller); the arm ordering B > A held in both conditions. Whether real motion helps a HUMAN can only come from the video package.",
+  "progressionToHoldout": "MET (B − A ≥ +10 pp on strips, wrong inferences not up) — permits the holdout; not ship evidence"
+ },
+ "humanVideoPackage": { "status": "PREPARED, NOT RUN", "send": "human-video/send/ (index.html + 20 silent clips, 7.6 MB, A / B order by seeded coin, answers exported as JSON)", "private": "human-video/private/ (order.json, answer key, scoring.md — never sent)" },
+ "level2": { "status": "NOT DECIDED — holdout designed (holdout-design.md: 40 books x 1 cause-present beat, +15 pp planning effect, 78 % power, ≈ 2.9 M tokens) and permitted by the pilot; not yet run" },
+ "level3": "not applicable",
+ "cost": {
+  "evaluationTokens": "≈ 1.9 M (calibration 4 describers + 8 judges ≈ 0.68 M; pilot 10 describers + 10 judges ≈ 1.21 M); pilot cap 1.5 M respected",
+  "otherAgentTokens": "diagnosis agent ≈ 0.11 M",
+  "cloud": "GitHub Actions: pilot render 3 runs (2 partially failed on SFX assets → fixed: silent mode drops audioEvents and bundles public/sfx; ≈ 25 runner-min), compat 2 runs (≈ 4 runner-min), regression 1 run (≈ 1 min); 0 local renders",
+  "localLoad": "one local tsc attempt (timed out, 5 min) — the reason the operator made cloud-only a standing rule"
+ }
+}

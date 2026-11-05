@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muted Video Study</title>
+<style>:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--line:#d9d9de;--acc:#2f5bd3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141416;--fg:#f2f2f4;--mut:#a0a0a8;--line:#34343a;--acc:#7d9bff}}
+body{background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,sans-serif;max-width:1100px;margin:0 auto;padding:16px}
+video{width:100%;border:1px solid var(--line);border-radius:8px;background:#000}textarea{display:block;width:100%;min-height:3.2em;margin:4px 0 12px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px;box-sizing:border-box}
+section{border-top:2px solid var(--line);padding:16px 0}.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media (max-width:760px){.pair{grid-template-columns:1fr}}
+label{color:var(--fg)}.mut{color:var(--mut)}button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-size:16px;cursor:pointer}input[type=text]{padding:6px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--fg)}</style></head>
+<body><h1>Muted video study</h1>
+<p>Each scene comes from an animated video that explains a book. You will see each scene twice, made in two different ways (Video X and Video Y). <b>There is no sound on purpose.</b> Watch each video (you may replay it), then answer from what you saw. There are no right or wrong answers about taste — we want to know what you understood. Do not look anything up.</p>
+<p class="mut">About 40 minutes. Your answers stay in this page until you press “Download my answers” at the bottom, then send that file back.</p>
+<p>Your name or initials: <input type="text" id="rater"></p>
+<section><h2>Scene 1 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P01-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P01.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P01.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P01.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P01.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P01-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P01.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P01.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P01.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P01.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P01.choice" value="X"> X</label> <label><input type="radio" name="P01.choice" value="Y"> Y</label> <label><input type="radio" name="P01.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P01.confidence" style="width:4em"></p></section>
+<section><h2>Scene 2 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P02-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P02.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P02.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P02.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P02.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P02-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P02.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P02.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P02.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P02.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P02.choice" value="X"> X</label> <label><input type="radio" name="P02.choice" value="Y"> Y</label> <label><input type="radio" name="P02.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P02.confidence" style="width:4em"></p></section>
+<section><h2>Scene 3 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P03-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P03.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P03.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P03.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P03.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P03-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P03.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P03.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P03.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P03.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P03.choice" value="X"> X</label> <label><input type="radio" name="P03.choice" value="Y"> Y</label> <label><input type="radio" name="P03.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P03.confidence" style="width:4em"></p></section>
+<section><h2>Scene 4 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P04-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P04.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P04.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P04.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P04.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P04-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P04.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P04.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P04.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P04.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P04.choice" value="X"> X</label> <label><input type="radio" name="P04.choice" value="Y"> Y</label> <label><input type="radio" name="P04.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P04.confidence" style="width:4em"></p></section>
+<section><h2>Scene 5 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P05-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P05.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P05.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P05.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P05.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P05-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P05.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P05.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P05.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P05.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P05.choice" value="X"> X</label> <label><input type="radio" name="P05.choice" value="Y"> Y</label> <label><input type="radio" name="P05.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P05.confidence" style="width:4em"></p></section>
+<section><h2>Scene 6 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P06-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P06.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P06.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P06.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P06.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P06-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P06.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P06.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P06.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P06.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P06.choice" value="X"> X</label> <label><input type="radio" name="P06.choice" value="Y"> Y</label> <label><input type="radio" name="P06.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P06.confidence" style="width:4em"></p></section>
+<section><h2>Scene 7 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P07-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P07.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P07.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P07.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P07.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P07-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P07.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P07.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P07.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P07.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P07.choice" value="X"> X</label> <label><input type="radio" name="P07.choice" value="Y"> Y</label> <label><input type="radio" name="P07.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P07.confidence" style="width:4em"></p></section>
+<section><h2>Scene 8 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P08-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P08.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P08.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P08.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P08.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P08-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P08.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P08.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P08.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P08.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P08.choice" value="X"> X</label> <label><input type="radio" name="P08.choice" value="Y"> Y</label> <label><input type="radio" name="P08.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P08.confidence" style="width:4em"></p></section>
+<section><h2>Scene 9 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P09-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P09.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P09.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P09.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P09.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P09-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P09.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P09.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P09.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P09.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P09.choice" value="X"> X</label> <label><input type="radio" name="P09.choice" value="Y"> Y</label> <label><input type="radio" name="P09.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P09.confidence" style="width:4em"></p></section>
+<section><h2>Scene 10 of 10</h2><div class="pair"><div class="clip"><h3>Video X</h3><video src="clips/P10-X.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P10.X.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P10.X.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P10.X.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P10.X.unclear"></textarea></label></div><div class="clip"><h3>Video Y</h3><video src="clips/P10-Y.mp4" controls muted playsinline preload="metadata"></video>
+<label>1. What happened on screen? (describe what you saw)<textarea data-k="P10.Y.seen"></textarea></label>
+<label>2. What changed, and who or what made it change?<textarea data-k="P10.Y.changed"></textarea></label>
+<label>3. In one sentence: what point is the video making?<textarea data-k="P10.Y.message"></textarea></label>
+<label>4. Was anything confusing, ambiguous or possibly misleading? What?<textarea data-k="P10.Y.unclear"></textarea></label></div></div>
+<p>Which video made the point clearer? <label><input type="radio" name="P10.choice" value="X"> X</label> <label><input type="radio" name="P10.choice" value="Y"> Y</label> <label><input type="radio" name="P10.choice" value="same"> about the same</label>
+&nbsp; How sure are you (1–5)? <input type="number" min="1" max="5" data-k="P10.confidence" style="width:4em"></p></section>
+<p><button id="dl">Download my answers</button> <span class="mut" id="msg"></span></p>
+<script>
+const save=()=>{try{const o={};document.querySelectorAll("[data-k]").forEach(e=>o[e.dataset.k]=e.value);document.querySelectorAll("input[type=radio]:checked").forEach(e=>o[e.name]=e.value);o.rater=document.getElementById("rater").value;localStorage.setItem("mvs-draft",JSON.stringify(o))}catch(e){}};
+try{const o=JSON.parse(localStorage.getItem("mvs-draft")||"{}");document.querySelectorAll("[data-k]").forEach(e=>{if(o[e.dataset.k]!=null)e.value=o[e.dataset.k]});document.querySelectorAll("input[type=radio]").forEach(e=>{if(o[e.name]===e.value)e.checked=true});if(o.rater)document.getElementById("rater").value=o.rater}catch(e){}
+document.addEventListener("input",save);document.addEventListener("change",save);
+document.getElementById("dl").onclick=()=>{const o={study:"c13-muted-video",version:1,rater:document.getElementById("rater").value,finishedAt:new Date().toISOString(),answers:{}};
+document.querySelectorAll("[data-k]").forEach(e=>o.answers[e.dataset.k]=e.value);document.querySelectorAll("input[type=radio]:checked").forEach(e=>o.answers[e.name]=e.value);
+const empty=Object.entries(o.answers).filter(([k,v])=>/\.(seen|message)$/.test(k)&&!String(v).trim()).length;
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,1)],{type:"application/json"}));a.download="answers-"+(o.rater||"rater").replace(/[^a-z0-9]+/gi,"-")+".json";a.click();
+document.getElementById("msg").textContent=empty?empty+" required answers are still empty — you can fill them and download again.":"Saved. Please send the downloaded file back.";};
+</script></body></html>

@@ -1,0 +1,157 @@
+{
+ "P01": {
+  "understanding": "Buffett's folksy, rock-star public image is a projection that hides a private, emotionally stunted man, which explains how a famous figure can be isolated.",
+  "cause": "The public persona is a projection hiding his real private self",
+  "effect": "He can be isolated despite fame",
+  "supportsCausality": true,
+  "wrong": [
+   "Buffett's public warmth reflects his true emotional openness",
+   "Buffett is isolated because crowds avoid him",
+   "The persona was invented by the media against his will"
+  ],
+  "notAsserted": [
+   {
+    "text": "He is the folksy, ukulele-playing grandfather of capitalism",
+    "kind": "setup-half-of-contrast"
+   }
+  ]
+ },
+ "P02": {
+  "understanding": "Unlike the liars, who see the island as a magical kingdom, the outsider character sees it for what it is almost immediately because he is subjected to its invisible borders.",
+  "cause": "He is actively subjected to the invisible borders of the island",
+  "effect": "He sees the island for what it really is almost immediately, unlike the liars who see it as magical",
+  "supportsCausality": true,
+  "wrong": [
+   "He sees the island as magical like the liars",
+   "He is fully accepted by the family",
+   "He sees clearly because he is more educated than the liars"
+  ],
+  "notAsserted": []
+ },
+ "P03": {
+  "understanding": "Flannery O'Connor's characters are spiritually deformed, but because that deformity is invisible we tend to excuse it, so she draws large, startling figures (her own essay's image: shout to the hard of hearing, draw large for the almost blind).",
+  "cause": "spiritual deformity is invisible",
+  "effect": "we tend to excuse it",
+  "supportsCausality": true,
+  "wrong": [
+   "O'Connor's characters are morally good",
+   "The deformity in the characters is only physical",
+   "Readers always notice the spiritual deformity"
+  ],
+  "notAsserted": []
+ },
+ "P04": {
+  "understanding": "Although readers expect Darrow to love the Sons of Aries as the good guys, he genuinely hates and despises them, and sees their bombings as pointless tantrums.",
+  "cause": "Sons of Aries bomb supply lines or cause disruption",
+  "effect": "Darrow views it as a pointless tantrum (delaying terraforming)",
+  "supportsCausality": true,
+  "wrong": [
+   "Darrow is a loyal member of the Sons of Aries",
+   "Darrow admires their bombings",
+   "Darrow is neutral toward the rebels"
+  ],
+  "notAsserted": [
+   {
+    "text": "these are the good guys. Darrow should love them",
+    "kind": "rejected-premise"
+   }
+  ]
+ },
+ "P05": {
+  "understanding": "In a red team exercise, analysts looking for contrary evidence spot an easily overlooked detail: a dog pacing the compound in satellite imagery.",
+  "cause": "analysts are forced to stop defending their pet theory and look for contrary evidence",
+  "effect": "someone notices the overlooked detail of a dog pacing the compound",
+  "supportsCausality": true,
+  "wrong": [
+   "The dog proves the compound is Bin Laden's",
+   "The dog was the analysts' original pet theory",
+   "The dog was found by a ground team"
+  ],
+  "notAsserted": [
+   {
+    "text": "What was it?",
+    "kind": "question"
+   }
+  ]
+ },
+ "P06": {
+  "understanding": "School trains you to expect an audience because teachers are paid to read your work, producing a delusion that the world awaits your words, while in the real world your copy is invisible.",
+  "cause": "teachers must read your work to grade it (artificial environment)",
+  "effect": "you develop the delusion that the world is waiting for your words",
+  "supportsCausality": true,
+  "wrong": [
+   "Readers eagerly seek out new writing",
+   "Teachers read work because it is good",
+   "The delusion comes from real readers' praise"
+  ],
+  "notAsserted": [
+   {
+    "text": "the world is waiting for your words",
+    "kind": "rejected-premise"
+   }
+  ]
+ },
+ "P07": {
+  "understanding": "Because humans survive by belonging to the tribe, people instinctively suppress their unique, contradictory information to fit in and keep a bond with the leader.",
+  "cause": "humans survive by belonging to the tribe and want to fit in",
+  "effect": "people suppress unique contradictory information",
+  "supportsCausality": true,
+  "wrong": [
+   "People withhold information deliberately to deceive the leader",
+   "People lack contradictory information",
+   "Suppression happens only because of fear of punishment"
+  ],
+  "notAsserted": [
+   {
+    "text": "Oh wow.",
+    "kind": "uncertain"
+   }
+  ]
+ },
+ "P08": {
+  "understanding": "The success-to-the-successful trap is called competitive exclusion in ecology: a runaway reinforcing loop where winners get resources to win even more.",
+  "cause": "Winners of a competition receive, as part of their reward, the means to compete more effectively",
+  "effect": "A runaway reinforcing loop in which winners keep winning",
+  "supportsCausality": true,
+  "wrong": [
+   "It is a balancing loop that evens out winners and losers",
+   "It applies only to taxes, not ecology",
+   "Losers receive the extra resources to catch up"
+  ],
+  "notAsserted": [
+   {
+    "text": "What's the systemic mechanism there in ecology?",
+    "kind": "question"
+   }
+  ]
+ },
+ "P09": {
+  "understanding": "Reaching the top and finding it hollow is the ultimate betrayal of the first mountain's promise; the alternative way to fall is being knocked off the mountain by failure or tragedy.",
+  "cause": "failure or tragedy",
+  "effect": "you get knocked off the first mountain",
+  "supportsCausality": true,
+  "wrong": [
+   "Failure is the only way people fall off the first mountain",
+   "The first mountain's promise is fulfilled by success",
+   "The fall is caused by choosing to leave"
+  ],
+  "notAsserted": []
+ },
+ "P10": {
+  "understanding": "Reading a novel makes you simulate another person's consciousness in your own mind, which is how deep reading builds empathy.",
+  "cause": "reading a novel means simulating another human being's consciousness inside your own mind",
+  "effect": "deep sustained reading uniquely builds human empathy",
+  "supportsCausality": true,
+  "wrong": [
+   "Empathy comes from watching films or any media equally",
+   "Reading novels only improves vocabulary",
+   "Empathy is innate and reading has no effect on it"
+  ],
+  "notAsserted": [
+   {
+    "text": "Empathy. How does that work?",
+    "kind": "question"
+   }
+  ]
+ }
+}

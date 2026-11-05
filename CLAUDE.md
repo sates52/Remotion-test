@@ -168,15 +168,21 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 - Guard: `node scripts/test-thumbnail-grammar.js` must pass after any thumbnail/engine change.
   Details: [`SKILL.md`](SKILL.md) → "Thumbnail grammar", `AGENT_LOG.md` 2026-09-24.
 
-## 🖥️ Machine load — heavy work runs on GitHub Actions, not the PC (STRICT, operator 2026-11-04)
+## 🖥️ Machine load — NOTHING that loads the PC runs locally; all of it on GitHub Actions (STANDING RULE, operator 2026-11-04 / 2026-11-05)
 
-- The operator works on this PC while agents run: "makineyi kasacak işlemlerden kaçınalım". Local = authoring, code,
-  tests, a quick look (≤ 12 stills, one render process). Everything heavier runs in the cloud.
+- The operator works on this PC while agents run: "makineyi kasacak işlemlerden kaçınalım" (11-04) and, as a standing rule
+  for every session, "bilgisayarı yoracak, kasacak hiç bir işlemi localde yapma geliştirme yaparken, hepsini buluta al"
+  (11-05). Local = editing code / files, git, single unit tests that finish in seconds (`node scripts/test-<x>.js`), a
+  quick look (≤ 12 stills, one render process). Everything heavier runs in the cloud:
+- **Full regression suite:** push the commit to `ci/regression/<name>` (`.github/workflows/regression.yml`, ~1 min) — never
+  `ci-run-tests.js` locally. **Type checking** (`tsc --noEmit`, > 5 min here): cloud only. **Batch ffmpeg, bundling,
+  parallel Chrome:** cloud only.
 - **Stills** (A/B strips, experiment renders, contact sheets): `node scripts/stills-cloud.js push --manifest=<stills/1
   manifest> --tag=<name>`, then `fetch --tag=<name> --out=<dir>` — parallel runners, sha256-checked results
   (`.github/workflows/render-stills.yml`, engine `scripts/render-stills.js`). `scripts/lib/local-load-guard.js` refuses
   more than 12 local stills (exit 2) and a second local still render at the same time; an exception only with
-  `--operator-local="<the operator's own words>"`. **Films:** the GitHub pool only (below). **Paid blind A/B:**
+  `--operator-local="<the operator's own words>"`. The same manifest also renders **dense-frame grids** (`grid`) and
+  **silent clips** (`clip`, h264) for human video studies. **Films:** the GitHub pool only (below). **Paid blind A/B:**
   `visual-ab-cloud.js`.
 - Never start several local Remotion / Chrome processes in parallel, and stop your own orphans when you stop a run.
 

@@ -1,0 +1,133 @@
+{
+ "n": 16,
+ "meanFour": 34.4,
+ "meanSingle": 38.5,
+ "meanDeltaPP": -4.2,
+ "ci90PP": [
+  -10.9,
+  2.1
+ ],
+ "messageAgreement": 0.75,
+ "invalid": 0,
+ "criteria": {
+  "zeroInvalid": true,
+  "meanWithin10": true,
+  "ci90Within20": true,
+  "messageAgree60": true
+ },
+ "verdict": "EQUIVALENT",
+ "rows": [
+  {
+   "strip": "C01-A",
+   "four": 0,
+   "single": 0,
+   "msgFour": "MISS",
+   "msgSingle": "MISS"
+  },
+  {
+   "strip": "C02-B",
+   "four": 0.5833333333333333,
+   "single": 0.5,
+   "msgFour": "MATCH",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C03-C",
+   "four": 1,
+   "single": 0.8333333333333334,
+   "msgFour": "MATCH",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C04-A",
+   "four": 0.3333333333333333,
+   "single": 0.6666666666666667,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C05-B",
+   "four": 0.9166666666666667,
+   "single": 0.8333333333333334,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C06-C",
+   "four": 0.16666666666666666,
+   "single": 0.16666666666666666,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C07-A",
+   "four": 0,
+   "single": 0.08333333333333333,
+   "msgFour": "MISS",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C08-B",
+   "four": 0.3333333333333333,
+   "single": 0.16666666666666666,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C09-C",
+   "four": 0,
+   "single": 0.16666666666666666,
+   "msgFour": "MISS",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C10-A",
+   "four": 0.16666666666666666,
+   "single": 0.3333333333333333,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C11-B",
+   "four": 0.16666666666666666,
+   "single": 0.16666666666666666,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C12-C",
+   "four": 0.5,
+   "single": 0.5,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C13-A",
+   "four": 0.5,
+   "single": 0.5,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C14-B",
+   "four": 0.5,
+   "single": 0.5,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C15-C",
+   "four": 0.16666666666666666,
+   "single": 0.5833333333333333,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  },
+  {
+   "strip": "C16-A",
+   "four": 0.16666666666666666,
+   "single": 0.16666666666666666,
+   "msgFour": "PARTIAL",
+   "msgSingle": "PARTIAL"
+  }
+ ]
+}

@@ -180,4 +180,20 @@ ok("no production config opts in (the capability changes no shipped or planned b
   assert.deepStrictEqual(hits, []);
 });
 
+// ── apply-single-relation.js: the only writer of the field ──
+const { apply, narrationOf } = require("./apply-single-relation");
+const book = () => ({ meta: { slug: "test-book", cast: {} }, captions: [{ text: "Every notification pulls you out of deep work, so by noon your focus is drained", startFrame: 100, endFrame: 250 }, { text: "and the hard project never gets touched.", startFrame: 250, endFrame: 340 }, { text: "Later on.", startFrame: 400, endFrame: 450 }],
+  scenes: [{ id: "a", fromFrame: 0, durationFrames: 100, bg: {}, characters: [], texts: [], props: [] }, { ...scene, id: "b", fromFrame: 100, durationFrames: 240 }] });
+ok("apply: narration of a scene = the captions inside its frames", () => assert.strictEqual(narrationOf(book(), book().scenes[1]), narration));
+ok("apply: a valid contract compiles into its scene and opts the book in; other scenes untouched", () => {
+  const b = book(); const r = apply(b, { 1: base() });
+  assert(r.ok); assert.strictEqual(r.config.meta.singleRelation, true); assert(r.config.scenes[1].singleRelation); assert.deepStrictEqual(r.config.scenes[0], b.scenes[0]);
+  assert.strictEqual(b.meta.singleRelation, undefined, "the input config is not mutated");
+});
+ok("apply: one invalid contract refuses the whole apply; a published book is refused", () => {
+  const bad = base(); bad.evidence = "notifications destroy your focus";
+  const r = apply(book(), { 1: base(), 0: bad }); assert(!r.ok && r.errors.some((e) => /scene 0/.test(e)) && !r.config);
+  assert(!apply(book(), { 1: base() }, { published: true }).ok);
+});
+
 console.log(`single-relation: ${n} passed`);

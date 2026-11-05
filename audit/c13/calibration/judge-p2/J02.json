@@ -1,0 +1,18 @@
+[
+{"img":"e0eed0d560","cause":"NA","effect":"NA","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got only the question (subject), not the family's excuse or its rejection.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Blurred room with question text; no picture meaning."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same text box, only drift."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Same text box, only drift."}]},
+{"img":"80fddbf93d","cause":"NOT_SHOWN","effect":"NOT_SHOWN","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer marked cause/effect unclear; message copies caption (perceives because subject to borders) without the liars contrast or what he sees.","frames":[
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Generic grey landscape; meaning only in caption."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1."},
+{"correctness":"NEUTRAL","contribution":"TEXT_ONLY","explains":"NO","why":"Identical to frame 1."}]},
+{"img":"0643183c53","cause":"CORRECT","effect":"CORRECT","message":"MATCH","wrongInference":"NO","polarityError":"NO","why":"Novel arrow to empathy gauge conveys reading builds empathy.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Novel and empty empathy gauge show subjects, no mechanism yet."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from novel fills empathy gauge: cause to effect."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same arrow and filled gauge."}]},
+{"img":"8e8d3b4fac","cause":"NOT_SHOWN","effect":"CORRECT","message":"PARTIAL","wrongInference":"NO","polarityError":"NO","why":"Viewer got time lost through dissociation but not the scrolling stimuli or the deep-engagement contrast.","frames":[
+{"correctness":"CORRECT","contribution":"ADDS","explains":"NO","why":"Dissociated person and TIME bar show subjects only."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Arrow from dissociated person drains TIME bar: dissociation causes time loss."},
+{"correctness":"CORRECT","contribution":"ADDS","explains":"YES","why":"Same drained bar with arrow."}]}
+]

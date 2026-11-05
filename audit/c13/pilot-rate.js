@@ -36,13 +36,19 @@ if (cmd === "blind") {
 } else if (cmd === "judges") {
   const pass = Number(args.pass);
   const { key } = JSON.parse(fs.readFileSync(path.join(OUT, "blind-key.json"), "utf8"));
-  const names = Object.keys(key).sort((a, b) => h(`p${pass}|${a}`).localeCompare(h(`p${pass}|${b}`)));
-  const per = 8, nJ = Math.ceil(names.length / per), J = Array.from({ length: nJ }, () => []);
-  for (const n of names) { // the judge with the fewest items that has not seen this passage
-    const j = J.map((x, i) => ({ i, l: x.length, seen: x.some((m) => key[m].id === key[n].id) })).filter((x) => !x.seen && x.l < per).sort((a, b) => a.l - b.l || a.i - b.i)[0];
-    if (!j) throw new Error("no judge slot");
-    J[j.i].push(n);
-  }
+  // 10 passages x 4 items → 5 judges x 8 items of 8 different passages: passage p skips judge (p + 2·pass) mod 5 and
+  // gives its 4 items (seeded order) to the other 4 judges, rotated by p — a different grouping in each pass
+  const ids = [...new Set(Object.values(key).map((k) => k.id))].sort();
+  const nJ = 5, J = Array.from({ length: nJ }, () => []);
+  ids.forEach((id, pi) => {
+    const skip = (pi + 2 * pass) % nJ;
+    const judges = [...Array(nJ).keys()].filter((x) => x !== skip);
+    const rot = judges.map((_, i) => judges[(i + pi + pass) % judges.length]);
+    const items = Object.keys(key).filter((n) => key[n].id === id).sort((x, y) => h(`p${pass}|${x}`).localeCompare(h(`p${pass}|${y}`)));
+    items.forEach((n, i) => J[rot[i]].push(n));
+  });
+  for (const x of J) { if (new Set(x.map((n) => key[n].id)).size !== x.length) throw new Error("a judge got one passage twice"); x.sort((m, q) => h(`o${pass}|${m}`).localeCompare(h(`o${pass}|${q}`))); }
+  const per = 8;
   const dir = path.join(OUT, `judge-in-p${pass}`); fs.mkdirSync(dir, { recursive: true }); fs.mkdirSync(path.join(OUT, `judge-out-p${pass}`), { recursive: true });
   const INSTR = fs.readFileSync(path.join(__dirname, "pilot-judge-instructions.txt"), "utf8");
   J.forEach((js, i) => {
