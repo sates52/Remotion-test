@@ -1,0 +1,91 @@
+{
+ "source": "cycle-12 cause-present beats (main + regression), Director 1.0 (B) − production (A), primary score per beat",
+ "n": 27,
+ "books": 15,
+ "observedMeanPP": 18.8,
+ "sdPairedPP": 33.9,
+ "byCycle": {
+  "c12": {
+   "n": 27,
+   "meanPP": 18.8
+  }
+ },
+ "iccByBook": 0.05,
+ "assumption": "planning effect +15 pp (below the pooled observation, which is inflated by selection: Director 1.0 was chosen BECAUSE it scored well on these sets — winner's curse)",
+ "powerTable": [
+  {
+   "books": 10,
+   "perBook": 4,
+   "n": 40,
+   "power": {
+    "+10pp": 16,
+    "+15pp": 35,
+    "+20pp": 56
+   }
+  },
+  {
+   "books": 14,
+   "perBook": 3,
+   "n": 42,
+   "power": {
+    "+10pp": 20,
+    "+15pp": 45,
+    "+20pp": 72
+   }
+  },
+  {
+   "books": 20,
+   "perBook": 2,
+   "n": 40,
+   "power": {
+    "+10pp": 24,
+    "+15pp": 53,
+    "+20pp": 83
+   }
+  },
+  {
+   "books": 20,
+   "perBook": 3,
+   "n": 60,
+   "power": {
+    "+10pp": 27,
+    "+15pp": 57,
+    "+20pp": 86
+   }
+  },
+  {
+   "books": 27,
+   "perBook": 3,
+   "n": 81,
+   "power": {
+    "+10pp": 32,
+    "+15pp": 72,
+    "+20pp": 94
+   }
+  },
+  {
+   "books": 40,
+   "perBook": 1,
+   "n": 40,
+   "power": {
+    "+10pp": 40,
+    "+15pp": 78,
+    "+20pp": 99
+   }
+  }
+ ],
+ "costMillionTokens": {
+  "n27": {
+   "oneStripDescribers": 4.4,
+   "fourStripDescribers": 2.4
+  },
+  "n40": {
+   "oneStripDescribers": 6.4,
+   "fourStripDescribers": 3.4
+  },
+  "n60": {
+   "oneStripDescribers": 9.7,
+   "fourStripDescribers": 5.1
+  }
+ }
+}

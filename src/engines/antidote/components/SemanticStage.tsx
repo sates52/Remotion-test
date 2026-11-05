@@ -28,6 +28,8 @@ export type SemEffect = { entity: string; value?: number; mood?: string; present
 export type SemOcc = { cause: string; cue: number; effects: SemEffect[] };
 export type SemanticCompiled = {
   type: string; lanes: 1 | 2; laneLabels?: string[]; entities: SemEntity[]; occ: SemOcc[]; text?: string;
+  /** quote card only: who says it, when it is not the narrator (single-relation capability) */
+  speaker?: string;
   timing: { token: number; pause: number; change: number };
 };
 
@@ -90,7 +92,10 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
     const op = interpolate(frame, [6, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     return (
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: op }}>
-        <div style={{ maxWidth: 1400, padding: "48px 64px", borderRadius: 32, background: "rgba(255,255,255,0.86)", textAlign: "center", fontFamily: "Inter, Arial, sans-serif", fontWeight: 900, fontSize: 76, lineHeight: 1.12, color: ink }}>{spec.text || ""}</div>
+        <div style={{ maxWidth: 1400, padding: "48px 64px", borderRadius: 32, background: "rgba(255,255,255,0.86)", textAlign: "center", fontFamily: "Inter, Arial, sans-serif", fontWeight: 900, fontSize: 76, lineHeight: 1.12, color: ink }}>
+          {spec.text || ""}
+          {spec.speaker ? <div style={{ marginTop: 22, fontSize: 40, fontWeight: 800, letterSpacing: 2 }}>— {spec.speaker.toUpperCase()}</div> : null}
+        </div>
       </AbsoluteFill>
     );
   }

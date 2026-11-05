@@ -63,7 +63,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
             durationInFrames={scene.durationFrames + transIn}
             name={scene.id}
           >
-            <Scene scene={continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} />
+            <Scene scene={continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} />
           </Sequence>
         );
       })}
