@@ -16,19 +16,19 @@ jobs:
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 22
+      - name: Playwright (Chromium + Firefox) + ffmpeg-static
+        run: |
+          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i --no-audit --no-fund playwright@1.48.2 ffmpeg-static@5.2.0 >/dev/null
+          npx playwright install --with-deps chromium firefox >/dev/null
       - name: Synthetic clips (h264, 2 s, silent)
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          FF=$(node -e 'console.log(require("/tmp/pw/node_modules/ffmpeg-static"))')
           mkdir -p /tmp/clips
           for i in 01 02 03; do for v in X Y; do
-            ffmpeg -v error -f lavfi -i "testsrc=size=640x360:rate=30:duration=2" -c:v libx264 -pix_fmt yuv420p -an /tmp/clips/P$i-$v.mp4
+            "$FF" -v error -f lavfi -i "testsrc=size=640x360:rate=30:duration=2" -c:v libx264 -pix_fmt yuv420p -an /tmp/clips/P$i-$v.mp4
           done; done
       - name: Build the v2 page
         run: node audit/c15/human-study-v2.js --clips=/tmp/clips --out=/tmp/study --scenes=3
-      - name: Playwright (Chromium + Firefox)
-        run: |
-          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i --no-audit --no-fund playwright@1.48.2 >/dev/null
-          npx playwright install --with-deps chromium firefox >/dev/null
       - name: Run the browser test
         run: NODE_PATH=/tmp/pw/node_modules node audit/c15/test-human-study.js --pkg=/tmp/study/send
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
