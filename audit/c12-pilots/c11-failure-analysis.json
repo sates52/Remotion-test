@@ -1,0 +1,72 @@
+{
+ "schema": "c12-c11-failure-analysis/1",
+ "date": "2026-11-05",
+ "scope": "C11 arm B (Semantic Director 1.0), all 40 benchmark beats; one PRIMARY category per beat, from the frozen key, the B contract, the blind description, both judge passes and (for B05 B09 B13 B17 B19 B21 B27 B29 B31 B40) the strip itself. Exploratory analysis of a finished NO SHIP experiment — it does not re-score or re-decide C11.",
+ "categories": {
+  "A_textOnly": {
+   "meaning": "B chose a quote card; no picture carried meaning (ADDS 0), the viewer restated the text",
+   "flatOrWorse": ["B02", "B03", "B06", "B07", "B11", "B12", "B14", "B22", "B23", "B25", "B38"],
+   "workedAsText": ["B15", "B24", "B37"],
+   "count": 14,
+   "note": "B07 lost 100 -> 50 (A's picture of the thermostat loop beat the bare sentence); the three that worked are beats whose whole point IS the sentence (a caveat, a slogan, a placement claim)"
+  },
+  "B_claimLogic": {
+   "meaning": "the shown claim has the wrong polarity / attribution / scope: a rejected premise, a counterfactual expectation, one half of a contrast, a hedged argument shown flat, a negated condition shown positive, a concessive dropped",
+   "beats": {
+    "B05": "rejected premise quoted as the claim ('I hear your point about her intellect being useless…' — the speaker pushes back next) -> viewer: conceding; WRONG",
+    "B09": "counterfactual expectation shown as fact ('trained that doing nothing equals safety … they should just fuse to the floor. But when…'); card over the source scene's classroom -> 'school'; WRONG",
+    "B10": "only the setup half of a temporary-vs-permanent contrast quoted ('They give you an action item')",
+    "B39": "a hedged legal argument ('That's self-defense … Maybe you argue heat of the moment') shown as a flat verdict; the second, debatable strike lost",
+    "B16": "negated condition ('If you DON'T kick things around … you lose your bearing') drawn as the person draining the stock — the absence is the cause",
+    "B04": "rejected motive ('not because you want to paint') omitted; only the true motive shown — the contrast that is the point is gone",
+    "B20": "concessive lost ('they end up laughing EVEN THOUGH the events are harrowing') — drawn as mom's mood passing to the kids"
+   },
+   "count": 7
+  },
+  "C_wrongRepresentation": {
+   "meaning": "the claim was right but the chosen picture says something else",
+   "beats": {
+    "B17": "'widen the map' drawn as a stock FILLING -> 'values fill the map'; a widening needs a size change, not a level",
+    "B27": "'pave over a crater with capital' drawn as a full CRATER tank DRAINING when capital acts — inverted; the hole should stay while money covers it",
+    "B32": "the label 'grace' on a person read as a character named Grace",
+    "B36": "the decisive link (truth -> demands action -> action means death) not drawn; blinders read as blocking the truth",
+    "B35": "environment beat: an unnamed second person and a generic meeting icon lost A's specific setting"
+   },
+   "count": 5
+  },
+  "D_framingScaleTiming": {
+   "meaning": "the right change, too small / unmarked to read",
+   "beats": { "B21": "a row of ten tiny figures on a large empty board, the cause ring on the group itself, the cause (winning at people's expense) not drawn; still +33 pp" },
+   "count": 1
+  },
+  "E_inventedCausality": {
+   "meaning": "the picture asserts a causal link the narration does not",
+   "beats": { "B26": "a discovery ('Graham … realized that this company held a portfolio') drawn as Graham making the portfolio appear -> 'Graham shaped it' = the key's listed wrong inference 'Graham invented the bonds'" },
+   "count": 1
+  },
+  "F_successfulMechanism": {
+   "meaning": "staged state change read as the narration's mechanism / comparison / result",
+   "beats": {
+    "B13": "traffic patterns -> the listener's face turns: 16.7 -> 83.3",
+    "B19": "the mask breaks the safety: 16.7 -> 83.3",
+    "B29": "same notes, two lanes on one scale (Jack low / August high): 50 -> 100",
+    "B31": "helplessness carried from room 1 to room 2, the person resigned: 50 -> 100",
+    "B34": "a direct result fills motivation: 50 -> 100",
+    "B40": "devotion drains the moral compass: 16.7 -> 66.7",
+    "B08": "kindness -> Julian: 16.7 -> 50",
+    "B28": "burden fills toward burnout: 33.3 -> 50",
+    "B01": "the secret acts on society: 33.3 -> 50"
+   },
+   "count": 9
+  },
+  "G_stagedNoGain": { "beats": ["B18", "B30", "B33"], "count": 3, "meaning": "staged (action / environment) but no change in score" }
+ },
+ "totals": "A 14 (11 flat/worse + 3 worked) · B 7 · C 5 · D 1 · E 1 · F 9 · G 3 = 40",
+ "lessonsForC12": [
+  "Claim logic is the biggest fixable cause of harm: 7 beats; 2 of B's WRONG beats (B05, B09) are polarity errors. The narration's own structure (but / even though / if … don't / maybe / I hear your point) decides what the screen may assert.",
+  "Text-only is not the problem per se (3 worked); quoting the WRONG sentence is. A quote must be the asserted claim, on a neutral ground, never a rejected premise / counterfactual / setup half.",
+  "Representation must match the claim's verb: widen = size, cover = layer over a hole that stays, discover = reveal (present: false -> true without a causal token), not create.",
+  "Labels must not look like proper names unless they are cast members (B32).",
+  "The successful pattern (F) is narrow and consistent: one cause, one entity whose state visibly changes, the after state held; comparisons on one scale."
+ ]
+}
