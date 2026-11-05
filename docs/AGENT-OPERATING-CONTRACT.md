@@ -126,6 +126,9 @@ a note with evidence to your own row — the owner closes theirs.
   inspected.
 - The bars live in `data/quality-policy.json` and are operator decisions: WRONG ≤ 1/30 and dead frames ≤ 5/30 block;
   image ADDS ≥ 60% is the target; EXPLAINS is reported. Nobody changes them or how they are computed.
+- Blind agents (readcheck readers / judges, mute-test and A/B describers / judges) are never told about a capability under
+  test (e.g. single-relation), which version of a beat is new, or what result is expected — their prompts name only the
+  file they open and the questions.
 
 ## 7. Three facts, never merged
 

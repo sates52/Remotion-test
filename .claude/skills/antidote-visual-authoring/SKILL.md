@@ -89,6 +89,12 @@ What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.j
 - Invent events, numbers or objects the narration does not have (`docs/PROVENANCE-PRINCIPLE.md`).
 - Edit a published book (`PUBLISHED_BOOKS.md` Summary Table) — authoring changes apply to new books only.
 
+## Single-relation contracts (only when the preview agent asks you)
+
+A beat whose narration STATES a cause → effect but whose scene shows only people and words may get a `single-relation/1`
+contract (Level 1: previewed, not applied). Method, when not to, the schema and the commands:
+`.claude/skills/antidote-visual-authoring/single-relation.md`. Skipping every candidate is a valid answer.
+
 ## Check before merge
 
 - `node scripts/storyboard.js merge --slug=<slug>` (without `--write` first): fix every problem; read every warning.

@@ -189,6 +189,18 @@ Fix every WRONG by its cause class (§4), `merge --write`, then re-read only wha
 before the first render. An icon blamed on 2+ beats gets a row in `data/icon-readings.json`, so every
 later book's authors are warned about it.
 
+### 2c. Single-relation candidates (Antidote; Level 1 — scan + preview only, never applied to the production config)
+After the readcheck, every NEW unpublished Antidote book is scanned once for beats where the narration STATES a
+cause → effect but the authored scene shows only people and words (`node scripts/single-relation-scan.js scan
+--slug=<slug>` → `books/<slug>/single-relation/candidates.json`, with every rejected beat and its reason). The preview
+agent then has ONE fresh author decide, per candidate, whether a single-relation contract would show the relation more
+clearly (`.claude/skills/antidote-visual-authoring/single-relation.md`), validates each contract on its own
+(`single-relation-scan.js validate`) and, for valid ones, renders an isolated before / after on GitHub Actions
+(`single-relation-preview.js build` → `stills-cloud.js`). Zero candidates or zero contracts is a valid result; record it.
+Until the capability passes Level 2 (pre-registered holdout) nothing here changes the book's config, gates or mute
+sample: `apply-single-relation.js --write` needs Level 2 or an explicit operator decision for that book. Blind readers,
+describers and judges are never told about it. Books pinned before a270192d do not have it — never repin silently.
+
 ## 3. Plan with every gate
 ```bash
 node scripts/make-book.js --slug=<slug> --title="<title>" --author="<author>" --genre=<genre> --skip-pack

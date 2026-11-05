@@ -159,7 +159,10 @@ function compile(c, scene) {
   const spec = { ...out.semantic, capability: SCHEMA };
   if (c.type === "H" && c.claim && c.claim.speaker && c.claim.speaker !== "narrator") spec.speaker = c.claim.speaker;
   delete out.semantic;
-  return { ...out, singleRelation: spec };
+  // the scene's frame furniture and records stay the source scene's: the HUD (insight badge / progress — cycle 14: a
+  // dropped `hud` made the badge read "INSIGHT 2/2" instead of the book's "07/08") and the narration / beat metadata
+  const keep = Object.fromEntries(["hud", "_narration", "_beat", "_act", "audioEvents"].filter((k) => scene[k] !== undefined).map((k) => [k, scene[k]]));
+  return { ...out, ...keep, singleRelation: spec };
 }
 
 /** a book opts in by meta.singleRelation; without it the renderer ignores every singleRelation field */

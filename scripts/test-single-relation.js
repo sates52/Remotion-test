@@ -36,6 +36,12 @@ ok("compile: same id / timing / set, the stage replaces cast / texts, field is s
   assert(s.singleRelation.occ.length === 3 && s.singleRelation.occ.every((o) => o.cue + 50 <= 0.88 * 240 + 1));
 });
 
+ok("compile keeps the source scene's HUD and narration metadata (cycle 14: a dropped hud changed the insight badge)", () => {
+  const src = { ...scene, hud: { insight: 7, of: 8, label: "CLOSE" }, _narration: "x", _beat: "story" };
+  const s2 = R.compile(base(), src);
+  assert.deepStrictEqual(s2.hud, src.hud); assert.strictEqual(s2._narration, "x"); assert.strictEqual(s2._beat, "story");
+});
+
 ok("deterministic: compiling twice gives byte-identical output; no clock / randomness in the capability path", () => {
   assert.strictEqual(JSON.stringify(R.compile(base(), scene)), JSON.stringify(R.compile(base(), scene)));
   for (const f of ["scripts/lib/single-relation.js", "scripts/lib/semantic-director.js", "src/engines/antidote/components/SemanticStage.tsx"]) {

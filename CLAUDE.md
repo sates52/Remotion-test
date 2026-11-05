@@ -186,6 +186,12 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   `visual-ab-cloud.js`.
 - Never start several local Remotion / Chrome processes in parallel, and stop your own orphans when you stop a run.
 
+## 🎯 Single-relation cause → visible effect — Level 1 (default OFF, 2026-11-05)
+
+- New Antidote books (pinned ≥ a270192d): after the readcheck run the single-relation scan / author / validate / isolated
+  before-after (runbook §2c, preview-hazirla row `singleRelation`). Report only: never `apply-single-relation.js --write`
+  on a production config before Level 2 (pre-registered holdout) or an explicit operator decision. Never tell blind agents.
+
 ## Where the real docs are
 
 - **[`STORYBOARD_RUNBOOK.md`](STORYBOARD_RUNBOOK.md)** — how a NEW book reaches a clean preview: authored storyboard

@@ -96,6 +96,9 @@ Do not re-derive these from prose — run the command and follow what it prints.
 - Relationship staging and Gate B: runbook (`gate-b-relationship.js`, reads `GOOGLE_API_KEY` — never print it).
 - Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`); it prints
   `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
+- Single-relation cause → visible effect (Level 1, default OFF): after the readcheck, scan + author + validate + an isolated
+  before / after on Actions — report only, never applied to the production config before Level 2 (runbook §2c; authors:
+  `.claude/skills/antidote-visual-authoring/single-relation.md`).
 - Sealed holdout and the blind mute test: runbook §4, contract §6. Render decisions: runbook §5b, contract §7.
 - YouTube titles: `CLAUDE.md` (`lint-titles.js` must PASS before upload).
 
