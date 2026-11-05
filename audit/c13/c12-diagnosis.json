@@ -1,0 +1,222 @@
+{
+ "schema": "c13-c12-diagnosis/1",
+ "source": "wt-c12/audit/c12-pilots: contractsB/C, compile-log, strips (B and C viewed), ratings/desc, judge-p1/p2, tally.perBeat",
+ "devRegressionOnly": true,
+ "beats": {
+  "C01": {
+   "scores": {
+    "A": 0,
+    "B": 100,
+    "C": 33.3
+   },
+   "entities": {
+    "B": 0,
+    "C": 3
+   },
+   "bShows": "Type H quote card: 'spiritual deformity is invisible we tend to excuse it' over a faded set; nothing else.",
+   "cShows": "Type B: grey DEFORMED woman, grey INVISIBLE theatre mask, then READER appears; arrow mask->reader, reader mood 'blank' (reads skeptical).",
+   "primary": "quote-card-vs-forced-illustration",
+   "secondary": [
+    "single-relation-vs-progressive-build"
+   ],
+   "evidence": "Key cause/effect = invisibility -> we excuse it. Neither 'invisible' nor 'excuse' has a drawable event; C's mask reads as hiding/fooling ('the reader is shown or fooled by it'); both judges PARTIAL, effect NOT_SHOWN. B's text card got MATCH with cause+effect CORRECT from both judges, picture adding nothing. Progressive reads dim the deformed woman when the reader arrives, so the subject of the excuse is greyed out. No polarity error either arm; no hypothetical. C contract listed 'draw large startling figures' as notAsserted quoted speech (key notAsserted = []); no on-screen effect."
+  },
+  "C05": {
+   "scores": {
+    "A": 16.7,
+    "B": 83.3,
+    "C": 16.7
+   },
+   "entities": {
+    "B": 2,
+    "C": 3
+   },
+   "bShows": "Type B: NOVEL book with cue ring -> EMPATHY stock fills 0.15 -> 0.85, old level dashed; book and tank visible all 3 frames.",
+   "cShows": "Type A: NOVEL, a reader (everyman), then a second suited person labelled CONSCIOUSNESS appears BESIDE the reader; reader greyed + ringed, arrow reader->consciousness.",
+   "primary": "authoring-choice",
+   "secondary": [
+    "single-relation-vs-progressive-build",
+    "other:inside-relation-drawn-as-side-by-side"
+   ],
+   "evidence": "The C author made the mechanism (simulating a consciousness) the claim and put 'empathy' in omitted, so the key's effect (builds empathy) is absent by design; B's author drew cause=novel, effect=empathy rising. Viewer C: 'handed over to or replaced by a different consciousness'; judges cause/effect NOT_SHOWN. 'Inside your own mind' became a second person standing next to the reader, and focus dimming greys the reader exactly when the consciousness appears, which reads as replacement. B judges: cause+effect CORRECT, message PARTIAL (simulation missing). No polarity error."
+  },
+  "C16": {
+   "scores": {
+    "A": 16.7,
+    "B": 83.3,
+    "C": 16.7
+   },
+   "entities": {
+    "B": 4,
+    "C": 3
+   },
+   "bShows": "Type D two lanes on one scale: EVERY TIME lane pellet drains PECKS to near zero; RANDOM INTERVALS lane PECKS stays full. Contrast in one frame.",
+   "cShows": "Type B single lane: grey Skinner, PELLET plate, FULL stock fills to top (repeat x3); random-interval half omitted.",
+   "primary": "authoring-choice",
+   "secondary": [
+    "single-relation-vs-progressive-build"
+   ],
+   "evidence": "Key effect = random rewards -> obsessive pecking. C's author ruled the random half 'cut off by the beat end' and omitted it, so the key's cause/effect could not appear; both judges NOT_SHOWN/PARTIAL ('only the first half'). B's author kept both lanes; both judges MATCH. B had the most entities of the ten (4) and still won: the relation was a side-by-side contrast in one frame. In C the pellet and Skinner are greyed when the tank fills. No polarity or verb error."
+  },
+  "C24": {
+   "scores": {
+    "A": 50,
+    "B": 50,
+    "C": 0
+   },
+   "entities": {
+    "B": 0,
+    "C": 3
+   },
+   "bShows": "Type H quote card: 'someone literally proposed throwing specialized stink bombs over the 15t wall'.",
+   "cShows": "Type A: grey analyst (ringed) -> empty dashed STINK BOMBS box; the 'crash' glyph (a black toy car with an impact burst) moveTo a house glyph labelled WALL and ends crashed into it.",
+   "primary": "hypothetical-drawn-as-real",
+   "secondary": [
+    "literal-verb",
+    "authoring-choice"
+   ],
+   "evidence": "Narration: 'someone literally proposed throwing' = a PROPOSAL among brainstormed schemes; the key's wrong list includes 'The stink bomb plan was carried out'. C's own claim says 'proposed', but the event (moveTo b->w, after='the bombs landed past the wall') realizes the throw as fact. On the strip moveTo makes the 'crash' glyph (a car) drive into the WALL house while the STINK BOMBS label stays on an empty dashed box. Viewer: 'the result is a car crashing into a wall'; both judges MISS + wrongInference YES. Glyph choices 'crash' for stink bombs and 'home' for wall are authoring choices that made it worse. B's quote kept the word 'proposed' (both PARTIAL, no wrong inference)."
+  },
+  "C26": {
+   "scores": {
+    "A": 33.3,
+    "B": 100,
+    "C": 50
+   },
+   "entities": {
+    "B": 3,
+    "C": 3
+   },
+   "bShows": "Type A: labelled STANTON, TRUST stock (full -> near empty, dashed old level), labelled BUFFETT turns angry; arrows Stanton->trust and ->Buffett; all in colour in frames 2-3.",
+   "cShows": "Type A: two UNLABELLED grey suited men, a broken gavel labelled RULES between them; Buffett already frowning in frame 1; focus moves so Stanton and RULES go grey while Buffett turns colour.",
+   "primary": "authoring-choice",
+   "secondary": [
+    "single-relation-vs-progressive-build"
+   ],
+   "evidence": "Same type, same entity count. Differences are authoring: C used a law/gavel RULES glyph with broken:true instead of a TRUST stock (the narration's word is 'breach of trust'), and gave the two cast members no name labels; viewer: 'unclear who is who', judges cause NOT_SHOWN (effect anger CORRECT). Reads dim the cause (Stanton, rules) while the effect is shown, and the angry face is visible already at 30%, so no before->after change is seen. 'broken' on the gavel read as 'rules broken or ignored' - not a wrong physical event. B: both judges MATCH, cause+effect CORRECT."
+  },
+  "C30": {
+   "scores": {
+    "A": 33.3,
+    "B": 83.3,
+    "C": 16.7
+   },
+   "entities": {
+    "B": 3,
+    "C": 3
+   },
+   "bShows": "Type A chain in one frame: MESSAGE envelope -> FORCE bolt lights up -> DEATH STAR target cracks; two arrows.",
+   "cShows": "Type G 'environment', events:[]: HIDDEN MESSAGE, OBI-WAN, DEATH STAR appear one by one, earlier items dimmed; no arrow, no change.",
+   "primary": "single-relation-vs-progressive-build",
+   "secondary": [
+    "authoring-choice"
+   ],
+   "evidence": "C's contract has zero events; the reads only list items and dim the previous ones. Viewer: 'No arrows or verbs show how the message, Obi-Wan and Death Star relate'; judges cause/effect NOT_SHOWN. B kept message->Force->Death Star as one chain; judges cause+effect CORRECT, message PARTIAL (generic 'a message takes down something huge'). Choosing type G and Obi-Wan instead of the Force is an authoring choice. Polarity: the key lists 'If the climax is Luke blowing up the Death Star' as notAsserted (hypothesis); B drew the Death Star destroyed and judges did not flag polarityError - unclear whether it counts (a real film event used as a conditional example)."
+  },
+  "C38": {
+   "scores": {
+    "A": 0,
+    "B": 50,
+    "C": 16.7
+   },
+   "entities": {
+    "B": 2,
+    "C": 2
+   },
+   "bShows": "Type B: GRAVITY as a red boulder glyph with cue ring (stays coloured) -> FORCE stock drains full -> low, dashed old level.",
+   "cShows": "Type B: GRAVITY as a stock tank (low fill) + FORCE stock; FORCE dimmed grey in frame 1, then highlighted low with dashed line; gravity dimmed.",
+   "primary": "authoring-choice",
+   "secondary": [
+    "single-relation-vs-progressive-build"
+   ],
+   "evidence": "Weak/marginal: both arms omit gallows and neck, and both viewers read 'gravity feeds/leads to force' (B p2 effect WRONG, B p1 NOT_SHOWN). B got cause CORRECT from both judges, C NOT_SHOWN. C's author drew gravity as a second identical tank, so two meters side by side read as transfer or comparison ('could be a simple highlight shift'); the dimmed grey FORCE in frame 1 hides the full->low change. Gap is partly noise."
+  },
+  "C15": {
+   "scores": {
+    "A": 50,
+    "B": 16.7,
+    "C": 58.3
+   },
+   "entities": {
+    "B": 0,
+    "C": 3
+   },
+   "bShows": "Type H quote card: 'Satellite imagery shows there is a dog pacing the grounds of the compound.'",
+   "cShows": "Type A: grey analyst (ringed), COMPOUND house, then a magnifier glyph labelled DOG revealed with a dotted arc from the analyst.",
+   "primary": "quote-card-vs-forced-illustration",
+   "secondary": [],
+   "evidence": "Reverse case: the key's effect is 'someone notices the overlooked detail'. C's reveal of DOG beside the analyst read as 'the woman examining a dog, a detail that gets a closer look'; both judges effect CORRECT (p2 MATCH). B's text card restated the fact only; both NOT_SHOWN/PARTIAL. The key's cause (red team forcing contrary evidence) was shown by neither. reveal did not evoke a wrong event. The magnifier stood in for a dog (no dog glyph)."
+  },
+  "C19": {
+   "scores": {
+    "A": 50,
+    "B": 50,
+    "C": 100
+   },
+   "entities": {
+    "B": 0,
+    "C": 3
+   },
+   "bShows": "Type H quote card with only the first sentence: 'You have to adopt the professional mindset.'",
+   "cShows": "Type A: writer, VALIDATION heart drawn crossed (negated), then arrow writer -> PROFESSIONAL MINDSET briefcase appears.",
+   "primary": "claim-polarity",
+   "secondary": [
+    "authoring-choice"
+   ],
+   "evidence": "Key notAsserted = the amateur seeking validation (rejected premise). C drew it negated (crossed heart); both judges MATCH, 'does not endorse the rejected premise'. B's author truncated the quote to the first sentence, dropping the contrast; judges PARTIAL ('omits dropping validation'). Neither arm showed the rejected part as true. Win = negated-entity feature + the author keeping both halves; overlapping labels in C (layout bug) did no harm."
+  },
+  "C32": {
+   "scores": {
+    "A": 16.7,
+    "B": 50,
+    "C": 83.3
+   },
+   "entities": {
+    "B": 2,
+    "C": 2
+   },
+   "bShows": "Type F: INTERRUPTION clock -> stock labelled MINUTE drains full -> low.",
+   "cShows": "Type D: crossed-out stock 'A MINUTE' (negated) with arrow down to a stock '45' that fills.",
+   "primary": "claim-polarity",
+   "secondary": [
+    "authoring-choice"
+   ],
+   "evidence": "Key wrong list: 'The interruption really takes only one minute'. B labelled its stock MINUTE, so the viewer read 'an interruption uses up most of a minute' - p2 effect WRONG + wrongInference YES. C crossed out 'a minute' and showed 45 filling; both judges cause+effect CORRECT (message PARTIAL: the stock renders as a phone outline, read as phone use; unit missing)."
+  }
+ },
+ "counts": {
+  "quote-card-vs-forced-illustration": 2,
+  "authoring-choice": 4,
+  "hypothetical-drawn-as-real": 1,
+  "single-relation-vs-progressive-build": 1,
+  "claim-polarity": 2,
+  "literal-verb": 0
+ },
+ "secondaryCounts": {
+  "single-relation-vs-progressive-build": 5,
+  "other:inside-relation-drawn-as-side-by-side": 1,
+  "literal-verb": 1,
+  "authoring-choice": 4
+ },
+ "keepB": [
+  "Cause and effect both visible AND lit in the same frame for the last 2/3 of the beat: B rings the cause but keeps it in colour while the effect changes (C05, C16, C26, C30, C38). Never dim the cause when the effect appears.",
+  "One explicit relation per frame (event + arrow); a contrast goes side by side in ONE frame (C16: two lanes, 4 entities, MATCH). Entity count was not the driver (2-4 entities in winning B frames); a missing or split relation was.",
+  "Quote card (type H) when the key word is not drawable or the event did not happen ('invisible', 'excuse', 'proposed'): C01 B 100 vs C 33, C24 B 50 vs C 0.",
+  "Draw the asserted EFFECT, not only the mechanism: B kept 'empathy rises' (C05) and 'random reward keeps pecking high' (C16); the C authors moved those into omitted.",
+  "Name the cast on screen (STANTON / BUFFETT in C26 B); unlabelled look-alike people read as 'unclear who is who'.",
+  "Use the narration's own noun for the stock (TRUST for 'breach of trust', C26 B) instead of a substitute glyph (gavel RULES)."
+ ],
+ "hurtC": [
+  "Focus dimming in reads: the cause is greyed exactly when the effect appears, so no sampled frame shows the relation lit (C05 read as replacement, C26 cause NOT_SHOWN, C38 FORCE ambiguous, C01 subject dimmed, C16 pellet dimmed).",
+  "Reads without an event (type G 'environment', events:[]): a list of items with dimming, no arrow, no relation (C30: B 83 -> C 17).",
+  "moveTo realizing a proposed act as a completed physical event (C24: proposed stink bombs -> a car crashing into a house; MISS + wrongInference in both passes).",
+  "Claim-first authoring that keeps the mechanism sentence and omits the key effect or the second half (C05 omitted empathy; C16 omitted random intervals).",
+  "present:true on a person for an abstract inner thing: 'consciousness inside your mind' became a second person arriving beside the reader (C05)."
+ ],
+ "safeFromC": [
+  "negated entities drawn crossed + claim.notAsserted for the rejected/setup half of a contrast: prevented an actual error in C32 (B's 'eats a minute' wrongInference) and carried the rejected premise in C19 (both MATCH, no endorsement).",
+  "reveal for a discovered detail (C15: effect CORRECT in both passes, no wrong event) - one beat of evidence; optional, not default.",
+  "NOT proven safe: claim.polarity/cueCheck text - in C24 and C30 the cueCheck reasoned past a proposal/conditional, so it did not by itself prevent errors."
+ ],
+ "note": "DEVELOPMENT / REGRESSION DATA ONLY. These 10 beats were scored in c12 and inspected after the fact; they must not be used as a holdout or to claim a c13 improvement. Diagnosis from existing evidence only (no re-render, no new rating). One strip per arm per beat, 2 judge passes; one-judge-point gaps are within noise (C38 especially). Different authors wrote B and C, so authoring-choice (4/10 primary, 6 more as secondary) confounds the director-design comparison. C24 classified hypothetical-drawn-as-real as instructed and verified from narration ('literally proposed') + strip (a car crashing into the WALL house)."
+}

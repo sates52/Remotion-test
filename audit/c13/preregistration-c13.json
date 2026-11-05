@@ -1,0 +1,26 @@
+{
+ "schema": "c13-preregistration/1",
+ "date": "2026-11-05",
+ "written": "before any cycle-13 rating (calibration or pilot) was run",
+ "scope": "Diagnostic measurement work. No result here is ship evidence for any capability; the cycle-12 beats used are development / regression data.",
+ "fourStripCalibration": {
+  "question": "Does a describer that sees 4 strips (4 different beats) in one session describe them as well as a fresh describer per strip?",
+  "set": "16 cycle-12 strips that already have a single-strip description and two judge passes: beats C01..C16, arm A/B/C rotating by beat (C01-A, C02-B, C03-C, C04-A, ...). Fixed before any new description.",
+  "procedure": "4 fresh sonnet describers, each gets 4 strips of 4 different beats under new random blind names (no arm, beat or file-name information), in a seeded order; the describer prompt is the cycle-12 describer prompt verbatim except that it lists 4 images and asks for a JSON array with one object per image id. Then the cycle-12 judge procedure verbatim (2 passes, 4 descriptions of 4 different beats per judge, fresh sonnet judges).",
+  "invalid": "an output with a missing image id, a duplicated id, an id that was not given, or not exactly 4 objects is INVALID (counted, not repaired beyond JSON syntax).",
+  "metric": "per strip: primary score as in tally-c12.js (mean of cause, effect, message; message only when the key states no causality), mean of the two passes. Δ = four-strip − single-strip, paired by strip.",
+  "equivalence": "EQUIVALENT if ALL hold: (1) 0 invalid outputs; (2) |mean Δ| ≤ 10 pp; (3) 90 % paired bootstrap CI of Δ inside [−20, +20] pp; (4) message category (MATCH / PARTIAL / MISS) of pass-1 judgements agrees for ≥ 60 % of strips. Otherwise NOT EQUIVALENT and the pilot uses one describer per strip.",
+  "independence": "reported, not a criterion: descriptions that name an object, label or person that appears only in another strip of the same session (carry-over) are counted by reading all 16 descriptions against their batch mates.",
+  "budget": "≈ 12 agents ≈ 0.7 M tokens"
+ },
+ "denseFramePilot": {
+  "question": "Does seeing more moments of the scene (a 2 fps frame sequence) change what a muted agent viewer understands, compared with the 3-frame strip? This measures TEMPORAL COVERAGE / DENSE-FRAME comprehension, NOT motion comprehension: the dense sequence holds more images and therefore more information; agents cannot play video.",
+  "passages": "10 cycle-12 MAIN beats whose frozen key states causality and whose cycle-12 Director 1.0 contract is type A, B or H, first 10 by id that the single-relation capability validates (build-pilot.js; claim added from the frozen key — an ideal-claim bound, logged). Same source scenes, same timing, same frozen key, same questions in both conditions.",
+  "arms": "A = production scene; B = the Director 1.0 contract drawn by the single-relation capability (meta.singleRelation on).",
+  "conditions": "S = 3-frame strip at 30 / 60 / 90 % of the beat; D = every 15th frame of the beat (2 fps) as a grid in reading order (6 per row).",
+  "rating": "40 items. Describers: 4 items of 4 different passages each if the four-strip calibration is EQUIVALENT (10 describers), otherwise one per item; the four items of a passage (A-S, A-D, B-S, B-D) always go to four different describers (describer = (passage + 3 x variant) mod 10). Judges: the cycle-12 judge rules for cause / effect / message / wrongInference / polarityError, plus whatChanged (CORRECT / WRONG / NOT_SHOWN / NA: who or what changed matches the key's effect) and finalConsequence (YES / NO / NA: the viewer states the final consequence in the key); the per-frame rubric is NOT used (it is defined for exactly 3 frames). 8 items of 8 different passages per judge, 2 passes (5 + 5 judges).",
+  "report": "S and D results side by side per arm (comprehension, WRONG inferences, whatChanged, finalConsequence), D − S per arm with paired bootstrap 95 % CI, kappa. No pooling of S and D. Diagnostic only: no SHIP decision depends on it.",
+  "progressionToHoldout": "The Level-2 holdout (A vs B = Director 1.0 + capability, cause-present beats) is designed and costed in this cycle; it STARTS only if, on this pilot, arm B − arm A ≥ +10 pp in the S condition AND wrongInference(B) ≤ wrongInference(A) (both conditions). These pilot passages are cycle-12 development data, so a pass only permits the holdout; it is never ship evidence.",
+  "budget": "≤ 1.5 M evaluation tokens (planned ≈ 10 describers + 10 judges ≈ 1.1 M); if the calibration is NOT EQUIVALENT: 6 passages (the first 6), one describer per item (24), one judge pass of 3 judges (8 items each) ≈ 1.45 M"
+ }
+}
