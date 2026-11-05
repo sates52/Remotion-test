@@ -1,0 +1,156 @@
+{
+ "schema": "stills/1",
+ "name": "c15 creative-direction A/B (fresh) + radical v2",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 5,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "essentialism-the-discipl-s205-A",
+   "config": "configs/essentialism-the-discipl-s205-A.json",
+   "frames": [
+    309,
+    356,
+    402
+   ],
+   "strip": true,
+   "clip": {
+    "from": 262,
+    "to": 417
+   }
+  },
+  {
+   "id": "essentialism-the-discipl-s205-B",
+   "config": "configs/essentialism-the-discipl-s205-B.json",
+   "frames": [
+    309,
+    356,
+    402
+   ],
+   "strip": true,
+   "clip": {
+    "from": 262,
+    "to": 417
+   }
+  },
+  {
+   "id": "philosophy-for-life-and--s343-A",
+   "config": "configs/philosophy-for-life-and--s343-A.json",
+   "frames": [
+    349,
+    418,
+    488
+   ],
+   "strip": true,
+   "clip": {
+    "from": 279,
+    "to": 510
+   }
+  },
+  {
+   "id": "philosophy-for-life-and--s343-B",
+   "config": "configs/philosophy-for-life-and--s343-B.json",
+   "frames": [
+    349,
+    418,
+    488
+   ],
+   "strip": true,
+   "clip": {
+    "from": 279,
+    "to": 510
+   }
+  },
+  {
+   "id": "radical-compassion-s128-B",
+   "config": "configs/radical-compassion-s128-B.json",
+   "frames": [
+    305,
+    357,
+    410
+   ],
+   "strip": true,
+   "clip": {
+    "from": 252,
+    "to": 426
+   }
+  },
+  {
+   "id": "the-5-elements-of-effect-s194-A",
+   "config": "configs/the-5-elements-of-effect-s194-A.json",
+   "frames": [
+    369,
+    471,
+    573
+   ],
+   "strip": true,
+   "clip": {
+    "from": 267,
+    "to": 606
+   }
+  },
+  {
+   "id": "the-5-elements-of-effect-s194-B",
+   "config": "configs/the-5-elements-of-effect-s194-B.json",
+   "frames": [
+    369,
+    471,
+    573
+   ],
+   "strip": true,
+   "clip": {
+    "from": 267,
+    "to": 606
+   }
+  },
+  {
+   "id": "the-knave-and-the-moon-s99-A",
+   "config": "configs/the-knave-and-the-moon-s99-A.json",
+   "frames": [
+    284,
+    339,
+    395
+   ],
+   "strip": true,
+   "clip": {
+    "from": 228,
+    "to": 412
+   }
+  },
+  {
+   "id": "the-knave-and-the-moon-s99-B",
+   "config": "configs/the-knave-and-the-moon-s99-B.json",
+   "frames": [
+    284,
+    339,
+    395
+   ],
+   "strip": true,
+   "clip": {
+    "from": 228,
+    "to": 412
+   }
+  }
+ ],
+ "inputHash": "b391154214197209",
+ "files": {
+  "stills/configs/essentialism-the-discipl-s205-A.json": "d42e614f08f55890481c2736ef3af93cec9d813723058fe5a597d901b84df905",
+  "stills/configs/essentialism-the-discipl-s205-B.json": "745521f5736262ffb9964c90ba2e63adb3a8bb9857129b181ec361445dda48d8",
+  "stills/configs/philosophy-for-life-and--s343-A.json": "28bd9a1fa0662fae40718bde02014802f3af37d6ec732a03e40e8d7f79dd257d",
+  "stills/configs/philosophy-for-life-and--s343-B.json": "af2fbad6bfc959134eb845b14ee34e7357efeb526083127cd99ea7d42689ba04",
+  "stills/configs/radical-compassion-s128-B.json": "37693827e481a1d24efc0d80e17fc0f6278afa8a35851bb8a0f167fb655a7220",
+  "stills/configs/the-5-elements-of-effect-s194-A.json": "03891030b9596a9e42e987a8f17143079296b3f3bf942d3cdf989198a5bb18a3",
+  "stills/configs/the-5-elements-of-effect-s194-B.json": "f463683135015bd4557885068b671380854bb22ca0262bc0405becf494ecbcaf",
+  "stills/configs/the-knave-and-the-moon-s99-A.json": "468879e68f6c2fba3861f77b5f5d867134cb183e80693446743c6b8a9df8ffe2",
+  "stills/configs/the-knave-and-the-moon-s99-B.json": "5e7055c9b8de588f54b4bca5c1c4b3b8a615e5e42b97bb2439ea4a2f2757e2f3"
+ },
+ "builtAt": "2026-11-05T14:21:22.206Z"
+}
