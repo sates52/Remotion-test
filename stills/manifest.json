@@ -1,0 +1,58 @@
+{
+ "schema": "stills/1",
+ "name": "c12 v2 technical check (dev set)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "shards": 2,
+ "silent": true,
+ "jobs": [
+  {
+   "id": "B05-C",
+   "config": "configs/B05.json",
+   "frames": [
+    73,
+    145,
+    218
+   ],
+   "strip": true
+  },
+  {
+   "id": "B17-C",
+   "config": "configs/B17.json",
+   "frames": [
+    88,
+    176,
+    264
+   ],
+   "strip": true
+  },
+  {
+   "id": "B26-C",
+   "config": "configs/B26.json",
+   "frames": [
+    82,
+    164,
+    247
+   ],
+   "strip": true
+  },
+  {
+   "id": "B27-C",
+   "config": "configs/B27.json",
+   "frames": [
+    92,
+    184,
+    276
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "f3efb4e22a10e4dd",
+ "files": {
+  "stills/configs/B05.json": "b2cd89f3feef1b0a0b07444cf3ed26c06ce87697472e8a122ceabacf692dbfff",
+  "stills/configs/B17.json": "c3e22e74aa74f7766f0fdb24b16e61779f2c5058a1820c9c90a7c5479b70ae62",
+  "stills/configs/B26.json": "621de6b1f37d5a45806227186005026c97acf14b405a5dcd6ff7a514c9684c07",
+  "stills/configs/B27.json": "4757ca7c79c910deb92dd4b6bd50595b9dc44f9d9db1c97a9c4206f901b95410"
+ },
+ "builtAt": "2026-11-05T06:16:24.956Z"
+}
