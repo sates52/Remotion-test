@@ -23,6 +23,7 @@ import type { SceneSpec, CharacterSpec, ShotName, VariantSpec, CastBible, BodyPl
 import type { ScenePlan, RestCarry } from "../continuity";
 import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME } from "../continuity";
 import { composeRest } from "../endState";
+import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -338,7 +339,7 @@ const slotOrdered = (bodies: CharacterSpec[], plan: ScenePlan): CharacterSpec[] 
 };
 
 // ── the scene: backdrop + camera-transformed stage + transition reveal ──────
-export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan }> = ({ scene, transIn = 0, cast, multiplane = false, continuity }) => {
+export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; singleRelation?: boolean }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, singleRelation = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const local = Math.max(0, frame - transIn); // frames since the narration for this scene starts
@@ -362,6 +363,22 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     return (
       <AbsoluteFill style={t.style}>
         <ChapterCard spec={cardSpec} accent={accent} durationFrames={scene.durationFrames} />
+        {t.overlay}
+      </AbsoluteFill>
+    );
+  }
+
+  // SINGLE-RELATION CAUSE → VISIBLE EFFECT (capability, default OFF): drawn only when the book opts in
+  // (meta.singleRelation) AND the scene carries a compiled contract (scripts/lib/single-relation.js). Otherwise the
+  // field is ignored and the scene draws exactly as before.
+  const rel = singleRelation ? (scene as { singleRelation?: SemanticCompiled }).singleRelation : undefined;
+  if (rel) {
+    return (
+      <AbsoluteFill style={t.style}>
+        <Backdrop bg={bg} cam={camera({ zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, local, scene.durationFrames)} />
+        <Sequence from={transIn} layout="none" name="single-relation">
+          <SemanticStage spec={rel} accent={accent.toLowerCase() !== ink.toLowerCase() ? accent : "#E23B57"} ink={ink} cast={cast} />
+        </Sequence>
         {t.overlay}
       </AbsoluteFill>
     );

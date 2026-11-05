@@ -901,6 +901,8 @@ export const sceneSchema = z.object({
   visualContract: visualContractSchema.optional(),
   /** Scene Director Layer (God Mode 8.0): Cinematic composition, focal hierarchy, and reveal order */
   director: directorSchema.optional(),
+  /** SINGLE-RELATION capability (cycle 13): a compiled cause → visible effect contract; drawn only when meta.singleRelation is true. */
+  singleRelation: z.any().optional(),
   /** Visual Progression: intra-scene transformation from startState to endState. */
   visualArc: visualArcSchema.optional(),
   /** Attention Choreography: ordered sequence of where the viewer's eye should go. */
@@ -989,6 +991,9 @@ export const antidoteConfigSchema = z.object({
     multiplane: z.boolean().optional(),
     /** RETENTION HUD (4.2). Minimal top safe-zone progress track & insight badges. */
     hud: metaHudSchema.optional(),
+    /** SINGLE-RELATION capability (cycle 13, default OFF): when true, scenes carrying a compiled `singleRelation`
+     *  contract (scripts/lib/single-relation.js) draw it; when absent / false the field is ignored. */
+    singleRelation: z.boolean().optional(),
   }),
   scenes: z.array(sceneSchema),
   promises: z.array(promiseLifecycleSchema).optional(),
