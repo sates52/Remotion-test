@@ -1,0 +1,59 @@
+{
+ "schema": "c12-pilot-prereg/1",
+ "date": "2026-11-05",
+ "written": "after the fresh benchmark (benchmark.json, select-benchmark.js, c12 seed) and the answer key (answer-key.json) were frozen, and BEFORE any C12 director code, spec, authoring, render or rating",
+ "hypothesis": "Semantic Director 2.0 — (1) claim logic: the screen only asserts what the narration asserts (rejected premises, counterfactuals, hypotheses, setup halves of a contrast and quoted speech are never shown as the claim; a quote card needs a recorded reason and the asserted sentence), (2) shot reads: every new piece of information and the result get a timed read window long enough to read, the result holds to the end, (3) visual proof: the idea is built piece by piece, one change in focus at a time, the rest dimmed, the change verb matching the claim (size / cover / reveal / level / mood / move / break) — lets a muted viewer state the beat's cause, effect and point more often than the production storyboard and than Director 1.0, without more WRONG.",
+ "techniqueSources": {
+  "shotReads": "CineCode templates/shots.example.json reads[{t,read}], scripts/validate_shots.py (reads required, windows, on-screen text >= 0.6 s + 0.25 s/word), references/craft.md (1.5-3 s for new information) — technique adaptation, no code copied (MIT)",
+  "visualProof": "CineCode styles/visual-proof.md (progressive build, one change at a time, the rest dimmed) + styles/iso-infographic.md (LemoLab, MIT: dim by desaturation, nothing moves without a line leading it) — technique adaptation",
+  "claimLogic": "own, from the C11 failure analysis (audit/c12-pilots/c11-failure-analysis.json: 7 claim-logic failures, 2 of B's WRONG beats)"
+ },
+ "benchmark": {
+  "file": "audit/c12-pilots/benchmark.json",
+  "main": "30 beats (15 causal-mechanism + 15 abstract-concept), FRESH: never within +-5 beats of a C10 passage or a C11 item; 17 books; genre groups fiction 8 / nonfiction 22 (unbalanced by the draw; reported, not re-drawn)",
+  "regression": "10 concrete-action / interaction beats",
+  "devSet": "the C11 benchmark (40 beats incl. B05, B17 as mandatory claim-logic / representation regressions) is the DEVELOPMENT set: C12 code may be tuned on it; no C12 decision is taken on it",
+  "noExclusions": "every frozen item is rated; a contract that does not compile after the fix pass is that arm's failure (no strip: primary 0, 3 dead frames)"
+ },
+ "arms": {
+  "A": "the committed production scene, unchanged, captions off (as C11)",
+  "B": "Semantic Director 1.0 exactly as frozen in C11 (director-spec.md @ dev/c11, semantic-director.js v1 validator, SemanticStage v1 renderer), contracts written for the NEW beats by fresh sonnet authors with the C11 budget",
+  "C": "Semantic Director 2.0 (spec + validator + renderer written in this cycle), contracts by fresh sonnet authors with the same budget",
+  "budget": "B and C: one authoring pass per beat + at most one compile-fix pass (compiler errors only); no visual iteration; the experimenter writes specs and code, never a contract; 5 authors per arm x 8 beats; inputs identical for B and C (prev / narration / next, cast list, A's set + cast) — the answer key is never shown to authors",
+  "rendering": "all three arms in ONE GitHub Actions run (render-stills.yml), same code commit"
+ },
+ "stimulus": "3-frame strip at 30 / 60 / 90 % of the beat for every arm (unchanged from C11). The C12 read rules are fixed independently of these points (min windows in seconds, the result held to the end of the beat) — they are not tuned to the sampling frames",
+ "raters": {
+  "describer": "one FRESH sonnet agent per strip (image only), C11 describer prompt verbatim",
+  "judge": "FRESH sonnet agents, 4 descriptions of 4 different beats each, never two arms of one beat in one batch; C11 judge prompt + one added question: polarityError YES if the viewer states as true something the key lists under notAsserted",
+  "stability": "two independent judge passes, Cohen's kappa per measure, primary = mean of passes",
+  "human": "30-item blind human reference prepared (A / B / C labels hidden, order by seeded coin, key separate); reported only if humans actually rate; agent results never presented as human"
+ },
+ "measures": {
+  "primary": "causal comprehension per strip = mean(cause CORRECT, effect CORRECT, message MATCH 1 / PARTIAL .5 / MISS 0); message alone where the key has supportsCausality false (C11 clarification, unchanged)",
+  "secondary": "WRONG frames, DEAD (contribution NONE), ADDS, EXPLAINS, polarity errors, effect CORRECT (visible consequence), per genre group, per stratum",
+  "preregisteredSecondaryAnalysis": "comprehension on the beats whose key states causality (supportsCausality true) — reported separately; it is NOT a ship criterion",
+  "cost": "authoring tokens per beat, render seconds per still, contract compile failures"
+ },
+ "shipRule": {
+  "main_C_vs_A": [
+   "comprehension(C) - comprehension(A) >= +20 pp, pooled over the 30 main beats",
+   "WRONG(C) <= WRONG(A)",
+   "ADDS(C) > ADDS(A) and EXPLAINS(C) > EXPLAINS(A)",
+   "C - A > 0 in BOTH genre groups"
+  ],
+  "regression": [ "comprehension(C) >= comprehension(A) - 10 pp on the 10 action beats", "WRONG(C) <= WRONG(A) on them" ],
+  "C_vs_B": "reported with CI; the claim 'the new components add value' requires C - B > 0 with the CI lower bound > -5 pp — otherwise it is stated that C12 did not beat C11",
+  "multipleComparisons": "two primary comparisons (C-A, C-B); n = 30 gives a CI half-width of ~12 pp; a true effect below ~+20 pp will most likely be NO SHIP — stated in advance",
+  "else": "NO SHIP (stays on branch dev/c12)",
+  "scope": "experiment criteria only — never a production gate"
+ },
+ "ablations": {
+  "condition": "ONLY if C passes the main ship rule AND C - B >= +10 pp",
+  "max": 2,
+  "planned": [
+   "C contracts rendered with the C11 renderer (SemanticStage v1): isolates shot reads + visual proof rendering (no new authoring)",
+   "C without claim logic: C spec with the claim-logic section removed, fresh authors, same beats"
+  ]
+ }
+}
