@@ -62,7 +62,10 @@ function splitRelation(s0) {
 
 function scan() {
   const P = bookPaths();
-  if (P.published) { console.error(`✗ ${P.slug} is published (frozen) — no scan`); process.exit(1); }
+  // a published book is frozen: refused — except a read-only EXPERIMENT scan (--experiment) whose output lies outside the
+  // book's folder (pre-registered holdouts read published configs; they never write into them)
+  const outside = !path.resolve(P.out).startsWith(path.resolve(P.B) + path.sep);
+  if (P.published && !(args.experiment && outside)) { console.error(`✗ ${P.slug} is published (frozen) — no scan${outside ? " (a read-only experiment scan needs --experiment)" : ""}`); process.exit(1); }
   const cfgPath = path.join(P.B, "config.antidote.json");
   if (!fs.existsSync(cfgPath)) { console.log(`${P.slug}: no config.antidote.json yet (storyboard not built) — 0 candidates`); return writeOut(P, [], [], { reason: "no config" }); }
   const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));

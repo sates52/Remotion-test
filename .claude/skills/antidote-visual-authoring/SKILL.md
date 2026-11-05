@@ -94,6 +94,8 @@ What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.j
 A beat whose narration STATES a cause → effect but whose scene shows only people and words may get a `single-relation/1`
 contract (Level 1: previewed, not applied). Method, when not to, the schema and the commands:
 `.claude/skills/antidote-visual-authoring/single-relation.md`. Skipping every candidate is a valid answer.
+Visual direction for those contracts (hypotheses from the operator's preferred scenes, not a template):
+`.claude/skills/antidote-visual-authoring/creative-direction.md`.
 
 ## Check before merge
 

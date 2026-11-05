@@ -13,6 +13,7 @@ const path = require("path");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
 const CL = path.resolve(args.clips), OUT = path.resolve(args.out);
 const N = Number(args.scenes || 10);
+const STUDY_ID = String(args.study || "c15-muted-video-v2").replace(/[^a-z0-9-]/gi, ""); // also the browser-storage key: one per package
 const SEND = path.join(OUT, "send");
 fs.mkdirSync(path.join(SEND, "clips"), { recursive: true });
 const scenes = [];
@@ -55,7 +56,7 @@ label{display:block}
 <button id="dl">Download my answers</button> <span id="msg" class="mut"></span></div>
 <script>
 "use strict";
-const STUDY = "c15-muted-video-v2", SCENES = ${JSON.stringify(scenes)};
+const STUDY = ${JSON.stringify(STUDY_ID)}, SCENES = ${JSON.stringify(scenes)};
 const QS = [["seen","What happened on screen?"],["changed","What changed, and who or what made it change?"],["message","In one sentence: what point is this video making?"],["unclear","Was anything confusing, or could it mislead a viewer? (write “nothing” if not)"]];
 let S;
 // deterministic PRNG from the participant id (mulberry32 over a string hash)

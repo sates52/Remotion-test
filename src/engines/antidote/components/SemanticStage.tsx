@@ -86,8 +86,22 @@ const Figure: React.FC<{ x: number; y: number; s: number; ink: string; mode: "on
   return <g fill={ink} opacity={0.12}>{head}{body}</g>;
 };
 
-export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; ink: string; cast?: CastBible }> = ({ spec, accent, ink, cast }) => {
+/** relative luminance of a #rgb / #rrggbb colour (WCAG) */
+export function luminance(hex: string): number {
+  const h = hex.replace("#", ""); const f = h.length === 3 ? h.split("").map((c) => c + c).join("") : h.slice(0, 6);
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(f.slice(i, i + 2), 16) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)));
+  return Number.isFinite(r + g + b) ? 0.2126 * r + 0.7152 * g + 0.0722 * b : 0.2;
+}
+/** the stage's light card needs a dark-enough accent (≥ 3:1 against white ⇔ luminance ≤ 0.30): a light accent (yellow,
+ *  orange, pale gold) falls back to the stage red
+ *  (cycle 15: C04-B's yellow ring on a yellow card was the one ring-and-arrow version the operator did not pick) */
+export const readableAccent = (accent: string) => (luminance(accent) > 0.3 ? "#E23B57" : accent);
+
+export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; ink: string; cast?: CastBible }> = ({ spec, accent: accentIn, ink, cast }) => {
   const frame = useCurrentFrame();
+  const accent = readableAccent(accentIn);
+  const firstCue: Record<string, number> = {};
+  for (const o of spec.occ || []) if (firstCue[o.cause] == null || o.cue < firstCue[o.cause]) firstCue[o.cause] = o.cue;
   if (spec.type === "H" || !spec.entities.length) {
     const op = interpolate(frame, [6, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     return (
@@ -191,7 +205,9 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
       {/* icons and people are components of their own, placed over the stage (opacity = presence) */}
       {spec.entities.map((e) => {
         const p = pos[e.id], s = st[e.id]; if (!p || !s) return null;
-        const acc = causes.has(e.id) ? accent : NEUTRAL;
+        // the cause lights up WHEN it is marked (grey before its first cue), so the colour change is part of the event
+        // (cycle 15, operator preferences: the liked versions switched the accent on with the cause)
+        const acc = causes.has(e.id) && frame >= (firstCue[e.id] ?? 0) ? accent : NEUTRAL;
         if (e.kind === "object" && e.glyph) {
           const q = at(e.id)!;
           const crack = s.broken ? (

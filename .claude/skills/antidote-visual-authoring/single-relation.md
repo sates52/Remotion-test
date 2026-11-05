@@ -53,6 +53,8 @@ It is Director 1.0's proven part, not a new style.
 - Anything the narration mentions but does not assert goes in `claim.notAsserted` ({text verbatim, kind}); it may not be
   your evidence, card text or a label. Polarity `contrast` when the beat says "not X but Y" (stage Y only).
 
+Visual direction (what the operator's preferred scenes share; the invisible-cause pattern): `creative-direction.md`.
+
 ## Scan → author → validate → preview (commands)
 ```
 node scripts/single-relation-scan.js scan     --slug=<s> [--book-root=<wt>]   # candidates.json (+ rejected, with reasons)
