@@ -67,7 +67,7 @@ function validate(c, ctx) {
   if (v1.events.some((e) => !e.effects.length)) v1.events = v1.events.filter((e) => e.effects.length);
   for (const m of V1.validate(v1, ctx)) {
     if (/needs at least one event/.test(m) && (c.events || []).length) continue; // its effects are v2 verbs
-    if (/effect must land on something other than the cause/.test(m) && (c.events || []).some((e) => e.effects.some((f) => f.entity !== e.cause))) continue;
+    if (/effect must land on something other than the cause/.test(m) && (c.events || []).some((e) => e.effects.some((f) => f.entity !== e.cause || f.cover))) continue;
     err(m);
   }
   const narration = ctx.narration || "";
@@ -120,8 +120,8 @@ function validate(c, ctx) {
     if (Array.isArray(last.at) && (last.at[0] > 0.7 || last.at[1] < 0.95)) err("the last read is the result: it starts by 0.70 and holds to the end (>= 0.95)");
   }
   if (c.type !== "H" && c.type !== "G") for (const ev of c.events || []) {
-    const targets = ev.effects.map((f) => f.entity);
-    if (!reads.some((r) => targets.includes(r.focus) && r.focus !== ev.cause)) err(`event caused by "${ev.cause}": one read must focus the entity it changes (the change is timed to that read)`);
+    const targets = ev.effects.flatMap((f) => (f.cover ? [f.entity, f.cover] : [f.entity]));
+    if (!reads.some((r) => targets.includes(r.focus) && (r.focus !== ev.cause || ev.effects.some((f) => f.cover)))) err(`event caused by "${ev.cause}": one read must focus the entity it changes (the change is timed to that read)`);
   }
   // ── 3. VISUAL PROOF verbs ──────────────────────────────────────────────────
   for (const [i, ev] of (c.events || []).entries()) for (const f of ev.effects || []) {
@@ -140,15 +140,24 @@ function compile(c, scene) {
   const reads = (c.reads || []).map((r) => ({ from: Math.round(r.at[0] * dur), to: Math.round(r.at[1] * dur), focus: r.focus, what: r.what }));
   const occ = [];
   for (const ev of c.events || []) {
-    const targets = ev.effects.map((f) => f.entity);
-    const r = reads.find((x) => targets.includes(x.focus) && x.focus !== ev.cause) || reads[reads.length - 1];
+    const targets = ev.effects.flatMap((f) => (f.cover ? [f.entity, f.cover] : [f.entity]));
+    const r = reads.find((x) => targets.includes(x.focus) && (x.focus !== ev.cause || ev.effects.some((f) => f.cover))) || reads[reads.length - 1];
     const cue = Math.max(Math.round(0.06 * dur), r.from - (TIMING.token + TIMING.pause + TIMING.change));
     occ.push({ cause: ev.cause, cue, effects: ev.effects.map((f) => ({ ...f })) });
   }
   occ.sort((a, b) => a.cue - b.cue);
   const enter = {}; // an entity enters at the first read that focuses it (visual proof: built piece by piece)
   for (const e of c.entities || []) { const r = reads.find((x) => x.focus === e.id); enter[e.id] = r ? Math.max(0, r.from - 8) : 0; }
-  // the cause of the first event enters with the first read at the latest
+  // the BEFORE state must be seen (techcheck, dev set B17 / B27): the cause and every entity that changes are on stage
+  // before the change starts — except an entity that appears / is revealed by the change itself
+  for (const o of occ) {
+    const by = Math.max(0, o.cue - 10);
+    enter[o.cause] = Math.min(enter[o.cause] ?? 0, by);
+    for (const f of o.effects) if (!f.reveal && f.present !== true) {
+      enter[f.entity] = Math.min(enter[f.entity] ?? 0, by);
+      if (f.cover) enter[f.cover] = Math.min(enter[f.cover] ?? 0, by);
+    }
+  }
   const spec = {
     v: 2, type: c.type, lanes: c.lanes === 2 ? 2 : 1, laneLabels: c.laneLabels, text: c.text,
     speaker: c.claim && c.claim.speaker && c.claim.speaker !== "narrator" ? c.claim.speaker : null,

@@ -163,6 +163,7 @@ export const SemanticStage2: React.FC<{ spec: SemanticCompiled2; accent: string;
                   const ax = a.x, ay = same ? a.y - ha - 10 : a.y + (b.y > a.y ? ha : -ha);
                   const bx = b.x, by = same ? b.y - hb - 10 : b.y + (b.y > a.y ? -hb : hb);
                   const qx = (ax + bx) / 2, qy = same ? Math.min(ay, by) - 90 : (ay + by) / 2;
+                  if (f.reveal && frame < o.cue + token + pause) return null;
                   if (f.reveal) // found, not caused: a dotted sight-line, no token, no arrowhead
                     return <path key={j} d={`M ${ax} ${ay} Q ${qx} ${qy} ${bx} ${by}`} fill="none" stroke={ink} strokeOpacity={0.6 * Math.min(1, tk * 1.5)} strokeWidth={6} strokeDasharray="2 14" strokeLinecap="round" />;
                   const x = (1 - tk) * (1 - tk) * ax + 2 * (1 - tk) * tk * qx + tk * tk * bx, y = (1 - tk) * (1 - tk) * ay + 2 * (1 - tk) * tk * qy + tk * tk * by;
@@ -184,9 +185,10 @@ export const SemanticStage2: React.FC<{ spec: SemanticCompiled2; accent: string;
               const top = p.y - h / 2, floor = top + h - 10, changed = Math.abs(s.value - s.value0) > 0.02, w0 = SIZE.stockW * p.s * s.size0;
               return (
                 <g key={e.id} opacity={op} style={filt(e.id)}>
-                  {Math.abs(s.size - s.size0) > 0.02 ? <rect x={p.x - w0 / 2} y={top} width={w0} height={h} rx={22} fill="none" stroke={ink} strokeWidth={5} strokeDasharray="12 10" /> : null}
                   <rect x={p.x - w / 2} y={top} width={w} height={h} rx={22 * p.s} fill="#FFFFFF" stroke={ink} strokeWidth={8} />
                   <rect x={p.x - w / 2 + 10} y={floor - inner * s.value} width={w - 20} height={inner * s.value} rx={12 * p.s} fill={ink} fillOpacity={0.82} />
+                  {Math.abs(s.size - s.size0) > 0.02 ? <rect x={p.x - w0 / 2} y={top - 12} width={w0} height={h + 24} rx={22} fill="none" stroke="#FFFFFF" strokeWidth={9} strokeDasharray="12 10" /> : null}
+                  {Math.abs(s.size - s.size0) > 0.02 ? <rect x={p.x - w0 / 2} y={top - 12} width={w0} height={h + 24} rx={22} fill="none" stroke={ink} strokeWidth={5} strokeDasharray="12 10" /> : null}
                   {changed ? <line x1={p.x - w / 2 - 18} x2={p.x + w / 2 + 18} y1={floor - inner * s.value0} y2={floor - inner * s.value0} stroke={ink} strokeWidth={5} strokeDasharray="12 10" /> : null}
                   {e.negated ? <Cross x={p.x} y={p.y} r={h / 2.4} ink={ink} /> : null}
                   <Label x={p.x} y={top + h + 56 * p.s} text={e.label} ink={ink} s={p.s} />

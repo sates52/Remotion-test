@@ -1,0 +1,17 @@
+{
+ "schema": "c12-deviations/1",
+ "items": [
+  {
+   "at": "2026-11-05",
+   "what": "validator bug fixed after arm-C authoring, before the final compile and before any render or rating",
+   "detail": "semantic-director-v2.js required a read to focus an effect entity other than the cause; a cover effect is written on the coverer, which is usually the cause itself, so the natural cover form was refused. The technical check (dev-set B27) exposed it. Fix: the covered entity counts as the effect target. Arm-C contract C07 (cover) was refused on the first pass with this message; its author rewrote the reads in the fix pass; with the fix it compiles (without it, C07 would have counted as arm C failure). No contract content was changed by the experimenter.",
+   "effect": "arm C: 39 / 40 compile (C29 stays invalid: reads 1.48 s < 1.5 s minimum — counted as arm C failure, as pre-registered)"
+  },
+  {
+   "at": "2026-11-05",
+   "what": "v2 compiler / renderer fix from the technical render check (dev-set contracts only), after arm-C authoring, before any benchmark render or rating",
+   "detail": "Progressive build made an entity enter only at its own read, so the BEFORE state of a changing entity was never on screen (dev B17: the map appeared already widened; dev B27: capital never seen in its place). Fix: the cause and every changing entity enter before the change starts (except an entity that appears / is revealed by the change). Also: the old-size outline drawn on top of the resized tank; the reveal sight-line only once the found entity is there. Checked again on the dev set (cloud runs 41979476036, 41979969625). No benchmark strip was rendered or seen before this fix.",
+   "effect": "renderer / compile timing only; no contract changed"
+  }
+ ]
+}
