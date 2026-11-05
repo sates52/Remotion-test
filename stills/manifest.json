@@ -1,0 +1,96 @@
+{
+ "schema": "stills/1",
+ "name": "c15 B redo (accent contrast)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 5,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "essentialism-the-discipl-s205-B",
+   "config": "configs/essentialism-the-discipl-s205-B.json",
+   "frames": [
+    309,
+    356,
+    402
+   ],
+   "strip": true,
+   "clip": {
+    "from": 262,
+    "to": 417
+   }
+  },
+  {
+   "id": "philosophy-for-life-and--s343-B",
+   "config": "configs/philosophy-for-life-and--s343-B.json",
+   "frames": [
+    349,
+    418,
+    488
+   ],
+   "strip": true,
+   "clip": {
+    "from": 279,
+    "to": 510
+   }
+  },
+  {
+   "id": "radical-compassion-s128-B",
+   "config": "configs/radical-compassion-s128-B.json",
+   "frames": [
+    305,
+    357,
+    410
+   ],
+   "strip": true,
+   "clip": {
+    "from": 252,
+    "to": 426
+   }
+  },
+  {
+   "id": "the-5-elements-of-effect-s194-B",
+   "config": "configs/the-5-elements-of-effect-s194-B.json",
+   "frames": [
+    369,
+    471,
+    573
+   ],
+   "strip": true,
+   "clip": {
+    "from": 267,
+    "to": 606
+   }
+  },
+  {
+   "id": "the-knave-and-the-moon-s99-B",
+   "config": "configs/the-knave-and-the-moon-s99-B.json",
+   "frames": [
+    284,
+    339,
+    395
+   ],
+   "strip": true,
+   "clip": {
+    "from": 228,
+    "to": 412
+   }
+  }
+ ],
+ "inputHash": "6a3fb77ef67292ac",
+ "files": {
+  "stills/configs/essentialism-the-discipl-s205-B.json": "745521f5736262ffb9964c90ba2e63adb3a8bb9857129b181ec361445dda48d8",
+  "stills/configs/philosophy-for-life-and--s343-B.json": "af2fbad6bfc959134eb845b14ee34e7357efeb526083127cd99ea7d42689ba04",
+  "stills/configs/radical-compassion-s128-B.json": "37693827e481a1d24efc0d80e17fc0f6278afa8a35851bb8a0f167fb655a7220",
+  "stills/configs/the-5-elements-of-effect-s194-B.json": "f463683135015bd4557885068b671380854bb22ca0262bc0405becf494ecbcaf",
+  "stills/configs/the-knave-and-the-moon-s99-B.json": "5e7055c9b8de588f54b4bca5c1c4b3b8a615e5e42b97bb2439ea4a2f2757e2f3"
+ },
+ "builtAt": "2026-11-05T14:40:29.727Z"
+}
