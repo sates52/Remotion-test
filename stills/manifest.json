@@ -1,0 +1,329 @@
+{
+ "schema": "stills/1",
+ "name": "c16 holdout v2 A/B",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 10,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "do-over-rescue-monday-re-s88-A",
+   "config": "configs/do-over-rescue-monday-re-s88-A.json",
+   "frames": [
+    298,
+    383,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "do-over-rescue-monday-re-s88-B",
+   "config": "configs/do-over-rescue-monday-re-s88-B.json",
+   "frames": [
+    298,
+    383,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "fahrenheit-451-s60-A",
+   "config": "configs/fahrenheit-451-s60-A.json",
+   "frames": [
+    367,
+    418,
+    468
+   ],
+   "strip": true
+  },
+  {
+   "id": "fahrenheit-451-s60-B",
+   "config": "configs/fahrenheit-451-s60-B.json",
+   "frames": [
+    367,
+    418,
+    468
+   ],
+   "strip": true
+  },
+  {
+   "id": "feel-good-productivity-s73-A",
+   "config": "configs/feel-good-productivity-s73-A.json",
+   "frames": [
+    440,
+    543,
+    645
+   ],
+   "strip": true
+  },
+  {
+   "id": "feel-good-productivity-s73-B",
+   "config": "configs/feel-good-productivity-s73-B.json",
+   "frames": [
+    440,
+    543,
+    645
+   ],
+   "strip": true
+  },
+  {
+   "id": "great-at-work-s163-A",
+   "config": "configs/great-at-work-s163-A.json",
+   "frames": [
+    467,
+    575,
+    684
+   ],
+   "strip": true
+  },
+  {
+   "id": "great-at-work-s163-B",
+   "config": "configs/great-at-work-s163-B.json",
+   "frames": [
+    467,
+    575,
+    684
+   ],
+   "strip": true
+  },
+  {
+   "id": "i-robot-s272-A",
+   "config": "configs/i-robot-s272-A.json",
+   "frames": [
+    299,
+    354,
+    410
+   ],
+   "strip": true
+  },
+  {
+   "id": "i-robot-s272-B",
+   "config": "configs/i-robot-s272-B.json",
+   "frames": [
+    299,
+    354,
+    410
+   ],
+   "strip": true
+  },
+  {
+   "id": "icebreaker-s137-A",
+   "config": "configs/icebreaker-s137-A.json",
+   "frames": [
+    374,
+    448,
+    522
+   ],
+   "strip": true
+  },
+  {
+   "id": "icebreaker-s137-B",
+   "config": "configs/icebreaker-s137-B.json",
+   "frames": [
+    374,
+    448,
+    522
+   ],
+   "strip": true
+  },
+  {
+   "id": "lolita-s106-A",
+   "config": "configs/lolita-s106-A.json",
+   "frames": [
+    375,
+    437,
+    500
+   ],
+   "strip": true
+  },
+  {
+   "id": "lolita-s106-B",
+   "config": "configs/lolita-s106-B.json",
+   "frames": [
+    375,
+    437,
+    500
+   ],
+   "strip": true
+  },
+  {
+   "id": "ready-player-one-s0-A",
+   "config": "configs/ready-player-one-s0-A.json",
+   "frames": [
+    59,
+    117,
+    176
+   ],
+   "strip": true
+  },
+  {
+   "id": "ready-player-one-s0-B",
+   "config": "configs/ready-player-one-s0-B.json",
+   "frames": [
+    59,
+    117,
+    176
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-courage-to-be-dislik-s18-A",
+   "config": "configs/the-courage-to-be-dislik-s18-A.json",
+   "frames": [
+    356,
+    411,
+    467
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-courage-to-be-dislik-s18-B",
+   "config": "configs/the-courage-to-be-dislik-s18-B.json",
+   "frames": [
+    356,
+    411,
+    467
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-miracle-of-mindfulne-s164-A",
+   "config": "configs/the-miracle-of-mindfulne-s164-A.json",
+   "frames": [
+    255,
+    335,
+    415
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-miracle-of-mindfulne-s164-B",
+   "config": "configs/the-miracle-of-mindfulne-s164-B.json",
+   "frames": [
+    255,
+    335,
+    415
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-poison-daughter-s97-A",
+   "config": "configs/the-poison-daughter-s97-A.json",
+   "frames": [
+    350,
+    426,
+    503
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-poison-daughter-s97-B",
+   "config": "configs/the-poison-daughter-s97-B.json",
+   "frames": [
+    350,
+    426,
+    503
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-southern-book-club-s-s109-A",
+   "config": "configs/the-southern-book-club-s-s109-A.json",
+   "frames": [
+    438,
+    511,
+    584
+   ],
+   "strip": true
+  },
+  {
+   "id": "the-southern-book-club-s-s109-B",
+   "config": "configs/the-southern-book-club-s-s109-B.json",
+   "frames": [
+    438,
+    511,
+    584
+   ],
+   "strip": true
+  },
+  {
+   "id": "under-the-dome-s195-A",
+   "config": "configs/under-the-dome-s195-A.json",
+   "frames": [
+    352,
+    471,
+    589
+   ],
+   "strip": true
+  },
+  {
+   "id": "under-the-dome-s195-B",
+   "config": "configs/under-the-dome-s195-B.json",
+   "frames": [
+    352,
+    471,
+    589
+   ],
+   "strip": true
+  },
+  {
+   "id": "unhinged-s148-A",
+   "config": "configs/unhinged-s148-A.json",
+   "frames": [
+    362,
+    439,
+    517
+   ],
+   "strip": true
+  },
+  {
+   "id": "unhinged-s148-B",
+   "config": "configs/unhinged-s148-B.json",
+   "frames": [
+    362,
+    439,
+    517
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "987c8c70a15106f7",
+ "files": {
+  "stills/configs/do-over-rescue-monday-re-s88-A.json": "c54f33e619b967186804f5bdf4f5fafe4e7051412a73043739fbaed55add28dc",
+  "stills/configs/do-over-rescue-monday-re-s88-B.json": "8836c77146c5909bcc97ebef2e16220700ba7376dc1952c958dbfe7311718170",
+  "stills/configs/fahrenheit-451-s60-A.json": "5e3ad96f30be2862f06cedada70c5e92c51259b15e3642c69ae569b772248a8c",
+  "stills/configs/fahrenheit-451-s60-B.json": "83bfaf7db9b9bd769b9da4b727a0e7d6e78799d258ff1b444746f65751430552",
+  "stills/configs/feel-good-productivity-s73-A.json": "1e7cd0ea19c69fa4db248efd1e1d19fabc3e509cec10b0bedb343fccd8b34afe",
+  "stills/configs/feel-good-productivity-s73-B.json": "ccc9a222d6ac224f73a41cbb678e94e835927cec480c19ea9663f9ddd93adf3f",
+  "stills/configs/great-at-work-s163-A.json": "89b0b1d9183b506066a390f554d719e484f59d495e534061c9271ff9aa149924",
+  "stills/configs/great-at-work-s163-B.json": "e795391f48db2223275ab316af25aba2daeb3431866e9cc644ac2be83d8ae06d",
+  "stills/configs/i-robot-s272-A.json": "6781f4681fb569c882d368b2eb3b5394fe72fd5bda21f55923a66fb703a178c8",
+  "stills/configs/i-robot-s272-B.json": "d74a63df1e99ebb9bc723bc356fe3e3c7472f260e969a8fcee9884d71cb07f78",
+  "stills/configs/icebreaker-s137-A.json": "bf26d3937d631b6294995f564522c7b6b5f644915716b76120c8700489460344",
+  "stills/configs/icebreaker-s137-B.json": "897b12002d4975617696eaf9d4c346f4bb192a8d884cabe374c24a101db9bfea",
+  "stills/configs/lolita-s106-A.json": "40a1af3d1b665ee7ff77ba25c3b5d11f8d715efccda9ffc60087732320a1f94b",
+  "stills/configs/lolita-s106-B.json": "fcf0d36f7e6cb4e4dc146ba5f23bb52eac1e2db3974003b01ca65b5332c343cd",
+  "stills/configs/ready-player-one-s0-A.json": "1dc23573ce16a71b5ee7be452382539e3cdbde5e9334b9336b2bf65cef751841",
+  "stills/configs/ready-player-one-s0-B.json": "6e912959eeb705b947d80e809a1f4985ba6ce8d22437ac99deeb3934f2d4e2f6",
+  "stills/configs/the-courage-to-be-dislik-s18-A.json": "a5391b6b431cd041e7d82378564cc5363cc9c5f6e7d00f81410a5000738a23d9",
+  "stills/configs/the-courage-to-be-dislik-s18-B.json": "ee2d5e9d613a34c0320abc0debbf1523179a0e0e266c6024c4937a11ba8885c2",
+  "stills/configs/the-miracle-of-mindfulne-s164-A.json": "0a54db5f9499d09064baa48a5ce97583c4ad50ecc32e21eb7dfcd4e497033603",
+  "stills/configs/the-miracle-of-mindfulne-s164-B.json": "9c5249a254fe4883b5a68cefb231dab9ec01ecedac43e08e6cc4bc034fdfc079",
+  "stills/configs/the-poison-daughter-s97-A.json": "7a87de7d8b48011234e176d3cd3dfcc5265c97c33ca84611783f8c440ead25ab",
+  "stills/configs/the-poison-daughter-s97-B.json": "19a16507465ccd1c214abfc415da4ce998df09fa8a2790ceaff3e487c3f0117d",
+  "stills/configs/the-southern-book-club-s-s109-A.json": "a3afb92145a0c21647749c3295f85b371dd14818a339993775104be171cf42f2",
+  "stills/configs/the-southern-book-club-s-s109-B.json": "3e110b3567ac14ea8db7097e0150cff2ceec95373735be73ce7ea1fae7fb7ccc",
+  "stills/configs/under-the-dome-s195-A.json": "7fd6930277ef7f9deef97d0305eaf833dc5f984f8b3811d6b597c22d5834a67d",
+  "stills/configs/under-the-dome-s195-B.json": "ec54faa010dbf8e0ac24b6e3cef929559fc9ac25356ad778f1ff6eec996adeba",
+  "stills/configs/unhinged-s148-A.json": "9533ad91040e32b44e2838a22b63a457ddea84fa41e3df10f2e064400fb866b4",
+  "stills/configs/unhinged-s148-B.json": "942d9c1d322163ee3d3c756b7030b24fa764ee4035362c89a80479ad2dff2164"
+ },
+ "builtAt": "2026-11-06T08:47:01.160Z"
+}
