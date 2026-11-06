@@ -1,0 +1,36 @@
+{
+ "schema": "stills/1",
+ "name": "c17 rehearsal: full config with a sealed single-relation scene",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "full-B-s195",
+   "config": "configs/full-B.json",
+   "frames": [
+    53195,
+    53314,
+    53432
+   ],
+   "strip": true,
+   "clip": {
+    "from": 52843,
+    "to": 53471
+   }
+  }
+ ],
+ "inputHash": "e51843169090403c",
+ "files": {
+  "stills/configs/full-B.json": "51c6ed441a301d22d8804f3754d55f1d57d63d7113238c0982d6a014a4f12593"
+ },
+ "builtAt": "2026-11-06T11:51:54.118Z"
+}
