@@ -130,6 +130,9 @@ function depsDoctor() {
   if (!src || !src.includes("function doctor")) { out("  node_modules: doctor NOT available (origin's scripts/lib/node-bin.js has none)"); return; }
   const seen = new Set();
   for (const root of [MAIN, ...worktrees().map((w) => w.path)]) {
+    // the main checkout's tree and every tree a worktree LINKS to; a lab worktree's own folder (often only a bundle
+    // .cache) is not shared and not this doctor's business
+    if (root !== MAIN) { try { if (!fs.lstatSync(path.join(root, "node_modules")).isSymbolicLink()) continue; } catch { continue; } }
     let nm; try { nm = fs.realpathSync(path.join(root, "node_modules")); } catch { continue; }
     if (seen.has(nm.toLowerCase())) continue;
     seen.add(nm.toLowerCase());
