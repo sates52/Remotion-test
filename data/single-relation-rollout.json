@@ -1,0 +1,38 @@
+{
+  "schema": "single-relation-rollout-policy/1",
+  "id": "c17-operator-selective-rollout",
+  "approvedAt": "2026-11-06",
+  "by": "operator",
+  "words": "Bu mesaj, yeni ve henüz production render'a girmemiş uygun Antidote kitaplarında sınırlı ve geri alınabilir feature activation için açık operatör onayıdır. … Bu onayı kullanmak için her kitapta tekrar \"Single-Relation açılsın mı?\" diye sorma. Ancak yetki yalnızca: Yeni, yayınlanmamış / Engine pin'i uygun / Henüz production render'a girmemiş / Antidote motoruyla hazırlanmış kitaplarda geçerlidir.",
+  "level2": "INCONCLUSIVE (cycle 16, dev/c16 audit/c16/holdout/result.json) — unchanged; this is a separate operator-approved selective rollout, not a Level-2 PASS",
+  "scope": {
+    "engine": "antidote",
+    "published": false,
+    "productionRendered": false,
+    "pinContains": [
+      "0296a84d",
+      "8cd04fc0"
+    ],
+    "globalDefault": false,
+    "pinNote": "0296a84d = the renderer; 8cd04fc0 = the workflow integration (make-book 1.885 re-applies the B scenes, preview-state stage singleRelation). A pin without the integration would drop the B scenes on its own make-book and loop on its own marker — such a book is not eligible; a Step-0 book (no work) can be repinned only on the operator's word (book-start --repin)."
+  },
+  "perBook": {
+    "maxScenes": 15,
+    "requires": [
+      "every applied contract VALID against its scene's narration (no validation-failure allowance)",
+      "an agent A/B on that beat: B > A, wrongInference(B) <= wrongInference(A), polarity(B) = 0, wrong cause(B) = 0 — otherwise A is kept",
+      "readcheck, firewall, mute test and preview-ready unchanged and run after the apply"
+    ]
+  },
+  "stop": "a wrong inference or a quality regression in the first book's preview / mute test -> revert those scenes (single-relation-rollout.js revert) and stop the rollout",
+  "notCovered": [
+    "full production render",
+    "upload",
+    "publish",
+    "cleanup",
+    "engine change",
+    "repin",
+    "paid Flux calls",
+    "published or production-rendered books"
+  ]
+}

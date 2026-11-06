@@ -1,0 +1,51 @@
+{
+ "schema": "stills/1",
+ "name": "c18 motion 2.0 fixes (overflow on the filling step, arrival inside the card, staggered labels)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "create-space-how-to--s177-B",
+   "config": "configs/create-space-how-to--s177-B.json",
+   "frames": [
+    318,
+    377,
+    436
+   ],
+   "strip": true,
+   "clip": {
+    "from": 259,
+    "to": 455
+   }
+  },
+  {
+   "id": "the-myth-of-sisyphus-s137-B",
+   "config": "configs/the-myth-of-sisyphus-s137-B.json",
+   "frames": [
+    414,
+    511,
+    609
+   ],
+   "strip": true,
+   "clip": {
+    "from": 317,
+    "to": 640
+   }
+  }
+ ],
+ "inputHash": "8a9dd2c286d8ca00",
+ "files": {
+  "stills/configs/create-space-how-to--s177-B.json": "38cc08cea80d928832d8f6bb085147a4ea6036b7eec13e8640ee34704cc03d13",
+  "stills/configs/the-myth-of-sisyphus-s137-B.json": "14eaf96215c62e49401a079c69cbe234dce0af667de5fe4d3759fed696725bc8"
+ },
+ "builtAt": "2026-11-06T19:10:11.288Z"
+}
