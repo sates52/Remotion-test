@@ -160,6 +160,11 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
      thumbnails, plus Test & Compare variants B/C → `youtube-meta.json → thumbnail.grammar / .variants`.
   2. `node scripts/render-thumbnails.js --slug=<slug>` — `out/thumbnail-<slug>{,-b,-c}.png` from one
      slim bundle + the Test & Compare block in `books/<slug>/youtube.md`.
+  **In the cloud (2026-11-06):** a production cloud render makes A/B/C itself — the `thumbnails` job of
+  `render-video.yml` runs this same script once per film, after the verified assembly (never per segment), and
+  finalization installs them sha256-checked (`lib/cloud-thumbs.js`). Film already done, or hook/grammar changed →
+  THUMBNAIL-ONLY: `node scripts/render-thumbnails.js --slug=<slug> --cloud [--book-root=<book worktree>]` (no film
+  rendered / joined / published; a thumbnail problem never re-renders or un-verifies the film).
   `make-book.js` runs both (steps 5.4 and 8). Upload A/B/C in YouTube Studio → Thumbnail → Test & compare.
 - **Antidote = a frame of its own film** (`scene-still`, no Flux). Vox = Flux hero graded by the grammar.
   Colours come from the book palette — never re-introduce a fixed channel-wide yellow/white look.

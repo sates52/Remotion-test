@@ -97,6 +97,14 @@ frames against the book's config; the download is checked by sha256. On this PC 
 start/end offsets, audio timeline, where the video holds; join dropouts vs the source narration; stretch; loudness,
 REPORT ONLY) into `books/<slug>/render-facts.json`, then `post-render.js --no-cleanup [--book-root]` (delivery files;
 it no longer deletes the render state). An A/V sync FAIL fails the delivery; dropouts and loudness are reported.
+**Thumbnails A/B/C come with the film (2026-11-06, `scripts/lib/cloud-thumbs.js`).** A production assembly run also
+renders them (job `thumbnails`, `needs: assemble`, once per film — never per segment), and before post-render the
+delivery installs them: `out/thumbnail-<slug>{,-b,-c}.png` + `books/<slug>/thumbnail-check.json` + the youtube.md
+Test & Compare block, sha256-checked and bound to the thumbnail inputs (stale = refused). Missing / failed / stale →
+ONE thumbnail-only run. A thumbnail problem is reported and NEVER fails, re-renders or un-verifies the film. A film
+that is already delivered, or a changed hook / grammar: `node scripts/render-thumbnails.js --slug=<slug> --cloud
+[--book-root=<book worktree>]` (thumbnail-only: no film rendered, joined, uploaded or published). Preview renders get
+none (production finalization only); thumbnail-only works for any unpublished book.
 The cloud assembly also REPAIRS the chunk joins (2026-11-04, `scripts/repair-joins.js`): every 400-frame chunk carried its
 AAC encoder delay as ~43 ms of inserted silence + a held frame. The film comes back on the composition clock (same
 frames, every content sample, narration no longer 43 ms late); `report.joinRepair` says REPAIRED / NOT_REPAIRED (then

@@ -115,6 +115,15 @@ t("bundle: no credential file (render-accounts*.json, .env, .pem)", !paths.some(
 fs.rmSync(path.join(vb, "public", "scenes", SLUG, "hero.png"));
 t("bundle: a missing hero image is a named problem (refused, not a blank thumbnail)", CT.thumbBundleFiles({ slug: SLUG, root: ROOT, bookRoot: vb }).problems.some((x) => /hero\.png/.test(x)));
 
+// Antidote: the hero is read only by a cinematic-bleed variant (grammar layout wins over the legacy thumbnail.layout)
+const legacy = { image: "scenes/bk/thumbnail-hero.png", layout: "cinematic-bleed" };
+t("hero (Antidote): a scene-still/text-poster grammar over a legacy cinematic-bleed layout needs NO hero (The Maze Runner)",
+  CT.neededHeroAssets({ ...legacy, grammar: { layout: "scene-still" }, variants: [{ layout: "scene-still" }, { layout: "text-poster" }, { layout: "scene-still" }] }, "antidote", "bk").length === 0);
+t("hero (Antidote): no grammar → the legacy cinematic-bleed layout applies → hero needed", CT.neededHeroAssets(legacy, "antidote", "bk").join() === "public/scenes/bk/thumbnail-hero.png");
+t("hero (Antidote): one cinematic-bleed variant → the default hero path when the meta names none",
+  CT.neededHeroAssets({ grammar: { layout: "scene-still" }, variants: [{ layout: "scene-still" }, { layout: "cinematic-bleed" }] }, "antidote", "bk").join() === "public/scenes/bk/thumbnail-hero.png");
+t("hero (Vox): always the named hero + cut-out", CT.neededHeroAssets({ image: "a.png", cut: "b.png", grammar: { layout: "scene-still" } }, "vox", "bk").join() === "public/a.png,public/b.png");
+
 // ── (E) workflow ─────────────────────────────────────────────────────────────
 const wf = fs.readFileSync(path.join(ROOT, ".github", "workflows", "render-video.yml"), "utf8").replace(/\r\n/g, "\n");
 const job = (name) => { const m = wf.match(new RegExp(`\\n  ${name}:\\n([\\s\\S]*?)(?=\\n  [a-z_]+:\\n|$)`)); return m ? m[1] : ""; };

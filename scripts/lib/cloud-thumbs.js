@@ -61,9 +61,22 @@ function bookFiles(bookRoot, slug) {
   return { meta, cfg, cfgName, book, thumb, engine };
 }
 
-/** Hero / cut-out images the Thumb composition reads (repo paths under public/). */
+/** Hero / cut-out images the meta names (repo paths under public/). */
 function heroAssets(thumb) {
   return [thumb && thumb.image, thumb && thumb.cut].filter((x) => typeof x === "string" && x).map((x) => `public/${x.replace(/^public\//, "")}`);
+}
+
+/**
+ * The hero images the Thumb composition will actually READ. Vox: always. Antidote: only when a rendered variant's
+ * layout is cinematic-bleed (src/engines/antidote/Thumbnail.tsx; the layout = grammar.layout, else the legacy
+ * thumbnail.layout — resolveGrammar), and then the default scenes/<slug>/thumbnail-hero.png when the meta names none.
+ */
+function neededHeroAssets(thumb, engine, slug) {
+  if (engine !== "antidote") return heroAssets(thumb);
+  const vs = Array.isArray(thumb.variants) && thumb.variants.length ? thumb.variants.slice(0, 3) : [thumb.grammar || null];
+  if (!vs.some((g) => ((g && g.layout) || thumb.layout) === "cinematic-bleed")) return [];
+  const named = heroAssets({ image: thumb.image });
+  return named.length ? named : [`public/scenes/${slug}/thumbnail-hero.png`];
 }
 
 /** What the thumbnails are made from. Equal hash = the same thumbnails; any input change = stale. */
@@ -195,7 +208,7 @@ function thumbBundleFiles({ slug, root = ROOT, bookRoot = root }) {
     }
   })(bookDir);
   const { thumb, engine } = bookFiles(bookRoot, slug);
-  const assets = new Set(heroAssets(thumb));
+  const assets = new Set(neededHeroAssets(thumb, engine, slug));
   if (engine === "antidote") {
     const { resolveFiles } = require("./render-bundle");
     for (const f of resolveFiles(slug, { root: bookRoot }).files) if (f.startsWith("public/") && (!AUDIO_RE.test(f) || f.startsWith("public/sfx/"))) assets.add(f);
@@ -410,7 +423,7 @@ async function finalizeThumbs({ slug, bookRoot, root = ROOT, acc, host, mode, as
 
 module.exports = {
   PACK_SCHEMA, THUMBS_ARTIFACT, thumbsRef, thumbsStateFile, thumbFile, CODE_PATHS, canon,
-  thumbInputHash, heroAssets, planThumbs, installedFilesOk, verifyPack, installPack, writePack,
+  thumbInputHash, heroAssets, neededHeroAssets, planThumbs, installedFilesOk, verifyPack, installPack, writePack,
   thumbBundleFiles, buildThumbBundle, ensureGrammar, isPublished, hostFor,
   ghReq, thumbsArtifactOf, fetchAndInstall, runThumbnailsOnly, finalizeThumbs,
 };

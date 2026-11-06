@@ -82,6 +82,16 @@ async function run(step, plan) {
     const v = node("verify-render-output.js", ["--media", "--json"], { capture: true });
     let detail = null;
     try { detail = JSON.parse(String(v.stdout || "").slice(String(v.stdout || "").indexOf("{"))); } catch {}
+    // thumbnails A/B/C (lib/cloud-thumbs.js, 2026-11-06): current → nothing; else the assembly run's; else ONE
+    // thumbnail-only cloud run. Production only; a thumbnail problem is reported, never a reason to fail the film.
+    const sp = readJson(status.splitFileFor(BOOK, SLUG) || "");
+    const cs = readJson(path.join(BOOK, `.render-github-cloud.${SLUG}.json`));
+    const CT = require("./lib/cloud-thumbs");
+    const acc = require("./lib/render-pool").loadAccounts();
+    const host = CT.hostFor({ acc, bookRoot: BOOK, slug: SLUG });
+    const th = host ? await CT.finalizeThumbs({ slug: SLUG, bookRoot: BOOK, root: ROOT, acc, host, mode: (sp && sp.mode) || "PRODUCTION", assembleRun: cs && cs.verified ? cs.run : null })
+      : { ok: false, problems: ["no active render-pool worker"] };
+    if (!th.ok) console.warn(`⚠ thumbnails not ready: ${th.problems.join("; ")} — retry (no re-render): node scripts/render-thumbnails.js --slug=${SLUG} --cloud${FOREIGN ? ` --book-root=${BOOK}` : ""}`);
     // delivery files (thumbnail, clean.vtt, YouTube pack): reported, never a reason to fail the film; deletes nothing
     const p = node("post-render.js", ["--no-cleanup"]);
     if (detail) detail.deliveryFiles = p.status === 0 ? "YOUTUBE_READY" : p.status === 2 ? "PACK_INCOMPLETE" : `POST_RENDER_EXIT_${p.status}`;

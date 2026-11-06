@@ -13,7 +13,7 @@ Active pipeline scripts. Run from repo root: `node scripts/<name>.js`
 - **plan-meta.js** — YouTube metadata + thumbnail brief (Vox books)
 - **plan-antidote-meta.js** — YouTube metadata + thumbnail brief (Antidote books)
 - **thumbnail-grammar.js** — channel-aware thumbnail design pick + Test & Compare variants → youtube-meta.json (no LLM)
-- **render-thumbnails.js** — renders out/thumbnail-<slug>{,-b,-c}.png from one slim bundle + Test & Compare block in youtube.md
+- **render-thumbnails.js** — renders out/thumbnail-<slug>{,-b,-c}.png from one slim bundle + Test & Compare block in youtube.md; `--cloud` = thumbnail-only run on the render pool (lib/cloud-thumbs.js; production cloud renders do it at finalization)
 - **preview-thumbnail-grammar.js** — simulated browse-feed preview of several books (`--variants` for A/B/C)
 - **test-thumbnail-grammar.js** — guard: fails if thumbnails collapse back into one template
 - **lib/antidote-costume.js** — the Character Foundry's casting director: reads a wardrobe

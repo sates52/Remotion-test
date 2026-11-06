@@ -554,6 +554,10 @@ per-scene entrance/exit fades. Variation is seeded by `beat.id` (DNA) so scenes 
   Every card carries a **book anchor** (short title + author, top corner) so searchers recognise their book.
   `scripts/render-thumbnails.js --slug=<s>` (make-book 8) renders `out/thumbnail-<slug>{,-b,-c}.png` and
   writes the Test & Compare block into `youtube.md` → upload all three in YouTube Studio → Test & compare.
+  Cloud (2026-11-06, `scripts/lib/cloud-thumbs.js`): a production cloud render runs the same script in the
+  `thumbnails` job of `render-video.yml` — once per film, after the verified assembly (a single-job render: on its own
+  runner, after the film upload) — and finalization installs A/B/C + `thumbnail-check.json` (sha256, bound to the
+  thumbnail inputs; stale = refused). Thumbnail-only (film done / hook changed): `render-thumbnails.js --slug=<s> --cloud`.
   Preview a feed: `node scripts/preview-thumbnail-grammar.js --slugs=a,b,c [--variants]`.
   Colours come from the book palette (`legibleAccent`/`emphasisColor`), never a fixed channel yellow.
 - Upload is user-driven (I can't post to their YouTube). Deliverables are drag-and-drop ready:
