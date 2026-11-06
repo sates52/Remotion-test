@@ -74,7 +74,7 @@ export function semanticState(spec: SemanticCompiled, frame: number): Record<str
       if (f.moveTo) { st.moveTo = f.moveTo; st.moveK = k; if (f.via) st.via = f.via; }
       // the spill follows the fill: it starts when the level reaches the rim (second half of the change)
       // only the step that fills it to the rim spills (a repeated event carries the flag on every step); kept, not reset
-      if (f.overflow && (f.value ?? 0) >= 0.95) st.overflowK = Math.max(st.overflowK, clamp01((frame - t0 - change * 0.5) / (change * 1.5)));
+      if (f.overflow && (f.value ?? 0) >= 0.95) st.overflowK = Math.max(st.overflowK, clamp01((frame - t0 - change * 0.6) / change));
       if (f.mergeInto) { st.mergeInto = f.mergeInto; st.moveK = k; st.vis = 1 - clamp01((k - 0.7) / 0.3); const r = s[f.mergeInto]; if (r) r.absorbK = Math.max(r.absorbK, clamp01((k - 0.7) / 0.3)); }
       if (f.from) { st.from = f.from; st.fromK = k; }
     }
@@ -149,7 +149,8 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
     if (!s.moveTo || !pos[s.moveTo]) return p;
     const q = pos[s.moveTo];
     // beside the receiver, not on them — and inside the stage card (a passage ran a person off the card, cycle 18)
-    const dest = { x: Math.min(W - 260, Math.max(260, q.x + (q.x > W - 520 ? -200 : 200) * q.s)), y: q.y + 70 * q.s };
+    const off = ent(id).kind === "person" ? 320 : 200; // a person needs room so the receiver's label stays readable
+    const dest = { x: Math.min(W - 260, Math.max(260, q.x + (q.x > W - 520 ? -off : off) * q.s)), y: q.y + 70 * q.s };
     // a passage: first to the gap the removed obstacle left, then on to the goal
     if (s.via && pos[s.via]) {
       const v = pos[s.via], k = s.moveK;
@@ -215,8 +216,8 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
                     <path d={`M ${p.x - w / 2 - 6} ${top + 6} Q ${p.x} ${top - 70 * p.s * s.overflowK} ${p.x + w / 2 + 6} ${top + 6} Z`} fill={ink} fillOpacity={0.82} />
                     {[-1, 1].map((side) => (
                       <g key={side}>
-                        <rect x={side < 0 ? p.x - w / 2 - 22 : p.x + w / 2 + 4} y={top} width={18} height={(h - 10) * s.overflowK} rx={9} fill={ink} fillOpacity={0.82} />
-                        <ellipse cx={p.x + side * (w / 2 + 50)} cy={top + h + 2} rx={60 * s.overflowK} ry={12 * s.overflowK} fill={ink} fillOpacity={0.82} />
+                        <rect x={side < 0 ? p.x - w / 2 - 30 : p.x + w / 2 + 4} y={top} width={26} height={(h - 10) * s.overflowK} rx={13} fill={ink} fillOpacity={0.82} />
+                        <ellipse cx={p.x + side * (w / 2 + 70)} cy={top + h + 4} rx={95 * s.overflowK} ry={18 * s.overflowK} fill={ink} fillOpacity={0.82} />
                       </g>
                     ))}
                     <path d={`M ${p.x + w / 2 - 4} ${top + h * 0.25} l -40 50 l 26 22 l -46 64`} stroke="#FFFFFF" strokeWidth={14} fill="none" strokeLinecap="round" opacity={Math.min(1, s.overflowK * 2)} />
