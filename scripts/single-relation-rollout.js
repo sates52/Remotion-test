@@ -181,9 +181,12 @@ if (require.main === module) {
     process.exit(s.state === "MISSING" ? 1 : 0);
   }
   if (cmd === "reapply") {
-    gate();
-    if (!record) { console.error("no active record"); process.exit(2); }
-    const live = record.scenes.filter((s) => !(record.reverted || []).includes(s.sceneIndex));
+    // --pipeline (make-book step 1.885): the record is the approval already given — no record = nothing to do
+    if (!record) { if (args.pipeline) { console.log(`no single-relation rollout record for ${slug} — nothing to re-apply`); process.exit(0); } console.error("no active record"); process.exit(2); }
+    if (!args.pipeline) gate();
+    const already = new Set(status(config, record).state === "ACTIVE" ? record.scenes.map((s) => s.sceneIndex) : []);
+    const live = record.scenes.filter((s) => !(record.reverted || []).includes(s.sceneIndex) && !already.has(s.sceneIndex));
+    if (!live.length) { console.log(`${slug}: every recorded B scene is already in the config`); process.exit(0); }
     const changed = live.filter((s) => sha(String((config.scenes[s.sceneIndex] || {})._narration || "")) !== s.narrationHash);
     if (changed.length) { console.error(`✗ the narration of scene(s) ${changed.map((s) => s.sceneIndex).join(", ")} changed since the apply — re-author and re-run select / apply (revert first)`); process.exit(1); }
     const selection = { chosen: live.map((s) => ({ sceneIndex: s.sceneIndex, contract: path.join(P.contracts, `${s.sceneIndex}.json`), review: s.review, ab: s.ab })), kept: record.kept };
@@ -191,8 +194,17 @@ if (require.main === module) {
     if (!r.ok) { console.error(`✗ refused:\n  ${r.errors.join("\n  ")}`); process.exit(1); }
     if (!args.write) { console.log(`dry run: ${live.length} scene(s) would be re-applied`); process.exit(0); }
     writeCfg(r.config);
-    fs.writeFileSync(P.active, JSON.stringify({ ...record, reapplied: [...(record.reapplied || []), { at: new Date().toISOString(), configAfter: r.record.configAfter }] }, null, 1));
-    console.log(`✓ re-applied ${live.length} scene(s)`);
+    // the record is a make-book input (marker): a pipeline re-apply leaves it byte-identical
+    if (!args.pipeline) fs.writeFileSync(P.active, JSON.stringify({ ...record, reapplied: [...(record.reapplied || []), { at: new Date().toISOString(), configAfter: r.record.configAfter }] }, null, 1));
+    console.log(`✓ re-applied ${live.length} scene(s) [${live.map((s) => s.sceneIndex).join(", ")}]`);
+    process.exit(0);
+  }
+  if (cmd === "decide") {
+    // the rollout ran and chose no B scene (0 candidates / 0 valid / no A/B win): recorded so the workflow moves on
+    if (!args.none || typeof args.reason !== "string" || !args.reason.trim()) { console.error('usage: decide --slug=<s> --book-root=<wt> --none --reason="<counts: candidates, contracts, valid, A/B wins>"'); process.exit(2); }
+    fs.mkdirSync(P.dir, { recursive: true });
+    fs.writeFileSync(path.join(P.dir, "rollout.json"), JSON.stringify({ schema: "single-relation-decision/1", decision: "none", reason: args.reason.trim(), policy: POLICY.id, at: new Date().toISOString() }, null, 1));
+    console.log(`✓ ${slug}: no B scene — recorded (${args.reason.trim()})`);
     process.exit(0);
   }
   if (cmd === "revert") {

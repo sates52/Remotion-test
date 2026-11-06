@@ -370,6 +370,28 @@ function bookState(slug, root = ROOT) {
   }
   stage("makeBook", "done", `config ${iso(cfgM)}; finished${legacyOk ? " (legacy: no make-book.done.json, judged on this config)" : ""}`);
 
+  // 10b. operator-approved single-relation rollout (cycle 17, runbook §2d; data/single-relation-rollout.json) — eligible
+  // books only, BEFORE the mute test so the verdict judges the film with its B scenes. Done = B scenes in the config
+  // (active.json, re-applied by make-book 1.885) or a recorded "none" decision.
+  if (engine === "antidote") {
+    let RO = null; try { RO = require("./single-relation-rollout"); } catch {}
+    const el = RO ? RO.eligibility(root, slug) : { ok: false, reasons: ["rollout tool missing"] };
+    const srDir = path.join(B, "single-relation");
+    const decision = readJSON(path.join(srDir, "rollout.json"));
+    const srStatus = RO && el.ok ? RO.status(readJSON(cfgPath), readJSON(path.join(srDir, "active.json"))) : null;
+    if (!el.ok) stage("singleRelation", "n/a", el.reasons[0]);
+    else if (srStatus.state === "MISSING") { stage("singleRelation", "todo", `B scene(s) ${srStatus.missing.join(", ")} not in the config`); go("singleRelation", "The recorded B scenes are not in the config: re-run make-book (step 1.885 re-applies books/<slug>/single-relation/active.json before the gates)", mbCmd); return finish(st); }
+    else if (srStatus.state === "ACTIVE") stage("singleRelation", "done", `${srStatus.active} B scene(s) in the config (active.json)`);
+    else if (decision && decision.decision === "none") stage("singleRelation", "done", `no B scene: ${decision.reason}`);
+    else {
+      stage("singleRelation", "todo", "eligible (operator-approved selective rollout) — not run");
+      go("singleRelation", "Single-relation rollout (runbook §2d, no operator question): scan → one fresh author → validate → isolated A/B on Actions → single-relation-ab.js (agents) → select → apply --write → make-book again. No B scene worth it: decide --none",
+        `node scripts/single-relation-rollout.js check --slug=${slug} && node scripts/single-relation-scan.js scan --slug=${slug}`,
+        "B only where its own A/B wins (≤ 15); every contract valid; the gates and the mute test then run unchanged on that config");
+      return finish(st);
+    }
+  }
+
   // 11. sealed holdout + verdict runs — only runs of THIS production (after the pin), only holdout attempts
   const MD = path.join(root, "audit", "mute", slug);
   const labels = exists(MD) ? fs.readdirSync(MD).filter((l) => exists(path.join(MD, l, "sample.json"))) : [];

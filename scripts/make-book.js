@@ -215,6 +215,12 @@ if (ENGINE === "antidote") {
   // 1.88) AUDIO DIRECTOR SOUND DESIGN (Phase 7)
   step(1.88, "Ses Yönetmeni & Dokunsal SFX Denetimi (God Mode Phase 7)",
     `node scripts/audit-audio.js --slug=${SLUG} --soft`, { optional: true });
+  // 1.885) operator-approved single-relation rollout (cycle 17, runbook §2d): the beats recorded in
+  // books/<slug>/single-relation/active.json get their validated contract back on the freshly planned config, sealed as
+  // the authored decision — BEFORE hard-gate, the authored-lock restore, the plan manifest and every gate, so they
+  // judge the film that renders. No record = nothing to do.
+  step(1.885, "Single-relation rollout (recorded B scenes re-applied before the gates)",
+    `node scripts/single-relation-rollout.js reapply --slug=${SLUG} --write --pipeline`);
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);

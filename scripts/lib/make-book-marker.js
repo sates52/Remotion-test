@@ -20,6 +20,8 @@ function inputsOf(root, slug, { engine, vtt, audio }) {
     motifs: path.join(B, "motifs.json"),
     vtt: vtt || path.join("public", "captions", `${slug}.vtt`),
     audio: audio || null,
+    // the operator-approved single-relation rollout record (make-book step 1.885 re-applies it)
+    singleRelation: path.join(B, "single-relation", "active.json"),
   };
   const out = {};
   for (const [k, rel] of Object.entries(rels)) if (rel) out[k] = { path: rel.replace(/\\/g, "/"), sha256: shaOf(path.join(root, rel)) };
