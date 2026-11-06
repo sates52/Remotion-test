@@ -73,7 +73,8 @@ export function semanticState(spec: SemanticCompiled, frame: number): Record<str
       if (f.broken && k >= 0.5) st.broken = true;
       if (f.moveTo) { st.moveTo = f.moveTo; st.moveK = k; if (f.via) st.via = f.via; }
       // the spill follows the fill: it starts when the level reaches the rim (second half of the change)
-      if (f.overflow) st.overflowK = clamp01((frame - t0 - change * 0.5) / (change * 1.5));
+      // only the step that fills it to the rim spills (a repeated event carries the flag on every step); kept, not reset
+      if (f.overflow && (f.value ?? 0) >= 0.95) st.overflowK = Math.max(st.overflowK, clamp01((frame - t0 - change * 0.5) / (change * 1.5)));
       if (f.mergeInto) { st.mergeInto = f.mergeInto; st.moveK = k; st.vis = 1 - clamp01((k - 0.7) / 0.3); const r = s[f.mergeInto]; if (r) r.absorbK = Math.max(r.absorbK, clamp01((k - 0.7) / 0.3)); }
       if (f.from) { st.from = f.from; st.fromK = k; }
     }
@@ -83,10 +84,11 @@ export function semanticState(spec: SemanticCompiled, frame: number): Record<str
 
 export function semanticLayout(spec: SemanticCompiled) {
   const two = spec.lanes === 2;
-  const pos: Record<string, { x: number; y: number; s: number }> = {};
+  const pos: Record<string, { x: number; y: number; s: number; ly: number }> = {};
   for (let l = 0; l < (two ? 2 : 1); l++) {
     const row = spec.entities.filter((e) => (two ? (e.lane ?? 0) === l : true));
-    row.forEach((e, i) => { pos[e.id] = { x: Math.round(160 + (W - 320) * (i + 1) / (row.length + 1)), y: two ? (l === 0 ? 330 : 790) : 560, s: two ? 0.7 : 1 }; });
+    // four in a row: every other label drops a line, so long labels never run into each other (cycle 18)
+    row.forEach((e, i) => { pos[e.id] = { x: Math.round(160 + (W - 320) * (i + 1) / (row.length + 1)), y: two ? (l === 0 ? 330 : 790) : 560, s: two ? 0.7 : 1, ly: row.length >= 4 && i % 2 === 1 ? 48 : 0 }; });
   }
   return pos;
 }
@@ -145,7 +147,9 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
     // merge: it travels INTO the receiver (its centre)
     if (s.mergeInto && pos[s.mergeInto]) { const q = pos[s.mergeInto]; return { x: p.x + (q.x - p.x) * s.moveK, y: p.y + (q.y - p.y) * s.moveK, s: p.s }; }
     if (!s.moveTo || !pos[s.moveTo]) return p;
-    const q = pos[s.moveTo], dest = { x: q.x + 200 * q.s, y: q.y + 70 * q.s }; // beside the receiver, not on them
+    const q = pos[s.moveTo];
+    // beside the receiver, not on them — and inside the stage card (a passage ran a person off the card, cycle 18)
+    const dest = { x: Math.min(W - 260, Math.max(260, q.x + (q.x > W - 520 ? -200 : 200) * q.s)), y: q.y + 70 * q.s };
     // a passage: first to the gap the removed obstacle left, then on to the goal
     if (s.via && pos[s.via]) {
       const v = pos[s.via], k = s.moveK;
@@ -219,7 +223,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
                     <path d={`M ${p.x + w / 2 - 4} ${top + h * 0.25} l -40 50 l 26 22 l -46 64`} stroke={ink} strokeWidth={6} fill="none" strokeLinecap="round" opacity={Math.min(1, s.overflowK * 2)} />
                   </g>
                 ) : null}
-                <Label x={p.x} y={top + h + 52 * p.s} text={e.label} ink={ink} s={p.s} />
+                <Label x={p.x} y={top + h + 52 * p.s + p.ly} text={e.label} ink={ink} s={p.s} />
               </g>
             );
           }
@@ -228,7 +232,7 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
             return (
               <g key={e.id}>
                 {Array.from({ length: 10 }, (_, k) => <Figure key={k} x={p.x - 4.5 * gap + k * gap} y={p.y} s={p.s} ink={ink} mode={k < n ? "on" : k < n0 ? "ghost" : "off"} />)}
-                <Label x={p.x} y={p.y + 100 * p.s} text={e.label} ink={ink} s={p.s} />
+                <Label x={p.x} y={p.y + 100 * p.s + p.ly} text={e.label} ink={ink} s={p.s} />
               </g>
             );
           }
@@ -244,11 +248,19 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
                 {moved && v ? <polyline points={`${p.x},${p.y} ${v.x},${v.y} ${q.x},${q.y}`} fill="none" stroke={ink} strokeWidth={5} strokeDasharray="2 14" strokeLinecap="round" opacity={0.7} />
                   : moved ? <line x1={p.x} y1={p.y} x2={q.x} y2={q.y} stroke={ink} strokeWidth={5} strokeDasharray="2 14" strokeLinecap="round" opacity={0.7} /> : null}
                 {src && s.fromK > 0.02 ? <line x1={src.x} y1={src.y} x2={q.x} y2={q.y} stroke={ink} strokeWidth={5} strokeDasharray="2 14" strokeLinecap="round" opacity={0.7} /> : null}
-                <Label x={p.x} y={p.y + r + 50 * p.s} text={e.label} ink={ink} s={p.s} />
+                <Label x={p.x} y={p.y + r + 50 * p.s + p.ly} text={e.label} ink={ink} s={p.s} />
               </g>
             );
           }
-          if (e.kind === "person") return <Label key={e.id} x={p.x} y={p.y + halfH("person", p.s) + 52 * p.s} text={e.label} ink={ink} s={p.s} />;
+          if (e.kind === "person") {
+            const m = s.moveTo ? at(e.id)! : p, v = s.via ? pos[s.via] : null, walked = !!s.moveTo && s.moveK > 0.02;
+            return (
+              <g key={e.id}>
+                {walked ? <polyline points={v ? `${p.x},${p.y} ${v.x},${v.y} ${m.x},${m.y}` : `${p.x},${p.y} ${m.x},${m.y}`} fill="none" stroke={ink} strokeWidth={5} strokeDasharray="2 14" strokeLinecap="round" opacity={0.7} /> : null}
+                <Label x={m.x} y={m.y + halfH("person", p.s) + 52 * p.s + p.ly} text={e.label} ink={ink} s={p.s} />
+              </g>
+            );
+          }
           return null;
         })}
       </svg>
@@ -289,8 +301,10 @@ export const SemanticStage: React.FC<{ spec: SemanticCompiled; accent: string; i
           const cv = (e.cast && cast && cast[e.cast] && cast[e.cast]!.variant) || {};
           const v = { ...DEFAULT_VARIANT, ...cv, ...(s.mood ? { expression: s.mood } : {}) } as VariantSpec;
           const w = SIZE.person * p.s;
+          // a person moves only through a passage (moveTo + via, cycle 18): drawn where they are on the way
+          const m = s.moveTo ? at(e.id)! : p;
           return (
-            <div key={e.id} style={{ position: "absolute", left: p.x - w / 2, top: p.y - w * 0.75, opacity: 0.15 + 0.85 * s.vis }}>
+            <div key={e.id} style={{ position: "absolute", left: m.x - w / 2, top: m.y - w * 0.75, opacity: 0.15 + 0.85 * s.vis }}>
               <Everyman variant={v} pose={pose("idle", frame, 30)} width={w} body="bust" />
             </div>
           );
