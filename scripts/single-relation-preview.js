@@ -31,7 +31,7 @@ for (const i of rec.valid || []) {
   const A = [prev, cur].filter(Boolean).map((s) => ({ ...s, fromFrame: s.fromFrame - off }));
   const curA = A[A.length - 1], total = curA.fromFrame + curA.durationFrames;
   const mk = (scenes) => ({ ...cfg, scenes, captions: [], totalFrames: total, meta: { ...(cfg.meta || {}), durationInFrames: total } });
-  const cfgs = { A: mk(A), B: R.enable(mk(A.slice(0, -1).concat([R.compile(c, curA)]))) };
+  const cfgs = { A: mk(A), B: R.enable(mk(A.slice(0, -1).concat([R.compile(c, curA, { words: require("./apply-single-relation").wordsOf(cfg, cur) })]))) };
   const frames = [0.3, 0.6, 0.9].map((p) => Math.round(curA.fromFrame + p * curA.durationFrames));
   for (const arm of ["A", "B"]) {
     const id = `s${i}-${arm}`;

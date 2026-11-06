@@ -57,6 +57,22 @@ It is Director 1.0's proven part, not a new style.
   (an object moves to another owner; moveTo), `accumulation` (level up in steps), `depletion` / `recovery` (level down / up),
   `removal` (an obstacle disappears AND another entity changes), `transformation` (mood / broken), `character-action` (a
   person acts). The validator refuses a motion that does not match it (wrong entity, wrong direction). The scan proposes one.
+- **Relational motion 2.0 (cycle 18, experimental — dev until shipped):** events the renderer DRAWS, use only when the
+  narration states them:
+  - `overload` — a stock fills in steps (`repeat` ≥ 2, value up to ≥ 0.95) and its last effect has `"overflow": true`:
+    the content heaps over the rim, runs down the sides and the wall cracks ("the to-do list piles up until he snaps").
+  - `passage` — an obstacle object is removed (`present: false`) and, in the same or a later event, a mover object goes
+    `moveTo` its goal `"via": "<the obstacle>"`: it travels through the place the obstacle held ("once the barrier is
+    gone, the letter reaches her"). The obstacle must be gone first.
+  - `merge` — an object `"mergeInto": "<other entity>"`: it travels into the receiver and is gone as itself; the receiver
+    swells and stays a little bigger.
+  - `split` — an object that starts `present: false` appears with `"from": "<source>"`: it comes out of the source and
+    slides to its own place (a dotted trace stays).
+- **Multi-phase single-frame storytelling (cycle 18 pilot):** `"phases": true` allows 2–3 events (setup → action →
+  result) in the same locked frame. Every event then has `"anchors": {"cause": "<words>", "effect": "<words>"}` (one or
+  both; 1–6 VERBATIM narration words): the cause lights up when the narrator says its words, the change never starts
+  before the effect's words are said. Any anchor the word timings cannot find → the whole contract falls back to its
+  `at` fractions (recorded as `timingSource`). One-event contracts may carry anchors too; without anchors nothing changes.
 - Anything the narration mentions but does not assert goes in `claim.notAsserted` ({text verbatim, kind}); it may not be
   your evidence, card text or a label. Polarity `contrast` when the beat says "not X but Y" (stage Y only).
 

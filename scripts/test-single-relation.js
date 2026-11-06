@@ -233,4 +233,52 @@ ok("apply: one invalid contract refuses the whole apply; a published book is ref
   assert(!apply(book(), { 1: base() }, { published: true }).ok);
 });
 
+// ── relational motion 2.0 + multi-phase single-frame storytelling (cycle 18) ──
+const D = require("./lib/semantic-director");
+const ev1 = (effects, extra = {}) => ({ ...base(), events: [{ at: 0.3, cause: "phone", effects, ...extra }] });
+const errs = (c) => R.validate(c, ctx);
+ok("overload: a stock filled to the top in steps may overflow; not short of the rim; the mechanism needs the steps", () => {
+  const good = { ...ev1([{ entity: "focus", value: 1, overflow: true }], { repeat: 3 }), mechanism: "overload", entities: [base().entities[0], { id: "focus", kind: "stock", label: "focus", value: 0.2 }] };
+  assert.deepStrictEqual(errs(good), []);
+  assert(errs({ ...good, events: [{ ...good.events[0], effects: [{ entity: "focus", value: 0.7, overflow: true }] }] }).some((e) => /overflow needs/.test(e)));
+  assert(errs({ ...good, events: [{ ...good.events[0], repeat: 1 }] }).some((e) => /mechanism "overload"/.test(e)));
+});
+ok("passage: a move routed via an obstacle needs the obstacle removed first; mergeInto / from are checked", () => {
+  const ents = [{ id: "phone", kind: "object", glyph: "smartphone", label: "notification" }, { id: "wall", kind: "object", glyph: "boulder", label: "deep work" }, { id: "focus", kind: "stock", label: "focus", value: 1 }];
+  const blocked = { ...base(), entities: ents, events: [{ at: 0.3, cause: "phone", effects: [{ entity: "phone", moveTo: "focus", via: "wall" }] }] };
+  assert(errs(blocked).some((e) => /still in the way/.test(e)));
+  const open = { ...blocked, mechanism: "passage", events: [{ at: 0.3, cause: "phone", effects: [{ entity: "wall", present: false }, { entity: "phone", moveTo: "focus", via: "wall" }] }] };
+  assert.deepStrictEqual(errs(open).filter((e) => /via|still|mechanism/.test(e)), []);
+  const merge = { ...base(), mechanism: "merge", entities: ents.slice(0, 2), events: [{ at: 0.3, cause: "phone", effects: [{ entity: "phone", mergeInto: "wall" }] }] };
+  assert.deepStrictEqual(errs(merge).filter((e) => /merge|mechanism/.test(e)), []);
+  const split = { ...base(), mechanism: "split", entities: [ents[0], { ...ents[1], present: false }], events: [{ at: 0.3, cause: "phone", effects: [{ entity: "wall", present: true, from: "phone" }] }] };
+  assert.deepStrictEqual(errs(split).filter((e) => /from|mechanism/.test(e)), []);
+  assert(errs({ ...split, events: [{ at: 0.3, cause: "phone", effects: [{ entity: "wall", from: "phone" }] }] }).some((e) => /from needs present: true/.test(e)));
+});
+ok("phases: 2–3 events only with phases: true and word anchors that are verbatim narration", () => {
+  const two = { ...base(), events: [{ at: 0.2, cause: "phone", effects: [{ entity: "focus", value: 0.5 }], anchors: { cause: "every notification" } }, { at: 0.5, cause: "phone", effects: [{ entity: "focus", value: 0.1 }], anchors: { effect: "focus is drained" } }] };
+  assert(errs(two).some((e) => /exactly one event/.test(e)));
+  assert.deepStrictEqual(errs({ ...two, phases: true }), []);
+  assert(errs({ ...two, phases: true, events: [two.events[0], { ...two.events[1], anchors: { effect: "focus is gone" } }] }).some((e) => /not a verbatim phrase/.test(e)));
+  assert(errs({ ...two, phases: true, events: [two.events[0], { ...two.events[1], anchors: undefined }] }).some((e) => /every event needs anchors/.test(e)));
+});
+ok("word-anchored timing: cause marked when said, change not before the effect is said; a missing anchor → fraction timing for the whole contract", () => {
+  const W = [{ w: "Every", s: 10 }, { w: "notification", s: 20 }, { w: "pulls", s: 40 }, { w: "your", s: 120 }, { w: "focus", s: 130 }, { w: "is", s: 140 }, { w: "drained", s: 150 }];
+  const c = { ...base(), events: [{ ...base().events[0], repeat: 1, anchors: { cause: "every notification", effect: "focus is drained" } }] };
+  const o = D.timeline(c, 300, W);
+  assert.strictEqual(o.source, "anchored"); assert.strictEqual(o[0].cue, 10); assert(o[0].cue + D.TIMING.token + o[0].pause >= 130, JSON.stringify(o));
+  const miss = D.timeline({ ...c, events: [{ ...c.events[0], anchors: { cause: "never said" } }] }, 300, W);
+  assert(/^fraction \(anchor/.test(miss.source)); assert.strictEqual(miss[0].cue, Math.round(0.3 * 300));
+  const plain = D.timeline(base(), 300, W);
+  assert.strictEqual(plain.source, "fraction");
+  assert.strictEqual(JSON.stringify(D.timeline(base(), 300)), JSON.stringify(plain));
+});
+ok("compile: anchored contracts record timingSource; one-event contracts without anchors compile byte-identically to before", () => {
+  const W = [{ w: "Every", s: 10 }, { w: "notification", s: 20 }];
+  const plain = R.compile(base(), scene), withWords = R.compile(base(), scene, { words: W });
+  assert.strictEqual(JSON.stringify(plain), JSON.stringify(withWords));
+  const anch = R.compile({ ...base(), events: [{ ...base().events[0], anchors: { cause: "every notification" } }] }, scene, { words: W });
+  assert.strictEqual(anch.singleRelation.timingSource, "anchored");
+});
+
 console.log(`single-relation: ${n} passed`);
