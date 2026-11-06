@@ -99,7 +99,7 @@ function validate(c, ctx = {}) {
   // a planned / hypothetical / quoted part may be QUOTED WITH ITS FRAME ("someone proposed …", "she said …") — that is a
   // report, not the claim; a rejected premise, a counterfactual or a contrast half is never shown as the point
   const REPORTABLE = ["planned", "hypothesis", "quoted-speech"];
-  const framed = (t, n) => REPORTABLE.includes(n.kind) && !norm(n.text).includes(norm(t)) && (HARD[0].re.test(t) || /["“”]|(said|says|told|tells|asked|asks|wrote|writes)/i.test(t));
+  const framed = (t, n) => REPORTABLE.includes(n.kind) && !norm(n.text).includes(norm(t)) && (HARD[0].re.test(t) || /["“”]|\b(said|says|told|tells|asked|asks|wrote|writes)\b/i.test(t));
   const fromNotAsserted = (t, k = 0.7) => na.find((n) => n && n.text && t && (norm(n.text).includes(norm(t)) || overlap(t, n.text) >= k) && !framed(t, n));
   if (c.evidence) {
     const hit = fromNotAsserted(c.evidence);
@@ -152,7 +152,78 @@ function validate(c, ctx = {}) {
     mustName(ev.cause, "cause");
     for (const f of ev.effects || []) { if (f.entity !== ev.cause) mustName(f.entity, "effect"); if (f.moveTo) mustName(f.moveTo, "moveTo target"); }
   }
+  // RELATIONAL MOTION (cycle 16): a declared mechanism must be what the motion actually does — the change lands on the
+  // right entity in the right direction (a "transfer" with no moving object, or a "depletion" whose level rises, is refused)
+  if (c.mechanism != null) for (const m of mechanismErrors(c, ents, evs)) err(m);
   return E;
+}
+
+/** Relational-motion mechanisms the renderer can draw honestly, and what each requires of the ONE event */
+const MECHANISMS = {
+  "cause-effect": "the cause changes another entity",
+  transfer: "an object moves from where it was to another entity (moveTo; its old place stays as a dashed slot)",
+  accumulation: "a level rises in steps (repeat ≥ 2, value up)",
+  depletion: "a level falls (value down)",
+  recovery: "a level rises (value up)",
+  removal: "an obstacle disappears (present: false) AND, in the same event, another entity changes",
+  transformation: "an entity's state flips (mood or broken)",
+  "character-action": "a person (the cause) acts and another entity changes",
+};
+function mechanismErrors(c, ents, evs) {
+  const out = [], m = c.mechanism, ev = evs[0];
+  if (!MECHANISMS[m]) return [`mechanism must be one of ${Object.keys(MECHANISMS).join(" / ")} (connection / separation / choice are not drawable in one relation yet)`];
+  if (!ev) return out;
+  const byId = Object.fromEntries(ents.map((e) => [e.id, e]));
+  const fx = (ev.effects || []).filter(Boolean);
+  const start = (id) => (byId[id] && typeof byId[id].value === "number" ? byId[id].value : 1);
+  const up = fx.some((f) => typeof f.value === "number" && f.value > start(f.entity));
+  const down = fx.some((f) => typeof f.value === "number" && f.value < start(f.entity));
+  const need = (ok) => { if (!ok) out.push(`mechanism "${m}": ${MECHANISMS[m]} — the event does not do that`); };
+  if (m === "transfer") need(fx.some((f) => f.moveTo && f.entity !== f.moveTo));
+  if (m === "accumulation") need(up && (ev.repeat || 1) >= 2);
+  if (m === "depletion") need(down);
+  if (m === "recovery") need(up);
+  if (m === "removal") need(fx.some((f) => f.present === false) && fx.some((f) => f.present !== false && f.entity !== (fx.find((g) => g.present === false) || {}).entity));
+  if (m === "transformation") need(fx.some((f) => f.mood || f.broken));
+  if (m === "character-action") need(byId[ev.cause] && byId[ev.cause].kind === "person" && fx.some((f) => f.entity !== ev.cause));
+  if (m === "cause-effect") need(fx.some((f) => f.entity !== ev.cause));
+  return out;
+}
+
+// glyphs that look like what they ARE (a coin is money, a clock is time); every other glyph standing for an idea
+// (a mask for "fake", a door for "rejecting") and every level tank carry their meaning by the LABEL alone
+const LITERAL = { coin: ["money", "coin", "cash", "pay", "wealth", "dollar", "price", "cost"], wallet: ["money", "wallet", "savings"], clock: ["time", "timing", "clock", "hour", "deadline"],
+  hourglass: ["time", "hourglass", "wait"], book: ["book", "novel", "read", "story", "chapter"], phone: ["phone", "call"], smartphone: ["phone", "notification", "screen", "app"],
+  laptop: ["laptop", "computer", "work", "email"], letter: ["letter", "mail", "message"], notes: ["notes", "list", "plan", "memo"], key: ["key", "access", "unlock"],
+  cup: ["cup", "coffee", "tea", "drink"], coffee: ["coffee"], food: ["food", "eat", "meal", "hunger"], trophy: ["trophy", "prize", "award", "win", "winner"], car: ["car", "drive"],
+  home: ["home", "house", "family"], family: ["family", "parent", "child", "kid"], school: ["school", "class", "teacher", "student"], medical: ["doctor", "medical", "hospital", "health", "drug"],
+  water: ["water", "rain", "flood"], fire: ["fire", "burn", "flame"], storm: ["storm", "noise", "chaos", "thunder"], crash: ["crash", "accident"], tree: ["tree", "nature", "forest"],
+  work: ["work", "job", "office"], city: ["city"], law: ["law", "court", "judge", "rule"], chains: ["chains", "trapped", "prison"], ladder: ["ladder", "climb", "promotion"],
+  door: ["door", "leave", "exit", "enter"], boulder: ["boulder", "obstacle", "burden"], creditCard: ["card", "credit", "debt", "spend"], gift: ["gift", "present"], photo: ["photo", "picture", "memory"],
+  flower: ["flower"], magnifier: ["search", "look", "detail", "find"], wrench: ["fix", "repair", "tool"], grave: ["death", "grave", "die"], war: ["war", "battle", "fight"] };
+const stemOf = (w) => w.replace(/'s$/, "").slice(0, Math.max(4, Math.min(w.length, 5)));
+
+/** review(contract) — decision 2 of the pipeline: does the NEW scene show the relation, or only label it? Advisory: it
+ *  never changes validity. labelCarried = the ends whose meaning comes from their label text alone (a level tank, or a
+ *  glyph that is a metaphor for the label). Both ends label-carried → "TRY_CONCRETE": author a version where at least one
+ *  end is a literal object or a person (cycle 16: the fresh scene the operator "did not understand"). */
+function review(c) {
+  const ents = Array.isArray(c.entities) ? c.entities : [], ev = (c.events || [])[0];
+  if (c.type === "H" || !ev) return { verdict: "QUOTE_CARD", labelCarried: [], ends: [] };
+  const byId = Object.fromEntries(ents.map((e) => [e.id, e]));
+  const endIds = [ev.cause, ...(ev.effects || []).map((f) => f.entity).filter((id) => id !== ev.cause)];
+  const carried = (e) => {
+    if (!e) return false;
+    if (e.kind === "person") return false;                 // a person (with a face) is read without the label
+    if (e.kind === "stock" || e.kind === "group") return true; // a level / count means only what its label says
+    const lex = LITERAL[e.glyph] || [];
+    return !(String(e.label || "").toLowerCase().split(/\s+/).filter(Boolean).some((w) => lex.some((x) => stemOf(x) === stemOf(w))));
+  };
+  const labelCarried = endIds.filter((id) => carried(byId[id]));
+  const moves = (ev.effects || []).some((f) => f.moveTo || f.present === false || f.mood || f.broken);
+  const verdict = labelCarried.length === endIds.length && !moves ? "TRY_CONCRETE" : "OK";
+  return { verdict, ends: endIds, labelCarried, labelDependence: Math.round((labelCarried.length / Math.max(1, endIds.length)) * 100) / 100,
+    note: verdict === "TRY_CONCRETE" ? "every end of the relation is carried by its label alone (a tank / a metaphor glyph) and nothing moves, appears, leaves or changes face — try a version with a literal object or a person first (creative-direction.md)" : undefined };
 }
 
 /** compile a valid contract onto its source scene (same id, timing, set, transition) */
@@ -170,4 +241,4 @@ function compile(c, scene) {
 /** a book opts in by meta.singleRelation; without it the renderer ignores every singleRelation field */
 function enable(config) { return { ...config, meta: { ...config.meta, singleRelation: true } }; }
 
-module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, validate, compile, enable };
+module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, MECHANISMS, validate, compile, enable, review };

@@ -24,6 +24,17 @@ ok("host chatter, 'let's', 'made up of' and caption fragments are not relations"
   assert.strictEqual(splitRelation("because if a piece of information is"), null);
 });
 
+ok("author-reject classes (cycles 14–15) are filtered; the accepted shapes are kept", () => {
+  const { rejectClass } = require("./single-relation-scan");
+  assert.match(rejectClass("You have to outthink the crowd because first level thinking is simplistic and superficial.") || "", /obligation/);
+  assert.match(rejectClass("If your tone remains perfectly flat, it forces the interrogator to hear the echo of their own aggression.") || "", /conditional/);
+  assert.match(rejectClass("The iron jaw posture proves you are a force to be reckoned with.") || "", /evaluation/);
+  assert.match(rejectClass('He said "this destroys everything" and it made the room go silent.') || "", /quoted/);
+  assert.strictEqual(rejectClass("And once you stop resisting, the adrenaline starts to clear."), null);
+  assert.strictEqual(rejectClass("An overwhelming noise that vibrates in your chest and makes it impossible to think clearly."), null);
+  assert.strictEqual(rejectClass("Rejecting a friend to their face triggers the same pain receptors as physical injury."), null);
+});
+
 // a tiny book in a temp root: scan proposes only the people-only causal beat; validate is per contract
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "srscan-"));
 const B = path.join(root, "books", "tbook"); fs.mkdirSync(B, { recursive: true });

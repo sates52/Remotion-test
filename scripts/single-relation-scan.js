@@ -48,6 +48,26 @@ function bookPaths() {
 const NOT_CAUSAL = /\b(let'?s|made up of|makes? sense|make sure|made it (?:to|through)|makes? no sense)\b/gi;
 const REPORTED = /\b(everyone|people|most people|they|many) (thinks?|believes?|assumes?|says?)\b|\b(i hear|you might think|the myth|the misconception)\b/i;
 const DISCOURSE = /\b(for a second|stop (?:here|the momentum)|because i think|let me|let'?s (?:zoom|clarify|look|talk|dig|go|pause|unpack)|i have to (?:stop|interject|push back|jump in)|go for it|for the listener)\b/i;
+// classes fresh authors rejected in cycles 14–15 (16 of 21 skips; audit/c16): filtered before an author is paid for them.
+// Kept on purpose: "once you stop …" (radical-compassion 128), an inner-state EFFECT ("impossible to think", knave 99).
+const AUTHOR_REJECTS = [
+  { kind: "obligation / advice", re: /\b(have to|has to|need to|needs to|must|ought to|should)\b/i },
+  { kind: "conditional", re: /\b(if|unless|next time|in case)\b/i },
+  { kind: "quoted speech / opinion", re: /["“”]/ },
+  { kind: "evaluation / identity", re: /\b(proves? (?:that )?(?:you|he|she|they) (?:are|is)|feels? [\w ]{0,30}\bbecause|is (?:a|an) (?:\w+ )?(?:chilling|brilliant|great|terrible|fascinating|powerful) \w+ because)\b/i },
+  { kind: "an end that is only a pronoun", test: (s, rel) => [rel.cause, rel.effect].some((p) => /^(it|this|that|they|he|she)\b/i.test(p) && words(p).length <= 3) },
+].map((x) => ({ ...x, test: x.test || ((s) => x.re.test(s)) }));
+/** the relational-motion mechanism a cue suggests (the author decides; lib/single-relation.js MECHANISMS) */
+function proposeMechanism(sentence) {
+  const t = String(sentence).toLowerCase();
+  if (/\b(gives?|gave|takes?|took|steals?|stole|hands?|transfers?|moves? .* to|passes?|wins?|loses? .* to)\b/.test(t)) return "transfer";
+  if (/\b(piles?|builds? up|accumulatw*|overloadw*|adds? up|stacks?)\b/.test(t)) return "accumulation";
+  if (/\b(drains?|depletes?|loses?|lost|shrinks?|erodes?|destroys?|kills?|crushes?)\b/.test(t)) return "depletion";
+  if (/\b(restores?|recovers?|grows?|rebuilds?|boosts?|raises?)\b/.test(t)) return "recovery";
+  if (/\b(removes?|clears?|stops?|eliminates?|breaks? through|lifts?)\b/.test(t)) return "removal";
+  if (/\b(turns? (?:w+ )?into|transforms?|becomes?)\b/.test(t)) return "transformation";
+  return "cause-effect";
+}
 /** split one causal sentence into cause / effect phrases (heuristic — the contract author decides) */
 function splitRelation(s0) {
   if (!/[.!]\s*$/.test(s0) || words(s0).length < 7) return null; // a whole statement, not a caption fragment
@@ -77,13 +97,15 @@ function scan() {
     for (const s of sentences(narration)) {
       const rel = splitRelation(s);
       if (!rel) continue;
-      const hard = R.HARD.find((h) => h.re.test(s)) || (REPORTED.test(s) ? { kind: "reported / rejected-premise", re: REPORTED } : null);
+      const hard = R.HARD.find((h) => h.re.test(s)) || (REPORTED.test(s) ? { kind: "reported / rejected-premise", re: REPORTED } : null)
+        || AUTHOR_REJECTS.find((h) => h.test(s, rel));
       const base = { sceneIndex: i, sceneId: sc.id, evidence: s, cause: rel.cause, effect: rel.effect, cue: rel.cue, inputHash: sha({ narration, shot: sc.shot, props: sc.props, concept: sc.concept, diagram: sc.diagram }) };
-      if (hard) { rejected.push({ ...base, reason: `${hard.kind} cue ("${(s.match(hard.re) || [""])[0]}") — would show it as a real event; stays as authored (or a quote card)` }); continue; }
+      if (hard) { rejected.push({ ...base, rejectClass: hard.kind, reason: `${hard.kind} cue${hard.re ? ` ("${(s.match(hard.re) || [""])[0]}")` : ""} — not an asserted, drawable relation; stays as authored (or a quote card)` }); continue; }
       if (visible) { rejected.push({ ...base, reason: "the scene already shows an object / diagram that can carry the effect — keep the authored storyboard" }); continue; }
       cands.push({ ...base,
         currentLimitation: `people${(sc.texts || []).length ? " + on-screen words" : ""} only (shot ${sc.shot}) — no object or diagram shows the effect; a muted viewer gets it from words or a face`,
         proposedRepresentation: "B cause → effect: the cause marked, a token, a pause, the effect visibly changes another entity (one locked frame)",
+        proposedMechanism: proposeMechanism(s),
         expectedUnderstanding: `${rel.cause} → ${rel.effect}`,
         risk: "the two ends must be drawable as entities named in the narration; if not, or if the author finds the claim not asserted, fall back to the authored scene (or a quote card)" });
       break; // one candidate per scene: its first stated relation
@@ -120,7 +142,7 @@ function validateAll() {
     if (!errors) errors = R.validate(c, { ...ctx0, narration: sc._narration || "" });
     outRec[i] = { sceneIndex: i, sceneId: sc && sc.id, previousSceneId: i > 0 && cfg.scenes[i - 1] ? cfg.scenes[i - 1].id : null,
       author: (prov[i] && prov[i].author) || (c && c._author) || "unknown", inputHash: sc ? sha({ narration: sc._narration, shot: sc.shot }) : null,
-      contractHash: c ? sha(c) : null, valid: errors.length === 0, errors };
+      contractHash: c ? sha(c) : null, valid: errors.length === 0, errors, review: c && !errors.length ? R.review(c) : null };
   }
   const vals = Object.values(outRec);
   fs.writeFileSync(path.join(P.out, "contracts.json"), JSON.stringify({ schema: "single-relation-contracts/1", slug: P.slug, at: new Date().toISOString(), valid: vals.filter((v) => v.valid).map((v) => v.sceneIndex), invalid: vals.filter((v) => !v.valid).map((v) => v.sceneIndex), contracts: outRec }, null, 1));
@@ -133,4 +155,6 @@ if (require.main === module) {
   else if (cmd === "validate") validateAll();
   else { console.error("usage: single-relation-scan.js scan|validate --slug=<slug> [--book-root=<dir>] [--out=<dir>]"); process.exit(2); }
 }
-module.exports = { splitRelation, CAUSE_FWD, CAUSE_BWD };
+/** the reject class a sentence falls in (null = still a candidate shape) — for tests and reports */
+function rejectClass(s) { const rel = splitRelation(s); if (!rel) return "no stated relation"; const h = R.HARD.find((x) => x.re.test(s)) || (REPORTED.test(s) ? { kind: "reported" } : null) || AUTHOR_REJECTS.find((x) => x.test(s, rel)); return h ? h.kind : null; }
+module.exports = { splitRelation, rejectClass, proposeMechanism, CAUSE_FWD, CAUSE_BWD };

@@ -20,6 +20,13 @@ try on new scenes, never a template, never a gate. A prettier scene that is read
 6. **A quote card only when the sentence itself is the point.** Quote cards helped agent comprehension but were never
    picked for quality — prefer a drawable object when the narration gives one.
 
+## Relational motion (operator, cycle 16)
+The motion must BE the idea: the object that carries it changes state or owner (8Y: the coin leaves REWARD, its slot stays
+empty, it lands by WINNERS). Mechanisms (single-relation.md `mechanism`): transfer, cause → visible effect, accumulation →
+overload, obstacle → removal → consequence, loss / depletion / recovery, character action → object state, before →
+transformation → after. Use one only when the narration states it; no motion is better than decorative motion.
+A tank + a metaphor icon with nothing leaving or moving is the weakest form (`review: TRY_CONCRETE`).
+
 ## Pattern: an invisible cause ("once you stop resisting, the adrenaline clears")
 A person + a ring cannot show "stop doing X" (radical-compassion 128: the effect read, the cause did not). Draw the
 thing that STOPS as an object of its own, named from the narration — e.g. a `shield` labelled "resisting" — and let the
