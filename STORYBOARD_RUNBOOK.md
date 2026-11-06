@@ -229,7 +229,9 @@ node scripts/single-relation-rollout.js apply  --slug=<s> --book-root=<wt> --wri
 - Then **make-book again**: step 1.885 re-applies `active.json` on the freshly planned config BEFORE hard-gate, the
   authored-lock restore and every gate, so the gates, the marker and the mute test judge the film with its B scenes
   (preview-state stage `singleRelation` sits between make-book and the mute test). No B scene worth it:
-  `single-relation-rollout.js decide --none --reason="<counts>"`.
+  `single-relation-rollout.js decide --none --reason="<counts>"` — refused while any scan candidate lacks an author
+  decision (`single-relation/author-decisions.json`: `[{sceneIndex, decision: "skipped"|"contract", why}]`); "none" is
+  a finding after authoring, never a way to skip it.
 - **Stop rule:** a wrong inference or a quality regression on a B scene (mute test / preview) → `revert
   --scenes=<i> --write` (or all) and report; the rollout stops until the operator looks. Never global default-on;
   never a published / rendered / old-pin book; never a render, repin, upload or Flux call from this section.

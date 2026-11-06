@@ -110,6 +110,26 @@ function plan(config, selection, { now = new Date().toISOString(), tool = null }
   return { ok: true, config: r.config, record, contracts };
 }
 
+/**
+ * Can "no B scene" be recorded? Yes with 0 scan candidates; otherwise every candidate needs an author decision
+ * (single-relation/author-decisions.json: [{sceneIndex, decision: "skipped"|"contract", why}]) — a contract that was
+ * written must have been validated (contracts.json), and a skip needs its reason.
+ */
+function noneCoverage(dir) {
+  const cand = readJSON(path.join(dir, "candidates.json"));
+  if (!cand) return { ok: false, why: "no single-relation/candidates.json — run single-relation-scan.js scan first" };
+  const ids = (cand.candidates || []).map((c) => Number(c.sceneIndex ?? c.scene ?? c.index));
+  if (!ids.length) return { ok: true, candidates: 0, decided: 0 };
+  const dec = readJSON(path.join(dir, "author-decisions.json"), []) || [];
+  const byIdx = new Map((Array.isArray(dec) ? dec : dec.decisions || []).map((d) => [Number(d.sceneIndex), d]));
+  const missing = ids.filter((i) => { const d = byIdx.get(i); return !d || !String(d.why || "").trim() || !["skipped", "contract"].includes(d.decision); });
+  if (missing.length) return { ok: false, why: `${ids.length} candidate(s) but no author decision with a reason for ${missing.length} (${missing.slice(0, 8).join(", ")}${missing.length > 8 ? " …" : ""}) — one fresh author decides each candidate (single-relation.md) and writes single-relation/author-decisions.json [{sceneIndex, decision: "skipped"|"contract", why}]` };
+  const wrote = ids.filter((i) => byIdx.get(i).decision === "contract");
+  const rec = readJSON(path.join(dir, "contracts.json"));
+  if (wrote.length && !rec) return { ok: false, why: `contracts were written for ${wrote.join(", ")} but never validated (single-relation-scan.js validate)` };
+  return { ok: true, candidates: ids.length, decided: ids.length };
+}
+
 /** ACTIVE (every recorded scene carries its contract), MISSING (config rebuilt), NONE */
 function status(config, record) {
   if (!record || !record.scenes.length) return { state: "NONE", missing: [] };
@@ -134,7 +154,7 @@ function revert(config, record, only = null) {
   return { config: { ...config, meta, scenes }, record: { ...record, reverted }, done };
 }
 
-module.exports = { POLICY, eligibility, select, plan, status, revert };
+module.exports = { POLICY, eligibility, select, plan, status, revert, noneCoverage };
 
 if (require.main === module) {
   const args = Object.fromEntries(process.argv.slice(3).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
@@ -202,8 +222,12 @@ if (require.main === module) {
   if (cmd === "decide") {
     // the rollout ran and chose no B scene (0 candidates / 0 valid / no A/B win): recorded so the workflow moves on
     if (!args.none || typeof args.reason !== "string" || !args.reason.trim()) { console.error('usage: decide --slug=<s> --book-root=<wt> --none --reason="<counts: candidates, contracts, valid, A/B wins>"'); process.exit(2); }
+    // "none" is a finding, not a skip (cycle 18: a book recorded none with 16 candidates and 0 contracts — nobody had
+    // authored): with candidates, every one needs an author decision with its reason
+    const cov = noneCoverage(P.dir);
+    if (!cov.ok) { console.error(`✗ refused: ${cov.why}`); process.exit(1); }
     fs.mkdirSync(P.dir, { recursive: true });
-    fs.writeFileSync(path.join(P.dir, "rollout.json"), JSON.stringify({ schema: "single-relation-decision/1", decision: "none", reason: args.reason.trim(), policy: POLICY.id, at: new Date().toISOString() }, null, 1));
+    fs.writeFileSync(path.join(P.dir, "rollout.json"), JSON.stringify({ schema: "single-relation-decision/1", decision: "none", reason: args.reason.trim(), candidates: cov.candidates, decided: cov.decided, policy: POLICY.id, at: new Date().toISOString() }, null, 1));
     console.log(`✓ ${slug}: no B scene — recorded (${args.reason.trim()})`);
     process.exit(0);
   }
