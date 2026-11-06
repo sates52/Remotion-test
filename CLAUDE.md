@@ -194,7 +194,7 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 ## 🎯 Single-relation cause → visible effect — operator-approved selective rollout (2026-11-06)
 
 - Level 2 is INCONCLUSIVE (cycle 16) and stays so. The operator approved a SELECTIVE, reversible rollout for eligible
-  books (`data/single-relation-rollout.json`): Antidote, unpublished, no production render, pin containing 0296a84d.
+  books (`data/single-relation-rollout.json`): Antidote, unpublished, no production render, pin containing 379cf2b5 (the rollout in make-book / preview-state).
   There: scan / author / validate / per-beat A/B, then `single-relation-rollout.js select` + `apply --write` — B only
   where its own A/B shows it better, ≤ 15 scenes, every contract valid; gates unchanged after (runbook §2d). Do not ask
   "Single-Relation açılsın mı?" per book. Never global default-on; never a published / rendered / old-pin book.

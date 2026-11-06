@@ -203,10 +203,9 @@ it. Books pinned before a270192d do not have it — never repin silently.
 
 ### 2d. Operator-approved selective rollout (Antidote; cycle 17 — `data/single-relation-rollout.json`)
 The operator approved, once for all eligible books, putting the beats where B is shown to be better into the production
-config — do not ask again per book. **Eligible** = Antidote, not published, no production render started, pinned at a
-commit containing the single-relation renderer (0296a84d); `book-start.js` names an eligible book on every resume.
-Everything runs from the CURRENT code against the book (`book-start … --launcher`, then in `../wt-production-base`
-with `--book-root=<the book's worktree>`); the book keeps its pin. After the readcheck, BEFORE the final mute test:
+config — do not ask again per book. **Eligible** = Antidote, not published, no production render started, pinned at a commit containing the rollout workflow (379cf2b5: make-book re-applies the B scenes, preview-state stage `singleRelation`); `book-start.js` names an eligible book on every resume.
+Books started on current god-mode run all of it in their own worktree (the commands below without `--book-root`).
+After the first make-book (the A config exists), BEFORE the mute test:
 ```bash
 node scripts/single-relation-rollout.js check --slug=<s> --book-root=<wt>        # ELIGIBLE, or why not (stop there)
 node scripts/single-relation-scan.js scan --slug=<s> --book-root=<wt>            # candidates (+ rejected, with reasons)
@@ -227,7 +226,10 @@ node scripts/single-relation-rollout.js apply  --slug=<s> --book-root=<wt> --wri
   `meta.singleRelation`, and records the diff + the previous scenes in `books/<s>/single-relation/active.json`.
 - Then the gates run UNCHANGED on this config (gate-authorship, firewall, mute test, preview-ready) and the preview is
   rendered: report how many B scenes the preview shows and what the mute test read on them.
-- A make-book rerun rebuilds the config → `single-relation-rollout.js status` says MISSING → `reapply --write`.
+- Then **make-book again**: step 1.885 re-applies `active.json` on the freshly planned config BEFORE hard-gate, the
+  authored-lock restore and every gate, so the gates, the marker and the mute test judge the film with its B scenes
+  (preview-state stage `singleRelation` sits between make-book and the mute test). No B scene worth it:
+  `single-relation-rollout.js decide --none --reason="<counts>"`.
 - **Stop rule:** a wrong inference or a quality regression on a B scene (mute test / preview) → `revert
   --scenes=<i> --write` (or all) and report; the rollout stops until the operator looks. Never global default-on;
   never a published / rendered / old-pin book; never a render, repin, upload or Flux call from this section.

@@ -96,7 +96,7 @@ Do not re-derive these from prose — run the command and follow what it prints.
 - Relationship staging and Gate B: runbook (`gate-b-relationship.js`, reads `GOOGLE_API_KEY` — never print it).
 - Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`); it prints
   `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
-- Single-relation cause → visible effect: eligible new Antidote books (unpublished, not rendered, pin ⊇ 0296a84d) get
+- Single-relation cause → visible effect: eligible new Antidote books (unpublished, not rendered, pin ⊇ 379cf2b5) get
   the operator-approved selective rollout — B only where its own A/B wins, ≤ 15 scenes, reversible (runbook §2d,
   `single-relation-rollout.js`); every other book: report only (runbook §2c; authors:
   `.claude/skills/antidote-visual-authoring/single-relation.md`).
