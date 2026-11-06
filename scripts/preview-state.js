@@ -81,6 +81,10 @@ function nodeModulesHealth(wt) {
   if (!st) return { state: "missing", locked };
   if (!st.isSymbolicLink()) return { state: "real", locked, detail: "node_modules is a real folder (not a link)" };
   let target = null; try { target = path.resolve(path.dirname(link), fs.readlinkSync(link)); } catch {}
+  // the right link with a lost .bin is mechanical: recreate the missing shims from the packages' bin fields (never npm)
+  if (target && want && path.resolve(target).toLowerCase() === path.resolve(want).toLowerCase() && exists(want) && !exists(path.join(want, ".bin"))) {
+    try { const r = require("./lib/node-bin").healBin(want); if (r.created.length) console.error(`node_modules/.bin self-heal: ${r.created.length} shim file(s) recreated from ${r.bins} package bin(s)`); } catch {}
+  }
   if (!target || !want || path.resolve(target).toLowerCase() !== path.resolve(want).toLowerCase() || !exists(path.join(want, ".bin")))
     return { state: "broken", locked, detail: `node_modules → ${target || "?"} (expected ${want}${want && !exists(path.join(want, ".bin")) ? ", which has no .bin" : ""})` };
   return { state: "ok", locked };

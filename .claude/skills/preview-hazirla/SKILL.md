@@ -139,7 +139,7 @@ holdout limits; a full / final render, upload, publishing; any cleanup; any cred
 `node scripts/preview-state.js status --slug=<slug>` prints CONTINUE, continue.
 **Approved = not asked again (2026-11-03).** The moment the operator approves routine work in chat — more fix rounds,
 re-generating named Vox images with a call cap, keeping the engine despite the narration check, a named technical fix —
-record it with their words verbatim (at least 6 words), then continue:
+record it with their words verbatim (any length — "Antidote kalsın" is enough), then continue:
 `node scripts/preview-state.js approve --slug=<s> --scope=fixRounds|images|engineKeep|technicalFix --limits='<json>' --words="<their words>"`
 (`{"max":3}` · `{"beats":["beat-012"],"maxCalls":12}` · `{"conditions":"…"}` · `{"files":[…]}` or `{"beats":[…]}`; short form: `--scope=fix-rounds --limit=4 --reason="…"`).
 `status` lists every approval that still matches (same engine, pin, audio and VTT) with what is used / left, and

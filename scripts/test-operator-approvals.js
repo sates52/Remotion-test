@@ -47,8 +47,9 @@ try {
     const r = approve(R, SLUG, scope, { max: 3 }, WORDS);
     t(`scope '${scope}' refused (exit 1, nothing written)`, r.status === 1 && /never recorded here/.test(r.stderr) && !fs.existsSync(APPR), r.stderr);
   }
-  let r = approve(R, SLUG, "fixRounds", { max: 3 }, "ok go on");
-  t("words < 6 refused (the operator's own words, verbatim)", r.status === 1 && /at least 6 words/.test(r.stderr) && !fs.existsSync(APPR), r.stderr);
+  let r = approve(R, SLUG, "fixRounds", { max: 3 }, "   ");
+  t("empty words refused (the operator's own words, verbatim)", r.status === 1 && /not empty/.test(r.stderr) && !fs.existsSync(APPR), r.stderr);
+  t("short verbatim words are enough (\"Antidote kalsın\")", require("./lib/operator-approvals").MIN_WORDS === 1);
   r = approve(R, SLUG, "fixRounds", { rounds: 3 }, WORDS);
   t("fixRounds without limits.max refused", r.status === 1 && /limits \{"max"/.test(r.stderr), r.stderr);
   r = approve(R, SLUG, "images", { beats: [], maxCalls: 3 }, WORDS);
@@ -105,8 +106,8 @@ try {
   const pin = read(path.join(B, "production-base.json"));
   W(path.join(B, "production-base.json"), { ...pin, productionBase: "b".repeat(40) });
   s = state(R);
-  t("the pin moved -> every approval stops matching: ENGINE_CONTRADICTION is no longer suppressed",
-    s.state === "OPERATOR" && s.operator.code === "ENGINE_CONTRADICTION" && s.approvals.matches.length === 0 && s.approvals.stale.length === 3, JSON.stringify(s.operator));
+  t("the pin moved -> the fix-round approvals stop matching, the engine keep does not (engine + audio + VTT unchanged): no ENGINE_CONTRADICTION",
+    !(s.operator && s.operator.code === "ENGINE_CONTRADICTION") && s.approvals.matches.length === 1 && s.approvals.matches[0].scope === "engineKeep" && s.approvals.stale.length === 2, JSON.stringify({ op: s.operator, m: s.approvals.matches.map((a) => a.scope) }));
   t("status says which approvals no longer match and why (pin changed)", /✗ appr-3 fixRounds no longer matches: pin changed \(aaaaaaaa → bbbbbbbb\)/.test(human(R)), human(R));
   book.engineCheck.confirmed = true; W(path.join(B, "book.json"), book); fs.utimesSync(path.join(B, "book.json"), clock - 500000, clock - 500000);
   s = state(R);
