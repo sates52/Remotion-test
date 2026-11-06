@@ -1,0 +1,51 @@
+{
+ "schema": "stills/1",
+ "name": "c16 dev concrete alternatives",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "philosophy-for-life-and--s343-B-concrete",
+   "config": "configs/philosophy-for-life-and--s343-B-concrete.json",
+   "frames": [
+    349,
+    418,
+    488
+   ],
+   "strip": true,
+   "clip": {
+    "from": 279,
+    "to": 510
+   }
+  },
+  {
+   "id": "essentialism-the-discipl-s205-B-concrete",
+   "config": "configs/essentialism-the-discipl-s205-B-concrete.json",
+   "frames": [
+    309,
+    356,
+    402
+   ],
+   "strip": true,
+   "clip": {
+    "from": 262,
+    "to": 417
+   }
+  }
+ ],
+ "inputHash": "5795239bb0425d0f",
+ "files": {
+  "stills/configs/philosophy-for-life-and--s343-B-concrete.json": "559d9080674636eaf23b9563e9087105dd0b85074fb524d25b5b583e792040f8",
+  "stills/configs/essentialism-the-discipl-s205-B-concrete.json": "75d790ef974dca3c253f07d0f7565aba3ff0eb90cf43658a30263cce058f9bf9"
+ },
+ "builtAt": "2026-11-06T09:01:01.626Z"
+}
