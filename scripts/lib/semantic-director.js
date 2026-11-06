@@ -135,7 +135,7 @@ function validate(c, ctx) {
       }
       if (f.mood != null) { if (!MOODS.includes(f.mood)) err(`${w2}: mood must be ${MOODS.join(" / ")}`); else if (f.mood !== s.mood) { changes = true; s.mood = f.mood; } }
       if (f.present != null) { if (f.present !== s.present) { changes = true; s.present = f.present; } }
-      if (f.moveTo != null) { if (!byId[f.moveTo] || f.moveTo === f.entity) err(`${w2}: moveTo must be another entity`); else if (byId[f.entity].kind !== "object") err(`${w2}: only an object moves`); else { changes = true; s.at = f.moveTo; } }
+      if (f.moveTo != null) { if (!byId[f.moveTo] || f.moveTo === f.entity) err(`${w2}: moveTo must be another entity`); else if (byId[f.entity].kind !== "object" && !(byId[f.entity].kind === "person" && f.via)) err(`${w2}: only an object moves (a person moves only through a passage: moveTo + via)`); else { changes = true; s.at = f.moveTo; } }
       if (f.broken === true) { if (!s.broken) { changes = true; s.broken = true; } }
       // relational motion 2.0 (cycle 18) — each is an EVENT on screen, checked against the replayed state
       if (f.overflow === true) {
@@ -234,14 +234,18 @@ function timeline(c, dur, words = null) {
   for (const ev of (c.events || []).slice().sort((a, b) => a.at - b.at)) {
     const n = ev.repeat || 1;
     let start = Math.round(ev.at * dur);
-    const last = (s) => s + (n - 1) * span + TIMING.token + TIMING.pause + TIMING.change;
-    if (last(start) > 0.88 * dur) start = Math.max(Math.round(0.08 * dur), Math.floor(0.88 * dur) - last(0));
+    // overload (cycle 18): the steps that fill a container are compact and the break lands by ~70 % of the beat, so the
+    // spill stays on screen long enough to read (3 full steps took 180 of a 197-frame beat and the spill came last)
+    const compact = n > 1 && ev.effects.some((f) => f.overflow);
+    const P = compact ? 4 : TIMING.pause, sp = compact ? TIMING.token + 4 + TIMING.change + 4 : span, end = compact ? 0.7 : 0.88;
+    const last = (s) => s + (n - 1) * sp + TIMING.token + P + TIMING.change;
+    if (last(start) > end * dur) start = Math.max(Math.round(0.08 * dur), Math.floor(end * dur) - last(0));
     for (let k = 0; k < n; k++) {
       const effects = ev.effects.map((f) => {
         if (n === 1 || f.value == null) return { ...f };
         return { ...f, __step: [k + 1, n] };
       });
-      occ.push({ cause: ev.cause, cue: start + k * span, effects });
+      occ.push({ cause: ev.cause, cue: start + k * sp, effects, ...(compact ? { pause: P } : {}) });
     }
   }
   return stepLevels(c, occ, source);
