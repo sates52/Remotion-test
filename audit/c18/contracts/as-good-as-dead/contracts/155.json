@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"transfer","phases":true,"_author":"c18-motion2-author",
+"understanding":"Pip pushes her clothes, then the burner phone, down into the chemical water.",
+"evidence":"pushing her bloody clothes, her trainers, the ripped pieces of duct tape and Jason's burner phone down into the chemical water",
+"claim":{"asserted":"Pip pushes her bloody clothes and Jason's burner phone down into the chemical water.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Clothes and phone lie beside the water.","transformation":"Pip pushes them in one after another.","after":"Both are in the water.",
+"camera":{"framing":"wide-locked","purpose":"items entering the water"},
+"entities":[{"id":"p","kind":"person","cast":"pip","mood":"neutral"},{"id":"c","kind":"object","glyph":"mask","label":"bloody clothes"},{"id":"b","kind":"object","glyph":"phone","label":"burner phone"},{"id":"w","kind":"object","glyph":"water","label":"chemical water"}],
+"events":[{"at":0.3,"cause":"p","effects":[{"entity":"c","moveTo":"w"}],"anchors":{"cause":"pushing her bloody clothes","effect":"down into the chemical water"}},{"at":0.6,"cause":"p","effects":[{"entity":"b","moveTo":"w"}],"anchors":{"cause":"burner phone","effect":"chemical water"}}],
+"required":["clothes","phone","water"],"omitted":["destroying the DNA"]}

@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"overload","_author":"c18-motion2-author",
+"understanding":"The cognitive load keeps rising on Tamson until it overflows and she snaps.",
+"evidence":"The cognitive load so unbearable that she eventually just snaps",
+"claim":{"asserted":"Tamson's cognitive load becomes unbearable and she snaps.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"The load is low.","transformation":"It fills in steps.","after":"It overflows and she snaps.",
+"camera":{"framing":"wide-locked","purpose":"load overflowing in one frame"},
+"entities":[{"id":"t","kind":"person","cast":"tamson","mood":"worried"},{"id":"l","kind":"stock","label":"cognitive load","value":0.2}],
+"events":[{"at":0.3,"cause":"t","effects":[{"entity":"l","value":1,"overflow":true}],"repeat":3}],
+"required":["the load level","it overflowing"],"omitted":["her walking away"]}

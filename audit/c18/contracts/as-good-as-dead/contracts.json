@@ -1,0 +1,33 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "as-good-as-dead",
+ "at": "2026-11-06T17:52:12.096Z",
+ "valid": [
+  155
+ ],
+ "invalid": [],
+ "contracts": {
+  "155": {
+   "sceneIndex": 155,
+   "sceneId": "scene-155",
+   "previousSceneId": "scene-154",
+   "author": "c18-motion2-author",
+   "inputHash": "7226a4d616ae5d27",
+   "contractHash": "dd39904d6243a959",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "OK",
+    "ends": [
+     "p",
+     "c",
+     "b"
+    ],
+    "labelCarried": [
+     "c"
+    ],
+    "labelDependence": 0.33
+   }
+  }
+ }
+}

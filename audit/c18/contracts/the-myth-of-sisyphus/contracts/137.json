@@ -1,0 +1,80 @@
+{
+ "schema": "single-relation/1",
+ "type": "A",
+ "mechanism": "passage",
+ "phases": true,
+ "understanding": "The prison doors open and the condemned man walks out through them into the courtyard.",
+ "evidence": "he becomes terrifyingly free when the prison doors open at dawn and he walks out into the courtyard",
+ "claim": {
+  "asserted": "When the prison doors open at dawn he walks out into the courtyard.",
+  "polarity": "asserted",
+  "speaker": "narrator",
+  "notAsserted": []
+ },
+ "before": "The man stands behind the closed prison doors.",
+ "transformation": "The doors open and he walks through them.",
+ "after": "He stands in the courtyard; the doors are only a dashed outline.",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "doors open, then he walks out, in one frame"
+ },
+ "entities": [
+  {
+   "id": "d",
+   "kind": "object",
+   "glyph": "door",
+   "label": "prison doors"
+  },
+  {
+   "id": "m",
+   "kind": "person",
+   "cast": "everyman"
+  },
+  {
+   "id": "y",
+   "kind": "object",
+   "glyph": "tree",
+   "label": "courtyard"
+  }
+ ],
+ "events": [
+  {
+   "at": 0.3,
+   "cause": "m",
+   "effects": [
+    {
+     "entity": "d",
+     "present": false
+    }
+   ],
+   "anchors": {
+    "cause": "he becomes terrifyingly free",
+    "effect": "prison doors open"
+   }
+  },
+  {
+   "at": 0.6,
+   "cause": "d",
+   "effects": [
+    {
+     "entity": "m",
+     "moveTo": "y",
+     "via": "d"
+    }
+   ],
+   "anchors": {
+    "cause": "doors open",
+    "effect": "walks out"
+   }
+  }
+ ],
+ "required": [
+  "the doors opening",
+  "the man walking out to the courtyard"
+ ],
+ "omitted": [
+  "the warden",
+  "the dawn execution"
+ ],
+ "_author": "c18-motion2-author-2"
+}

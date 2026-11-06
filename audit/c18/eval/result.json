@@ -1,0 +1,90 @@
+{
+ "raters": "one agent (never human), narration given (audio+visual proxy)",
+ "rows": [
+  {
+   "scene": "create-space-how-to-ma#177",
+   "A": {
+    "shows": 1,
+    "adds": "NO",
+    "deco": "NO",
+    "contra": "NO"
+   },
+   "B": {
+    "shows": 2,
+    "adds": "YES",
+    "deco": "NO",
+    "contra": "NO (gauge overflows/cracks; walking away not shown)"
+   },
+   "better": "B",
+   "why": "X visibly shows load building to a breaking point, whereas Y shows only an angry static character with a caption."
+  },
+  {
+   "scene": "the-myth-of-sisyphus#137",
+   "A": {
+    "shows": 0,
+    "adds": "NO",
+    "deco": "YES",
+    "contra": "NO but silhouette with horns and chain links on a shelf reads as unrelated objects"
+   },
+   "B": {
+    "shows": 2,
+    "adds": "YES",
+    "deco": "NO",
+    "contra": "NO (dashed empty door implies opened; 'free' only implied)"
+   },
+   "better": "B",
+   "why": "Y shows the door opening and him moving toward the courtyard; X shows nothing of the narration."
+  },
+  {
+   "scene": "as-good-as-dead#155",
+   "A": {
+    "shows": 1,
+    "adds": "NO",
+    "deco": "NO",
+    "contra": "NO"
+   },
+   "B": {
+    "shows": 2,
+    "adds": "YES",
+    "deco": "NO",
+    "contra": "YES - a grey mask object reads as 'bloody clothes' and is odd; trainers and duct tape missing"
+   },
+   "better": "B",
+   "why": "X at least shows objects moving into the chemical water, though the clothes icon is a misleading mask; Y is only a caption."
+  },
+  {
+   "scene": "burn-of-the-everflame#21",
+   "A": {
+    "shows": 1,
+    "adds": "NO",
+    "deco": "NO",
+    "contra": "NO"
+   },
+   "B": {
+    "shows": 1,
+    "adds": "NO",
+    "deco": "NO",
+    "contra": "NO (PIECES icon is an unclear medallion)"
+   },
+   "better": "same",
+   "why": "Neither shows swinging or splitting; X hints at wood becoming pieces, Y only states it in text."
+  },
+  {
+   "scene": "feel-good-productivity#225",
+   "A": {
+    "shows": 0,
+    "adds": "NO",
+    "deco": "YES",
+    "contra": "YES - rotating triangle and circle read as a play button, unrelated to shoe or pebble"
+   },
+   "B": {
+    "shows": 3,
+    "adds": "YES",
+    "deco": "NO",
+    "contra": "NO (no shoe shown)"
+   },
+   "better": "B",
+   "why": "Y shows the pebble being found and removed; X shows an unrelated play-button shape."
+  }
+ ]
+}

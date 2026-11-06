@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"split","_author":"c18-motion2-author",
+"understanding":"Luther strikes the wood and a piece splits off it.",
+"evidence":"Just hacking away. Swing, strike, split.",
+"claim":{"asserted":"Luther swings, strikes and splits the wood.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"A big piece of wood stands.","transformation":"The strike splits it.","after":"A piece lies apart from it.",
+"camera":{"framing":"wide-locked","purpose":"wood splitting in one frame"},
+"entities":[{"id":"l","kind":"person","cast":"luther","mood":"angry"},{"id":"w","kind":"object","glyph":"tree","label":"wood"},{"id":"p","kind":"object","glyph":"boulder","label":"pieces","present":false,"from":"w"}],
+"events":[{"at":0.4,"cause":"l","effects":[{"entity":"p","present":true,"from":"w"}]}],
+"required":["the wood","a piece splitting off"],"omitted":["his beard"]}

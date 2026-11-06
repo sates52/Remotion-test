@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"removal","phases":true,"_author":"c18-motion2-author",
+"understanding":"The pebble is removed and the runner resumes running smoothly.",
+"evidence":"You find the pebble that is causing the friction. You remove it. And then you resume running smoothly.",
+"claim":{"asserted":"Removing the pebble that causes the friction lets you resume running smoothly.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"A pebble causes friction.","transformation":"The pebble is removed.","after":"The runner is happy again.",
+"camera":{"framing":"wide-locked","purpose":"setup action result"},
+"entities":[{"id":"r","kind":"person","cast":"protagonist","mood":"worried"},{"id":"p","kind":"object","glyph":"boulder","label":"pebble"}],
+"events":[{"at":0.3,"cause":"r","effects":[{"entity":"p","present":false}],"anchors":{"cause":"find the pebble","effect":"remove it"}},{"at":0.7,"cause":"p","effects":[{"entity":"r","mood":"happy"}],"anchors":{"cause":"remove it","effect":"resume running smoothly"}}],
+"required":["pebble","runner"],"omitted":["the shoe"]}
