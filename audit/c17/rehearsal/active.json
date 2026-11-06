@@ -1,0 +1,780 @@
+{
+ "schema": "single-relation-active/1",
+ "policy": "c17-operator-selective-rollout",
+ "level2": "INCONCLUSIVE (cycle 16, dev/c16 audit/c16/holdout/result.json) — unchanged; this is a separate operator-approved selective rollout, not a Level-2 PASS",
+ "at": "2026-11-06T11:51:33.994Z",
+ "tool": "rehearsal",
+ "configBefore": "ee7b0cd2769e6989",
+ "configAfter": "a619025a2f28db1c",
+ "scenes": [
+  {
+   "sceneIndex": 195,
+   "sceneId": "scene-195",
+   "narrationHash": "bce94d53fc7c6581",
+   "contractHash": "1fbcd3f125ad5a32",
+   "mechanism": "transformation",
+   "review": "OK",
+   "ab": {
+    "A": 8.3,
+    "B": 100,
+    "wiA": 0,
+    "wiB": 0
+   },
+   "diff": {
+    "shot": "twoShot→wide",
+    "cast": "jim+jim→none",
+    "concept": "none→none"
+   },
+   "previous": {
+    "id": "scene-195",
+    "fromFrame": 53076,
+    "durationFrames": 396,
+    "hud": {
+     "badge": "INSIGHT 07 / 08",
+     "topic": "CLOSE"
+    },
+    "_narration": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow, Joe, Nory, and Benny are walking through the trees. Suddenly, their geer counter",
+    "_noIcon": true,
+    "_authorship": {
+     "src": "art",
+     "propTypes": [],
+     "diagramAuthored": false,
+     "conceptAuthored": null,
+     "intent": null,
+     "lock": {
+      "shot": "twoShot",
+      "set": "street",
+      "cast": [
+       "jim",
+       "jim"
+      ],
+      "expression": "neutral",
+      "action": "idle",
+      "holds": null,
+      "concept": null,
+      "props": [],
+      "propTypes": []
+     }
+    },
+    "_semanticAdapter": {
+     "archetype": "cause_effect",
+     "requiredActions": [
+      "depict_trigger_to_consequence_flow"
+     ],
+     "reason": "preserved_authored_composition",
+     "applied": false,
+     "provenance": {
+      "archetype": "cause_effect",
+      "domain": "philosophy_ideas",
+      "requiredActions": [
+       "depict_trigger_to_consequence_flow"
+      ],
+      "requiredAttributes": {
+       "mood": "somber",
+       "visualRegister": "diagrammatic_editorial",
+       "lightingOrTone": "dramatic_contrast"
+      },
+      "forbiddenTropes": [
+       "comic_lightbulb",
+       "celebrate_action",
+       "cheerful_facial_expression",
+       "heart_symbol",
+       "party_confetti",
+       "static_idle_actor_wallpaper",
+       "meaningless_abstract_blobs"
+      ],
+      "semanticRequirements": [
+       "cognitive_domain_coherence"
+      ]
+     },
+     "grammar": null,
+     "payload": null
+    },
+    "_beat": "story",
+    "_act": "resolution",
+    "shot": "twoShot",
+    "transition": {
+     "type": "whipRight",
+     "frames": 12,
+     "color": "#F97316"
+    },
+    "bg": {
+     "type": "gradient",
+     "colors": [
+      "rgb(234,216,185)",
+      "rgb(237,235,227)"
+     ],
+     "set": "street",
+     "texture": "grain",
+     "accent": "#18181B",
+     "act": "resolution"
+    },
+    "camera": {
+     "zoom": [
+      1.08,
+      1
+     ],
+     "panX": [
+      0,
+      0
+     ],
+     "panY": [
+      0,
+      0
+     ],
+     "punch": {
+      "at": 0,
+      "amount": 0.055
+     },
+     "pulses": [
+      79,
+      154,
+      242,
+      331
+     ]
+    },
+    "characters": [
+     {
+      "id": "c195-0",
+      "rig": "everyman",
+      "identity": "jim",
+      "role": "jim",
+      "expression": "neutral",
+      "enter": "left",
+      "action": "idle",
+      "lookAt": "partner"
+     },
+     {
+      "id": "c195-1",
+      "rig": "everyman",
+      "identity": "jim",
+      "role": "jim",
+      "expression": "neutral",
+      "enter": "right",
+      "action": "idle",
+      "lookAt": "partner"
+     }
+    ],
+    "props": [],
+    "texts": [
+     {
+      "text": "THE GEIGER COUNTER SPIKES",
+      "style": "reveal",
+      "color": "#1E1E22",
+      "boxColor": "#D9603C",
+      "enter": "pop",
+      "at": 0,
+      "src": "art"
+     }
+    ],
+    "_visualStrategy": {
+     "strategy": "SAFE_REPRESENTATION",
+     "risks": [
+      "LOW_CAPABILITY"
+     ],
+     "capabilityConfidence": 0.65,
+     "semanticSignature": {
+      "action": "idle+idle",
+      "subject": "",
+      "relation": "",
+      "state": "",
+      "world": "",
+      "metaphor": ""
+     },
+     "levers": [
+      "shot:illustration|diorama|medium|closeUp",
+      "characterIntent:identity+gaze+state"
+     ],
+     "requirement": {
+      "kind": "fallback",
+      "lever": "closeUp",
+      "confidence": 0.917
+     },
+     "evidence": {
+      "lowestCapabilityConfidence": 0.65,
+      "unknownKeys": []
+     },
+     "resolution": {
+      "kind": "none",
+      "repairs": [],
+      "invalidActions": [],
+      "note": null
+     },
+     "staging": {
+      "staged": [],
+      "skipped": "authored"
+     },
+     "provenance": {
+      "decidedAt": "plan",
+      "capabilityMap": "data/visual-capability.json"
+     },
+     "note": "declarative metadata — the record of a decision, never a trusted flag; the firewall judges the scene and contract evidence",
+     "postPlanDeltas": [
+      {
+       "engine": "semantic_beat",
+       "pass": "1-story+visual-director",
+       "field": "narrative+visualJob+visualArc+attention",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative",
+        "visualJob",
+        "visualArc",
+        "attention"
+       ],
+       "reason": "narrative function + visual director layer rewrite",
+       "detail": "narrative: null -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}; visualJob: undefined -> \"reveal\"; visualArc: null -> {\"startState\":\"surface_facade\",\"endState\":\"underlying_reality\",\"transformatio...; attention: null -> [\"partner\",\"motif\",\"text\"]",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      },
+      {
+       "engine": "chapter_arcs",
+       "pass": "3",
+       "field": "narrative",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative"
+       ],
+       "reason": "chapter curiosity cycles",
+       "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      },
+      {
+       "engine": "promise_engine",
+       "pass": "4",
+       "field": "narrative",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative"
+       ],
+       "reason": "multi-beat curiosity lifecycles",
+       "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      },
+      {
+       "engine": "semantic_relevance",
+       "pass": "9",
+       "field": "shot",
+       "from": null,
+       "to": null,
+       "fields": [
+        "shot"
+       ],
+       "reason": "conceptual alignment enforcement",
+       "detail": "shot: \"twoShot\" -> \"split\"",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [
+        "subject"
+       ],
+       "semanticChange": true,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": true
+      },
+      {
+       "engine": "semantic_beat",
+       "pass": "1-story+visual-director",
+       "field": "narrative",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative"
+       ],
+       "reason": "narrative function + visual director layer rewrite",
+       "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal... -> {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false}",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      },
+      {
+       "engine": "chapter_arcs",
+       "pass": "3",
+       "field": "narrative",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative"
+       ],
+       "reason": "chapter curiosity cycles",
+       "detail": "narrative: {\"function\":\"REVEAL\",\"escalates\":true,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false}",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      },
+      {
+       "engine": "promise_engine",
+       "pass": "4",
+       "field": "narrative",
+       "from": null,
+       "to": null,
+       "fields": [
+        "narrative"
+       ],
+       "reason": "multi-beat curiosity lifecycles",
+       "detail": "narrative: {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":false} -> {\"function\":\"EXPLANATION\",\"escalates\":false,\"conceptual\":true,\"emotional\":fal...",
+       "sigBefore": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "sigAfter": {
+        "action": "idle+idle",
+        "subject": "argument",
+        "relation": "",
+        "state": "",
+        "world": "",
+        "metaphor": ""
+       },
+       "changedKeys": [],
+       "semanticChange": false,
+       "stagedOverride": null,
+       "requirementBroken": null,
+       "reviewRequired": false
+      }
+     ]
+    },
+    "narrative": {
+     "function": "EXPLANATION",
+     "escalates": false,
+     "conceptual": true,
+     "emotional": false,
+     "promiseRole": "standalone"
+    },
+    "visualJob": "reveal",
+    "visualArc": {
+     "startState": "surface_facade",
+     "endState": "underlying_reality",
+     "transformation": "reveal_truth"
+    },
+    "attention": [
+     "partner",
+     "motif",
+     "text"
+    ],
+    "audioEvents": [
+     {
+      "type": "whoosh",
+      "frameOffset": -6,
+      "volume": 0.14,
+      "durationFrames": 17,
+      "reason": "transition_whipRight"
+     },
+     {
+      "type": "ding",
+      "frameOffset": 6,
+      "volume": 0.16,
+      "durationFrames": 36,
+      "reason": "promise_payoff_revelation"
+     },
+     {
+      "type": "pop",
+      "frameOffset": 0,
+      "volume": 0.11,
+      "durationFrames": 12,
+      "reason": "kinetic_text_pop"
+     }
+    ],
+    "visualMode": "comparison_split",
+    "visualProposition": {
+     "claim": "The leaves are dead and dry, falling early because of the toxic air.",
+     "claimType": "causal",
+     "epistemicStance": "affirmed",
+     "thesis": "The leaves are dead and dry, falling early because of the toxic air.",
+     "counterThesisEvidence": "absent",
+     "visualQuestion": "What must the viewer see while hearing: \"The leaves are dead and dry, falling early because of the toxic air.\"?",
+     "visualAnswer": "UNANSWERED — no authored storyboard answer for this beat",
+     "subject": "argument",
+     "mechanism": "exposition",
+     "stakes": "theoretical_principle",
+     "stateIndex": 0,
+     "stateTotal": 1,
+     "statePhase": "discourse"
+    },
+    "visualInformationGain": "high",
+    "vigScore": 3.81,
+    "vigBreakdown": {
+     "claimCoverage": 0.8,
+     "relationshipCoverage": 0.95,
+     "mechanismCoverage": 0.85,
+     "stateChange": 0.8,
+     "audioSurplus": 0.35
+    },
+    "director": {
+     "viewerFocus": "bifurcation_boundary",
+     "visualSubject": "two_opposing_positions",
+     "secondarySubject": "two_positions",
+     "relationship": "contrast",
+     "cameraIntent": "juxtapose the two positions across the split axis",
+     "composition": "left: first position; right: second position",
+     "blocking": "left: first position; right: second position",
+     "compositionRationale": "juxtapose the two positions across the split axis",
+     "motionIntent": "synchronized lateral push revealing divergence",
+     "revealOrder": [
+      "left_position",
+      "right_position",
+      "bifurcation_line"
+     ]
+    },
+    "narrativeAtom": {
+     "bookId": "under-the-dome",
+     "worldId": "under-the-dome",
+     "sourceChapter": "resolution",
+     "narrativeSubject": "jim",
+     "narrativeRelation": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow,",
+     "narrativeState": "reflective",
+     "allowedMotifs": [
+      "law",
+      "grave",
+      "phone",
+      "family",
+      "fire",
+      "food",
+      "war",
+      "water",
+      "road",
+      "theDome",
+      "book",
+      "tree",
+      "puppeteer",
+      "chains",
+      "clock",
+      "mask",
+      "coin",
+      "target",
+      "shield",
+      "medical",
+      "photo",
+      "notes",
+      "balance",
+      "hourglass",
+      "door"
+     ],
+     "forbiddenMotifs": [
+      "toga",
+      "ancientGreek",
+      "ancientTemple",
+      "chariot"
+     ],
+     "allowedCharacters": [
+      "jim",
+      "barbie",
+      "andy",
+      "julia",
+      "junior",
+      "rusty"
+     ],
+     "allowedLocations": [
+      "office",
+      "street",
+      "room",
+      "hospital",
+      "cafe",
+      "highway",
+      "sky"
+     ],
+     "allowedProps": []
+    },
+    "visualIntent": {
+     "bookId": "under-the-dome",
+     "worldId": "under-the-dome",
+     "sourceChapter": "resolution",
+     "narrativeSubject": "jim",
+     "narrativeRelation": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow,",
+     "narrativeState": "reflective",
+     "allowedMotifs": [
+      "law",
+      "grave",
+      "phone",
+      "family",
+      "fire",
+      "food",
+      "war",
+      "water",
+      "road",
+      "theDome",
+      "book",
+      "tree",
+      "puppeteer",
+      "chains",
+      "clock",
+      "mask",
+      "coin",
+      "target",
+      "shield",
+      "medical",
+      "photo",
+      "notes",
+      "balance",
+      "hourglass",
+      "door"
+     ],
+     "forbiddenMotifs": [
+      "toga",
+      "ancientGreek",
+      "ancientTemple",
+      "chariot"
+     ],
+     "allowedCharacters": [
+      "jim",
+      "barbie",
+      "andy",
+      "julia",
+      "junior",
+      "rusty"
+     ],
+     "allowedLocations": [
+      "office",
+      "street",
+      "room",
+      "hospital",
+      "cafe",
+      "highway",
+      "sky"
+     ],
+     "allowedProps": [],
+     "archetype": "cause_effect",
+     "domain": "philosophy_ideas",
+     "requiredActions": [
+      "depict_trigger_to_consequence_flow"
+     ],
+     "requiredAttributes": {
+      "mood": "somber",
+      "visualRegister": "diagrammatic_editorial",
+      "lightingOrTone": "dramatic_contrast"
+     },
+     "forbiddenTropes": [
+      "comic_lightbulb",
+      "celebrate_action",
+      "cheerful_facial_expression",
+      "heart_symbol",
+      "party_confetti",
+      "static_idle_actor_wallpaper",
+      "meaningless_abstract_blobs"
+     ],
+     "semanticRequirements": [
+      "cognitive_domain_coherence"
+     ],
+     "semanticGrammar": {
+      "kind": "cause_effect_flow",
+      "subject": "jim",
+      "relation": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow,",
+      "state": "reflective"
+     },
+     "provenance": {
+      "derivedAt": "plan",
+      "source": "inject-provenance",
+      "atomText": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow, Joe, Nory, and Benny are walking through the trees. Suddenly, their geer counter"
+     }
+    },
+    "visualContract": {
+     "bookId": "under-the-dome",
+     "worldId": "under-the-dome",
+     "sourceChapter": "resolution",
+     "narrativeSubject": "jim",
+     "narrativeRelation": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow,",
+     "narrativeState": "reflective",
+     "allowedMotifs": [
+      "law",
+      "grave",
+      "phone",
+      "family",
+      "fire",
+      "food",
+      "war",
+      "water",
+      "road",
+      "theDome",
+      "book",
+      "tree",
+      "puppeteer",
+      "chains",
+      "clock",
+      "mask",
+      "coin",
+      "target",
+      "shield",
+      "medical",
+      "photo",
+      "notes",
+      "balance",
+      "hourglass",
+      "door"
+     ],
+     "forbiddenMotifs": [
+      "toga",
+      "ancientGreek",
+      "ancientTemple",
+      "chariot"
+     ],
+     "allowedCharacters": [
+      "jim",
+      "barbie",
+      "andy",
+      "julia",
+      "junior",
+      "rusty"
+     ],
+     "allowedLocations": [
+      "office",
+      "street",
+      "room",
+      "hospital",
+      "cafe",
+      "highway",
+      "sky"
+     ],
+     "allowedProps": [],
+     "visualEvidence": {
+      "subjects": [
+       "jim"
+      ],
+      "relations": [
+       "The leaves are dead and dry, falling early because of the toxic air. Scarecrow,"
+      ],
+      "states": [
+       "reflective"
+      ],
+      "representation": {
+       "kind": "fallback",
+       "lever": "closeUp",
+       "confidence": 0.917
+      }
+     },
+     "characterIntent": [
+      {
+       "identity": "jim",
+       "role": "jim",
+       "action": "talk",
+       "gaze": "center",
+       "state": "neutral"
+      },
+      {
+       "identity": "jim",
+       "role": "jim",
+       "action": "talk",
+       "gaze": "center",
+       "state": "neutral"
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "kept": [],
+ "reverted": []
+}
