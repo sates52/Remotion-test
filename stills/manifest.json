@@ -1,0 +1,141 @@
+{
+ "schema": "stills/1",
+ "name": "c18 relational motion 2.0 A/B",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "create-space-how-to--s177-A",
+   "config": "configs/create-space-how-to--s177-A.json",
+   "frames": [
+    318,
+    377,
+    436
+   ],
+   "strip": true,
+   "clip": {
+    "from": 259,
+    "to": 455
+   }
+  },
+  {
+   "id": "create-space-how-to--s177-B",
+   "config": "configs/create-space-how-to--s177-B.json",
+   "frames": [
+    318,
+    377,
+    436
+   ],
+   "strip": true,
+   "clip": {
+    "from": 259,
+    "to": 455
+   }
+  },
+  {
+   "id": "burn-of-the-everflam-s21-A",
+   "config": "configs/burn-of-the-everflam-s21-A.json",
+   "frames": [
+    448,
+    533,
+    618
+   ],
+   "strip": true,
+   "clip": {
+    "from": 363,
+    "to": 645
+   }
+  },
+  {
+   "id": "burn-of-the-everflam-s21-B",
+   "config": "configs/burn-of-the-everflam-s21-B.json",
+   "frames": [
+    448,
+    533,
+    618
+   ],
+   "strip": true,
+   "clip": {
+    "from": 363,
+    "to": 645
+   }
+  },
+  {
+   "id": "as-good-as-dead-s155-A",
+   "config": "configs/as-good-as-dead-s155-A.json",
+   "frames": [
+    464,
+    544,
+    623
+   ],
+   "strip": true,
+   "clip": {
+    "from": 384,
+    "to": 649
+   }
+  },
+  {
+   "id": "as-good-as-dead-s155-B",
+   "config": "configs/as-good-as-dead-s155-B.json",
+   "frames": [
+    464,
+    544,
+    623
+   ],
+   "strip": true,
+   "clip": {
+    "from": 384,
+    "to": 649
+   }
+  },
+  {
+   "id": "feel-good-productivi-s225-A",
+   "config": "configs/feel-good-productivi-s225-A.json",
+   "frames": [
+    270,
+    330,
+    391
+   ],
+   "strip": true,
+   "clip": {
+    "from": 209,
+    "to": 410
+   }
+  },
+  {
+   "id": "feel-good-productivi-s225-B",
+   "config": "configs/feel-good-productivi-s225-B.json",
+   "frames": [
+    270,
+    330,
+    391
+   ],
+   "strip": true,
+   "clip": {
+    "from": 209,
+    "to": 410
+   }
+  }
+ ],
+ "inputHash": "d7de8ec75ce1970f",
+ "files": {
+  "stills/configs/create-space-how-to--s177-A.json": "61195ed6afab3396a50cd5450b207456471dafb349df2e2b4a0a5247a17a2fab",
+  "stills/configs/create-space-how-to--s177-B.json": "9ecaf48e445ac3a75b88cf1de214dd5755c2e56d7571841f02f22f0128b271c5",
+  "stills/configs/burn-of-the-everflam-s21-A.json": "835d21ab25f126122c2433ff921830f7a8d8703ffbf2015aac9dd243334283e0",
+  "stills/configs/burn-of-the-everflam-s21-B.json": "c99085fa56a61d3f527c1b2805ea01d3b670ee3d86851d2382e93d93fcc6f594",
+  "stills/configs/as-good-as-dead-s155-A.json": "8bee318b088305c63e3a718263f56fa8dd326d3c537bb68a171e90da7b8d300d",
+  "stills/configs/as-good-as-dead-s155-B.json": "008daa357d73ccefe24bfb5214b3e67c8e6e53f1a948c0394b2ae2e3b32cc873",
+  "stills/configs/feel-good-productivi-s225-A.json": "0cc649b7da7583fef3074e6092af4b8d1746ec9393cb2de19dcc1594c43d19cd",
+  "stills/configs/feel-good-productivi-s225-B.json": "5da46c7574b62d4cfaf91a4235110b0b81113cc2ad5803dad97e936415235935"
+ },
+ "builtAt": "2026-11-06T17:54:21.246Z"
+}
