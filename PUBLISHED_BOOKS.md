@@ -3,7 +3,7 @@
 Permanent record of all book summary videos produced and published to the YouTube channel (US market).
 This log preserves full publishing packs, SEO metadata, chapters, and production specs without retaining multi-gigabyte video render files on local disk.
 
-| 20 | death-row | **Death Row** — Freida McFadden | 2026-09-30 | 31:48 | *Death Row by Freida McFadden — Ending Explained* | ALREADY GUILTY |
+| 20 | `death-row` | **Death Row** — Freida McFadden | 2026-09-30 | 31:48 | *Death Row by Freida McFadden — Ending Explained* | ALREADY GUILTY |
 
 ---
 
@@ -78,7 +78,7 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 64 | `inside-out` | **Inside Out** — Demi Moore | 2026-10-22 | 33:38 | *Antidote; config 60,553 frames. Publication OPERATOR-CONFIRMED 2026-10-28; date from the main checkout's WIP record "PUBLISHED & CLEANED 2026-10-22" (that row says 60,832 frames / 33.8 min — not reconciled); YouTube URL, live title and render SHA NOT recorded* | not recorded |
 | 65 | `the-art-of-strategy` | **The Art of Strategy** — Avinash K. Dixit & Barry J. Nalebuff | 2026-10-31 | 49:02 | *The Art of Strategy Summary: Why Being Stronger Doesn't Win (Dixit & Nalebuff)* (candidate title from `youtube-meta.json` titles[0]; the live title is not recorded) | `STRONGER DOESN'T WIN` |
 | 66 | `the-first-90-days` | **The First 90 Days** — Michael D. Watkins | 2026-11-03 | 34:36 | *The First 90 Days Summary by Michael D. Watkins* | `THE FAST START TRAP` |
-| 67 | 	he-creative-curve | **The Creative Curve: How to Develop the Right Idea at the Right Time** — Allen Gannett | 2026-11-05 | 43:12 | *The Creative Curve Summary (Allen Gannett) — The Myth of Solitary Genius* | TIMING TRUMPS GENIUS |
+| 67 | `the-creative-curve` | **The Creative Curve: How to Develop the Right Idea at the Right Time** — Allen Gannett | 2026-11-05 | 43:12 | *The Creative Curve Summary (Allen Gannett) — The Myth of Solitary Genius* | TIMING TRUMPS GENIUS |
 ---
 
 ## 📖 Detailed Book Records
@@ -1429,7 +1429,7 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Kept:** committed source under `books/the-first-90-days/`, and `public/captions/the-first-90-days.clean.vtt`.
 
 
-## The Creative Curve — Allen Gannett (	he-creative-curve, Antidote)
+## The Creative Curve — Allen Gannett (`the-creative-curve`, Antidote)
 - **Status:** Published on YouTube (operator-confirmed, 2026-11-05).
 - **Length:** 43.2 min (2592 s); 77,368 frames; 30 fps; technical VERIFIED (frames = config, decodes).
 - **Render:** 10-worker GitHub split render, all 10 segments success; cloud assembled via GitHub Actions run 41830818284 to out/the-creative-curve.mp4 (970.2 MB).

@@ -261,9 +261,10 @@ function ensureGrammar({ slug, root = ROOT, bookRoot = root, log = console.log }
   return r.status === 0 && bookFiles(bookRoot, slug).thumb.grammar ? null : `thumbnail-grammar.js --write failed (exit ${r.status})`;
 }
 
+/** Frozen in ANY of these checkouts' register (lib/frozen.js — the one parse every frozen-book guard shares). */
 function isPublished(slug, roots) {
-  const { publishedSlugs } = require("./thumbnail-grammar");
-  return [...new Set(roots.map((r) => path.resolve(r)))].some((r) => publishedSlugs(r).includes(slug));
+  const { isFrozen } = require("./frozen");
+  return [...new Set(roots.map((r) => path.resolve(r)))].some((r) => isFrozen(slug, r));
 }
 
 // ── GitHub I/O ──────────────────────────────────────────────────────────────
