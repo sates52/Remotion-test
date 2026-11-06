@@ -64,4 +64,32 @@ async function renderThumb(serveUrl, slug, output, inputProps = {}, { timeout = 
   throw last;
 }
 
-module.exports = { writeSlimRegistry, bundleFor, renderThumb };
+const describeGrammar = (g) =>
+  g ? `${g.layout} · ${g.textPos} · ${g.type} · ${g.treatment} · ${g.accent}${g.sceneRank ? ` · scene #${g.sceneRank + 1}` : ""}` : "default";
+
+/**
+ * youtube.md: replace (or append) the Test & Compare block. `done` = [{ letter, rel, grammar }] (rel = repo path of
+ * the PNG). One writer for the local render and the cloud install (cloud-thumbs.js). No-op below two variants.
+ */
+function writeTestCompareBlock(root, slug, done) {
+  const md = path.join(root, "books", slug, "youtube.md");
+  if (!fs.existsSync(md) || done.length <= 1) return false;
+  const START = "<!-- test-compare:start -->";
+  const END = "<!-- test-compare:end -->";
+  const block = [
+    START,
+    "### Thumbnail Test & Compare (YouTube Studio)",
+    "Upload all three under **Thumbnail → Test & compare**; YouTube serves them evenly and keeps the one with the highest watch-time share. Same hook, different design — the test measures the design, not the promise.",
+    ...done.map((j) => `- **${j.letter}**: \`${j.rel}\` — ${describeGrammar(j.grammar)}`),
+    END,
+  ].join("\n");
+  let text = fs.readFileSync(md, "utf8");
+  const re = new RegExp(`${START}[\\s\\S]*?${END}`);
+  if (re.test(text)) text = text.replace(re, block);
+  else if (/\n## Upload checklist/.test(text)) text = text.replace(/\n## Upload checklist/, `\n${block}\n\n## Upload checklist`);
+  else text = `${text.trimEnd()}\n\n${block}\n`;
+  fs.writeFileSync(md, text);
+  return true;
+}
+
+module.exports = { writeSlimRegistry, bundleFor, renderThumb, describeGrammar, writeTestCompareBlock };

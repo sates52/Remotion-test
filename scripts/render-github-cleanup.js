@@ -237,9 +237,11 @@ if (slug && !args.worker && !args.run) {
 
   let totalArt = 0, totalRun = 0, totalFreed = 0;
   for (const w of targetWorkers) {
-    const segRef = slug ? `render/${slug}-seg` : null;
-    const filter = segRef
-      ? r => r.status === "completed" && r.headBranch && r.headBranch.startsWith(segRef)
+    // this book's segment runs + its cloud assembly and thumbnail runs (exact refs: another slug that merely starts
+    // with this one, e.g. the-witch vs the-witch-hunt, never matches)
+    const ownRef = slug ? new RegExp(`^render/${slug.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}-(seg\\d+|assemble|thumbs)$`) : null;
+    const filter = ownRef
+      ? r => r.status === "completed" && r.headBranch && ownRef.test(r.headBranch)
       : r => r.status === "completed";
 
     process.stdout.write(`  @${w.username}... `);

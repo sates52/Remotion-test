@@ -77,7 +77,8 @@ else {
 // ── (D) the workflow ─────────────────────────────────────────────────────────
 const yml = fs.readFileSync(path.join(__dirname, "..", ".github", "workflows", "render-video.yml"), "utf8").replace(/\r\n/g, "\n");
 const job = (name) => { const i = yml.indexOf(`\n  ${name}:\n`); const j = yml.indexOf("\n  render:\n", i + 1); return i < 0 ? "" : yml.slice(i, name === "assemble" ? j : undefined); };
-t("workflow: render job runs only without a manifest (old dispatches unchanged)", /\n  render:\n[\s\S]*?if: \$\{\{ github\.event\.inputs\.assemble_manifest == '' \}\}/.test(yml));
+// 2026-11-06: also not in a THUMBNAIL-ONLY run (thumbnails=true, no manifest) — a dispatch without `thumbnails` is unchanged
+t("workflow: render job runs only without a manifest (old dispatches unchanged)", /\n  render:\n[\s\S]*?if: \$\{\{ github\.event\.inputs\.assemble_manifest == '' && github\.event\.inputs\.thumbnails != 'true' \}\}/.test(yml));
 t("workflow: assemble job only with a manifest", /if: \$\{\{ github\.event\.inputs\.assemble_manifest != '' \}\}/.test(job("assemble")));
 t("workflow: assemble job is read-only (contents/actions read, nothing else)", /permissions:\n\s+contents: read\n\s+actions: read\n\s+steps:/.test(job("assemble")));
 t("workflow: no secret is used anywhere", !/secrets\./.test(yml));

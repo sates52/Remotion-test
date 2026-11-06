@@ -1197,6 +1197,12 @@ async function runGithubActionsRender() {
                         // Technical fact (file, frame count, decode) before anyone claims success.
                         const tech = spawnSync("node", ["scripts/verify-render-output.js", `--slug=${slug}`], { cwd: ROOT, stdio: STDIO });
                         if (tech.status !== 0) console.error("❌ Technical verification FAILED — the video is not verified; do not upload it.");
+                        // thumbnails A/B/C (lib/cloud-thumbs.js): the ones this run made on its runner, else one
+                        // thumbnail-only run — production only; a thumbnail problem never touches the film
+                        if (!args["preview-only"]) {
+                          const th = await require("./lib/cloud-thumbs").finalizeThumbs({ slug, bookRoot: ROOT, root: ROOT, acc: require("./lib/render-pool").loadAccounts(), host: worker, mode: "PRODUCTION", assembleRun: { id: latest.id, url: latest.html_url } });
+                          if (!th.ok) console.warn(`⚠ thumbnails not ready: ${th.problems.join("; ")} — retry (no re-render): node scripts/render-thumbnails.js --slug=${slug} --cloud`);
+                        }
                         runPostRender();
                       } catch (e) {
                         console.warn(`⚠ İndirme uyarısı: ${e.message}`);

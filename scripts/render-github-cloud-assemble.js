@@ -14,6 +14,9 @@
  *    bundle, old or new; a legacy push without a bundle commit → exit 3 (operator decides, render-status.js)
  * 4. waits, reads the small verify report artifact, writes .render-github-cloud.<slug>.json
  * 5. --download: fetches only the verified final film into out/ (unzip, no ffmpeg) and checks its sha256
+ * 6. PRODUCTION (2026-11-06): the same run renders thumbnails A/B/C once after the verified join (`thumbnails` job,
+ *    lib/cloud-thumbs.js); finish() installs them before post-render — missing / stale → one thumbnail-only run.
+ *    --no-thumbnails skips that. A thumbnail problem never fails or re-renders the film.
  *
  * IDEMPOTENT (2026-10-28): one run per book (lib/run-lock.js, .cloud-assemble-lock.<slug>.json); a render already
  * cloud-verified for the same bundle is NOT assembled again (straight to fetch / post-render); an assemble run already
@@ -114,6 +117,14 @@ async function finish(host, state) {
   console.log(`✅ CLOUD-VERIFIED ${f.file}: ${f.frames}/${f.expected} frames, full decode clean, audio present, ${(f.bytes / 1e6).toFixed(1)} MB — artifact ${state.finalArtifact.name} on ${state.run.url}`);
   if (args.download) await fetchFilm(host, state);
   else console.log(`   download it from the run page, or: node scripts/render-github-cloud-assemble.js --slug=${SLUG} --fetch${BR} (download only, no new run)`);
+  // thumbnails A/B/C (2026-11-06, lib/cloud-thumbs.js) — production finalization, before post-render checks the pack:
+  // the ones this assembly run made, else ONE thumbnail-only run; already current → nothing. Never touches the film.
+  if (state.mode !== "PREVIEW-ONLY" && !args["no-thumbnails"]) {
+    const th = await require("./lib/cloud-thumbs").finalizeThumbs({
+      slug: SLUG, bookRoot: BOOK, root: ROOT, acc: require("./lib/render-pool").loadAccounts(), host, mode: state.mode, assembleRun: state.run,
+    });
+    if (!th.ok) console.warn(`⚠ thumbnails not ready: ${th.problems.join("; ")} — the film is unaffected. Retry (thumbnail-only, no re-render): node scripts/render-thumbnails.js --slug=${SLUG} --cloud${BR}`);
+  }
   // post-render of the checkout that owns the film (its own out/, its own YouTube pack); --book-root = that checkout's script
   const post = path.join(BOOK, "scripts", "post-render.js");
   if (state.mode !== "PREVIEW-ONLY" && fs.existsSync(post) && !args["no-post-render"]) {
@@ -200,14 +211,27 @@ async function finish(host, state) {
     console.log(`↪ ${plan.reason} (${run.html_url || `${host.username}/${host.repo}`})`);
   } else {
     const remote = host.remoteName || `render-worker-${(acc.workers || []).indexOf(host) + 1}`;
-    const { buildAssemblerBundle } = require("./lib/render-bundle");
-    const asm = buildAssemblerBundle({ slug: SLUG });
+    // PRODUCTION: the assembler bundle is the thumbnail bundle (a superset: scripts + workflow + src/data + books/<slug>
+    // + the Thumb assets, no audio) and the same run renders the thumbnails once, after a verified join. Any problem
+    // building it → the plain assembler bundle; finish() then runs the thumbnails on their own. The film never waits.
+    let asm = null, withThumbs = false;
+    if (split.mode !== "PREVIEW-ONLY" && !args["no-thumbnails"]) {
+      const CT = require("./lib/cloud-thumbs");
+      try {
+        if (CT.isPublished(SLUG, [ROOT, BOOK])) throw new Error("published book (frozen)");
+        const g = CT.ensureGrammar({ slug: SLUG, root: ROOT, bookRoot: BOOK });
+        if (g) throw new Error(g);
+        asm = CT.buildThumbBundle({ slug: SLUG, root: ROOT, bookRoot: BOOK });
+        withThumbs = true;
+      } catch (e) { console.warn(`⚠ thumbnails not in this assembly run (${String(e.message).split("\n")[0]}) — finalization runs them separately`); }
+    }
+    if (!asm) asm = require("./lib/render-bundle").buildAssemblerBundle({ slug: SLUG });
     try {
       execFileSync("git", ["push", remote, `${asm.sha}:refs/heads/${ref}`, "--force"], { cwd: ROOT, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" } });
     } catch (e) { die(1, `❌ push of the assembler bundle to ${remote} ${ref} failed: ${String((e.stderr || e.message || "")).replace(/(https?:\/\/)[^@/ ]+@/g, "$1***@").slice(0, 300)}`); }
     console.log(`↑ assembler bundle ${asm.sha.slice(0, 8)} → ${host.username}/${host.repo} ${ref}`);
     await sleep(5000); // let GitHub index the new ref before the dispatch names it
-    const inputs = { slug: SLUG, assemble_manifest: manifest, ...(split.mode === "PREVIEW-ONLY" ? { preview_only: "true" } : {}) };
+    const inputs = { slug: SLUG, assemble_manifest: manifest, ...(split.mode === "PREVIEW-ONLY" ? { preview_only: "true" } : {}), ...(withThumbs ? { thumbnails: "true" } : {}) };
     await req(host, "POST", `/repos/${host.username}/${host.repo}/actions/workflows/render-video.yml/dispatches`, { body: JSON.stringify({ ref, inputs }) });
     console.log(`🚀 cloud assembly dispatched on ${host.username}/${host.repo} @ ${ref} (${entries.length} segments, ${total.total} frames)`);
   }

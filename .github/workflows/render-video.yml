@@ -40,6 +40,10 @@ on:
         description: 'CLOUD ASSEMBLY (scripts/render-github-cloud-assemble.js): seg:owner/repo:runId:start-end;… — when set, this run renders nothing; it joins + verifies those segments and uploads the final film.'
         required: false
         default: ''
+      thumbnails:
+        description: 'THUMBNAILS A/B/C (scripts/lib/cloud-thumbs.js): true + assemble_manifest = after the verified assembly, once per film (production finalization); true alone = THUMBNAIL-ONLY (no film rendered, joined or published).'
+        required: false
+        default: ''
 
 concurrency:
   group: render-${{ github.ref }}
@@ -101,9 +105,57 @@ jobs:
           compression-level: 0
           if-no-files-found: error
 
+  # Thumbnails A/B/C: the same scripts/render-thumbnails.js (grammar, hook, hook-visibility check) on a runner.
+  # Production finalization = after `assemble` succeeded, once per film (never in a segment run); THUMBNAIL-ONLY = this
+  # job alone (no manifest) on a thumbnail bundle (code + books/<slug> + the assets the Thumb composition reads, no
+  # narration audio). continue-on-error: a thumbnail failure never fails the run, so it never un-verifies a film.
+  # Read-only token; the PNGs + thumbnail-check.json + record.json (sha256, inputs) go to the thumbs-<slug> artifact.
+  thumbnails:
+    name: Thumbnails A/B/C
+    needs: assemble
+    if: ${{ !cancelled() && github.event.inputs.thumbnails == 'true' && (github.event.inputs.assemble_manifest == '' || needs.assemble.result == 'success') }}
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout the thumbnail bundle
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install FFmpeg (hook-visibility check)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install NPM Dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Generate Books Registry
+        run: node scripts/gen-books-registry.js
+
+      - name: Render thumbnails A/B/C + hook check
+        run: node scripts/render-thumbnails.js --slug="${{ github.event.inputs.slug }}" --pack="out/thumbs-${{ github.event.inputs.slug }}"
+
+      - name: Upload thumbnails
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumbs-${{ github.event.inputs.slug }}
+          path: out/thumbs-${{ github.event.inputs.slug }}/
+          retention-days: 14
+          if-no-files-found: warn
+
   render:
     name: Render Video
-    if: ${{ github.event.inputs.assemble_manifest == '' }}
+    if: ${{ github.event.inputs.assemble_manifest == '' && github.event.inputs.thumbnails != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
 
@@ -166,3 +218,21 @@ jobs:
           path: out/*.mp4
           retention-days: 14
           if-no-files-found: error
+
+      # A single-job PRODUCTION render (whole film, no segment) makes its thumbnails on this same runner, AFTER the film
+      # artifact is uploaded; a failure here never fails the job. Segment runs never do (once per film: the assembly run).
+      - name: Render thumbnails A/B/C + hook check
+        id: thumbs
+        if: ${{ success() && github.event.inputs.seg == '' && github.event.inputs.frames == '' && github.event.inputs.preview_only != 'true' }}
+        continue-on-error: true
+        run: node scripts/render-thumbnails.js --slug="${{ github.event.inputs.slug }}" --pack="out/thumbs-${{ github.event.inputs.slug }}"
+
+      - name: Upload thumbnails
+        if: ${{ !cancelled() && steps.thumbs.outcome != 'skipped' && steps.thumbs.outcome != '' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumbs-${{ github.event.inputs.slug }}
+          path: out/thumbs-${{ github.event.inputs.slug }}/
+          retention-days: 14
+          if-no-files-found: warn

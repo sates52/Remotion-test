@@ -4,6 +4,8 @@
  * render-thumbnails.js — render a book's thumbnail + its Test & Compare variants.
  *
  *   node scripts/render-thumbnails.js --slug=<slug>
+ *   node scripts/render-thumbnails.js --slug=<slug> --cloud [--book-root=<checkout>] [--worker=<id>] [--no-wait]
+ *   node scripts/render-thumbnails.js --slug=<slug> --cloud --fetch [--book-root=<checkout>]
  *
  * Reads youtube-meta.json → thumbnail.grammar / thumbnail.variants (written by
  * thumbnail-grammar.js --write) and renders, from ONE slim bundle:
@@ -14,11 +16,20 @@
  * operator uploads all three in YouTube Studio (Test & Compare picks the winner
  * on watch-time share — the only honest CTR measurement there is).
  *
+ * --cloud (2026-11-06) = THUMBNAIL-ONLY mode of the cloud render pipeline (lib/cloud-thumbs.js): this same script runs
+ * in the `thumbnails` job of render-video.yml on a render-pool runner; the PNGs + thumbnail-check.json come back
+ * sha256-checked and bound to the book's current thumbnail inputs. No film is rendered, joined, verified, uploaded or
+ * published, and no render state is written. A production cloud render does this by itself at finalization
+ * (render-github-cloud-assemble.js); --cloud is for a film that is already done, or after the hook / grammar changed.
+ * --fetch: install the last dispatched thumbnail-only run's result (after --no-wait).
+ * --pack=<dir> (runner): also collect the outputs + record.json (sha256 per file) for the artifact.
+ *
+ * Locally (no --cloud) the still budget of lib/local-load-guard.js applies (one machine-wide still lock).
  * Published books are refused (frozen). No variants in meta → renders A only.
  */
 const fs = require("fs");
 const path = require("path");
-const { bundleFor, renderThumb } = require("./lib/thumb-render");
+const { bundleFor, renderThumb, describeGrammar: describe, writeTestCompareBlock } = require("./lib/thumb-render");
 const { publishedSlugs } = require("./lib/thumbnail-grammar");
 
 const ROOT = path.join(__dirname, "..");
@@ -28,10 +39,11 @@ const args = Object.fromEntries(process.argv.slice(2).map((a) => {
 }));
 const SLUG = args.slug;
 if (!SLUG) {
-  console.error("Usage: node scripts/render-thumbnails.js --slug=<slug>");
+  console.error("Usage: node scripts/render-thumbnails.js --slug=<slug> [--cloud [--book-root=<checkout>] [--worker=<id>] [--no-wait] [--fetch]]");
   process.exit(1);
 }
-if (publishedSlugs(ROOT).includes(SLUG) && !args.force) {
+const BOOK = typeof args["book-root"] === "string" && args["book-root"] ? path.resolve(args["book-root"]) : ROOT;
+if ([...new Set([ROOT, BOOK])].some((r) => publishedSlugs(r).includes(SLUG)) && !args.force) {
   console.error(`✗ ${SLUG} is in PUBLISHED_BOOKS.md — frozen, its thumbnail already shipped.`);
   process.exit(1);
 }
@@ -43,6 +55,42 @@ const readJson = (f) => {
     return null;
   }
 };
+
+if (args.cloud) {
+  // THUMBNAIL-ONLY: dispatch / fetch on the render pool; nothing heavy runs here.
+  const CT = require("./lib/cloud-thumbs");
+  (async () => {
+    if (!fs.existsSync(path.join(BOOK, "books", SLUG))) { console.error(`✗ books/${SLUG} not found under ${BOOK}`); process.exit(2); }
+    require("./lib/run-lock").takeRunLock(path.join(BOOK, `.cloud-thumbs-lock.${SLUG}.json`), `cloud thumbnails ${SLUG}`);
+    const acc = require("./lib/render-pool").loadAccounts();
+    let got;
+    if (args.fetch) {
+      const d = (readJson(CT.thumbsStateFile(BOOK, SLUG)) || {}).dispatched;
+      if (!d || !d.runId) { console.error(`✗ no dispatched thumbnail run recorded in ${path.basename(CT.thumbsStateFile(BOOK, SLUG))}`); process.exit(2); }
+      const [o, r] = String(d.repo).split("/");
+      const host = (acc.workers || []).find((w) => w.username === o && w.repo === r);
+      if (!host) { console.error(`✗ worker ${d.repo} not in render-accounts.json`); process.exit(2); }
+      got = await CT.fetchAndInstall({ host, runId: d.runId, runUrl: d.url, slug: SLUG, bookRoot: BOOK });
+    } else {
+      const g = CT.ensureGrammar({ slug: SLUG, root: ROOT, bookRoot: BOOK });
+      if (g) { console.error(`✗ ${g}`); process.exit(2); }
+      const host = CT.hostFor({ acc, bookRoot: BOOK, slug: SLUG, workerId: typeof args.worker === "string" ? args.worker : null });
+      if (!host) { console.error("✗ no active render-pool worker with a token in render-accounts.json"); process.exit(2); }
+      got = await CT.runThumbnailsOnly({ slug: SLUG, bookRoot: BOOK, root: ROOT, host, acc, wait: !args["no-wait"] });
+    }
+    if (got.pending) return;
+    if (!got.ok) { console.error(`✗ thumbnails NOT installed:\n   - ${got.problems.join("\n   - ")}`); process.exit(1); }
+    const vis = got.state.hookVisible;
+    console.log(`✓ thumbnails ${got.state.variants.join("/")} installed (inputs ${got.state.inputHash}) — hook ${vis ? "visible in every variant" : vis === false ? "NOT VISIBLE (YouTube NOT READY)" : "unchecked"}`);
+    console.log(`   next: node scripts/lint-titles.js --slug=${SLUG} --pack${BOOK !== ROOT ? ` (in ${BOOK})` : ""}`);
+    if (vis === false) process.exit(1);
+  })().catch((e) => { console.error(`✗ ${e.message}`); process.exit(1); });
+} else {
+  renderHere();
+}
+
+function renderHere() {
+if (BOOK !== ROOT) { console.error("✗ --book-root is for --cloud only (a local render reads this checkout's books/)"); process.exit(2); }
 const meta = readJson(path.join(ROOT, "books", SLUG, "youtube-meta.json"));
 const cfg = readJson(path.join(ROOT, "books", SLUG, "config.antidote.json"));
 const thumb = (meta && meta.thumbnail) || (cfg && cfg.meta && cfg.meta.thumbnail) || {};
@@ -53,9 +101,8 @@ const jobs = variants.slice(0, 3).map((g, i) => ({
   grammar: g,
   file: path.join(ROOT, "out", `thumbnail-${SLUG}${i ? "-" + LETTERS[i].toLowerCase() : ""}.png`),
 }));
-
-const describe = (g) =>
-  g ? `${g.layout} · ${g.textPos} · ${g.type} · ${g.treatment} · ${g.accent}${g.sceneRank ? ` · scene #${g.sceneRank + 1}` : ""}` : "default";
+// machine load (lib/local-load-guard.js): free on a runner; locally within the still budget, one still render at a time
+require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}`, stills: jobs.length * (args["no-hook-check"] ? 1 : 2), operatorLocal: args["operator-local"] });
 
 (async () => {
   fs.mkdirSync(path.join(ROOT, "out"), { recursive: true });
@@ -104,27 +151,16 @@ const describe = (g) =>
     if (checks.some((c) => c.hookVisible === false)) { console.error(`  ✗ the hook is not visible in ${checks.filter((c) => c.hookVisible === false).map((c) => c.letter).join(", ")} — YouTube NOT READY`); process.exitCode = 1; }
   }
 
-  // youtube.md: replace (or append) the Test & Compare block.
-  const md = path.join(ROOT, "books", SLUG, "youtube.md");
-  if (fs.existsSync(md) && done.length > 1) {
-    const START = "<!-- test-compare:start -->";
-    const END = "<!-- test-compare:end -->";
-    const block = [
-      START,
-      "### Thumbnail Test & Compare (YouTube Studio)",
-      "Upload all three under **Thumbnail → Test & compare**; YouTube serves them evenly and keeps the one with the highest watch-time share. Same hook, different design — the test measures the design, not the promise.",
-      ...done.map((j) => `- **${j.letter}**: \`${path.relative(ROOT, j.file).replace(/\\/g, "/")}\` — ${describe(j.grammar)}`),
-      END,
-    ].join("\n");
-    let text = fs.readFileSync(md, "utf8");
-    const re = new RegExp(`${START}[\\s\\S]*?${END}`);
-    if (re.test(text)) text = text.replace(re, block);
-    else if (/\n## Upload checklist/.test(text)) text = text.replace(/\n## Upload checklist/, `\n${block}\n\n## Upload checklist`);
-    else text = `${text.trimEnd()}\n\n${block}\n`;
-    fs.writeFileSync(md, text);
-    console.log(`  ✓ Test & Compare block → ${path.relative(ROOT, md)}`);
+  if (writeTestCompareBlock(ROOT, SLUG, done.map((j) => ({ letter: j.letter, rel: path.relative(ROOT, j.file).replace(/\\/g, "/"), grammar: j.grammar })))) {
+    console.log(`  ✓ Test & Compare block → ${path.relative(ROOT, path.join(ROOT, "books", SLUG, "youtube.md"))}`);
+  }
+  if (typeof args.pack === "string" && args.pack) {
+    // runner (render-video.yml `thumbnails` job): the artifact = these files + record.json (sha256, inputs, hook check)
+    const rec = require("./lib/cloud-thumbs").writePack({ dir: path.resolve(ROOT, args.pack), root: ROOT, slug: SLUG, jobs: done, checks, hook, exitCode: process.exitCode || 0 });
+    console.log(`  ✓ pack → ${args.pack} (${Object.keys(rec.files).length} files, inputs ${rec.inputHash})`);
   }
 })().catch((e) => {
   console.error(e);
   process.exit(1);
 });
+}
