@@ -25,6 +25,12 @@ function narrationOf(config, scene) {
   return (config.captions || []).filter((c) => (c.endFrame ?? c.toFrame ?? c.end ?? 0) > a && (c.startFrame ?? c.fromFrame ?? c.start ?? 0) < b).map((c) => c.text).join(" ");
 }
 
+/** the narrator's words inside a scene, in SCENE frames (the anchors of word-timed events, cycle 18) */
+function wordsOf(config, scene) {
+  const a = scene.fromFrame, b = scene.fromFrame + scene.durationFrames;
+  return (config.captions || []).flatMap((c) => c.words || []).filter((w) => w && w.s >= a && w.s < b).map((w) => ({ w: w.w, s: w.s - a }));
+}
+
 function apply(config, contracts, { published = false } = {}) {
   if (published) return { ok: false, errors: [`${config.meta.slug} is a published (frozen) book — no change`] };
   const cast = (config.meta && config.meta.cast) || {};
@@ -36,7 +42,7 @@ function apply(config, contracts, { published = false } = {}) {
     const narration = narrationOf(config, sc);
     const e = R.validate(c, { ...ctx0, narration });
     if (e.length) { errors.push(...e.map((m) => `scene ${i}: ${m}`)); continue; }
-    scenes[i] = R.compile(c, sc);
+    scenes[i] = R.compile(c, sc, { words: wordsOf(config, sc) });
   }
   if (errors.length) return { ok: false, errors };
   return { ok: true, config: R.enable({ ...config, scenes }), changed: Object.keys(contracts).map(Number) };
@@ -56,4 +62,4 @@ if (require.main === module) {
   if (args.write) fs.writeFileSync(cfgPath, JSON.stringify(r.config, null, 2));
 }
 
-module.exports = { apply, narrationOf };
+module.exports = { apply, narrationOf, wordsOf };

@@ -125,7 +125,18 @@ function validate(c, ctx = {}) {
   const ents = Array.isArray(c.entities) ? c.entities : [];
   const evs = Array.isArray(c.events) ? c.events : [];
   if (ents.length > MAX_ENTITIES) err(`one relation: at most ${MAX_ENTITIES} entities`);
-  if (evs.length !== 1) err("one relation: exactly one event (one cause, its effect)");
+  // multi-phase single-frame storytelling (cycle 18, pilot): setup → action → result as 2–3 events of ONE relation in ONE
+  // frame, each timed to the narration's own words (anchors). Without `phases: true` a contract is exactly one event.
+  if (c.phases === true) {
+    if (evs.length < 2 || evs.length > 3) err("phases: 2 or 3 events (setup → action → result)");
+    if (!evs.every((ev) => ev && ev.anchors && (ev.anchors.cause || ev.anchors.effect))) err("phases: every event needs anchors {cause and/or effect} — the narration's words that time it");
+  } else if (evs.length !== 1) err("one relation: exactly one event (one cause, its effect) — or phases: true for setup → action → result");
+  for (const [i, ev] of evs.entries()) for (const [k, ph] of Object.entries((ev && ev.anchors) || {})) {
+    if (!["cause", "effect"].includes(k)) { err(`event ${i}: anchors has only cause / effect (got "${k}")`); continue; }
+    const w = norm(ph).split(" ").filter(Boolean);
+    if (!w.length || w.length > 6) err(`event ${i}: anchor ${k} is 1–6 of the narration's words`);
+    else if (!(" " + norm(narration) + " ").includes(" " + w.join(" ") + " ")) err(`event ${i}: anchor ${k} "${ph}" is not a verbatim phrase of the narration`);
+  }
   if ((c.lanes || 1) !== 1) err("one relation: one lane");
   const seen = new Map();
   for (const e of ents) {
@@ -150,7 +161,12 @@ function validate(c, ctx = {}) {
   };
   for (const ev of evs) {
     mustName(ev.cause, "cause");
-    for (const f of ev.effects || []) { if (f.entity !== ev.cause) mustName(f.entity, "effect"); if (f.moveTo) mustName(f.moveTo, "moveTo target"); }
+    for (const f of ev.effects || []) {
+      if (f.entity !== ev.cause) mustName(f.entity, "effect");
+      if (f.moveTo) mustName(f.moveTo, "moveTo target");
+      if (f.mergeInto) mustName(f.mergeInto, "mergeInto target");
+      if (f.via) mustName(f.via, "via (the removed obstacle)");
+    }
   }
   // RELATIONAL MOTION (cycle 16): a declared mechanism must be what the motion actually does — the change lands on the
   // right entity in the right direction (a "transfer" with no moving object, or a "depletion" whose level rises, is refused)
@@ -168,24 +184,34 @@ const MECHANISMS = {
   removal: "an obstacle disappears (present: false) AND, in the same event, another entity changes",
   transformation: "an entity's state flips (mood or broken)",
   "character-action": "a person (the cause) acts and another entity changes",
+  // relational motion 2.0 (cycle 18): each is an event the renderer draws, not a label
+  overload: "a level rises in steps until the container gives way (repeat ≥ 2, value up to the top, overflow: true)",
+  passage: "an obstacle is removed (present: false), then something goes through where it stood to its goal (moveTo + via)",
+  merge: "an object goes into another and becomes part of it (mergeInto)",
+  split: "a new entity comes out of another one (present: true + from)",
 };
 function mechanismErrors(c, ents, evs) {
-  const out = [], m = c.mechanism, ev = evs[0];
+  const out = [], m = c.mechanism, ev = evs[evs.length - 1];
   if (!MECHANISMS[m]) return [`mechanism must be one of ${Object.keys(MECHANISMS).join(" / ")} (connection / separation / choice are not drawable in one relation yet)`];
   if (!ev) return out;
   const byId = Object.fromEntries(ents.map((e) => [e.id, e]));
-  const fx = (ev.effects || []).filter(Boolean);
+  // every phase's effects count (a one-event contract: just its own)
+  const fx = evs.flatMap((e) => (e && e.effects) || []).filter(Boolean);
   const start = (id) => (byId[id] && typeof byId[id].value === "number" ? byId[id].value : 1);
   const up = fx.some((f) => typeof f.value === "number" && f.value > start(f.entity));
   const down = fx.some((f) => typeof f.value === "number" && f.value < start(f.entity));
   const need = (ok) => { if (!ok) out.push(`mechanism "${m}": ${MECHANISMS[m]} — the event does not do that`); };
   if (m === "transfer") need(fx.some((f) => f.moveTo && f.entity !== f.moveTo));
-  if (m === "accumulation") need(up && (ev.repeat || 1) >= 2);
+  if (m === "accumulation") need(up && evs.some((e) => (e.repeat || 1) >= 2));
+  if (m === "overload") need(up && evs.some((e) => (e.repeat || 1) >= 2) && fx.some((f) => f.overflow === true));
+  if (m === "passage") need(fx.some((f) => f.present === false) && fx.some((f) => f.moveTo && f.via));
+  if (m === "merge") need(fx.some((f) => f.mergeInto));
+  if (m === "split") need(fx.some((f) => f.from && f.present === true));
   if (m === "depletion") need(down);
   if (m === "recovery") need(up);
   if (m === "removal") need(fx.some((f) => f.present === false) && fx.some((f) => f.present !== false && f.entity !== (fx.find((g) => g.present === false) || {}).entity));
   if (m === "transformation") need(fx.some((f) => f.mood || f.broken));
-  if (m === "character-action") need(byId[ev.cause] && byId[ev.cause].kind === "person" && fx.some((f) => f.entity !== ev.cause));
+  if (m === "character-action") need(evs.some((e) => byId[e.cause] && byId[e.cause].kind === "person") && fx.some((f) => !evs.some((e) => e.cause === f.entity)));
   if (m === "cause-effect") need(fx.some((f) => f.entity !== ev.cause));
   return out;
 }
@@ -208,10 +234,10 @@ const stemOf = (w) => w.replace(/'s$/, "").slice(0, Math.max(4, Math.min(w.lengt
  *  glyph that is a metaphor for the label). Both ends label-carried → "TRY_CONCRETE": author a version where at least one
  *  end is a literal object or a person (cycle 16: the fresh scene the operator "did not understand"). */
 function review(c) {
-  const ents = Array.isArray(c.entities) ? c.entities : [], ev = (c.events || [])[0];
+  const ents = Array.isArray(c.entities) ? c.entities : [], evs = (c.events || []).filter(Boolean), ev = evs[0];
   if (c.type === "H" || !ev) return { verdict: "QUOTE_CARD", labelCarried: [], ends: [] };
   const byId = Object.fromEntries(ents.map((e) => [e.id, e]));
-  const endIds = [ev.cause, ...(ev.effects || []).map((f) => f.entity).filter((id) => id !== ev.cause)];
+  const endIds = [...new Set(evs.flatMap((e) => [e.cause, ...(e.effects || []).map((f) => f.entity)]))];
   const carried = (e) => {
     if (!e) return false;
     if (e.kind === "person") return false;                 // a person (with a face) is read without the label
@@ -220,15 +246,15 @@ function review(c) {
     return !(String(e.label || "").toLowerCase().split(/\s+/).filter(Boolean).some((w) => lex.some((x) => stemOf(x) === stemOf(w))));
   };
   const labelCarried = endIds.filter((id) => carried(byId[id]));
-  const moves = (ev.effects || []).some((f) => f.moveTo || f.present === false || f.mood || f.broken);
+  const moves = evs.flatMap((e) => e.effects || []).some((f) => f.moveTo || f.present === false || f.mood || f.broken || f.overflow || f.mergeInto || f.from);
   const verdict = labelCarried.length === endIds.length && !moves ? "TRY_CONCRETE" : "OK";
   return { verdict, ends: endIds, labelCarried, labelDependence: Math.round((labelCarried.length / Math.max(1, endIds.length)) * 100) / 100,
     note: verdict === "TRY_CONCRETE" ? "every end of the relation is carried by its label alone (a tank / a metaphor glyph) and nothing moves, appears, leaves or changes face — try a version with a literal object or a person first (creative-direction.md)" : undefined };
 }
 
 /** compile a valid contract onto its source scene (same id, timing, set, transition) */
-function compile(c, scene) {
-  const out = V1.compile({ ...c, schema: "semantic-director/1" }, scene);
+function compile(c, scene, ctx = {}) {
+  const out = V1.compile({ ...c, schema: "semantic-director/1" }, scene, ctx);
   const spec = { ...out.semantic, capability: SCHEMA };
   if (c.type === "H" && c.claim && c.claim.speaker && c.claim.speaker !== "narrator") spec.speaker = c.claim.speaker;
   delete out.semantic;

@@ -38,6 +38,7 @@ const GLYPHS = [...HAND_GLYPHS, ...ICON_GLYPHS];
 // a stated causal link (B must quote one): the narration says WHY, not the author
 const CAUSAL = /\b(because|cause[sd]?|causing|so that|so|therefore|thus|hence|leads?|led|leading|makes?|made|making|drives?|drove|results?|resulting|turns? into|creates?|created|triggers?|produces?|means|when|whenever|if|then|until|unless|without|by|forces?|forced|kills?|destroys?|stops?|prevents?|breaks?|costs?|drains?|grows?|shrinks?|lets?|allows?|enables?)\b/i;
 const TIMING = { token: 16, pause: 14, change: 20, gap: 10 };
+const EFFECT_KEYS = ["value", "mood", "present", "moveTo", "broken", "overflow", "via", "mergeInto", "from"];
 
 const norm = (s) => String(s || "").toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, " ").replace(/\s+/g, " ").trim();
 const words = (s) => norm(s).split(" ").filter(Boolean);
@@ -107,7 +108,7 @@ function validate(c, ctx) {
 
   // events: replay the state so an "effect" that changes nothing is caught
   const st = {};
-  for (const e of ents) st[e.id] = { value: e.value ?? 1, mood: e.mood || "neutral", present: e.present !== false, at: e.id, broken: false };
+  for (const e of ents) st[e.id] = { value: e.value ?? 1, mood: e.mood || "neutral", present: e.present !== false, at: e.id, broken: false, overflow: false };
   const evs = Array.isArray(c.events) ? c.events.slice().sort((a, b) => (a.at ?? 0) - (b.at ?? 0)) : [];
   if ("ABCDEF".includes(c.type) && c.type && !evs.length) err(`type ${c.type} needs at least one event that changes the state`);
   let otherEffect = false;
@@ -124,8 +125,8 @@ function validate(c, ctx) {
       if (!s) { err(`${w2}: entity "${f.entity}" does not exist`); continue; }
       if (f.entity !== ev.cause) otherEffect = true;
       const keys = Object.keys(f).filter((k) => k !== "entity");
-      const bad = keys.filter((k) => !["value", "mood", "present", "moveTo", "broken"].includes(k));
-      if (bad.length) err(`${w2}: ${bad.join(", ")} is not a state change (allowed: value, mood, present, moveTo, broken)`);
+      const bad = keys.filter((k) => !EFFECT_KEYS.includes(k));
+      if (bad.length) err(`${w2}: ${bad.join(", ")} is not a state change (allowed: ${EFFECT_KEYS.join(", ")})`);
       let changes = false;
       if (f.value != null) {
         if (typeof f.value !== "number" || f.value < 0 || f.value > 1) err(`${w2}: value 0..1`);
@@ -136,6 +137,33 @@ function validate(c, ctx) {
       if (f.present != null) { if (f.present !== s.present) { changes = true; s.present = f.present; } }
       if (f.moveTo != null) { if (!byId[f.moveTo] || f.moveTo === f.entity) err(`${w2}: moveTo must be another entity`); else if (byId[f.entity].kind !== "object") err(`${w2}: only an object moves`); else { changes = true; s.at = f.moveTo; } }
       if (f.broken === true) { if (!s.broken) { changes = true; s.broken = true; } }
+      // relational motion 2.0 (cycle 18) — each is an EVENT on screen, checked against the replayed state
+      if (f.overflow === true) {
+        // accumulation → threshold → the container gives way: only a stock, only when this effect fills it to the top
+        if (byId[f.entity].kind !== "stock") err(`${w2}: overflow is a stock filling past its rim`);
+        else if (!(typeof f.value === "number" && f.value >= 0.95)) err(`${w2}: overflow needs this effect to fill the stock (value ≥ 0.95)`);
+        else if (!s.overflow) { changes = true; s.overflow = true; }
+      }
+      if (f.via != null) {
+        // obstacle removal → passage → arrival: the mover goes THROUGH the place the obstacle held, after it is gone
+        if (f.moveTo == null) err(`${w2}: via is the route of a move (needs moveTo)`);
+        else if (!st[f.via] || f.via === f.entity || f.via === f.moveTo) err(`${w2}: via must be another entity (the removed obstacle)`);
+        else if (st[f.via].present) err(`${w2}: via "${f.via}" is still in the way — remove it first (present: false in this or an earlier event)`);
+      }
+      if (f.mergeInto != null) {
+        // merge: an object goes into another and is gone as itself (the receiver takes it in)
+        if (!st[f.mergeInto] || f.mergeInto === f.entity) err(`${w2}: mergeInto must be another entity`);
+        else if (byId[f.entity].kind !== "object") err(`${w2}: only an object merges into another`);
+        else if (!s.present) err(`${w2}: "${f.entity}" is not on stage to merge`);
+        else { changes = true; s.present = false; s.at = f.mergeInto; }
+      }
+      if (f.from != null) {
+        // split / emergence: an entity that was not there comes OUT of another one
+        if (!st[f.from] || f.from === f.entity) err(`${w2}: from must be another entity (where it comes out of)`);
+        else if (f.present !== true) err(`${w2}: from needs present: true (the new entity appears)`);
+        else if (byId[f.entity].kind !== "object") err(`${w2}: only an object comes out of another`);
+        else if (!st[f.from].present) err(`${w2}: "${f.from}" is not on stage to split from`);
+      }
       if (!changes) err(`${w2}: changes nothing visible`);
       if (n > 1 && f.value == null) err(`${w2}: a repeated event steps a value (each repetition moves it a share of the way)`);
       if (f.value != null && byId[f.entity] && !["stock", "group"].includes(byId[f.entity].kind)) err(`${w2}: only a stock or a group has a value`);
@@ -160,8 +188,47 @@ function validate(c, ctx) {
   return E;
 }
 
+/** the scene frame where the narrator starts saying `phrase` (consecutive words), or null */
+function findPhrase(timed, phrase) {
+  const want = words(phrase), seq = (timed || []).map((w) => ({ t: words(w.w).join(" "), s: w.s }));
+  if (!want.length) return null;
+  for (let i = 0; i + want.length <= seq.length; i++) if (want.every((t, k) => seq[i + k].t === t)) return seq[i].s;
+  return null;
+}
+
+/**
+ * Word-anchored timing (cycle 18, "multi-phase single-frame storytelling"): an event may name the narration words
+ * for its cause and its effect (`anchors: {cause, effect}`, each a verbatim phrase). The cause is marked when its words
+ * start; the change never starts before the effect's words (the film does not show a result the narrator has not said
+ * yet) and leaves room to read it. Every anchor must be found in the scene's word timings — otherwise the WHOLE
+ * contract falls back to the fraction timing below (`at`), never a guessed moment. Returns null when not anchored.
+ */
+function anchoredTimeline(c, dur, words) {
+  const evs = (c.events || []).slice();
+  if (!evs.length || !evs.every((e) => e.anchors && (e.anchors.cause || e.anchors.effect)) || !(words && words.length)) return null;
+  const occ = [];
+  let floor = 0;
+  for (const ev of evs) {
+    const a = ev.anchors, cf = a.cause ? findPhrase(words, a.cause) : null, ef = a.effect ? findPhrase(words, a.effect) : null;
+    if ((a.cause && cf == null) || (a.effect && ef == null)) return { miss: a.cause && cf == null ? a.cause : a.effect };
+    const n = ev.repeat || 1, span = TIMING.token + TIMING.pause + TIMING.change + TIMING.gap;
+    let cue = cf != null ? cf : Math.max(0, ef - TIMING.token - TIMING.pause);
+    cue = Math.max(cue, floor);
+    let pause = TIMING.pause;
+    if (ef != null) pause = Math.max(TIMING.pause, ef - cue - TIMING.token);
+    const end = cue + (n - 1) * span + TIMING.token + pause + TIMING.change;
+    if (end > dur - 6) { pause = Math.max(TIMING.pause, pause - (end - (dur - 6))); cue = Math.max(floor, Math.min(cue, dur - 6 - ((n - 1) * span + TIMING.token + pause + TIMING.change))); }
+    for (let k = 0; k < n; k++) occ.push({ cause: ev.cause, cue: cue + k * span, pause, effects: ev.effects.map((f) => (n === 1 || f.value == null ? { ...f } : { ...f, __step: [k + 1, n] })) });
+    floor = cue + (n - 1) * span + TIMING.token + pause + TIMING.change + TIMING.gap;
+  }
+  return { occ };
+}
+
 /** frame timing: each occurrence = the cause marked, the token flies, a pause, the change; all done by 88 % of the beat */
-function timeline(c, dur) {
+function timeline(c, dur, words = null) {
+  const anchored = anchoredTimeline(c, dur, words);
+  if (anchored && anchored.occ) return stepLevels(c, anchored.occ, "anchored");
+  const source = anchored && anchored.miss ? `fraction (anchor "${anchored.miss}" not in the word timings)` : "fraction";
   const span = TIMING.token + TIMING.pause + TIMING.change + TIMING.gap;
   const occ = [];
   for (const ev of (c.events || []).slice().sort((a, b) => a.at - b.at)) {
@@ -177,6 +244,9 @@ function timeline(c, dur) {
       occ.push({ cause: ev.cause, cue: start + k * span, effects });
     }
   }
+  return stepLevels(c, occ, source);
+}
+function stepLevels(c, occ, source) {
   occ.sort((a, b) => a.cue - b.cue);
   // repeated value steps: each repetition moves the level a share of the way from where it stood when the event began
   const level = {};
@@ -193,20 +263,23 @@ function timeline(c, dur) {
     }
     level[f.entity] = f.value;
   }
+  Object.defineProperty(occ, "source", { value: source, enumerable: false });
   return occ;
 }
 
 /** compile a valid contract onto the A scene: same id / timing / set / transition; the stage replaces cast, props, texts */
-function compile(c, scene) {
+function compile(c, scene, ctx = {}) {
   const dur = scene.durationFrames;
+  const occ = c.type === "H" ? [] : timeline(c, dur, ctx.words || null);
   const spec = {
     type: c.type, lanes: c.lanes === 2 ? 2 : 1, laneLabels: c.laneLabels, text: c.text,
     entities: (c.entities || []).map((e) => ({ id: e.id, kind: e.kind, label: e.label, glyph: e.glyph, cast: e.cast, value: e.value, mood: e.mood, present: e.present, lane: e.lane })),
-    occ: c.type === "H" ? [] : timeline(c, dur),
+    occ,
     timing: { token: TIMING.token, pause: TIMING.pause, change: TIMING.change },
   };
+  if (occ.source && occ.source !== "fraction") spec.timingSource = occ.source;
   const { id, fromFrame, durationFrames, bg, transition } = scene;
   return { id, fromFrame, durationFrames, bg, transition, shot: "wide", camera: { zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, characters: [], props: [], texts: [], semantic: spec };
 }
 
-module.exports = { TYPES, REPRESENTATION, KINDS, MOODS, GLYPHS, HAND_GLYPHS, ICON_GLYPHS, TIMING, validate, compile, timeline, labelGrounded };
+module.exports = { TYPES, REPRESENTATION, KINDS, MOODS, GLYPHS, HAND_GLYPHS, ICON_GLYPHS, TIMING, EFFECT_KEYS, validate, compile, timeline, findPhrase, labelGrounded };
