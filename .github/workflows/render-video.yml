@@ -130,10 +130,16 @@ jobs:
         with:
           node-version: 24
 
+      # bounded apt (render-stills.yml, cycle 17: apt hung for 10+ min on runners) — a hang must not eat the job's time
       - name: Install FFmpeg (hook-visibility check)
+        timeout-minutes: 8
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          command -v ffmpeg >/dev/null && { ffmpeg -version | head -1; exit 0; }
+          for i in 1 2 3; do
+            if timeout 120 sudo apt-get update -qq && timeout 180 sudo apt-get install -y -qq ffmpeg; then exit 0; fi
+            echo "apt attempt $i failed or hung - retrying"; sleep 5
+          done
+          exit 1
 
       - name: Install NPM Dependencies
         run: npm install --no-audit --no-fund
