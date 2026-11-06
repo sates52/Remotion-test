@@ -19,6 +19,7 @@ Conventions:
 | agent | area / files | status | notes |
 |---|---|---|---|
 | c17 single-relation selective rollout (operator-approved) | god-mode: `scripts/single-relation-{rollout,ab}.js` (new), `scripts/lib/single-relation.js` (stamp + atom/intent/contract kept, `sealAuthored`), `data/single-relation-rollout.json` (policy), `data/single-relation-ab-judge.txt`, `scripts/book-start.js` (eligible notice), runbook §2d, CLAUDE.md / AGENTS.md / preview-hazirla / single-relation.md, `.github/workflows/render-stills.yml` (bounded apt); branch `dev/c17`: `audit/c17/` | ACTIVE — waiting for audio + VTT of an eligible book (how-to-make-money-in-stocks / the-choice-factory / think-straight, all Step 0 @ 0296a84d) | No book config written yet; no gate / threshold / repin / render / upload / cleanup / Flux. |
+| _(done)_ dev/thumb-cloud (P1: thumbnails A/B/C inside the cloud render pipeline) | `.github/workflows/render-video.yml` (`thumbnails` input + job, render-job thumbnail step), `scripts/lib/cloud-thumbs.js` (new), `scripts/render-thumbnails.js` (`--cloud`, `--pack`, local-load guard), `scripts/lib/thumb-render.js`, `scripts/render-github-cloud-assemble.js`, `scripts/render-deliver.js`, `scripts/render.js` (single-job), `scripts/render-github-cleanup.js` (run filter), `PUBLISHED_BOOKS.md` (2 unreadable rows), tests, docs | _(done)_ 2026-11-06: tested on The Maze Runner (2 real runs), pushed to god-mode | No film re-rendered, no gate / threshold / authorization changed, no upload / cleanup. Maze Runner: grammar written + A/B/C installed (book worktree). |
 | _(done)_ dev/c16 (relational motion + Level-2 holdout v2 + pipeline friction) | god-mode: `scripts/lib/single-relation.js` (mechanism check, `review`), `scripts/single-relation-scan.js` (author-reject classes, proposed mechanism, review per contract), `scripts/lib/operator-approvals.js` (short words, engineKeep not pin-bound), `scripts/lib/node-bin.js` + `scripts/preview-state.js` (.bin self-heal), tests, `single-relation.md` / `creative-direction.md` / preview-hazirla SKILL; branch `dev/c16`: `audit/c16/` | _(done)_ 2026-11-06: merged; single-relation stays Level 1 (holdout INCONCLUSIVE) | No book config, gate, threshold, repin, full render, upload or cleanup; no Flux call. Main checkout node_modules/.bin recreated (87 shims, additive). |
 | _(done)_ render-the-creative-curve | ooks/the-creative-curve/, out/ | ✅ PUBLISHED & CLEANED 2026-11-05 | Antidote; 43.2 min (77,368 frames), 10-way split, cloud assembled; YouTube live; 10 GitHub runs/artifacts + 11 remote refs purged; local out/ mp4 (~970 MB), thumbnails, bundle dir, and audio cleaned. Kept: books/the-creative-curve/, clean.vtt. |
 | _(done)_ dev/c15 (creative direction + human study v2) | god-mode: `SemanticStage.tsx` (cause lit on cue, readable accent), `antidote-visual-authoring/creative-direction.md` (new), `single-relation-scan.js --experiment`, `audit/c15/human-study-v2.js` + `.github/workflows/human-study-test.yml` (new); branch `dev/c15`: `audit/c15/` | _(done)_ 2026-11-05: merged, default OFF | No book config, gate, threshold, repin, render, upload or cleanup; no Flux call. |
@@ -67,6 +68,46 @@ Conventions:
 - **Found on real configs (in-memory probes):** an applied scene failed gate-authorship (stamp dropped → UNSTAMPED_CONFIG; then STAGING_OVERRIDDEN vs the old lock — and make-book's restore would have put A back) and the firewall (atom / intent / contract dropped; then the planner's contract demanded A's cast + fallback shot). Fixed in `compile` / `sealAuthored`: the contract becomes the beat's authored decision (previousLock kept), the visual contract's staging side is rebound to what is on screen. Gate code unchanged; authorship PASS → PASS, no new firewall finding at the scene.
 - **Dress rehearsal** (scratch copy of under-the-dome's full config): select → apply → gates → ACTIVE; the sealed scene rendered on Actions with the book's own HUD (`dev/c17:audit/c17/rehearsal/`). **First real book: none eligible has a config yet** — how-to-make-money-in-stocks, the-choice-factory, think-straight are Step 0 @ 0296a84d (audio + VTT pending).
 - render-stills.yml: bounded apt attempts (three stills runs hung on "System dependencies" this week). Regression on Actions: 6e43a1cc green.
+### 🖼️ 2026-11-06 — P1: thumbnails A/B/C come with the film (cloud render pipeline, no second system)
+- **What:** the existing `render-thumbnails.js` (grammar, hook, hook-visibility check, `thumbnail-check.json`) now runs on a
+  render-pool runner inside `render-video.yml`: new input `thumbnails` + job `thumbnails` (`needs: assemble`, read-only
+  token, `continue-on-error`, `persist-credentials: false`). PRODUCTION split render: `render-github-cloud-assemble.js`
+  pushes the thumbnail bundle AS the assembler bundle (superset: scripts + workflow + src/data + `books/<slug>` + the
+  assets the Thumb composition reads, NO narration audio) and dispatches `thumbnails=true` → one run = verified join +
+  A/B/C, once per film, never per segment. `finish()` and `render-deliver.js` (final step) install them before
+  post-render: sha256 per file, bound to `thumbInputHash` (meta.thumbnail + title/author + config + book.json + hero
+  bytes; a description edit is not an input), stale/foreign/tampered packs refused. Missing / failed / stale → ONE
+  THUMBNAIL-ONLY run (`render-thumbnails.js --slug --cloud [--book-root]`, ref `render/<slug>-thumbs`, artifact
+  `thumbs-<slug>`). Single-job (`--no-split`) production render: same step on its own runner after the film upload.
+- **Authority kept apart:** thumbnail-only renders no film (the render job's `if` excludes it; the bundle has no audio),
+  writes only `out/thumbnail-<slug>*.png`, `books/<slug>/thumbnail-check.json`, the youtube.md Test & Compare block and
+  `.render-github-thumbs.<slug>.json` (test proves the file set); never split/cloud/render state, post-render,
+  verify-render-output, youtube-ready, upload or publish. Preview renders get none (production finalization only). A
+  thumbnail failure never fails the run (the dispatcher's `verified` needs run success) → never un-verifies or re-renders
+  a film. Published books refused (lib/frozen). Grammar missing → the standard deterministic `thumbnail-grammar.js
+  --write` when the book is this checkout, else refused with the command (the channel history lives only there).
+  Local `render-thumbnails.js` now takes `local-load-guard` (budget + machine-wide still lock).
+- **Real cloud tests (The Maze Runner, film already cloud-verified, NOT re-rendered):** (1) thumbnail-only — bundle
+  56723735 (696 files, 19.0 MB, no audio) → sates52ko/Remotion-render `render/the-maze-runner-thumbs`; A/B/C installed,
+  hook visible 7.43 % / 8.56 % / 3.26 % (≥ 0.8 %); visually checked (scene-still / text-poster / scene-still from the
+  film's own cast). (2) production shape — one run = assemble + thumbnails on the real 10-segment manifest:
+  run 42214077835 (bundle 0cbad5f4): `assemble` success 48 min (54,029/54,029 frames re-verified), then `thumbnails` success 1 min 56 s; run conclusion success; artifacts video-final 471.5 MB + verify + thumbs 0.9 MB; installed A/B/C with the same hook numbers (deterministic). Finalization skip path with the real dispatcher: `render-github-cloud-assemble.js --book-root` → already verified, thumbnails current → nothing dispatched. `lint-titles --pack`: YouTube READY (HOOK_UNVERIFIED gone). The book's `.render-github-cloud` state and film untouched (scratch driver; no film download).
+- **Found on the way (fixed):** (a) Antidote Thumb reads the hero only for a `cinematic-bleed` variant — the bundle now
+  asks for exactly what the composition reads (`neededHeroAssets`); Maze Runner's meta still named a non-existent Flux
+  hero + legacy `layout: cinematic-bleed`, which its new grammar overrides. (b) **PUBLISHED_BOOKS.md rows #20
+  `death-row` (no backticks) and #67 `the-creative-curve` (a PowerShell "`t" → TAB, commit 5180171d) were unreadable by
+  every frozen guard** (apply-briefs, gate-authorship, preview-state, render-decision, render-status, thumbnails) → both
+  published books were treated as editable. A thumbnail-only test on the-creative-curve started before I caught it:
+  stopped, its meta write reverted (dev worktree only), nothing installed; the worker ref
+  `sates52ko/Remotion-render render/the-creative-curve-thumbs` + that run remain (post-upload cleanup now matches
+  `render/<slug>-thumbs` too — not run, operator-only). Rows repaired; `scripts/test-published-register.js` fails on any
+  unreadable row or control character. **Agents writing PUBLISHED_BOOKS.md from PowerShell: single-quoted strings.**
+- **Cleanup scope:** `render-github-cleanup.js` now matches this book's exact refs `render/<slug>-(seg<N>|assemble|thumbs)`
+  (was `startsWith("render/<slug>-seg")`: the assembly runs were never cleaned; a slug prefix can no longer match
+  another book). Purge already covered `render/<slug>-*`.
+- **Tests:** `scripts/test-cloud-thumbs.js` (new, 45 checks), `scripts/test-published-register.js` (new),
+  `test-cloud-assemble.js` (render-job `if` assertion updated, meaning kept); full suite on Actions
+  (`ci/regression/thumb-cloud`, run 42213054723): success, only the known BASELINE_FAILs.
 
 ### 🩺 2026-11-06 — P0: shared node_modules dependency doctor (NODE_MODULES_BROKEN stopped every book)
 - **Root cause (verified):** the main checkout's `node_modules/.bin` was gone (dir re-created 11:55:16 by cycle 16's heal, all
