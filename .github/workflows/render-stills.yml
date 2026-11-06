@@ -55,11 +55,17 @@ jobs:
         timeout-minutes: 8
         run: |
           command -v ffmpeg >/dev/null && { ffmpeg -version | head -1; exit 0; }
-          for i in 1 2 3; do
-            if timeout 120 sudo apt-get update -qq && timeout 180 sudo apt-get install -y -qq ffmpeg; then exit 0; fi
+          for i in 1 2; do
+            if timeout 120 sudo apt-get update -qq && timeout 150 sudo apt-get install -y -qq ffmpeg; then exit 0; fi
             echo "apt attempt $i failed or hung - retrying"; sleep 5
           done
-          exit 1
+          # apt mirrors unreachable on this runner (cycle 18: one shard failed apt twice in a row) — a static ffmpeg
+          # from npm instead; render-stills only uses it to join frames into strips / clips
+          echo "apt unavailable - static ffmpeg from npm"
+          mkdir -p "$RUNNER_TEMP/ffm" && cd "$RUNNER_TEMP/ffm" && npm init -y >/dev/null && npm install --no-audit --no-fund ffmpeg-static@5.2.0 >/dev/null
+          FF=$(node -e 'console.log(require("ffmpeg-static"))') && mkdir -p "$RUNNER_TEMP/bin" && ln -sf "$FF" "$RUNNER_TEMP/bin/ffmpeg"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/bin/ffmpeg" -version | head -1
       - name: Verify inputs against the manifest (sha256)
         run: |
           node -e '
