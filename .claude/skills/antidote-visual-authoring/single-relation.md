@@ -50,6 +50,10 @@ It is Director 1.0's proven part, not a new style.
 - kinds: person (a cast key, `mood`), stock (a level 0..1), group (a count 0..1), object (`glyph` from the vocabulary in
   `lib/semantic-director.js`). Labels ≤ 2 words, the narration's own. Effects: value (Δ ≥ 0.2), mood, present, moveTo
   (objects), broken. ONE event, ≤ 4 entities, no entity twice.
+- **Relational motion (optional, recommended):** `"mechanism"` = what the ONE event shows — `cause-effect`, `transfer`
+  (an object moves to another owner; moveTo), `accumulation` (level up in steps), `depletion` / `recovery` (level down / up),
+  `removal` (an obstacle disappears AND another entity changes), `transformation` (mood / broken), `character-action` (a
+  person acts). The validator refuses a motion that does not match it (wrong entity, wrong direction). The scan proposes one.
 - Anything the narration mentions but does not assert goes in `claim.notAsserted` ({text verbatim, kind}); it may not be
   your evidence, card text or a label. Polarity `contrast` when the beat says "not X but Y" (stage Y only).
 
@@ -66,6 +70,12 @@ node scripts/stills-cloud.js push --manifest=<dir>/manifest.json --tag=<t>  &&  
 A/B rating (when asked): the blind describer / judge procedure of the mute test — fresh agents, sonnet, strips under
 random names, the two versions of a beat never to the same describer, judges given a narration-only answer key written
 BEFORE the renders. No describer or judge is told which version is which or that anything changed.
+
+## Decision 2 — is the new scene really better? (`validate` writes `review` per contract)
+`review.verdict` = `TRY_CONCRETE` when every end of the relation is carried by its label alone (a level tank, a glyph that is
+a metaphor for its label) and nothing moves, appears, leaves or changes face: a muted viewer reads the words, not the
+relation. Author a concrete version first (a literal object, a person with a face, the thing that leaves); keep the
+authored scene if none is honest. Never replace a scene the readcheck / mute test already reads CORRECT.
 
 ## Reporting (books/<slug>/single-relation/ in the book's own worktree, or the experiment folder)
 `candidates.json` (each candidate: scene, evidence, cause, effect, current limitation, proposed representation, expected

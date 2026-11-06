@@ -196,6 +196,27 @@ ok("no production config opts in (the capability changes no shipped or planned b
   assert.deepStrictEqual(hits, []);
 });
 
+// ── relational motion (cycle 16): a declared mechanism must match what the event does ──
+ok("mechanism: depletion needs a falling level; a rising one is refused (motion on the right entity, right direction)", () => {
+  const c = base(); c.mechanism = "depletion"; assert.deepStrictEqual(R.validate(c, ctx), []);
+  const d = base(); d.mechanism = "recovery"; assert(has(R.validate(d, ctx), /mechanism "recovery"/));
+});
+ok("mechanism: transfer needs an object that moves to another entity; removal needs a disappearance plus a change", () => {
+  const c = base(); c.mechanism = "transfer"; assert(has(R.validate(c, ctx), /mechanism "transfer"/));
+  const r = base(); r.mechanism = "removal"; r.events[0].effects = [{ entity: "phone", present: false }, { entity: "focus", value: 0.1 }]; r.events[0].repeat = 1;
+  assert.deepStrictEqual(R.validate(r, ctx), []);
+  const u = base(); u.mechanism = "teleport"; assert(has(R.validate(u, ctx), /mechanism must be one of/));
+});
+ok("review: both ends carried by their label alone and nothing moving → TRY_CONCRETE; a literal object or a person → OK (advisory, validity unchanged)", () => {
+  const lab = { ...base(), entities: [{ id: "c", kind: "object", glyph: "mask", label: "laughed at" }, { id: "e", kind: "stock", label: "terror", value: 0.9 }], events: [{ at: 0.3, cause: "c", effects: [{ entity: "e", value: 0.1 }] }] };
+  assert.strictEqual(R.review(lab).verdict, "TRY_CONCRETE");
+  assert.strictEqual(R.review(base()).verdict, "OK", "a smartphone labelled 'notification' is literal");
+  const person = { ...lab, entities: [{ id: "c", kind: "person", cast: "you" }, lab.entities[1]] };
+  assert.strictEqual(R.review(person).verdict, "OK");
+  const leaves = { ...lab, events: [{ at: 0.3, cause: "c", effects: [{ entity: "c", present: false }, { entity: "e", value: 0.1 }] }] };
+  assert.strictEqual(R.review(leaves).verdict, "OK", "something visibly leaves");
+});
+
 // ── apply-single-relation.js: the only writer of the field ──
 const { apply, narrationOf } = require("./apply-single-relation");
 const book = () => ({ meta: { slug: "test-book", cast: {} }, captions: [{ text: "Every notification pulls you out of deep work, so by noon your focus is drained", startFrame: 100, endFrame: 250 }, { text: "and the hard project never gets touched.", startFrame: 250, endFrame: 340 }, { text: "Later on.", startFrame: 400, endFrame: 450 }],
