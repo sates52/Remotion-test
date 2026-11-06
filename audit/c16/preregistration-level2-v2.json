@@ -1,0 +1,28 @@
+{
+ "schema": "single-relation-level2-preregistration/2",
+ "date": "2026-11-06",
+ "supersedes": "nothing — v1 (dev/c14 audit/c14/preregistration-level2-holdout.json) is kept unchanged; v2 is a separate, operator-approved design (cycle-16 directive §6) because v1 scores an author skip as A = B and would be INCONCLUSIVE at the observed acceptance (dev/c15 audit/c15/holdout-feasibility.md)",
+ "written": "before any v2 beat is authored, keyed, rendered or rated; nothing below may change after this commit",
+ "capability": "single-relation/1 at god-mode + the cycle-16 code under test (commit b87aca2c: author-reject scan filters, mechanism check, review); renderer as merged (cause lit on cue, readable accent)",
+ "pool": "audit/c16/holdout-pool.json (poolHash c893b7d13d8a6034): the 40 Antidote books on disk not used in cycles 11–15 development (published included, read-only; isolated configs only). 35 have ≥ 1 scan candidate, 153 candidates. Per book the candidates are in a seeded order (sha256 of 'c16-holdout|<slug>|<sceneIndex>').",
+ "procedure": {
+  "1_author": "fresh sonnet authors (single-relation.md + creative-direction.md), each given whole books, walk each book's candidates IN THE SEEDED ORDER and stop at the FIRST candidate they accept (≤ 1 accepted beat per book); every skip is recorded with its reason; one compile-fix pass; a contract still invalid counts as 'failed' and the author does not continue to the next candidate. Authors never see the key or any rating.",
+  "2_review": "single-relation.js review is recorded per contract (advisory) — all VALID contracts enter the rating, TRY_CONCRETE included, so the review can be checked against the result",
+  "3_key": "a fresh agent writes the answer key for the accepted beats from the narration only, before any render",
+  "4_render": "A = the production scene, B = the compiled contract (isolated configs, previous scene included, captions off), 3-frame strip at 30 / 60 / 90 %, GitHub Actions",
+  "5_rate": "describers: 4 strips of 4 different beats, the two versions of a beat never to the same describer, under random names; judges: ≤ 8 items of different beats, 2 passes, cycle-13 pilot judge instructions verbatim; all agent raters"
+ },
+ "estimands": {
+  "conditional": "mean paired B − A primary score (mean of cause, effect, message; MATCH 1 / PARTIAL 0.5) over the accepted, valid beats, 95 % bootstrap CI (one beat per book: no clustering)",
+  "pipeline": "books scanned, candidates, author decisions per class, accepted, failed, rated, beats where B ≥ A + 1 / 6 (one more correct element), books where the feature is usable (≥ 1 valid contract) — descriptive"
+ },
+ "power": "expected n ≈ 20–30 accepted beats (cycle-14/15 acceptance 11–25 %, scan precision since raised); at n 25 and SD 33.9 pp the power at a true +15 pp is ≈ 60 %, at +20 pp ≈ 80 % — limited, reported as such",
+ "decision": {
+  "SELECTIVE_SHIP": "ALL of: n ≥ 15 rated beats; CI lower bound > 0; point estimate ≥ +10 pp; wrongInference(B) ≤ wrongInference(A); polarityErrors(B) ≤ polarityErrors(A); no B beat judged to state a cause the narration does not more often than A; validation failures ≤ 10 % of accepted beats. Scope: beats chosen by scan → author → validate in new books, opt-in per book, production gates unchanged.",
+  "INCONCLUSIVE": "n < 15, or CI lower bound ≤ 0 with a non-negative point estimate and no safety criterion broken — stays Level 1",
+  "NO_SHIP": "point estimate < 0, or any safety criterion broken",
+  "never": "a result is not re-decided on the same beats; no fix on holdout beats"
+ },
+ "secondary": ["review verdict (OK vs TRY_CONCRETE) vs B − A", "mechanism vs B − A", "pipeline counts"],
+ "budget": "≤ 3.0 M tokens (≈ 0.4 M authoring, ≈ 0.15 M key, ≈ 1.6–1.9 M rating). If the projected rating cost exceeds the cap once n is known, ONE judge pass + a second pass on a seeded 25 % subset (decided before rating)."
+}
