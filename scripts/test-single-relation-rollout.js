@@ -109,6 +109,30 @@ ok("policy: global default stays off; render / upload / publish / cleanup / repi
   assert.strictEqual(RO.POLICY.scope.globalDefault, false);
   for (const x of ["full production render", "upload", "publish", "cleanup", "repin", "paid Flux calls"]) assert(RO.POLICY.notCovered.includes(x), x);
 });
+// make-book step 1.885: reapply --pipeline (CLI): no record = no-op; a rebuilt A config gets its B back; idempotent
+{
+  const { spawnSync } = require("child_process");
+  const run = (...a) => spawnSync(process.execPath, [path.join(__dirname, "single-relation-rollout.js"), "reapply", "--slug=zz-book", `--book-root=${root}`, "--write", "--pipeline", ...a], { encoding: "utf8" });
+  const SRD = path.join(B, "single-relation");
+  ok("reapply --pipeline without a record: nothing to do (exit 0)", () => { const r = run(); assert.strictEqual(r.status, 0, r.stderr); assert(/nothing to re-apply/.test(r.stdout)); });
+  W(path.join(SRD, "active-contracts", "1.json"), contract);
+  W(path.join(SRD, "active.json"), p.record);
+  const recBytes = fs.readFileSync(path.join(SRD, "active.json"), "utf8");
+  ok("reapply --pipeline on a freshly planned (A) config puts the recorded B scene back, record untouched", () => {
+    const r = run(); assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    const c = JSON.parse(fs.readFileSync(path.join(B, "config.antidote.json"), "utf8"));
+    assert(c.scenes[1].singleRelation && c.meta.singleRelation === true); assert.strictEqual(RO.status(c, p.record).state, "ACTIVE");
+    assert.strictEqual(fs.readFileSync(path.join(SRD, "active.json"), "utf8"), recBytes);
+  });
+  ok("reapply --pipeline again: already in the config, unchanged", () => {
+    const before2 = fs.readFileSync(path.join(B, "config.antidote.json"), "utf8"); const r = run();
+    assert.strictEqual(r.status, 0); assert(/already in the config/.test(r.stdout)); assert.strictEqual(fs.readFileSync(path.join(B, "config.antidote.json"), "utf8"), before2);
+  });
+  ok("reapply --pipeline refuses when the scene's narration changed since the apply", () => {
+    const c = config(); c.scenes[1]._narration = "something else entirely"; W(path.join(B, "config.antidote.json"), c);
+    const r = run(); assert.strictEqual(r.status, 1); assert(/narration of scene\(s\) 1 changed/.test(r.stderr), r.stderr);
+  });
+}
 fs.rmSync(root, { recursive: true, force: true });
 console.log(fail ? `\n${fail} rollout check(s) FAILED` : "\nall single-relation rollout checks passed");
 process.exit(fail ? 1 : 0);
