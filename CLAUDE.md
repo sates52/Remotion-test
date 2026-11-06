@@ -186,11 +186,14 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   `visual-ab-cloud.js`.
 - Never start several local Remotion / Chrome processes in parallel, and stop your own orphans when you stop a run.
 
-## 🎯 Single-relation cause → visible effect — Level 1 (default OFF, 2026-11-05)
+## 🎯 Single-relation cause → visible effect — operator-approved selective rollout (2026-11-06)
 
-- New Antidote books (pinned ≥ a270192d): after the readcheck run the single-relation scan / author / validate / isolated
-  before-after (runbook §2c, preview-hazirla row `singleRelation`). Report only: never `apply-single-relation.js --write`
-  on a production config before Level 2 (pre-registered holdout) or an explicit operator decision. Never tell blind agents.
+- Level 2 is INCONCLUSIVE (cycle 16) and stays so. The operator approved a SELECTIVE, reversible rollout for eligible
+  books (`data/single-relation-rollout.json`): Antidote, unpublished, no production render, pin containing 0296a84d.
+  There: scan / author / validate / per-beat A/B, then `single-relation-rollout.js select` + `apply --write` — B only
+  where its own A/B shows it better, ≤ 15 scenes, every contract valid; gates unchanged after (runbook §2d). Do not ask
+  "Single-Relation açılsın mı?" per book. Never global default-on; never a published / rendered / old-pin book.
+- Any other book: report only (runbook §2c). Never tell blind agents about it.
 
 ## Where the real docs are
 

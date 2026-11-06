@@ -197,9 +197,40 @@ agent then has ONE fresh author decide, per candidate, whether a single-relation
 clearly (`.claude/skills/antidote-visual-authoring/single-relation.md`), validates each contract on its own
 (`single-relation-scan.js validate`) and, for valid ones, renders an isolated before / after on GitHub Actions
 (`single-relation-preview.js build` → `stills-cloud.js`). Zero candidates or zero contracts is a valid result; record it.
-Until the capability passes Level 2 (pre-registered holdout) nothing here changes the book's config, gates or mute
-sample: `apply-single-relation.js --write` needs Level 2 or an explicit operator decision for that book. Blind readers,
-describers and judges are never told about it. Books pinned before a270192d do not have it — never repin silently.
+Level 2 is INCONCLUSIVE (cycle 16); a book that is NOT eligible for §2d stays report-only: `apply-single-relation.js
+--write` needs an explicit operator decision for that book. Blind readers, describers and judges are never told about
+it. Books pinned before a270192d do not have it — never repin silently.
+
+### 2d. Operator-approved selective rollout (Antidote; cycle 17 — `data/single-relation-rollout.json`)
+The operator approved, once for all eligible books, putting the beats where B is shown to be better into the production
+config — do not ask again per book. **Eligible** = Antidote, not published, no production render started, pinned at a
+commit containing the single-relation renderer (0296a84d); `book-start.js` names an eligible book on every resume.
+Everything runs from the CURRENT code against the book (`book-start … --launcher`, then in `../wt-production-base`
+with `--book-root=<the book's worktree>`); the book keeps its pin. After the readcheck, BEFORE the final mute test:
+```bash
+node scripts/single-relation-rollout.js check --slug=<s> --book-root=<wt>        # ELIGIBLE, or why not (stop there)
+node scripts/single-relation-scan.js scan --slug=<s> --book-root=<wt>            # candidates (+ rejected, with reasons)
+#   one fresh author per antidote-visual-authoring/single-relation.md + creative-direction.md writes contracts; skip honestly
+node scripts/single-relation-scan.js validate --slug=<s> --book-root=<wt>        # every contract on its own; invalid = A
+node scripts/single-relation-preview.js build --slug=<s> --book-root=<wt> --out=<dir>   # isolated A/B (+ --clips)
+node scripts/stills-cloud.js push --manifest=<dir>/manifest.json --tag=<t>  &&  … fetch --tag=<t> --out=<dir>/out
+node scripts/single-relation-ab.js blind --preview=<dir>   # then the agents in <dir>/ab/PROMPTS.md: key, describers
+node scripts/single-relation-ab.js judge --preview=<dir>   # then the judge agents (two passes)
+node scripts/single-relation-ab.js tally --preview=<dir>   # ab-result.json (agents, never human)
+node scripts/single-relation-rollout.js select --slug=<s> --book-root=<wt> --contracts=<wt>/books/<s>/single-relation --ab=<dir>/ab/ab-result.json
+node scripts/single-relation-rollout.js apply  --slug=<s> --book-root=<wt> --write   # sealed, recorded, reversible
+```
+- **B only where it is shown better:** valid contract AND its A/B has B > A with no more wrong inferences and no polarity
+  error or wrong cause; every other beat keeps A (the reason is recorded). At most 15 scenes per book (largest gains).
+- `apply` re-validates against the scene's narration, seals each scene as the beat's authored decision (the lock becomes
+  the contract's staging; `previousLock` kept), rebinds the planner's visual contract to what is on screen, sets
+  `meta.singleRelation`, and records the diff + the previous scenes in `books/<s>/single-relation/active.json`.
+- Then the gates run UNCHANGED on this config (gate-authorship, firewall, mute test, preview-ready) and the preview is
+  rendered: report how many B scenes the preview shows and what the mute test read on them.
+- A make-book rerun rebuilds the config → `single-relation-rollout.js status` says MISSING → `reapply --write`.
+- **Stop rule:** a wrong inference or a quality regression on a B scene (mute test / preview) → `revert
+  --scenes=<i> --write` (or all) and report; the rollout stops until the operator looks. Never global default-on;
+  never a published / rendered / old-pin book; never a render, repin, upload or Flux call from this section.
 
 ## 3. Plan with every gate
 ```bash

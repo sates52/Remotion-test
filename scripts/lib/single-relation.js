@@ -234,11 +234,53 @@ function compile(c, scene) {
   delete out.semantic;
   // the scene's frame furniture and records stay the source scene's: the HUD (insight badge / progress — cycle 14: a
   // dropped `hud` made the badge read "INSIGHT 2/2" instead of the book's "07/08") and the narration / beat metadata
-  const keep = Object.fromEntries(["hud", "_narration", "_beat", "_act", "audioEvents"].filter((k) => scene[k] !== undefined).map((k) => [k, scene[k]]));
+  const keep = Object.fromEntries(["hud", "_narration", "_beat", "_act", "audioEvents", "narrativeAtom", "visualIntent", "visualContract"].filter((k) => scene[k] !== undefined).map((k) => [k, scene[k]]));
+  // the authorship stamp stays and names the authored contract that replaced the staging (cycle 17: a dropped stamp
+  // failed gate-authorship UNSTAMPED_CONFIG on every applied scene)
+  const contractHash = require("crypto").createHash("sha256").update(JSON.stringify(c)).digest("hex").slice(0, 16);
+  if (scene._authorship) keep._authorship = { ...scene._authorship, singleRelation: { schema: SCHEMA, contractHash, author: c._author || null } };
   return { ...out, ...keep, singleRelation: spec };
+}
+
+/**
+ * Seal a compiled scene as its beat's AUTHORED decision (operator-approved selective rollout, cycle 17). The contract is
+ * an authored storyboard decision, so the beat's lock becomes that staging — gate-authorship then checks the scene
+ * against it (no STAGING_OVERRIDDEN) and make-book's restoreAuthoredStaging keeps it instead of restaging the old one.
+ * The replaced lock is kept as `previousLock` (revert). Never used without a validated contract.
+ */
+function sealAuthored(scene, provenance = {}) {
+  const a = scene._authorship || {};
+  const old = a.lock || null;
+  const ch = scene.characters || [], c0 = ch[0] || {};
+  const who = (x) => (x && (x.identity || x.role)) || "?";
+  const lock = {
+    planShot: scene.shot, shot: scene.shot, cast: ch.map(who),
+    concept: scene.concept ?? null, propTypes: (scene.props || []).map((p) => p && p.type).filter(Boolean),
+    artTexts: (scene.texts || []).filter((t) => t && t.text).map((t) => JSON.parse(JSON.stringify(t))),
+  };
+  if (scene.bg && scene.bg.set) lock.set = scene.bg.set;
+  if (c0.expression) lock.expression = c0.expression;
+  if (c0.action) lock.action = c0.action;
+  if (c0.holds) lock.holds = c0.holds;
+  if (scene.continueFromPrev === true) lock.continue = true;
+  if (scene.carryState === true) lock.carryState = true;
+  lock.singleRelation = { schema: SCHEMA, ...provenance };
+  const out = { ...scene, _authorship: { ...a, src: "single-relation", lock, previousLock: old } };
+  // the planner's VisualContract described the OLD staging: its characters must be on screen and its representation
+  // requirement names the old strategy's lever. The narration side (atom subject / relation / state, allowed cast and
+  // locations) stays as it is; the staging side is rebound to what the authored contract puts on screen.
+  if (scene.visualContract) {
+    const vc = JSON.parse(JSON.stringify(scene.visualContract));
+    const onScreen = new Set(ch.map(who));
+    if (Array.isArray(vc.characterIntent)) vc.characterIntent = vc.characterIntent.filter((x) => x && onScreen.has(x.identity));
+    if (vc.visualEvidence && vc.visualEvidence.representation != null) { vc.visualEvidence.previousRepresentation = vc.visualEvidence.representation; delete vc.visualEvidence.representation; }
+    vc.singleRelation = { schema: SCHEMA, ...provenance };
+    out.visualContract = vc;
+  }
+  return out;
 }
 
 /** a book opts in by meta.singleRelation; without it the renderer ignores every singleRelation field */
 function enable(config) { return { ...config, meta: { ...config.meta, singleRelation: true } }; }
 
-module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, MECHANISMS, validate, compile, enable, review };
+module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, MECHANISMS, validate, compile, enable, review, sealAuthored };

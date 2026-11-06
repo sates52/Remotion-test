@@ -10,12 +10,15 @@ honestly, a quote card in the narration's own words. Code: `scripts/lib/single-r
 `single-relation/1`), drawn by `components/SemanticStage.tsx` only when the book's `meta.singleRelation === true`.
 It is Director 1.0's proven part, not a new style.
 
-## Level 1 vs Level 2 (what you may do today)
-- **Level 1 (now):** the capability exists, default OFF. You SCAN, AUTHOR, VALIDATE and PREVIEW A/B in an isolated
-  config — you do **not** apply it to the production config. `apply-single-relation.js --write` is for after Level 2
-  or an explicit operator decision for that book.
-- **Level 2 (selective ship, pending):** a pre-registered holdout must show the benefit on cause-present beats. Until
-  then nothing reaches a production film through this path.
+## What you may do today
+- **Eligible book (operator-approved selective rollout, cycle 17 — `data/single-relation-rollout.json`):** Antidote,
+  unpublished, no production render, pin containing 0296a84d. You SCAN, AUTHOR, VALIDATE, run the per-beat A/B, and
+  `single-relation-rollout.js select / apply --write` puts B into the production config ONLY for beats whose own A/B
+  shows B better (≤ 15 scenes; runbook §2d). Write contracts for the operator's taste (creative-direction.md): several
+  objects that interact and visibly change; never decorate a beat that is already good — A stays there.
+- **Any other book:** Level 1 — scan / author / validate / isolated preview only; `apply-single-relation.js --write`
+  needs an explicit operator decision for that book.
+- **Level 2** (global, pre-registered holdout) was INCONCLUSIVE in cycle 16 (+41 pp, n 14 < 15) — never default-on.
 
 ## When to use it (all must hold — the scan proposes, you decide)
 - The narration STATES a cause and its effect (because / leads to / makes / drains / forces …), as the narrator's

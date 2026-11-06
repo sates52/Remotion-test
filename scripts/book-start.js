@@ -89,6 +89,22 @@ function renderHazards(wt) {
   return lines;
 }
 
+// ---- operator-approved single-relation rollout (cycle 17, 2026-11-06; data/single-relation-rollout.json) -------------
+// A pinned book reads its PINNED docs, which say "report only" for single-relation. The operator's selective rollout
+// supersedes that for eligible books, so it is named here, from origin, every time a session starts or resumes.
+function rolloutNotice(wt) {
+  let pol = null;
+  try { pol = JSON.parse(git(["show", `${ORIGIN}:data/single-relation-rollout.json`], MAIN) || "null"); } catch {}
+  if (!pol) return [];
+  const B = path.join(wt, "books", SLUG), book = readJSON(path.join(B, "book.json")) || {}, pin = readJSON(path.join(B, "production-base.json")) || {};
+  if (book.engine !== pol.scope.engine || !pin.productionBase) return [];
+  if (!pol.scope.pinContains.every((c) => git(["merge-base", "--is-ancestor", c, pin.productionBase], MAIN) !== null)) return [];
+  let pub = ""; try { pub = fs.readFileSync(path.join(MAIN, "PUBLISHED_BOOKS.md"), "utf8"); } catch {}
+  if (pub.split(/[^a-z0-9-]+/).includes(SLUG)) return [];
+  if ([`.render-github-split.${SLUG}.json`, `.render-github-cloud.${SLUG}.json`, `out/${SLUG}.mp4`].some((f) => exists(path.join(wt, f)))) return [];
+  return [`SINGLE-RELATION ROLLOUT (operator-approved ${pol.approvedAt}, policy ${pol.id}): this book is ELIGIBLE - your pinned docs say "report only"; the operator's rollout supersedes that for this book. After the readcheck, before the final mute test: run book-start with --launcher, then in ../wt-production-base follow STORYBOARD_RUNBOOK.md section 2d (single-relation-rollout.js check / select / apply --book-root="${wt}"; at most ${pol.perBook.maxScenes} scenes, each VALID and winning its own A/B; never a render, repin or Flux call).`];
+}
+
 // ---- the shared Remotion CLI guard (cycle 8, 2026-11-03) -------------------------------------------------------------
 // A pinned worktree's OWN render.js cannot be fixed (a pin is never edited), but every worktree links node_modules to the
 // main checkout's. scripts/lib/remotion-cli-guard.js puts a shim in node_modules/@remotion/cli/remotion-cli.js that refuses
@@ -245,6 +261,7 @@ if (mine && exists(PIN)) {
     if (differ.length) out(`  NOT copied (the worktree has a different version - decide which is right): ${differ.join(", ")}`);
   }
   for (const l of renderHazards(WT)) out(`  ${l}`);
+  for (const l of rolloutNotice(WT)) out(`  ${l}`);
   out(`  Continue THERE: cd "${WT}" && node scripts/preview-state.js status --slug=${SLUG}`);
   process.exit(0);
 }

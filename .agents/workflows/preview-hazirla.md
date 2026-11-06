@@ -19,7 +19,7 @@ Antigravity specifics:
    one NEW agent per prompt from the Agent Manager, in parallel where the skill says so. A blind agent opens ONLY the
    file its prompt names and never authored the storyboard.
 3. Relationship staging while authoring: `.agents/workflows/relationship-staging.md`. Single-relation candidates after the
-   readcheck (report only, Level 1): skill table row `singleRelation`, runbook §2c.
+   readcheck: skill table row `singleRelation` — eligible books get the operator-approved selective rollout (runbook §2d), others report only (§2c).
 4. A refused merge is a work list, not a question: fix every problem yourself by its code (`storyboard/merge-report.json`,
    skill "Merge recovery") whatever the count, then continue; stop only for an OPERATOR line.
 5. An approval the operator gives in chat for routine work (more fix rounds, named Vox images with a call cap, keeping the
