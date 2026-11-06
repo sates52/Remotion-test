@@ -102,7 +102,7 @@ function rolloutNotice(wt) {
   if (pub.split(/[^a-z0-9-]+/).includes(SLUG)) return [];
   if ([`.render-github-split.${SLUG}.json`, `.render-github-cloud.${SLUG}.json`, `out/${SLUG}.mp4`].some((f) => exists(path.join(wt, f)))) return [];
   const missing = pol.scope.pinContains.filter((c) => git(["merge-base", "--is-ancestor", c, pin.productionBase], MAIN) === null);
-  if (missing.length) return startedEvidence(wt).length ? [] : [`SINGLE-RELATION ROLLOUT: not available on this pin (${pin.productionBase.slice(0, 8)} lacks ${missing.join(", ")}: its make-book would drop the B scenes). The book has no production work yet, so a repin would give it the operator-approved rollout — the operator's word only: book-start --slug=${SLUG} --repin="<the operator's reason>"`];
+  if (missing.length) return startedEvidence(wt).length ? [] : [`SINGLE-RELATION ROLLOUT: not available on this pin (${pin.productionBase.slice(0, 8)} lacks ${missing.join(", ")}: its make-book would drop the B scenes). The book has no production work yet, so a repin would give it the operator-approved rollout - the operator's word only: book-start --slug=${SLUG} --repin="<the operator's reason>"`];
   return [`SINGLE-RELATION ROLLOUT (operator-approved ${pol.approvedAt}, policy ${pol.id}): this book is ELIGIBLE - your pinned docs say "report only"; the operator's rollout supersedes that for this book. After the readcheck, before the final mute test: run book-start with --launcher, then in ../wt-production-base follow STORYBOARD_RUNBOOK.md section 2d (single-relation-rollout.js check / select / apply --book-root="${wt}"; at most ${pol.perBook.maxScenes} scenes, each VALID and winning its own A/B; never a render, repin or Flux call).`];
 }
 
