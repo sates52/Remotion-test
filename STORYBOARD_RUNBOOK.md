@@ -203,7 +203,7 @@ it. Books pinned before a270192d do not have it — never repin silently.
 
 ### 2d. Operator-approved selective rollout (Antidote; cycle 17 — `data/single-relation-rollout.json`)
 The operator approved, once for all eligible books, putting the beats where B is shown to be better into the production
-config — do not ask again per book. **Eligible** = Antidote, not published, no production render started, pinned at a commit containing the rollout workflow (379cf2b5: make-book re-applies the B scenes, preview-state stage `singleRelation`); `book-start.js` names an eligible book on every resume.
+config — do not ask again per book. **Eligible** = Antidote, not published, no production render started, pinned at a commit containing the rollout workflow (8cd04fc0: make-book re-applies the B scenes, preview-state stage `singleRelation`); `book-start.js` names an eligible book on every resume.
 Books started on current god-mode run all of it in their own worktree (the commands below without `--book-root`).
 After the first make-book (the A config exists), BEFORE the mute test:
 ```bash

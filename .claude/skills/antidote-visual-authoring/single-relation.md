@@ -12,7 +12,7 @@ It is Director 1.0's proven part, not a new style.
 
 ## What you may do today
 - **Eligible book (operator-approved selective rollout, cycle 17 — `data/single-relation-rollout.json`):** Antidote,
-  unpublished, no production render, pin containing 379cf2b5 (the rollout in make-book / preview-state). You SCAN, AUTHOR, VALIDATE, run the per-beat A/B, and
+  unpublished, no production render, pin containing 8cd04fc0 (the rollout in make-book / preview-state). You SCAN, AUTHOR, VALIDATE, run the per-beat A/B, and
   `single-relation-rollout.js select / apply --write` puts B into the production config ONLY for beats whose own A/B
   shows B better (≤ 15 scenes; runbook §2d). Write contracts for the operator's taste (creative-direction.md): several
   objects that interact and visibly change; never decorate a beat that is already good — A stays there.

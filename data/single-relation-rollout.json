@@ -11,10 +11,10 @@
     "productionRendered": false,
     "pinContains": [
       "0296a84d",
-      "379cf2b5"
+      "8cd04fc0"
     ],
     "globalDefault": false,
-    "pinNote": "0296a84d = the renderer; 379cf2b5 = the workflow integration (make-book 1.885 re-applies the B scenes, preview-state stage singleRelation). A pin without the integration would drop the B scenes on its own make-book and loop on its own marker — such a book is not eligible; a Step-0 book (no work) can be repinned only on the operator's word (book-start --repin)."
+    "pinNote": "0296a84d = the renderer; 8cd04fc0 = the workflow integration (make-book 1.885 re-applies the B scenes, preview-state stage singleRelation). A pin without the integration would drop the B scenes on its own make-book and loop on its own marker — such a book is not eligible; a Step-0 book (no work) can be repinned only on the operator's word (book-start --repin)."
   },
   "perBook": {
     "maxScenes": 15,
