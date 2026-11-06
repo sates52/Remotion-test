@@ -81,12 +81,14 @@ function nodeModulesHealth(wt) {
   if (!st) return { state: "missing", locked };
   if (!st.isSymbolicLink()) return { state: "real", locked, detail: "node_modules is a real folder (not a link)" };
   let target = null; try { target = path.resolve(path.dirname(link), fs.readlinkSync(link)); } catch {}
-  // the right link with a lost .bin is mechanical: recreate the missing shims from the packages' bin fields (never npm)
-  if (target && want && path.resolve(target).toLowerCase() === path.resolve(want).toLowerCase() && exists(want) && !exists(path.join(want, ".bin"))) {
-    try { const r = require("./lib/node-bin").healBin(want); if (r.created.length) console.error(`node_modules/.bin self-heal: ${r.created.length} shim file(s) recreated from ${r.bins} package bin(s)`); } catch {}
-  }
-  if (!target || !want || path.resolve(target).toLowerCase() !== path.resolve(want).toLowerCase() || !exists(path.join(want, ".bin")))
-    return { state: "broken", locked, detail: `node_modules → ${target || "?"} (expected ${want}${want && !exists(path.join(want, ".bin")) ? ", which has no .bin" : ""})` };
+  if (!target || !want || path.resolve(target).toLowerCase() !== path.resolve(want).toLowerCase())
+    return { state: "broken", locked, detail: `node_modules → ${target || "?"} (expected ${want})` };
+  // the real health of the main node_modules (declared + locked packages installed), not just "is there a .bin"; missing
+  // .bin shims are mechanical and recreated from the packages' bin fields (never npm); a missing package is the operator's
+  let d; try { d = require("./lib/node-bin").doctor(want); } catch (e) { d = { state: "broken", problems: [`dependency doctor failed: ${String((e && e.message) || e).slice(0, 160)}`], created: [] }; }
+  if (d.created.length) console.error(`node_modules/.bin self-heal: ${d.created.length} shim file(s) recreated in ${want}`);
+  if (d.state === "broken")
+    return { state: "broken", locked, detail: `main node_modules ${want}: ${d.problems.slice(0, 4).join("; ")}${d.problems.length > 4 ? `; +${d.problems.length - 4} more` : ""}` };
   return { state: "ok", locked };
 }
 
@@ -195,7 +197,7 @@ function bookState(slug, root = ROOT) {
       // worktree must stay LOCKED, so `git worktree remove --force` refuses instead of emptying the main node_modules
       const nm = linked && pin.worktree === path.basename(root) ? nodeModulesHealth(root) : null;
       if (nm && nm.state === "missing") { stage("code", "todo", "node_modules link missing"); go("code", "Recreate the node_modules link (and the lock) of this production worktree", `node scripts/preview-state.js worktree --slug=${slug}`, "run it from the main checkout"); }
-      else if (nm && nm.state === "broken") { stage("code", "blocked", nm.detail); stop("NODE_MODULES_BROKEN", "the production worktree's node_modules link does not reach the main checkout's node_modules — never npm install over it; the operator checks the main checkout", [nm.detail]); }
+      else if (nm && nm.state === "broken") { stage("code", "blocked", nm.detail); stop("NODE_MODULES_BROKEN", "the production worktree's node_modules link does not reach a complete main-checkout node_modules (wrong link target, or packages missing / at the wrong version — a lost .bin alone is healed automatically) — never npm install over it; the operator checks the main checkout (`node scripts/lib/node-bin.js <main>/node_modules --doctor` lists what is missing)", [nm.detail]); }
       else if (nm && !nm.locked) { stage("code", "todo", "production worktree not locked"); go("code", "Lock the production worktree (protects the main node_modules from `git worktree remove --force`)", `node scripts/preview-state.js worktree --slug=${slug}`, "run it from the main checkout"); }
       else stage("code", "done", `pinned ${pin.productionBase.slice(0, 8)}${pin.productionBase !== head ? ` (HEAD ${head.slice(0, 8)}: no engine change)` : ""} (${linked ? "linked worktree" : "main checkout"}${nm ? `; node_modules → main, locked` : ""})`);
     }

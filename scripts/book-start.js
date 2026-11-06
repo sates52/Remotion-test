@@ -119,6 +119,37 @@ function renderGuard() {
 }
 renderGuard();
 
+// ---- the shared node_modules doctor (2026-11-06) ---------------------------------------------------------------------
+// Every worktree links node_modules to the main checkout's, so one lost .bin stopped every book with NODE_MODULES_BROKEN,
+// and a pinned worktree's OWN preview-state (older than the heal) cannot be fixed. Runs ORIGIN's scripts/lib/node-bin.js
+// doctor, compiled in memory like the render guard, on each shared node_modules: missing .bin shims are recreated
+// (additive, never npm); missing / wrong-version packages are reported for the operator. --check reports only.
+// It never blocks book-start: a failure is printed and the run continues.
+function depsDoctor() {
+  const src = git(["show", `${ORIGIN}:scripts/lib/node-bin.js`], MAIN);
+  if (!src || !src.includes("function doctor")) { out("  node_modules: doctor NOT available (origin's scripts/lib/node-bin.js has none)"); return; }
+  const seen = new Set();
+  for (const root of [MAIN, ...worktrees().map((w) => w.path)]) {
+    let nm; try { nm = fs.realpathSync(path.join(root, "node_modules")); } catch { continue; }
+    if (seen.has(nm.toLowerCase())) continue;
+    seen.add(nm.toLowerCase());
+    try {
+      const file = path.join(nm, ".deps-doctor.js");
+      const m = new module.constructor(file, module);
+      m.filename = file;
+      m.paths = [];
+      m._compile(src, file);
+      const r = m.exports.doctor(nm, { heal: !CHECK });
+      const shims = r.missingShims.length;
+      const label = r.state === "ok" ? "ok" : r.state === "healed" ? `healed (${r.created.length} missing .bin shim file(s) recreated)`
+        : r.state === "needs-heal" ? `${shims} .bin shim file(s) missing - book-start without --check recreates them`
+        : `BROKEN - ${r.problems.slice(0, 3).join("; ")}${r.problems.length > 3 ? `; +${r.problems.length - 3} more` : ""} (the operator's: never npm install over it)`;
+      out(`  node_modules: ${label} (shared ${nm}, ${r.checked} locked package(s) checked)`);
+    } catch (e) { out(`  node_modules: doctor failed (${nm}: ${String((e && e.message) || e).slice(0, 160)})`); }
+  }
+}
+depsDoctor();
+
 // ---- --launcher: refresh the shared launcher worktree (clean only) --------------------------------------------------
 if (args.launcher) {
   const L = path.join(PARENT, "wt-production-base");
