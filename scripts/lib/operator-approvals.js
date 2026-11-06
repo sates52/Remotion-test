@@ -30,7 +30,8 @@ const { execFileSync } = require("child_process");
 const SCOPES = ["fixRounds", "images", "engineKeep", "technicalFix"];
 // spelled every way an agent might try: these approvals live elsewhere, with their own binding
 const REFUSED = /^(quality[-_ ]?debt|render|production[-_ ]?render|final[-_ ]?render|upload|publish|cleanup|clean[-_ ]?up|purge)$/i;
-const MIN_WORDS = 6;
+// routine scopes: any non-empty verbatim words ("Antidote kalsın" is a whole decision — cycle-16 friction audit)
+const MIN_WORDS = 1;
 // the brief's CLI spellings (fix-rounds / image-calls / engine-confirm) name the same scopes
 const ALIASES = { "fix-rounds": "fixRounds", "image-calls": "images", "engine-confirm": "engineKeep", "technical-fix": "technicalFix" };
 const canonScope = (s) => ALIASES[String(s || "").trim()] || String(s || "").trim();
@@ -79,7 +80,7 @@ function record(root, slug, { scope, limits, words, by = process.env.USERNAME ||
   if (!scope || REFUSED.test(String(scope).trim())) throw new Error(`scope "${scope}" is never recorded here: quality debt and the production render are render.js --accept-quality-debt / --authorize-render (bound to the render input); upload, publish and cleanup are the operator's own order each time`);
   if (!SCOPES.includes(scope)) throw new Error(`unknown scope "${scope}" (allowed: ${SCOPES.join(", ")})`);
   const w = String(words || "").trim();
-  if (w.split(/\s+/).filter(Boolean).length < MIN_WORDS) throw new Error(`--words must be the operator's own words, verbatim (at least ${MIN_WORDS} words) — never an agent's summary`);
+  if (w.split(/\s+/).filter(Boolean).length < MIN_WORDS) throw new Error(`--words must be the operator's own words, verbatim (not empty) — never an agent's summary`);
   const bad = limitsProblem(scope, limits);
   if (bad) throw new Error(bad);
   if (!fs.existsSync(path.join(root, "books", slug, "book.json"))) throw new Error(`books/${slug}/book.json missing`);
@@ -115,7 +116,9 @@ function matching(root, slug, scope = null) {
     if (!SCOPES.includes(a.scope)) continue;   // a hand-written refused scope is never honoured
     if (a.book && a.book !== slug) continue;   // a record copied from another book never carries over
     const was = a.attempt || {};
-    const changed = Object.keys(FIELDS).filter((k) => (was[k] || null) !== (now[k] || null));
+    // an engine keep is about the engine and the recording, not the code pin: an operator-approved repin keeps it
+    const keys = a.scope === "engineKeep" ? Object.keys(FIELDS).filter((k) => k !== "productionBase") : Object.keys(FIELDS);
+    const changed = keys.filter((k) => (was[k] || null) !== (now[k] || null));
     if (changed.length) out.stale.push({ ...a, why: changed.map((k) => `${FIELDS[k]} changed (${String(was[k] || "-").slice(0, 8)} → ${String(now[k] || "-").slice(0, 8)})`) });
     else out.matches.push(a);
   }
