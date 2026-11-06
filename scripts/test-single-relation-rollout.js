@@ -133,6 +133,18 @@ ok("policy: global default stays off; render / upload / publish / cleanup / repi
     const r = run(); assert.strictEqual(r.status, 1); assert(/narration of scene\(s\) 1 changed/.test(r.stderr), r.stderr);
   });
 }
+ok("decide --none: fine with 0 candidates; with candidates every one needs an author decision with a reason (cycle 18)", () => {
+  const d = path.join(root, "nc"); fs.mkdirSync(d, { recursive: true });
+  assert.strictEqual(RO.noneCoverage(d).ok, false);
+  W(path.join(d, "candidates.json"), { candidates: [] }); assert.strictEqual(RO.noneCoverage(d).ok, true);
+  W(path.join(d, "candidates.json"), { candidates: [{ sceneIndex: 4 }, { sceneIndex: 9 }] });
+  assert(/no author decision with a reason for 2/.test(RO.noneCoverage(d).why));
+  W(path.join(d, "author-decisions.json"), [{ sceneIndex: 4, decision: "skipped", why: "inner state only" }, { sceneIndex: 9, decision: "skipped", why: "" }]);
+  assert(/for 1 \(9\)/.test(RO.noneCoverage(d).why), RO.noneCoverage(d).why);
+  W(path.join(d, "author-decisions.json"), [{ sceneIndex: 4, decision: "skipped", why: "inner state only" }, { sceneIndex: 9, decision: "contract", why: "drawable" }]);
+  assert(/never validated/.test(RO.noneCoverage(d).why));
+  W(path.join(d, "contracts.json"), { valid: [], invalid: [9] }); assert.strictEqual(RO.noneCoverage(d).ok, true);
+});
 fs.rmSync(root, { recursive: true, force: true });
 console.log(fail ? `\n${fail} rollout check(s) FAILED` : "\nall single-relation rollout checks passed");
 process.exit(fail ? 1 : 0);

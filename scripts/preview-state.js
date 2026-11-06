@@ -382,7 +382,8 @@ function bookState(slug, root = ROOT) {
     if (!el.ok) stage("singleRelation", "n/a", el.reasons[0]);
     else if (srStatus.state === "MISSING") { stage("singleRelation", "todo", `B scene(s) ${srStatus.missing.join(", ")} not in the config`); go("singleRelation", "The recorded B scenes are not in the config: re-run make-book (step 1.885 re-applies books/<slug>/single-relation/active.json before the gates)", mbCmd); return finish(st); }
     else if (srStatus.state === "ACTIVE") stage("singleRelation", "done", `${srStatus.active} B scene(s) in the config (active.json)`);
-    else if (decision && decision.decision === "none") stage("singleRelation", "done", `no B scene: ${decision.reason}`);
+    else if (decision && decision.decision === "none" && RO.noneCoverage && RO.noneCoverage(srDir).ok) stage("singleRelation", "done", `no B scene: ${decision.reason}`);
+    else if (decision && decision.decision === "none") { stage("singleRelation", "todo", `"none" recorded without an author decision per candidate: ${RO.noneCoverage(srDir).why}`); go("singleRelation", "Author every scan candidate (single-relation.md): a contract, validated, or a skip with its reason in single-relation/author-decisions.json — then select / apply, or decide --none again", `node scripts/single-relation-scan.js validate --slug=${slug}`); return finish(st); }
     else {
       stage("singleRelation", "todo", "eligible (operator-approved selective rollout) — not run");
       go("singleRelation", "Single-relation rollout (runbook §2d, no operator question): scan → one fresh author → validate → isolated A/B on Actions → single-relation-ab.js (agents) → select → apply --write → make-book again. No B scene worth it: decide --none",
