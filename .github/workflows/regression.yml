@@ -48,8 +48,15 @@ jobs:
             zod@3.22.3 remotion@4.0.414 react@19.2.3 react-dom@19.2.3 scheduler@0.27.0
           mv "$RUNNER_TEMP/deps/node_modules" "$GITHUB_WORKSPACE/node_modules"
 
+      # bounded attempts: apt on a runner hangs now and then (cycle 17: a run stuck here 16 min until cancelled by hand)
       - name: ffmpeg + ffprobe (9 tests probe or cut audio) and GNU time (CPU / peak RSS per test)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg time
+        timeout-minutes: 8
+        run: |
+          for i in 1 2 3; do
+            if timeout 120 sudo apt-get update -qq && timeout 180 sudo apt-get install -y -qq ffmpeg time; then exit 0; fi
+            echo "apt attempt $i failed or hung - retrying"; sleep 5
+          done
+          exit 1
 
       - name: git identity for the tests that commit in their own temp repos
         run: git config --global user.email "ci@localhost" && git config --global user.name "ci"
