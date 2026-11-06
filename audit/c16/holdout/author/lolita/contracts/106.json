@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"cause-effect",
+"understanding":"A car strikes Charlotte and she is gone.",
+"evidence":"And she is violently struck and killed by a car.",
+"claim":{"asserted":"A car strikes and kills her.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Charlotte stands","transformation":"The car hits her","after":"Charlotte is gone",
+"camera":{"framing":"wide-locked","purpose":"action and consequence in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"car","label":"car"},{"id":"e","kind":"person","cast":"charlotte","label":"Charlotte","mood":"neutral"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","present":false}]}],
+"required":["the car","Charlotte removed"],"omitted":[],"_author":"c16-holdout-author-3"}

@@ -1,0 +1,24 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "unlimited-memory",
+ "at": "2026-11-06T08:44:27.204Z",
+ "valid": [],
+ "invalid": [
+  278
+ ],
+ "contracts": {
+  "278": {
+   "sceneIndex": 278,
+   "sceneId": "scene-278",
+   "previousSceneId": "scene-277",
+   "author": "c16-holdout-author-5",
+   "inputHash": "65725c7fdc0f6db2",
+   "contractHash": "f056234d07d44b3f",
+   "valid": false,
+   "errors": [
+    "mechanism \"accumulation\": a level rises in steps (repeat ≥ 2, value up) — the event does not do that"
+   ],
+   "review": null
+  }
+ }
+}

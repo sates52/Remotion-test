@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"depletion",
+"understanding":"Long-running stress drains the immune system.",
+"evidence":"Over months and years, that stress response stops giving you sharp focus and starts giving you brain fog, chronic exhaustion, and literal immune system failure.",
+"claim":{"asserted":"Chronic stress response leads to immune system failure.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Immune system full","transformation":"Stress strikes repeatedly","after":"Immune system nearly empty",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"zap","label":"stress"},{"id":"e","kind":"stock","label":"immune system","value":1}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.1}],"repeat":3}],
+"required":["the stress bolt","the immune level falling"],"omitted":["brain fog"],"_author":"c16-holdout-author-3"}

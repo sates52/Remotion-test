@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"transformation",
+"understanding":"Toxic air kills the leaves.",
+"evidence":"The leaves are dead and dry, falling early because of the toxic air.",
+"claim":{"asserted":"Toxic air makes the leaves die and fall.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Healthy tree","transformation":"Toxic air reaches it","after":"Tree dead",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"storm","label":"toxic air"},{"id":"e","kind":"object","glyph":"tree","label":"leaves"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","broken":true}]}],
+"required":["the toxic cloud","the tree dying"],"omitted":[],"_author":"c16-holdout-author-3"}

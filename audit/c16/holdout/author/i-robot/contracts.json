@@ -1,0 +1,32 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "i-robot",
+ "at": "2026-11-06T08:44:28.223Z",
+ "valid": [
+  272
+ ],
+ "invalid": [],
+ "contracts": {
+  "272": {
+   "sceneIndex": 272,
+   "sceneId": "scene-272",
+   "previousSceneId": "scene-271",
+   "author": "c16-holdout-author-6",
+   "inputHash": "6e7f5ba790e56754",
+   "contractHash": "beda53e5695cced8",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "OK",
+    "ends": [
+     "h",
+     "k"
+    ],
+    "labelCarried": [
+     "k"
+    ],
+    "labelDependence": 0.5
+   }
+  }
+ }
+}

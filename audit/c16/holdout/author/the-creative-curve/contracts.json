@@ -1,0 +1,26 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "the-creative-curve",
+ "at": "2026-11-06T08:44:29.355Z",
+ "valid": [],
+ "invalid": [
+  119
+ ],
+ "contracts": {
+  "119": {
+   "sceneIndex": 119,
+   "sceneId": "scene-119",
+   "previousSceneId": "scene-118",
+   "author": "c16-holdout-author-6",
+   "inputHash": "bd8850d89747e0a9",
+   "contractHash": "a0d90b037da8e12c",
+   "valid": false,
+   "errors": [
+    "entity \"g\": label \"student\" must use the narration's own words",
+    "cause \"c\" (\"novel\") is not named where the evidence is (its sentence or the one before / after) — the narration must state this end of the relation",
+    "effect \"g\" (\"student\") is not named where the evidence is (its sentence or the one before / after) — the narration must state this end of the relation"
+   ],
+   "review": null
+  }
+ }
+}

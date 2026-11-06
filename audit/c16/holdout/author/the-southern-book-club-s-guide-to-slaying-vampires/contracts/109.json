@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Carter uses his power as husband and doctor to force Patricia into submission.",
+"evidence":"a husband and a doctor to crush his wife's resistance and force her into submission.",
+"claim":{"asserted":"Carter forces Patricia into submission.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Patricia resists","transformation":"Carter forces her","after":"Patricia is crushed",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"person","cast":"carter","label":"Carter"},{"id":"p","kind":"person","cast":"patricia","label":"Patricia","mood":"angry"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"p","mood":"sad"}]}],
+"mechanism":"transformation","required":["Carter","Patricia changing"],"omitted":[],"_author":"c16-holdout-author-1"}

@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"transfer",
+"understanding":"Humans hand the decision over to the machine.",
+"evidence":"eventually decided it was safer, more efficient, and more logical to let the machine decide for them.",
+"claim":{"asserted":"Humans let the machine decide for them.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"The decision key sits with the human.","transformation":"The key moves to the machine.","after":"Key sits with the machine; empty slot remains.",
+"camera":{"framing":"wide-locked","purpose":"ownership change in one frame"},
+"entities":[{"id":"k","kind":"object","glyph":"key","label":"decide"},{"id":"h","kind":"person","cast":"everyman","mood":"neutral"},{"id":"m","kind":"object","glyph":"laptop","label":"machine"}],
+"events":[{"at":0.3,"cause":"h","effects":[{"entity":"k","moveTo":"m"}]}],
+"required":["the key","the machine"],"omitted":[],"_author":"c16-holdout-author-6"}

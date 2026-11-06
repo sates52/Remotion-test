@@ -1,0 +1,32 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "unhinged",
+ "at": "2026-11-06T08:43:54.146Z",
+ "valid": [
+  148
+ ],
+ "invalid": [],
+ "contracts": {
+  "148": {
+   "sceneIndex": 148,
+   "sceneId": "scene-148",
+   "previousSceneId": "scene-147",
+   "author": "c16-holdout-author-4",
+   "inputHash": "d3339df2caa2b197",
+   "contractHash": "e925ff74b9311b75",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "OK",
+    "ends": [
+     "g",
+     "r"
+    ],
+    "labelCarried": [
+     "r"
+    ],
+    "labelDependence": 0.5
+   }
+  }
+ }
+}

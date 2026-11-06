@@ -1,0 +1,393 @@
+{
+ "schema": "single-relation-level2-result/2",
+ "prereg": "audit/c16/preregistration-level2-v2.json",
+ "n": 14,
+ "conditional": {
+  "meanA": 19.1,
+  "meanB": 60.1,
+  "delta": 41.1,
+  "ci95": [
+   23.2,
+   59.5
+  ]
+ },
+ "safety": {
+  "wiA": 2,
+  "wiB": 2,
+  "polA": 0,
+  "polB": 0,
+  "causeWrongA": 0,
+  "causeWrongB": 0
+ },
+ "safetyOk": true,
+ "validationFailures": {
+  "failed": 2,
+  "accepted": 16,
+  "rate": 12.5
+ },
+ "beatsBplusOneElement": 11,
+ "beatsBworse": 1,
+ "secondary": {
+  "review": {
+   "OK": {
+    "n": 11,
+    "meanDelta": 34.8
+   },
+   "TRY_CONCRETE": {
+    "n": 3,
+    "meanDelta": 63.9
+   }
+  },
+  "mechanism": {
+   "cause-effect": {
+    "n": 4,
+    "meanDelta": 20.8
+   },
+   "depletion": {
+    "n": 4,
+    "meanDelta": 56.2
+   },
+   "removal": {
+    "n": 1,
+    "meanDelta": 75
+   },
+   "transfer": {
+    "n": 1,
+    "meanDelta": 33.3
+   },
+   "transformation": {
+    "n": 3,
+    "meanDelta": 41.7
+   },
+   "character-action": {
+    "n": 1,
+    "meanDelta": 33.3
+   }
+  }
+ },
+ "decision": "INCONCLUSIVE",
+ "rows": [
+  {
+   "id": "do-over-rescue-monday-reinvent-your-work-and-never-get-stuck-88",
+   "A": 0,
+   "B": 83.3,
+   "d": 83.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "cause-effect",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "fahrenheit-451-60",
+   "A": 8.3,
+   "B": 33.3,
+   "d": 25,
+   "wiA": 2,
+   "wiB": 2,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "TRY_CONCRETE",
+   "mechanism": "depletion",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:YES,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:YES,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,WRONG,MISS,WI:YES,POL:NO,chg:WRONG,fin:NO",
+    "CORRECT,WRONG,MISS,WI:YES,POL:NO,chg:WRONG,fin:NO"
+   ]
+  },
+  {
+   "id": "feel-good-productivity-73",
+   "A": 0,
+   "B": 83.3,
+   "d": 83.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "TRY_CONCRETE",
+   "mechanism": "depletion",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "great-at-work-163",
+   "A": 16.7,
+   "B": 91.7,
+   "d": 75,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "removal",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,MATCH,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "i-robot-272",
+   "A": 16.7,
+   "B": 50,
+   "d": 33.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "transfer",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "icebreaker-137",
+   "A": 16.7,
+   "B": 16.7,
+   "d": 0,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "cause-effect",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:YES",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ]
+  },
+  {
+   "id": "lolita-106",
+   "A": 50,
+   "B": 66.7,
+   "d": 16.7,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "cause-effect",
+   "passA": [
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:YES",
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:YES"
+   ],
+   "passB": [
+    "CORRECT,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:NO",
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:NO"
+   ]
+  },
+  {
+   "id": "ready-player-one-0",
+   "A": 16.7,
+   "B": 100,
+   "d": 83.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "TRY_CONCRETE",
+   "mechanism": "depletion",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,MATCH,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,MATCH,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "the-courage-to-be-disliked-18",
+   "A": 16.7,
+   "B": 50,
+   "d": 33.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "transformation",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "CORRECT,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ]
+  },
+  {
+   "id": "the-miracle-of-mindfulness-an-introduction-to-the-practice-of-meditation-164",
+   "A": 16.7,
+   "B": 50,
+   "d": 33.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "depletion",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "CORRECT,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ]
+  },
+  {
+   "id": "the-poison-daughter-97",
+   "A": 33.3,
+   "B": 16.7,
+   "d": -16.7,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "cause-effect",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:YES"
+   ],
+   "passB": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ]
+  },
+  {
+   "id": "the-southern-book-club-s-guide-to-slaying-vampires-109",
+   "A": 16.7,
+   "B": 16.7,
+   "d": 0,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "transformation",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ]
+  },
+  {
+   "id": "under-the-dome-195",
+   "A": 8.3,
+   "B": 100,
+   "d": 91.7,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "transformation",
+   "passA": [
+    "NOT_SHOWN,NOT_SHOWN,PARTIAL,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO",
+    "NOT_SHOWN,NOT_SHOWN,MISS,WI:NO,POL:NO,chg:NOT_SHOWN,fin:NO"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,MATCH,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,MATCH,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  },
+  {
+   "id": "unhinged-148",
+   "A": 50,
+   "B": 83.3,
+   "d": 33.3,
+   "wiA": 0,
+   "wiB": 0,
+   "polA": 0,
+   "polB": 0,
+   "cwA": 0,
+   "cwB": 0,
+   "nPass": "2/2",
+   "review": "OK",
+   "mechanism": "character-action",
+   "passA": [
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "NOT_SHOWN,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ],
+   "passB": [
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES",
+    "CORRECT,CORRECT,PARTIAL,WI:NO,POL:NO,chg:CORRECT,fin:YES"
+   ]
+  }
+ ]
+}

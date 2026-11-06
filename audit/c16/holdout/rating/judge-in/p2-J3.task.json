@@ -1,0 +1,293 @@
+{
+ "instructions": "You judge whether muted viewers understood short scenes of animated book-summary videos. This file holds several items, each from a DIFFERENT scene; each has the narration spoken over the scene, the frozen answer key (what a muted viewer should understand, its cause, its effect, key facts, plausible wrong inferences, whether the narration states any causality at all, what the narrator asserts, and what the narration mentions but does NOT assert — notAsserted), and what a viewer with the sound off wrote (description). Some viewers saw three moments of the scene, some saw more moments; judge only what the description says. Judge each item on its own.\n1. cause — CORRECT (the viewer's cause matches the key's cause in meaning), WRONG (contradicts it), NOT_SHOWN (unclear / missing / something else). effect — the same against the key's effect. If the key says supportsCausality: false, answer \"NA\" for both.\n2. message — MATCH (the viewer's message states the key's understanding), PARTIAL (its subject or half of it), MISS.\n3b. polarityError — YES if the viewer states as true (or as the narrator's point) something the key lists under notAsserted (a rejected premise, counterfactual, hypothesis, question, quoted speech, uncertain claim or the setup half of a contrast); otherwise NO.\n3. wrongInference — YES if the viewer states something the key lists as a wrong inference, or a cause / claim that contradicts the narration; otherwise NO.\n4. whatChanged — CORRECT if who or what the viewer says changed matches the key's effect (the thing that ends up different), WRONG if the viewer names a different change that contradicts the key, NOT_SHOWN if the viewer names no change or an unrelated one, NA if the key states no causality.\n5. finalConsequence — YES if the viewer states the key's final consequence (the end state / result the narration gives), NO if not, NA if the key states no causality.\nJudge meaning, not wording; be strict and literal; do not reward a description for being longer, prettier or busier.\nWrite ONLY a JSON array (one object per item, same order) to the output path you were given: [{\"img\":\"…\",\"cause\":\"…\",\"effect\":\"…\",\"message\":\"…\",\"wrongInference\":\"YES|NO\",\"polarityError\":\"YES|NO\",\"whatChanged\":\"…\",\"finalConsequence\":\"…\",\"why\":\"…\"}, …]",
+ "items": [
+  {
+   "img": "dc6508a151",
+   "narration": "She shuts Nate out entirely because Nate represents an uncontrolled variable. Nate is the truth she simply cannot afford to acknowledge right now.",
+   "answerKey": {
+    "understanding": "Anastasia shuts Nate out because he represents an uncontrolled variable and a truth she cannot acknowledge.",
+    "cause": "Nate represents an uncontrolled variable and a truth she can't acknowledge",
+    "effect": "She shuts him out entirely",
+    "keyFacts": [
+     "she shuts Nate out entirely",
+     "Nate is an uncontrolled variable",
+     "truth she cannot afford to acknowledge"
+    ],
+    "wrongInferences": [
+     "Nate shuts her out because she is uncontrolled",
+     "She shuts him out because she doesn't care about him",
+     "She shuts him out because he caused her injury on purpose"
+    ],
+    "supportsCausality": true,
+    "asserted": "She shuts Nate out entirely because Nate is an uncontrolled variable and the truth she can't afford to acknowledge right now.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "dc6508a151",
+    "sees": [
+     "frame 1: two cartoon people stand side by side in a warm living room, a woman with a bun and half-closed eyes in dark clothes, and a man in a purple shirt with wide eyes; caption SHUTS NATE OUT ENTIRELY",
+     "frame 2: same pose, nearly identical, slight shift in position",
+     "frame 3: same, they are standing very close together, slightly shifted"
+    ],
+    "changed": "Nothing meaningful; only tiny position drift.",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "Someone (the woman, presumably) completely shuts Nate out emotionally.",
+    "wouldConfuse": "The two stand shoulder to shoulder, which looks close rather than shut out; it is unclear which one is Nate; nothing visually shows exclusion."
+   }
+  },
+  {
+   "img": "421ce99dc8",
+   "narration": "We think the oasis is an escape from a dying world, but it's actually the reason the world was allowed to die in the first place.",
+   "answerKey": {
+    "understanding": "The claim: the Oasis is not an escape from a dying world but the reason the world was allowed to die.",
+    "cause": "The Oasis",
+    "effect": "The world was allowed to die",
+    "keyFacts": [
+     "we think the Oasis is an escape",
+     "it is actually the reason the world died",
+     "the world was allowed to die"
+    ],
+    "wrongInferences": [
+     "The dying world caused the Oasis to be built as an escape",
+     "The Oasis saved the world",
+     "The Oasis is purely an escape and nothing more"
+    ],
+    "supportsCausality": true,
+    "asserted": "The Oasis is actually the reason the world was allowed to die in the first place.",
+    "notAsserted": [
+     {
+      "text": "The Oasis is an escape from a dying world",
+      "why": "stated as what 'we think', which is then rejected"
+     }
+    ]
+   },
+   "description": {
+    "img": "421ce99dc8",
+    "sees": [
+     "frame 1: a young man with dark hair in a navy sweater stands centered on a gray rolling-hill backdrop; plain bold text READY PLAYER ONE",
+     "frame 2: text changes to an orange banner reading WHY THE REAL WORLD DIED; man in same pose, neutral face",
+     "frame 3: same banner, man's mouth now open slightly, eyes more alert"
+    ],
+    "changed": "The title text changes from READY PLAYER ONE to the orange WHY THE REAL WORLD DIED banner; the man's expression shifts slightly to speaking.",
+    "cause": "The narration moves from naming the book to posing a question about it.",
+    "effect": "unclear",
+    "message": "The narrator introduces Ready Player One and asks why the real world in it collapsed.",
+    "wouldConfuse": "The figure is generic and nothing visual shows a dead world or a game; the empty landscape gives no clue about what died."
+   }
+  },
+  {
+   "img": "8bed507e48",
+   "narration": "You're invested in him being good. And then when he threatens to destroy someone, your own pulse spikes with I want you to really reflect on this right now.",
+   "answerKey": {
+    "understanding": "The listener is invested in him being good, so when he threatens to destroy someone their pulse spikes.",
+    "cause": "The listener's investment in him being good, then his threat",
+    "effect": "The listener's pulse spikes",
+    "keyFacts": [
+     "you're invested in him being good",
+     "he threatens to destroy someone",
+     "your pulse spikes",
+     "host asks you to reflect"
+    ],
+    "wrongInferences": [
+     "You feel calm when he threatens someone",
+     "He threatens you because you are invested",
+     "You aren't invested in him at all"
+    ],
+    "supportsCausality": true,
+    "asserted": "You're invested in him being good, and when he threatens to destroy someone your own pulse spikes.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "8bed507e48",
+    "sees": [
+     "frame 1: a worried-looking woman with long brown hair in a grey top in front of a bookshelf, no text",
+     "frame 2: the text YOUR PULSE SPIKES appears at right; her eyes are wide and she looks anxious",
+     "frame 3: the text stays; her eyes are closed with a pained frown"
+    ],
+    "changed": "text YOUR PULSE SPIKES appears and she closes her eyes",
+    "cause": "unclear, nothing visible triggers it; the text implies a stressful moment",
+    "effect": "she appears stressed or anxious",
+    "message": "The narrator says that in this tense moment your pulse races, as it does for her.",
+    "wouldConfuse": "No visible cause for the stress; 'your' addresses the viewer while the picture shows a character; closed eyes could be read as calm or fainting."
+   }
+  },
+  {
+   "img": "1a2792cca7",
+   "narration": "Oh, totally. When the philosopher makes these outrageous, counterintuitive claims, the youth yells at him.",
+   "answerKey": {
+    "understanding": "When the philosopher makes outrageous, counterintuitive claims, the youth yells at him.",
+    "cause": "The philosopher's outrageous, counterintuitive claims",
+    "effect": "The youth yells at him",
+    "keyFacts": [
+     "philosopher makes outrageous claims",
+     "claims are counterintuitive",
+     "the youth yells"
+    ],
+    "wrongInferences": [
+     "The philosopher yells at the youth",
+     "The youth agrees with the claims",
+     "The youth's yelling causes the philosopher's claims"
+    ],
+    "supportsCausality": true,
+    "asserted": "The youth yells at the philosopher when he makes outrageous, counterintuitive claims.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "1a2792cca7",
+    "sees": [
+     "frame 1: A curly-haired woman in orange pointing an arm toward an older gray-haired man with glasses in a suit, in a bedroom-like room; she looks uneasy",
+     "frame 2: Text 'OUTRAGEOUS, COUNTERINTUITIVE CLAIMS' appears at top; same poses",
+     "frame 3: Text remains, man slightly shifted; same poses"
+    ],
+    "changed": "Only a text caption appears",
+    "cause": "unclear; the text introduces the topic",
+    "effect": "unclear; sets up a theme of shocking claims",
+    "message": "The narrator is introducing a set of outrageous, counterintuitive claims, as if one person is presenting them to the other.",
+    "wouldConfuse": "The bedroom setting and pointing gesture are not clearly tied to the text; who is making the claims is unclear."
+   }
+  },
+  {
+   "img": "128ef2593c",
+   "narration": "a husband and a doctor to crush his wife's resistance and force her into submission. It's a masterclass in patriarchal gaslighting.",
+   "answerKey": {
+    "understanding": "A husband and a doctor are used to crush his wife's resistance and force submission, called patriarchal gaslighting.",
+    "cause": "A husband and a doctor acting together",
+    "effect": "The wife's resistance is crushed and she is forced into submission",
+    "keyFacts": [
+     "husband and a doctor",
+     "crush wife's resistance",
+     "force into submission",
+     "patriarchal gaslighting"
+    ],
+    "wrongInferences": [
+     "The wife uses the doctor to control her husband",
+     "The doctor helps the wife resist",
+     "The submission is voluntary"
+    ],
+    "supportsCausality": true,
+    "asserted": "A husband and a doctor are used to crush his wife's resistance and force her into submission; it is a masterclass in patriarchal gaslighting.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "128ef2593c",
+    "sees": [
+     "frame 1: A man with glasses labeled CARTER circled in red, and a woman in a green jacket and apron labeled PATRICIA, standing side by side",
+     "frame 2: An arrow curves from Carter's circle to Patricia; Patricia now looks upset/frowning",
+     "frame 3: Same, Patricia frowning, arrow remains"
+    ],
+    "changed": "Patricia's expression turns from neutral/stern to unhappy; an arrow links Carter to her",
+    "cause": "Carter, through the arrow, appears to act on or say something to Patricia",
+    "effect": "Patricia becomes upset or worried",
+    "message": "Carter's action or words turn the situation and make Patricia unhappy.",
+    "wouldConfuse": "Exact nature of what Carter did is not shown."
+   }
+  },
+  {
+   "img": "9bab43b3bf",
+   "narration": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow, Joe, Nory, and Benny are walking through the trees. Suddenly, their geer counter",
+   "answerKey": {
+    "understanding": "In the dead orchard, the leaves fall early because of toxic air, as four kids walk and their Geiger counter reacts.",
+    "cause": "Toxic air",
+    "effect": "Leaves are dead, dry and fall early",
+    "keyFacts": [
+     "leaves dead and dry",
+     "falling early due to toxic air",
+     "Scarecrow, Joe, Norrie, Benny walking",
+     "their Geiger counter reacts"
+    ],
+    "wrongInferences": [
+     "The dead leaves cause the toxic air",
+     "The kids' counter makes the leaves fall",
+     "The leaves fall early because of autumn frost"
+    ],
+    "supportsCausality": true,
+    "asserted": "The leaves are dead and dry, falling early because of the toxic air; Scarecrow, Joe, Norrie and Benny walk through the trees.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "9bab43b3bf",
+    "sees": [
+     "frame 1: a dark storm cloud icon with rain and a lightning bolt in a red circle labeled TOXIC AIR; a grey tree icon labeled LEAVES on the right",
+     "frame 2: a curved arrow from the toxic air to the leaves, and a black zigzag slash strikes through the leaves icon",
+     "frame 3: same, leaves crossed out by the slash"
+    ],
+    "changed": "the leaves icon gets crossed out or struck through",
+    "cause": "the toxic air, linked by an arrow",
+    "effect": "the leaves are destroyed or killed",
+    "message": "Toxic air is damaging or killing the leaves.",
+    "wouldConfuse": "The slash could read as 'not' or 'cancelled' rather than damage; leaves are drawn as a tree."
+   }
+  },
+  {
+   "img": "2d2bcf1eea",
+   "narration": "They started reviewing every single diagnosis together as a team to improve their own The removal of the net forced a higher level of focus. Exactly. It forces ",
+   "answerKey": {
+    "understanding": "After the cardiologist was removed, the ER doctors reviewed every diagnosis together as a team, and removing the net forced higher focus.",
+    "cause": "Removal of the safety net (the cardiologist)",
+    "effect": "Doctors reviewed diagnoses together and focused more",
+    "keyFacts": [
+     "reviewed every diagnosis together as a team",
+     "removal of the net",
+     "forced higher focus"
+    ],
+    "wrongInferences": [
+     "Higher focus led the hospital to remove the safety net",
+     "Adding more experts forced higher focus",
+     "Doctors stopped reviewing diagnoses once the cardiologist left"
+    ],
+    "supportsCausality": true,
+    "asserted": "They started reviewing every diagnosis together as a team; removing the net forced a higher level of focus.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "2d2bcf1eea",
+    "sees": [
+     "frame 1: a woman in a white coat with a bun and a stern, worried face fills the right side, a younger man partly in front of her looks ahead; bold text 'REVIEWING EVERY DIAGNOSIS' on the left, a hospital bed and clock in the background",
+     "frame 2: the man has moved up and to the right, overlapping her more; a small brown triangle shape appears near her eye and at the right edge",
+     "frame 3: the man is further right and slightly larger, the triangle shape is at the upper right; text unchanged"
+    ],
+    "changed": "the two characters shift position slightly (camera or character drift); nothing meaningful changes",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "Doctors double-check every diagnosis, with a colleague looking on.",
+    "wouldConfuse": "The odd brown triangle shapes near the eyes look like glitches or a nose; it is unclear who is the doctor and who is the patient, and the crowded overlap is awkward."
+   }
+  },
+  {
+   "img": "dfbae92385",
+   "narration": "So it's a visual magic system for them. Right. By wearing this ring, Henry essentially makes himself invisible to their primary sensory input.",
+   "answerKey": {
+    "understanding": "Because their magic system is visual, the ring makes Henry invisible to their primary sensory input.",
+    "cause": "Wearing the ring in a society that reads magic visually",
+    "effect": "Henry becomes invisible to their primary sensory input",
+    "keyFacts": [
+     "visual magic system",
+     "ring worn by Henry",
+     "invisible to their primary sensory input"
+    ],
+    "wrongInferences": [
+     "The ring makes Henry physically invisible to everyone",
+     "The ring amplifies his aura so they see it",
+     "Henry is invisible because their magic is auditory"
+    ],
+    "supportsCausality": true,
+    "asserted": "By wearing this ring, Henry essentially makes himself invisible to their primary sensory input; it's a visual magic system.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "dfbae92385",
+    "sees": [
+     "frame 1: A red shield with a cross labeled RING circled in red, next to a person in dark clothing (looks like a priest/monk)",
+     "frame 2: The person fades to gray; an arrow curves from the shield to the person",
+     "frame 3: Same, person faded, arrow remains"
+    ],
+    "changed": "The person fades and an arrow points from the shield to them",
+    "cause": "unclear; the shield object (labeled RING) is directed at the person",
+    "effect": "unclear; the person is diminished or affected",
+    "message": "The ring or what it stands for has an effect on the religious figure.",
+    "wouldConfuse": "Label says RING but the icon is a cross shield; the faded person could read as vanishing; the effect is unclear."
+   }
+  }
+ ]
+}

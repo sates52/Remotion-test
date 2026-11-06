@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"transformation",
+"understanding":"The philosopher makes outrageous claims and the youth gets angry.",
+"evidence":"When the philosopher makes these outrageous, counterintuitive claims, the youth yells at him.",
+"claim":{"asserted":"The philosopher's claims make the youth yell.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Youth calm","transformation":"Philosopher makes a claim","after":"Youth angry",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"person","cast":"philosopher","label":"philosopher"},{"id":"e","kind":"person","cast":"young-man","label":"youth","mood":"neutral"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","mood":"angry"}]}],
+"required":["the philosopher","the angry youth"],"omitted":[],"_author":"c16-holdout-author-5"}

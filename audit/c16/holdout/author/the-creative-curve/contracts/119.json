@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"depletion",
+"understanding":"The too-novel site confused students, so they ignored it.",
+"evidence":"and entirely ignores it because it aggressively triggered the avoidance reflex.",
+"claim":{"asserted":"Students ignored the site because it was too novel.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Many students around the site.","transformation":"The site lights up; students drop away.","after":"Few students remain.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"laptop","label":"novel"},{"id":"g","kind":"group","label":"student","value":0.9}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"g","value":0.1}]}],
+"required":["the site","the students leaving"],"omitted":[],"_author":"c16-holdout-author-6"}

@@ -1,0 +1,10 @@
+{ "schema": "single-relation/1", "type": "A", "mechanism": "character-action",
+  "understanding": "When Gray threatens someone, the listener's own pulse spikes and she turns afraid.",
+  "evidence": "when he threatens to destroy someone, your own pulse spikes",
+  "claim": { "asserted": "When Gray threatens to destroy someone, the reader's pulse spikes.", "polarity": "asserted", "speaker": "narrator", "notAsserted": [] },
+  "before": "The reader sits calm while Gray stands by.", "transformation": "Gray threatens and the threat reaches the reader.", "after": "The reader's pulse level jumps and her face turns afraid.",
+  "camera": { "framing": "wide-locked", "purpose": "cause and effect in one frame" },
+  "entities": [ { "id": "g", "kind": "person", "cast": "gray", "mood": "angry", "label": "threatens" },
+                { "id": "r", "kind": "stock", "label": "pulse", "value": 0.2 } ],
+  "events": [ { "at": 0.3, "cause": "g", "effects": [ { "entity": "r", "value": 0.9 } ] } ],
+  "required": ["Gray", "pulse level rising"], "omitted": [], "_author": "c16-holdout-author-4" }

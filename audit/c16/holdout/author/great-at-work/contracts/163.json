@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"removal",
+"understanding":"Taking away the safety net made the doctors focus harder.",
+"evidence":"The removal of the net forced a higher level of focus.",
+"claim":{"asserted":"Removing the safety net forced a higher level of focus.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Safety net present, focus low","transformation":"The net is removed","after":"Net gone (dashed), focus high",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"shield","label":"net"},{"id":"e","kind":"stock","label":"focus","value":0.2}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"c","present":false},{"entity":"e","value":0.9}]}],
+"required":["the safety net leaving","the focus level rising"],"omitted":[],"_author":"c16-holdout-author-5"}

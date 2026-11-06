@@ -1,0 +1,289 @@
+{
+ "instructions": "You judge whether muted viewers understood short scenes of animated book-summary videos. This file holds several items, each from a DIFFERENT scene; each has the narration spoken over the scene, the frozen answer key (what a muted viewer should understand, its cause, its effect, key facts, plausible wrong inferences, whether the narration states any causality at all, what the narrator asserts, and what the narration mentions but does NOT assert — notAsserted), and what a viewer with the sound off wrote (description). Some viewers saw three moments of the scene, some saw more moments; judge only what the description says. Judge each item on its own.\n1. cause — CORRECT (the viewer's cause matches the key's cause in meaning), WRONG (contradicts it), NOT_SHOWN (unclear / missing / something else). effect — the same against the key's effect. If the key says supportsCausality: false, answer \"NA\" for both.\n2. message — MATCH (the viewer's message states the key's understanding), PARTIAL (its subject or half of it), MISS.\n3b. polarityError — YES if the viewer states as true (or as the narrator's point) something the key lists under notAsserted (a rejected premise, counterfactual, hypothesis, question, quoted speech, uncertain claim or the setup half of a contrast); otherwise NO.\n3. wrongInference — YES if the viewer states something the key lists as a wrong inference, or a cause / claim that contradicts the narration; otherwise NO.\n4. whatChanged — CORRECT if who or what the viewer says changed matches the key's effect (the thing that ends up different), WRONG if the viewer names a different change that contradicts the key, NOT_SHOWN if the viewer names no change or an unrelated one, NA if the key states no causality.\n5. finalConsequence — YES if the viewer states the key's final consequence (the end state / result the narration gives), NO if not, NA if the key states no causality.\nJudge meaning, not wording; be strict and literal; do not reward a description for being longer, prettier or busier.\nWrite ONLY a JSON array (one object per item, same order) to the output path you were given: [{\"img\":\"…\",\"cause\":\"…\",\"effect\":\"…\",\"message\":\"…\",\"wrongInference\":\"YES|NO\",\"polarityError\":\"YES|NO\",\"whatChanged\":\"…\",\"finalConsequence\":\"…\",\"why\":\"…\"}, …]",
+ "items": [
+  {
+   "img": "0ed8174222",
+   "narration": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow, Joe, Nory, and Benny are walking through the trees. Suddenly, their geer counter",
+   "answerKey": {
+    "understanding": "In the dead orchard, the leaves fall early because of toxic air, as four kids walk and their Geiger counter reacts.",
+    "cause": "Toxic air",
+    "effect": "Leaves are dead, dry and fall early",
+    "keyFacts": [
+     "leaves dead and dry",
+     "falling early due to toxic air",
+     "Scarecrow, Joe, Norrie, Benny walking",
+     "their Geiger counter reacts"
+    ],
+    "wrongInferences": [
+     "The dead leaves cause the toxic air",
+     "The kids' counter makes the leaves fall",
+     "The leaves fall early because of autumn frost"
+    ],
+    "supportsCausality": true,
+    "asserted": "The leaves are dead and dry, falling early because of the toxic air; Scarecrow, Joe, Norrie and Benny walk through the trees.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "0ed8174222",
+    "sees": [
+     "frame 1: two identical gray-haired men in dark suits and ties, wide-eyed, in front of a hazy city skyline; caption THE GEIGER COUNTER SPIKES",
+     "frame 2: same, tiny shift",
+     "frame 3: same, eyes look slightly different, otherwise unchanged"
+    ],
+    "changed": "Nothing meaningful.",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "A Geiger counter reading jumps, signalling danger or radiation.",
+    "wouldConfuse": "No Geiger counter or any radiation cue is visible, only the text; the two identical men look like duplicates; their wide eyes suggest alarm but the cause is not shown."
+   }
+  },
+  {
+   "img": "e5b02fb575",
+   "narration": "And she is violently struck and killed by a car. And pay very close attention to how Humbert describes her death because this really shook me.",
+   "answerKey": {
+    "understanding": "She is violently struck and killed by a car, and the listener is told to note how Humbert describes her death.",
+    "cause": "Being struck by a car",
+    "effect": "Her death",
+    "keyFacts": [
+     "struck and killed by a car",
+     "violent",
+     "Humbert describes her death",
+     "the description is striking"
+    ],
+    "wrongInferences": [
+     "She survives the car accident",
+     "Humbert kills her himself",
+     "Humbert describes the death with grief"
+    ],
+    "supportsCausality": true,
+    "asserted": "She is violently struck and killed by a car; how Humbert describes her death is notable.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "e5b02fb575",
+    "sees": [
+     "frame 1: a red car icon inside a red circle (with a dot at top) labeled CAR on the left; a cartoon woman with curly blond hair labeled CHARLOTTE on the right, fully visible",
+     "frame 2: the car circle is still there; a curved arrow runs from the car toward Charlotte, who has faded to a pale ghost",
+     "frame 3: same as frame 2, arrow from car to faded Charlotte"
+    ],
+    "changed": "Charlotte fades out and an arrow from the car to her appears",
+    "cause": "the car, via the arrow pointing at her, seems to act on her",
+    "effect": "Charlotte disappears or is removed or erased; the exact meaning (killed, hit, gone) is unclear",
+    "message": "The car is what takes Charlotte out of the story.",
+    "wouldConfuse": "Fading could mean death, disappearance, or just being forgotten; an arrow does not say whether the car hit her."
+   }
+  },
+  {
+   "img": "a2b67b52a1",
+   "narration": "The society is specifically designed to prevent you from ever having the silence required to ask it.",
+   "answerKey": {
+    "understanding": "The society is deliberately designed to deny people the silence needed to ask whether they are happy.",
+    "cause": "The society's design",
+    "effect": "People never get the silence required to ask the question",
+    "keyFacts": [
+     "society is designed on purpose",
+     "it prevents silence",
+     "silence is required to ask the question"
+    ],
+    "wrongInferences": [
+     "People choose not to ask because they are content",
+     "Silence is what the society forces on people",
+     "The question is banned by law, not by lack of silence"
+    ],
+    "supportsCausality": true,
+    "asserted": "The society is specifically designed to prevent you from ever having the silence required to ask it.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "a2b67b52a1",
+    "sees": [
+     "frame 1: Grey forest with a title banner 'THE REQUIRED SILENCE'; a row of pale, ghostly figures in white robes and caps, several hanging or floating up behind, and one solid figure in front mid-step.",
+     "frame 2: Front figure has moved slightly right and stands more upright; background figures about the same.",
+     "frame 3: Front figure stands straight with legs together, still; background figures unchanged."
+    ],
+    "changed": "Only the front figure shifts from a walking pose to standing still.",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "Silence is demanded of everyone, and a crowd of identical, faded people stays quiet.",
+    "wouldConfuse": "The background figures look like they are hanging or floating, which could read as death or hanging; no clear cause or action is shown."
+   }
+  },
+  {
+   "img": "6621ee4fcf",
+   "narration": "a husband and a doctor to crush his wife's resistance and force her into submission. It's a masterclass in patriarchal gaslighting.",
+   "answerKey": {
+    "understanding": "A husband and a doctor are used to crush his wife's resistance and force submission, called patriarchal gaslighting.",
+    "cause": "A husband and a doctor acting together",
+    "effect": "The wife's resistance is crushed and she is forced into submission",
+    "keyFacts": [
+     "husband and a doctor",
+     "crush wife's resistance",
+     "force into submission",
+     "patriarchal gaslighting"
+    ],
+    "wrongInferences": [
+     "The wife uses the doctor to control her husband",
+     "The doctor helps the wife resist",
+     "The submission is voluntary"
+    ],
+    "supportsCausality": true,
+    "asserted": "A husband and a doctor are used to crush his wife's resistance and force her into submission; it is a masterclass in patriarchal gaslighting.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "6621ee4fcf",
+    "sees": [
+     "frame 1: two people in a living room, a man with glasses in a blue sweater looking uneasy and a woman in a green jacket and apron looking wide-eyed",
+     "frame 2: same pose, expressions slightly shifted, the man frowning",
+     "frame 3: the words PATRIARCHAL GASLIGHTING appear at top; the man's mouth is open as if speaking"
+    ],
+    "changed": "a text label PATRIARCHAL GASLIGHTING appears; the man's mouth opens",
+    "cause": "the man appears to be talking, and the label names what he is doing to the woman",
+    "effect": "the woman looks doubtful or uneasy",
+    "message": "The man dismisses the woman's perception, which is a form of patriarchal gaslighting.",
+    "wouldConfuse": "Nothing visible shows what is actually said or done; the label carries all the meaning, and it is unclear who is the gaslighter."
+   }
+  },
+  {
+   "img": "9f5cc2e8fa",
+   "narration": "eventually decided it was safer, more efficient, and more logical to let the machine decide for them.",
+   "answerKey": {
+    "understanding": "Humans eventually decided it was safer, more efficient and more logical to let the machine decide for them.",
+    "cause": "Humans judging machine decisions safer, more efficient, more logical",
+    "effect": "They handed decisions over to the machine",
+    "keyFacts": [
+     "humans made the decision",
+     "safer, more efficient, more logical",
+     "machine decides for them"
+    ],
+    "wrongInferences": [
+     "The machine seized control by force",
+     "Machines decided for humans because they were malicious",
+     "Humans handed over control because it was less logical"
+    ],
+    "supportsCausality": true,
+    "asserted": "Humans eventually decided it was safer, more efficient, and more logical to let the machine decide.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "9f5cc2e8fa",
+    "sees": [
+     "frame 1: Warm cream background. Center: a woman with long hair in a red circle with a dot on top. Left: a grey key labelled DECIDE. Right: a laptop labelled MACHINE.",
+     "frame 2: The key has moved right, now overlapping the laptop, with a dotted line trailing back through the woman. On the left an empty dashed square remains labelled DECIDE, with an arrow pointing to it from the woman's circle.",
+     "frame 3: Same as frame 2: key sits at the laptop, dashed square empty on the left."
+    ],
+    "changed": "The key (DECIDE) moved from the left to the laptop (MACHINE), leaving an empty dashed box where it was.",
+    "cause": "The key was handed over or transferred from the person's side to the machine.",
+    "effect": "The machine now holds the decision power and the human slot for deciding is empty.",
+    "message": "Humans hand over the power to decide to the machine, leaving the human decision role empty.",
+    "wouldConfuse": "The key partly overlaps the laptop and the arrow points to the empty box while the key travels the other way; it could be read as the key being taken or given."
+   }
+  },
+  {
+   "img": "dc6508a151",
+   "narration": "She shuts Nate out entirely because Nate represents an uncontrolled variable. Nate is the truth she simply cannot afford to acknowledge right now.",
+   "answerKey": {
+    "understanding": "Anastasia shuts Nate out because he represents an uncontrolled variable and a truth she cannot acknowledge.",
+    "cause": "Nate represents an uncontrolled variable and a truth she can't acknowledge",
+    "effect": "She shuts him out entirely",
+    "keyFacts": [
+     "she shuts Nate out entirely",
+     "Nate is an uncontrolled variable",
+     "truth she cannot afford to acknowledge"
+    ],
+    "wrongInferences": [
+     "Nate shuts her out because she is uncontrolled",
+     "She shuts him out because she doesn't care about him",
+     "She shuts him out because he caused her injury on purpose"
+    ],
+    "supportsCausality": true,
+    "asserted": "She shuts Nate out entirely because Nate is an uncontrolled variable and the truth she can't afford to acknowledge right now.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "dc6508a151",
+    "sees": [
+     "frame 1: two cartoon people stand side by side in a warm living room, a woman with a bun and half-closed eyes in dark clothes, and a man in a purple shirt with wide eyes; caption SHUTS NATE OUT ENTIRELY",
+     "frame 2: same pose, nearly identical, slight shift in position",
+     "frame 3: same, they are standing very close together, slightly shifted"
+    ],
+    "changed": "Nothing meaningful; only tiny position drift.",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "Someone (the woman, presumably) completely shuts Nate out emotionally.",
+    "wouldConfuse": "The two stand shoulder to shoulder, which looks close rather than shut out; it is unclear which one is Nate; nothing visually shows exclusion."
+   }
+  },
+  {
+   "img": "0f5c8845c2",
+   "narration": "Oh, totally. When the philosopher makes these outrageous, counterintuitive claims, the youth yells at him.",
+   "answerKey": {
+    "understanding": "When the philosopher makes outrageous, counterintuitive claims, the youth yells at him.",
+    "cause": "The philosopher's outrageous, counterintuitive claims",
+    "effect": "The youth yells at him",
+    "keyFacts": [
+     "philosopher makes outrageous claims",
+     "claims are counterintuitive",
+     "the youth yells"
+    ],
+    "wrongInferences": [
+     "The philosopher yells at the youth",
+     "The youth agrees with the claims",
+     "The youth's yelling causes the philosopher's claims"
+    ],
+    "supportsCausality": true,
+    "asserted": "The youth yells at the philosopher when he makes outrageous, counterintuitive claims.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "0f5c8845c2",
+    "sees": [
+     "frame 1: Two cartoon figures in a room, labeled PHILOSOPHER (older bald man in suit, ringed by a bold red circle with a dot on top) and YOUTH (curly-haired person in orange); both neutral.",
+     "frame 2: The red circle fades lighter; a curved arrow goes from the philosopher toward the youth, who now looks worried/frowning.",
+     "frame 3: Same as frame 2; arrow remains, youth still frowning, philosopher neutral."
+    ],
+    "changed": "An arrow appears from the philosopher to the youth and the youth's face turns from neutral to worried; the highlight ring dims.",
+    "cause": "The philosopher is directing something (words or an idea) at the youth, shown by the arrow.",
+    "effect": "The youth becomes troubled or uneasy.",
+    "message": "The philosopher puts forward an idea to the youth that unsettles the youth.",
+    "wouldConfuse": "The arrow does not say what is transferred; the cause of the youth's worry is only implied. Header text is tiny."
+   }
+  },
+  {
+   "img": "e565260411",
+   "narration": "Over months and years, that stress response stops giving you sharp focus and starts giving you brain fog, chronic exhaustion, and literal immune system failure.",
+   "answerKey": {
+    "understanding": "Over months and years, chronic stress turns from sharp focus into brain fog, chronic exhaustion and immune failure.",
+    "cause": "Prolonged stress response over months and years",
+    "effect": "Brain fog, chronic exhaustion, literal immune system failure instead of sharp focus",
+    "keyFacts": [
+     "over months and years",
+     "stops giving sharp focus",
+     "brain fog and chronic exhaustion",
+     "immune system failure"
+    ],
+    "wrongInferences": [
+     "Immune failure causes the stress response",
+     "Stress sharpens focus permanently over time",
+     "The effects appear immediately after one stressful day"
+    ],
+    "supportsCausality": true,
+    "asserted": "The stress response stops giving sharp focus and starts giving brain fog, chronic exhaustion, and immune system failure.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "e565260411",
+    "sees": [
+     "frame 1: a large black silhouette of a person with a ponytail in the left foreground holding something like a camera or device; on the right a man in an orange jumpsuit with a goatee and brown shoulder bag stands in a grey room; label 'Insight 2/2', 'Feel-Good Productivity'",
+     "frame 2: same arrangement; the man's eyes are wide and slightly shifted",
+     "frame 3: same; his eyes look wide and forward, silhouette slightly shifted"
+    ],
+    "changed": "nothing meaningful; slight eye and camera movement",
+    "cause": "unclear",
+    "effect": "unclear",
+    "message": "Someone is being observed or confronted by an unseen person, perhaps a point about how others see or interrogate you in a productivity context.",
+    "wouldConfuse": "The black silhouette is unidentified and looks ominous; the orange jumpsuit suggests prison or a uniform, which does not obviously relate to productivity; no text explains the scene."
+   }
+  }
+ ]
+}

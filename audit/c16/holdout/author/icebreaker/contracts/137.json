@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","understanding":"Nate stands for something Anastasia cannot control, so she shuts him out and he is gone from her side.",
+"evidence":"She shuts Nate out entirely because Nate represents an uncontrolled variable.",
+"claim":{"asserted":"Anastasia shuts Nate out because he is an uncontrolled variable.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Anastasia and Nate side by side","transformation":"Anastasia shuts the door on Nate","after":"Nate is gone behind a closed door",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"a","kind":"person","cast":"anastasia","label":"Anastasia","mood":"worried"},{"id":"n","kind":"person","cast":"nate","label":"Nate"}],
+"events":[{"at":0.3,"cause":"a","effects":[{"entity":"n","present":false}]}],
+"mechanism":"cause-effect","required":["Anastasia","Nate leaving"],"omitted":[],"_author":"c16-holdout-author-1"}

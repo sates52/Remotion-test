@@ -1,0 +1,10 @@
+{ "schema": "single-relation/1", "type": "B", "mechanism": "depletion",
+ "understanding": "The society is built so that people's silence drains away, leaving no room to ask the question.",
+ "evidence": "The society is specifically designed to prevent you from ever having the silence required to ask it.",
+ "claim": { "asserted": "The society is designed to prevent people from having silence.", "polarity": "asserted", "speaker": "narrator", "notAsserted": [] },
+ "before": "Silence level full.", "transformation": "The society acts on it.", "after": "Silence level nearly empty.",
+ "camera": { "framing": "wide-locked", "purpose": "cause and effect in one frame" },
+ "entities": [ { "id": "c", "kind": "object", "glyph": "city", "label": "society" },
+               { "id": "e", "kind": "stock", "label": "silence", "value": 1 } ],
+ "events": [ { "at": 0.3, "cause": "c", "effects": [ { "entity": "e", "value": 0.1 } ] } ],
+ "required": ["the society", "the silence level falling"], "omitted": ["Clarisse"], "_author": "c16-holdout-author-2" }

@@ -1,0 +1,33 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "great-at-work",
+ "at": "2026-11-06T08:44:25.556Z",
+ "valid": [
+  163
+ ],
+ "invalid": [],
+ "contracts": {
+  "163": {
+   "sceneIndex": 163,
+   "sceneId": "scene-163",
+   "previousSceneId": "scene-162",
+   "author": "c16-holdout-author-5",
+   "inputHash": "64c7bcd5ee60851f",
+   "contractHash": "86841d86b9ecc308",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "OK",
+    "ends": [
+     "c",
+     "e"
+    ],
+    "labelCarried": [
+     "c",
+     "e"
+    ],
+    "labelDependence": 1
+   }
+  }
+ }
+}

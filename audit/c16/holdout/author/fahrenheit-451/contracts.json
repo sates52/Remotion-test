@@ -1,0 +1,34 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "fahrenheit-451",
+ "at": "2026-11-06T08:43:57.414Z",
+ "valid": [
+  60
+ ],
+ "invalid": [],
+ "contracts": {
+  "60": {
+   "sceneIndex": 60,
+   "sceneId": "scene-60",
+   "previousSceneId": "scene-59",
+   "author": "c16-holdout-author-2",
+   "inputHash": "4fe08c8df294284c",
+   "contractHash": "f9afae39008b177b",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "TRY_CONCRETE",
+    "ends": [
+     "c",
+     "e"
+    ],
+    "labelCarried": [
+     "c",
+     "e"
+    ],
+    "labelDependence": 1,
+    "note": "every end of the relation is carried by its label alone (a tank / a metaphor glyph) and nothing moves, appears, leaves or changes face — try a version with a literal object or a person first (creative-direction.md)"
+   }
+  }
+ }
+}

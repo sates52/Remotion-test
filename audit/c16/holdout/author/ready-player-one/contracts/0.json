@@ -1,0 +1,11 @@
+{ "schema": "single-relation/1", "type": "A", "mechanism": "depletion",
+ "understanding": "The Oasis is not an escape from a dying world; it is why the real world was allowed to die.",
+ "evidence": "We think the oasis is an escape from a dying world, but it's actually the reason the world was allowed to die in the first place.",
+ "claim": { "asserted": "The oasis is the reason the world was allowed to die.", "polarity": "contrast", "speaker": "narrator",
+   "notAsserted": [ { "text": "We think the oasis is an escape from a dying world", "kind": "rejected-premise" } ] },
+ "before": "The world is healthy.", "transformation": "The oasis draws attention away.", "after": "The world is nearly dead.",
+ "camera": { "framing": "wide-locked", "purpose": "cause and effect in one frame" },
+ "entities": [ { "id": "c", "kind": "object", "glyph": "game", "label": "oasis" },
+               { "id": "e", "kind": "stock", "label": "world", "value": 1 } ],
+ "events": [ { "at": 0.3, "cause": "c", "effects": [ { "entity": "e", "value": 0.1 } ] } ],
+ "required": ["the oasis", "the world level falling"], "omitted": ["escape"], "_author": "c16-holdout-author-2" }

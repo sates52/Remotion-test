@@ -1,0 +1,289 @@
+{
+ "instructions": "You judge whether muted viewers understood short scenes of animated book-summary videos. This file holds several items, each from a DIFFERENT scene; each has the narration spoken over the scene, the frozen answer key (what a muted viewer should understand, its cause, its effect, key facts, plausible wrong inferences, whether the narration states any causality at all, what the narrator asserts, and what the narration mentions but does NOT assert — notAsserted), and what a viewer with the sound off wrote (description). Some viewers saw three moments of the scene, some saw more moments; judge only what the description says. Judge each item on its own.\n1. cause — CORRECT (the viewer's cause matches the key's cause in meaning), WRONG (contradicts it), NOT_SHOWN (unclear / missing / something else). effect — the same against the key's effect. If the key says supportsCausality: false, answer \"NA\" for both.\n2. message — MATCH (the viewer's message states the key's understanding), PARTIAL (its subject or half of it), MISS.\n3b. polarityError — YES if the viewer states as true (or as the narrator's point) something the key lists under notAsserted (a rejected premise, counterfactual, hypothesis, question, quoted speech, uncertain claim or the setup half of a contrast); otherwise NO.\n3. wrongInference — YES if the viewer states something the key lists as a wrong inference, or a cause / claim that contradicts the narration; otherwise NO.\n4. whatChanged — CORRECT if who or what the viewer says changed matches the key's effect (the thing that ends up different), WRONG if the viewer names a different change that contradicts the key, NOT_SHOWN if the viewer names no change or an unrelated one, NA if the key states no causality.\n5. finalConsequence — YES if the viewer states the key's final consequence (the end state / result the narration gives), NO if not, NA if the key states no causality.\nJudge meaning, not wording; be strict and literal; do not reward a description for being longer, prettier or busier.\nWrite ONLY a JSON array (one object per item, same order) to the output path you were given: [{\"img\":\"…\",\"cause\":\"…\",\"effect\":\"…\",\"message\":\"…\",\"wrongInference\":\"YES|NO\",\"polarityError\":\"YES|NO\",\"whatChanged\":\"…\",\"finalConsequence\":\"…\",\"why\":\"…\"}, …]",
+ "items": [
+  {
+   "img": "bcd27bf878",
+   "narration": "You're invested in him being good. And then when he threatens to destroy someone, your own pulse spikes with I want you to really reflect on this right now.",
+   "answerKey": {
+    "understanding": "The listener is invested in him being good, so when he threatens to destroy someone their pulse spikes.",
+    "cause": "The listener's investment in him being good, then his threat",
+    "effect": "The listener's pulse spikes",
+    "keyFacts": [
+     "you're invested in him being good",
+     "he threatens to destroy someone",
+     "your pulse spikes",
+     "host asks you to reflect"
+    ],
+    "wrongInferences": [
+     "You feel calm when he threatens someone",
+     "He threatens you because you are invested",
+     "You aren't invested in him at all"
+    ],
+    "supportsCausality": true,
+    "asserted": "You're invested in him being good, and when he threatens to destroy someone your own pulse spikes.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "bcd27bf878",
+    "sees": [
+     "frame 1: an angry-looking man in a dark top inside a red circle labelled THREATENS; beside him a phone/battery-like gauge labelled PULSE, nearly empty (small dark bar at bottom)",
+     "frame 2: an arrow curves from the red circle to the PULSE gauge, which is now filled about two-thirds, with a dashed line near the lower-middle",
+     "frame 3: same as frame 2, gauge filled to the same level above the dashed line, arrow still shown"
+    ],
+    "changed": "the PULSE gauge went from nearly empty to mostly full, with an arrow linking the threatening man to it",
+    "cause": "the man's threat, shown by the arrow from him to the gauge",
+    "effect": "pulse rises past a threshold (dashed line); the threat raises the heart rate",
+    "message": "A threatening person makes your pulse spike.",
+    "wouldConfuse": "A fuller gauge usually reads as good or charged, so a rising pulse could be misread as positive; the dashed threshold line is unexplained."
+   }
+  },
+  {
+   "img": "9bab43b3bf",
+   "narration": "The leaves are dead and dry, falling early because of the toxic air. Scarecrow, Joe, Nory, and Benny are walking through the trees. Suddenly, their geer counter",
+   "answerKey": {
+    "understanding": "In the dead orchard, the leaves fall early because of toxic air, as four kids walk and their Geiger counter reacts.",
+    "cause": "Toxic air",
+    "effect": "Leaves are dead, dry and fall early",
+    "keyFacts": [
+     "leaves dead and dry",
+     "falling early due to toxic air",
+     "Scarecrow, Joe, Norrie, Benny walking",
+     "their Geiger counter reacts"
+    ],
+    "wrongInferences": [
+     "The dead leaves cause the toxic air",
+     "The kids' counter makes the leaves fall",
+     "The leaves fall early because of autumn frost"
+    ],
+    "supportsCausality": true,
+    "asserted": "The leaves are dead and dry, falling early because of the toxic air; Scarecrow, Joe, Norrie and Benny walk through the trees.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "9bab43b3bf",
+    "sees": [
+     "frame 1: a dark storm cloud icon with rain and a lightning bolt in a red circle labeled TOXIC AIR; a grey tree icon labeled LEAVES on the right",
+     "frame 2: a curved arrow from the toxic air to the leaves, and a black zigzag slash strikes through the leaves icon",
+     "frame 3: same, leaves crossed out by the slash"
+    ],
+    "changed": "the leaves icon gets crossed out or struck through",
+    "cause": "the toxic air, linked by an arrow",
+    "effect": "the leaves are destroyed or killed",
+    "message": "Toxic air is damaging or killing the leaves.",
+    "wouldConfuse": "The slash could read as 'not' or 'cancelled' rather than damage; leaves are drawn as a tree."
+   }
+  },
+  {
+   "img": "962dd93856",
+   "narration": "And she is violently struck and killed by a car. And pay very close attention to how Humbert describes her death because this really shook me.",
+   "answerKey": {
+    "understanding": "She is violently struck and killed by a car, and the listener is told to note how Humbert describes her death.",
+    "cause": "Being struck by a car",
+    "effect": "Her death",
+    "keyFacts": [
+     "struck and killed by a car",
+     "violent",
+     "Humbert describes her death",
+     "the description is striking"
+    ],
+    "wrongInferences": [
+     "She survives the car accident",
+     "Humbert kills her himself",
+     "Humbert describes the death with grief"
+    ],
+    "supportsCausality": true,
+    "asserted": "She is violently struck and killed by a car; how Humbert describes her death is notable.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "962dd93856",
+    "sees": [
+     "frame 1: a woman with curly blond hair and a green dress stands in front of a grey city street with buildings and a lamppost; text 'STRUCK AND KILLED' at upper right; label 'Insight 04/08 Turn', 'Lolita'",
+     "frame 2: same; her eyes shift to the side, background drifts slightly",
+     "frame 3: same, eyes look different direction, text unchanged"
+    ],
+    "changed": "nothing apart from eye movement and slight background drift",
+    "cause": "text states someone was struck and killed, but the cause is not shown visually",
+    "effect": "the text implies death; the woman looks worried/neutral",
+    "message": "The narrator is saying that a character (probably the mother in Lolita) was struck and killed, a turning point in the story.",
+    "wouldConfuse": "Nothing visible shows a car or an accident; the woman might be taken as the victim or as a mourner; it is unclear who was killed."
+   }
+  },
+  {
+   "img": "2162d2e110",
+   "narration": "They started reviewing every single diagnosis together as a team to improve their own The removal of the net forced a higher level of focus. Exactly. It forces ",
+   "answerKey": {
+    "understanding": "After the cardiologist was removed, the ER doctors reviewed every diagnosis together as a team, and removing the net forced higher focus.",
+    "cause": "Removal of the safety net (the cardiologist)",
+    "effect": "Doctors reviewed diagnoses together and focused more",
+    "keyFacts": [
+     "reviewed every diagnosis together as a team",
+     "removal of the net",
+     "forced higher focus"
+    ],
+    "wrongInferences": [
+     "Higher focus led the hospital to remove the safety net",
+     "Adding more experts forced higher focus",
+     "Doctors stopped reviewing diagnoses once the cardiologist left"
+    ],
+    "supportsCausality": true,
+    "asserted": "They started reviewing every diagnosis together as a team; removing the net forced a higher level of focus.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "2162d2e110",
+    "sees": [
+     "frame 1: pale hospital-like room background (bed, IV stand, cross sign); a red shield with a cross inside a circle labeled NET on the left, and a phone/battery-like gauge labeled FOCUS on the right, nearly empty (small dark bar at bottom)",
+     "frame 2: the shield is gone, replaced by a dashed empty square inside a faded red circle labeled NET; a curved arrow runs from the NET area to the FOCUS gauge, which is now mostly filled dark",
+     "frame 3: same as frame 2, NET empty dashed box, arrow to FOCUS, gauge mostly full"
+    ],
+    "changed": "The NET shield disappears (empty dashed outline remains) and the FOCUS gauge goes from nearly empty to mostly full.",
+    "cause": "Apparently the NET (a protective safety net, shown as a shield) is removed or transferred, and the arrow suggests its contents move to FOCUS.",
+    "effect": "FOCUS increases; the safety net is no longer there.",
+    "message": "When the safety net is taken away or turned over, focus rises sharply.",
+    "wouldConfuse": "The gauge looks like a phone battery and the arrow direction is ambiguous (net moving into focus vs. causing it); the shield/cross could read as medical protection; the exact meaning of NET is unclear without audio."
+   }
+  },
+  {
+   "img": "434d8c466d",
+   "narration": "You're panicked. By taking conscious measured control of the breath, you force the nervous system to reconnect the body to the present moment.",
+   "answerKey": {
+    "understanding": "When panicked, consciously controlling the breath forces the nervous system to reconnect the body to the present moment.",
+    "cause": "Taking conscious, measured control of the breath",
+    "effect": "Nervous system reconnects the body to the present moment",
+    "keyFacts": [
+     "you're panicked",
+     "conscious measured breath control",
+     "nervous system reconnects body to present"
+    ],
+    "wrongInferences": [
+     "Panic causes the breath to become controlled",
+     "Breath control deepens the fight-or-flight response",
+     "The nervous system controls the breath for you automatically"
+    ],
+    "supportsCausality": true,
+    "asserted": "By taking conscious measured control of the breath, you force the nervous system to reconnect the body to the present.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "434d8c466d",
+    "sees": [
+     "frame 1: Warm cream background. Left: a man with a neutral face in a red circle with a dot on top, labelled BREATH CONTROL. Right: a dark empty container labelled PANIC.",
+     "frame 2: Circle paler; a curved arrow goes from the man's circle to the container, now white with a small dark fill at the bottom.",
+     "frame 3: Same as frame 2."
+    ],
+    "changed": "The PANIC container changed from dark to white with a small dark fill at the bottom; an arrow connects from BREATH CONTROL.",
+    "cause": "Breath control acts on panic through the arrow.",
+    "effect": "Panic is reduced or drained to a low level (small fill remaining), though it could also read as panic rising.",
+    "message": "Controlling your breath brings your panic down to a low level.",
+    "wouldConfuse": "A small fill in the container is ambiguous between panic being low and panic starting to build; the man's face stays neutral throughout."
+   }
+  },
+  {
+   "img": "dfbae92385",
+   "narration": "So it's a visual magic system for them. Right. By wearing this ring, Henry essentially makes himself invisible to their primary sensory input.",
+   "answerKey": {
+    "understanding": "Because their magic system is visual, the ring makes Henry invisible to their primary sensory input.",
+    "cause": "Wearing the ring in a society that reads magic visually",
+    "effect": "Henry becomes invisible to their primary sensory input",
+    "keyFacts": [
+     "visual magic system",
+     "ring worn by Henry",
+     "invisible to their primary sensory input"
+    ],
+    "wrongInferences": [
+     "The ring makes Henry physically invisible to everyone",
+     "The ring amplifies his aura so they see it",
+     "Henry is invisible because their magic is auditory"
+    ],
+    "supportsCausality": true,
+    "asserted": "By wearing this ring, Henry essentially makes himself invisible to their primary sensory input; it's a visual magic system.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "dfbae92385",
+    "sees": [
+     "frame 1: A red shield with a cross labeled RING circled in red, next to a person in dark clothing (looks like a priest/monk)",
+     "frame 2: The person fades to gray; an arrow curves from the shield to the person",
+     "frame 3: Same, person faded, arrow remains"
+    ],
+    "changed": "The person fades and an arrow points from the shield to them",
+    "cause": "unclear; the shield object (labeled RING) is directed at the person",
+    "effect": "unclear; the person is diminished or affected",
+    "message": "The ring or what it stands for has an effect on the religious figure.",
+    "wouldConfuse": "Label says RING but the icon is a cross shield; the faded person could read as vanishing; the effect is unclear."
+   }
+  },
+  {
+   "img": "f0fcbedc6d",
+   "narration": "She shuts Nate out entirely because Nate represents an uncontrolled variable. Nate is the truth she simply cannot afford to acknowledge right now.",
+   "answerKey": {
+    "understanding": "Anastasia shuts Nate out because he represents an uncontrolled variable and a truth she cannot acknowledge.",
+    "cause": "Nate represents an uncontrolled variable and a truth she can't acknowledge",
+    "effect": "She shuts him out entirely",
+    "keyFacts": [
+     "she shuts Nate out entirely",
+     "Nate is an uncontrolled variable",
+     "truth she cannot afford to acknowledge"
+    ],
+    "wrongInferences": [
+     "Nate shuts her out because she is uncontrolled",
+     "She shuts him out because she doesn't care about him",
+     "She shuts him out because he caused her injury on purpose"
+    ],
+    "supportsCausality": true,
+    "asserted": "She shuts Nate out entirely because Nate is an uncontrolled variable and the truth she can't afford to acknowledge right now.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "f0fcbedc6d",
+    "sees": [
+     "frame 1: Two cartoon people side by side in a room, a woman labeled ANASTASIA with a red circle and dot around her, a man labeled NATE in purple; both look slightly worried/neutral",
+     "frame 2: Nate and the background have faded to pale; an arrow curves from Anastasia's circle toward Nate",
+     "frame 3: Same as frame 2, Nate faded, arrow still pointing from Anastasia to Nate"
+    ],
+    "changed": "Nate fades out and an arrow appears from Anastasia toward him",
+    "cause": "unclear; the arrow suggests something from Anastasia is directed at Nate",
+    "effect": "unclear; Nate is de-emphasized or affected, shown faded",
+    "message": "Something Anastasia does or is leads to a consequence for Nate.",
+    "wouldConfuse": "Faded Nate could be read as disappearing or being ignored; the arrow's meaning is not specified."
+   }
+  },
+  {
+   "img": "143af82b34",
+   "narration": "Over months and years, that stress response stops giving you sharp focus and starts giving you brain fog, chronic exhaustion, and literal immune system failure.",
+   "answerKey": {
+    "understanding": "Over months and years, chronic stress turns from sharp focus into brain fog, chronic exhaustion and immune failure.",
+    "cause": "Prolonged stress response over months and years",
+    "effect": "Brain fog, chronic exhaustion, literal immune system failure instead of sharp focus",
+    "keyFacts": [
+     "over months and years",
+     "stops giving sharp focus",
+     "brain fog and chronic exhaustion",
+     "immune system failure"
+    ],
+    "wrongInferences": [
+     "Immune failure causes the stress response",
+     "Stress sharpens focus permanently over time",
+     "The effects appear immediately after one stressful day"
+    ],
+    "supportsCausality": true,
+    "asserted": "The stress response stops giving sharp focus and starts giving brain fog, chronic exhaustion, and immune system failure.",
+    "notAsserted": []
+   },
+   "description": {
+    "img": "143af82b34",
+    "sees": [
+     "frame 1: a red circle around a pink lightning bolt labelled STRESS, beside an empty dark battery-like gauge labelled IMMUNE SYSTEM",
+     "frame 2: an arrow runs from the bolt to the gauge, which is now partly white with a dark lower portion (about half)",
+     "frame 3: the gauge is almost entirely white with only a thin dark bar at the bottom, arrow still in place"
+    ],
+    "changed": "the immune-system gauge goes from full dark to nearly all white (drained)",
+    "cause": "stress, shown by the arrow from the lightning bolt to the gauge",
+    "effect": "the immune system is drained or weakened",
+    "message": "Stress drains your immune system.",
+    "wouldConfuse": "It is not clear whether dark or white means full, so the gauge could be read as filling rather than draining."
+   }
+  }
+ ]
+}

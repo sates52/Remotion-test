@@ -1,0 +1,65 @@
+{
+ "schema": "single-relation/1",
+ "type": "B",
+ "mechanism": "character-action",
+ "understanding": "Rejecting a friend to their face hurts like a physical injury: the heart breaks.",
+ "evidence": "Rejecting a friend to their face triggers the same pain receptors as physical injury.",
+ "claim": {
+  "asserted": "Rejecting a friend to their face triggers the same pain as physical injury.",
+  "polarity": "asserted",
+  "speaker": "narrator",
+  "notAsserted": []
+ },
+ "before": "The heart is whole.",
+ "transformation": "You reject the friend.",
+ "after": "The heart is broken: pain like an injury.",
+ "camera": {
+  "framing": "wide-locked",
+  "purpose": "the act and the hurt in one frame"
+ },
+ "entities": [
+  {
+   "id": "c",
+   "kind": "person",
+   "cast": "everyman",
+   "label": "rejecting",
+   "mood": "neutral"
+  },
+  {
+   "id": "f",
+   "kind": "person",
+   "cast": "mckeown",
+   "label": "friend",
+   "mood": "neutral"
+  },
+  {
+   "id": "h",
+   "kind": "object",
+   "glyph": "heart",
+   "label": "pain"
+  }
+ ],
+ "events": [
+  {
+   "at": 0.3,
+   "cause": "c",
+   "effects": [
+    {
+     "entity": "h",
+     "broken": true
+    }
+   ],
+   "repeat": 1
+  }
+ ],
+ "required": [
+  "the person rejecting",
+  "the friend",
+  "the heart breaking"
+ ],
+ "omitted": [
+  "receptors",
+  "injury"
+ ],
+ "_author": "c16-dev-concrete"
+}

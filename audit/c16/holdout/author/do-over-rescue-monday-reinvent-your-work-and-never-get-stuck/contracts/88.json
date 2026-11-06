@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"cause-effect",
+"understanding":"A chosen career jump still brings a storm of chaos into the worker's life.",
+"evidence":"It's positive because you chose it, But it creates massive sweeping chaos in your life.",
+"claim":{"asserted":"The career jump creates massive chaos in your life.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"A worker stands calm beside a ladder.","transformation":"The jump ladder lights up and a storm appears over the worker.","after":"Storm present, worker worried.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"ladder","label":"career jump"},{"id":"s","kind":"object","glyph":"storm","label":"chaos","present":false},{"id":"p","kind":"person","cast":"everyman","mood":"neutral"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"s","present":true},{"entity":"p","mood":"worried"}]}],
+"required":["the ladder","the storm","the worker"],"omitted":[],"_author":"c16-holdout-author-6"}

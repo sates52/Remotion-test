@@ -1,0 +1,34 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "feel-good-productivity",
+ "at": "2026-11-06T08:44:06.919Z",
+ "valid": [
+  73
+ ],
+ "invalid": [],
+ "contracts": {
+  "73": {
+   "sceneIndex": 73,
+   "sceneId": "scene-73",
+   "previousSceneId": "scene-72",
+   "author": "c16-holdout-author-3",
+   "inputHash": "07bc5e95507cba68",
+   "contractHash": "7047c61159bcc5b7",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "TRY_CONCRETE",
+    "ends": [
+     "c",
+     "e"
+    ],
+    "labelCarried": [
+     "c",
+     "e"
+    ],
+    "labelDependence": 1,
+    "note": "every end of the relation is carried by its label alone (a tank / a metaphor glyph) and nothing moves, appears, leaves or changes face — try a version with a literal object or a person first (creative-direction.md)"
+   }
+  }
+ }
+}

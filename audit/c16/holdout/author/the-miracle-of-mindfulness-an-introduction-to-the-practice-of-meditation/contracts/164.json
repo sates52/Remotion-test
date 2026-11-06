@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"depletion",
+"understanding":"Controlling the breath calms the panic.",
+"evidence":"By taking conscious measured control of the breath, you force the nervous system to reconnect the body to the present moment.",
+"claim":{"asserted":"Controlling the breath forces the nervous system to reconnect to the present.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Panic high","transformation":"Breath controlled","after":"Panic low",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"person","cast":"everyman","label":"breath control"},{"id":"e","kind":"stock","label":"panic","value":1}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.2}]}],
+"required":["the person","the panic falling"],"omitted":[],"_author":"c16-holdout-author-5"}

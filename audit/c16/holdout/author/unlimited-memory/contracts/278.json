@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"A","mechanism":"accumulation",
+"understanding":"Feeling familiar with your notes makes you forget them.",
+"evidence":"Furthermore, familiarity breeds forgetfulness.",
+"claim":{"asserted":"Familiarity breeds forgetfulness.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Recall high","transformation":"Notes feel familiar","after":"Recall low",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"notes","label":"familiarity"},{"id":"e","kind":"stock","label":"forgetfulness","value":0}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"e","value":0.8}]}],
+"required":["the notes","the forgetfulness level rising"],"omitted":[],"_author":"c16-holdout-author-5"}

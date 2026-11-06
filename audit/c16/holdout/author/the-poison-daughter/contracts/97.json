@@ -1,0 +1,9 @@
+{"schema":"single-relation/1","type":"B","mechanism":"cause-effect",
+"understanding":"Wearing the ring makes Henry invisible to their aura-reading.",
+"evidence":"By wearing this ring, Henry essentially makes himself invisible to their primary sensory input.",
+"claim":{"asserted":"The ring makes Henry invisible to aura sight.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"Henry stands visible next to the ring.","transformation":"The ring lights up and Henry fades to a dashed outline.","after":"Henry is an outline.",
+"camera":{"framing":"wide-locked","purpose":"cause and effect in one frame"},
+"entities":[{"id":"c","kind":"object","glyph":"shield","label":"ring"},{"id":"p","kind":"person","cast":"henry","mood":"neutral"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"p","present":false}]}],
+"required":["the ring","Henry fading"],"omitted":[],"_author":"c16-holdout-author-6"}

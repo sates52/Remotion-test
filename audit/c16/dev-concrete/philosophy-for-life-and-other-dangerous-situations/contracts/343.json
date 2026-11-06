@@ -1,0 +1,8 @@
+{"schema":"single-relation/1","type":"B","mechanism":"removal","understanding":"Surviving being laughed at by strangers takes away the terror: the chains fall off and you are no longer afraid.",
+"evidence":"Once you realize in your bones that you can survive being laughed at by strangers, you stop living in terror of it.",
+"claim":{"asserted":"Surviving being laughed at by strangers makes you stop living in terror of it.","polarity":"asserted","speaker":"narrator","notAsserted":[]},
+"before":"You are afraid, chained by terror.","transformation":"Strangers laugh and you survive it.","after":"The terror is gone; you are calm.",
+"camera":{"framing":"wide-locked","purpose":"the laughter, the chains leaving, the calm person in one frame"},
+"entities":[{"id":"c","kind":"group","label":"strangers","value":0.6},{"id":"t","kind":"object","glyph":"chains","label":"terror"},{"id":"p","kind":"person","cast":"everyman","label":"you","mood":"afraid"}],
+"events":[{"at":0.3,"cause":"c","effects":[{"entity":"t","present":false},{"entity":"p","mood":"neutral"}],"repeat":1}],
+"required":["the laughing strangers","the terror chains disappearing","the person no longer afraid"],"omitted":["bones"],"_author":"c16-dev-concrete"}
