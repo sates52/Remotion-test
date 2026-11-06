@@ -1,0 +1,66 @@
+{
+ "schema": "stills/1",
+ "name": "c18 motion 2.0 fixes (overflow on the filling step, arrival inside the card, staggered labels)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 3,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "create-space-how-to--s177-B",
+   "config": "configs/create-space-how-to--s177-B.json",
+   "frames": [
+    318,
+    377,
+    436
+   ],
+   "strip": true,
+   "clip": {
+    "from": 259,
+    "to": 455
+   }
+  },
+  {
+   "id": "as-good-as-dead-s155-B",
+   "config": "configs/as-good-as-dead-s155-B.json",
+   "frames": [
+    464,
+    544,
+    623
+   ],
+   "strip": true,
+   "clip": {
+    "from": 384,
+    "to": 649
+   }
+  },
+  {
+   "id": "the-myth-of-sisyphus-s137-B",
+   "config": "configs/the-myth-of-sisyphus-s137-B.json",
+   "frames": [
+    414,
+    511,
+    609
+   ],
+   "strip": true,
+   "clip": {
+    "from": 317,
+    "to": 640
+   }
+  }
+ ],
+ "inputHash": "2ca7aaa5b852612c",
+ "files": {
+  "stills/configs/create-space-how-to--s177-B.json": "9ecaf48e445ac3a75b88cf1de214dd5755c2e56d7571841f02f22f0128b271c5",
+  "stills/configs/as-good-as-dead-s155-B.json": "008daa357d73ccefe24bfb5214b3e67c8e6e53f1a948c0394b2ae2e3b32cc873",
+  "stills/configs/the-myth-of-sisyphus-s137-B.json": "14eaf96215c62e49401a079c69cbe234dce0af667de5fe4d3759fed696725bc8"
+ },
+ "builtAt": "2026-11-06T18:51:43.201Z"
+}
