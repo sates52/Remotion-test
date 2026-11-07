@@ -292,7 +292,11 @@ if (require.main === module) {
     writeCfg(r.config);
     // the record is a make-book input (marker): a pipeline re-apply leaves it byte-identical
     if (!args.pipeline) fs.writeFileSync(P.active, JSON.stringify({ ...record, reapplied: [...(record.reapplied || []), { at: new Date().toISOString(), configAfter: r.record.configAfter }] }, null, 1));
-    console.log(`✓ re-applied ${live.length} scene(s) [${live.map((s) => s.sceneIndex).join(", ")}]`);
+    // report what is REALLY in the config: a scene the current rules refuse at re-apply keeps A, with its reason
+    const c19n = liveAll.filter((x) => x.kind === "c19").map((x) => x.sceneIndex), done = r.record.scenes.map((s) => s.sceneIndex);
+    console.log(`✓ re-applied ${done.length} scene(s) [${done.join(", ")}]${c19n.length ? ` + C19 sequence(s) [${c19n.join(", ")}]` : ""}`);
+    const lost = (r.record.kept || []).filter((k) => live.some((s) => s.sceneIndex === k.sceneIndex));
+    for (const k of lost) console.log(`  ✗ ${k.sceneIndex} kept A at re-apply: ${k.why} — status will say MISSING; re-run its A/B (single-relation-ab.js) or revert --scenes=${k.sceneIndex} --write`);
     process.exit(0);
   }
   if (cmd === "decide") {
