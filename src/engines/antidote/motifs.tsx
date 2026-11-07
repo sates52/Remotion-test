@@ -1972,7 +1972,9 @@ const CustomSvgMotif: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const cSvg = spec.customSvg;
   const paths = cSvg?.paths || [];
   const viewBox = cSvg?.viewBox || "0 0 520 520";
-  const drawProg = draw(frame, 28);
+  // C19 (evaluators): an object authored `enter: "none"` is CARRIED across a cut — it is already there, so it is not
+  // drawn in again (the log and the shoe "flickered" at every cut)
+  const drawProg = spec.enter === "none" ? 1 : draw(frame, 28);
   // C19 SPLIT: the book's own object halves at its impact point (splitAt, a share of the width) on the cue — the left
   // half tips left, the right half right, both come to rest on the ground, and the cut stays visible. State motion:
   // kept for the rest of the shot; a later shot starts it split (motionAt < 0). Pure function of the frame.
@@ -1997,8 +1999,9 @@ const CustomSvgMotif: React.FC<MotifProps> = ({ spec, accent, ink }) => {
           </defs>
           {drawPaths("f", "fixed")}
           {/* each half falls OUTWARD about the cut's foot and comes to rest lying on the base — the pieces stay down */}
-          <g transform={`translate(${-0.03 * vw * sp} 0) rotate(${-72 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-l)`}>{drawPaths("l", "split")}</g></g>
-          <g transform={`translate(${0.03 * vw * sp} 0) rotate(${72 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-r)`}>{drawPaths("r", "split")}</g></g>
+          {/* each half falls OUTWARD, lands flat on its side and slides apart — two pieces on the ground, not a "V" */}
+          <g transform={`translate(${-0.2 * vw * sp} 0) rotate(${-90 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-l)`}>{drawPaths("l", "split")}</g></g>
+          <g transform={`translate(${0.2 * vw * sp} 0) rotate(${90 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-r)`}>{drawPaths("r", "split")}</g></g>
           {sp > 0 && sp < 1 ? <line x1={cutX} y1={vy} x2={cutX} y2={floorY} stroke="#FFFFFF" strokeWidth={10} opacity={1 - sp} /> : null}
         </svg>
       </Frame>

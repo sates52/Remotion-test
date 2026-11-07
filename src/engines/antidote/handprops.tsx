@@ -313,16 +313,20 @@ const Axe: G = ({ ink }) => (
   </g>
 );
 // a running shoe held by the heel (feel-good-productivity 225 "You take off your shoe")
-const Shoe: G = ({ ink, accent }) => (
+// one fixed colour, held or lying on the ground (C19: an accent-coloured held shoe and a differently coloured shoe on
+// the ground read as two different shoes)
+export const SHOE_COLOR = "#E07A2E";
+const Shoe: G = ({ ink }) => (
   <g>
-    <path d="M-58,10 L-58,-22 Q-44,-34 -22,-30 L6,-18 Q30,-12 46,-2 Q62,6 60,18 L-58,18 Z" fill={accent} stroke={ink} strokeWidth={5} strokeLinejoin="round" />
+    <path d="M-58,10 L-58,-22 Q-44,-34 -22,-30 L6,-18 Q30,-12 46,-2 Q62,6 60,18 L-58,18 Z" fill={SHOE_COLOR} stroke={ink} strokeWidth={5} strokeLinejoin="round" />
     <rect x={-60} y={14} width={122} height={12} rx={6} fill="#F4F1EA" stroke={ink} strokeWidth={4} />
     <path d="M-20,-24 L-6,-6 M-6,-22 L8,-6" stroke="#FFFFFF" strokeWidth={4} strokeLinecap="round" />
   </g>
 );
 // a small grey stone between two fingers (feel-good-productivity 225 "You find the pebble")
+// drawn twice the size of a coin-sized stone: at 1x a blind evaluator saw it only 53 frames after it was in hand
 const Pebble: G = ({ ink }) => (
-  <g>
+  <g transform="scale(2)">
     <path d="M-16,4 Q-18,-12 0,-14 Q18,-14 18,0 Q16,14 0,14 Q-14,14 -16,4 Z" fill="#8E9196" stroke={ink} strokeWidth={4} />
     <path d="M-6,-6 Q0,-9 6,-5" fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={0.7} />
   </g>

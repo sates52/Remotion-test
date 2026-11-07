@@ -165,6 +165,7 @@ const CharacterLayer: React.FC<{
   const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
   let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
+  if (spec.action === "take" && spec.takeFrom === "body") p = { ...p, noRest: 1 } as typeof p;
   // the carried rest (settled: the deed is over) under this beat's own action — seated keeps its seat, down keeps its body
   if (rest) p = composeRest(pose(rest.restAction as CharacterSpec["action"], SETTLED_FRAME, fps), p, rest.posture, spec.action);
   if (spec.action === "embrace") approach *= p.contact ?? 1;
