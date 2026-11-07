@@ -1978,8 +1978,10 @@ const CustomSvgMotif: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   // kept for the rest of the shot; a later shot starts it split (motionAt < 0). Pure function of the frame.
   const [vx, vy, vw, vh] = viewBox.split(/[\s,]+/).map(Number);
   const sp = stateProgress(frame, spec.motion, "split", motionCueLocal(spec));
-  const cutX = vx + vw * ((spec as { splitAt?: number }).splitAt ?? 0.5), floorY = vy + vh;
-  const drawPaths = (keyp: string) => paths.map((p, idx) => {
+  const cutX = vx + vw * ((spec as { splitAt?: number }).splitAt ?? 0.5), floorY = vy + vh * ((spec as { splitBase?: number }).splitBase ?? 1);
+  const drawPaths = (keyp: string, which: "split" | "fixed" | "all" = "all") => paths.map((p, idx) => {
+    const fixed = !!(p as { fixed?: boolean }).fixed;
+    if ((which === "split" && fixed) || (which === "fixed" && !fixed)) return null;
     const fill = p.fill === "accent" ? accent : p.fill === "ink" ? ink : p.fill || "none";
     const stroke = p.stroke === "accent" ? accent : p.stroke === "ink" ? ink : p.stroke || ink;
     return <path key={keyp + idx} d={p.d} fill={fill} stroke={stroke} strokeWidth={p.strokeWidth ?? (fill === "none" ? 7 : 0)} strokeLinecap="round" strokeLinejoin="round" opacity={(p.opacity ?? 1) * Math.min(1, drawProg * 1.5)} />;
@@ -1993,8 +1995,10 @@ const CustomSvgMotif: React.FC<MotifProps> = ({ spec, accent, ink }) => {
             <clipPath id={`${id}-l`}><rect x={vx - vw} y={vy - vh} width={cutX - vx + vw} height={vh * 3} /></clipPath>
             <clipPath id={`${id}-r`}><rect x={cutX} y={vy - vh} width={vw * 2} height={vh * 3} /></clipPath>
           </defs>
-          <g transform={`translate(${-0.16 * vw * sp} 0) rotate(${-16 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-l)`}>{drawPaths("l")}</g></g>
-          <g transform={`translate(${0.16 * vw * sp} 0) rotate(${16 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-r)`}>{drawPaths("r")}</g></g>
+          {drawPaths("f", "fixed")}
+          {/* each half falls OUTWARD about the cut's foot and comes to rest lying on the base — the pieces stay down */}
+          <g transform={`translate(${-0.03 * vw * sp} 0) rotate(${-72 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-l)`}>{drawPaths("l", "split")}</g></g>
+          <g transform={`translate(${0.03 * vw * sp} 0) rotate(${72 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-r)`}>{drawPaths("r", "split")}</g></g>
           {sp > 0 && sp < 1 ? <line x1={cutX} y1={vy} x2={cutX} y2={floorY} stroke="#FFFFFF" strokeWidth={10} opacity={1 - sp} /> : null}
         </svg>
       </Frame>

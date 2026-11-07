@@ -30,7 +30,10 @@ type AnyChar = { identity?: string; role?: string; action?: string; poseAt?: num
 export const ACTION_CUE_MIN = 24;
 /** Scene-relative frame of a figure's authored action moment: `actionAt` (art.json actionCue), else 40% of the
  *  beat; never before ACTION_CUE_MIN, never after the last frame. Pure. */
-export const actionCueFrame = (c: { actionAt?: number }, durationFrames: number): number =>
+export const actionCueFrame = (c: { actionAt?: number; cueExact?: boolean }, durationFrames: number): number =>
+  // C19: a cue the shot plan put on the narrator's word (`cueExact`) is kept exactly — a shot cut just before its
+  // action word would otherwise push the action ACTION_CUE_MIN frames late (after the word)
+  c.cueExact && c.actionAt != null ? Math.max(0, Math.min(Math.round(c.actionAt), durationFrames - 1)) :
   Math.min(Math.max(ACTION_CUE_MIN, Math.round(c.actionAt ?? durationFrames * 0.4)), Math.max(ACTION_CUE_MIN, durationFrames - 1));
 /** A HAND-OVER (2026-10-24): a two-person `take` whose partner `reach`es is the partner GIVING the object. Until the
  *  take's moment the object is in the giver's outstretched hand (not on a stand in front of the taker — blind, inside-out

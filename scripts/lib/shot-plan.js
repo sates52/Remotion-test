@@ -8,8 +8,8 @@
  *              cues: { "<characterIndex>": "<narration words>" } }]
  *
  * Every shot keeps the beat's narration, HUD, beat / act records and its share of the audio events; the beat's
- * frames are covered exactly (the shots tile [fromFrame, fromFrame + durationFrames)). A cut word is looked for AFTER
- * the previous cut (a phrase said twice is matched in order). `cues` puts a character's action moment (actionAt) on
+ * frames are covered exactly (the shots tile [fromFrame, fromFrame + durationFrames)). A cut word is looked for strictly
+ * AFTER the previous cut (a phrase said twice — "You … You … You" — is matched in order). `cues` puts a character's action moment (actionAt) on
  * the frame its word is said, relative to the shot. A word the timings do not contain throws — a shot is never cut
  * at a guessed moment.
  */
@@ -35,7 +35,7 @@ function splitBeat(config, sceneIndex, shots) {
     let at;
     if (k === 0) at = 0;
     else if (typeof sh.at === "number") at = sh.at;
-    else { at = findPhrase(words, sh.at, after); if (at == null) throw new Error(`shot ${k}: "${sh.at}" is not in the word timings of scene ${sceneIndex} after frame ${after}`); }
+    else { at = findPhrase(words, sh.at, after + 1); if (at == null) throw new Error(`shot ${k}: "${sh.at}" is not in the word timings of scene ${sceneIndex} after frame ${after}`); }
     if (k > 0 && at <= starts[k - 1]) throw new Error(`shot ${k}: cut at ${at} is not after the previous cut (${starts[k - 1]})`);
     if (at >= base.durationFrames) throw new Error(`shot ${k}: cut at ${at} is past the beat (${base.durationFrames} frames)`);
     starts.push(at); after = at;
@@ -52,6 +52,7 @@ function splitBeat(config, sceneIndex, shots) {
       if (f == null || f >= s1) throw new Error(`shot ${k}: cue "${phrase}" for character ${ci} is not said inside the shot (${s0}–${s1})`);
       if (!scene.characters || !scene.characters[ci]) throw new Error(`shot ${k}: no character ${ci} for cue "${phrase}"`);
       scene.characters[ci].actionAt = f - s0;
+      scene.characters[ci].cueExact = true;
     }
     scene._shotPlan = { beat: base.id, shot: k + 1, of: shots.length, cutAt: k === 0 ? null : sh.at, frames: [s0, s1] };
     return scene;
