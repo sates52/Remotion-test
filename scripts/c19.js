@@ -95,7 +95,9 @@ function preview(root, slug, out) {
     }
     pairs.push({ sceneIndex: i, beats: idxs, narration: idxs.map((k) => cfg.scenes[k]._narration).join(" "), previousNarration: (cfg.scenes[a] || {})._narration || "", frames, bContractHash: sha(c) });
   }
-  const extra = fs.existsSync(path.join(root, "public", "sfx")) ? fs.readdirSync(path.join(root, "public", "sfx")).filter((f) => f.endsWith(".wav")).map((f) => `public/sfx/${f}`) : [];
+  // the clips carry the scene sounds: stills-cloud bundles THIS repo, so the sfx come from here (an isolated --book-root has none)
+  const SFX = path.join(__dirname, "..", "public", "sfx");
+  const extra = fs.existsSync(SFX) ? fs.readdirSync(SFX).filter((f) => f.endsWith(".wav")).map((f) => `public/sfx/${f}`) : [];
   fs.writeFileSync(path.join(out, "manifest.json"), JSON.stringify({ schema: "stills/1", name: `C19 A/B ${slug}`, composition: "Antidote-lab", entry: "src/index.ts", silent: true, shards: Math.max(1, Math.min(10, jobs.length / 2)), extra, jobs }, null, 1));
   fs.writeFileSync(path.join(out, "pairs.json"), JSON.stringify({ schema: "single-relation-preview/1", kind: "c19", slug, pairs, timingDropped: [] }, null, 1));
   return { pairs: pairs.length };
