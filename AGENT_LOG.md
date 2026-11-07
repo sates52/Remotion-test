@@ -18,6 +18,15 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| c17 single-relation selective rollout (operator-approved) | god-mode: `scripts/single-relation-{rollout,ab}.js` (new), `scripts/lib/single-relation.js` (stamp + atom/intent/contract kept, `sealAuthored`), `data/single-relation-rollout.json` (policy), `data/single-relation-ab-judge.txt`, `scripts/book-start.js` (eligible notice), runbook §2d, CLAUDE.md / AGENTS.md / preview-hazirla / single-relation.md, `.github/workflows/render-stills.yml` (bounded apt); branch `dev/c17`: `audit/c17/` | ACTIVE — Motion 2.0 default since be88e3d1 (no cap, veto, timing rule); first Motion 2.0 book = the first started on be88e3d1+ | No book config written yet; no gate / threshold / repin / render / upload / cleanup / Flux. |
+| _(done)_ dev/thumb-cloud (P1: thumbnails A/B/C inside the cloud render pipeline) | `.github/workflows/render-video.yml` (`thumbnails` input + job, render-job thumbnail step), `scripts/lib/cloud-thumbs.js` (new), `scripts/render-thumbnails.js` (`--cloud`, `--pack`, local-load guard), `scripts/lib/thumb-render.js`, `scripts/render-github-cloud-assemble.js`, `scripts/render-deliver.js`, `scripts/render.js` (single-job), `scripts/render-github-cleanup.js` (run filter), `PUBLISHED_BOOKS.md` (2 unreadable rows), tests, docs | _(done)_ 2026-11-06: tested on The Maze Runner (2 real runs), pushed to god-mode | No film re-rendered, no gate / threshold / authorization changed, no upload / cleanup. Maze Runner: grammar written + A/B/C installed (book worktree). |
+| _(done)_ dev/c16 (relational motion + Level-2 holdout v2 + pipeline friction) | god-mode: `scripts/lib/single-relation.js` (mechanism check, `review`), `scripts/single-relation-scan.js` (author-reject classes, proposed mechanism, review per contract), `scripts/lib/operator-approvals.js` (short words, engineKeep not pin-bound), `scripts/lib/node-bin.js` + `scripts/preview-state.js` (.bin self-heal), tests, `single-relation.md` / `creative-direction.md` / preview-hazirla SKILL; branch `dev/c16`: `audit/c16/` | _(done)_ 2026-11-06: merged; single-relation stays Level 1 (holdout INCONCLUSIVE) | No book config, gate, threshold, repin, full render, upload or cleanup; no Flux call. Main checkout node_modules/.bin recreated (87 shims, additive). |
+| _(done)_ render-the-creative-curve | ooks/the-creative-curve/, out/ | ✅ PUBLISHED & CLEANED 2026-11-05 | Antidote; 43.2 min (77,368 frames), 10-way split, cloud assembled; YouTube live; 10 GitHub runs/artifacts + 11 remote refs purged; local out/ mp4 (~970 MB), thumbnails, bundle dir, and audio cleaned. Kept: books/the-creative-curve/, clean.vtt. |
+| _(done)_ dev/c15 (creative direction + human study v2) | god-mode: `SemanticStage.tsx` (cause lit on cue, readable accent), `antidote-visual-authoring/creative-direction.md` (new), `single-relation-scan.js --experiment`, `audit/c15/human-study-v2.js` + `.github/workflows/human-study-test.yml` (new); branch `dev/c15`: `audit/c15/` | _(done)_ 2026-11-05: merged, default OFF | No book config, gate, threshold, repin, render, upload or cleanup; no Flux call. |
+| _(done)_ dev/c14 (single-relation in the book pipeline) | god-mode: `scripts/single-relation-{scan,preview}.js` (new), `scripts/lib/single-relation.js` (hud kept, `without` = negation), tests, runbook §2c, preview-hazirla row, `antidote-visual-authoring/single-relation.md` (new), AGENTS.md / CLAUDE.md / contract §6 pointers; branch `dev/c14`: `audit/c14/` | _(done)_ 2026-11-05: merged, report-only (Level 1) | No book config written; books read-only (isolated A/B configs); no repin, gate, threshold, render, upload or cleanup. |
+| _(done)_ dev/c13 (single-relation capability, Level 1) | god-mode: `scripts/lib/single-relation.js`, `scripts/lib/semantic-director.js`, `scripts/apply-single-relation.js`, `src/engines/antidote/components/{SemanticStage,Scene}.tsx`, `src/engines/antidote/{index.tsx,schema.ts}`, `scripts/render-stills.js` (grid / clip / silent SFX), tests, CLAUDE.md (machine-load standing rule); branch `dev/c13`: `audit/c13/` | _(done)_ 2026-11-05: Level 1 merged, default OFF | No book opts in; no published / pinned book, sealed evidence, gate, threshold or launcher touched; no full render. |
+| _(done)_ dev/c12 (Semantic Film Director 2.0 + CineCode technique transfer, A/B/C) | branch `dev/c12` only: `scripts/lib/semantic-director-v2.js`, `src/engines/antidote/components/SemanticStage2.tsx`, opt-in `scene.semantic.v === 2`, `scripts/test-semantic-director-v2.js`, `audit/c12-pilots/` | _(done)_ 2026-11-05: NO SHIP, branch pushed (2da09277), not merged | No book, pin, sealed evidence, gate, threshold or production launcher touched; no full render; all stills on GitHub Actions. |
+| _(done)_ dev/c11 (Semantic Film Director 1.0 A/B) | branch `dev/c11` only: `scripts/lib/semantic-director.js`, `src/engines/antidote/components/SemanticStage.tsx`, opt-in `scene.semantic`, `audit/c11-pilots/` | _(done)_ 2026-11-04: NO SHIP, branch pushed (a04c997f), not merged | No book, pin, sealed evidence, gate or threshold touched; no full render. |
 | _(done)_ dev/cloud-stills (machine load: heavy still work → GitHub Actions) | `scripts/lib/local-load-guard.js` (new), `scripts/render-stills.js` (new), `scripts/stills-cloud.js` (new), `.github/workflows/render-stills.yml` (new), `scripts/visual-ab.js` (guard), `scripts/test-local-load-guard.js` (new), CLAUDE.md, AGENTS.md | _(done)_ 2026-11-04: pushed to god-mode | Operator order. No book, pin, sealed evidence, gate, threshold, film render path or render pool changed. |
 | _(done)_ dev/c10 (cycle 10 architecture study + readcheck binding) | god-mode: `scripts/readcheck.js`, `scripts/lib/{readcheck-binding,evidence-integrity}.js`, tests; branch `dev/c10`: world-state prototype, IK + hybrid spikes, `audit/c10-pilots/` | _(done)_ 2026-11-04: readcheck pushed (20941526); experiments on branch dev/c10 (b5b06c42), not merged | World state A/B NO SHIP; no book, pin, sealed evidence or gate touched. |
 | _(done)_ dev/c9 part 2 (join repair, P0b A–E, post-delivery records) | `scripts/{repair-joins,render-cloud-assemble,mute-test,mute-reliability,mute-cloud-poc,ai-budget,plan-antidote,verify-render-output,render}.js`, `scripts/lib/{join-repair,mute-ids,judge-binding,render-preflight,mute-verdict,mute-manifest,cloud-assemble}.js`, tests | _(done)_ 2026-11-04: pushed to god-mode | No gate or threshold changed; old seals/results keep their reading; one record appended (Hamnet render-facts). |
@@ -52,6 +61,186 @@ Conventions:
 | engine/authored-cast-shot (job 1) | `scripts/plan-antidote.js`, `scripts/test-authored-continue.js` | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-authored-cast-shot` (operator-approved) | An authored named cast never ends on a cast-dropping shot (continue after a castless insert). New books only; published books are not re-planned. Known limit: visible ≠ correct (threshing 40 blind WRONG) — see the changelog entry. |
 | five-layer-review (report-only) | `scripts/cause-ledger.js` (`--sweep` only), `scripts/feature-usage.js` (new), `docs/ANTIDOTE-REFERENCE-PLAN-2026-10-17.md` (2026-10-21 section) | _(done)_ 2026-10-21: committed + pushed to god-mode from linked worktree `../wt-five-layer-review` (operator-approved; report-only tools). Next, each a separate approval: classify() customSvg fix, duplicate-cast merge warning, SFX double mount | (4) for `philosophy-for-life-…` owner: scenes 277/281/282 are AUTHORED `cast: ["everyman","everyman"]` (twoShot, identical figures); blind check 2026-10-21 read 277 and 281 WRONG/NONE ("two identical men…"), 282 NEUTRAL/TEXT_ONLY — merge accepts a duplicated cast member; these beats are in the 09:00 production render. Evidence: scratch blind run, not a mute verdict. No gate, threshold, READY or production config change; default cause-ledger output proven identical. **Notes for other rows (evidence, not edits — owners close them):** (1) `the-confidence-gap` PRODUCTION split render dispatched 2026-10-21 08:30 (`.render-github-split.the-confidence-gap.json`, 10 segs, bundle 4582ab0a) — no Active WIP row. (2) `philosophy-for-life-…` PRODUCTION split render dispatched ~09:00 (`.render-github-split.json`, 10 segs, bundle f14ae991) while its row says "preview pipeline" and its latest mute run (final, 10-20) is FAIL; `render-facts.json` has a 05:38Z preflight. (3) render-preflight row says "in progress / do not dispatch a production render until this row is done", yet preflight records exist for confidence-gap (05:09Z, 05:13Z) and philosophy (05:38Z) — row likely stale. |
 | engine/mute-align-compare | `scripts/mute-test.js` (`screenWordsAt` only), `scripts/test-mute-align.js` (new) | _(done)_ 2026-10-22: committed + pushed to god-mode from linked worktree `kind-taussig-45c236` (operator-approved) | role: development · worktree: .claude/worktrees/kind-taussig-45c236 · base: 9f4d31da. For the-crucible for-review (judge refused sealed final, 4/25 Vox compare frames). No threshold / bar change. |
+
+### 🎬 2026-11-07 — Cycle 19: rollout fixes (god-mode) + sequence storytelling on dev/c19
+- **god-mode e0e31501:** a contract invalid at apply time keeps only ITS scene's A (reason recorded); the other valid B scenes go on (it used to refuse the whole apply).
+- **god-mode 8d228546:** a narration review counts only for the B it reviewed — preview fingerprints the rendered B contract, the A/B result carries it, apply keeps A when it is missing or differs.
+- **dev/c19 (not on god-mode):** consecutive shots per beat cut at the narrator's words (`lib/shot-plan.js`), actions run / stop / chop / throw, hand props axe / shoe / pebble / ball, customSvg `split` from the impact point kept across cuts, word-exact cues (`cueExact`), take from the body (no stand), Antidote-lab length from the config. Silent A/B episodes (Burn 77.7 s, Feel-Good 69.7 s, Lightning Thief 20.9 s), two agent evaluators: A "not shown" for every narrated result, B shows strike/split/throw within +3–4 frames of the words. Evidence `dev/c19:audit/c19/README.md`.
+- Motion 1 record: the-choice-factory applied 1 B (scene 299 cash → chips; "chips" drawn as a chess knight — a wrong-object case the cycle-18 narration veto would catch; that pin predates it).
+
+### 🚀 2026-11-07 — Relational Motion 2.0 in production (operator): no cap, narration veto, word-timing rule, engine lock
+- **Operator decision:** Motion 2.0 (overload / passage / merge / split, phases + word anchors) is the default in the current Antidote flow; every B that wins its A/B and passes validation goes in — no scene cap, no per-book approval (`data/single-relation-rollout.json` maxScenes null). Production config + preview only; full render / upload / publish keep their own approvals. The four books pinned at 1445f823 keep Motion 1 and their pinned tools (no repin).
+- **Timing rule (blocking per beat):** the narrator's result phrase (anchors.effect, or derived from where the evidence is said; a phrase said twice matched in context; "so … that she snaps" → the evidence's end) must be in the word timings; the compiled change may not start before it and must fit with a 15-frame hold; a build-up holds only its last step to the words. Failure keeps THAT beat's A with the reason, others continue; preview skips it too. Fixed: the end-of-beat squeeze that started an anchored change at 174 for an anchor at 190 (regression test).
+- **Narration veto:** single-relation-ab PROMPTS §3 — an agent that sees the narration; wrong object / action / causality in B keeps A with the narration's words + what was on screen; low appeal / uncertainty is not a veto; no review = keep A.
+- **Recurrence guards:** engine-lock.json (preview-state stops ENGINE_CHANGED_AFTER_AUDIO; make-prompt refuses an engine switch once audio exists without --operator-approved + a new recording); "none" only after authoring (7158eada).
+- god-mode be88e3d1; regression 125 / 0 new fail.
+
+### 🎞️ 2026-11-06 — Cycle 18: four books on current code; rollout "none" needs authoring; Relational Motion 2.0 + word-anchored phases (dev)
+- **P0:** how-to-make-money-in-stocks, the-choice-factory, think-straight, get-it-done-now — audio + word-timed VTT in place (last cue within 2 s of the audio), no production work → repinned to 1445f823 (operator Cycle 18: "Operator-approved Cycle 17 Relational Motion selective rollout before first production work."; how-to-make-money-in-stocks and get-it-done-now were repinned by their own sessions). **get-it-done-now: its session changed book.json engine vox → antidote and rewrote prompt.notebooklm.md AFTER the audio was recorded for the Vox prompt — for-review, operator decision** (Step 0 rule: the audio inherits the engine).
+- **Rollout fix (god-mode 7158eada):** think-straight recorded `decide --none` with 16 scan candidates and 0 contracts — nobody authored. `decide --none` now requires an author decision with a reason for every candidate (`single-relation/author-decisions.json`), preview-state does not accept an uncovered none. Books pinned at 1445f823 run their pinned tool: their sessions must author the candidates (runbook §2d) — reported to the operator.
+- **render-stills.yml (dcb30b33):** two bounded apt attempts, then a static ffmpeg from npm (a shard failed apt twice in a row).
+- **Relational Motion 2.0 + multi-phase single-frame storytelling — dev/c18 (bf550e9a), experimental:** overflow (overload), via (passage — a person may move only here), mergeInto (merge), from (split); `phases: true` 2–3 events with `anchors` = narration words (cause marked when said, change not before the effect is said; anchor missing → old fraction timing). One-event contracts unchanged (byte-identical). Real scenes on Actions: overload create-space 177, passage sisyphus 137 (anchored), feel-good 225 (anchored), as-good-as-dead 155 (anchored), split burn 21; agent review with narration: B better 4/5 (A→B 1→2, 0→2, 0→3, 1→2), split same; as-good-as-dead B flagged for a stand-in glyph. No honest merge scene found. Regression 125 / 0 new fail.
+
+### 🚦 2026-11-06 — Cycle 17: single-relation operator-approved SELECTIVE PRODUCTION ROLLOUT (tools + gates fit; first real book waits on audio)
+- **Decision (operator):** Level 2 stays INCONCLUSIVE; a separate, reversible rollout for ELIGIBLE books — Antidote, unpublished, no production render, pin ⊇ 0296a84d (`data/single-relation-rollout.json`). Per book: B only where the beat's own agent A/B shows B > A with no more wrong inferences, no polarity error, no wrong cause; ≤ 15 scenes; every contract valid; gates unchanged after. Never global default-on; never a published / rendered / old-pin book; no render, repin, upload or Flux from it.
+- **Tools:** `single-relation-rollout.js` check / select / apply / status / reapply / revert (runs from current code with `--book-root`; provenance + previous scenes in `books/<s>/single-relation/active.json`); `single-relation-ab.js` blind / judge / tally (cycle-15/16 protocol). `book-start.js` prints an ELIGIBLE notice on resume, because pinned docs still say "report only". Runbook §2d.
+- **Found on real configs (in-memory probes):** an applied scene failed gate-authorship (stamp dropped → UNSTAMPED_CONFIG; then STAGING_OVERRIDDEN vs the old lock — and make-book's restore would have put A back) and the firewall (atom / intent / contract dropped; then the planner's contract demanded A's cast + fallback shot). Fixed in `compile` / `sealAuthored`: the contract becomes the beat's authored decision (previousLock kept), the visual contract's staging side is rebound to what is on screen. Gate code unchanged; authorship PASS → PASS, no new firewall finding at the scene.
+- **Dress rehearsal** (scratch copy of under-the-dome's full config): select → apply → gates → ACTIVE; the sealed scene rendered on Actions with the book's own HUD (`dev/c17:audit/c17/rehearsal/`). **First real book: none eligible has a config yet** — how-to-make-money-in-stocks, the-choice-factory, think-straight are Step 0 @ 0296a84d (audio + VTT pending).
+- render-stills.yml: bounded apt attempts (three stills runs hung on "System dependencies" this week). Regression on Actions: 6e43a1cc green.
+- **In the normal new-book workflow (67859c18, regression 125 pass / 0 new fail):** make-book step 1.885 re-applies `books/<s>/single-relation/active.json` on the freshly planned config BEFORE hard-gate, the authored-lock restore and every gate (active.json is a make-book marker input); preview-state stage `singleRelation` sits between make-book and the mute test (todo until B scenes are in the config or `decide --none` is recorded). Eligibility now needs the pin to contain 8cd04fc0 (the integration) — a book pinned before it would drop B on its own make-book; book-start tells such a Step-0 book that only the operator's `--repin` gives it the rollout (how-to-make-money-in-stocks, the-choice-factory, think-straight: pinned 0296a84d, no audio yet). regression.yml: bounded apt too.
+### 🖼️ 2026-11-06 — P1: thumbnails A/B/C come with the film (cloud render pipeline, no second system)
+- **What:** the existing `render-thumbnails.js` (grammar, hook, hook-visibility check, `thumbnail-check.json`) now runs on a
+  render-pool runner inside `render-video.yml`: new input `thumbnails` + job `thumbnails` (`needs: assemble`, read-only
+  token, `continue-on-error`, `persist-credentials: false`). PRODUCTION split render: `render-github-cloud-assemble.js`
+  pushes the thumbnail bundle AS the assembler bundle (superset: scripts + workflow + src/data + `books/<slug>` + the
+  assets the Thumb composition reads, NO narration audio) and dispatches `thumbnails=true` → one run = verified join +
+  A/B/C, once per film, never per segment. `finish()` and `render-deliver.js` (final step) install them before
+  post-render: sha256 per file, bound to `thumbInputHash` (meta.thumbnail + title/author + config + book.json + hero
+  bytes; a description edit is not an input), stale/foreign/tampered packs refused. Missing / failed / stale → ONE
+  THUMBNAIL-ONLY run (`render-thumbnails.js --slug --cloud [--book-root]`, ref `render/<slug>-thumbs`, artifact
+  `thumbs-<slug>`). Single-job (`--no-split`) production render: same step on its own runner after the film upload.
+- **Authority kept apart:** thumbnail-only renders no film (the render job's `if` excludes it; the bundle has no audio),
+  writes only `out/thumbnail-<slug>*.png`, `books/<slug>/thumbnail-check.json`, the youtube.md Test & Compare block and
+  `.render-github-thumbs.<slug>.json` (test proves the file set); never split/cloud/render state, post-render,
+  verify-render-output, youtube-ready, upload or publish. Preview renders get none (production finalization only). A
+  thumbnail failure never fails the run (the dispatcher's `verified` needs run success) → never un-verifies or re-renders
+  a film. Published books refused (lib/frozen). Grammar missing → the standard deterministic `thumbnail-grammar.js
+  --write` when the book is this checkout, else refused with the command (the channel history lives only there).
+  Local `render-thumbnails.js` now takes `local-load-guard` (budget + machine-wide still lock).
+- **Real cloud tests (The Maze Runner, film already cloud-verified, NOT re-rendered):** (1) thumbnail-only — bundle
+  56723735 (696 files, 19.0 MB, no audio) → sates52ko/Remotion-render `render/the-maze-runner-thumbs`; A/B/C installed,
+  hook visible 7.43 % / 8.56 % / 3.26 % (≥ 0.8 %); visually checked (scene-still / text-poster / scene-still from the
+  film's own cast). (2) production shape — one run = assemble + thumbnails on the real 10-segment manifest:
+  run 42214077835 (bundle 0cbad5f4): `assemble` success 48 min (54,029/54,029 frames re-verified), then `thumbnails` success 1 min 56 s; run conclusion success; artifacts video-final 471.5 MB + verify + thumbs 0.9 MB; installed A/B/C with the same hook numbers (deterministic). Finalization skip path with the real dispatcher: `render-github-cloud-assemble.js --book-root` → already verified, thumbnails current → nothing dispatched. `lint-titles --pack`: YouTube READY (HOOK_UNVERIFIED gone). The book's `.render-github-cloud` state and film untouched (scratch driver; no film download).
+- **Found on the way (fixed):** (a) Antidote Thumb reads the hero only for a `cinematic-bleed` variant — the bundle now
+  asks for exactly what the composition reads (`neededHeroAssets`); Maze Runner's meta still named a non-existent Flux
+  hero + legacy `layout: cinematic-bleed`, which its new grammar overrides. (b) **PUBLISHED_BOOKS.md rows #20
+  `death-row` (no backticks) and #67 `the-creative-curve` (a PowerShell "`t" → TAB, commit 5180171d) were unreadable by
+  every frozen guard** (apply-briefs, gate-authorship, preview-state, render-decision, render-status, thumbnails) → both
+  published books were treated as editable. A thumbnail-only test on the-creative-curve started before I caught it:
+  stopped, its meta write reverted (dev worktree only), nothing installed; the worker ref
+  `sates52ko/Remotion-render render/the-creative-curve-thumbs` + that run remain (post-upload cleanup now matches
+  `render/<slug>-thumbs` too — not run, operator-only). Rows repaired; `scripts/test-published-register.js` fails on any
+  unreadable row or control character. **Agents writing PUBLISHED_BOOKS.md from PowerShell: single-quoted strings.**
+- **Cleanup scope:** `render-github-cleanup.js` now matches this book's exact refs `render/<slug>-(seg<N>|assemble|thumbs)`
+  (was `startsWith("render/<slug>-seg")`: the assembly runs were never cleaned; a slug prefix can no longer match
+  another book). Purge already covered `render/<slug>-*`.
+- **Tests:** `scripts/test-cloud-thumbs.js` (new, 45 checks), `scripts/test-published-register.js` (new),
+  `test-cloud-assemble.js` (render-job `if` assertion updated, meaning kept); full suite on Actions
+  (`ci/regression/thumb-cloud`, run 42213054723): success, only the known BASELINE_FAILs.
+
+### 🩺 2026-11-06 — P0: shared node_modules dependency doctor (NODE_MODULES_BROKEN stopped every book)
+- **Root cause (verified):** the main checkout's `node_modules/.bin` was gone (dir re-created 11:55:16 by cycle 16's heal, all
+  87 shims that time); every package was intact (616/616 non-optional package-lock entries at their locked version, all
+  junctions → main). preview-state's check was `exists(.bin)`, so it reported the whole tree broken. What deleted `.bin`:
+  NOT determined (the CLI guard only writes `.render-guard/`; no script in scripts/ removes `.bin`). Runtime from
+  wt-book-the-witch after the heal: `remotion versions` all correct, `tsc 5.9.3`, core modules resolve.
+- **Gap left by 83dfffc4:** the heal lived only in origin's preview-state, so pins older than it (55748c9b: the-witch, cujo,
+  gardens-of-the-moon, the-maze-runner) would stop again; it fired only when the WHOLE `.bin` was missing; no package check.
+- **Fix:** `scripts/lib/node-bin.js` `doctor()` = declared deps + non-optional package-lock entries installed at the
+  locked version (broken → reported, never npm, no shims over a broken install), then every MISSING shim recreated
+  (additive). `preview-state.js` uses it (NODE_MODULES_BROKEN now means a wrong link or a missing/wrong-version package).
+  `book-start.js` runs ORIGIN's doctor in memory on each shared node_modules (like the render guard; `--check` reports
+  only), so old pins are healed on every session start. CLI: `node scripts/lib/node-bin.js <nm> --doctor [--dry]`.
+- **Tests:** test-node-bin (14), test-cli-guard (+4 book-start doctor checks), test-preview-state, test-book-start,
+  test-book-bootstrap: all pass. All 22 book worktrees re-checked: none NODE_MODULES_BROKEN (the-witch, cujo,
+  gardens-of-the-moon CONTINUE; the-maze-runner READY; the rest MISSING_INPUT / FROZEN / CODE_MOVED, unrelated).
+- **the-witch thumbnail 404 (classified, not fixed):** `youtube-meta.thumbnail.image` = `scenes/the-witch/thumbnail-concept-power.png`
+  and `cut` = `thumbnail-hero-cut.png` do not exist (no thumbnail-concept-*.png at all): make-book's Vox step 5.1/5.3
+  (`gen-thumbnail.py`, Flux) are `optional` and produced nothing (log not kept). `thumbnail-check.json` measures only
+  hook-text visibility, so A/B/C passed while rendering as a grey text card with no hero. Not a preview/render blocker
+  (metadata never blocks render); before upload a hero is needed (paid Flux call → operator, see C15).
+- No book config, pin, gate threshold, render, npm install or cleanup. Only `.bin` shims are ever written.
+
+### 🔗 2026-11-06 — Cycle 16: relational motion, Level-2 holdout v2 (INCONCLUSIVE), pipeline friction fixes
+- **Relational motion (authoring, Level 1):** a contract may name its `mechanism` (transfer, accumulation, depletion, recovery, removal, transformation, character-action, cause-effect); the validator refuses a mechanism the event does not perform (transfer without moveTo, removal without present:false + another change, …). `review(c)` (advisory) flags `TRY_CONCRETE` when every end is carried only by its label and nothing leaves / moves / breaks / changes mood. The scan drops the classes authors rejected in cycles 14–15 (obligation / advice, conditional, quoted speech, evaluation / identity, pronoun-only end) and proposes a mechanism per candidate.
+- **Level-2 holdout v2** (pre-registered `dev/c16:audit/c16/preregistration-level2-v2.json`, pool c893b7d13d8a6034, before any authoring): 35 books, 118 candidates walked in seeded order, 16 accepted (14 valid, 2 failed), agent describers + 2 judge passes. B − A **+41.1 pp, 95 % CI [+23.2, +59.5]**; wrong inference 2 / 2, polarity 0 / 0, wrong cause 0 / 0; 11 / 14 beats gain ≥ one correct element, 1 worse. **Decision INCONCLUSIVE** by the frozen rules: n 14 < 15 and validation failures 12.5 % > 10 %. Stays Level 1 (opt-in per book, report-only in the pipeline); these beats are never re-decided. Secondary: TRY_CONCRETE beats gained MORE (3 beats, +63.9) — the review predicts the operator's preference, not agent comprehension; keep it advisory.
+- **Pipeline friction** (`dev/c16:audit/c16/friction-audit.md`): routine operator approvals take any non-empty verbatim words ("Antidote kalsın" was refused under the 6-word rule); an `engineKeep` approval is bound to engine + audio + VTT, so an operator-approved repin no longer re-asks the engine (fix rounds / images / technical fixes stay pin-bound); `node-bin.js` recreates MISSING `node_modules/.bin` shims from package bin fields (never npm, never overwrites) and preview-state heals a correct link instead of stopping with NODE_MODULES_BROKEN. The main checkout had lost its .bin (every book worktree stopped); 87 shims recreated. Already solved and left alone: book-start resume, single-run locks, one-attempt approvals.
+- **Vox images** (`dev/c16:audit/c16/vox-providers.md`): every Vox book used NVIDIA-hosted FLUX.2 [klein] 4B on the trial; commercial options with the same model: BFL API (~$0.015 / image, clear output ownership), fal.ai (~$0.005, seed + reference), self-hosted on a rented GPU. Operator decision; no Flux call made. Regression on Actions: b87aca2c + 2838ab75 green.
+
+### 🎨 2026-11-05 — Cycle 15: creative direction from the operator's picks + human study v2 (single-relation, Level 1)
+- **Operator picks (dev data, not blind):** 7 of 20 versions in the cycle-13 muted study — 5 single-relation, 2 production; favourite 8Y = C12 single-relation (the coin leaves the REWARD slot and lands by WINNERS: the content travels). Analysis + 6 hypotheses: `dev/c15:audit/c15/operator-visual-preferences.md`; authoring guide `.claude/skills/antidote-visual-authoring/creative-direction.md` (never shown to blind agents; 8Y a reference, not a template).
+- **Renderer (single-relation scenes only):** the cause icon lights up on its cue; an accent < 3:1 on the light card falls back to the stage red (C04-B / 5-elements 194: ring lost in a yellow-orange set).
+- **Pilot (agent comprehension, development):** 4 fresh books, 1 beat each, one fresh author with the guide; A 8.3 → B 91.7 (knave 99, essentialism 205, philosophy-for-life 343, 5-elements 194), wrong inferences 0 / 0. Radical-compassion 128 fixture with the invisible-cause pattern (shield 'resisting' removed): 50 → 100. n = 4, labels are narration words, author-chosen beats — a signal, not Level-2 evidence.
+- **Human study v2:** one video at a time, answers locked, balanced per-participant order, preference + reason, complete / incomplete JSON; Playwright Chromium + Firefox on Actions 36 / 36 each. Two ZIPs ready (cycle-13 10 scenes; the 4 fresh pilot scenes). NOT RUN — no human result claimed.
+- **Holdout:** 40 untouched books with candidates, but the FROZEN pre-registration samples before authoring (skip = A = B); at 11–25 % acceptance it would be INCONCLUSIVE — not run, not changed; options in `audit/c15/holdout-feasibility.md`. **Vox:** NVIDIA API Trial terms exclude production use of generated images (§1.2 / §1.4 / §4.2) — operator decision, no Flux call made (`audit/c15/vox-audit.md`).
+
+### 📚 2026-11-05 — Cycle 14: single-relation in the book pipeline — scan / author / validate / isolated before-after (Level 1, report only)
+- **Discovery audit:** before this cycle no canonical source told any agent the capability existed (0 mentions in AGENTS.md, CLAUDE.md, the contract, the runbook, preview-hazirla, antidote-visual-authoring, book-start, storyboard, preview-state, mute-test). Now: runbook §2c, preview-hazirla stage row `singleRelation`, authoring reference `.claude/skills/antidote-visual-authoring/single-relation.md` (+ .agents pointers), AGENTS.md / CLAUDE.md lines, contract §6 (blind agents are never told). Blind prompts untouched.
+- **Tools:** `single-relation-scan.js scan` (beats whose narration STATES a cause → effect while the scene shows only people and words; every rejected beat with its reason; 0 is valid) and `validate` (each contract on its own; author, input hash, scene, previous scene); `single-relation-preview.js build` (isolated A/B configs + stills manifest for Actions). Read-only on books; published books refused. Production configs are never written — `apply-single-relation.js --write` waits for Level 2 or an operator decision.
+- **Real books (7 unpublished Antidote checked):** 18 candidates → 4 fresh authors → 2 contracts (16 honest skips) → cloud before / after, blind agent rating: radical-compassion 128 A 16.7 → B 50 (effect + what-changed read correctly; the cause 'stop resisting' still invisible); deep-work 250 A 0 → B 0 with 1 wrong inference ('nature depletes focus') → not enabled. Two capability fixes from this: compile now keeps the source scene's `hud` (the insight badge read 2/2), and `without <doing>` is a negation cue (deep-work 250 is now refused by the validator).
+- **Opt-in:** no book. No unpublished Antidote book is pinned ≥ a270192d with production render not started; nothing was repinned. The first new Antidote book runs §2c report-only.
+- **Level 2:** holdout pre-registered (`dev/c14:audit/c14/preregistration-level2-holdout.json`, 40 books x 1 cause-present beat, criteria frozen), NOT run. Human video package: ready as one ZIP (`muted-video-study.zip`), NOT RUN. Regression on Actions: 120 pass / 0 new fail.
+
+### 🎯 2026-11-05 — Cycle 13: single-relation cause → visible effect — LEVEL 1 CAPABILITY SHIP (default OFF); measurement infrastructure
+- **Strategy (operator):** stop rebuilding Directors; productise what worked. Director 1.0's single locked frame (cause marked → token → pause → a visible change on ANOTHER entity, or a quote card) is now a capability: `scripts/lib/single-relation.js` (contract `single-relation/1`, types A / B / H) drawn by `components/SemanticStage.tsx`. NOT a new visual invention; Director 2.0's progressive build / reads / verbs / camera are not carried (C12 diagnosis: focus dimming greyed the cause as the effect landed).
+- **Claim safety (only what blocks a real misread — fixtures B05, B17, C24):** planned / hypothetical / negated / question evidence is never staged (→ quote card); evidence, card text and labels never come from a not-asserted part; both ends of the relation must be stated where the evidence is; one event, ≤ 4 entities, no duplicated entity; speaker on quoted cards. Calibrated on data before any rating (the first strict version refused Director 1.0's best contracts).
+- **Level 1 evidence:** default OFF (drawn only when `meta.singleRelation === true`; written only by `apply-single-relation.js`, which refuses published books); 25 + 13 unit tests; deterministic (12 / 12 frames identical across cloud runs); backward compatible (18 / 18 production frames from 6 books byte-identical, god-mode vs new code); regression suite on Actions 119 pass / 0 new fail. Production video behaviour unchanged; no book opts in.
+- **Measurement (agent raters, development data):** 4-strip describers calibrated EQUIVALENT (Δ −4.2 pp, CI90 −10.9 … +2.1, 0 invalid, ≈ 3.7x cheaper). Dense-frame pilot (2 fps grids vs 3-frame strips, 10 passages): more frames LOWERED agent comprehension (A −9, B −16 pp; small-tile confound) — temporal coverage, not motion; capability B − A +25 pp (strips, CI +1.7 … +48) / +18 pp (dense). Holdout progression condition met → Level-2 holdout designed (40 books x 1 beat, 78 % power at +15 pp, ≈ 2.9 M tokens), not run. Human video package (10 passages, silent A / B clips, one HTML page) prepared, NOT run.
+- **Infra:** `render-stills.js` manifests now render `grid` (dense frames) and `clip` (silent h264) jobs; silent mode drops `audioEvents` (clips fetched every SFX file). **CLAUDE.md machine-load is now an operator STANDING RULE:** nothing that loads the PC runs locally — full test suite via `ci/regression/<name>`, `tsc`, renders, clips, batch ffmpeg all on GitHub Actions.
+- **Untouched:** C11 / C12 NO SHIP stand; published / pinned books, sealed evidence, gates, thresholds, production launchers. Evidence: `dev/c13` → `audit/c13/result-c13.json`.
+
+### 🎬 2026-11-05 — Cycle 12: Semantic Film Director 2.0 + CineCode technique transfer — pre-registered blind A/B/C → NO SHIP (branch dev/c12)
+- **Question:** do claim logic (polarity / notAsserted), timed shot reads, a progressive Visual Proof and camera purpose (techniques adapted from CineCode, MIT, no code copied — `audit/c12-pilots/cinecode-audit.md`) make a muted viewer understand more than the shipped storyboard (A) and Director 1.0 (B)?
+- **Design:** fresh holdout of 40 beats from 17 books (30 main + 10 regression, ±5 beats from the C10/C11 sets excluded), answer key frozen before authoring, rules in `preregistration-c12.json` before any rating. Arms B and C authored by fresh sonnet authors (one pass + one compile-fix pass; B 40/40, C 39/40 compile). 119 strips rendered on GitHub Actions (run 41980783311, 159 s, 0 local renders); 119 blind describers + 2 x 30 judges, all AGENT raters.
+- **Result:** comprehension A 30.6 % / B 47.2 % / C 38.9 %. C − A +8.3 pp (CI 0 … +17.5; bar +20), WRONG A 3 → C 4.5 → **NO SHIP**. C − B −8.3 pp (CI −20.3 … +1.7): the new components did NOT add value. ADDS rose (A 32 / B 43 / C 65) — more of each frame carried meaning, but the viewer understood less. Polarity errors A 2 / B 0 / C 0. Kappa cause .85, message .68, polarity .80. Ablations not triggered.
+- **Why:** on the 19 beats both directors drew, C still lost ~10 pp to B — the progressive build split one relation into parts and viewers read the parts (C16, C30). The text-only rule cut quote cards from 11 to 1 beat, losing B's best beats where the sentence is the point (C01, C23-type). Staged verbs were read literally (C24: a planned prank read as a real crash).
+- **Carry forward:** Director 1.0 replicated at +16.7 pp vs A on a fresh holdout (exploratory) and remains the stronger research director. Claim-logic validation (B05 / B17 regressions) is a cheap guard worth keeping in any future director. Next architecture: B-level staging + claim logic only, quote card allowed when the sentence is the point, one relation per frame; and the human reference (prepared for three arms, NOT run) before any further agent-only cycle.
+- **Untouched:** published / pinned books, sealed evidence, gates, thresholds, production launchers, the audio fix, CSD 1.1. Nothing merged to god-mode except this log entry. Evidence: `dev/c12` → `audit/c12-pilots/result-c12-director.json`, `strips/`, `ratings/`.
+
+### 🎬 2026-11-05 — the-creative-curve: 10-way GitHub render, cloud assembly, YouTube published & post-upload cleanup
+- **Operator order:** Video confirmed live on YouTube. Run full post-upload cleanup suite.
+- **GitHub cleanup:** scripts/render-github-cleanup.js --slug=the-creative-curve purged workflow runs and artifacts across all 10 worker accounts (~923 MB freed).
+- **Branch purge:** scripts/purge-render-branches.js --slug=the-creative-curve --force deleted 11 remote refs (1 assemble + 10 worker segments).
+- **Local purge:** scripts/render-purge.js --slug=the-creative-curve --force freed 2.97 GB in worktree wt-book-the-creative-curve (out/the-creative-curve.mp4, thumbnails, bundle folder, mastered audio, split state). Kept books/ source and clean.vtt.
+- **Records:** PUBLISHED_BOOKS.md updated (Summary Table row 21 + detailed record). Committed sources preserved.
+
+### 🎬 2026-11-04 — Cycle 11: Semantic Film Director 1.0 — pre-registered blind A/B → NO SHIP (branch dev/c11)
+
+- **What was built** (branch `dev/c11` only):
+  - A director that first writes, per beat, what a muted viewer must understand, as a renderer-neutral contract:
+    understanding, verbatim evidence, type A–H, before / transformation / after, camera purpose, entities, state-changing
+    events, required, omitted.
+  - `scripts/lib/semantic-director.js` validates the contract. A change must be a state change (level ≥ 0.2, face,
+    presence, move, break), never colour or zoom. Type B needs the narration's own causal link, and comparisons share one
+    scale.
+  - `SemanticStage.tsx` draws it as one locked wide frame:
+    - the accent ring sits only on the cause;
+    - a token travels from cause to effect, then a pause, then the effect;
+    - the before state stays as a dashed trace.
+- **Benchmark and protocol:**
+  - Frozen by script before any code: 30 causal and abstract beats plus 10 action regression beats, 15 books.
+  - Answer key written from the narration only and frozen before authoring.
+  - B was authored by 5 fresh sonnet agents: one pass plus one compile-fix pass, no visual iteration.
+  - 80 strips rendered on GitHub Actions; 80 blind describers; 2 × 20 judges.
+- **Result (agent raters only; human reference prepared, NOT run):**
+
+  | measure | A | B |
+  |---|---|---|
+  | comprehension | 43.3 % | 48.6 % (+5.3 pp, CI −7.8…+16.4) |
+  | WRONG | 2 | 4 |
+  | DEAD | 14 | 2.5 |
+  | ADDS | 35 | 34.5 |
+  | EXPLAINS | 0.5 | 14 |
+
+  - Fiction +3.8 pp; nonfiction +6.4 pp; action regression +12.5 pp.
+  - Kappa: cause 0.92, effect 0.82, message 0.64.
+  - **NO SHIP**: the +20 pp target was missed, WRONG went up and ADDS did not go up.
+- **Why:**
+  - The director chose a text-only quote card for 18 of 40 beats (15 of the main 30). Those beats scored −4.4 pp, ADDS
+    went 12 → 0, and they produced 6 of B's 8 WRONG judgements:
+    - B05 quoted the premise the speaker rejects;
+    - B09 put a quote over the source scene's classroom set.
+  - On the 15 main beats B actually staged, comprehension went 36.7 % → 51.7 % (exploratory).
+  - Arrows can read as a mechanism the narration does not state (B17).
+- **Next (not done):** text-only only as a last resort, quoting the claim and never a rejected premise; quote cards on a
+  neutral ground; re-test the staged representations alone.
+- **Records:** `audit/c11-pilots/{benchmark,answer-key,preregistration-c11-director,result-c11-director,deviations}.json`, contracts, ratings, strips.
+- **Deviations:**
+  - The render moved from the PC to GitHub Actions on the operator's order (machine load). The 26 local strips and their
+    16 descriptions are unused; this was decided before any rating.
+  - One describer file was missing a `]` and got a syntax-only repair.
+- **Untouched:** no book, pin, sealed evidence, gate or threshold. No full render. Nothing merged to god-mode.
 
 ### 🖥️ 2026-11-04 — Machine load: heavy still work runs on GitHub Actions (operator order), local guard
 
@@ -7164,3 +7353,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Render: 10 segments, cloud assembly run 41097267324, 66,277/66,277 frames, full decode clean, 885.9 MB. Download via `render-github-cloud-assemble.js --fetch`.
 - Cleanup (operator order): `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (render/ refs on workers), `render-purge.js` (local film and thumbnails, ~887 MB). The GitHub cleanup's local step also removed the raw mp3, mastered audio, raw `.vtt` and the split state file. `clean.vtt` is kept.
 - Engine backlog (not fixed): (1) maintenance pin reset moved `preview-state.js` mute scope, so run2 stopped counting after the upgrade; (2) quality-debt acceptance and render authorization share one record; (3) seal manifest lacks config identity; (4) 43 absence and 7 state visual gaps plus 33 unresolved strategies remain open for Antidote 10x.
+
+### ✅ 2026-11-07 — the-maze-runner — PUBLISHED & CLEANED (Antidote)
+- Operator confirmed the YouTube upload is live and ordered cleanup. Render: 10 segments, cloud assembly run 42174504999, 54,029/54,029 frames, decode clean, 471 MB.
+- Cleanup: `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (12 refs, `render/` only), `render-purge.js` (film 471 MB). Raw mp3, mastered audio and raw VTT removed; `clean.vtt` kept.
+- Open: join dropouts 138 (DEFECT_REPORTED); thumbnail A/B/C never generated, so the pack's Test & Compare step was not done.
