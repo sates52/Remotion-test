@@ -1,0 +1,105 @@
+{
+ "schema": "stills/1",
+ "name": "c19 final B via scene.shots",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "burn-s20-B",
+   "config": "configs/burn-s20-B.json",
+   "frames": [
+    234,
+    455,
+    597,
+    647,
+    669,
+    675,
+    695,
+    707,
+    724,
+    880
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 1091
+   }
+  },
+  {
+   "id": "feel-s221-B",
+   "config": "configs/feel-s221-B.json",
+   "frames": [
+    158,
+    254
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 383
+   }
+  },
+  {
+   "id": "feel-s224-B",
+   "config": "configs/feel-s224-B.json",
+   "frames": [
+    283,
+    458,
+    464,
+    470,
+    492,
+    512,
+    518,
+    533,
+    548,
+    554,
+    600,
+    603,
+    609,
+    643
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 691
+   }
+  },
+  {
+   "id": "thief-s149-B",
+   "config": "configs/thief-s149-B.json",
+   "frames": [
+    357,
+    407,
+    472,
+    504,
+    510,
+    595,
+    600,
+    606,
+    698,
+    753
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 980
+   }
+  }
+ ],
+ "inputHash": "72eac7feb8773425",
+ "files": {
+  "stills/configs/burn-s20-B.json": "632cbe241f8c0d7e42bb06ff50f80823c67524301f6bfe5fd802bd86f3061935",
+  "stills/configs/feel-s221-B.json": "764103e2ca2b903eb5fe4831160da6c5e7a17c66041e6ffae609a38ffd0506dd",
+  "stills/configs/feel-s224-B.json": "14e253efb33a4ca7756c6c5fe77009b8123d3a6249fbea8704d2e0b3df65f602",
+  "stills/configs/thief-s149-B.json": "968a1682a1d5e817dedf43e284f23c7dd9776a9d5d0aa431845d4f1cc613e546"
+ },
+ "builtAt": "2026-11-07T13:04:57.632Z"
+}
