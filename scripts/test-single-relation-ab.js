@@ -13,7 +13,7 @@ const W = (p, j) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.wri
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sr-ab-"));
 const beats = [3, 7, 11, 20, 31];
-W(path.join(dir, "pairs.json"), { slug: "zz", pairs: beats.map((i) => ({ sceneIndex: i, narration: `narration ${i}`, previousNarration: `before ${i}` })) });
+W(path.join(dir, "pairs.json"), { slug: "zz", pairs: beats.map((i) => ({ sceneIndex: i, narration: `narration ${i}`, previousNarration: `before ${i}`, bContractHash: `h${i}` })) });
 for (const i of beats) for (const a of ["A", "B"]) W(path.join(dir, "strips", `s${i}-${a}.png`), `png ${i}${a}`);
 
 const r = AB.blind(dir, path.join(dir, "strips"));
@@ -52,6 +52,7 @@ ok("tally: primary = mean(cause, effect, message) over two passes; safety counte
   const row = t.rows.find((x) => x.sceneIndex === 3);
   assert.deepStrictEqual([row.A, row.B, row.wiA, row.wiB], [16.7, 100, 0, 0]);
   assert.strictEqual(t.rows.find((x) => x.sceneIndex === 31).wiB, 2); assert.strictEqual(t.raters, "agents (never human)");
+  assert.strictEqual(t.rows.find((x) => x.sceneIndex === 3).bContractHash, "h3"); // the B these ratings are for (cycle 19)
 });
 ok("narration review (cycle 18): blind writes X/Y pairs + items; tally turns a wrong-object / action / causality on B into a veto, keeps 'unclear' as no veto", () => {
   const avDir = path.join(dir, "ab", "av");

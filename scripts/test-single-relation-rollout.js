@@ -32,8 +32,10 @@ const sceneA = (id, from) => ({ id, fromFrame: from, durationFrames: 240, shot: 
   visualContract: { characterIntent: [{ identity: "you", role: "you", action: "idle", gaze: "viewer", state: "worried" }], visualEvidence: { subjects: [], relations: [], states: [], representation: { kind: "fallback", lever: "medium" } } } });
 // the narrator's words with frames (the timing rule needs them): said inside scene-1 (frames 240–480)
 const WORDS = narration.split(" ").map((w, k) => ({ w, s: 250 + k * 8, e: 257 + k * 8 }));
-const AB = (rows) => ({ rows: rows.map((r) => ({ avReviewed: true, ...r })) });
+const AB = (rows) => ({ rows: rows.map((r) => ({ avReviewed: true, bContractHash: HB, ...r })) });
 const config = () => ({ meta: { slug: "zz-book", cast: { you: { name: "You" } } }, captions: [{ text: narration, startFrame: 0, endFrame: 1000, words: WORDS }], scenes: [sceneA("scene-0", 0), sceneA("scene-1", 240), sceneA("scene-2", 480)] });
+// the fingerprint of scene 1's B as the preview renders it (anchored) — what an A/B row names (cycle 19)
+const HB = require("crypto").createHash("sha256").update(JSON.stringify(R.verifyTiming(contract, config().scenes[1], require("./apply-single-relation").wordsOf(config(), config().scenes[1])).contract)).digest("hex").slice(0, 16);
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "sr-rollout-"));
 const B = path.join(root, "books", "zz-book");
@@ -87,17 +89,25 @@ ok("plan: the planner's visual contract is rebound to what is on screen (old rep
 });
 ok("plan: the record keeps the previous scene, a diff and the A/B", () => {
   const s = p.record.scenes[0];
-  assert.strictEqual(s.sceneIndex, 1); assert.deepStrictEqual(s.previous, before.scenes[1]); assert.deepStrictEqual(s.ab, { A: 10, B: 80, wiA: 0, wiB: 0 }); assert(/medium→/.test(s.diff.shot));
+  assert.strictEqual(s.sceneIndex, 1); assert.deepStrictEqual(s.previous, before.scenes[1]); assert.deepStrictEqual(s.ab, { A: 10, B: 80, wiA: 0, wiB: 0, bContractHash: HB }); assert(/medium→/.test(s.diff.shot));
 });
 ok("plan (cycle 19): a contract invalid at apply time keeps ITS scene's A with the reason; the other valid B goes in", () => {
   W(path.join(C, "contracts", "9.json"), { ...contract, evidence: "a sentence the narration never says at all" });
-  const mixed = RO.plan(before, { chosen: [{ sceneIndex: 2, contract: path.join(C, "contracts", "9.json"), ab: {} }, { sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80 } }], kept: [] });
+  const mixed = RO.plan(before, { chosen: [{ sceneIndex: 2, contract: path.join(C, "contracts", "9.json"), ab: {} }, { sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80, bContractHash: HB } }], kept: [] });
   assert(mixed.ok, JSON.stringify(mixed.errors));
   assert.deepStrictEqual(mixed.record.scenes.map((x) => x.sceneIndex), [1]);
   assert(/^invalid at apply: /.test(mixed.record.kept.find((k) => k.sceneIndex === 2).why), JSON.stringify(mixed.record.kept));
   assert.deepStrictEqual(mixed.config.scenes[2], before.scenes[2]);
   const onlyBad = RO.plan(before, { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "9.json"), ab: {} }], kept: [] });
   assert(onlyBad.ok && onlyBad.record.scenes.length === 0 && onlyBad.config === before);
+});
+ok("plan (cycle 19): the narration review must be FOR the B being applied — missing or different fingerprint keeps A", () => {
+  const noHash = RO.plan(config(), { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80 } }], kept: [] });
+  assert.strictEqual(noHash.record.scenes.length, 0); assert(/no valid narration review/.test(noHash.record.kept[0].why), JSON.stringify(noHash.record.kept));
+  const other = RO.plan(config(), { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80, bContractHash: "0000000000000000" } }], kept: [] });
+  assert.strictEqual(other.record.scenes.length, 0); assert(/reviewed B 0000000000000000/.test(other.record.kept[0].why));
+  const same = RO.plan(config(), { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80, bContractHash: HB } }], kept: [] });
+  assert.deepStrictEqual(same.record.scenes.map((x) => x.sceneIndex), [1]);
 });
 ok("policy (cycle 18): no per-book scene cap — every B that wins and passes goes in", () => {
   assert.strictEqual(RO.POLICY.perBook.maxScenes, null);

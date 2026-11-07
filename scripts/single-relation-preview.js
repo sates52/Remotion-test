@@ -43,7 +43,9 @@ for (const i of rec.valid || []) {
     fs.writeFileSync(path.join(OUT, "configs", `${id}.json`), JSON.stringify(cfgs[arm]));
     jobs.push({ id, config: `configs/${id}.json`, frames, strip: true, ...(args.clips ? { clip: { from: curA.fromFrame, to: total - 1 } } : {}) });
   }
-  pairs.push({ sceneIndex: i, sceneId: cur.id, narration: cur._narration, previousNarration: prev ? prev._narration || "" : "", contract: `contracts/${i}.json`, type: c.type, frames, timing: tv.events, derived: tv.derived || [] });
+  pairs.push({ sceneIndex: i, sceneId: cur.id, narration: cur._narration, previousNarration: prev ? prev._narration || "" : "", contract: `contracts/${i}.json`, type: c.type, frames, timing: tv.events, derived: tv.derived || [],
+    // the exact B that is rendered and reviewed (cycle 19): apply ships it only if it is still this one
+    bContractHash: require("crypto").createHash("sha256").update(JSON.stringify(c)).digest("hex").slice(0, 16) });
 }
 const extra = fs.existsSync(path.join(root, "public", "sfx")) ? fs.readdirSync(path.join(root, "public", "sfx")).filter((f) => f.endsWith(".wav")).map((f) => `public/sfx/${f}`) : [];
 fs.writeFileSync(path.join(OUT, "manifest.json"), JSON.stringify({ schema: "stills/1", name: `single-relation A/B ${args.slug}`, composition: "Antidote-lab", entry: "src/index.ts", silent: true, shards: Math.max(1, Math.min(10, jobs.length / 2)), extra, jobs }, null, 1));

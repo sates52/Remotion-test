@@ -84,7 +84,7 @@ function select(contractsDir, ab, { maxScenes = POLICY.perBook.maxScenes } = {})
     else if (r.veto) why = `narration veto (${r.veto.kind}): narration "${r.veto.narrationPart}" — on screen: ${r.veto.onScreen}`;
     else if (r.avReviewed !== true) why = "no narration review for this beat (single-relation-ab.js PROMPTS §3)";
     if (why) kept.push({ sceneIndex: i, keep: "A", why });
-    else chosen.push({ sceneIndex: i, contract: path.join(contractsDir, "contracts", `${i}.json`), contractHash: c.contractHash || null, review: c.review ? c.review.verdict : null, ab: { A: r.A, B: r.B, wiA: r.wiA || 0, wiB: r.wiB || 0 } });
+    else chosen.push({ sceneIndex: i, contract: path.join(contractsDir, "contracts", `${i}.json`), contractHash: c.contractHash || null, review: c.review ? c.review.verdict : null, ab: { A: r.A, B: r.B, wiA: r.wiA || 0, wiB: r.wiB || 0, bContractHash: r.bContractHash || null } });
   }
   // a cap only when the policy sets one (cycle 18: the operator removed it — every B that wins and passes goes in)
   chosen.sort((x, y) => (y.ab.B - y.ab.A) - (x.ab.B - x.ab.A) || x.sceneIndex - y.sceneIndex);
@@ -114,6 +114,11 @@ function plan(config, selection, { now = new Date().toISOString(), tool = null }
   for (const [i, c] of Object.entries(raw)) {
     const v = SR.verifyTiming(c, config.scenes[i], wordsOf(config, config.scenes[i]));
     if (!v.ok) { dropped.push({ sceneIndex: Number(i), keep: "A", why: `timing: ${v.reason}` }); continue; }
+    // a narration review counts only for the B it looked at (cycle 19): missing, or made for a different B → keep A
+    const sel = selection.chosen.find((x) => x.sceneIndex === Number(i)) || {};
+    const reviewed = sel.ab && sel.ab.bContractHash, applying = sha(JSON.stringify(v.contract));
+    if (!reviewed) { dropped.push({ sceneIndex: Number(i), keep: "A", why: "no valid narration review: the A/B result does not name the B it reviewed" }); continue; }
+    if (reviewed !== applying) { dropped.push({ sceneIndex: Number(i), keep: "A", why: `no valid narration review: it reviewed B ${reviewed}, apply would ship B ${applying} (the contract or its timing changed since)` }); continue; }
     contracts[i] = v.contract; timing[i] = { events: v.events, derived: v.derived || [] };
   }
   selection = { ...selection, chosen: selection.chosen.filter((c) => contracts[c.sceneIndex]), kept: [...(selection.kept || []), ...dropped] };

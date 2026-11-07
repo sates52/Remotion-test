@@ -162,6 +162,8 @@ function tally(previewDir) {
     const b = r[map.X === "B" ? "X" : "Y"] || {};
     if (b.contradicts === true && VETO.includes(b.kind)) row.veto = { kind: b.kind, narrationPart: String(b.narrationPart || ""), onScreen: String(b.onScreen || "") };
   }
+  // the fingerprint of the B these ratings and the narration review are FOR (cycle 19)
+  try { const ph = Object.fromEntries((readJSON(path.join(previewDir, "pairs.json")).pairs || []).map((p) => [p.sceneIndex, p.bContractHash])); for (const row of rows) if (ph[row.sceneIndex]) row.bContractHash = ph[row.sceneIndex]; } catch {}
   // beats the preview did not render because the timing rule kept A — carried so select names the real reason
   try { for (const d of readJSON(path.join(previewDir, "pairs.json")).timingDropped || []) rows.push({ sceneIndex: d.sceneIndex, dropped: d.why }); } catch {}
   const out = { schema: "single-relation-ab/1", raters: "agents (never human)", rows };
