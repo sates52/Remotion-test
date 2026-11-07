@@ -1,0 +1,40 @@
+{
+ "schema": "c19-third-example/1",
+ "recordedAt": "2026-11-07T08:22:36.648Z",
+ "rule": "chosen and recorded BEFORE any reusable C19 part (sequence continuity, actions, custom objects) is written, so the transfer test is not picked after the fact (operator)",
+ "book": "the-lightning-thief",
+ "scenes": [
+  149,
+  150
+ ],
+ "interaction": "a character takes an object out of her bag and throws it; a creature (Cerberus) takes it and reacts — different from striking (Burn) and removing (Feel-Good)",
+ "narration": {
+  "149": "level battle to get past the gates. Percy is ready to uncap his sword. Instead, Annabth pulls a red rubber ball the size of a grapefruit out of her bag and toss",
+  "150": "beast in the And Cberus loves it because underneath the terrifying mythic exterior, he's just another neglected creature in this pantheon."
+ },
+ "cast": [
+  "percy",
+  "annabeth",
+  "grover",
+  "luke",
+  "poseidon",
+  "zeus",
+  "hades",
+  "ares",
+  "sally",
+  "gabe"
+ ],
+ "expectedReuse": [
+  "sequence continuity across a cut (same character, carried object state)",
+  "person action poses",
+  "object travel (moveTo)",
+  "book-own custom icon (Cerberus) via motifs.json/customSvg"
+ ],
+ "expectedGaps": [
+  "Cerberus is not a cast member and no vocabulary glyph is a dog: a book-own icon is a book asset, not renderer code; anything else needing book-specific renderer code is reported"
+ ],
+ "candidatesConsidered": [
+  "as-good-as-dead #156 (snaps the SIM card in half: too close to the Burn split)",
+  "crazy-rich-asians #143 (snaps a covert photo: no visible result on an object)"
+ ]
+}
