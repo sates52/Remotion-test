@@ -482,7 +482,7 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         ...BASE, armR: arm, elbowR: 0, armL: frame < cue ? lerp(10, -150, up) : lerp(-150, CHOP_STRIKE_ARM + 20, down), elbowL: 0,
         lean: frame < cue ? lerp(0, -6, up) : lerp(-6, 12, down), legL: -8, legR: 10, kneeL: 6, kneeR: 4,
         hipY: frame < cue ? 0 : 8 * down, browY: 4, blink, gazeX: 0.7, gazeY: 0.5, carried: 1,
-        impact: frame >= cue ? Math.max(0, 1 - (frame - cue - CHOP_DOWN) / 10) : 0,
+        impact: frame >= cue + CHOP_DOWN ? Math.max(0, 1 - (frame - cue - CHOP_DOWN) / 10) : 0,
       };
     }
     case "throw": {

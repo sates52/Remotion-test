@@ -144,6 +144,9 @@ export const RemotionRoot: React.FC = () => {
                 height={1080}
                 schema={antidoteBookSchema}
                 defaultProps={{ config: ANTIDOTE_LAB } as any}
+                // C19: an isolated A/B config passed as inputProps sets its own length (60–90 s episode windows
+                // outgrew the lab reel's fixed 1680 frames); the dev reel itself is unchanged
+                calculateMetadata={({ props }: any) => ({ durationInFrames: Math.max(1, Math.round(props?.config?.meta?.durationInFrames ?? ANTIDOTE_LAB.meta.durationInFrames)) })}
             />
 
             {/* Antidote 4.0 Phase A — MULTIPLANE (2.5D depth parallax) + LOOK-AT

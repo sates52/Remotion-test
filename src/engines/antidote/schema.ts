@@ -325,6 +325,8 @@ export const characterSchema = z.object({
   /** AUTHORED action moment (art.json `actionCue`, 2026-10-20): scene-relative frame where `take` closes the
    *  hand on its object / `embrace` makes contact. Same clock as `at`. Absent = the beat's 40% point. */
   actionAt: z.number().optional(),
+  /** C19: `actionAt` was put on the narrator's word by a shot plan — kept exactly (no minimum lead-in) */
+  cueExact: z.boolean().optional(),
   /** Horizontal travel across the beat, in stage px: [fromDx, toDx]. Pair with
    *  `action: "walk"` and the figure actually crosses the set instead of
    *  marching on the spot. */
@@ -447,6 +449,8 @@ export const propSchema = z.object({
   motionAt: z.number().optional(),
   /** C19 `split`: where the strike lands, as a share of the icon's width (0 left … 1 right; default 0.5) */
   splitAt: z.number().min(0.1).max(0.9).optional(),
+  /** C19 `split`: the base the halves fall around, as a share of the icon's height (the log's foot; default 1) */
+  splitBase: z.number().min(0.1).max(1).optional(),
   /** Secondary visual anchor for character drama (keeps motif alive in background) */
   isSecondaryAnchor: z.boolean().optional(),
   /** Dynamic vector paths for custom motifs generated on the fly by AI Art Director */
@@ -458,6 +462,8 @@ export const propSchema = z.object({
       stroke: z.string().optional(),
       strokeWidth: z.number().optional(),
       opacity: z.number().optional(),
+      /** C19 `split`: this part does NOT split (the chopping block under the log) */
+      fixed: z.boolean().optional(),
     })).default([]),
     title: z.string().optional(),
   }).optional(),
