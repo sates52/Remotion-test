@@ -1,0 +1,153 @@
+{
+ "schema": "stills/1",
+ "name": "single-relation A/B the-choice-factory",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 6,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s25-A",
+   "config": "configs/s25-A.json",
+   "frames": [
+    285,
+    367,
+    448
+   ],
+   "strip": true
+  },
+  {
+   "id": "s25-B",
+   "config": "configs/s25-B.json",
+   "frames": [
+    285,
+    367,
+    448
+   ],
+   "strip": true
+  },
+  {
+   "id": "s136-A",
+   "config": "configs/s136-A.json",
+   "frames": [
+    340,
+    422,
+    503
+   ],
+   "strip": true
+  },
+  {
+   "id": "s136-B",
+   "config": "configs/s136-B.json",
+   "frames": [
+    340,
+    422,
+    503
+   ],
+   "strip": true
+  },
+  {
+   "id": "s187-A",
+   "config": "configs/s187-A.json",
+   "frames": [
+    304,
+    411,
+    518
+   ],
+   "strip": true
+  },
+  {
+   "id": "s187-B",
+   "config": "configs/s187-B.json",
+   "frames": [
+    304,
+    411,
+    518
+   ],
+   "strip": true
+  },
+  {
+   "id": "s199-A",
+   "config": "configs/s199-A.json",
+   "frames": [
+    429,
+    545,
+    662
+   ],
+   "strip": true
+  },
+  {
+   "id": "s199-B",
+   "config": "configs/s199-B.json",
+   "frames": [
+    429,
+    545,
+    662
+   ],
+   "strip": true
+  },
+  {
+   "id": "s210-A",
+   "config": "configs/s210-A.json",
+   "frames": [
+    276,
+    345,
+    413
+   ],
+   "strip": true
+  },
+  {
+   "id": "s210-B",
+   "config": "configs/s210-B.json",
+   "frames": [
+    276,
+    345,
+    413
+   ],
+   "strip": true
+  },
+  {
+   "id": "s299-A",
+   "config": "configs/s299-A.json",
+   "frames": [
+    349,
+    429,
+    508
+   ],
+   "strip": true
+  },
+  {
+   "id": "s299-B",
+   "config": "configs/s299-B.json",
+   "frames": [
+    349,
+    429,
+    508
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "0b2617a6f0e16029",
+ "files": {
+  "stills/configs/s25-A.json": "62a61c5fbfeef0a44b836173584683dcfa90d4b25ded3cb96e0e30fc80003ebf",
+  "stills/configs/s25-B.json": "e60258df174c90747dacff03df950247b0ef0120566fca37bfa2f776594b2c1a",
+  "stills/configs/s136-A.json": "4717df1fa0d018c9dd6e09e3bfc624e151f714e4a4eef124c73813c44c814512",
+  "stills/configs/s136-B.json": "fc7ab623a2b32f660852a9fb3d714a9caf7bd6df8f86cb6edcbb6e490b256c01",
+  "stills/configs/s187-A.json": "93ddc9765c27c34bf61d5b756c435e58c87ab79440c9322dbc38547cd493fd24",
+  "stills/configs/s187-B.json": "22e9a4ab6bac868b989c7ed64ab280d86a353b1683e6597b7add068d0d81635a",
+  "stills/configs/s199-A.json": "6e7754f57e4b6687f3a66db50c3dc125f84919dd5278f08cec1fe5a0b95b9ab4",
+  "stills/configs/s199-B.json": "8c20bc070f008cb85ab422751cb36939d2fa893d70fbc4ad8ff64b8449907fd3",
+  "stills/configs/s210-A.json": "036fc0f9ac9562e6fdea57c8110e1740f77c1e7bfabdf2bc1d38a3a07ac06c93",
+  "stills/configs/s210-B.json": "3ebfea2772c208eae35ed6e447d2af8412eef6a4f35864abdbb19663eb5eeab3",
+  "stills/configs/s299-A.json": "39a7c6a820fb586df6b0a124db74cd8304b68b58e6e366010ed71fed1a4ebfb9",
+  "stills/configs/s299-B.json": "b611d1f8835711beb1e99209f7d2224e0f61ba7c9999796630c0c74cc26b84d4"
+ },
+ "builtAt": "2026-11-07T04:58:07.616Z"
+}
