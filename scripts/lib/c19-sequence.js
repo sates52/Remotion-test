@@ -28,6 +28,11 @@ const ACTIONS = ["idle", "talk", "point", "celebrate", "slump", "think", "walk",
 // the narration words that name each hand object (grounding: an object is drawn only when the narration names it)
 const HAND_WORDS = { axe: ["axe", "ax", "hacking", "chop"], shoe: ["shoe", "sneaker"], pebble: ["pebble", "stone", "rock"], ball: ["ball"], sword: ["sword", "blade"],
   book: ["book"], phone: ["phone"], key: ["key"], letter: ["letter"], coin: ["coin", "money", "cash"], cup: ["cup", "coffee", "tea"], wrench: ["wrench", "tool"] };
+// the shots whose preset frames a FULL body (src/engines/antidote/shots.ts charsFull); any other shot is waist-up and a
+// forced full body there crops the head off the frame (C19 e2e, the-choice-factory 123)
+const FULL_SHOTS = ["wide", "silhouette", "lowAngle", "crowd", "illustration", "diorama"];
+// actions the legs carry: they need a full-body shot
+const LEG_ACTIONS = ["run", "stop", "chop", "walk", "flee", "leave"];
 const norm = (s) => String(s || "").toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, " ").replace(/\s+/g, " ").trim();
 const sha = (x) => crypto.createHash("sha256").update(JSON.stringify(x)).digest("hex").slice(0, 16);
 
@@ -53,7 +58,8 @@ function compileBeat(config, b, motifs = {}) {
     // "keep": this shot shows the beat's own authored staging (e.g. the establishing shot before the action is told)
     const st = sh.stage === "keep" ? JSON.parse(JSON.stringify({ shot: scene.shot, bg: scene.bg, camera: scene.camera, characters: scene.characters || [], props: scene.props || [], texts: scene.texts || [] })) : JSON.parse(JSON.stringify(sh.stage || {}));
     const keep = sh.stage === "keep";
-    const characters = keep ? (st.characters || []) : (st.characters || []).map((c) => ({ rig: "everyman", enter: "none", silhouette: false, lookAt: "viewer", body: "full", expression: "neutral", action: "idle", role: c.identity, id: `${c.identity}-c`, ...c }));
+    const full = FULL_SHOTS.includes(st.shot || scene.shot);
+    const characters = keep ? (st.characters || []) : (st.characters || []).map((c) => ({ rig: "everyman", enter: "none", silhouette: false, lookAt: "viewer", ...(full ? { body: "full" } : {}), expression: "neutral", action: "idle", role: c.identity, id: `${c.identity}-c`, ...c }));
     for (const [ci, phrase] of Object.entries(sh.cues || {})) {
       const f = findPhrase(W, phrase, from);
       if (f == null || f >= to) throw new Error(`beat ${b.sceneIndex} shot ${k + 1}: cue "${phrase}" is not said inside the shot (${from}–${to})`);
@@ -104,6 +110,7 @@ function validate(c, config, ctx = {}) {
       for (const ch of sh.characters) {
         if (!cast.includes(ch.identity)) err(`${where}: "${ch.identity}" is not in the book's cast`);
         if (!ACTIONS.includes(ch.action)) err(`${where}: action "${ch.action}" is not an Antidote action`);
+        if (LEG_ACTIONS.includes(ch.action) && ch.body !== "full") err(`${where}: "${ch.action}" needs the legs — use a full-body shot (${FULL_SHOTS.join(", ")})`);
         if (CUED.includes(ch.action) && !(b.shots[k].cues && Object.values(b.shots[k].cues).length && ch.cueExact)) err(`${where}: "${ch.action}" must be cued on the narrator's word (cues)`);
         if (ch.holds && !named(HAND_WORDS[ch.holds] || [ch.holds], around)) err(`${where}: "${ch.holds}" is drawn but the narration never names it`);
         const look = JSON.stringify(ch.variant || {});
@@ -150,4 +157,4 @@ function apply(config, c, ctx = {}) {
 /** is this contract live in the config (every beat carries its shots with this contract's hash)? */
 const isLive = (config, entry) => entry.beats.every((i) => { const s = config.scenes[i]; return s && s.shots && s._c19 && s._c19.contractHash === entry.contractHash; });
 
-module.exports = { SCHEMA, CUED, ACTIONS, HAND_WORDS, compileBeat, validate, apply, isLive };
+module.exports = { SCHEMA, CUED, ACTIONS, HAND_WORDS, FULL_SHOTS, compileBeat, validate, apply, isLive };

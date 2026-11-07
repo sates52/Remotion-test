@@ -98,6 +98,15 @@ ok("carried state: a result needs its cause earlier in the sequence, in the SAME
   assert.ok(C19.validate(e, config(), ctx).some((m) => /consecutive/.test(m)));
 });
 
+ok("framing: full body only in a full-body shot (a waist-up shot keeps the head in frame); legs need a full shot", () => {
+  const cfg = config(), b = { sceneIndex: 1, shots: [{ at: null, stage: { shot: "medium", characters: [{ identity: "luther", action: "hold", holds: "axe" }] } }] };
+  assert.strictEqual(C19.compileBeat(cfg, b, motifs)[0].characters[0].body, undefined);
+  b.shots[0].stage.shot = "wide";
+  assert.strictEqual(C19.compileBeat(cfg, b, motifs)[0].characters[0].body, "full");
+  const c = withSplit(contract()); c.beats[0].shots[1].stage.shot = "medium";
+  assert.ok(C19.validate(c, config(), ctx).some((e) => /"chop" needs the legs/.test(e)));
+});
+
 ok("status after a rebuild and revert of the whole sequence", () => {
   const cfg = config(), r = C19.apply(cfg, withSplit(contract()), ctx);
   const record = { scenes: [{ kind: "c19", sceneIndex: 1, beats: [1, 2], contractHash: r.contractHash, previousBeats: r.previous }] };
