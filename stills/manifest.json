@@ -1,0 +1,98 @@
+{
+ "schema": "stills/1",
+ "name": "c19 smoke: run/stop/chop+split/throw",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "run",
+   "config": "configs/smoke.json",
+   "frames": [
+    14,
+    36,
+    50,
+    56,
+    68,
+    86
+   ],
+   "strip": true
+  },
+  {
+   "id": "stop",
+   "config": "configs/smoke.json",
+   "frames": [
+    104,
+    126,
+    140,
+    146,
+    158,
+    176
+   ],
+   "strip": true
+  },
+  {
+   "id": "chop",
+   "config": "configs/smoke.json",
+   "frames": [
+    194,
+    216,
+    230,
+    236,
+    248,
+    266
+   ],
+   "strip": true
+  },
+  {
+   "id": "split-kept",
+   "config": "configs/smoke.json",
+   "frames": [
+    284,
+    306,
+    320,
+    326,
+    338,
+    356
+   ],
+   "strip": true
+  },
+  {
+   "id": "throw",
+   "config": "configs/smoke.json",
+   "frames": [
+    374,
+    396,
+    410,
+    416,
+    428,
+    446
+   ],
+   "strip": true
+  },
+  {
+   "id": "clip",
+   "config": "configs/smoke.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 449
+   }
+  }
+ ],
+ "inputHash": "59332fc8fa04300c",
+ "files": {
+  "stills/configs/smoke.json": "d60201e4c59b91c8bd3206cb2788883123625a8c6a94e8faea550fa14550318f"
+ },
+ "builtAt": "2026-11-07T08:34:54.683Z"
+}
