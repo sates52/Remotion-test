@@ -103,11 +103,14 @@ function plan(config, selection, { now = new Date().toISOString(), tool = null }
   // cycle 18 timing rule: the narrator's result phrase must be found in the word timings and the compiled change may
   // not start before it (and must fit, held, in the beat) — otherwise THAT B is dropped and its scene keeps A; the
   // others go on. A passing contract goes in anchored (its derived anchors written into it).
-  // validity first: one invalid contract refuses the whole apply (nothing written), as before the timing rule
-  const pre = applyContracts(config, raw);
-  if (!pre.ok) return pre;
+  // validity per beat (operator, cycle 19): a contract invalid at apply time keeps ITS scene's A with the validator's
+  // reason; the other valid B scenes go on (it used to refuse the whole apply)
   const { wordsOf } = require("./apply-single-relation");
   const contracts = {}, timing = {}, dropped = [];
+  for (const [i, c] of Object.entries(raw)) {
+    const one = applyContracts(config, { [i]: c });
+    if (!one.ok) { dropped.push({ sceneIndex: Number(i), keep: "A", why: `invalid at apply: ${one.errors.slice(0, 3).join("; ")}` }); delete raw[i]; }
+  }
   for (const [i, c] of Object.entries(raw)) {
     const v = SR.verifyTiming(c, config.scenes[i], wordsOf(config, config.scenes[i]));
     if (!v.ok) { dropped.push({ sceneIndex: Number(i), keep: "A", why: `timing: ${v.reason}` }); continue; }

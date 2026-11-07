@@ -89,10 +89,15 @@ ok("plan: the record keeps the previous scene, a diff and the A/B", () => {
   const s = p.record.scenes[0];
   assert.strictEqual(s.sceneIndex, 1); assert.deepStrictEqual(s.previous, before.scenes[1]); assert.deepStrictEqual(s.ab, { A: 10, B: 80, wiA: 0, wiB: 0 }); assert(/medium→/.test(s.diff.shot));
 });
-ok("plan: an invalid contract refuses everything (nothing to write)", () => {
+ok("plan (cycle 19): a contract invalid at apply time keeps ITS scene's A with the reason; the other valid B goes in", () => {
   W(path.join(C, "contracts", "9.json"), { ...contract, evidence: "a sentence the narration never says at all" });
-  const bad = RO.plan(before, { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "9.json"), ab: {} }], kept: [] });
-  assert.strictEqual(bad.ok, false);
+  const mixed = RO.plan(before, { chosen: [{ sceneIndex: 2, contract: path.join(C, "contracts", "9.json"), ab: {} }, { sceneIndex: 1, contract: path.join(C, "contracts", "1.json"), ab: { A: 10, B: 80 } }], kept: [] });
+  assert(mixed.ok, JSON.stringify(mixed.errors));
+  assert.deepStrictEqual(mixed.record.scenes.map((x) => x.sceneIndex), [1]);
+  assert(/^invalid at apply: /.test(mixed.record.kept.find((k) => k.sceneIndex === 2).why), JSON.stringify(mixed.record.kept));
+  assert.deepStrictEqual(mixed.config.scenes[2], before.scenes[2]);
+  const onlyBad = RO.plan(before, { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "9.json"), ab: {} }], kept: [] });
+  assert(onlyBad.ok && onlyBad.record.scenes.length === 0 && onlyBad.config === before);
 });
 ok("policy (cycle 18): no per-book scene cap — every B that wins and passes goes in", () => {
   assert.strictEqual(RO.POLICY.perBook.maxScenes, null);
