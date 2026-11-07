@@ -165,8 +165,13 @@ function noneCoverage(dir) {
 function status(config, record) {
   if (!record || !record.scenes.length) return { state: "NONE", missing: [] };
   const live = record.scenes.filter((s) => !(record.reverted || []).includes(s.sceneIndex));
-  const missing = live.filter((s) => { const sc = config.scenes[s.sceneIndex]; const L = sc && sc._authorship && sc._authorship.lock; return !(sc && sc.singleRelation && L && L.singleRelation && L.singleRelation.contractHash === s.contractHash); });
-  const off = live.length && !(config.meta && config.meta.singleRelation === true);
+  // C19 sequences (kind "c19"): live when every beat of the contract carries its shots with this contract's hash
+  const C19 = require("./lib/c19-sequence");
+  const missing = live.filter((s) => {
+    if (s.kind === "c19") return !C19.isLive(config, s);
+    const sc = config.scenes[s.sceneIndex]; const L = sc && sc._authorship && sc._authorship.lock; return !(sc && sc.singleRelation && L && L.singleRelation && L.singleRelation.contractHash === s.contractHash);
+  });
+  const off = live.some((s) => s.kind !== "c19") && !(config.meta && config.meta.singleRelation === true);
   return { state: missing.length || off ? "MISSING" : live.length ? "ACTIVE" : "NONE", missing: missing.map((s) => s.sceneIndex), active: live.length - missing.length, metaOff: !!off };
 }
 
@@ -175,11 +180,13 @@ function revert(config, record, only = null) {
   for (const s of record.scenes) {
     if ((record.reverted || []).includes(s.sceneIndex)) continue;
     if (only && !only.includes(s.sceneIndex)) continue;
-    scenes[s.sceneIndex] = s.previous;
+    // a C19 sequence goes back as ONE unit: every beat of the contract returns to its previous version
+    if (s.kind === "c19") for (const [i, prev] of Object.entries(s.previousBeats || {})) scenes[Number(i)] = prev;
+    else scenes[s.sceneIndex] = s.previous;
     done.push(s.sceneIndex);
   }
   const reverted = [...(record.reverted || []), ...done];
-  const left = record.scenes.filter((s) => !reverted.includes(s.sceneIndex)).length;
+  const left = record.scenes.filter((s) => !reverted.includes(s.sceneIndex) && s.kind !== "c19").length;
   const meta = { ...config.meta };
   if (!left) delete meta.singleRelation;
   return { config: { ...config, meta, scenes }, record: { ...record, reverted }, done };
@@ -244,12 +251,27 @@ if (require.main === module) {
     if (!record) { if (args.pipeline) { console.log(`no single-relation rollout record for ${slug} — nothing to re-apply`); process.exit(0); } console.error("no active record"); process.exit(2); }
     if (!args.pipeline) gate();
     const already = new Set(status(config, record).state === "ACTIVE" ? record.scenes.map((s) => s.sceneIndex) : []);
-    const live = record.scenes.filter((s) => !(record.reverted || []).includes(s.sceneIndex) && !already.has(s.sceneIndex));
-    if (!live.length) { console.log(`${slug}: every recorded B scene is already in the config`); process.exit(0); }
+    const liveAll = record.scenes.filter((s) => !(record.reverted || []).includes(s.sceneIndex) && !already.has(s.sceneIndex));
+    if (!liveAll.length) { console.log(`${slug}: every recorded B scene is already in the config`); process.exit(0); }
+    // C19 sequences first (each atomic, from its recorded contract), then the single-relation scenes on that config
+    let cfgNow = config;
+    const C19 = require("./lib/c19-sequence");
+    let motifs = {}; try { motifs = JSON.parse(fs.readFileSync(path.join(P.B, "motifs.json"), "utf8")); } catch {}
+    for (const s of liveAll.filter((x) => x.kind === "c19")) {
+      if (C19.isLive(cfgNow, s)) continue;
+      const moved = (s.beats || []).filter((i) => sha(String((cfgNow.scenes[i] || {})._narration || "")) !== (s.narrationHashes || {})[i]);
+      if (moved.length) { console.error(`✗ C19 ${s.sceneIndex}: the narration of beat(s) ${moved.join(", ")} changed since the apply — re-author (revert first)`); process.exit(1); }
+      const c = readJSON(path.join(P.contracts, `c19-${s.sceneIndex}.json`));
+      const r = C19.apply(cfgNow, c, { motifs });
+      if (!r.ok) { console.error(`✗ C19 ${s.sceneIndex} refused: ${r.errors.join("; ")}`); process.exit(1); }
+      cfgNow = r.config;
+    }
+    const live = liveAll.filter((x) => x.kind !== "c19");
+    if (!live.length) { if (!args.write) { console.log("dry run: C19 sequence(s) would be re-applied"); process.exit(0); } writeCfg(cfgNow); console.log(`✓ re-applied C19 sequence(s) [${liveAll.map((s) => s.sceneIndex).join(", ")}]`); process.exit(0); }
     const changed = live.filter((s) => sha(String((config.scenes[s.sceneIndex] || {})._narration || "")) !== s.narrationHash);
     if (changed.length) { console.error(`✗ the narration of scene(s) ${changed.map((s) => s.sceneIndex).join(", ")} changed since the apply — re-author and re-run select / apply (revert first)`); process.exit(1); }
     const selection = { chosen: live.map((s) => ({ sceneIndex: s.sceneIndex, contract: path.join(P.contracts, `${s.sceneIndex}.json`), review: s.review, ab: s.ab })), kept: record.kept };
-    const r = plan(config, selection, { tool: toolRev });
+    const r = plan(cfgNow, selection, { tool: toolRev });
     if (!r.ok) { console.error(`✗ refused:\n  ${r.errors.join("\n  ")}`); process.exit(1); }
     if (!args.write) { console.log(`dry run: ${live.length} scene(s) would be re-applied`); process.exit(0); }
     writeCfg(r.config);

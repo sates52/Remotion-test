@@ -902,6 +902,17 @@ export const relationshipStagingSchema = z.object({
   cues: z.object({ means: stagingCue, lie: stagingCue.optional(), rejected: stagingCue.optional(), negation: stagingCue.optional(), counter: stagingCue.optional() }).optional(),
 });
 
+/** C19 BEAT SHOT: one shot cut INSIDE a beat on the narrator's word. from/to are beat-relative frames; the shot brings
+ *  its own staging (absent characters / props / texts = none), the beat keeps its id, start, length and transition. */
+export const beatShotSchema = z.object({
+  from: z.number(), to: z.number(),
+  shot: z.string().optional(), bg: z.any().optional(), camera: z.any().optional(),
+  characters: z.array(characterSchema).optional(), props: z.array(propSchema).optional(), texts: z.array(z.any()).optional(),
+  /** the narrator's word the shot was cut on (null for the first shot) — provenance, not read by the renderer */
+  cutAt: z.string().nullable().optional(),
+});
+export type BeatShot = z.infer<typeof beatShotSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
@@ -947,6 +958,8 @@ export const sceneSchema = z.object({
    * build in) — continuity.ts. Only the author sets it; absent = a scene of its own.
    */
   continueFromPrev: z.literal(true).optional(),
+  /** C19: the beat's consecutive shots (see beatShotSchema) — drawn instead of the beat's own staging */
+  shots: z.array(beatShotSchema).optional(),
   /** the planner's stamp on an authored continuation (10x P1, continuity.ts): the END STATE of the previous deed is
    *  this beat's starting state (she stays in the tub, he stays seated). Absent on every config planned before it. */
   carryState: z.literal(true).optional(),

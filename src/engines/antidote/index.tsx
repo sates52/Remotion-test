@@ -5,7 +5,7 @@ import { RelationshipHold, HOLD_FRAMES } from "./components/RelationshipStage";
 import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
-import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig } from "./schema";
+import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
 import { endStateOf, keepsRest } from "./endState";
@@ -63,7 +63,25 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
             durationInFrames={scene.durationFrames + transIn}
             name={scene.id}
           >
-            <Scene scene={continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} />
+            {(() => {
+              const beat = continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene;
+              const shots = (scene as { shots?: BeatShot[] }).shots;
+              if (!shots || !shots.length) return <Scene scene={beat} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} />;
+              // C19 BEAT SHOTS: the beat keeps its id, order, start, length and transition; its shots are cut INSIDE it
+              // on the narrator's words (from/to are beat-relative). The beat transition enters the first shot only;
+              // every later shot is a hard cut. A shot carries its own staging and inherits only the beat's records.
+              return shots.map((sh, k) => {
+                const len = sh.to - sh.from;
+                const sub = { ...beat, shot: sh.shot ?? beat.shot, bg: { ...(beat.bg || {}), ...(sh.bg || {}) }, camera: sh.camera ?? { zoom: [1, 1], panX: [0, 0], panY: [0, 0] },
+                  characters: sh.characters ?? [], props: sh.props ?? [], texts: sh.texts ?? [], id: `${scene.id}#${k + 1}`, fromFrame: scene.fromFrame + sh.from, durationFrames: len,
+                  transition: k === 0 ? beat.transition : { type: "cut" as const, frames: 0 }, continueFromPrev: undefined, carryState: undefined } as typeof scene;
+                return (
+                  <Sequence key={`${scene.id}-shot${k}`} from={k === 0 ? 0 : transIn + sh.from} durationInFrames={k === 0 ? transIn + len : len} name={`${scene.id}#${k + 1}`} layout="none">
+                    <Scene scene={sub} transIn={k === 0 ? transIn : 0} cast={config.meta.cast} multiplane={config.meta.multiplane} singleRelation={false} />
+                  </Sequence>
+                );
+              });
+            })()}
           </Sequence>
         );
       })}
