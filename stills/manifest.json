@@ -1,0 +1,38 @@
+{
+ "schema": "stills/1",
+ "name": "c19: Motion 1 B scene in production config (the-choice-factory 299, read-only copy)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "cf-299-B",
+   "config": "configs/cf-298-300.json",
+   "frames": [
+    296,
+    349,
+    402,
+    455,
+    508
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 825
+   }
+  }
+ ],
+ "inputHash": "ffaeeef25592ec2b",
+ "files": {
+  "stills/configs/cf-298-300.json": "e13a460b2467e0e1a1ebf190eb7a078b9ca42becb9930988221ed0b03821d7d2"
+ },
+ "builtAt": "2026-11-07T10:17:37.749Z"
+}
