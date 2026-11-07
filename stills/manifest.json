@@ -1,0 +1,37 @@
+{
+ "schema": "stills/1",
+ "name": "C19 A/B the-lightning-thief",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [],
+ "jobs": [
+  {
+   "id": "thief-s149-B2",
+   "config": "configs/s149-B.json",
+   "frames": [
+    357,
+    407,
+    472,
+    504,
+    510,
+    595,
+    600,
+    606,
+    698,
+    753
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 980
+   }
+  }
+ ],
+ "inputHash": "03abda84dbccebee",
+ "files": {
+  "stills/configs/s149-B.json": "1067633bd7722451fe6dbec1f4c381f9eeb1e42c1f35b1b4742a532fa755e78e"
+ },
+ "builtAt": "2026-11-07T13:53:01.976Z"
+}
