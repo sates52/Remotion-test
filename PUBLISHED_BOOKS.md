@@ -1439,3 +1439,11 @@ ready player one, ready player one summary, ready player one explained, ready pl
   - Remotes: 11 render branches purged via purge-render-branches.js (1 assemble ref + 10 worker seg refs).
   - Local: removed out/the-creative-curve.mp4, out/thumbnail-the-creative-curve.png, out/the-creative-curve/ bundle, public/audio/the-creative-curve.mastered.m4a, .render-github-state.json (render-purge.js, ~2.97 GB freed).
 - **Kept:** books/the-creative-curve/ source, public/captions/the-creative-curve.clean.vtt.
+## the-maze-runner (James Dashner) — Antidote
+- **Status:** Published on YouTube (operator-confirmed, 2026-11-07).
+- **Length:** 54,029 frames (30.2 min); technical VERIFIED in cloud assembly (run 42174504999), full decode clean, audio present, 471 MB. Join dropouts: 138 (DEFECT_REPORTED).
+- **Render:** 10-worker GitHub split render, all 10 segments on the pool; operator-accepted quality debt (323 REVIEW keys) for this render only.
+- **Quality provenance:** sealed blind mute test PASS (WRONG 0/30, dead 2/30, ADDS 8/30 text-carried, EXPLAINS 0/30).
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail was never generated (A/B/C files absent at upload).
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-07: render-github-cleanup.js (10 artifacts, 10 runs, ~437 MB), purge-render-branches.js (12 refs), render-purge.js (film, 0.47 GB). Local mp3, mastered audio, raw VTT removed.
+- **Kept:** committed source under `books/the-maze-runner/`, and `public/captions/the-maze-runner.clean.vtt`.

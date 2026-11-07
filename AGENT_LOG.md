@@ -7335,3 +7335,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Render: 10 segments, cloud assembly run 41097267324, 66,277/66,277 frames, full decode clean, 885.9 MB. Download via `render-github-cloud-assemble.js --fetch`.
 - Cleanup (operator order): `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (render/ refs on workers), `render-purge.js` (local film and thumbnails, ~887 MB). The GitHub cleanup's local step also removed the raw mp3, mastered audio, raw `.vtt` and the split state file. `clean.vtt` is kept.
 - Engine backlog (not fixed): (1) maintenance pin reset moved `preview-state.js` mute scope, so run2 stopped counting after the upgrade; (2) quality-debt acceptance and render authorization share one record; (3) seal manifest lacks config identity; (4) 43 absence and 7 state visual gaps plus 33 unresolved strategies remain open for Antidote 10x.
+
+### ✅ 2026-11-07 — the-maze-runner — PUBLISHED & CLEANED (Antidote)
+- Operator confirmed the YouTube upload is live and ordered cleanup. Render: 10 segments, cloud assembly run 42174504999, 54,029/54,029 frames, decode clean, 471 MB.
+- Cleanup: `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (12 refs, `render/` only), `render-purge.js` (film 471 MB). Raw mp3, mastered audio and raw VTT removed; `clean.vtt` kept.
+- Open: join dropouts 138 (DEFECT_REPORTED); thumbnail A/B/C never generated, so the pack's Test & Compare step was not done.
