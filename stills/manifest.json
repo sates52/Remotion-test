@@ -1,0 +1,65 @@
+{
+ "schema": "stills/1",
+ "name": "single-relation A/B how-to-make-money-in-stocks",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s135-A",
+   "config": "configs/s135-A.json",
+   "frames": [
+    431,
+    512,
+    592
+   ],
+   "strip": true
+  },
+  {
+   "id": "s135-B",
+   "config": "configs/s135-B.json",
+   "frames": [
+    431,
+    512,
+    592
+   ],
+   "strip": true
+  },
+  {
+   "id": "s189-A",
+   "config": "configs/s189-A.json",
+   "frames": [
+    286,
+    358,
+    430
+   ],
+   "strip": true
+  },
+  {
+   "id": "s189-B",
+   "config": "configs/s189-B.json",
+   "frames": [
+    286,
+    358,
+    430
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "d778bf7c15b562cb",
+ "files": {
+  "stills/configs/s135-A.json": "fd6783dbf5e6dc392a4c4f653941cb15de3d614cf2944d6009809baddbbe4e93",
+  "stills/configs/s135-B.json": "8a3e402f0248a8da5fa9827b76f2fe821976e4058a6ce6431a89d101c18d5c48",
+  "stills/configs/s189-A.json": "e5d92af3e1284ec357a7c7d27ff5e83b003e15c25a23d0ab91238c0a7fb2c904",
+  "stills/configs/s189-B.json": "e0c7bd1d8f6c067c3cc9eb4eb757a6653a27309c68ff9b7fd251e5b0e5fbb8f3"
+ },
+ "builtAt": "2026-11-07T06:04:51.165Z"
+}
