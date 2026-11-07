@@ -1,0 +1,87 @@
+{
+"burn": {
+ "X": {
+  "contradictions": [
+   {"narration": "He is swinging an axe. Just hacking away. Swing, strike, split. (f1248-1397)", "shown": "No axe, no swing, no wood or split object in any frame; only an angry face in front of tree silhouettes."},
+   {"narration": "He's got this rough, untamed, dark beard from weeks on the road (f1740)", "shown": "Close-up faces (1440-1800) are clean-shaven; no beard."}
+  ],
+  "timing": [
+   {"result": "swing (axe swung)", "saidFrame": 1349, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "strike", "saidFrame": 1373, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "split (something split / shattered)", "saidFrame": 1397, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "weeks on the road (road scene)", "saidFrame": 1755, "firstVisibleFrame": 1600, "diff": -155},
+   {"result": "magic surging in his chest", "saidFrame": 1968, "firstVisibleFrame": "not shown", "diff": "not shown (only text at ~1980 over a surprised face)"}
+  ],
+  "flow": "partly - setup (alliance scale, marionette 'minds and bodies', foot soldier) matches the order; the axe/hacking beat is only a face plus text, road and magic text follow in order, but the key scene starts at 2205 before 'Find her' at 2230 (ok)."
+ },
+ "Y": {
+  "contradictions": [
+   {"narration": "He's got this rough, untamed, dark beard from weeks on the road (f1740)", "shown": "Frames 1440-1755 show the axe man with the split stump (no road scene) and the close-up at 1800 is clean-shaven."},
+   {"narration": "hunting down the largest, naughtiest, most difficult pieces of wood he can find to shatter (f1426-1592)", "shown": "A single small stump that split once; nothing is hunted or shattered further (frames 1430-1755 static split stump)."}
+  ],
+  "timing": [
+   {"result": "swing (axe raised/swung)", "saidFrame": 1349, "firstVisibleFrame": 1368, "diff": 19},
+   {"result": "strike (axe hits stump, spark)", "saidFrame": 1373, "firstVisibleFrame": 1377, "diff": 4},
+   {"result": "split (stump breaks into two halves)", "saidFrame": 1397, "firstVisibleFrame": 1400, "diff": 3},
+   {"result": "weeks on the road (road scene)", "saidFrame": 1755, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "magic surging in his chest", "saidFrame": 1968, "firstVisibleFrame": "not shown", "diff": "not shown (only text over a surprised face)"}
+  ],
+  "flow": "yes for the first half (scale, marionette, mirror, standing by the coast, axe, strike, split); partly overall - after the split it holds the same stump picture until 1755 and skips the road beat, then the key scene."
+ }
+},
+"feel": {
+ "X": {
+  "contradictions": [
+   {"narration": "Imagine you are running a marathon and your foot starts to ache (f396-492)", "shown": "No running figure; she stands in an office / holds a panel. No foot or shoe."},
+   {"narration": "You stop running. You take off your shoe. You find the pebble. You remove it. You resume running smoothly (f1328-1527)", "shown": "Orange room with her silhouette and a cracked panel (1328-1412), silhouette head with a maze (1420-1475), a tilting scale (1485-1540). No shoe, no pebble, no running."}
+  ],
+  "timing": [
+   {"result": "stop running", "saidFrame": 1328, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "take off shoe", "saidFrame": 1376, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "find the pebble", "saidFrame": 1412, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "remove the pebble", "saidFrame": 1467, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "resume running", "saidFrame": 1505, "firstVisibleFrame": "not shown", "diff": "not shown"}
+  ],
+  "flow": "no - the pebble-in-the-shoe sequence is replaced by office scenes, a scale, a maze, a triangle icon and a clock; only the scale/orbit/office backdrop and 'EMOTIONAL FRICTION' text (visible 1412, said friction f1443) relate."
+ },
+ "Y": {
+  "contradictions": [
+   {"narration": "You take off your shoe. You find the pebble. You remove it. (f1376-1476)", "shown": "She holds a tiny orange shoe on a T-stand from 1342 (before 'take off your shoe' is said) and a different grey/dark sneaker lies on the ground from 1400; the pebble is a small grey dot flicked into the sky, never seen inside a shoe."},
+   {"narration": "You try to watch an intense screaming David Goggins video while running (f624-742)", "shown": "Woman on screen at 495-560 is running but a maze scene with a silhouette head and the orange man is shown at 900-1170; no video or screen."}
+  ],
+  "timing": [
+   {"result": "stop running", "saidFrame": 1328, "firstVisibleFrame": 1335, "diff": 7},
+   {"result": "take off shoe", "saidFrame": 1376, "firstVisibleFrame": 1342, "diff": -34},
+   {"result": "find the pebble (pebble visible)", "saidFrame": 1412, "firstVisibleFrame": 1465, "diff": 53},
+   {"result": "remove the pebble (flicked away)", "saidFrame": 1467, "firstVisibleFrame": 1470, "diff": 3},
+   {"result": "resume running", "saidFrame": 1505, "firstVisibleFrame": 1500, "diff": -5}
+  ],
+  "flow": "yes - running (marathon, ache), stop, shoe held, shoe on the ground, pebble flicked away, running again, then the clock and 'NOT WHAT IT SEEMS' at the end; minor mismatches in the middle (maze scene and the Emotional Friction card at 1328-1412 interleave)."
+ }
+},
+"thief": {
+ "X": {
+  "contradictions": [
+   {"narration": "Annabeth pulls a red rubber ball out of her bag and tosses it (f149-254)", "shown": "The ball is held out on a stick-like stand at 130-165 before the narrator mentions it, then goes to the satchel (165-245) - the order is out first, then in - before the toss."},
+   {"narration": "She just plays fetch with the most terrifying beast (f295-341)", "shown": "Toss goes off the left edge over the other figure's head; no dog until 350."}
+  ],
+  "timing": [
+   {"result": "ball pulled out of bag", "saidFrame": 175, "firstVisibleFrame": 130, "diff": -45},
+   {"result": "ball tossed", "saidFrame": 245, "firstVisibleFrame": 248, "diff": 3},
+   {"result": "dog/Cerberus has the ball (plays fetch)", "saidFrame": 295, "firstVisibleFrame": 350, "diff": 55}
+  ],
+  "flow": "mostly yes - sword/standoff, ball, toss, Cerberus with the ball; the ball appears before it is narrated and Cerberus appears 55 frames after fetch."
+ },
+ "Y": {
+  "contradictions": [
+   {"narration": "She just plays fetch with the most terrifying beast (f295-341); Cerberus loves it", "shown": "A gold chess knight on a board stands where the beast would be; no ball and no three-headed dog are ever shown."}
+  ],
+  "timing": [
+   {"result": "ball pulled out of bag", "saidFrame": 175, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "ball tossed", "saidFrame": 245, "firstVisibleFrame": "not shown", "diff": "not shown"},
+   {"result": "dog/Cerberus plays fetch", "saidFrame": 295, "firstVisibleFrame": "not shown", "diff": "not shown"}
+  ],
+  "flow": "no - one static title card (two figures, chess knight, 'PLAYING FETCH WITH CERBERUS') until ~315, then two face close-ups; the narrated events are not shown."
+ }
+}
+}

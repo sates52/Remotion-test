@@ -1,0 +1,88 @@
+{
+"thief":{
+"X":{
+"contradictions":[
+{"narration":"'a red rubber ball the size of a grapefruit' / 'tosses it' / 'plays fetch with the most terrifying beast'","shown":"no ball and no toss at all; the only 'beast' stand-in is a yellow chess knight (a horse piece) on a chessboard next to two standing figures"},
+{"narration":"'Cerberus' (three-headed hellhound, 'terrifying beast')","shown":"a chess knight piece (horse) with the title text 'Playing fetch with Cerberus'; no dog shown"}
+],
+"timing":[
+{"result":"ball pulled from the bag","saidFrame":166,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"ball tossed","saidFrame":245,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"fetch with Cerberus / dog takes ball","saidFrame":305,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"'another' (neglected creature) - word on screen","saidFrame":540,"firstVisibleFrame":540,"diff":0}
+],
+"flow":"no - title tableau with chess knight stays static through the sword/ball/toss/fetch narration; only a close two-shot from 350 and the word 'ANOTHER' at 540 line up."},
+"Y":{
+"contradictions":[
+{"narration":"'pulls a red rubber ball ... out of her bag and tosses it' (ball first appears 166-228)","shown":"the ball is already held out in the right figure's hand at 130-155, before the narration mentions it; the pull from the bag is not visible"},
+{"narration":"'plays fetch with' the beast (the dog is the target of the toss)","shown":"the ball is thrown up and to the LEFT, off-screen past the other figure; the dog stands to the right afterwards with the ball on the ground at its feet, no catch or retrieval shown"}
+],
+"timing":[
+{"result":"ball pulled from the bag","saidFrame":166,"firstVisibleFrame":130,"diff":-36},
+{"result":"ball tossed","saidFrame":245,"firstVisibleFrame":248,"diff":3},
+{"result":"fetch with Cerberus / dog gets the ball (ball by the dog)","saidFrame":305,"firstVisibleFrame":350,"diff":45},
+{"result":"Cerberus on screen ('Cerberus' word)","saidFrame":396,"firstVisibleFrame":350,"diff":-46}
+],
+"flow":"yes mostly - sword/pen shown, ball held, ball tossed at the narrated moment, then the dog with the ball; the retrieval itself is skipped and the throw direction is away from the dog."}
+},
+"feel":{
+"X":{
+"contradictions":[
+{"narration":"'Option one ... David Goggins video while running' / 'Option two ... foot is a bloody stump'","shown":"orange silhouette, 'EMOTIONAL FRICTION' text, maze scene and more running; no video-watching or injured foot (absence, not an opposite)"},
+{"narration":"'You find the pebble ... You remove it'","shown":"the shoe is held and put on the ground, then a pebble leaves her hand in an arc far to the right; no direct contradiction, but the shoe stays on the ground afterwards while she runs again"}
+],
+"timing":[
+{"result":"running (marathon, 'running' word)","saidFrame":420,"firstVisibleFrame":405,"diff":-15},
+{"result":"stops running","saidFrame":1328,"firstVisibleFrame":1335,"diff":7},
+{"result":"takes off shoe","saidFrame":1354,"firstVisibleFrame":1342,"diff":-12},
+{"result":"finds the pebble","saidFrame":1400,"firstVisibleFrame":1395,"diff":-5},
+{"result":"pebble removed","saidFrame":1462,"firstVisibleFrame":1470,"diff":8},
+{"result":"resumes running smoothly","saidFrame":1505,"firstVisibleFrame":1500,"diff":-5}
+],
+"flow":"yes - running, stop, shoe off, pebble found, removed, running again follow the narrated order within about 15 frames; the three-options middle section is abstract (silhouette, maze) rather than literal."},
+"Y":{
+"contradictions":[
+{"narration":"'Imagine you are running a marathon' / 'You stop running' / 'take off your shoe' / 'find the pebble' / 'remove it' / 'resume running'","shown":"no running, shoe or pebble anywhere; instead a woman holding an orange panel, a scale that tips over, a glasses-and-beard man with a rotating triangle and orange dot, a cracked clock"}
+],
+"timing":[
+{"result":"running (marathon)","saidFrame":420,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"stops running","saidFrame":1328,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"takes off shoe","saidFrame":1354,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"finds the pebble","saidFrame":1400,"firstVisibleFrame":"not shown (only an abstract triangle with orange dot from 1376)","diff":"not shown"},
+{"result":"pebble removed","saidFrame":1462,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"resumes running smoothly","saidFrame":1505,"firstVisibleFrame":"not shown","diff":"not shown"}
+],
+"flow":"no - the narrated stop/shoe/pebble/remove/run sequence is not depicted; shots are abstract metaphors (scale, panel, triangle, clock) that only loosely follow the topics."}
+},
+"burn":{
+"X":{
+"contradictions":[
+{"narration":"'rough, untamed, dark beard from weeks on the road' (1692-1772)","shown":"a clean-faced man standing with the axe and split stump, no beard, no road; the road scene is not in this version"},
+{"narration":"'hunting down the largest, naughtiest, most difficult pieces of wood' (plural, 1426-1592)","shown":"a single small stump, split once; no further wood"}
+],
+"timing":[
+{"result":"swinging an axe (axe in hand)","saidFrame":1248,"firstVisibleFrame":1170,"diff":-78},
+{"result":"strike lands","saidFrame":1373,"firstVisibleFrame":1377,"diff":4},
+{"result":"split","saidFrame":1397,"firstVisibleFrame":1400,"diff":3},
+{"result":"weeks on the road","saidFrame":1755,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"magic surging in his chest (surprised face, text)","saidFrame":1968,"firstVisibleFrame":1980,"diff":12},
+{"result":"pushing against his control (angry face, text)","saidFrame":2038,"firstVisibleFrame":2025,"diff":-13},
+{"result":"'Find her' (key appears)","saidFrame":2230,"firstVisibleFrame":2205,"diff":-25}
+],
+"flow":"yes - scale/alliance, puppet/compromised bodies, foot soldier, axe, strike, split, then chest/control all follow the narrated order; only the road and beard are missing."},
+"Y":{
+"contradictions":[
+{"narration":"'rough, untamed, dark beard from weeks on the road' (1692-1772)","shown":"a clean-faced man; the road scene (1600-1755) shows only a road with a dot and small figure, no beard"}
+],
+"timing":[
+{"result":"swinging an axe (axe in hand)","saidFrame":1248,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"strike lands","saidFrame":1373,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"split","saidFrame":1397,"firstVisibleFrame":"not shown","diff":"not shown"},
+{"result":"weeks on the road (road scene)","saidFrame":1755,"firstVisibleFrame":1600,"diff":-155},
+{"result":"magic surging in his chest (surprised face, text)","saidFrame":1968,"firstVisibleFrame":1980,"diff":12},
+{"result":"pushing against his control (angry face, text)","saidFrame":2038,"firstVisibleFrame":2025,"diff":-13},
+{"result":"'Find her' (key appears)","saidFrame":2230,"firstVisibleFrame":2205,"diff":-25}
+],
+"flow":"partly - the opening matches the narration; during 'swing, strike, split' only text and an angry face in a forest are shown (no axe or split), the road scene appears about 150 frames before the narrator mentions the road, then the sequence matches."}
+}
+}
