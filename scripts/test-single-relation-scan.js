@@ -40,7 +40,9 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), "srscan-"));
 const B = path.join(root, "books", "tbook"); fs.mkdirSync(B, { recursive: true });
 fs.writeFileSync(path.join(root, "PUBLISHED_BOOKS.md"), "| published-one |\n");
 const scene = (i, narration, extra = {}) => ({ id: `s${i}`, fromFrame: i * 200, durationFrames: 200, shot: "twoShot", bg: {}, characters: [{ role: "everyman" }], texts: [{ text: "X" }], props: [], _narration: narration, ...extra });
-const cfg = { meta: { slug: "tbook", cast: { everyman: { name: "You" } } }, captions: [], scenes: [
+// scene 1's words with frames: the cycle-18 timing rule previews (and ships) a B only when the result is found in them
+const N1 = "Every notification you answer drains the focus you need for deep work.";
+const cfg = { meta: { slug: "tbook", cast: { everyman: { name: "You" } } }, captions: [{ text: N1, startFrame: 205, endFrame: 330, words: N1.split(" ").map((w, k) => ({ w, s: 205 + k * 10, e: 214 + k * 10 })) }], scenes: [
   scene(0, "Welcome back to the show everyone, it is good to be here."),
   scene(1, "Every notification you answer drains the focus you need for deep work."),
   scene(2, "Every notification you answer drains the focus you need for deep work.", { props: [{ icon: "smartphone" }] }),
