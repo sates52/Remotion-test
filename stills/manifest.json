@@ -1,0 +1,53 @@
+{
+ "schema": "stills/1",
+ "name": "C19 A/B c19e2e",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s123-A",
+   "config": "configs/s123-A.json",
+   "frames": [
+    240,
+    408,
+    420,
+    426
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 529
+   }
+  },
+  {
+   "id": "s123-B",
+   "config": "configs/s123-B.json",
+   "frames": [
+    240,
+    408,
+    420,
+    426
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 529
+   }
+  }
+ ],
+ "inputHash": "d17167c39c839786",
+ "files": {
+  "stills/configs/s123-A.json": "242e70864bca7d4505de6a3716531fa84d335670fb8b74594147fd1360b126c5",
+  "stills/configs/s123-B.json": "1029fb3b70ceb85885edb2a2e36e5560bff25dd04b24b8aa4fc42423382d22bb"
+ },
+ "builtAt": "2026-11-07T14:09:13.852Z"
+}
