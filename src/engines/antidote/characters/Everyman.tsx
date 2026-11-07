@@ -375,7 +375,7 @@ export const Everyman: React.FC<{
               <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
                 <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
               </g>
-            ) : holds && pose.take === 0 ? (
+            ) : holds && pose.take === 0 && !((pose as { noRest?: number }).noRest) ? (
               <g transform={`rotate(${TAKE_REST_ARM} 304 322)`}>
                 <g transform={`rotate(${TAKE_REST_ELBOW} 304 410)`}>
                   <g transform={`translate(304 462) rotate(${-(TAKE_REST_ARM + TAKE_REST_ELBOW) - pose.lean}) scale(${0.82 / buildW} 0.82)`}>
