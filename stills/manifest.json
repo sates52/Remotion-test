@@ -1,0 +1,813 @@
+{
+ "schema": "stills/1",
+ "name": "c19 A/B episodes (silent): burn #17-25, feel-good #219-227, lightning #149-150",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 10,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "burn-A-p01",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    450,
+    495
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-p02",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    540,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855,
+    900,
+    945,
+    990,
+    1035
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-p03",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    1080,
+    1125,
+    1170,
+    1215,
+    1260,
+    1300,
+    1305,
+    1350,
+    1355,
+    1362,
+    1368,
+    1373
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-p04",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    1375,
+    1377,
+    1380,
+    1385,
+    1392,
+    1395,
+    1397,
+    1400,
+    1403,
+    1408,
+    1415,
+    1430
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-p05",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    1440,
+    1485,
+    1500,
+    1530,
+    1575,
+    1600,
+    1620,
+    1665,
+    1700,
+    1710,
+    1755,
+    1800
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-p06",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    1845,
+    1890,
+    1935,
+    1980,
+    2025,
+    2070,
+    2115,
+    2160,
+    2205,
+    2250
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-A-seek",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    1373,
+    1377,
+    1397,
+    1403,
+    1430,
+    1600
+   ],
+   "strip": true
+  },
+  {
+   "id": "burn-A-clip",
+   "config": "configs/burn-of-the-everflame-A.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2330
+   }
+  },
+  {
+   "id": "burn-B-p01",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    450,
+    495
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-p02",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    540,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855,
+    900,
+    945,
+    990,
+    1035
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-p03",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1080,
+    1125,
+    1170,
+    1215,
+    1260,
+    1300,
+    1305,
+    1350,
+    1355,
+    1362,
+    1368,
+    1373
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-p04",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1375,
+    1377,
+    1380,
+    1385,
+    1392,
+    1395,
+    1397,
+    1400,
+    1403,
+    1408,
+    1415,
+    1430
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-p05",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1440,
+    1485,
+    1500,
+    1530,
+    1575,
+    1600,
+    1620,
+    1665,
+    1700,
+    1710,
+    1755,
+    1800
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-p06",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1845,
+    1890,
+    1935,
+    1980,
+    2025,
+    2070,
+    2115,
+    2160,
+    2205,
+    2250
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B-seek",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1373,
+    1377,
+    1397,
+    1403,
+    1430,
+    1600
+   ],
+   "strip": true
+  },
+  {
+   "id": "burn-B-clip",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2330
+   }
+  },
+  {
+   "id": "feel-A-p01",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    420,
+    450
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-p02",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    470,
+    495,
+    500,
+    540,
+    560,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-p03",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    900,
+    945,
+    990,
+    1035,
+    1080,
+    1125,
+    1170,
+    1200,
+    1215,
+    1260,
+    1300,
+    1305
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-p04",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    1318,
+    1328,
+    1335,
+    1342,
+    1350,
+    1360,
+    1370,
+    1376,
+    1385,
+    1395,
+    1400,
+    1412
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-p05",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    1420,
+    1440,
+    1460,
+    1465,
+    1467,
+    1470,
+    1475,
+    1485,
+    1500,
+    1520,
+    1530,
+    1540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-p06",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    1575,
+    1620,
+    1665,
+    1710,
+    1755,
+    1800,
+    1845,
+    1890,
+    1935,
+    1980,
+    2025
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-A-seek",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    1328,
+    1376,
+    1412,
+    1467,
+    1475,
+    1520
+   ],
+   "strip": true
+  },
+  {
+   "id": "feel-A-clip",
+   "config": "configs/feel-good-productivity-A.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2090
+   }
+  },
+  {
+   "id": "feel-B-p01",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    420,
+    450
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-p02",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    470,
+    495,
+    500,
+    540,
+    560,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-p03",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    900,
+    945,
+    990,
+    1035,
+    1080,
+    1125,
+    1170,
+    1200,
+    1215,
+    1260,
+    1300,
+    1305
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-p04",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1318,
+    1328,
+    1335,
+    1342,
+    1350,
+    1360,
+    1370,
+    1376,
+    1385,
+    1395,
+    1400,
+    1412
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-p05",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1420,
+    1440,
+    1460,
+    1465,
+    1467,
+    1470,
+    1475,
+    1485,
+    1500,
+    1520,
+    1530,
+    1540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-p06",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1575,
+    1620,
+    1665,
+    1710,
+    1755,
+    1800,
+    1845,
+    1890,
+    1935,
+    1980,
+    2025
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B-seek",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1328,
+    1376,
+    1412,
+    1467,
+    1475,
+    1520
+   ],
+   "strip": true
+  },
+  {
+   "id": "feel-B-clip",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2090
+   }
+  },
+  {
+   "id": "thief-A-p01",
+   "config": "configs/the-lightning-thief-A.json",
+   "frames": [
+    0,
+    45,
+    60,
+    90,
+    100,
+    130,
+    135,
+    140,
+    149,
+    155,
+    165,
+    180
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-A-p02",
+   "config": "configs/the-lightning-thief-A.json",
+   "frames": [
+    200,
+    225,
+    236,
+    240,
+    245,
+    248,
+    252,
+    258,
+    266,
+    270,
+    300,
+    315
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-A-p03",
+   "config": "configs/the-lightning-thief-A.json",
+   "frames": [
+    350,
+    360,
+    405,
+    420,
+    450,
+    495,
+    520,
+    540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-A-seek",
+   "config": "configs/the-lightning-thief-A.json",
+   "frames": [
+    149,
+    245,
+    252,
+    400
+   ],
+   "strip": true
+  },
+  {
+   "id": "thief-A-clip",
+   "config": "configs/the-lightning-thief-A.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 625
+   }
+  },
+  {
+   "id": "thief-B-p01",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    0,
+    45,
+    60,
+    90,
+    100,
+    130,
+    135,
+    140,
+    149,
+    155,
+    165,
+    180
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B-p02",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    200,
+    225,
+    236,
+    240,
+    245,
+    248,
+    252,
+    258,
+    266,
+    270,
+    300,
+    315
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B-p03",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    350,
+    360,
+    405,
+    420,
+    450,
+    495,
+    520,
+    540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B-seek",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    149,
+    245,
+    252,
+    400
+   ],
+   "strip": true
+  },
+  {
+   "id": "thief-B-clip",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 625
+   }
+  }
+ ],
+ "inputHash": "e40147c46f46d643",
+ "files": {
+  "stills/configs/burn-of-the-everflame-A.json": "14de0334089eb7e8ba8e8d00c50858595f07e0925651b95c5ec334783d05f85a",
+  "stills/configs/burn-of-the-everflame-B.json": "1ed27b7c483ffb5497b698f5a389db3321aacd825c97a9b49910a536fb09865a",
+  "stills/configs/feel-good-productivity-A.json": "9b9836a05839ca0783847d43679fd963dd9436187092084309000e400b3473e8",
+  "stills/configs/feel-good-productivity-B.json": "c7bfa2b48b90b21d941596f991ef5bbe33e1713841a01f8dbdc83668ec532ac9",
+  "stills/configs/the-lightning-thief-A.json": "9f96e182f9d75774f902db3a0728aee98485fb14fdaa3c9307a837fc4dcd2e4d",
+  "stills/configs/the-lightning-thief-B.json": "08b37f56870ae52d4f7453c218d76430b1c93cd2930e21bf5ce992a3d44c4fe3"
+ },
+ "builtAt": "2026-11-07T08:54:17.588Z"
+}
