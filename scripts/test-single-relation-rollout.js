@@ -30,7 +30,10 @@ const sceneA = (id, from) => ({ id, fromFrame: from, durationFrames: 240, shot: 
   characters: [{ identity: "you", role: "you", expression: "worried", action: "idle" }], texts: [{ text: "FOCUS" }], props: [], hud: { insight: 2, of: 8 },
   _narration: narration, _authorship: { src: "art", lock: { ...lockA } },
   visualContract: { characterIntent: [{ identity: "you", role: "you", action: "idle", gaze: "viewer", state: "worried" }], visualEvidence: { subjects: [], relations: [], states: [], representation: { kind: "fallback", lever: "medium" } } } });
-const config = () => ({ meta: { slug: "zz-book", cast: { you: { name: "You" } } }, captions: [{ text: narration, startFrame: 0, endFrame: 1000 }], scenes: [sceneA("scene-0", 0), sceneA("scene-1", 240), sceneA("scene-2", 480)] });
+// the narrator's words with frames (the timing rule needs them): said inside scene-1 (frames 240–480)
+const WORDS = narration.split(" ").map((w, k) => ({ w, s: 250 + k * 8, e: 257 + k * 8 }));
+const AB = (rows) => ({ rows: rows.map((r) => ({ avReviewed: true, ...r })) });
+const config = () => ({ meta: { slug: "zz-book", cast: { you: { name: "You" } } }, captions: [{ text: narration, startFrame: 0, endFrame: 1000, words: WORDS }], scenes: [sceneA("scene-0", 0), sceneA("scene-1", 240), sceneA("scene-2", 480)] });
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "sr-rollout-"));
 const B = path.join(root, "books", "zz-book");
@@ -49,20 +52,20 @@ const C = path.join(root, "contracts");
 W(path.join(C, "contracts", "1.json"), contract); W(path.join(C, "contracts", "2.json"), contract);
 W(path.join(C, "contracts.json"), { valid: [1, 2], invalid: [0], contracts: { 0: { valid: false }, 1: { valid: true, review: { verdict: "OK" } }, 2: { valid: true, review: { verdict: "OK" } } } });
 ok("select: B only where the A/B shows B > A with no added wrong inference / polarity / wrong cause", () => {
-  const s = RO.select(C, { rows: [{ sceneIndex: 0, A: 0, B: 90 }, { sceneIndex: 1, A: 10, B: 80, wiA: 0, wiB: 0 }, { sceneIndex: 2, A: 50, B: 50 }] });
+  const s = RO.select(C, AB([{ sceneIndex: 0, A: 0, B: 90 }, { sceneIndex: 1, A: 10, B: 80, wiA: 0, wiB: 0 }, { sceneIndex: 2, A: 50, B: 50 }]));
   assert.deepStrictEqual(s.chosen.map((c) => c.sceneIndex), [1]);
   assert.deepStrictEqual(s.kept.map((k) => [k.sceneIndex, k.why.split(":")[0]]), [[0, "contract invalid"], [2, "A/B"]]);
 });
 ok("select: more wrong inferences or any polarity / wrong cause with B keeps A", () => {
-  const s = RO.select(C, { rows: [{ sceneIndex: 1, A: 10, B: 80, wiA: 0, wiB: 1 }, { sceneIndex: 2, A: 10, B: 80, polB: 1 }] });
+  const s = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 80, wiA: 0, wiB: 1 }, { sceneIndex: 2, A: 10, B: 80, polB: 1 }]));
   assert.strictEqual(s.chosen.length, 0); assert(s.kept.filter((k) => k.sceneIndex > 0).every((k) => /wrong inference|polarity/.test(k.why)), JSON.stringify(s.kept));
 });
 ok("select: over the per-book cap the largest gains go first", () => {
-  const s = RO.select(C, { rows: [{ sceneIndex: 1, A: 10, B: 40 }, { sceneIndex: 2, A: 0, B: 90 }] }, { maxScenes: 1 });
+  const s = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 40 }, { sceneIndex: 2, A: 0, B: 90 }]), { maxScenes: 1 });
   assert.deepStrictEqual(s.chosen.map((c) => c.sceneIndex), [2]); assert(s.kept.some((k) => k.sceneIndex === 1 && /cap 1/.test(k.why)));
 });
 
-const sel = RO.select(C, { rows: [{ sceneIndex: 1, A: 10, B: 80 }] });
+const sel = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 80 }]));
 const before = config();
 const p = RO.plan(before, sel, { now: "t" });
 ok("plan: the selected scene becomes single-relation, meta.singleRelation on, others untouched", () => {
@@ -91,9 +94,29 @@ ok("plan: an invalid contract refuses everything (nothing to write)", () => {
   const bad = RO.plan(before, { chosen: [{ sceneIndex: 1, contract: path.join(C, "contracts", "9.json"), ab: {} }], kept: [] });
   assert.strictEqual(bad.ok, false);
 });
-ok("plan: more than the per-book cap is refused", () => {
-  const many = { chosen: Array.from({ length: RO.POLICY.perBook.maxScenes + 1 }, (_, k) => ({ sceneIndex: k, contract: "x" })), kept: [] };
-  assert.strictEqual(RO.plan(before, many).ok, false);
+ok("policy (cycle 18): no per-book scene cap — every B that wins and passes goes in", () => {
+  assert.strictEqual(RO.POLICY.perBook.maxScenes, null);
+  const s2 = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 80 }, { sceneIndex: 2, A: 0, B: 90 }]));
+  assert.deepStrictEqual(s2.chosen.map((c) => c.sceneIndex), [1, 2]);
+});
+ok("select (cycle 18): the narration veto keeps A with the narration's words and what was on screen; no narration review keeps A", () => {
+  const s2 = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 80, veto: { kind: "wrong-object", narrationPart: "bloody clothes", onScreen: "a mask" } }, { sceneIndex: 2, A: 0, B: 90, avReviewed: false }]));
+  assert.strictEqual(s2.chosen.length, 0);
+  assert(/narration veto \(wrong-object\): narration "bloody clothes" — on screen: a mask/.test(s2.kept.find((k) => k.sceneIndex === 1).why), JSON.stringify(s2.kept));
+  assert(/no narration review/.test(s2.kept.find((k) => k.sceneIndex === 2).why));
+});
+ok("plan (cycle 18): a B whose result is not found in the word timings keeps A; the other B goes in, anchored, with its preview timecode", () => {
+  const cfg = config(); cfg.scenes[2] = { ...cfg.scenes[2], _narration: "something else entirely" };
+  // scene 2's words are not said inside its frames → timing drop; scene 1 passes
+  const sel2 = RO.select(C, AB([{ sceneIndex: 1, A: 10, B: 80 }, { sceneIndex: 2, A: 0, B: 90 }]));
+  const p2 = RO.plan(config(), sel2, { now: "t" });
+  assert(p2.ok, JSON.stringify(p2.errors));
+  assert.deepStrictEqual(p2.record.scenes.map((x) => x.sceneIndex), [1]);
+  assert(/^timing: /.test(p2.record.kept.find((k) => k.sceneIndex === 2).why), JSON.stringify(p2.record.kept));
+  const sc1 = p2.record.scenes[0];
+  assert(sc1.timing.events[0].changeStart >= sc1.timing.events[0].effectAt, JSON.stringify(sc1.timing));
+  assert.strictEqual(sc1.preview.fromFrame, 240); assert(/^0:08.0–0:16.0$/.test(sc1.preview.timecode), sc1.preview.timecode);
+  assert.strictEqual(p2.config.scenes[1].singleRelation.timingSource, "anchored");
 });
 ok("status: ACTIVE after apply, MISSING after a config rebuild, NONE without a record", () => {
   assert.strictEqual(RO.status(p.config, p.record).state, "ACTIVE");

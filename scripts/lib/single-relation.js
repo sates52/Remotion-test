@@ -132,6 +132,7 @@ function validate(c, ctx = {}) {
     if (!evs.every((ev) => ev && ev.anchors && (ev.anchors.cause || ev.anchors.effect))) err("phases: every event needs anchors {cause and/or effect} — the narration's words that time it");
   } else if (evs.length !== 1) err("one relation: exactly one event (one cause, its effect) — or phases: true for setup → action → result");
   for (const [i, ev] of evs.entries()) for (const [k, ph] of Object.entries((ev && ev.anchors) || {})) {
+    if (k === "effectAfter") continue; // a derived search start (deriveAnchors), not an author field
     if (!["cause", "effect"].includes(k)) { err(`event ${i}: anchors has only cause / effect (got "${k}")`); continue; }
     const w = norm(ph).split(" ").filter(Boolean);
     if (!w.length || w.length > 6) err(`event ${i}: anchor ${k} is 1–6 of the narration's words`);
@@ -252,6 +253,59 @@ function review(c) {
     note: verdict === "TRY_CONCRETE" ? "every end of the relation is carried by its label alone (a tank / a metaphor glyph) and nothing moves, appears, leaves or changes face — try a version with a literal object or a person first (creative-direction.md)" : undefined };
 }
 
+/**
+ * Production timing rule (cycle 18, operator): a B goes into a film only when the moment the narrator SAYS the result is
+ * found in the word timings and the compiled change does not start before it, and fits (with a hold) inside the beat.
+ * deriveAnchors — when the author gave no effect anchor, the result phrase is the effect entity's label (the narration's
+ * own words) looked for AFTER the moment the evidence sentence starts (a phrase said twice is matched in context).
+ */
+function deriveAnchors(c, timed) {
+  const out = JSON.parse(JSON.stringify(c)), derived = [];
+  const byId = Object.fromEntries((out.entities || []).map((e) => [e.id, e]));
+  const ew = norm(c.evidence || "").split(" ").filter(Boolean);
+  const evidenceAt = ew.length ? V1.findPhrase(timed, ew.slice(0, Math.min(4, ew.length)).join(" ")) : null;
+  const evidenceEnd = evidenceAt != null && ew.length ? V1.findPhrase(timed, ew.slice(-Math.min(3, ew.length)).join(" "), evidenceAt) : null;
+  // conservative: the LAST time the label is said inside the evidence sentence (a label named early — "her cognitive
+  // load …" — is not the moment the result is told)
+  const lastSaid = (label) => { let at = null, from = evidenceAt; for (;;) { const s = V1.findPhrase(timed, label, from); if (s == null || (evidenceEnd != null && s > evidenceEnd)) break; at = s; from = s + 1; } return at; };
+  for (const [i, ev] of (out.events || []).entries()) {
+    if (ev.anchors && ev.anchors.effect) continue;
+    const f = (ev.effects || []).find((x) => x.entity !== ev.cause) || (ev.effects || [])[0];
+    const e = f && byId[f.entity];
+    const label = e && (e.label || (e.kind === "person" ? e.cast : null));
+    if (!label || evidenceAt == null || lastSaid(label) == null) continue;
+    // "the load so unbearable THAT she just snaps": a forward link after the label → the result is the clause that
+    // follows, told at the END of the evidence — anchor on its last words (never earlier than the narrator says it)
+    const lw = norm(label).split(" ").filter(Boolean), li = ew.findIndex((w, j) => lw.every((t, k) => ew[j + k] === t));
+    const forward = li >= 0 && /\b(so|that|until|then|and|which|therefore|thus|leads?|makes?|made|causes?|caused)\b/.test(ew.slice(li + lw.length).join(" "));
+    const tail = ew.slice(-Math.min(3, ew.length)).join(" ");
+    if (forward && evidenceEnd != null) { ev.anchors = { ...(ev.anchors || {}), effect: tail, effectAfter: evidenceEnd }; derived.push(`event ${i}: result "${tail}" (end of the evidence — the clause after "${label}")`); }
+    else { ev.anchors = { ...(ev.anchors || {}), effect: label, effectAfter: lastSaid(label) }; derived.push(`event ${i}: result "${label}" (derived from the evidence)`); }
+  }
+  return { contract: out, derived, evidenceAt };
+}
+/** verifyTiming(contract, scene, words) → {ok, contract (anchored), events[{effect, effectAt, changeStart, changeEnd}]} or {ok:false, reason} */
+function verifyTiming(c, scene, timed) {
+  if (c.type === "H") return { ok: true, contract: c, events: [], note: "quote card (no change to time)" };
+  if (!timed || !timed.length) return { ok: false, reason: "no word timings for this scene" };
+  const d = deriveAnchors(c, timed), evs = d.contract.events || [];
+  const missing = evs.findIndex((e) => !(e.anchors && e.anchors.effect));
+  if (missing >= 0) return { ok: false, reason: `event ${missing}: the narration's result phrase is not found where the evidence is said (give anchors.effect)` };
+  const occ = V1.timeline(d.contract, scene.durationFrames, timed);
+  if (occ.source !== "anchored") return { ok: false, reason: occ.source.replace(/^fraction \(/, "").replace(/\)$/, "") };
+  const T = V1.TIMING, events = [];
+  let k = 0;
+  for (const [i, ev] of evs.entries()) {
+    // the result is the event's LAST step (a repeated event builds up before it)
+    const n = ev.repeat || 1, last = occ[k + n - 1];
+    const start = last.cue + T.token + (last.pause ?? T.pause), ef = occ.effectAt[i];
+    if (ef != null && start < ef) return { ok: false, reason: `event ${i}: the change starts at frame ${start}, before "${ev.anchors.effect}" is said at ${ef}` };
+    events.push({ effect: ev.anchors.effect, effectAt: ef, changeStart: start, changeEnd: last.cue + T.token + (last.pause ?? T.pause) + T.change });
+    k += n;
+  }
+  return { ok: true, contract: d.contract, derived: d.derived, events };
+}
+
 /** compile a valid contract onto its source scene (same id, timing, set, transition) */
 function compile(c, scene, ctx = {}) {
   const out = V1.compile({ ...c, schema: "semantic-director/1" }, scene, ctx);
@@ -309,4 +363,4 @@ function sealAuthored(scene, provenance = {}) {
 /** a book opts in by meta.singleRelation; without it the renderer ignores every singleRelation field */
 function enable(config) { return { ...config, meta: { ...config.meta, singleRelation: true } }; }
 
-module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, MECHANISMS, validate, compile, enable, review, sealAuthored };
+module.exports = { SCHEMA, TYPES, POLARITY, NOT_KINDS, MAX_ENTITIES, HARD, SOFT, MECHANISMS, validate, compile, enable, review, sealAuthored, deriveAnchors, verifyTiming };

@@ -51,6 +51,14 @@ Write ONLY a JSON array of ${imgs.length === 4 ? "four" : imgs.length} objects, 
  "wouldConfuse":"anything that could mislead a viewer, or 'none'"}
 Describe only what is visible; if something is unclear, say so. Reply with one line: "written".`;
 
+const AV_PROMPT = (dir) => `You check short scenes of animated book-summary videos against what the narrator SAYS over them. Open ONLY ${dir}/items.json (per scene id: the narration and the line before) and the images ${dir}/<id>-X.png and ${dir}/<id>-Y.png (two versions of each scene, three moments left to right). Open no other file; one image at a time.
+For EACH version decide whether what is shown CONTRADICTS the narration in one of three ways:
+ - "wrong-object": a thing on screen reads as something other than what the narration names (e.g. a mask where the narration says clothes)
+ - "wrong-action": the action shown is not the action narrated (or the opposite)
+ - "wrong-causality": the screen shows a cause / result the narration does not state, or reverses them
+Low appeal, a plain picture, or something merely unclear is NOT a contradiction (answer no).
+Write ONLY JSON to ${dir}/review.json : [{"id","X":{"contradicts":true|false,"kind":"wrong-object|wrong-action|wrong-causality|null","narrationPart":"the narration's own words it contradicts","onScreen":"what is shown instead"},"Y":{...}}]. Reply with one line: "written".`;
+
 const KEY_PROMPT = (inp, out) => `You write an answer key for a reading-comprehension check. Read ONLY ${inp} (scenes: id, narration, previousNarration). Open no other file. For each scene write what the NARRATION says (previous only as context). Write ${out} as {"items":[{"id","understanding":"one sentence: what this moment says","cause":"what acts / the cause, in plain words","effect":"what changes / the result","supportsCausality":true|false,"asserted":"what the narration actually asserts","notAsserted":[{"text","why"}] (hypotheticals, negations, questions, quoted opinions that are NOT asserted),"keyFacts":["2-4 short facts"],"wrong":["3 plausible WRONG readings, incl. reversed cause/effect"]}]}. Be literal to the narration; do not invent. Reply in ≤ 2 lines.`;
 
 function blind(previewDir, stripsDir, { seed = null } = {}) {
@@ -71,15 +79,25 @@ function blind(previewDir, stripsDir, { seed = null } = {}) {
   const scenes = pairs.pairs.map((p) => ({ id: String(p.sceneIndex), narration: p.narration, previousNarration: p.previousNarration || "" }));
   fs.writeFileSync(path.join(AB, "key-input.json"), JSON.stringify({ scenes }, null, 1));
   const r = rng(seed);
+  // narration review (cycle 18 veto): both versions of each beat as X / Y in a seeded order, WITH the narration
+  fs.mkdirSync(path.join(AB, "av"), { recursive: true });
+  const av = {};
+  for (const p of pairs.pairs) {
+    const flip = r() < 0.5, id = `S${p.sceneIndex}`;
+    for (const [slot, arm] of [["X", flip ? "B" : "A"], ["Y", flip ? "A" : "B"]]) fs.copyFileSync(path.join(stripsDir, `s${p.sceneIndex}-${arm}.png`), path.join(AB, "av", `${id}-${slot}.png`));
+    av[id] = { sceneIndex: p.sceneIndex, X: flip ? "B" : "A", Y: flip ? "A" : "B" };
+  }
+  fs.writeFileSync(path.join(AB, "av", "items.json"), JSON.stringify({ items: pairs.pairs.map((p) => ({ id: `S${p.sceneIndex}`, narration: p.narration, previousNarration: p.previousNarration || "" })) }, null, 1));
   const D = groups(items, 4, r).map((g, k) => ({ d: `D${k + 1}`, imgs: g.map((x) => x.img) }));
   const J = { p1: groups(items, 8, r).map((g) => g.map((x) => x.img)), p2: groups(items, 8, r).map((g) => g.map((x) => x.img)) };
-  fs.writeFileSync(path.join(AB, "blind-key.json"), JSON.stringify({ seed, key, describers: D, judges: J }, null, 1));
+  fs.writeFileSync(path.join(AB, "blind-key.json"), JSON.stringify({ seed, key, describers: D, judges: J, av }, null, 1));
   const abs = (p) => path.resolve(p).replace(/\\/g, "/");
   const md = [`# Single-relation A/B — ${pairs.slug} (agents only; never tell an agent which version is new)`, "",
     "## 1. Answer key (ONE fresh agent, before any description is read)", "", "```", KEY_PROMPT(abs(path.join(AB, "key-input.json")), abs(path.join(AB, "answer-key.json"))), "```", "",
     `## 2. Describers (${D.length} fresh sonnet agents, one prompt each, in parallel)`, "",
     ...D.flatMap((d) => ["```", describerPrompt(abs(path.join(AB, "blind")), d.imgs, abs(path.join(AB, "desc", `${d.d}.json`))), "```", ""]),
-    "## 3. Judges — run `single-relation-ab.js judge`, then the prompts it appends below", ""];
+    "## 3. Narration review (ONE fresh agent; the veto — it sees the narration)", "", "```", AV_PROMPT(abs(path.join(AB, "av"))), "```", "",
+    "## 4. Judges — run `single-relation-ab.js judge`, then the prompts it appends below", ""];
   fs.writeFileSync(path.join(AB, "PROMPTS.md"), md.join("\n"));
   return { items: items.length, describers: D.length };
 }
@@ -133,6 +151,19 @@ function tally(previewDir) {
     if (!a || !b || a.s.length < 2 || b.s.length < 2) throw new Error(`scene ${i}: needs two judge passes for both versions`);
     return { sceneIndex: i, A: +(100 * mean(a.s)).toFixed(1), B: +(100 * mean(b.s)).toFixed(1), wiA: a.wi, wiB: b.wi, polA: a.pol, polB: b.pol, cwA: a.cw, cwB: b.cw };
   });
+  // the narration-review veto: a B shown to contradict the narration (wrong object / action / causality) never ships,
+  // however it scored muted; the reason keeps the narration's words and what was on screen instead
+  const avr = (() => { try { return readJSON(path.join(AB, "av", "review.json")); } catch { return null; } })();
+  const VETO = ["wrong-object", "wrong-action", "wrong-causality"];
+  for (const row of rows) {
+    const id = `S${row.sceneIndex}`, map = (bk.av || {})[id], r = avr && avr.find((x) => x.id === id);
+    if (!map || !r) { row.avReviewed = false; continue; }
+    row.avReviewed = true;
+    const b = r[map.X === "B" ? "X" : "Y"] || {};
+    if (b.contradicts === true && VETO.includes(b.kind)) row.veto = { kind: b.kind, narrationPart: String(b.narrationPart || ""), onScreen: String(b.onScreen || "") };
+  }
+  // beats the preview did not render because the timing rule kept A — carried so select names the real reason
+  try { for (const d of readJSON(path.join(previewDir, "pairs.json")).timingDropped || []) rows.push({ sceneIndex: d.sceneIndex, dropped: d.why }); } catch {}
   const out = { schema: "single-relation-ab/1", raters: "agents (never human)", rows };
   fs.writeFileSync(path.join(AB, "ab-result.json"), JSON.stringify(out, null, 1));
   return out;

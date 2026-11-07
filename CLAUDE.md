@@ -195,9 +195,13 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
 
 - Level 2 is INCONCLUSIVE (cycle 16) and stays so. The operator approved a SELECTIVE, reversible rollout for eligible
   books (`data/single-relation-rollout.json`): Antidote, unpublished, no production render, pin containing 8cd04fc0 (the rollout in make-book / preview-state).
-  There: scan / author / validate / per-beat A/B, then `single-relation-rollout.js select` + `apply --write` — B only
-  where its own A/B shows it better, ≤ 15 scenes, every contract valid; gates unchanged after (runbook §2d). Do not ask
-  "Single-Relation açılsın mı?" per book. Never global default-on; never a published / rendered / old-pin book.
+  There: scan / author / validate / per-beat A/B, then `single-relation-rollout.js select` + `apply --write` — B
+  wherever its own A/B shows it better, the narration review finds no contradiction and the result is timed to the
+  narrator's words (cycle 18: Relational Motion 2.0 on by default, no scene cap, no per-book approval); every contract
+  valid; gates unchanged after (runbook §2d). Do not ask "Single-Relation açılsın mı?". "None" only after authoring
+  every candidate. Never a published / rendered / old-pin book.
+- Engine after the audio (cycle 18): preview-state locks the engine the audio was recorded for (`engine-lock.json`);
+  a later switch stops for the operator (make-prompt refuses it without `--operator-approved` + a new recording).
 - Any other book: report only (runbook §2c). Never tell blind agents about it.
 
 ## Where the real docs are

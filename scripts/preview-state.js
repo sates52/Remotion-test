@@ -121,6 +121,20 @@ function bookState(slug, root = ROOT) {
   if (missing.length) { stage("inputs", "missing", missing.join(", ")); stop("MISSING_INPUT", "a required input is not on disk — never invented", missing); return finish(st); }
   const engine = book.engine;
   st.engine = engine;
+  // cycle 18: the engine the audio was RECORDED for is locked when the audio is first seen (books/<slug>/engine-lock.json);
+  // a later switch — book.json edited, or make-prompt — stops for the operator, unless make-prompt recorded their words
+  // AND a new recording replaced the audio (a book's engine was flipped vox → antidote after its Vox recording).
+  if (engine === "antidote" || engine === "vox") {
+    const lockP = path.join(B, "engine-lock.json"), lock = readJSON(lockP);
+    const now = { engine, audio: path.basename(audio), audioBytes };
+    const sw = (book.engineSwitchAfterAudio || []).slice(-1)[0];
+    if (!lock) { try { fs.writeFileSync(lockP, JSON.stringify({ ...now, at: new Date().toISOString(), note: "the engine this book's audio was recorded for (preview-state, cycle 18)" }, null, 2) + "\n"); } catch {} }
+    else if (lock.engine !== engine) {
+      const reRecorded = lock.audioBytes !== audioBytes || lock.audio !== now.audio;
+      if (sw && sw.to === engine && sw.operator && reRecorded) { try { fs.writeFileSync(lockP, JSON.stringify({ ...now, at: new Date().toISOString(), previous: lock, switch: sw }, null, 2) + "\n"); } catch {} }
+      else { stage("inputs", "blocked", `engine ${lock.engine} → ${engine} after the audio was recorded`); stop("ENGINE_CHANGED_AFTER_AUDIO", `the audio was recorded for ${lock.engine}; book.json now says ${engine}. Switching means a new prompt and a new recording — the operator decides (make-prompt --operator-approved, then the new audio); never produce on a mismatched recording`, [`engine-lock.json: ${lock.engine} (${lock.audio}, ${lock.audioBytes} bytes, ${lock.at})`, `book.json: ${engine}`]); return finish(st); }
+    }
+  }
   if (engine !== "antidote" && engine !== "vox") { stage("inputs", "missing", "book.json has no engine"); stop("STEP0_ENGINE", "no engine in book.json: Step 0 (notebooklm-prompt) was not done"); return finish(st); }
   if (!book.engineProfile || !Object.keys(book.engineProfile).length) { stage("inputs", "missing", "book.json has no engineProfile"); stop("STEP0_ENGINE", "no engineProfile in book.json: Step 0 is incomplete (storyboard prep refuses)"); return finish(st); }
   // the operator's recorded approvals for THIS attempt (engine, pin, audio, VTT) — 2026-11-03 Hamnet: a third fix round,
@@ -382,7 +396,7 @@ function bookState(slug, root = ROOT) {
     if (!el.ok) stage("singleRelation", "n/a", el.reasons[0]);
     else if (srStatus.state === "MISSING") { stage("singleRelation", "todo", `B scene(s) ${srStatus.missing.join(", ")} not in the config`); go("singleRelation", "The recorded B scenes are not in the config: re-run make-book (step 1.885 re-applies books/<slug>/single-relation/active.json before the gates)", mbCmd); return finish(st); }
     else if (srStatus.state === "ACTIVE") stage("singleRelation", "done", `${srStatus.active} B scene(s) in the config (active.json)`);
-    else if (decision && decision.decision === "none" && RO.noneCoverage && RO.noneCoverage(srDir).ok) stage("singleRelation", "done", `no B scene: ${decision.reason}`);
+    else if (decision && decision.decision === "none" && (Array.isArray(decision.kept) || (RO.noneCoverage && RO.noneCoverage(srDir).ok))) stage("singleRelation", "done", `no B scene: ${decision.reason}`);
     else if (decision && decision.decision === "none") { stage("singleRelation", "todo", `"none" recorded without an author decision per candidate: ${RO.noneCoverage(srDir).why}`); go("singleRelation", "Author every scan candidate (single-relation.md): a contract, validated, or a skip with its reason in single-relation/author-decisions.json — then select / apply, or decide --none again", `node scripts/single-relation-scan.js validate --slug=${slug}`); return finish(st); }
     else {
       stage("singleRelation", "todo", "eligible (operator-approved selective rollout) — not run");

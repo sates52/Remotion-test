@@ -97,7 +97,8 @@ Do not re-derive these from prose — run the command and follow what it prints.
 - Hard-gate Gate 11 (VIG) is temporarily non-blocking by operator decision (`data/quality-policy.json`); it prints
   `FAIL (non-blocking)`. Every other gate still blocks. Do not edit scores to pass a gate.
 - Single-relation cause → visible effect: eligible new Antidote books (unpublished, not rendered, pin ⊇ 8cd04fc0) get
-  the operator-approved selective rollout — B only where its own A/B wins, ≤ 15 scenes, reversible (runbook §2d,
+  the operator-approved selective rollout — B wherever its own A/B wins, the narration review finds no contradiction and
+  the result is timed to the narrator's words (no cap), reversible (runbook §2d,
   `single-relation-rollout.js`); every other book: report only (runbook §2c; authors:
   `.claude/skills/antidote-visual-authoring/single-relation.md`).
 - Sealed holdout and the blind mute test: runbook §4, contract §6. Render decisions: runbook §5b, contract §7.

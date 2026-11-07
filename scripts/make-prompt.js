@@ -15,6 +15,7 @@
  * strictly no fabrication, no AI signature / no "sources" mentions, English/US.
  */
 const fs = require("fs");
+const path = require("path");
 const { rel, abs, ensureBookDir } = require("./lib/paths");
 const { MODEL, ENDPOINT, USE_NVIDIA, stripThink } = require("./lib/llm");
 const { analyzeEngineFromVtt } = require("./lib/vtt");
@@ -246,6 +247,18 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   const manifestPath = abs.manifest(SLUG);
   let manifest = {};
   try { manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")); } catch {}
+  // cycle 18: the audio inherits the engine it was recorded for (CLAUDE.md "Step 0 decides the engine"). Once the
+  // NotebookLM audio is in, switching the engine needs a new prompt AND a new recording — the operator's decision, so a
+  // switch here is refused unless their words are recorded (a book's engine was flipped vox → antidote after recording).
+  const audioIn = ["mp3", "m4a"].some((x) => fs.existsSync(path.join(__dirname, "..", "public", "audio", `${SLUG}.${x}`)));
+  if (manifest.engine && manifest.engine !== picked.engine && audioIn) {
+    const ok = typeof args["operator-approved"] === "string" && args["operator-approved"].trim();
+    if (!ok) {
+      console.error(`❌ ${SLUG}: the audio was recorded for engine "${manifest.engine}" — switching to "${picked.engine}" means a new prompt and a new recording. Operator decision only: re-run with --operator-approved="<the operator's words>" (and record the new audio).`);
+      process.exit(2);
+    }
+    manifest.engineSwitchAfterAudio = [...(manifest.engineSwitchAfterAudio || []), { from: manifest.engine, to: picked.engine, at: new Date().toISOString(), operator: String(args["operator-approved"]).trim() }];
+  }
   manifest = { slug: SLUG, title: TITLE, author: AUTHOR, genre: GENRE, ...manifest,
     engine: picked.engine, engineRationale: picked.rationale,
     // what the decision rested on — the outcomes ledger learns from Step 0 features

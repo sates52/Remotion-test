@@ -215,12 +215,18 @@ node scripts/single-relation-preview.js build --slug=<s> --book-root=<wt> --out=
 node scripts/stills-cloud.js push --manifest=<dir>/manifest.json --tag=<t>  &&  … fetch --tag=<t> --out=<dir>/out
 node scripts/single-relation-ab.js blind --preview=<dir>   # then the agents in <dir>/ab/PROMPTS.md: key, describers
 node scripts/single-relation-ab.js judge --preview=<dir>   # then the judge agents (two passes)
-node scripts/single-relation-ab.js tally --preview=<dir>   # ab-result.json (agents, never human)
+node scripts/single-relation-ab.js tally --preview=<dir>   # ab-result.json (agents, never human) — after PROMPTS §1–§4
+                                                           # (key, describers, the narration review = the veto, judges)
 node scripts/single-relation-rollout.js select --slug=<s> --book-root=<wt> --contracts=<wt>/books/<s>/single-relation --ab=<dir>/ab/ab-result.json
 node scripts/single-relation-rollout.js apply  --slug=<s> --book-root=<wt> --write   # sealed, recorded, reversible
 ```
-- **B only where it is shown better:** valid contract AND its A/B has B > A with no more wrong inferences and no polarity
-  error or wrong cause; every other beat keeps A (the reason is recorded). At most 15 scenes per book (largest gains).
+- **B only where it is shown better (cycle 18: no scene cap, no per-book approval):** valid contract AND its A/B has
+  B > A with no more wrong inferences and no polarity error or wrong cause AND the narration review finds no wrong
+  object / wrong action / wrong causality in B (the reason keeps the narration's words and what was on screen; low appeal
+  or uncertainty is not a veto) AND the **timing rule**: the narrator's result phrase is found in the word timings
+  (`anchors.effect` — give it; otherwise derived from where the evidence is said, matched in context) and the compiled
+  change does not start before it and fits, held, in the beat. Any failure keeps THAT beat's A with the reason; the
+  other B scenes go on. `apply` prints each B's preview timecode.
 - `apply` re-validates against the scene's narration, seals each scene as the beat's authored decision (the lock becomes
   the contract's staging; `previousLock` kept), rebinds the planner's visual contract to what is on screen, sets
   `meta.singleRelation`, and records the diff + the previous scenes in `books/<s>/single-relation/active.json`.

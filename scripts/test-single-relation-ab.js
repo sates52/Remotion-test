@@ -53,6 +53,17 @@ ok("tally: primary = mean(cause, effect, message) over two passes; safety counte
   assert.deepStrictEqual([row.A, row.B, row.wiA, row.wiB], [16.7, 100, 0, 0]);
   assert.strictEqual(t.rows.find((x) => x.sceneIndex === 31).wiB, 2); assert.strictEqual(t.raters, "agents (never human)");
 });
+ok("narration review (cycle 18): blind writes X/Y pairs + items; tally turns a wrong-object / action / causality on B into a veto, keeps 'unclear' as no veto", () => {
+  const avDir = path.join(dir, "ab", "av");
+  assert(fs.existsSync(path.join(avDir, "items.json")) && fs.existsSync(path.join(avDir, "S3-X.png")) && fs.existsSync(path.join(avDir, "S3-Y.png")));
+  const map = bk.av;
+  const side = (i, arm) => (map["S" + i].X === arm ? "X" : "Y");
+  const review = beats.map((i) => ({ id: "S" + i, [side(i, "A")]: { contracts: false }, [side(i, "B")]: i === 7 ? { contradicts: true, kind: "wrong-object", narrationPart: "narration 7", onScreen: "a mask" } : i === 11 ? { contradicts: true, kind: "unclear", narrationPart: "x", onScreen: "y" } : { contradicts: false } }));
+  W(path.join(avDir, "review.json"), review);
+  const t2 = AB.tally(dir);
+  assert.deepStrictEqual(t2.rows.find((x) => x.sceneIndex === 7).veto, { kind: "wrong-object", narrationPart: "narration 7", onScreen: "a mask" });
+  assert(!t2.rows.find((x) => x.sceneIndex === 11).veto && t2.rows.every((x) => x.avReviewed === true));
+});
 ok("tally: a beat with only one judge pass is refused", () => {
   const f = path.join(dir, "ab", "judge-out-p2", "J1.json"); fs.writeFileSync(f, "[]");
   assert.throws(() => AB.tally(dir), /two judge passes/);

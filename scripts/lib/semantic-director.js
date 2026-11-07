@@ -189,46 +189,65 @@ function validate(c, ctx) {
 }
 
 /** the scene frame where the narrator starts saying `phrase` (consecutive words), or null */
-function findPhrase(timed, phrase) {
+function findPhrase(timed, phrase, after = -Infinity) {
   const want = words(phrase), seq = (timed || []).map((w) => ({ t: words(w.w).join(" "), s: w.s }));
   if (!want.length) return null;
-  for (let i = 0; i + want.length <= seq.length; i++) if (want.every((t, k) => seq[i + k].t === t)) return seq[i].s;
+  // the FIRST occurrence at or after `after`: a phrase said twice ("chemical water") is matched in its own context
+  for (let i = 0; i + want.length <= seq.length; i++) if (seq[i].s >= after && want.every((t, k) => seq[i + k].t === t)) return seq[i].s;
   return null;
 }
+
+/** frames a finished change stays on screen before the beat ends, so it can be read (cycle 18) */
+const HOLD = 15;
 
 /**
  * Word-anchored timing (cycle 18, "multi-phase single-frame storytelling"): an event may name the narration words
  * for its cause and its effect (`anchors: {cause, effect}`, each a verbatim phrase). The cause is marked when its words
- * start; the change never starts before the effect's words (the film does not show a result the narrator has not said
- * yet) and leaves room to read it. Every anchor must be found in the scene's word timings — otherwise the WHOLE
- * contract falls back to the fraction timing below (`at`), never a guessed moment. Returns null when not anchored.
+ * start; the change NEVER starts before the effect's words (the film does not show a result the narrator has not said
+ * yet) — an effect is looked for after its own cause, a cause after the previous phase's. If the change then cannot
+ * finish and be held HOLD frames inside the beat, the contract is UNFIT ({unfit}) — it is never squeezed earlier
+ * (cycle 18: the squeeze put a change at frame 174 for an anchor at 190). Any anchor not in the word timings → {miss}.
+ * Returns null when not anchored.
  */
 function anchoredTimeline(c, dur, words) {
   const evs = (c.events || []).slice();
   if (!evs.length || !evs.every((e) => e.anchors && (e.anchors.cause || e.anchors.effect)) || !(words && words.length)) return null;
-  const occ = [];
-  let floor = 0;
+  const occ = [], effectAt = [];
+  let floor = 0, said = -Infinity;
   for (const ev of evs) {
-    const a = ev.anchors, cf = a.cause ? findPhrase(words, a.cause) : null, ef = a.effect ? findPhrase(words, a.effect) : null;
+    const a = ev.anchors;
+    const cf = a.cause ? findPhrase(words, a.cause, said) : null;
+    const ef = a.effect ? findPhrase(words, a.effect, Math.max(cf != null ? cf : said, a.effectAfter ?? -Infinity)) : null;
     if ((a.cause && cf == null) || (a.effect && ef == null)) return { miss: a.cause && cf == null ? a.cause : a.effect };
-    const n = ev.repeat || 1, span = TIMING.token + TIMING.pause + TIMING.change + TIMING.gap;
-    let cue = cf != null ? cf : Math.max(0, ef - TIMING.token - TIMING.pause);
-    cue = Math.max(cue, floor);
-    let pause = TIMING.pause;
-    if (ef != null) pause = Math.max(TIMING.pause, ef - cue - TIMING.token);
-    const end = cue + (n - 1) * span + TIMING.token + pause + TIMING.change;
-    if (end > dur - 6) { pause = Math.max(TIMING.pause, pause - (end - (dur - 6))); cue = Math.max(floor, Math.min(cue, dur - 6 - ((n - 1) * span + TIMING.token + pause + TIMING.change))); }
-    for (let k = 0; k < n; k++) occ.push({ cause: ev.cause, cue: cue + k * span, pause, effects: ev.effects.map((f) => (n === 1 || f.value == null ? { ...f } : { ...f, __step: [k + 1, n] })) });
-    floor = cue + (n - 1) * span + TIMING.token + pause + TIMING.change + TIMING.gap;
+    const n = ev.repeat || 1, compact = n > 1 && ev.effects.some((f) => f.overflow);
+    const span = compact ? TIMING.token + 4 + TIMING.change + 4 : TIMING.token + TIMING.pause + TIMING.change + TIMING.gap;
+    const minP = compact ? 4 : TIMING.pause;
+    // a repeated event (accumulation, overload) builds up BEFORE the result: its LAST step is the result and is the one
+    // held to the effect's words; the earlier steps are scheduled back from there
+    const cue = Math.max(floor, cf != null ? cf : Math.max(0, ef - TIMING.token - minP - (n - 1) * span));
+    const lastCue = cue + (n - 1) * span;
+    const spill = ev.effects.some((f) => f.overflow) ? TIMING.change : 0;
+    // the reading pause between the token landing and the change: normally minP, down to 4 frames when the beat is tight
+    // — never shorter than the wait for the effect's words
+    const endWith = (p) => lastCue + TIMING.token + p + TIMING.change + spill;
+    const wait = ef != null ? ef - lastCue - TIMING.token : 0;
+    let pause = Math.max(minP, wait);
+    if (endWith(pause) + HOLD > dur) pause = Math.max(4, wait);
+    const end = endWith(pause);
+    if (end + HOLD > dur) return { unfit: `the change after "${a.effect || a.cause}" (frame ${ef ?? cf}) ends at ${end}, no ${HOLD}-frame hold inside a ${dur}-frame beat` };
+    for (let k = 0; k < n; k++) occ.push({ cause: ev.cause, cue: cue + k * span, pause: k === n - 1 ? pause : minP, effects: ev.effects.map((f) => (n === 1 || f.value == null ? { ...f } : { ...f, __step: [k + 1, n] })) });
+    effectAt.push(ef);
+    floor = end - spill + TIMING.gap;
+    said = cf != null ? cf : ef;
   }
-  return { occ };
+  return { occ, effectAt };
 }
 
 /** frame timing: each occurrence = the cause marked, the token flies, a pause, the change; all done by 88 % of the beat */
 function timeline(c, dur, words = null) {
   const anchored = anchoredTimeline(c, dur, words);
-  if (anchored && anchored.occ) return stepLevels(c, anchored.occ, "anchored");
-  const source = anchored && anchored.miss ? `fraction (anchor "${anchored.miss}" not in the word timings)` : "fraction";
+  if (anchored && anchored.occ) { const o = stepLevels(c, anchored.occ, "anchored"); Object.defineProperty(o, "effectAt", { value: anchored.effectAt, enumerable: false }); return o; }
+  const source = anchored && anchored.miss ? `fraction (anchor "${anchored.miss}" not in the word timings)` : anchored && anchored.unfit ? `fraction (unfit: ${anchored.unfit})` : "fraction";
   const span = TIMING.token + TIMING.pause + TIMING.change + TIMING.gap;
   const occ = [];
   for (const ev of (c.events || []).slice().sort((a, b) => a.at - b.at)) {
@@ -286,4 +305,4 @@ function compile(c, scene, ctx = {}) {
   return { id, fromFrame, durationFrames, bg, transition, shot: "wide", camera: { zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, characters: [], props: [], texts: [], semantic: spec };
 }
 
-module.exports = { TYPES, REPRESENTATION, KINDS, MOODS, GLYPHS, HAND_GLYPHS, ICON_GLYPHS, TIMING, EFFECT_KEYS, validate, compile, timeline, findPhrase, labelGrounded };
+module.exports = { TYPES, REPRESENTATION, KINDS, MOODS, GLYPHS, HAND_GLYPHS, ICON_GLYPHS, TIMING, HOLD, EFFECT_KEYS, validate, compile, timeline, findPhrase, labelGrounded };

@@ -281,4 +281,39 @@ ok("compile: anchored contracts record timingSource; one-event contracts without
   assert.strictEqual(anch.singleRelation.timingSource, "anchored");
 });
 
+// ── production timing rule (cycle 18, operator) ──
+const breakC = () => ({ type: "B", entities: [{ id: "p", kind: "person" }, { id: "o", kind: "object", glyph: "boulder" }], events: [{ at: 0.4, cause: "p", anchors: { cause: "you push harder", effect: "breaks" }, effects: [{ entity: "o", broken: true }] }] });
+const W190 = [{ w: "You", s: 100 }, { w: "push", s: 110 }, { w: "harder,", s: 120 }, { w: "and", s: 170 }, { w: "it", s: 180 }, { w: "breaks.", s: 190 }];
+ok("REGRESSION 190/174: an anchor at frame 190 in a 200-frame beat used to give an 'anchored' change at 174 — now UNFIT, never earlier than the words", () => {
+  const o = D.timeline(breakC(), 200, W190);
+  assert(/^fraction \(unfit/.test(o.source), o.source);
+  const v = R.verifyTiming(breakC(), { durationFrames: 200 }, W190);
+  assert.strictEqual(v.ok, false); assert(/unfit/.test(v.reason), v.reason);
+  // with room, the change starts exactly when "breaks" is said
+  const ok2 = R.verifyTiming(breakC(), { durationFrames: 260 }, W190);
+  assert(ok2.ok && ok2.events[0].effectAt === 190 && ok2.events[0].changeStart >= 190, JSON.stringify(ok2));
+});
+ok("timing: a phrase said twice is matched in context (the effect after its own cause)", () => {
+  const W = [{ w: "the", s: 10 }, { w: "water", s: 20 }, { w: "then", s: 60 }, { w: "the", s: 70 }, { w: "phone", s: 80 }, { w: "goes", s: 90 }, { w: "in", s: 95 }, { w: "the", s: 100 }, { w: "water", s: 110 }];
+  assert.strictEqual(D.findPhrase(W, "the water"), 10); assert.strictEqual(D.findPhrase(W, "the water", 80), 100);
+  const c = { type: "B", entities: [{ id: "f", kind: "object", glyph: "phone" }, { id: "w", kind: "object", glyph: "water" }], events: [{ at: 0.3, cause: "f", anchors: { cause: "phone", effect: "the water" }, effects: [{ entity: "f", moveTo: "w" }] }] };
+  const o = D.timeline(c, 300, W); assert.strictEqual(o.effectAt[0], 100);
+});
+ok("timing: no author anchor → the result is derived from the evidence; a forward clause ('so … that she snaps') anchors on the evidence's end", () => {
+  const c = { type: "B", evidence: "The load so unbearable that she just snaps", entities: [{ id: "t", kind: "person" }, { id: "l", kind: "stock", label: "load", value: 0.2 }], events: [{ at: 0.2, cause: "t", effects: [{ entity: "l", value: 1 }] }] };
+  const W = [{ w: "The", s: 0 }, { w: "load", s: 7 }, { w: "so", s: 40 }, { w: "unbearable", s: 50 }, { w: "that", s: 75 }, { w: "she", s: 85 }, { w: "just", s: 100 }, { w: "snaps", s: 110 }];
+  const v = R.verifyTiming(c, { durationFrames: 220 }, W);
+  assert(v.ok, v.reason); assert.strictEqual(v.events[0].effect, "she just snaps"); assert(v.events[0].changeStart >= 85, JSON.stringify(v.events));
+  const none = R.verifyTiming({ ...c, entities: [c.entities[0], { ...c.entities[1], label: "pressure" }] }, { durationFrames: 220 }, W);
+  assert.strictEqual(none.ok, false); assert(/result phrase is not found/.test(none.reason));
+});
+ok("timing: a repeated (build-up) event holds only its LAST step to the result words", () => {
+  const c = { type: "B", entities: [{ id: "t", kind: "person" }, { id: "l", kind: "stock", value: 0.2 }], events: [{ at: 0.2, cause: "t", repeat: 3, anchors: { effect: "snaps" }, effects: [{ entity: "l", value: 1, overflow: true }] }] };
+  const W = [{ w: "until", s: 90 }, { w: "it", s: 100 }, { w: "snaps", s: 110 }];
+  const o = D.timeline(c, 240, W);
+  assert.strictEqual(o.source, "anchored");
+  const T = D.TIMING, last = o[o.length - 1];
+  assert(last.cue + T.token + last.pause >= 110 && o[0].cue + T.token + o[0].pause < 110, JSON.stringify(o));
+});
+
 console.log(`single-relation: ${n} passed`);

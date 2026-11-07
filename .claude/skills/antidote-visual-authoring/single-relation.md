@@ -14,7 +14,9 @@ It is Director 1.0's proven part, not a new style.
 - **Eligible book (operator-approved selective rollout, cycle 17 — `data/single-relation-rollout.json`):** Antidote,
   unpublished, no production render, pin containing 8cd04fc0 (the rollout in make-book / preview-state). You SCAN, AUTHOR, VALIDATE, run the per-beat A/B, and
   `single-relation-rollout.js select / apply --write` puts B into the production config ONLY for beats whose own A/B
-  shows B better (≤ 15 scenes; runbook §2d). Write contracts for the operator's taste (creative-direction.md): several
+  shows B better, the narration review finds no contradiction and the result is timed to the narration (no cap;
+  runbook §2d). Give every event `anchors.effect` = the narrator's words for the RESULT (the change never starts before
+  them). Write contracts for the operator's taste (creative-direction.md): several
   objects that interact and visibly change; never decorate a beat that is already good — A stays there.
 - **Any other book:** Level 1 — scan / author / validate / isolated preview only; `apply-single-relation.js --write`
   needs an explicit operator decision for that book.
@@ -57,7 +59,7 @@ It is Director 1.0's proven part, not a new style.
   (an object moves to another owner; moveTo), `accumulation` (level up in steps), `depletion` / `recovery` (level down / up),
   `removal` (an obstacle disappears AND another entity changes), `transformation` (mood / broken), `character-action` (a
   person acts). The validator refuses a motion that does not match it (wrong entity, wrong direction). The scan proposes one.
-- **Relational motion 2.0 (cycle 18, experimental — dev until shipped):** events the renderer DRAWS, use only when the
+- **Relational motion 2.0 (cycle 18, production default):** events the renderer DRAWS, use only when the
   narration states them:
   - `overload` — a stock fills in steps (`repeat` ≥ 2, value up to ≥ 0.95) and its last effect has `"overflow": true`:
     the content heaps over the rim, runs down the sides and the wall cracks ("the to-do list piles up until he snaps").
@@ -68,7 +70,7 @@ It is Director 1.0's proven part, not a new style.
     swells and stays a little bigger.
   - `split` — an object that starts `present: false` appears with `"from": "<source>"`: it comes out of the source and
     slides to its own place (a dotted trace stays).
-- **Multi-phase single-frame storytelling (cycle 18 pilot):** `"phases": true` allows 2–3 events (setup → action →
+- **Multi-phase single-frame storytelling (cycle 18):** `"phases": true` allows 2–3 events (setup → action →
   result) in the same locked frame. Every event then has `"anchors": {"cause": "<words>", "effect": "<words>"}` (one or
   both; 1–6 VERBATIM narration words): the cause lights up when the narrator says its words, the change never starts
   before the effect's words are said. Any anchor the word timings cannot find → the whole contract falls back to its

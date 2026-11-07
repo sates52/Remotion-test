@@ -23,10 +23,15 @@ const OUT = path.resolve(args.out || path.join(SR, "preview"));
 const cfg = JSON.parse(fs.readFileSync(path.join(B, "config.antidote.json"), "utf8"));
 const rec = JSON.parse(fs.readFileSync(path.join(SR, "contracts.json"), "utf8"));
 fs.mkdirSync(path.join(OUT, "configs"), { recursive: true });
-const jobs = [], pairs = [];
+const jobs = [], pairs = [], timingDropped = [];
 for (const i of rec.valid || []) {
-  const c = JSON.parse(fs.readFileSync(path.join(SR, "contracts", `${i}.json`), "utf8"));
+  const c0 = JSON.parse(fs.readFileSync(path.join(SR, "contracts", `${i}.json`), "utf8"));
   const prev = cfg.scenes[i - 1], cur = cfg.scenes[i];
+  // cycle 18 timing rule — the same one apply uses: B is previewed exactly as it would ship (anchored to the words the
+  // narrator says the result with); a beat that cannot be timed honestly is not rendered at all (it would keep A)
+  const tv = R.verifyTiming(c0, cur, require("./apply-single-relation").wordsOf(cfg, cur));
+  if (!tv.ok) { timingDropped.push({ sceneIndex: i, keep: "A", why: `timing: ${tv.reason}` }); continue; }
+  const c = tv.contract;
   const off = prev ? prev.fromFrame : cur.fromFrame;
   const A = [prev, cur].filter(Boolean).map((s) => ({ ...s, fromFrame: s.fromFrame - off }));
   const curA = A[A.length - 1], total = curA.fromFrame + curA.durationFrames;
@@ -38,9 +43,9 @@ for (const i of rec.valid || []) {
     fs.writeFileSync(path.join(OUT, "configs", `${id}.json`), JSON.stringify(cfgs[arm]));
     jobs.push({ id, config: `configs/${id}.json`, frames, strip: true, ...(args.clips ? { clip: { from: curA.fromFrame, to: total - 1 } } : {}) });
   }
-  pairs.push({ sceneIndex: i, sceneId: cur.id, narration: cur._narration, previousNarration: prev ? prev._narration || "" : "", contract: `contracts/${i}.json`, type: c.type, frames });
+  pairs.push({ sceneIndex: i, sceneId: cur.id, narration: cur._narration, previousNarration: prev ? prev._narration || "" : "", contract: `contracts/${i}.json`, type: c.type, frames, timing: tv.events, derived: tv.derived || [] });
 }
 const extra = fs.existsSync(path.join(root, "public", "sfx")) ? fs.readdirSync(path.join(root, "public", "sfx")).filter((f) => f.endsWith(".wav")).map((f) => `public/sfx/${f}`) : [];
 fs.writeFileSync(path.join(OUT, "manifest.json"), JSON.stringify({ schema: "stills/1", name: `single-relation A/B ${args.slug}`, composition: "Antidote-lab", entry: "src/index.ts", silent: true, shards: Math.max(1, Math.min(10, jobs.length / 2)), extra, jobs }, null, 1));
-fs.writeFileSync(path.join(OUT, "pairs.json"), JSON.stringify({ schema: "single-relation-preview/1", slug: args.slug, level: "Level 1 preview — isolated experiment configs, the book is unchanged", pairs }, null, 1));
-console.log(`${args.slug}: ${pairs.length} A/B pair(s) → ${OUT} (push: node scripts/stills-cloud.js push --manifest=${path.join(OUT, "manifest.json")} --tag=<t>)`);
+fs.writeFileSync(path.join(OUT, "pairs.json"), JSON.stringify({ schema: "single-relation-preview/1", slug: args.slug, level: "isolated A/B preview configs — the book is unchanged", pairs, timingDropped }, null, 1));
+console.log(`${args.slug}: ${pairs.length} A/B pair(s)${timingDropped.length ? `, ${timingDropped.length} kept A by the timing rule` : ""} → ${OUT} (push: node scripts/stills-cloud.js push --manifest=${path.join(OUT, "manifest.json")} --tag=<t>)`);

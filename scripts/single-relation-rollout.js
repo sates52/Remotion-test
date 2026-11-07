@@ -32,6 +32,8 @@ const { apply: applyContracts } = require("./apply-single-relation");
 const HERE = path.join(__dirname, "..");
 const POLICY = JSON.parse(fs.readFileSync(path.join(HERE, "data", "single-relation-rollout.json"), "utf8"));
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex").slice(0, 16);
+/** frame → m:ss.f at 30 fps (the preview timecode of a B scene) */
+const tc = (f) => { const s = f / 30; return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}.${Math.floor((s * 10) % 10)}`; };
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 
 function paths(root, slug) {
@@ -72,17 +74,21 @@ function select(contractsDir, ab, { maxScenes = POLICY.perBook.maxScenes } = {})
     const r = rows.get(i), c = (rec.contracts || {})[i] || {};
     let why = null;
     if (!valid.has(i)) why = "contract invalid";
+    else if (r && r.dropped) why = r.dropped;
     else if (!r) why = "no A/B result";
     else if (!(r.B > r.A)) why = `A/B: B ${r.B} not above A ${r.A}`;
     else if ((r.wiB || 0) > (r.wiA || 0)) why = `A/B: more wrong inferences with B (${r.wiB} > ${r.wiA})`;
     else if ((r.polB || 0) > 0) why = `A/B: polarity error with B (${r.polB})`;
     else if ((r.cwB || 0) > 0) why = `A/B: wrong cause with B (${r.cwB})`;
+    // cycle 18 veto: the narration review saw a wrong object / action / causality in B (muted score notwithstanding)
+    else if (r.veto) why = `narration veto (${r.veto.kind}): narration "${r.veto.narrationPart}" — on screen: ${r.veto.onScreen}`;
+    else if (r.avReviewed !== true) why = "no narration review for this beat (single-relation-ab.js PROMPTS §3)";
     if (why) kept.push({ sceneIndex: i, keep: "A", why });
     else chosen.push({ sceneIndex: i, contract: path.join(contractsDir, "contracts", `${i}.json`), contractHash: c.contractHash || null, review: c.review ? c.review.verdict : null, ab: { A: r.A, B: r.B, wiA: r.wiA || 0, wiB: r.wiB || 0 } });
   }
-  // over the cap: the largest A/B gains go first, the rest keep A
+  // a cap only when the policy sets one (cycle 18: the operator removed it — every B that wins and passes goes in)
   chosen.sort((x, y) => (y.ab.B - y.ab.A) - (x.ab.B - x.ab.A) || x.sceneIndex - y.sceneIndex);
-  for (const c of chosen.splice(maxScenes)) kept.push({ sceneIndex: c.sceneIndex, keep: "A", why: `over the per-book cap ${maxScenes}` });
+  if (Number.isInteger(maxScenes)) for (const c of chosen.splice(maxScenes)) kept.push({ sceneIndex: c.sceneIndex, keep: "A", why: `over the per-book cap ${maxScenes}` });
   chosen.sort((x, y) => x.sceneIndex - y.sceneIndex);
   kept.sort((x, y) => x.sceneIndex - y.sceneIndex);
   return { schema: "single-relation-selection/1", policy: POLICY.id, maxScenes, chosen, kept };
@@ -90,9 +96,25 @@ function select(contractsDir, ab, { maxScenes = POLICY.perBook.maxScenes } = {})
 
 /** build the new config + the provenance record (nothing written) */
 function plan(config, selection, { now = new Date().toISOString(), tool = null } = {}) {
-  if (selection.chosen.length > POLICY.perBook.maxScenes) return { ok: false, errors: [`${selection.chosen.length} scenes > the per-book cap ${POLICY.perBook.maxScenes}`] };
-  const contracts = Object.fromEntries(selection.chosen.map((c) => [c.sceneIndex, readJSON(c.contract)]));
-  for (const [i, c] of Object.entries(contracts)) if (!c) return { ok: false, errors: [`scene ${i}: contract file unreadable`] };
+  const cap = POLICY.perBook.maxScenes;
+  if (Number.isInteger(cap) && selection.chosen.length > cap) return { ok: false, errors: [`${selection.chosen.length} scenes > the per-book cap ${cap}`] };
+  const raw = Object.fromEntries(selection.chosen.map((c) => [c.sceneIndex, readJSON(c.contract)]));
+  for (const [i, c] of Object.entries(raw)) if (!c) return { ok: false, errors: [`scene ${i}: contract file unreadable`] };
+  // cycle 18 timing rule: the narrator's result phrase must be found in the word timings and the compiled change may
+  // not start before it (and must fit, held, in the beat) — otherwise THAT B is dropped and its scene keeps A; the
+  // others go on. A passing contract goes in anchored (its derived anchors written into it).
+  // validity first: one invalid contract refuses the whole apply (nothing written), as before the timing rule
+  const pre = applyContracts(config, raw);
+  if (!pre.ok) return pre;
+  const { wordsOf } = require("./apply-single-relation");
+  const contracts = {}, timing = {}, dropped = [];
+  for (const [i, c] of Object.entries(raw)) {
+    const v = SR.verifyTiming(c, config.scenes[i], wordsOf(config, config.scenes[i]));
+    if (!v.ok) { dropped.push({ sceneIndex: Number(i), keep: "A", why: `timing: ${v.reason}` }); continue; }
+    contracts[i] = v.contract; timing[i] = { events: v.events, derived: v.derived || [] };
+  }
+  selection = { ...selection, chosen: selection.chosen.filter((c) => contracts[c.sceneIndex]), kept: [...(selection.kept || []), ...dropped] };
+  if (!selection.chosen.length) return { ok: true, config, contracts: {}, record: { schema: "single-relation-active/1", policy: POLICY.id, at: now, tool, configBefore: sha(JSON.stringify(config)), configAfter: sha(JSON.stringify(config)), scenes: [], kept: selection.kept.sort((a, b) => a.sceneIndex - b.sceneIndex), reverted: [] } };
   const r = applyContracts(config, contracts);
   if (!r.ok) return r;
   const scenes = [];
@@ -103,7 +125,8 @@ function plan(config, selection, { now = new Date().toISOString(), tool = null }
     r.config.scenes[i] = SR.sealAuthored(r.config.scenes[i], prov);
     const before = config.scenes[i], after = r.config.scenes[i];
     const who = (s) => (s.characters || []).map((x) => x.identity || x.role || "?").join("+") || "none";
-    scenes.push({ sceneIndex: i, sceneId: before.id, narrationHash: sha(String(before._narration || "")), contractHash, mechanism: c.mechanism || null, review: sel.review, ab: sel.ab,
+    scenes.push({ sceneIndex: i, sceneId: before.id, narrationHash: sha(String(before._narration || "")), contractHash, mechanism: c.mechanism || null, review: sel.review, ab: sel.ab, timing: timing[i],
+      preview: { fromFrame: before.fromFrame, toFrame: before.fromFrame + before.durationFrames, timecode: `${tc(before.fromFrame)}–${tc(before.fromFrame + before.durationFrames)}` },
       diff: { shot: `${before.shot}→${after.shot}`, cast: `${who(before)}→${who(after)}`, concept: `${before.concept ?? "none"}→${after.concept ?? "none"}` }, previous: before });
   }
   const record = { schema: "single-relation-active/1", policy: POLICY.id, level2: POLICY.level2, at: now, tool, configBefore: sha(JSON.stringify(config)), configAfter: sha(JSON.stringify(r.config)), scenes, kept: selection.kept || [], reverted: [] };
@@ -185,7 +208,15 @@ if (require.main === module) {
     if (!selection) { console.error("--selection=<selection.json> (from `select`) is required"); process.exit(2); }
     const r = plan(config, selection, { tool: toolRev });
     if (!r.ok) { console.error(`✗ refused (nothing written):\n  ${r.errors.join("\n  ")}`); process.exit(1); }
-    for (const s of r.record.scenes) console.log(`  scene ${s.sceneIndex} (${s.mechanism || "-"}; A/B ${s.ab.A}→${s.ab.B}): shot ${s.diff.shot}, cast ${s.diff.cast}, icon ${s.diff.concept}`);
+    for (const k of r.record.kept) console.log(`  keep A — scene ${k.sceneIndex}: ${k.why}`);
+    if (!r.record.scenes.length) {
+      if (!args.write) { console.log("dry run: no B scene survives (see the reasons above)"); process.exit(0); }
+      fs.mkdirSync(P.dir, { recursive: true });
+      fs.writeFileSync(path.join(P.dir, "rollout.json"), JSON.stringify({ schema: "single-relation-decision/1", decision: "none", reason: "authored and A/B'd; no B survived the A/B, the narration veto and the timing rule", kept: r.record.kept, policy: POLICY.id, at: new Date().toISOString() }, null, 1));
+      console.log(`✓ ${slug}: no B scene — recorded with every reason (single-relation/rollout.json)`);
+      process.exit(0);
+    }
+    for (const s of r.record.scenes) console.log(`  scene ${s.sceneIndex} @ ${s.preview.timecode} (${s.mechanism || "-"}; A/B ${s.ab.A}→${s.ab.B}; result "${s.timing.events.map((e) => e.effect).join(" / ")}" said at ${s.timing.events.map((e) => e.effectAt).join(", ")}, change at ${s.timing.events.map((e) => e.changeStart).join(", ")}): shot ${s.diff.shot}, cast ${s.diff.cast}, icon ${s.diff.concept}`);
     if (!args.write) { console.log(`dry run: ${r.record.scenes.length} scene(s) would become single-relation (add --write)`); process.exit(0); }
     fs.mkdirSync(P.contracts, { recursive: true });
     for (const [i, c] of Object.entries(r.contracts)) fs.writeFileSync(path.join(P.contracts, `${i}.json`), JSON.stringify(c, null, 1));
