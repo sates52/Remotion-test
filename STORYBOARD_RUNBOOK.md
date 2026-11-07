@@ -242,6 +242,38 @@ node scripts/single-relation-rollout.js apply  --slug=<s> --book-root=<wt> --wri
   --scenes=<i> --write` (or all) and report; the rollout stops until the operator looks. Never global default-on;
   never a published / rendered / old-pin book; never a render, repin, upload or Flux call from this section.
 
+### 2e. C19 — the narrated action and its result across shots (Antidote; 2026-11-07, same approval as §2d)
+Same eligibility as §2d, plus the book's worktree has the `scene.shots` renderer (pinned at or after the C19 merge;
+`c19.js apply` refuses otherwise — never repin silently). Runs in the same round as §2d, default on, no cap, no
+per-book approval. A sequence shows what the narration says HAPPENS ("Swing, strike, split"; "take off your shoe … resume
+running") in 2–4 shots cut on the narrator's own words, inside one beat or over consecutive beats. The beat keeps its id,
+order, start, length and transition; inner cuts and cues are beat-relative; the beat transition plays once, at the beat
+boundary. A result carried into the next beat is part of the contract (`startState: "split"`), and every shot draws its
+own state (rendering the next beat on its own still shows the pieces on the ground). A set change cannot carry a result;
+if the narration needs it there, keep A.
+```bash
+node scripts/c19.js scan --slug=<s>                       # candidates → single-relation/c19/candidates.json
+#   one fresh author per antidote-visual-authoring/c19-sequence.md writes contracts; every candidate decided
+#   (single-relation/author-decisions-c19.json); skip honestly
+node scripts/c19.js validate --slug=<s>                   # one contract = one unit; invalid = every beat keeps A
+node scripts/c19.js preview --slug=<s> --out=<dir> --clips # isolated A/B (A = the current config, incl. Motion 2.0 B)
+node scripts/stills-cloud.js push --manifest=<dir>/manifest.json --tag=<t>  &&  … fetch --tag=<t> --out=<dir>/out
+node scripts/single-relation-ab.js blind|judge|tally --preview=<dir>   # as §2d; the narration review is the veto
+node scripts/single-relation-rollout.js select --slug=<s> --contracts=<wt>/books/<s>/single-relation/c19 --ab=<dir>/ab/ab-result.json --out=<wt>/books/<s>/single-relation/c19/selection.json
+node scripts/c19.js apply --slug=<s> --write              # atomic per sequence, recorded in active.json (kind "c19")
+```
+- **A** is the scene as it stands — a Motion 2.0 B if one was applied; a rejected sequence keeps it.
+- The timing rule, the narration veto, VTT timing and publish gates apply unchanged: every cued action and every
+  split sits on the word that says it (`cues` / `motionCues`, `cueExact`); the result never shows before that word.
+- All beats of a sequence are validated, A/B'd, sealed, applied and reverted TOGETHER: one failing beat = none changes;
+  `single-relation-rollout.js revert --scenes=<firstBeat> --write` returns every beat to its previous version.
+- make-book 1.885 re-applies the sequences (before the single-relation scenes) on every rebuild; preview-state
+  `singleRelation` reads `active.json` for both kinds (`status`: ACTIVE / MISSING).
+- **Coverage, stated separately in every report:** readcheck reads the STORYBOARD (art.json — the beat's authored
+  staging, which C19 keeps); the C19 A/B + narration review checks the RENDERED frames of the sequence. When the mute
+  sample does not include a changed beat, the C19 short clip and its blind check are the evidence for that beat.
+- Regression: `scripts/test-c19.js`.
+
 ## 3. Plan with every gate
 ```bash
 node scripts/make-book.js --slug=<slug> --title="<title>" --author="<author>" --genre=<genre> --skip-pack

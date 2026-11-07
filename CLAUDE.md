@@ -200,6 +200,10 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   narrator's words (cycle 18: Relational Motion 2.0 on by default, no scene cap, no per-book approval); every contract
   valid; gates unchanged after (runbook §2d). Do not ask "Single-Relation açılsın mı?". "None" only after authoring
   every candidate. Never a published / rendered / old-pin book.
+- **C19 (2026-11-07, same approval, default on):** the narrated action and its result across shots inside a beat
+  (`scene.shots`) or over consecutive beats - `c19.js scan / validate / preview`, the same A/B + narration veto, `select`,
+  `c19.js apply --write`; one contract = one unit (validated, applied, reverted together); a result is never carried
+  across a set change. Readcheck covers the storyboard, the C19 A/B covers the rendered frames (runbook §2e).
 - Engine after the audio (cycle 18): preview-state locks the engine the audio was recorded for (`engine-lock.json`);
   a later switch stops for the operator (make-prompt refuses it without `--operator-approved` + a new recording).
 - Any other book: report only (runbook §2c). Never tell blind agents about it.

@@ -158,7 +158,22 @@ function noneCoverage(dir) {
   const wrote = ids.filter((i) => byIdx.get(i).decision === "contract");
   const rec = readJSON(path.join(dir, "contracts.json"));
   if (wrote.length && !rec) return { ok: false, why: `contracts were written for ${wrote.join(", ")} but never validated (single-relation-scan.js validate)` };
-  return { ok: true, candidates: ids.length, decided: ids.length };
+  const c19 = c19Coverage(dir);
+  if (!c19.ok) return c19;
+  return { ok: true, candidates: ids.length + c19.candidates, decided: ids.length + c19.candidates };
+}
+
+/** C19 (runbook §2e): every sequence candidate has an author decision too (single-relation/author-decisions-c19.json) */
+function c19Coverage(dir) {
+  const cand = readJSON(path.join(dir, "c19", "candidates.json"));
+  const ids = ((cand && cand.candidates) || []).map((c) => Number(c.sceneIndex));
+  if (!ids.length) return { ok: true, candidates: 0 };
+  const dec = readJSON(path.join(dir, "author-decisions-c19.json"), []) || [];
+  const byIdx = new Map((Array.isArray(dec) ? dec : dec.decisions || []).map((d) => [Number(d.sceneIndex), d]));
+  const missing = ids.filter((i) => { const d = byIdx.get(i); return !d || !String(d.why || "").trim() || !["skipped", "contract"].includes(d.decision); });
+  if (missing.length) return { ok: false, why: `${ids.length} C19 candidate(s) but no author decision with a reason for ${missing.length} (${missing.slice(0, 8).join(", ")}) — one fresh author (c19-sequence.md) writes single-relation/author-decisions-c19.json` };
+  if (ids.some((i) => byIdx.get(i).decision === "contract") && !readJSON(path.join(dir, "c19", "contracts.json"))) return { ok: false, why: "C19 contracts were written but never validated (c19.js validate)" };
+  return { ok: true, candidates: ids.length };
 }
 
 /** ACTIVE (every recorded scene carries its contract), MISSING (config rebuilt), NONE */
@@ -203,7 +218,7 @@ if (require.main === module) {
   const toolRev = (() => { try { return execFileSync("git", ["rev-parse", "--short", "HEAD"], { cwd: HERE, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); } catch { return null; } })();
   const writeCfg = (cfg) => fs.writeFileSync(P.cfg, JSON.stringify(cfg, null, 2));
   const gate = () => { const e = eligibility(root, slug); if (!e.ok) { console.error(`✗ ${slug} is not eligible for the selective rollout:\n  ${e.reasons.join("\n  ")}`); process.exit(2); } return e; };
-  if (cmd === "check") { const e = eligibility(root, slug); console.log(e.ok ? `ELIGIBLE ${slug} (pin ${String(e.pin).slice(0, 8)}; policy ${POLICY.id}, ≤ ${POLICY.perBook.maxScenes} scenes)` : `NOT ELIGIBLE ${slug}:\n  ${e.reasons.join("\n  ")}`); process.exit(e.ok ? 0 : 2); }
+  if (cmd === "check") { const e = eligibility(root, slug); console.log(e.ok ? `ELIGIBLE ${slug} (pin ${String(e.pin).slice(0, 8)}; policy ${POLICY.id}, ${POLICY.perBook.maxScenes == null ? "no scene cap" : `≤ ${POLICY.perBook.maxScenes} scenes`})` : `NOT ELIGIBLE ${slug}:\n  ${e.reasons.join("\n  ")}`); process.exit(e.ok ? 0 : 2); }
   if (cmd === "select") {
     gate();
     const ab = readJSON(path.resolve(args.ab));

@@ -101,6 +101,8 @@ Do not re-derive these from prose — run the command and follow what it prints.
   the result is timed to the narrator's words (no cap), reversible (runbook §2d,
   `single-relation-rollout.js`); every other book: report only (runbook §2c; authors:
   `.claude/skills/antidote-visual-authoring/single-relation.md`).
+- C19 sequences (action + result across shots, `scene.shots`): same eligible books, same A/B and veto, one contract =
+  one atomic unit (runbook §2e; authors: `.claude/skills/antidote-visual-authoring/c19-sequence.md`; `scripts/c19.js`).
 - Sealed holdout and the blind mute test: runbook §4, contract §6. Render decisions: runbook §5b, contract §7.
 - YouTube titles: `CLAUDE.md` (`lint-titles.js` must PASS before upload).
 

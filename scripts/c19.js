@@ -132,6 +132,8 @@ if (require.main === module) {
   if (cmd === "apply") {
     const e = RO.eligibility(root, slug);
     if (!e.ok) { console.error(`✗ not eligible: ${e.reasons.join("; ")}`); process.exit(2); }
+    // the book's own worktree renders it: a pin without the scene.shots renderer would silently ignore the sequence
+    if (!/scene\.id\}#\$\{k \+ 1\}/.test(fs.readFileSync(path.join(root, "src/engines/antidote/index.tsx"), "utf8"))) { console.error("✗ not eligible for C19: this worktree's renderer has no scene.shots (pinned before C19) — never repin silently"); process.exit(2); }
     const cfgPath = path.join(B, "config.antidote.json"), cfg = readJSON(cfgPath), sel = readJSON(path.resolve(args.selection || path.join(SR, "c19", "selection.json")));
     if (!sel) { console.error("--selection (single-relation-rollout.js select --contracts=<book>/single-relation/c19 …)"); process.exit(2); }
     const r = plan(root, slug, cfg, sel);
