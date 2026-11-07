@@ -48,6 +48,12 @@ export const charAction = z.enum([
   "embrace", // two people: the lead closes the gap and they hold each other from the cue (the partner embraces back)
   "lift", // two people (2026-10-26): the lead lifts the partner on the cue, carries her to the beat's icon and sets her down in it
   "lifted", // the partner of a lift (never authored alone): rises, is carried, is set down in the destination and stays there
+  // ── C19 SEQUENCE ACTIONS (2026-11-07): an action and its result followed across consecutive shots ──────────
+  "run", // a running gait on the spot (double cadence, lean, pumping arms); pair with `travel` to cross the frame
+  "stop", // running until the cue word, then the body slows and stands still on it (feel-good 224 "You stop running")
+  "chop", // `holds` an axe: it rises overhead before the cue and comes DOWN on it — the edge lands on the impact point
+  "throw", // `holds` an object: wind-up before the cue, the arm whips forward on it and the object leaves the hand
+  //          and flies to `throwTo` (or out of the frame) — the hand is empty from then on
 ]);
 export type CharAction = z.infer<typeof charAction>;
 
@@ -150,6 +156,8 @@ export const handProp = z.enum([
   "cigarette",
   // Action 3.0 (2026-10-28): a tool that is picked up and put down (don-t-believe 79: "put the tool down")
   "wrench",
+  // C19 (2026-11-07): sequence objects — struck with, taken off, found, thrown
+  "axe", "shoe", "pebble", "ball",
 ]);
 export type HandProp = z.infer<typeof handProp>;
 
@@ -321,6 +329,9 @@ export const characterSchema = z.object({
    *  `action: "walk"` and the figure actually crosses the set instead of
    *  marching on the spot. */
   travel: z.tuple([z.number(), z.number()]).optional(),
+  /** C19 `throw`: where the released object flies to, in stage px (it lands and stays there). Absent = out of the
+   *  frame on the side the figure faces. */
+  throwTo: z.object({ x: z.number(), y: z.number() }).optional(),
   /**
    * MULTIPLANE DEPTH (4.0). How far this figure sits from camera on the z axis:
    * >1 = nearer (parallaxes more on a pan, zooms more), <1 = farther. Only read
@@ -386,11 +397,13 @@ export type PropType = z.infer<typeof propType>;
  *  `break`: intact chains snap apart; `light`: a dark phone screen lights up with a message. Before the cue the
  *  icon shows the start state, after it the end state, on every frame (a still at any
  *  frame shows the same picture as the clip). Nothing here is ever chosen by the engine. */
-export const conceptMotion = z.enum(["spin", "break", "light"]);
+export const conceptMotion = z.enum(["spin", "break", "light", "split"]);
 export type ConceptMotion = z.infer<typeof conceptMotion>;
-export const CONCEPT_MOTIONS: Record<string, readonly ConceptMotion[]> = { compass: ["spin"], chains: ["break"], phone: ["light"] };
-/** Motions that END in a different state (the icon keeps it). A continued stage must keep it too. */
-export const STATE_MOTIONS: readonly ConceptMotion[] = ["break", "light"];
+export const CONCEPT_MOTIONS: Record<string, readonly ConceptMotion[]> = { compass: ["spin"], chains: ["break"], phone: ["light"], customSvg: ["split"] };
+/** Motions that END in a different state (the icon keeps it). A continued stage must keep it too.
+ *  C19 `split`: a book-own icon (customSvg) halves from its impact point (`splitAt`) at the cue and the halves stay
+ *  on the ground; a later shot authors it with motionAt < 0 to start already split. */
+export const STATE_MOTIONS: readonly ConceptMotion[] = ["break", "light", "split"];
 
 export const propSchema = z.object({
   type: propType,
@@ -432,6 +445,8 @@ export const propSchema = z.object({
   /** Scene-relative frame the authored motion starts (word-synced: the callout's
    *  anchored word or the author's `conceptMotionCue` phrase). Same clock as `at`. */
   motionAt: z.number().optional(),
+  /** C19 `split`: where the strike lands, as a share of the icon's width (0 left … 1 right; default 0.5) */
+  splitAt: z.number().min(0.1).max(0.9).optional(),
   /** Secondary visual anchor for character drama (keeps motif alive in background) */
   isSecondaryAnchor: z.boolean().optional(),
   /** Dynamic vector paths for custom motifs generated on the fly by AI Art Director */

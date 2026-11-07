@@ -14,7 +14,8 @@ import { embraceMotifSlot } from "../safeArea";
 import { liftLayout, isLift } from "../liftLayout";
 import { leaveLayout, pathOf } from "../leaveLayout";
 import { DEFAULT_TRANSITION, DEFAULT_VARIANT } from "../schema";
-import { enter, pose, ambient, arcOf, parallax, PLACE_OUT, PLACE_HOLD } from "../movements";
+import { enter, pose, ambient, arcOf, parallax, PLACE_OUT, PLACE_HOLD, THROW_FLY } from "../movements";
+import { HeldProp } from "../handprops";
 import { interpolate } from "remotion";
 import { camera } from "../movements";
 import { SpeechBalloon } from "./SpeechBalloon";
@@ -224,7 +225,27 @@ const CharacterLayer: React.FC<{
   const isNervous = spec.emotion === "sweat";
   const jitterX = isNervous && frame >= (spec.emotionAt ?? 8) ? Math.sin(frame * 1.6) * 1.5 : 0;
 
+  // C19 THROW: once the object has left the hand (pose.released) it is drawn HERE, in stage px, flying on an arc from
+  // the hand to `throwTo` (it lands and stays) — or out of the frame on the side the figure faces. A pure function of
+  // the frame: a still at any frame shows the same flight as the clip.
+  const flying = spec.action === "throw" && spec.holds && (p.released ?? 0) >= 1 ? (() => {
+    const cx = st.x + e.tx + travel + approach, cy = st.y + e.ty;
+    const dir = faceFlip ? -1 : 1;
+    const sx = cx + dir * 150 * scale, sy = cy - 120 * scale;
+    const to = spec.throwTo ?? { x: cx + dir * 1400, y: sy - 80 };
+    const k = Math.max(0, Math.min(1, (frame - cue - 2) / THROW_FLY));
+    const x = sx + (to.x - sx) * k, y = sy + (to.y - sy) * k - 260 * Math.sin(Math.PI * k);
+    if (!spec.throwTo && k >= 1) return null;
+    return (
+      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none" }}>
+        {k < 1 ? <path d={`M ${sx} ${sy} Q ${(sx + x) / 2} ${Math.min(sy, y) - 120} ${x} ${y}`} fill="none" stroke="#1E1E22" strokeWidth={4} strokeDasharray="3 12" strokeLinecap="round" opacity={0.45} /> : null}
+        <g transform={`translate(${x} ${y}) scale(${1.2 * scale})`}><HeldProp prop={spec.holds as HandProp} ink="#1E1E22" accent={accent} /></g>
+      </svg>
+    );
+  })() : null;
   return (
+    <>
+    {flying}
     <div
       style={{
         position: "absolute",
@@ -254,6 +275,7 @@ const CharacterLayer: React.FC<{
         return <SpeechBalloon text={spec.says.text} at={spec.says.at ?? 0} scale={scale} flip={faceFlip} side={side} />;
       })() : null}
     </div>
+    </>
   );
 };
 

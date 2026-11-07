@@ -302,7 +302,41 @@ const Cigarette: G = ({ ink }) => (
   </g>
 );
 
+// ── C19 (2026-11-07): objects a SEQUENCE acts on — struck, taken off, thrown (the shot plans in dev/c19) ──
+// an axe held by the end of its handle: the handle runs up from the hand, the blade at the top faces forward (+x), so
+// the chop's arc brings the EDGE down onto what it strikes (burn-of-the-everflame 21 "Swing, strike, split")
+const Axe: G = ({ ink }) => (
+  <g>
+    <rect x={-7} y={-170} width={14} height={190} rx={6} fill="#9A6A3A" stroke={ink} strokeWidth={4} />
+    <path d="M4,-170 L62,-186 Q78,-150 62,-112 L4,-128 Z" fill="#AEB6BF" stroke={ink} strokeWidth={5} strokeLinejoin="round" />
+    <path d="M60,-182 Q74,-150 60,-116" fill="none" stroke="#FFFFFF" strokeWidth={4} opacity={0.8} />
+  </g>
+);
+// a running shoe held by the heel (feel-good-productivity 225 "You take off your shoe")
+const Shoe: G = ({ ink, accent }) => (
+  <g>
+    <path d="M-58,10 L-58,-22 Q-44,-34 -22,-30 L6,-18 Q30,-12 46,-2 Q62,6 60,18 L-58,18 Z" fill={accent} stroke={ink} strokeWidth={5} strokeLinejoin="round" />
+    <rect x={-60} y={14} width={122} height={12} rx={6} fill="#F4F1EA" stroke={ink} strokeWidth={4} />
+    <path d="M-20,-24 L-6,-6 M-6,-22 L8,-6" stroke="#FFFFFF" strokeWidth={4} strokeLinecap="round" />
+  </g>
+);
+// a small grey stone between two fingers (feel-good-productivity 225 "You find the pebble")
+const Pebble: G = ({ ink }) => (
+  <g>
+    <path d="M-16,4 Q-18,-12 0,-14 Q18,-14 18,0 Q16,14 0,14 Q-14,14 -16,4 Z" fill="#8E9196" stroke={ink} strokeWidth={4} />
+    <path d="M-6,-6 Q0,-9 6,-5" fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={0.7} />
+  </g>
+);
+// "a red rubber ball the size of a grapefruit" (the-lightning-thief 149): red is the narration's own colour
+const Ball: G = ({ ink }) => (
+  <g>
+    <circle cx={0} cy={0} r={34} fill="#D7263D" stroke={ink} strokeWidth={5} />
+    <path d="M-20,-14 Q-8,-26 8,-24" fill="none" stroke="#FFFFFF" strokeWidth={6} strokeLinecap="round" opacity={0.75} />
+  </g>
+);
+
 export const HAND_PROPS: Record<HandProp, G> = {
+  axe: Axe, shoe: Shoe, pebble: Pebble, ball: Ball,
   cigarette: Cigarette,
   book: Book, phone: Phone, key: Key, notes: Notes, letter: Letter, coin: Coin,
   cup: Cup, lightbulb: Lightbulb, mask: Mask, photo: Photo, mirror: Mirror,

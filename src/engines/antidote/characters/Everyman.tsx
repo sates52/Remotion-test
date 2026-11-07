@@ -180,7 +180,9 @@ export const Everyman: React.FC<{
   emotion?: CharEmotion;
   /** Frame when the emotion appears (defaults to 8) */
   emotionAt?: number;
-}> = ({ variant, pose, width = 400, body = "bust", holds, accent, emotion, emotionAt }) => {
+}> = ({ variant, pose, width = 400, body = "bust", holds: holdsIn, accent, emotion, emotionAt }) => {
+  // C19 `throw`: once the object has left the hand the rig draws an empty hand (Scene flies the object)
+  const holds = (pose.released ?? 0) >= 1 ? undefined : holdsIn;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { skin, hair, suit, shirt, expression, hairStyle, glasses, beard, gender, age, outfit } = variant;
@@ -268,7 +270,7 @@ export const Everyman: React.FC<{
             the other way round the hand lands as a skin blob in the
             middle of the page. */}
         <Hand cx={304} cy={498} skin={skin} thumb={1} />
-        <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + (pose.propTilt ?? 0)}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
+        <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + ((pose.carried ?? 0) > 0 ? armRot + elbowRot + 180 : (pose.propTilt ?? 0))}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
           <HeldProp prop={holds as string} ink={holdInk} accent={holdAccent} />
         </g>
       </g>

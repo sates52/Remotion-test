@@ -55,4 +55,6 @@ export function stateProgress(frame: number, motion: string | undefined, wanted:
 
 /** The local cue frame of a motif spec: motionAt is scene-relative like `at`. */
 export const motionCueLocal = (spec: { at?: number; motionAt?: number }): number =>
-  Math.max(0, (spec.motionAt ?? spec.at ?? 0) - (spec.at ?? 0));
+  // C19: a NEGATIVE motionAt = the change already happened before this shot (the split log in the next shot): the
+  // icon starts in its end state on frame 0 — a state carried across a cut, never replayed
+  spec.motionAt != null && spec.motionAt < 0 ? spec.motionAt : Math.max(0, (spec.motionAt ?? spec.at ?? 0) - (spec.at ?? 0));

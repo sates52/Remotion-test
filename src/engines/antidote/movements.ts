@@ -140,6 +140,8 @@ export type Pose = {
   bring?: number; // `take` after the cue: 0..1 progress of bringing the object in (the caption lift follows it)
   front?: number; // `drink` (10x P2): 1 = the hand is at the mouth — the rig draws the arm + object IN FRONT of the face
   propTilt?: number; // `drink`: the held object tipped toward the lips (deg, on top of the upright counter-rotation)
+  released?: number; // C19 `throw`: 0 = in the hand, 1 = it has left the hand (the rig stops drawing it; Scene flies it)
+  carried?: number; // C19 `chop`: 1 = the held object turns WITH the forearm (an axe), not kept upright like a cup
   contact?: number; // `embrace`: 0..1 — how far the lead has closed the gap (1 = bodies touch)
   // `lift` / `lifted` (2026-10-26): 0..1 progress of carrying the lifted person to the destination (Scene moves both
   // bodies by it), and 0..1 progress of setting her down in it (the destination's front edge covers her from then on)
@@ -178,6 +180,11 @@ export const ACTION_CUE_MIN = 24;
 export const LEAVE_LEN = 80, FLEE_LEN = 42, TURN_LEN = 6;
 /** Frames from an authored `take` cue to the object being held at the chest. */
 export const TAKE_BRING = 24;
+/** C19 sequence actions, in frames around the cue: the axe rises for CHOP_UP before the cue and lands in CHOP_DOWN;
+ *  a throw winds up for THROW_WIND before the cue, the object flies THROW_FLY after it; a stop slows in STOP_SLOW */
+export const CHOP_UP = 18, CHOP_DOWN = 4, THROW_WIND = 14, THROW_FLY = 22, STOP_SLOW = 14;
+/** the forearm angle (armR + elbowR) at the strike: the axe edge is level with the hips, in front of the body */
+export const CHOP_STRIKE_ARM = -70;
 /** PLACE (Action 3.0): the held object goes out to the rest position (PLACE_OUT), is let go, the empty hand stays a
  *  moment (PLACE_HOLD) and comes back (PLACE_BACK) — the object stays where it was set down */
 export const PLACE_OUT = 22, PLACE_HOLD = 10, PLACE_BACK = 20;
@@ -444,6 +451,50 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
       // thinkers look up and to the left slowly
       const gazeX = -0.3 + Math.sin(frame * 0.02) * 0.2;
       return { ...BASE, armR: -70, lean: 3, headY: Math.sin(frame * 0.05) * 2, blink, gazeX, gazeY: -0.45 };
+    }
+    // ── C19 sequence actions (2026-11-07) ─────────────────────────────────────────────────────────────────────
+    case "run": {
+      // the flee gait (double cadence, wide stride, forward lean, pumping arms) WITHOUT the exit: `travel` moves it
+      const g = gait(frame, fps, 2.4), ph = (frame / fps) * 2.4 * Math.PI * 2;
+      return {
+        ...BASE, legL: g.legL * 1.45, legR: g.legR * 1.45, kneeL: g.kneeL * 1.7, kneeR: g.kneeR * 1.7,
+        armL: 10 - Math.sin(ph) * 38, armR: -10 - Math.sin(ph) * 38, elbowL: 55, elbowR: -55,
+        hipY: g.hipY * 1.8, lean: 9 + g.lean, headY: g.hipY * 0.35, mouth: 0.25, blink, gazeX: 0.85, gazeY: 0, streaks: 0.3,
+      };
+    }
+    case "stop": {
+      // running until the cue word; on it the stride shortens and the body comes upright and stands (kept)
+      const r = pose("run", frame, fps);
+      if (frame < cue) return r;
+      const k = easeInOut((frame - cue) / STOP_SLOW), i = pose("idle", frame, fps);
+      const out: Pose = { ...i };
+      for (const key of Object.keys(r) as (keyof Pose)[]) { const a = r[key], b = i[key]; if (typeof a === "number") (out as Record<string, number>)[key] = lerp(a, typeof b === "number" ? b : 0, k); }
+      return { ...out, blink, streaks: 0 };
+    }
+    case "chop": {
+      // START: the axe at the side. Before the cue it RISES overhead (CHOP_UP); ON the cue it comes down (CHOP_DOWN) and
+      // the edge stops on the impact point, in front of the hips (CHOP_STRIKE_ARM); it stays there — the strike is kept.
+      // The axe turns with the forearm (`carried`), so the edge travels the arc instead of standing upright.
+      const up = easeInOut((frame - (cue - CHOP_UP)) / CHOP_UP), down = Math.max(0, Math.min(1, (frame - cue) / CHOP_DOWN));
+      const raised = -175, rest = -20;
+      const arm = frame < cue ? lerp(rest, raised, up) : lerp(raised, CHOP_STRIKE_ARM, down);
+      return {
+        ...BASE, armR: arm, elbowR: 0, armL: frame < cue ? lerp(10, -150, up) : lerp(-150, CHOP_STRIKE_ARM + 20, down), elbowL: 0,
+        lean: frame < cue ? lerp(0, -6, up) : lerp(-6, 12, down), legL: -8, legR: 10, kneeL: 6, kneeR: 4,
+        hipY: frame < cue ? 0 : 8 * down, browY: 4, blink, gazeX: 0.7, gazeY: 0.5, carried: 1,
+        impact: frame >= cue ? Math.max(0, 1 - (frame - cue - CHOP_DOWN) / 10) : 0,
+      };
+    }
+    case "throw": {
+      // START: the object in hand. Wind-up (THROW_WIND before the cue): the arm swings back. ON the cue the arm whips
+      // forward and the object LEAVES the hand (released → Scene flies it to `throwTo`); the arm follows through.
+      const back = easeInOut((frame - (cue - THROW_WIND)) / THROW_WIND), fwd = easeInOut((frame - cue) / 8);
+      const arm = frame < cue ? lerp(-6, 45, back) : lerp(45, -125, fwd);
+      return {
+        ...BASE, armR: arm, elbowR: frame < cue ? lerp(82, 40, back) : lerp(40, 0, fwd), armL: frame < cue ? -20 : lerp(-20, 15, fwd),
+        lean: frame < cue ? lerp(-2, -7, back) : lerp(-7, 10, fwd), legL: -9, legR: 12, blink, gazeX: 0.85, gazeY: -0.1,
+        take: 1, bring: 1, released: frame >= cue + 2 ? 1 : 0,
+      };
     }
     case "walk": {
       const g = gait(frame, fps);
