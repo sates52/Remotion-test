@@ -58,7 +58,9 @@ const fps = 30, CUE = 60;
 const motifsSrc = fs.readFileSync(path.join(REPO, "src/engines/antidote/characters/Everyman.tsx"), "utf8");
 // since `drink` (39b84789) the held arm has two draw places: behind the face, and in front of it while the hand is at
 // the mouth (pose.front) — both must exist, and together they cover every frame after the take (pose.take !== 0)
-t("wiring: Everyman draws a resting object before the cue and the held one after", /holds && pose\.take === 0 \?/.test(motifsSrc) && /holds && pose\.take !== 0 && !frontHand \?/.test(motifsSrc) && /holds && pose\.take !== 0 && frontHand \?/.test(motifsSrc));
+// C19: a take FROM THE BODY (a shoe off a foot, a ball out of a bag) draws no resting object on a stand before the cue
+t("wiring (C19): takeFrom body skips the resting stand", /holds && pose\.take === 0 && !\(\(pose as \{ noRest\?: number \}\)\.noRest\) \?/.test(motifsSrc));
+t("wiring: Everyman draws a resting object before the cue and the held one after", /holds && pose\.take === 0( && !\(\(pose as \{ noRest\?: number \}\)\.noRest\))? \?/.test(motifsSrc) && /holds && pose\.take !== 0 && !frontHand \?/.test(motifsSrc) && /holds && pose\.take !== 0 && frontHand \?/.test(motifsSrc));
 const sceneSrc = fs.readFileSync(path.join(REPO, "src/engines/antidote/components/Scene.tsx"), "utf8");
 t("wiring: the embrace step is scaled by the pose's contact", /if \(spec\.action === "embrace"\) approach \*= p\.contact \?\? 1;/.test(sceneSrc));
 t("wiring: the pose gets the cue on the pose clock (carried cue first)", /const cue = carry && carry\.cue != null \? carry\.cue : actionCueFrame\(spec, durationFrames\) \+ clockOff;/.test(sceneSrc));
