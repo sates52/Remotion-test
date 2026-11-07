@@ -1973,6 +1973,33 @@ const CustomSvgMotif: React.FC<MotifProps> = ({ spec, accent, ink }) => {
   const paths = cSvg?.paths || [];
   const viewBox = cSvg?.viewBox || "0 0 520 520";
   const drawProg = draw(frame, 28);
+  // C19 SPLIT: the book's own object halves at its impact point (splitAt, a share of the width) on the cue — the left
+  // half tips left, the right half right, both come to rest on the ground, and the cut stays visible. State motion:
+  // kept for the rest of the shot; a later shot starts it split (motionAt < 0). Pure function of the frame.
+  const [vx, vy, vw, vh] = viewBox.split(/[\s,]+/).map(Number);
+  const sp = stateProgress(frame, spec.motion, "split", motionCueLocal(spec));
+  const cutX = vx + vw * ((spec as { splitAt?: number }).splitAt ?? 0.5), floorY = vy + vh;
+  const drawPaths = (keyp: string) => paths.map((p, idx) => {
+    const fill = p.fill === "accent" ? accent : p.fill === "ink" ? ink : p.fill || "none";
+    const stroke = p.stroke === "accent" ? accent : p.stroke === "ink" ? ink : p.stroke || ink;
+    return <path key={keyp + idx} d={p.d} fill={fill} stroke={stroke} strokeWidth={p.strokeWidth ?? (fill === "none" ? 7 : 0)} strokeLinecap="round" strokeLinejoin="round" opacity={(p.opacity ?? 1) * Math.min(1, drawProg * 1.5)} />;
+  });
+  if (spec.motion === "split") {
+    const id = `split-${Math.round(cutX)}-${Math.round(vw)}`;
+    return (
+      <Frame spec={spec}>
+        <svg viewBox={viewBox} width={BOX} height={BOX} style={{ overflow: "visible" }}>
+          <defs>
+            <clipPath id={`${id}-l`}><rect x={vx - vw} y={vy - vh} width={cutX - vx + vw} height={vh * 3} /></clipPath>
+            <clipPath id={`${id}-r`}><rect x={cutX} y={vy - vh} width={vw * 2} height={vh * 3} /></clipPath>
+          </defs>
+          <g transform={`translate(${-0.16 * vw * sp} 0) rotate(${-16 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-l)`}>{drawPaths("l")}</g></g>
+          <g transform={`translate(${0.16 * vw * sp} 0) rotate(${16 * sp} ${cutX} ${floorY})`}><g clipPath={`url(#${id}-r)`}>{drawPaths("r")}</g></g>
+          {sp > 0 && sp < 1 ? <line x1={cutX} y1={vy} x2={cutX} y2={floorY} stroke="#FFFFFF" strokeWidth={10} opacity={1 - sp} /> : null}
+        </svg>
+      </Frame>
+    );
+  }
 
   return (
     <Frame spec={spec}>
