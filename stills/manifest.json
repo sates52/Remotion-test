@@ -1,0 +1,419 @@
+{
+ "schema": "stills/1",
+ "name": "c19 B v2 (evaluator fixes)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 6,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "burn-B2-p01",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    450,
+    495
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-p02",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    540,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855,
+    900,
+    945,
+    990,
+    1035
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-p03",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1080,
+    1125,
+    1170,
+    1215,
+    1260,
+    1300,
+    1305,
+    1350,
+    1355,
+    1362,
+    1368,
+    1373
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-p04",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1375,
+    1377,
+    1380,
+    1385,
+    1392,
+    1395,
+    1397,
+    1400,
+    1403,
+    1408,
+    1415,
+    1430
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-p05",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1440,
+    1485,
+    1500,
+    1530,
+    1575,
+    1600,
+    1620,
+    1665,
+    1700,
+    1710,
+    1755,
+    1800
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-p06",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1845,
+    1890,
+    1935,
+    1980,
+    2025,
+    2070,
+    2115,
+    2160,
+    2205,
+    2250
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "burn-B2-seek",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    1373,
+    1377,
+    1397,
+    1403,
+    1430,
+    1600
+   ],
+   "strip": true
+  },
+  {
+   "id": "burn-B2-clip",
+   "config": "configs/burn-of-the-everflame-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2330
+   }
+  },
+  {
+   "id": "feel-B2-p01",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315,
+    360,
+    405,
+    420,
+    450
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-p02",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    470,
+    495,
+    500,
+    540,
+    560,
+    585,
+    630,
+    675,
+    720,
+    765,
+    810,
+    855
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-p03",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    900,
+    945,
+    990,
+    1035,
+    1080,
+    1125,
+    1170,
+    1200,
+    1215,
+    1260,
+    1300,
+    1305
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-p04",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1318,
+    1328,
+    1335,
+    1342,
+    1350,
+    1360,
+    1370,
+    1376,
+    1385,
+    1395,
+    1400,
+    1412
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-p05",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1420,
+    1440,
+    1460,
+    1465,
+    1467,
+    1470,
+    1475,
+    1485,
+    1500,
+    1520,
+    1530,
+    1540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-p06",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1575,
+    1620,
+    1665,
+    1710,
+    1755,
+    1800,
+    1845,
+    1890,
+    1935,
+    1980,
+    2025
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "feel-B2-seek",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    1328,
+    1376,
+    1412,
+    1467,
+    1475,
+    1505,
+    1520
+   ],
+   "strip": true
+  },
+  {
+   "id": "feel-B2-clip",
+   "config": "configs/feel-good-productivity-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2090
+   }
+  },
+  {
+   "id": "thief-B2-p01",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    0,
+    45,
+    60,
+    90,
+    100,
+    130,
+    135,
+    140,
+    149,
+    155,
+    165,
+    180
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B2-p02",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    200,
+    225,
+    236,
+    240,
+    245,
+    248,
+    252,
+    258,
+    266,
+    270,
+    300,
+    315
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B2-p03",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    350,
+    360,
+    405,
+    420,
+    450,
+    495,
+    520,
+    540
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "thief-B2-seek",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    149,
+    245,
+    252,
+    396,
+    420
+   ],
+   "strip": true
+  },
+  {
+   "id": "thief-B2-clip",
+   "config": "configs/the-lightning-thief-B.json",
+   "frames": [
+    0
+   ],
+   "clip": {
+    "from": 0,
+    "to": 625
+   }
+  }
+ ],
+ "inputHash": "427d09fde5873385",
+ "files": {
+  "stills/configs/burn-of-the-everflame-B.json": "567e9c0e41741a4cf68659262b6f51b90a60577d95c9a788422c7aa696e68cca",
+  "stills/configs/feel-good-productivity-B.json": "e942c369f3b4dea32ed506c743a1eb7e34b5889a709f72ef5440c73cd86072a3",
+  "stills/configs/the-lightning-thief-B.json": "bd4dc873e3443a0e000a8959ea7a252997aceba703f2e5e48b70f97c04ff1d58"
+ },
+ "builtAt": "2026-11-07T10:12:27.762Z"
+}
