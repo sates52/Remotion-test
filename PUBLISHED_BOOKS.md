@@ -79,9 +79,20 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 65 | `the-art-of-strategy` | **The Art of Strategy** — Avinash K. Dixit & Barry J. Nalebuff | 2026-10-31 | 49:02 | *The Art of Strategy Summary: Why Being Stronger Doesn't Win (Dixit & Nalebuff)* (candidate title from `youtube-meta.json` titles[0]; the live title is not recorded) | `STRONGER DOESN'T WIN` |
 | 66 | `the-first-90-days` | **The First 90 Days** — Michael D. Watkins | 2026-11-03 | 34:36 | *The First 90 Days Summary by Michael D. Watkins* | `THE FAST START TRAP` |
 | 67 | `the-creative-curve` | **The Creative Curve: How to Develop the Right Idea at the Right Time** — Allen Gannett | 2026-11-05 | 43:12 | *The Creative Curve Summary (Allen Gannett) — The Myth of Solitary Genius* | TIMING TRUMPS GENIUS |
+| 68 | `gardens-of-the-moon` | **Gardens of the Moon** — Steven Erikson | 2026-11-07 | 31:46 | *Gardens of the Moon Summary by Steven Erikson: Why the Confusion Is the Point* | `SOLDIERS ARE THE STORY` |
 ---
 
 ## 📖 Detailed Book Records
+
+### 68. Gardens of the Moon — Steven Erikson
+- **Slug:** `gardens-of-the-moon`
+- **Published Date:** November 7, 2026 (operator confirmed live on YouTube).
+- **Engine / Video:** Antidote; 56,943 frames, 31:46 at 30 fps, 690 MB; 10-way GitHub worker split; cloud assembly run 42260510187 verified 56943/56943 frames, decode clean, audio present; A/V sync PASS. 150 join-point dropouts (DEFECT_REPORTED) were carried into the upload under operator acceptance.
+- **Quality provenance:** Production firewall 345 REVIEW, accepted by the operator as quality debt for render input 072c37047e7808b8. Sealed holdout mute test run2 PASS (WRONG 0/30, ADDS 21/30).
+- **Publishing kit:** `books/gardens-of-the-moon/youtube.md` and `youtube-meta.json` (hand-refined English; lint-titles READY, title 4 flagged as weak anchor).
+- **Subtitles:** `public/captions/gardens-of-the-moon.clean.vtt` (994 cues).
+- **Thumbnails:** A/B/C rendered via render-thumbnails --cloud (A = scene-still, right, red).
+- **Cleanup:** operator-ordered post-upload: render-github-cleanup.js (10 artifacts, 10 runs, ~655 MB), purge-render-branches.js (11 refs incl. assemble), render-purge.js (film and thumbnails), local audio and split state.
 
 ### 55. The Crucible — Arthur Miller
 - **Slug:** `the-crucible`

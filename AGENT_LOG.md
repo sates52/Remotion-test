@@ -461,6 +461,12 @@ Conventions:
 - Operator confirmed YouTube upload (2026-11-07). Post-upload cleanup run in order: render-github-cleanup.js (10 artifacts + 10 runs), purge-render-branches.js (11 refs), render-purge.js (film + thumbnail). Recorded in PUBLISHED_BOOKS.md.
 - Quality debt accepted by operator for render input bundle 6e93a47a; mute and firewall stay FAIL. Thumbnail variants B/C and grammar record were NOT produced before upload.
 
+### 📺 2026-11-07 — gardens-of-the-moon — PUBLISHED & CLEANED (Antidote, accepted quality debt)
+- **Render:** operator order accepted the 345 REVIEW firewall debt for render input 072c37047e7808b8 and authorised dispatch. 10 segments on 10 worker accounts succeeded; cloud assembly run 42260510187 verified 56943/56943 frames.
+- **Quality:** 150 join-point dropouts flagged DEFECT_REPORTED by render-deliver; operator proceeded to upload.
+- **Cleanup:** operator-confirmed post-upload order: render-github-cleanup.js (10 artifacts, 10 runs), purge-render-branches.js (11 refs), render-purge.js (film, thumbnails). Local audio and split state removed; clean.vtt kept.
+- **Record:** PUBLISHED_BOOKS.md row 68 and section added.
+
 ### 📺 2026-11-03 — the-first-90-days — PUBLISHED & CLEANED (Antidote, accepted quality debt)
 - **Pipeline:** preview PASS via sealed cast2 mute test; verifier fix shipped as eadb0371 (mute-verdict sorts ids as the sealer does). Cast change: 30 beats retargeted to the 8-key cast; firewall and readcheck clean.
 - **Render:** 10 segments on 10 workers, all success; cloud assembly run 41627601789 verified 62079/62079 frames, decode clean, audio present, 624 MB. Local MP4 check passed.
