@@ -1466,3 +1466,14 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **Render:** 10-worker GitHub split render, render input bundle `6e93a47a`, quality debt accepted by the operator (`--accept-quality-debt`). Production firewall and mute test stay FAIL (mute WRONG 2–3/30, DEAD ~9–11/30, redundancy echo 73.6%).
 - **Cleanup:** operator-ordered post-upload cleanup 2026-11-07: render-github-cleanup.js (10 artifacts, 10 runs, ~780 MB), purge-render-branches.js (11 refs incl. render/cujo-assemble), render-purge.js (film and thumbnail, ~824 MB). Raw audio, split state and raw VTT removed by the GitHub cleanup's local step.
 - **Kept:** committed source under `books/cujo/`, and `public/captions/cujo.clean.vtt`.
+
+## The Witch — Freida McFadden (`the-witch`, Vox)
+
+- **Status:** Published on YouTube (operator-confirmed live, 2026-11-09).
+- **Length:** 78,445 frames (43.7 min), 3,206 MB. Cloud assembly run 42352420641, full decode clean, audio present, -14.3 LUFS. A/V sync passes.
+- **Render:** 10-worker GitHub split on render input `a454c796b4534876`, config `0d592b606b91d7fd`, bundle `f98dd53b`. Operator-authorised render, accepted-debt decision recorded.
+- **Quality provenance:** sealed holdout run2 PASS (WRONG 0/30, DEAD 4/30, ADDS 17/30 text-carried, EXPLAINS 0/30). Five beats (003, 040, 226, 268, 269) have no image after the content filter rejected them 3/3. Preview-ready was NOT READY; the render went ahead under the debt the operator accepted.
+- **Known defect:** the cloud report flagged 199 join dropouts (DEFECT_REPORTED) at the segment seams. Not fixed for this render; see the split-render join note.
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail A from the earlier build, hook THE SETUP.
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-09: render-github-cleanup.js (10 artifacts, 10 runs, ~3158 MB), purge-render-branches.js (11 refs on the workers), render-purge.js (film and thumbnails, ~3208 MB). Local MP3 and mastered audio removed by the GitHub cleanup step.
+- **Earlier unintended deletion:** the post-render finalizer removed the raw `public/captions/the-witch.vtt` before the cleanup order. `clean.vtt` was not affected.

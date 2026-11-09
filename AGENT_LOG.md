@@ -7386,3 +7386,11 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Operator confirmed the YouTube upload is live and ordered cleanup. Render: 10 segments, cloud assembly run 42174504999, 54,029/54,029 frames, decode clean, 471 MB.
 - Cleanup: `render-github-cleanup.js` (10 artifacts, 10 runs), `purge-render-branches.js` (12 refs, `render/` only), `render-purge.js` (film 471 MB). Raw mp3, mastered audio and raw VTT removed; `clean.vtt` kept.
 - Open: join dropouts 138 (DEFECT_REPORTED); thumbnail A/B/C never generated, so the pack's Test & Compare step was not done.
+
+## 2026-11-09 — the-witch — PUBLISHED & CLEANED (Vox)
+- Operator confirmed the YouTube upload is live. Production render on render input `a454c796b4534876`, 10-worker GitHub split, cloud-verified 78,445/78,445 frames (43.7 min, 3,206 MB).
+- Quality: holdout run2 PASS (WRONG 0/30, DEAD 4/30, ADDS 17/30). Five beats (003, 040, 226, 268, 269) have no image after the content filter rejected them 3/3; accepted-debt render recorded.
+- Known defect, not fixed: 199 join dropouts at segment seams flagged by the cloud report (DEFECT_REPORTED). Check the seams before the next split render of a Vox book.
+- YouTube pack: hand-refined English meta, lint-titles --pack READY. Thumbnail A is from the earlier build (hook THE SETUP).
+- Cleanup (operator order): render-github-cleanup.js, purge-render-branches.js --force, render-purge.js --force. Recorded in PUBLISHED_BOOKS.md.
+- Engine backlog: the post-render finalizer deleted the raw `the-witch.vtt` before the cleanup order. Add a guard so finalizer cleanup never runs before the upload is confirmed.
