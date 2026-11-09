@@ -54,15 +54,16 @@ function plan({ videoPts, fps, sampleRate = 48000, audioSamples, maxHead = 4096,
   // flushes ONE MORE whole AAC frame at the chunk's END (holds of 3072 = 2048 + 1024 on 177 joins, 2048 on 66, 2816 on
   // the short segment-end chunks). Measured on the-choice-factory against the source: the film lags by exactly 2048
   // before the first join, 5120 after it, 8192 after the second — the head is still 2048, the extra frame is TAIL. So
-  // with a KNOWN head each chunk's length is read from its own hold, accepted only when its tail is the rounding pad or
-  // the pad + exactly one AAC frame; anything else is refused as before. checkTails then requires that frame to be quiet.
-  if (!cands.length && encoderDelay != null) {
+  // with a KNOWN head each chunk's length is read from its own hold, accepted only when its tail is the rounding pad or —
+  // when head + content fill whole AAC frames (pad 0) — exactly one AAC frame; anything else is refused as before. checkTails then requires that frame to be quiet.
+  if (encoderDelay != null && !cands.includes(encoderDelay)) {
     const lens = [];
     for (let k = 0; k < holdExtra.length; k++) {
       const content = frames[k] * spf, pad = lenOf(encoderDelay, k) - encoderDelay - content, tail = holdExtra[k] - encoderDelay;
       if (Math.abs(tail - pad) <= 2) lens.push(lenOf(encoderDelay, k));
-      else if (Math.abs(tail - pad - AAC) <= 2) lens.push(lenOf(encoderDelay, k) + AAC);
-      else return { ok: false, reason: `the joins do not follow one encoder delay (join ${k + 1}: a hold of ${holdExtra[k]} samples is neither the ${encoderDelay}-sample head + pad nor + one AAC frame) — not repaired` };
+      // the flush frame only exists when head + content fill whole AAC frames (pad 0) — the encoder's own behaviour
+      else if (pad === 0 && Math.abs(tail - AAC) <= 2) lens.push(lenOf(encoderDelay, k) + AAC);
+      else return { ok: false, reason: cands.length ? `the joins allow an encoder delay of ${cands[0]}-${cands[cands.length - 1]} samples, not ${encoderDelay} — a different encoder made these chunks (join ${k + 1}: ${holdExtra[k]} samples is neither the head + pad nor + one AAC frame); not repaired` : `the joins do not follow one encoder delay (join ${k + 1}: a hold of ${holdExtra[k]} samples is neither the ${encoderDelay}-sample head + pad nor + one AAC frame) — not repaired` };
     }
     const r = finish(encoderDelay, (k) => lens[k], 2);
     return r.ok ? { ...r, headRange: [encoderDelay, encoderDelay], extraTailFrames: r.chunks.filter((c) => c.tailSamples >= AAC).length, tailRule: "pad + 0|1 AAC frame, read from each hold" } : r;

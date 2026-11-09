@@ -75,6 +75,8 @@ if (args.media && result.exists) {
     segmentStarts: split ? (split.segments || []).map((s) => s.start) : [], narrationFile: narration,
   });
   media.narrationFile = narration ? path.relative(BOOK, narration) : null;
+  // what the cloud assembly's join repair did with this film (REPAIRED / NOTHING_TO_REPAIR / NOT_REPAIRED + reason)
+  try { const cs = JSON.parse(fs.readFileSync(require("./lib/cloud-assemble").cloudStateFile(BOOK, args.slug), "utf8")); media.joinRepair = cs.joinRepair || (cs.report && cs.report.joinRepair) || null; } catch { media.joinRepair = null; }
   if (media.sync && media.sync.verdict === "FAIL") { result.status = "FAIL"; result.problems.push(...media.sync.problems.map((p) => `A/V sync: ${p}`)); }
 }
 
@@ -82,7 +84,7 @@ let checkedBy = null;
 try { checkedBy = require("child_process").execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim(); } catch {}
 const entry = {
   kind: "technical", technical: result.status, file: path.relative(BOOK, file), frames: result.frames, expectedFrames, decodes: result.decodes, problems: result.problems,
-  ...(media ? { media: { narrationFile: media.narrationFile, sync: media.sync, video: media.video, audio: media.audio, joinDropouts: media.joinDropouts, loudness: media.loudness } } : {}),
+  ...(media ? { media: { narrationFile: media.narrationFile, joinRepair: media.joinRepair, sync: media.sync, video: media.video, audio: media.audio, joinDropouts: media.joinDropouts, loudness: media.loudness } } : {}),
   checkedBy, ...pre.provenance(BOOK, args.slug),
 };
 if (!args["no-record"]) pre.appendFacts(BOOK, args.slug, entry);
@@ -92,7 +94,8 @@ else {
   for (const p of result.problems) console.log(`  - ${p}`);
   if (media && media.sync && media.video) {
     const m = media;
-    console.log(`  A/V sync ${m.sync.verdict}: start ${m.sync.startOffsetSec}s, end ${m.sync.endOffsetSec}s (tolerance ${m.sync.endToleranceSec}s), audio discontinuities ${m.sync.audioDiscontinuities}`);
+    console.log(`  A/V sync ${m.sync.verdict}: start ${m.sync.startOffsetSec}s, end ${m.sync.endOffsetSec}s (tolerance ${m.sync.endToleranceSec}s), audio discontinuities ${m.sync.audioDiscontinuities}, composition clock ${m.sync.clock}`);
+    console.log(`  join repair (cloud assembly): ${m.joinRepair ? `${m.joinRepair.status}${m.joinRepair.reason ? ` — ${m.joinRepair.reason}` : ""}` : "no record"}`);
     console.log(`  video holds ${m.video.holds} (chunk ${m.video.chunkHolds}, segment ${m.video.segmentHolds}, off-grid ${m.video.offGridHolds}); film stretched ${m.video.stretchSec}s (${m.video.stretchPct}%)`);
     console.log(`  join dropouts ${m.joinDropouts.status}: ${m.joinDropouts.count} zero-level gaps at joins (${m.joinDropouts.totalSec}s, max ${m.joinDropouts.maxSec}s); the source narration has ${m.joinDropouts.sourceZeroRuns == null ? "?" : m.joinDropouts.sourceZeroRuns} of its own`);
     if (m.loudness) console.log(`  loudness (report only): ${m.loudness.integratedLufs} LUFS integrated, LRA ${m.loudness.lraLu} LU, sample peak ${m.loudness.samplePeakDbfs} dBFS`);

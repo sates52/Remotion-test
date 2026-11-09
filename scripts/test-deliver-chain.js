@@ -240,7 +240,8 @@ const nosleep = async () => {};
     const joinsAt = pts.filter((p, i) => i > 0 && pts[i] - pts[i - 1] > fd * 1.5).map((p) => p - 0.06);
     const sil = joinsAt.map((s) => ({ start: s, end: s + 0.035, sec: 0.035 }));
     let m = MV.analyze({ fps, frames, videoPts: pts, audioPackets: aud, chunkSize: chunk, segmentStarts: segStarts, filmSilences: sil, sourceSilences: [{ start: 1, end: 1.1, sec: 0.1 }], narrationSec: frames / fps });
-    t("5 Hamnet-shaped film: sync PASS (holds on the chunk/segment grid, streams end together)", m.sync.verdict === "PASS", m.sync);
+    // 2026-11-09: holds on the grid and streams ending together are NOT enough — the film runs off the composition clock
+    t("5 Hamnet-shaped film (joins NOT repaired): sync FAIL — off the composition clock, and that is the only reason", m.sync.verdict === "FAIL" && m.sync.clock === "OFF" && m.sync.problems.length === 1 && /longer than its 3600 frames on the composition clock \(6 chunk \+ 2 segment join holds\)/.test(m.sync.problems[0]), m.sync);
     t("5 … the join dropouts are REPORTED (not a gate): one per join, vs the source's own", m.joinDropouts.status === "DEFECT_REPORTED" && m.joinDropouts.count === joinsAt.length && m.joinDropouts.sourceZeroRuns === 1, m.joinDropouts);
     t("5 … the stretch is measured (both streams): video +stretch, audio over the narration", m.video.stretchSec > 0.3 && m.audio.excessOverNarrationSec > 0.3 && m.video.offGridHolds === 0);
     const off = pts.slice(); for (let i = 1000; i < off.length; i++) off[i] += 0.1; // a hold off the grid (lost frames)
@@ -253,8 +254,19 @@ const nosleep = async () => {};
     t("5 audio ending 0.5 s before the video → sync FAIL (a real desync, not container rounding)", m.sync.verdict === "FAIL" && m.sync.problems.some((p) => /audio ends/.test(p)));
     m = MV.analyze({ fps, frames, videoPts: pts, audioPackets: aud, audioStart: 0.1, chunkSize: chunk, segmentStarts: segStarts });
     t("5 audio starting 0.1 s after the video (> 1 frame) → sync FAIL", m.sync.verdict === "FAIL");
-    m = MV.analyze({ fps, frames, videoPts: pts, audioPackets: aud });
-    t("5 end offset within 1 frame + 2 AAC frames (container rounding) → PASS; without a chunk size holds are reported, not judged", m.sync.verdict === "PASS" && m.video.holds > 0, m.sync);
+    // the 2026-11-07 shape: 3072-sample holds (+64 ms) on 400-frame joins, right frame count — the problem fixture
+    const pts7 = []; let t7 = 0;
+    for (let i = 0; i < frames; i++) { if (i > 0 && (i - segStartOf(i)) % chunk === 0) t7 += 0.064; pts7.push(+t7.toFixed(4)); t7 += fd; }
+    const aud7 = []; for (let a = 0; a < pts7.at(-1) + fd + 0.01; a += aac) aud7.push([+a.toFixed(5), aac]);
+    m = MV.analyze({ fps, frames, videoPts: pts7, audioPackets: aud7, chunkSize: chunk, segmentStarts: segStarts });
+    t("5 2026-11-07-shaped film (+64 ms per join, frames exact): sync FAIL with the stretch named — not ready for publishing", m.sync.verdict === "FAIL" && m.video.packets === frames && /0\.512s longer/.test(m.sync.problems.join(" ")), m.sync);
+    // the healthy sample: a repaired film — every frame on N/fps, the audio as long as the frames (+ rounding)
+    const ok = Array.from({ length: frames }, (_, i) => +(i * fd).toFixed(4));
+    const audOk = []; for (let a = 0; a < frames / fps + 0.005; a += aac) audOk.push([+a.toFixed(5), aac]);
+    m = MV.analyze({ fps, frames, videoPts: ok, audioPackets: audOk, chunkSize: chunk, segmentStarts: segStarts });
+    t("5 healthy (repaired) film: sync PASS, composition clock ON, no holds", m.sync.verdict === "PASS" && m.sync.clock === "ON" && m.video.holds === 0, m.sync);
+    m = MV.analyze({ fps, frames, videoPts: ok, audioPackets: audOk.concat([[+(audOk.at(-1)[0] + aac).toFixed(5), aac]]) }); // one more AAC frame at the end
+    t("5 end offset within 1 frame + 2 AAC frames (container rounding) → PASS", m.sync.verdict === "PASS", m.sync);
     t("5 loudness is REPORT_ONLY in measure() (no gate)", /status: "REPORT_ONLY"/.test(fs.readFileSync(path.join(__dirname, "lib", "media-verify.js"), "utf8")));
   }
 

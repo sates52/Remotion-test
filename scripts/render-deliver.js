@@ -109,7 +109,9 @@ function report(res, j) {
     console.log(`  film: ${f.file} · ${f.frames}/${f.expectedFrames} frames · decode ${f.decodes ? "clean" : "ERRORS"} · technical ${f.technical}`);
     if (f.media) {
       const m = f.media;
-      console.log(`  A/V sync ${m.sync.verdict} (start ${m.sync.startOffsetSec}s, end ${m.sync.endOffsetSec}s) · join dropouts ${m.joinDropouts.count} (${m.joinDropouts.status}) · stretch ${m.video.stretchSec}s`);
+      console.log(`  A/V sync ${m.sync.verdict} (start ${m.sync.startOffsetSec}s, end ${m.sync.endOffsetSec}s, composition clock ${m.sync.clock || "?"}) · join dropouts ${m.joinDropouts.count} (${m.joinDropouts.status}) · stretch ${m.video.stretchSec}s`);
+      console.log(`  join repair: ${m.joinRepair ? `${m.joinRepair.status}${m.joinRepair.reason ? ` — ${m.joinRepair.reason}` : ""}` : "no record"}`);
+      for (const p of (m.sync.problems || [])) console.log(`    ✗ ${p}`);
       if (m.loudness) console.log(`  loudness (report only): ${m.loudness.integratedLufs} LUFS, peak ${m.loudness.samplePeakDbfs} dBFS`);
     }
     console.log(`  delivery files: ${f.deliveryFiles || "?"}`);

@@ -101,8 +101,17 @@ function analyze({ fps, frames = null, videoPts, audioPackets, audioStart = 0, v
   const joinDropouts = filmSilences.filter((s) => s.sec <= 0.25 && near(s));
   const dropoutSec = joinDropouts.reduce((t, s) => t + s.sec, 0);
   const stretchSec = +(videoEnd - (n || 0) * fd).toFixed(3);
+  // CLOCK (2026-11-09): A/V moving together is not enough. The five 2026-11-07 films had the right frame count, holds on
+  // the grid and both streams ending together — and ran 7.8-15.1 s longer than their composition (+64 ms per 400-frame
+  // join, joins NOT repaired), so clean.vtt (timed to the source) drifted up to 15 s on YouTube. A film is on the
+  // composition clock when its N frames last N/fps (2 frames of slack for container rounding); otherwise sync FAILs.
+  const clockTolSec = 2 * fd;
+  if (n && stretchSec > clockTolSec) {
+    const ch = holds.filter((h) => h.join === "chunk").length, sg = holds.filter((h) => h.join === "segment").length;
+    problems.push(`the film runs ${stretchSec}s longer than its ${n} frames on the composition clock (${ch} chunk + ${sg} segment join holds) — the chunk joins are not repaired; captions timed to the source (clean.vtt) would drift by up to ${stretchSec}s`);
+  }
   return {
-    sync: { verdict: problems.length ? "FAIL" : "PASS", startOffsetSec: startOffset, endOffsetSec: endOffset, endToleranceSec: +endTol.toFixed(4), audioDiscontinuities: audioGaps, problems },
+    sync: { verdict: problems.length ? "FAIL" : "PASS", startOffsetSec: startOffset, endOffsetSec: endOffset, endToleranceSec: +endTol.toFixed(4), audioDiscontinuities: audioGaps, clock: stretchSec > clockTolSec ? "OFF" : "ON", clockToleranceSec: +clockTolSec.toFixed(4), problems },
     video: { packets: n, endSec: +videoEnd.toFixed(4), holds: holds.length, chunkHolds: holds.filter((h) => h.join === "chunk").length, segmentHolds: holds.filter((h) => h.join === "segment").length, offGridHolds: offGrid.length, stretchSec, stretchPct: n ? +((stretchSec / (n * fd)) * 100).toFixed(3) : null },
     audio: { packets: audioPackets.length, endSec: +audioEnd.toFixed(4), excessOverNarrationSec: narrationSec ? +(audioEnd - narrationSec).toFixed(3) : null },
     joinDropouts: {

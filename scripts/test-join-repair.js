@@ -44,6 +44,28 @@ function film({ segFrames, chunk = 400, H = 2048 }) {
   t("plan: a hold no encoder delay explains → refused", !JR.plan({ videoPts: hold, fps: FPS, audioSamples: f.samples + 1440, encoderDelay: 2048 }).ok);
   t("plan: audio length that does not match the geometry → refused", !JR.plan({ videoPts: f.pts, fps: FPS, audioSamples: f.samples + 4096, encoderDelay: 2048 }).ok);
   t("plan: 29.97 fps (no whole samples per frame) → refused", !JR.plan({ videoPts: f.pts, fps: 29.97, audioSamples: f.samples, encoderDelay: 2048 }).ok);
+  // 2026-11-07 renders: a chunk whose head + content is a whole number of AAC frames gets ONE MORE flush frame at its end
+  // (400 frames: 2048 + 640000 = 627 × 1024 → 628 frames, a 3072-sample hold); short segment-end chunks do not
+  const film7 = ({ segFrames, chunk = 400, H = 2048, odd = null }) => {
+    const pts = [], chunks = []; let t0 = 0, samples = 0;
+    for (const sf of segFrames) for (let s = 0; s < sf; s += chunk) chunks.push(Math.min(chunk, sf - s));
+    chunks.forEach((f, k) => {
+      for (let i = 0; i < f; i++) pts.push(t0 + i / FPS);
+      let len = Math.ceil((H + f * SPF) / AAC) * AAC; if ((H + f * SPF) % AAC === 0) len += AAC; if (k === odd) len += 512;
+      t0 += len / SR; samples += len;
+    });
+    return { pts, samples, chunks };
+  };
+  const g = film7({ segFrames: [1348, 1348] }); // 400 × 3 + 148 per segment, like the-choice-factory
+  t("plan (before 2026-11-09 this refused: 'no H fits every hold'): no H fits the holds without a known head", !JR.plan({ videoPts: g.pts, fps: FPS, audioSamples: g.samples }).ok);
+  const pg = JR.plan({ videoPts: g.pts, fps: FPS, audioSamples: g.samples, encoderDelay: 2048 });
+  t("plan: 2026-11-07-shaped film → repaired geometry, head 2048, one extra tail frame on every 400-frame chunk (6)", pg.ok && pg.H === 2048 && pg.extraTailFrames === 6 && pg.chunks.every((c) => c.headSamples === 2048) && pg.insertedSamples === g.samples - g.pts.length * SPF, pg.reason || pg);
+  const go = film7({ segFrames: [1348, 1348], odd: 1 });
+  t("plan: a hold that is neither pad nor pad + one AAC frame (+512) → refused, nothing guessed", !JR.plan({ videoPts: go.pts, fps: FPS, audioSamples: go.samples, encoderDelay: 2048 }).ok);
+  // the flush frame must be quiet: silence → ok, speech-level signal in it → refused
+  const sig = (inTail) => (i) => { const c = pg.chunks.find((x) => i >= x.filmStartSample && i < x.filmStartSample + x.headSamples + x.contentSamples + (x.tailSamples || 0)); if (!c) return 0; const r = i - c.filmStartSample; if (r < c.headSamples) return 0; if (r < c.headSamples + c.contentSamples) return 12000; return inTail ? 9000 : 0; };
+  t("checkTails: quiet flush frames → ok", JR.checkTails(sig(false), pg).ok && JR.checkTails(sig(false), pg).rows.length >= 5);
+  t("checkTails: signal in a flush frame (content, not codec flush) → refused", !JR.checkTails(sig(true), pg).ok);
   const one = film({ segFrames: [300] });
   t("plan: a single-chunk film → nothing to repair", JR.plan({ videoPts: one.pts, fps: FPS, audioSamples: one.samples, encoderDelay: 2048 }).nothingToRepair === true);
   t("filter: one sample-exact atrim per chunk, concatenated", /atrim=start_sample=2048:end_sample=642048/.test(JR.audioFilter(JR.plan({ videoPts: film({ segFrames: [800] }).pts, fps: FPS, audioSamples: film({ segFrames: [800] }).samples, encoderDelay: 2048 }))));
