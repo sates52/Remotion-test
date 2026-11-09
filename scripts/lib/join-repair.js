@@ -49,6 +49,24 @@ function plan({ videoPts, fps, sampleRate = 48000, audioSamples, maxHead = 4096,
   const fits = (H) => holdExtra.every((e, k) => Math.abs(lenOf(H, k) - frames[k] * spf - e) <= 2);
   const cands = [];
   for (let H = 0; H <= maxHead; H++) if (fits(H)) cands.push(H);
+  // 2026-11-09 (the-choice-factory, get-it-done-now, how-to-make-money-in-stocks, think-straight, cujo — all refused
+  // here): a 400-frame chunk is 640000 samples, so head + content is an exact multiple of 1024 and the encoder then
+  // flushes ONE MORE whole AAC frame at the chunk's END (holds of 3072 = 2048 + 1024 on 177 joins, 2048 on 66, 2816 on
+  // the short segment-end chunks). Measured on the-choice-factory against the source: the film lags by exactly 2048
+  // before the first join, 5120 after it, 8192 after the second — the head is still 2048, the extra frame is TAIL. So
+  // with a KNOWN head each chunk's length is read from its own hold, accepted only when its tail is the rounding pad or
+  // the pad + exactly one AAC frame; anything else is refused as before. checkTails then requires that frame to be quiet.
+  if (!cands.length && encoderDelay != null) {
+    const lens = [];
+    for (let k = 0; k < holdExtra.length; k++) {
+      const content = frames[k] * spf, pad = lenOf(encoderDelay, k) - encoderDelay - content, tail = holdExtra[k] - encoderDelay;
+      if (Math.abs(tail - pad) <= 2) lens.push(lenOf(encoderDelay, k));
+      else if (Math.abs(tail - pad - AAC) <= 2) lens.push(lenOf(encoderDelay, k) + AAC);
+      else return { ok: false, reason: `the joins do not follow one encoder delay (join ${k + 1}: a hold of ${holdExtra[k]} samples is neither the ${encoderDelay}-sample head + pad nor + one AAC frame) — not repaired` };
+    }
+    const r = finish(encoderDelay, (k) => lens[k], 2);
+    return r.ok ? { ...r, headRange: [encoderDelay, encoderDelay], extraTailFrames: r.chunks.filter((c) => c.tailSamples >= AAC).length, tailRule: "pad + 0|1 AAC frame, read from each hold" } : r;
+  }
   if (!cands.length) return { ok: false, reason: "the joins do not follow one encoder delay (no H fits every hold) — not repaired" };
   // The holds pin H + tail per chunk, i.e. only a RANGE of H (Hamnet: 1857-2048) — where the head ends is the ENCODER's
   // delay, not something the holds can tell (a synthetic ffmpeg fixture: range 129-1152, real delay 1024; "largest"
@@ -59,10 +77,10 @@ function plan({ videoPts, fps, sampleRate = 48000, audioSamples, maxHead = 4096,
   if (!cands.includes(encoderDelay)) return { ok: false, reason: `the joins allow an encoder delay of ${cands[0]}-${cands[cands.length - 1]} samples, not ${encoderDelay} — a different encoder made these chunks; not repaired` };
   return finish(encoderDelay);
 
-  function finish(H) {
+  function finish(H, lengthOf = (k) => lenOf(H, k), lastFrames = 1) {
     let at = 0;
     const chunks = frames.map((f, k) => {
-      const len = k + 1 < frames.length ? lenOf(H, k) : null;
+      const len = k + 1 < frames.length ? lengthOf(k) : null;
       const c = { startFrame: starts[k], frames: f, filmStartSample: at, headSamples: H, contentSamples: f * spf, tailSamples: len === null ? null : len - H - f * spf };
       at += len === null ? 0 : len;
       return c;
@@ -70,10 +88,11 @@ function plan({ videoPts, fps, sampleRate = 48000, audioSamples, maxHead = 4096,
     const last = chunks[chunks.length - 1];
     const remaining = audioSamples - last.filmStartSample - H - last.contentSamples;
     // a whole film ends inside its last AAC frame; an EXCERPT (A/B tests only) may carry the next chunk's start after it
-    if (remaining < -2 || (!excerpt && remaining >= AAC + 2)) return { ok: false, reason: `the audio length does not match the chunk geometry (last chunk leaves ${remaining} samples) — not repaired` };
+    // (the extra-frame rule: the last chunk may carry its flush frame too → up to 2 AAC frames after its content)
+    if (remaining < -2 || (!excerpt && remaining >= lastFrames * AAC + 2)) return { ok: false, reason: `the audio length does not match the chunk geometry (last chunk leaves ${remaining} samples) — not repaired` };
     last.tailSamples = Math.max(0, remaining);
     const inserted = chunks.reduce((s, c) => s + c.headSamples + c.tailSamples, 0);
-    return { ok: true, H, headRange: [cands[0], cands[cands.length - 1]], chunks, joins: starts.length - 1, insertedSamples: inserted, insertedSec: +(inserted / sampleRate).toFixed(3), contentSamples: n * spf, sampleRate, fps };
+    return { ok: true, H, headRange: cands.length ? [cands[0], cands[cands.length - 1]] : [H, H], chunks, joins: starts.length - 1, insertedSamples: inserted, insertedSec: +(inserted / sampleRate).toFixed(3), contentSamples: n * spf, sampleRate, fps };
   }
 }
 
@@ -102,6 +121,24 @@ function checkHeads(sample, p, { midRatio = 0.2, edgeRatio = 0.4, floor = 64 } =
   return { ok: rows.every((r) => r.ok), rows, bad: rows.filter((r) => !r.ok) };
 }
 
+/**
+ * The extra flush frame a hold-read plan cuts (tail ≥ 1024): it must be codec leakage too, not content. Same signature
+ * as a head: its middle half far below the speech just before the chunk's content ends. Plans without such tails pass.
+ */
+function checkTails(sample, p, { midRatio = 0.2, floor = 64 } = {}) {
+  const rows = [];
+  p.chunks.forEach((c, k) => {
+    if (k + 1 >= p.chunks.length || !(c.tailSamples >= AAC)) return;
+    const s = c.filmStartSample + c.headSamples + c.contentSamples + c.tailSamples - AAC; // the extra frame
+    let mid = 0, near = 0;
+    for (let i = AAC / 4; i < (3 * AAC) / 4; i++) mid = Math.max(mid, Math.abs(sample(s + i)));
+    const W = Math.round(p.sampleRate * 0.05), end = c.filmStartSample + c.headSamples + c.contentSamples;
+    for (let i = end - W; i < end; i++) near = Math.max(near, Math.abs(sample(i)));
+    rows.push({ chunk: k, midPeak: mid, neighbourPeak: near, ok: mid <= Math.max(floor, midRatio * near) });
+  });
+  return { ok: rows.every((r) => r.ok), rows, bad: rows.filter((r) => !r.ok) };
+}
+
 /** the ffmpeg audio filter that keeps exactly the content of every chunk (sample-exact atrim + concat) */
 function audioFilter(p, input = "0:a:0") {
   const k = p.chunks.length;
@@ -119,4 +156,4 @@ function videoSetts({ ticksPerFrame, firstDts }) {
   return `setts=dts=N*${ticksPerFrame}${firstDts >= 0 ? "+" : ""}${firstDts}:pts=N*${ticksPerFrame}${firstDts >= 0 ? "+" : ""}${firstDts}+PTS-DTS`;
 }
 
-module.exports = { plan, checkHeads, audioFilter, videoSetts, AAC };
+module.exports = { plan, checkHeads, checkTails, audioFilter, videoSetts, AAC };

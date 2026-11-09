@@ -42,7 +42,9 @@ function probe(file) {
 /** the heads about to be cut, checked against the inserted-head signature (mono mix of channel 0, decoded once) */
 function heads(file, p) {
   const b = run(["-v", "error", "-i", file, "-map", "0:a:0", "-af", "pan=mono|c0=c0", "-ar", String(p.sampleRate), "-f", "s16le", "-"]).stdout;
-  return JR.checkHeads((i) => (i >= 0 && i * 2 + 1 < b.length ? b.readInt16LE(i * 2) : 0), p);
+  const sample = (i) => (i >= 0 && i * 2 + 1 < b.length ? b.readInt16LE(i * 2) : 0);
+  // + the extra flush frames a hold-read plan cuts (2026-11-09): quiet too, or nothing is repaired
+  return { ...JR.checkHeads(sample, p), tails: JR.checkTails(sample, p) };
 }
 
 const P = probe(IN);
@@ -53,6 +55,9 @@ const hc = heads(IN, pl);
 const summary = { joins: pl.joins, encoderDelaySamples: pl.H, headRange: pl.headRange, insertedSec: pl.insertedSec, headMidPeakMax: Math.max(...hc.rows.map((r) => r.midPeak)), headEdgePeakMax: Math.max(...hc.rows.map((r) => r.edgePeak)), headsRefused: hc.bad.length };
 console.log(`plan: ${pl.chunks.length} chunks, ${pl.joins} joins, head ${pl.H} samples (fits ${pl.headRange.join("–")}), inserted ${pl.insertedSec}s; heads: middle peak ≤ ${summary.headMidPeakMax}, edge peak ≤ ${summary.headEdgePeakMax}`);
 if (!hc.ok) { const b = hc.bad[0]; console.error(`❌ not repaired: ${hc.bad.length} head(s) do not look inserted (chunk ${b.chunk}: middle ${b.midPeak}, edge ${b.edgePeak} vs speech ${b.neighbourPeak}) — the geometry is not what the joins say`); json({ ok: false, ...summary, bad: hc.bad }); process.exit(3); }
+if (!hc.tails.ok) { const b = hc.tails.bad[0]; console.error(`❌ not repaired: ${hc.tails.bad.length} extra tail frame(s) carry signal (chunk ${b.chunk}: middle ${b.midPeak} vs speech ${b.neighbourPeak}) — not a flush frame`); json({ ok: false, ...summary, badTails: hc.tails.bad }); process.exit(3); }
+summary.extraTailFrames = pl.extraTailFrames || 0; summary.tailMidPeakMax = hc.tails.rows.length ? Math.max(...hc.tails.rows.map((r) => r.midPeak)) : null;
+if (pl.extraTailFrames) console.log(`tails: ${pl.extraTailFrames} chunk(s) carry one extra AAC flush frame (${pl.tailRule}); middle peak ≤ ${summary.tailMidPeakMax}`);
 if (args.check) { json({ ok: true, check: true, ...summary }); process.exit(0); }
 
 // video: same packets, N/fps clock (time base of the input track), composition offsets kept
