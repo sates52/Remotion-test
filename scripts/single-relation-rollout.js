@@ -86,6 +86,13 @@ function select(contractsDir, ab, { maxScenes = POLICY.perBook.maxScenes } = {})
     if (why) kept.push({ sceneIndex: i, keep: "A", why });
     else chosen.push({ sceneIndex: i, contract: path.join(contractsDir, "contracts", `${i}.json`), contractHash: c.contractHash || null, review: c.review ? c.review.verdict : null, ab: { A: r.A, B: r.B, wiA: r.wiA || 0, wiB: r.wiB || 0, bContractHash: r.bContractHash || null } });
   }
+  // C19 sequences (contracts with beats): two winners that share a beat → one chosen WHOLE, the other keeps A (reason)
+  const seqBeats = (c) => { const k = readJSON(c.contract); return k && Array.isArray(k.beats) ? k.beats.map((b) => Number(b.sceneIndex)) : null; };
+  const seqs = chosen.map((c) => ({ c, beats: seqBeats(c) })).filter((x) => x.beats);
+  if (seqs.length > 1) {
+    const r = require("./lib/c19-sequence").resolveOverlaps(seqs.map((x) => ({ sceneIndex: x.c.sceneIndex, beats: x.beats, ab: x.c.ab })));
+    for (const k of r.kept) { chosen.splice(chosen.findIndex((c) => c.sceneIndex === k.sceneIndex), 1); kept.push(k); }
+  }
   // a cap only when the policy sets one (cycle 18: the operator removed it — every B that wins and passes goes in)
   chosen.sort((x, y) => (y.ab.B - y.ab.A) - (x.ab.B - x.ab.A) || x.sceneIndex - y.sceneIndex);
   if (Number.isInteger(maxScenes)) for (const c of chosen.splice(maxScenes)) kept.push({ sceneIndex: c.sceneIndex, keep: "A", why: `over the per-book cap ${maxScenes}` });

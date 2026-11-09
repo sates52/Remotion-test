@@ -107,12 +107,17 @@ function preview(root, slug, out) {
 function plan(root, slug, cfg, selection, now = new Date().toISOString()) {
   const B = path.join(root, "books", slug), motifs = readJSON(path.join(B, "motifs.json"), {}) || {};
   let conf = cfg; const entries = [], kept = [...(selection.kept || [])];
+  const used = new Set();
   for (const ch of selection.chosen) {
     const c = readJSON(ch.contract);
     if (!c) { kept.push({ sceneIndex: ch.sceneIndex, keep: "A", why: "contract file unreadable" }); continue; }
     if (!ch.ab || ch.ab.bContractHash !== sha(c)) { kept.push({ sceneIndex: ch.sceneIndex, keep: "A", why: "no valid narration review for this sequence (it reviewed a different contract)" }); continue; }
+    // one sequence per beat (a selection that skipped select, or a sequence already live from an earlier apply)
+    const busy = c.beats.map((b) => b.sceneIndex).filter((i) => used.has(i) || ((conf.scenes[i] || {})._c19 && conf.scenes[i]._c19.contractHash !== sha(c)));
+    if (busy.length) { kept.push({ sceneIndex: ch.sceneIndex, keep: "A", why: `beat(s) ${busy.join(", ")} already carry another C19 sequence (one per beat, chosen whole — revert that one first)` }); continue; }
     const r = C19.apply(conf, c, { motifs });
     if (!r.ok) { kept.push({ sceneIndex: ch.sceneIndex, keep: "A", why: `invalid at apply (no beat changed): ${r.errors.slice(0, 3).join("; ")}` }); continue; }
+    for (const b of c.beats) used.add(b.sceneIndex);
     entries.push({ kind: "c19", sceneIndex: ch.sceneIndex, beats: c.beats.map((b) => b.sceneIndex), contractHash: r.contractHash, mechanism: c.mechanism || null, ab: ch.ab, at: now,
       previousBeats: r.previous, narrationHashes: Object.fromEntries(c.beats.map((b) => [b.sceneIndex, crypto.createHash("sha256").update(String(conf.scenes[b.sceneIndex]._narration || "")).digest("hex").slice(0, 16)])),
       preview: c.beats.map((b) => { const s = conf.scenes[b.sceneIndex]; return { sceneIndex: b.sceneIndex, timecode: `${tc(s.fromFrame)}–${tc(s.fromFrame + s.durationFrames)}`, shots: r.config.scenes[b.sceneIndex].shots.map((sh) => ({ at: tc(s.fromFrame + sh.from), cutAt: sh.cutAt })) }; }) });
@@ -147,6 +152,8 @@ if (require.main === module) {
     fs.mkdirSync(path.join(SR, "active-contracts"), { recursive: true });
     for (const en of r.entries) fs.copyFileSync(path.join(SR, "c19", "contracts", `${en.sceneIndex}.json`), path.join(SR, "active-contracts", `c19-${en.sceneIndex}.json`));
     active.scenes = [...active.scenes.filter((s) => !(s.kind === "c19" && r.entries.some((en) => en.sceneIndex === s.sceneIndex))), ...r.entries];
+    // a sequence applied again after a revert is live again (status / revert skip the scenes listed as reverted)
+    active.reverted = (active.reverted || []).filter((i) => !r.entries.some((en) => en.sceneIndex === i));
     active.keptC19 = r.kept; active.at = new Date().toISOString();
     fs.writeFileSync(path.join(SR, "active.json"), JSON.stringify(active, null, 1));
     fs.writeFileSync(cfgPath, JSON.stringify(r.config, null, 2));

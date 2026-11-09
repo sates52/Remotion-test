@@ -267,6 +267,9 @@ node scripts/c19.js apply --slug=<s> --write              # atomic per sequence,
   split sits on the word that says it (`cues` / `motionCues`, `cueExact`); the result never shows before that word.
 - All beats of a sequence are validated, A/B'd, sealed, applied and reverted TOGETHER: one failing beat = none changes;
   `single-relation-rollout.js revert --scenes=<firstBeat> --write` returns every beat to its previous version.
+- **Overlapping winners** (20–21 and 21–22 both win): a beat carries ONE sequence, chosen whole — `select` keeps the larger
+  B−A (then fewer wrong inferences, then the earlier first beat) and keeps the other A with the reason naming the winner;
+  `c19.js apply` refuses any sequence whose beat already carries another one (revert that one first).
 - make-book 1.885 re-applies the sequences (before the single-relation scenes) on every rebuild; preview-state
   `singleRelation` reads `active.json` for both kinds (`status`: ACTIVE / MISSING).
 - **Coverage, stated separately in every report:** readcheck reads the STORYBOARD (art.json — the beat's authored

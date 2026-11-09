@@ -154,7 +154,25 @@ function apply(config, c, ctx = {}) {
   return { ok: true, config: { ...config, scenes }, previous, contractHash };
 }
 
+/**
+ * Overlapping winners (operator 2026-11-09): two sequences that both won their A/B may cover the same beat (20–21 and
+ * 21–22). A beat can carry ONE sequence, and a sequence ships whole or not at all — so pick one WHOLE: the larger B−A
+ * margin, then fewer wrong inferences with B, then the earlier first beat. Every other overlapping winner keeps A with
+ * the reason naming the sequence that took its beat(s). `items`: [{sceneIndex, beats: [..], ab: {A, B, wiB}}].
+ */
+function resolveOverlaps(items) {
+  const rank = [...items].sort((x, y) => ((y.ab.B - y.ab.A) - (x.ab.B - x.ab.A)) || ((x.ab.wiB || 0) - (y.ab.wiB || 0)) || (x.sceneIndex - y.sceneIndex));
+  const taken = new Map(), chosen = [], kept = [];
+  for (const it of rank) {
+    const clash = it.beats.filter((b) => taken.has(b));
+    if (!clash.length) { chosen.push(it); for (const b of it.beats) taken.set(b, it); continue; }
+    const w = taken.get(clash[0]);
+    kept.push({ sceneIndex: it.sceneIndex, keep: "A", why: `overlaps C19 sequence ${w.sceneIndex} (beats ${w.beats.join("+")}) on beat(s) ${clash.join(", ")} — that one won by more (B−A ${(w.ab.B - w.ab.A).toFixed(1)} vs ${(it.ab.B - it.ab.A).toFixed(1)}); a beat carries one sequence, chosen whole` });
+  }
+  return { chosen: chosen.sort((a, b) => a.sceneIndex - b.sceneIndex), kept };
+}
+
 /** is this contract live in the config (every beat carries its shots with this contract's hash)? */
 const isLive = (config, entry) => entry.beats.every((i) => { const s = config.scenes[i]; return s && s.shots && s._c19 && s._c19.contractHash === entry.contractHash; });
 
-module.exports = { SCHEMA, CUED, ACTIONS, HAND_WORDS, FULL_SHOTS, compileBeat, validate, apply, isLive };
+module.exports = { SCHEMA, CUED, ACTIONS, HAND_WORDS, FULL_SHOTS, compileBeat, validate, apply, isLive, resolveOverlaps };

@@ -120,5 +120,69 @@ ok("status after a rebuild and revert of the whole sequence", () => {
   assert.strictEqual(RO.status(back.config, back.record).state, "NONE");
 });
 
+// two winners on the same beat: 0–1 (walk to the log) and 1–2 (the split carried on)
+const fs = require("fs"), os = require("os"), path = require("path");
+const overlapping = () => ({ schema: C19.SCHEMA, _author: "test", evidence: "Luther walks to the log with his axe.",
+  beats: [{ sceneIndex: 0, shots: [{ at: null, stage: { shot: "wide", bg: { set: "shore" }, characters: [luther()], props: [{ motif: "log", x: 900, y: 760, scale: 0.8 }] } }] },
+    { sceneIndex: 1, shots: [{ at: null, stage: "keep" }] }] });
+
+ok("overlap: two winners sharing a beat → the larger B−A is chosen WHOLE, the other keeps A naming it", () => {
+  const r = C19.resolveOverlaps([
+    { sceneIndex: 0, beats: [0, 1], ab: { A: 10, B: 30 } },
+    { sceneIndex: 1, beats: [1, 2], ab: { A: 10, B: 50 } },
+    { sceneIndex: 5, beats: [5], ab: { A: 0, B: 5 } }]);
+  assert.deepStrictEqual(r.chosen.map((x) => x.sceneIndex), [1, 5]);
+  assert.strictEqual(r.kept.length, 1);
+  assert.ok(/overlaps C19 sequence 1 \(beats 1\+2\) on beat\(s\) 1/.test(r.kept[0].why), r.kept[0].why);
+  // a tie on the margin: fewer wrong inferences, then the earlier first beat
+  const t = C19.resolveOverlaps([{ sceneIndex: 1, beats: [1, 2], ab: { A: 0, B: 20, wiB: 1 } }, { sceneIndex: 0, beats: [0, 1], ab: { A: 0, B: 20, wiB: 0 } }]);
+  assert.deepStrictEqual(t.chosen.map((x) => x.sceneIndex), [0]);
+});
+
+// a book on disk for select / apply (temp dir)
+const tmpBook = () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "c19-")), B = path.join(root, "books", "t"), D = path.join(B, "single-relation", "c19");
+  fs.mkdirSync(path.join(D, "contracts"), { recursive: true });
+  fs.writeFileSync(path.join(B, "motifs.json"), JSON.stringify(motifs));
+  const cs = { 0: overlapping(), 1: withSplit(contract()) };
+  for (const [i, c] of Object.entries(cs)) fs.writeFileSync(path.join(D, "contracts", `${i}.json`), JSON.stringify(c));
+  fs.writeFileSync(path.join(D, "contracts.json"), JSON.stringify({ valid: [0, 1], contracts: {} }));
+  const row = (i, A, B) => ({ sceneIndex: i, A, B, wiA: 0, wiB: 0, avReviewed: true, bContractHash: crypto.createHash("sha256").update(JSON.stringify(cs[i])).digest("hex").slice(0, 16) });
+  return { root, D, cs, rows: [row(0, 10, 30), row(1, 10, 50)] };
+};
+const crypto = require("crypto");
+
+ok("select: overlapping C19 winners → one sequence chosen whole, the other kept A with the reason", () => {
+  const t = tmpBook(), sel = RO.select(t.D, { rows: t.rows });
+  assert.deepStrictEqual(sel.chosen.map((c) => c.sceneIndex), [1]);
+  const k = sel.kept.find((x) => x.sceneIndex === 0);
+  assert.ok(k && /overlaps C19 sequence 1/.test(k.why), JSON.stringify(sel.kept));
+});
+
+ok("apply refuses a sequence whose beat already carries another one (no partial overlap reaches the config)", () => {
+  const t = tmpBook(), { plan } = require("./c19");
+  const cfg = config(), mk = (i, r) => ({ sceneIndex: i, contract: path.join(t.D, "contracts", `${i}.json`), ab: { A: r.A, B: r.B, bContractHash: r.bContractHash } });
+  const r = plan(t.root, "t", cfg, { chosen: [mk(1, t.rows[1]), mk(0, t.rows[0])], kept: [] });
+  assert.deepStrictEqual(r.entries.map((e) => e.sceneIndex), [1]);
+  assert.ok(r.kept.some((k) => k.sceneIndex === 0 && /already carry another C19 sequence/.test(k.why)));
+  assert.ok(!r.config.scenes[0].shots, "beat 0 keeps A");
+  // a later apply of the loser on the config that already carries the winner is refused the same way
+  const again = plan(t.root, "t", r.config, { chosen: [mk(0, t.rows[0])], kept: [] });
+  assert.strictEqual(again.entries.length, 0);
+});
+
+ok("integrity: the chosen sequence survives a rebuild whole (re-applied from its record) and reverts whole", () => {
+  const t = tmpBook(), { plan } = require("./c19"), cfg = config();
+  const r = plan(t.root, "t", cfg, { chosen: [{ sceneIndex: 1, contract: path.join(t.D, "contracts", "1.json"), ab: { A: 10, B: 50, bContractHash: t.rows[1].bContractHash } }], kept: [] });
+  const record = { scenes: r.entries };
+  // rebuild: a freshly planned config (no shots) + make-book 1.885's re-apply from the recorded contract
+  const rebuilt = C19.apply(config(), t.cs[1], ctx).config;
+  for (const i of [1, 2]) assert.deepStrictEqual(rebuilt.scenes[i], r.config.scenes[i], `beat ${i} identical after the rebuild`);
+  assert.ok(!rebuilt.scenes[0].shots && !rebuilt.scenes[0]._c19, "the loser's beat stays A");
+  assert.strictEqual(RO.status(rebuilt, record).state, "ACTIVE");
+  const back = RO.revert(rebuilt, record, [1]);
+  assert.deepStrictEqual(back.config.scenes, cfg.scenes, "every beat of the sequence back together, nothing else touched");
+});
+
 if (fail) { console.log(`\n${fail} failed`); process.exit(1); }
 console.log("\nall C19 sequence tests passed");
