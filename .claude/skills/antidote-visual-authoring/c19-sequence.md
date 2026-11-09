@@ -11,6 +11,8 @@ length and transition). Validator: `scripts/lib/c19-sequence.js`; tool: `scripts
   not a rejected option, not quoted opinion.
 - Every object you draw is NAMED in the narration (hand objects: axe, shoe, pebble, ball, sword, cup, …; anything else a
   book-own icon in motifs.json with `words` naming it).
+- **Opening first:** candidates marked `opening` (the first 90 s) are decided first — a stated action there sets the film's
+  tone; the bar is the same (stated, every object named, the rig can do it, its own A/B).
 - Not when the beat is already good, when the action needs a body the rig cannot do, or when only a feeling changes.
 
 ## Contract (`books/<slug>/single-relation/c19/contracts/<firstBeat>.json`)

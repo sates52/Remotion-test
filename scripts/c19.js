@@ -31,6 +31,7 @@ const tc = (f) => { const s = f / 30; return `${Math.floor(s / 60)}:${String(Mat
 // an action the narration states on a nameable object (the scan proposes; the author decides)
 const VERBS = /\b(swing|swings|swinging|strike|strikes|split|splits|chop|chops|hack|hacking|throw|throws|threw|toss|tosses|tossed|hurl|take off|takes off|remove|removes|removed|pull|pulls|pulled|push|pushes|drop|drops|dropped|kick|kicks|open|opens|opened|smash|smashes|shatter|break|breaks|broke|hand|hands|handed|give|gives|gave|pick up|picks up|put down|puts down|catch|catches|caught|stop running|resume running)\b/i;
 
+const OPENING_SEC = 90;
 function scan(root, slug) {
   const B = path.join(root, "books", slug), cfg = readJSON(path.join(B, "config.antidote.json"));
   const motifs = readJSON(path.join(B, "motifs.json"), {}) || {};
@@ -40,7 +41,10 @@ function scan(root, slug) {
     const n = String(s._narration || "");
     const verb = (n.match(VERBS) || [])[0];
     const objs = objWords.filter((w) => new RegExp(`\\b${w}s?\\b`, "i").test(n));
-    if (verb && objs.length) candidates.push({ sceneIndex: i, sceneId: s.id, verb, objects: objs, narration: n, next: (cfg.scenes[i + 1] || {})._narration || "", set: (s.bg || {}).set || null, singleRelation: !!s.singleRelation });
+    // the opening (operator 2026-11-09): a narrated action in the first 90 s is where a sequence earns the most — flagged
+    // so the author decides it first (it still has to be stated, drawable and win its own A/B like any other)
+    const opening = (s.fromFrame || 0) < OPENING_SEC * ((cfg.meta && cfg.meta.fps) || 30);
+    if (verb && objs.length) candidates.push({ sceneIndex: i, sceneId: s.id, verb, objects: objs, narration: n, next: (cfg.scenes[i + 1] || {})._narration || "", set: (s.bg || {}).set || null, singleRelation: !!s.singleRelation, ...(opening ? { opening: true } : {}) });
     else if (verb) rejected.push({ sceneIndex: i, reason: `action "${verb}" but no drawable object named (hand props / motifs.json words)` });
   });
   const out = path.join(B, "single-relation", "c19");
@@ -133,7 +137,7 @@ if (require.main === module) {
   if (!cmd || !slug) { console.error("usage: c19.js scan|validate|preview|apply --slug=<s> [--book-root=<wt>] …"); process.exit(2); }
   const RO = require("./single-relation-rollout");
   const B = path.join(root, "books", slug), SR = path.join(B, "single-relation");
-  if (cmd === "scan") { const r = scan(root, slug); console.log(`${slug}: ${r.candidates.length} C19 candidate(s), ${r.rejected.length} rejected → ${path.relative(root, r.out)}/candidates.json`); process.exit(0); }
+  if (cmd === "scan") { const r = scan(root, slug); const op = r.candidates.filter((c) => c.opening).map((c) => c.sceneIndex); console.log(`${slug}: ${r.candidates.length} C19 candidate(s)${op.length ? ` (opening ≤ ${OPENING_SEC}s: ${op.join(", ")} — decide these first)` : " (none in the opening 90 s)"}, ${r.rejected.length} rejected → ${path.relative(root, r.out)}/candidates.json`); process.exit(0); }
   if (cmd === "validate") { const r = validateAll(root, slug); console.log(`${slug}: ${r.valid.length} valid, ${r.invalid.length} invalid C19 contract(s)`); for (const i of r.invalid) console.log(`  ${i}: ${r.contracts[i].errors.join(" | ")}`); process.exit(0); }
   if (cmd === "preview") { if (!args.out) { console.error("--out=<dir>"); process.exit(2); } const r = preview(root, slug, path.resolve(args.out)); console.log(`${slug}: ${r.pairs} C19 A/B pair(s) → ${args.out} (stills-cloud push; then single-relation-ab.js blind/judge/tally)`); process.exit(0); }
   if (cmd === "apply") {
