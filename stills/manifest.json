@@ -1,0 +1,38 @@
+{
+ "schema": "stills/1",
+ "name": "C19 sign clean",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "sign-clean",
+   "config": "configs/sign-clean.json",
+   "frames": [
+    30,
+    66,
+    78,
+    100,
+    140
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 149
+   }
+  }
+ ],
+ "inputHash": "db59f09d13b964a2",
+ "files": {
+  "stills/configs/sign-clean.json": "5647006acb978f8aa4f845ddf9c77633445747a8817fb61b563db00d293a087a"
+ },
+ "builtAt": "2026-11-10T06:34:06.023Z"
+}
