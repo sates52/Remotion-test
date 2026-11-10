@@ -17,12 +17,14 @@ const FRAME_W = 1920, EDGE_IN = 230, OFF = 300;
 
 type Stage = { x: number; y: number; scale: number; flip?: boolean };
 
-export function leaveLayout(lead: Stage, partner: Stage | null, action: "leave" | "flee", withIcon: boolean, iconX?: number) {
+// `away` (2026-11-10, Unwind opening "take your teenager away"): a LEAVE that walks AWAY from the partner instead of past
+// them — being taken away, not walking out on someone; walk pace (flee would read as escaping)
+export function leaveLayout(lead: Stage, partner: Stage | null, action: "leave" | "flee", withIcon: boolean, iconX?: number, away = false) {
   let dir: number;
   // FLEE with no partner: the beat's icon is the THREAT ("Montag running away" from the Hound), never the exit — the
   // person runs AWAY from it and off the frame (an icon as exit sent him running toward the Hound, f451 235 v0)
   const threat = action === "flee" && !partner && withIcon && typeof iconX === "number";
-  if (partner) dir = action === "flee" ? Math.sign(lead.x - partner.x) || -1 : Math.sign(partner.x - lead.x) || 1;
+  if (partner) dir = action === "flee" || away ? Math.sign(lead.x - partner.x) || -1 : Math.sign(partner.x - lead.x) || 1;
   else if (threat) dir = Math.sign(lead.x - (iconX as number)) || -1;
   else dir = lead.x < FRAME_W / 2 ? 1 : -1;
   if (threat) withIcon = false;
@@ -30,7 +32,7 @@ export function leaveLayout(lead: Stage, partner: Stage | null, action: "leave" 
   let destX: number;
   if (withIcon) {
     // the exit on stage: past the partner (leave) or on the open side (flee / alone), always inside the frame
-    const want = partner && action === "leave" ? partner.x + dir * LEAVE_PAST * partner.scale : lead.x + dir * 2 * LEAVE_PAST * lead.scale;
+    const want = partner && action === "leave" && !away ? partner.x + dir * LEAVE_PAST * partner.scale : lead.x + dir * 2 * LEAVE_PAST * lead.scale;
     destX = Math.max(EDGE_IN, Math.min(FRAME_W - EDGE_IN, want));
     if (Math.sign(destX - lead.x) !== dir || Math.abs(destX - lead.x) < 200) destX = dir > 0 ? FRAME_W - EDGE_IN : EDGE_IN;
   } else destX = dir > 0 ? FRAME_W + OFF : -OFF; // off the frame: the body is fully out before the beat ends

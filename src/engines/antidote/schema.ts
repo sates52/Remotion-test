@@ -333,6 +333,8 @@ export const characterSchema = z.object({
   takeFrom: z.enum(["rest", "body"]).optional(),
   /** C19 (2026-11-09): the held object drawn larger (wide shots shrink it below readability) and with a light outline
    *  (a dark coin on a dark suit read as nothing — Free to Focus #5). */
+  /** leave AWAY from the partner (taken away), not past them (walking out on) — walk pace */
+  exitAway: z.boolean().optional(),
   holdScale: z.number().optional(),
   holdHalo: z.boolean().optional(),
   /** Horizontal travel across the beat, in stage px: [fromDx, toDx]. Pair with

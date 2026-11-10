@@ -444,7 +444,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     if (scene.diagram || !c || (c.action !== "leave" && c.action !== "flee")) return null;
     const st = (j: number) => stageChar(scene.shot, bodies[j], plan && plan.chars[j] ? plan.chars[j].slot : j);
     const iconSlot = embraceMotifSlot(scene.shot, bodies, preset.motif);
-    return leaveLayout(st(k), bodies.length > 1 ? st(k === 0 ? 1 : 0) : null, c.action, props.length > 0, props.length ? (props[0].x ?? iconSlot.x) : undefined);
+    return leaveLayout(st(k), bodies.length > 1 ? st(k === 0 ? 1 : 0) : null, c.action, props.length > 0, props.length ? (props[0].x ?? iconSlot.x) : undefined, (c as { exitAway?: boolean }).exitAway === true);
   };
   const leave0 = lift ? null : leaveOf(0);
   // the icon is the EXIT of a leave (drawn where the path ends) — but the THREAT of a lone flee (it stays where it is)
