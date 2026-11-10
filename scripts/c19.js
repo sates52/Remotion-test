@@ -75,9 +75,13 @@ function preview(root, slug, out) {
   const rec = readJSON(path.join(dir, "contracts.json"));
   fs.mkdirSync(path.join(out, "configs"), { recursive: true });
   const jobs = [], pairs = [];
-  for (const i of rec.valid || []) {
+  // --diagnostic (operator 2026-11-09): also render contracts refused ONLY on the author's reading (a side-detail action) —
+  // to see what the engine fixes do on that beat; the pair is marked diagnostic and apply re-validates (never applied)
+  const diag = !!args.diagnostic;
+  const ids = diag ? Object.keys(rec.contracts || {}).map(Number).filter((i) => rec.contracts[i].valid || (rec.contracts[i].errors || []).every((e) => C19.AUTHOR_ERR.test(e))) : (rec.valid || []);
+  for (const i of ids) {
     const c = readJSON(path.join(dir, "contracts", `${i}.json`));
-    const r = C19.apply(cfg, c, { motifs });
+    const r = C19.apply(cfg, c, { motifs, diagnostic: diag });
     if (!r.ok) continue;
     const idxs = c.beats.map((b) => b.sceneIndex), a = Math.max(0, idxs[0] - 1), z = idxs[idxs.length - 1];
     const off = cfg.scenes[a].fromFrame;
@@ -97,7 +101,7 @@ function preview(root, slug, out) {
       fs.writeFileSync(path.join(out, "configs", `${id}.json`), JSON.stringify(conf));
       jobs.push({ id, config: `configs/${id}.json`, frames, strip: true, ...(args.clips ? { clip: { from: 0, to: conf.totalFrames - 1 } } : {}) });
     }
-    pairs.push({ sceneIndex: i, beats: idxs, narration: idxs.map((k) => cfg.scenes[k]._narration).join(" "), previousNarration: (cfg.scenes[a] || {})._narration || "", frames, bContractHash: sha(c) });
+    pairs.push({ ...(diag && !(rec.contracts[i] || {}).valid ? { diagnostic: "refused on the author's reading — render only, never applied" } : {}), sceneIndex: i, beats: idxs, narration: idxs.map((k) => cfg.scenes[k]._narration).join(" "), previousNarration: (cfg.scenes[a] || {})._narration || "", frames, bContractHash: sha(c) });
   }
   // the clips carry the scene sounds: stills-cloud bundles THIS repo, so the sfx come from here (an isolated --book-root has none)
   const SFX = path.join(__dirname, "..", "public", "sfx");

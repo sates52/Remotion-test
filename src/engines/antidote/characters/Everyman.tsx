@@ -180,7 +180,10 @@ export const Everyman: React.FC<{
   emotion?: CharEmotion;
   /** Frame when the emotion appears (defaults to 8) */
   emotionAt?: number;
-}> = ({ variant, pose, width = 400, body = "bust", holds: holdsIn, accent, emotion, emotionAt }) => {
+  /** C19: the held object larger / outlined (schema holdScale, holdHalo) */
+  holdScale?: number;
+  holdHalo?: boolean;
+}> = ({ variant, pose, width = 400, body = "bust", holds: holdsIn, accent, emotion, emotionAt, holdScale = 1, holdHalo = false }) => {
   // C19 `throw`: once the object has left the hand the rig draws an empty hand (Scene flies the object)
   const holds = (pose.released ?? 0) >= 1 ? undefined : holdsIn;
   const frame = useCurrentFrame();
@@ -271,7 +274,7 @@ export const Everyman: React.FC<{
             middle of the page. */}
         <Hand cx={304} cy={498} skin={skin} thumb={1} />
         <g transform={`translate(304 ${frontHand ? 496 : 462}) rotate(${-(armRot + elbowRot) + ((pose.carried ?? 0) > 0 ? armRot + elbowRot + 180 : (pose.propTilt ?? 0))}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
-          <HeldProp prop={holds as string} ink={holdInk} accent={holdAccent} />
+          <HeldProp prop={holds as string} ink={holdInk} accent={holdAccent} scale={holdScale} halo={holdHalo} />
         </g>
       </g>
     </g>
@@ -373,7 +376,7 @@ export const Everyman: React.FC<{
             ) : null}
             {holds && pose.take === 0 && (pose.table ?? 0) > 0 ? (
               <g transform={`translate(${PLACE_REST.x} ${PLACE_REST.y}) scale(${0.82 / buildW} 0.82) translate(0 52) scale(${placeScale}) translate(0 -52)`}>
-                <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
+                <HeldProp prop={holds} ink={holdInk} accent={holdAccent} scale={holdScale} halo={holdHalo} />
               </g>
             ) : holds && pose.take === 0 && !((pose as { noRest?: number }).noRest) ? (
               <g transform={`rotate(${TAKE_REST_ARM} 304 322)`}>
@@ -381,7 +384,7 @@ export const Everyman: React.FC<{
                   <g transform={`translate(304 462) rotate(${-(TAKE_REST_ARM + TAKE_REST_ELBOW) - pose.lean}) scale(${0.82 / buildW} 0.82)`}>
                     <rect x={-70} y={52} width={140} height={14} rx={5} fill={darken(suit, 0.55)} opacity={0.9} />
                     <rect x={-8} y={64} width={16} height={150} rx={5} fill={darken(suit, 0.55)} opacity={0.75} />
-                    <HeldProp prop={holds} ink={holdInk} accent={holdAccent} />
+                    <HeldProp prop={holds} ink={holdInk} accent={holdAccent} scale={holdScale} halo={holdHalo} />
                   </g>
                 </g>
               </g>

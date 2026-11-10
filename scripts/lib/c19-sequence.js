@@ -26,13 +26,25 @@ const CUED = ["chop", "throw", "take", "place", "stop", "reach", "offer", "drink
 const ACTIONS = ["idle", "talk", "point", "celebrate", "slump", "think", "walk", "sit", "hold", "reach", "offer", "leave", "flee", "drink", "lying", "collapsed",
   "falling", "fighting", "struggling", "grabbing", "place", "take", "embrace", "lift", "lifted", "run", "stop", "chop", "throw"];
 // the narration words that name each hand object (grounding: an object is drawn only when the narration names it)
-const HAND_WORDS = { axe: ["axe", "ax", "hacking", "chop"], shoe: ["shoe", "sneaker"], pebble: ["pebble", "stone", "rock"], ball: ["ball"], sword: ["sword", "blade"],
+const HAND_WORDS = { cash: ["cash", "money", "bills", "banknote"], axe: ["axe", "ax", "hacking", "chop"], shoe: ["shoe", "sneaker"], pebble: ["pebble", "stone", "rock"], ball: ["ball"], sword: ["sword", "blade"],
   book: ["book"], phone: ["phone"], key: ["key"], letter: ["letter"], coin: ["coin", "money", "cash"], cup: ["cup", "coffee", "tea"], wrench: ["wrench", "tool"] };
 // the shots whose preset frames a FULL body (src/engines/antidote/shots.ts charsFull); any other shot is waist-up and a
 // forced full body there crops the head off the frame (C19 e2e, the-choice-factory 123)
 const FULL_SHOTS = ["wide", "silhouette", "lowAngle", "crowd", "illustration", "diorama"];
 // actions the legs carry: they need a full-body shot
 const LEG_ACTIONS = ["run", "stop", "chop", "walk", "flee", "leave"];
+// hand objects too small to read in a full-body shot at their natural size (Free to Focus #5: a coin in a wide shot was
+// a dot) — drawn 1.8× there; every C19 hand object gets a light outline (holdHalo) so it separates from the clothes
+const SMALL_HAND = ["coin", "cash", "key", "pebble", "phone", "smartphone", "letter", "notes", "photo", "creditCard", "wallet", "cup", "cigarette", "compass", "lightbulb"];
+const SMALL_SCALE = 1.8;
+/** the beat's own authored texts that show during [from, to) of the beat, shifted so each keeps its ORIGINAL in / out
+ *  frame (a text already on screen at the cut continues: its `at` goes negative, its entry is long finished) */
+function textsDuring(scene, from, to) {
+  return (scene.texts || []).filter((t) => {
+    const a = t.at || 0, end = t.duration != null ? a + t.duration : scene.durationFrames;
+    return a < to && end > from;
+  }).map((t) => ({ ...t, at: (t.at || 0) - from }));
+}
 const norm = (s) => String(s || "").toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, " ").replace(/\s+/g, " ").trim();
 const sha = (x) => crypto.createHash("sha256").update(JSON.stringify(x)).digest("hex").slice(0, 16);
 
@@ -59,7 +71,8 @@ function compileBeat(config, b, motifs = {}) {
     const st = sh.stage === "keep" ? JSON.parse(JSON.stringify({ shot: scene.shot, bg: scene.bg, camera: scene.camera, characters: scene.characters || [], props: scene.props || [], texts: scene.texts || [] })) : JSON.parse(JSON.stringify(sh.stage || {}));
     const keep = sh.stage === "keep";
     const full = FULL_SHOTS.includes(st.shot || scene.shot);
-    const characters = keep ? (st.characters || []) : (st.characters || []).map((c) => ({ rig: "everyman", enter: "none", silhouette: false, lookAt: "viewer", ...(full ? { body: "full" } : {}), expression: "neutral", action: "idle", role: c.identity, id: `${c.identity}-c`, ...c }));
+    const characters = keep ? (st.characters || []) : (st.characters || []).map((c) => ({ rig: "everyman", enter: "none", silhouette: false, lookAt: "viewer", ...(full ? { body: "full" } : {}), expression: "neutral", action: "idle", role: c.identity, id: `${c.identity}-c`,
+      ...(c.holds ? { holdHalo: true, ...(full && SMALL_HAND.includes(c.holds) ? { holdScale: SMALL_SCALE } : {}) } : {}), ...c }));
     for (const [ci, phrase] of Object.entries(sh.cues || {})) {
       const f = findPhrase(W, phrase, from);
       if (f == null || f >= to) throw new Error(`beat ${b.sceneIndex} shot ${k + 1}: cue "${phrase}" is not said inside the shot (${from}–${to})`);
@@ -81,7 +94,11 @@ function compileBeat(config, b, motifs = {}) {
       if (!props[pi]) throw new Error(`beat ${b.sceneIndex} shot ${k + 1}: no prop ${pi} for motion cue "${phrase}"`);
       props[pi].motionAt = f - from;
     }
-    return { from, to, shot: st.shot || scene.shot, bg: st.bg || {}, camera: st.camera, characters, props, texts: keep ? (st.texts || []) : [], cutAt: k === 0 ? null : sh.at, ...(keep ? { kept: true } : {}) };
+    // the beat's own words stay on screen through the inner cuts (2026-11-09: B lost "A MASSIVE HEART ATTACK" at the cut
+    // and with it the beat's point) — unless the author drops them with a reason (dropTexts)
+    const from_ = starts[k], to_ = k + 1 < starts.length ? starts[k + 1] : scene.durationFrames;
+    const texts = keep ? textsDuring(scene, from_, to_) : b.dropTexts ? [] : textsDuring(scene, from_, to_);
+    return { from, to, shot: st.shot || scene.shot, bg: st.bg || {}, camera: st.camera, characters, props, texts, cutAt: k === 0 ? null : sh.at, ...(keep ? { kept: true } : {}) };
   });
 }
 
@@ -96,6 +113,13 @@ function validate(c, config, ctx = {}) {
   const idxs = beats.map((b) => b.sceneIndex);
   const narration = narrationOf(config, idxs), around = narrationOf(config, [idxs[0] - 1, ...idxs]);
   if (!c.evidence || !norm(narration).includes(norm(c.evidence))) err("evidence must be a VERBATIM quote of the beats' narration");
+  // the author's reading (operator 2026-11-09): the beat's MAIN IDEA, how the chosen action makes it VISIBLE, and whether
+  // the action IS that idea — a side detail (Free to Focus #5: the cash, not the heart-attack panic) keeps A
+  const sentence = (x) => typeof x === "string" && x.trim().split(/\s+/).length >= 4;
+  if (!sentence(c.mainIdea)) err("mainIdea: one sentence — what this beat is about (the narration's point, not the action)");
+  if (!sentence(c.howShown)) err("howShown: one sentence — how the chosen action makes that idea visible");
+  if (c.actionIsCentral !== true) err(`the action is not the beat's main idea (actionIsCentral ${JSON.stringify(c.actionIsCentral)}) — a side detail keeps A`);
+  for (const b of beats) if (b.dropTexts != null && !sentence(b.dropTexts)) err(`beat ${b.sceneIndex}: dropTexts needs the reason the beat's own words may go (one sentence)`);
   for (const h of HARD) if (c.evidence && h.re.test(c.evidence)) err(`the evidence carries a ${h.kind} cue ("${(c.evidence.match(h.re) || [""])[0]}") — a sequence would stage it as a real event`);
   const looks = {};
   let compiled = [];
@@ -139,9 +163,12 @@ function validate(c, config, ctx = {}) {
   return E;
 }
 
-/** apply ONE contract atomically: every beat gets its shots, or none does */
+// the author's-reading errors (mainIdea / howShown / side detail): a DIAGNOSTIC preview may render past them — never apply
+const AUTHOR_ERR = /^(mainIdea:|howShown:|the action is not the beat's main idea)/;
+
+/** apply ONE contract atomically: every beat gets its shots, or none does (ctx.diagnostic: render-only, author errors waived) */
 function apply(config, c, ctx = {}) {
-  const errors = validate(c, config, ctx);
+  const errors = validate(c, config, ctx).filter((e) => !(ctx.diagnostic && AUTHOR_ERR.test(e)));
   if (errors.length) return { ok: false, errors };
   const scenes = config.scenes.slice(), previous = {};
   const contractHash = sha(c);
@@ -175,4 +202,4 @@ function resolveOverlaps(items) {
 /** is this contract live in the config (every beat carries its shots with this contract's hash)? */
 const isLive = (config, entry) => entry.beats.every((i) => { const s = config.scenes[i]; return s && s.shots && s._c19 && s._c19.contractHash === entry.contractHash; });
 
-module.exports = { SCHEMA, CUED, ACTIONS, HAND_WORDS, FULL_SHOTS, compileBeat, validate, apply, isLive, resolveOverlaps };
+module.exports = { AUTHOR_ERR, SCHEMA, CUED, ACTIONS, HAND_WORDS, FULL_SHOTS, SMALL_HAND, SMALL_SCALE, textsDuring, compileBeat, validate, apply, isLive, resolveOverlaps };

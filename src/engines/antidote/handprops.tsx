@@ -72,9 +72,10 @@ const Letter: G = ({ ink, accent }) => (
   </g>
 );
 
-const Coin: G = ({ ink, accent }) => (
+// gold, whatever the book's accent: an accent-coloured coin (navy) on a dark suit read as nothing (Free to Focus #5)
+const Coin: G = ({ ink }) => (
   <g>
-    <circle cx={0} cy={0} r={40} fill={accent} />
+    <circle cx={0} cy={0} r={40} fill="#F2C14E" />
     <circle cx={0} cy={0} r={40} fill="none" stroke={ink} strokeWidth={5} opacity={0.5} />
     <text x={0} y={15} textAnchor="middle" fontSize={46} fontWeight={800} fill={ink} opacity={0.7} fontFamily="Georgia, serif">$</text>
   </g>
@@ -331,6 +332,18 @@ const Pebble: G = ({ ink }) => (
     <path d="M-6,-6 Q0,-9 6,-5" fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={0.7} />
   </g>
 );
+// "drops some cash on the table": a fanned stack of green banknotes — reads as money at a glance (a coin is a coin)
+const Cash: G = ({ ink }) => (
+  <g>
+    {[-14, 0, 14].map((r, i) => (
+      <g key={i} transform={`rotate(${r}) translate(0 ${-i * 4})`}>
+        <rect x={-58} y={-30} width={116} height={60} rx={6} fill="#7BC47F" stroke={ink} strokeWidth={4} />
+        <circle cx={0} cy={0} r={16} fill="none" stroke="#2E6B35" strokeWidth={4} />
+        <text x={0} y={9} textAnchor="middle" fontSize={26} fontWeight={800} fill="#2E6B35" fontFamily="Georgia, serif">$</text>
+      </g>
+    ))}
+  </g>
+);
 // "a red rubber ball the size of a grapefruit" (the-lightning-thief 149): red is the narration's own colour
 const Ball: G = ({ ink }) => (
   <g>
@@ -340,7 +353,7 @@ const Ball: G = ({ ink }) => (
 );
 
 export const HAND_PROPS: Record<HandProp, G> = {
-  axe: Axe, shoe: Shoe, pebble: Pebble, ball: Ball,
+  axe: Axe, shoe: Shoe, pebble: Pebble, ball: Ball, cash: Cash,
   cigarette: Cigarette,
   book: Book, phone: Phone, key: Key, notes: Notes, letter: Letter, coin: Coin,
   cup: Cup, lightbulb: Lightbulb, mask: Mask, photo: Photo, mirror: Mirror,
@@ -357,12 +370,25 @@ export const HAND_PROPS: Record<HandProp, G> = {
  * Rendered INSIDE the arm group, so it inherits the arm's rotation for free:
  * raise the arm and the object comes with it, exactly as a real rig would.
  */
-export const HeldProp: React.FC<{ prop: HandProp; ink: string; accent: string; scale?: number }> = ({ prop, ink, accent, scale = 1 }) => {
+export const HeldProp: React.FC<{ prop: HandProp; ink: string; accent: string; scale?: number; halo?: boolean }> = ({ prop, ink, accent, scale = 1, halo = false }) => {
   const Glyph = HAND_PROPS[prop];
   if (!Glyph) return null;
+  // halo (C19): a 6-px light outline so the object separates from clothes of any colour
   return (
     <g transform={`scale(${scale})`}>
-      <Glyph ink={ink} accent={accent} />
+      {halo ? (
+        <defs>
+          <filter id={`halo-${prop}`} x="-30%" y="-30%" width="160%" height="160%">
+            <feMorphology in="SourceAlpha" operator="dilate" radius={6} result="d" />
+            <feFlood floodColor="#FFFFFF" result="w" />
+            <feComposite in="w" in2="d" operator="in" result="o" />
+            <feMerge><feMergeNode in="o" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+      ) : null}
+      <g filter={halo ? `url(#halo-${prop})` : undefined}>
+        <Glyph ink={ink} accent={accent} />
+      </g>
     </g>
   );
 };

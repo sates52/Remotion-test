@@ -101,9 +101,9 @@ const mute = (hex: string, amt = 0.55) => {
 const Rig: React.FC<{
   variant: VariantSpec; poseValue: ReturnType<typeof pose>; silhouette?: boolean;
   body?: BodyPlan; holds?: HandProp; accent?: string;
-  emotion?: CharEmotion; emotionAt?: number;
-}> = ({ variant, poseValue, silhouette, body, holds, accent, emotion, emotionAt }) => {
-  if (!silhouette) return <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} />;
+  emotion?: CharEmotion; emotionAt?: number; holdScale?: number; holdHalo?: boolean;
+}> = ({ variant, poseValue, silhouette, body, holds, accent, emotion, emotionAt, holdScale, holdHalo }) => {
+  if (!silhouette) return <Everyman variant={variant} pose={poseValue} body={body} holds={holds} accent={accent} emotion={emotion} emotionAt={emotionAt} holdScale={holdScale} holdHalo={holdHalo} />;
   // Flat dark cut-out: the overShoulder foreground and the silhouette shot.
   // Fully opaque on purpose — any transparency lets the backdrop bleed through
   // the shoulder and turns the rig's overlapping parts into visible seams.
@@ -267,6 +267,8 @@ const CharacterLayer: React.FC<{
         accent={accent}
         emotion={spec.emotion}
         emotionAt={spec.emotionAt}
+        holdScale={(spec as { holdScale?: number }).holdScale}
+        holdHalo={(spec as { holdHalo?: boolean }).holdHalo}
       />
       {/* SPEECH (CSD 1.1): the balloon leans away from the partner (screen side), converted into this mirrored layer */}
       {spec.says && spec.says.text ? (() => {

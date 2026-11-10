@@ -15,9 +15,26 @@ length and transition). Validator: `scripts/lib/c19-sequence.js`; tool: `scripts
   tone; the bar is the same (stated, every object named, the rig can do it, its own A/B).
 - Not when the beat is already good, when the action needs a body the rig cannot do, or when only a feeling changes.
 
+## The beat's main idea first (operator 2026-11-09 — Free to Focus #5 lost B 0 vs A 16.7 on a side detail)
+For EVERY candidate write, one sentence each, in the contract and in `author-decisions-c19.json`:
+- `mainIdea` — what the beat is ABOUT (the narrator's point, not every detail it mentions);
+- `howShown` — how the chosen action makes THAT idea visible;
+- `actionIsCentral` — `true` only if the action IS the idea (or directly shows it). A side detail ("the colleague drops
+  cash on the table" while the beat is about the heart-attack panic) → `false` → no contract; A stays, reason recorded.
+The narration review checks the same thing on the rendered frames (main idea shown? the needed object readable?) and
+vetoes B if either fails.
+
+## Words and objects
+- The beat's own words stay on screen through the inner cuts with their original in / out timing (automatic). Drop them
+  only with a one-sentence reason (`beats[i].dropTexts`) — never because the sequence "speaks for itself".
+- The object the action needs must be told apart at real output size. Small hand objects are drawn 1.8× in full-body
+  shots and every C19 hand object gets a light outline (automatic); if it is still small, cut the shot closer (medium)
+  or choose the clearer asset (`cash` banknotes for cash / money, not `coin`). Still unclear in the A/B → B is vetoed.
+
 ## Contract (`books/<slug>/single-relation/c19/contracts/<firstBeat>.json`)
 ```json
 { "schema": "c19-sequence/1", "mechanism": "character-action → split", "_author": "<you>",
+  "mainIdea": "Luther finally finishes the job he started.", "howShown": "The axe strikes and the log splits on the word.", "actionIsCentral": true,
   "evidence": "Swing, strike, split.",
   "beats": [ { "sceneIndex": 21, "shots": [
       { "at": null, "stage": { "shot": "wide", "bg": { "set": "shore" },

@@ -21,7 +21,7 @@ const ctx = { motifs };
 const wordAt = (cfg, i, w) => cfg.captions[i].words.find((x) => x.w.replace(/[^a-z]/gi, "").toLowerCase() === w).s - cfg.scenes[i].fromFrame;
 
 const luther = (extra = {}) => ({ identity: "luther", action: "hold", holds: "axe", ...extra });
-const contract = () => ({ schema: C19.SCHEMA, _author: "test", evidence: "Swing, strike, split.",
+const contract = () => ({ schema: C19.SCHEMA, _author: "test", mainIdea: "Luther splits the log he came to chop.", howShown: "The axe strikes and the halves fall apart on the word.", actionIsCentral: true, evidence: "Swing, strike, split.",
   beats: [
     { sceneIndex: 1, shots: [
       { at: null, stage: "keep" },
@@ -120,9 +120,44 @@ ok("status after a rebuild and revert of the whole sequence", () => {
   assert.strictEqual(RO.status(back.config, back.record).state, "NONE");
 });
 
+ok("the author's reading is required: main idea + how the action shows it; a side-detail action keeps A", () => {
+  const c = withSplit(contract()); delete c.mainIdea; delete c.howShown;
+  const e = C19.validate(c, config(), ctx);
+  assert.ok(e.some((m) => /mainIdea/.test(m)) && e.some((m) => /howShown/.test(m)));
+  const d = withSplit(contract()); d.actionIsCentral = false;
+  assert.ok(C19.validate(d, config(), ctx).some((m) => /side detail keeps A/.test(m)));
+  const f = withSplit(contract()); f.beats[0].dropTexts = "no";
+  assert.ok(C19.validate(f, config(), ctx).some((m) => /dropTexts needs the reason/.test(m)));
+});
+
+ok("the beat's own words survive the inner cuts with their ORIGINAL in / out frames", () => {
+  const cfg = config(); cfg.scenes[1].texts = [{ text: "WORK", at: 20, duration: 100 }, { text: "LATE", at: 150 }];
+  const shots = C19.compileBeat(cfg, withSplit(contract()).beats[0], motifs);
+  for (const sh of shots) for (const t of sh.texts) {
+    const orig = cfg.scenes[1].texts.find((x) => x.text === t.text);
+    assert.strictEqual(sh.from + t.at, orig.at, `${t.text}: same absolute entry frame`);
+    assert.strictEqual(t.duration, orig.duration, `${t.text}: same exit`);
+  }
+  // WORK (20–120) shows in every shot it overlaps, LATE (150–) only from where it starts
+  const has = (sh, w) => sh.texts.some((t) => t.text === w);
+  assert.ok(shots.filter((sh) => sh.from < 120 && sh.to > 20).every((sh) => has(sh, "WORK")));
+  assert.ok(shots.filter((sh) => sh.to <= 150).every((sh) => !has(sh, "LATE")));
+  const d = withSplit(contract()); d.beats[0].dropTexts = "the callout names a different beat's idea";
+  assert.ok(C19.compileBeat(cfg, d.beats[0], motifs).filter((sh) => !sh.kept).every((sh) => !sh.texts.length));
+});
+
+ok("a small hand object is drawn larger in a full-body shot and every C19 hand object is outlined", () => {
+  const cfg = config(), b = { sceneIndex: 1, shots: [{ at: null, stage: { shot: "wide", characters: [{ identity: "luther", action: "hold", holds: "coin" }] } }] };
+  const ch = C19.compileBeat(cfg, b, motifs)[0].characters[0];
+  assert.strictEqual(ch.holdScale, C19.SMALL_SCALE); assert.strictEqual(ch.holdHalo, true);
+  b.shots[0].stage.shot = "medium";
+  const m = C19.compileBeat(cfg, b, motifs)[0].characters[0];
+  assert.strictEqual(m.holdScale, undefined); assert.strictEqual(m.holdHalo, true);
+});
+
 // two winners on the same beat: 0–1 (walk to the log) and 1–2 (the split carried on)
 const fs = require("fs"), os = require("os"), path = require("path");
-const overlapping = () => ({ schema: C19.SCHEMA, _author: "test", evidence: "Luther walks to the log with his axe.",
+const overlapping = () => ({ schema: C19.SCHEMA, _author: "test", mainIdea: "Luther splits the log he came to chop.", howShown: "The axe strikes and the halves fall apart on the word.", actionIsCentral: true, evidence: "Luther walks to the log with his axe.",
   beats: [{ sceneIndex: 0, shots: [{ at: null, stage: { shot: "wide", bg: { set: "shore" }, characters: [luther()], props: [{ motif: "log", x: 900, y: 760, scale: 0.8 }] } }] },
     { sceneIndex: 1, shots: [{ at: null, stage: "keep" }] }] });
 

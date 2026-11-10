@@ -263,6 +263,11 @@ node scripts/single-relation-rollout.js select --slug=<s> --contracts=<wt>/books
 node scripts/c19.js apply --slug=<s> --write              # atomic per sequence, recorded in active.json (kind "c19")
 ```
 - **A** is the scene as it stands — a Motion 2.0 B if one was applied; a rejected sequence keeps it.
+- **The main idea (2026-11-09):** every contract carries `mainIdea`, `howShown`, `actionIsCentral: true` (a side-detail
+  action is invalid → A). The beat's own words continue through the inner cuts at their original timing; small hand
+  objects are enlarged + outlined in full-body shots. The narration review adds, for C19 only, `mainIdea.shown` and
+  `object.readable` per version → `lost-main-idea` / `unreadable-object` vetoes for B. `preview --diagnostic` renders a
+  contract refused only on the author's reading (render-only; apply re-validates and refuses it).
 - The timing rule, the narration veto, VTT timing and publish gates apply unchanged: every cued action and every
   split sits on the word that says it (`cues` / `motionCues`, `cueExact`); the result never shows before that word.
 - All beats of a sequence are validated, A/B'd, sealed, applied and reverted TOGETHER: one failing beat = none changes;

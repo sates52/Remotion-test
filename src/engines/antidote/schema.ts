@@ -157,7 +157,7 @@ export const handProp = z.enum([
   // Action 3.0 (2026-10-28): a tool that is picked up and put down (don-t-believe 79: "put the tool down")
   "wrench",
   // C19 (2026-11-07): sequence objects — struck with, taken off, found, thrown
-  "axe", "shoe", "pebble", "ball",
+  "axe", "shoe", "pebble", "ball", "cash",
 ]);
 export type HandProp = z.infer<typeof handProp>;
 
@@ -330,6 +330,10 @@ export const characterSchema = z.object({
   /** C19 `take`: where the object comes from. "body" (off a foot, out of a bag or a pocket) = nothing on a stand before
    *  the cue — the object appears in the hand as it closes (the evaluators read the stand as a trophy / a stick) */
   takeFrom: z.enum(["rest", "body"]).optional(),
+  /** C19 (2026-11-09): the held object drawn larger (wide shots shrink it below readability) and with a light outline
+   *  (a dark coin on a dark suit read as nothing — Free to Focus #5). */
+  holdScale: z.number().optional(),
+  holdHalo: z.boolean().optional(),
   /** Horizontal travel across the beat, in stage px: [fromDx, toDx]. Pair with
    *  `action: "walk"` and the figure actually crosses the set instead of
    *  marching on the spot. */

@@ -58,6 +58,12 @@ For EACH version decide whether what is shown CONTRADICTS the narration in one o
  - "wrong-causality": the screen shows a cause / result the narration does not state, or reverses them
 Low appeal, a plain picture, or something merely unclear is NOT a contradiction (answer no).
 Write ONLY JSON to ${dir}/review.json : [{"id","X":{"contradicts":true|false,"kind":"wrong-object|wrong-action|wrong-causality|null","narrationPart":"the narration's own words it contradicts","onScreen":"what is shown instead"},"Y":{...}}]. Reply with one line: "written".`;
+// C19 sequences (operator 2026-11-09): the same review also asks, per version, whether the beat's MAIN IDEA is still on
+// screen and whether the object the narrated action needs can be told apart at this size — both are vetoes for B
+const AV_PROMPT_C19 = (dir) => AV_PROMPT(dir).replace(/Write ONLY JSON[\s\S]*$/, `ALSO, for EACH version:
+ - "mainIdea": first write, in one sentence, the narrator's MAIN point in this moment (what the line is about — not every detail it mentions); then say whether this version shows THAT point ("shown": true) or loses it / shows only a side detail ("shown": false).
+ - "object": name the object the narrated action needs (or null if none); is it distinguishable at this size ("readable": "yes" | "no" | "unclear"), and what does it look like ("looksLike")?
+Write ONLY JSON to ${dir}/review.json : [{"id","X":{"contradicts":true|false,"kind":"wrong-object|wrong-action|wrong-causality|null","narrationPart":"…","onScreen":"…","mainIdea":{"idea":"…","shown":true|false},"object":{"needed":"…|null","readable":"yes|no|unclear","looksLike":"…"}},"Y":{...}}]. Reply with one line: "written".`);
 
 const KEY_PROMPT = (inp, out) => `You write an answer key for a reading-comprehension check. Read ONLY ${inp} (scenes: id, narration, previousNarration). Open no other file. For each scene write what the NARRATION says (previous only as context). Write ${out} as {"items":[{"id","understanding":"one sentence: what this moment says","cause":"what acts / the cause, in plain words","effect":"what changes / the result","supportsCausality":true|false,"asserted":"what the narration actually asserts","notAsserted":[{"text","why"}] (hypotheticals, negations, questions, quoted opinions that are NOT asserted),"keyFacts":["2-4 short facts"],"wrong":["3 plausible WRONG readings, incl. reversed cause/effect"]}]}. Be literal to the narration; do not invent. Reply in ≤ 2 lines.`;
 
@@ -96,7 +102,7 @@ function blind(previewDir, stripsDir, { seed = null } = {}) {
     "## 1. Answer key (ONE fresh agent, before any description is read)", "", "```", KEY_PROMPT(abs(path.join(AB, "key-input.json")), abs(path.join(AB, "answer-key.json"))), "```", "",
     `## 2. Describers (${D.length} fresh sonnet agents, one prompt each, in parallel)`, "",
     ...D.flatMap((d) => ["```", describerPrompt(abs(path.join(AB, "blind")), d.imgs, abs(path.join(AB, "desc", `${d.d}.json`))), "```", ""]),
-    "## 3. Narration review (ONE fresh agent; the veto — it sees the narration)", "", "```", AV_PROMPT(abs(path.join(AB, "av"))), "```", "",
+    "## 3. Narration review (ONE fresh agent; the veto — it sees the narration)", "", "```", (pairs.kind === "c19" ? AV_PROMPT_C19 : AV_PROMPT)(abs(path.join(AB, "av"))), "```", "",
     "## 4. Judges — run `single-relation-ab.js judge`, then the prompts it appends below", ""];
   fs.writeFileSync(path.join(AB, "PROMPTS.md"), md.join("\n"));
   return { items: items.length, describers: D.length };
@@ -155,12 +161,17 @@ function tally(previewDir) {
   // however it scored muted; the reason keeps the narration's words and what was on screen instead
   const avr = (() => { try { return readJSON(path.join(AB, "av", "review.json")); } catch { return null; } })();
   const VETO = ["wrong-object", "wrong-action", "wrong-causality"];
+  const isC19 = (() => { try { return readJSON(path.join(previewDir, "pairs.json")).kind === "c19"; } catch { return false; } })();
   for (const row of rows) {
     const id = `S${row.sceneIndex}`, map = (bk.av || {})[id], r = avr && avr.find((x) => x.id === id);
     if (!map || !r) { row.avReviewed = false; continue; }
     row.avReviewed = true;
     const b = r[map.X === "B" ? "X" : "Y"] || {};
     if (b.contradicts === true && VETO.includes(b.kind)) row.veto = { kind: b.kind, narrationPart: String(b.narrationPart || ""), onScreen: String(b.onScreen || "") };
+    // C19: B that loses the beat's main idea, or whose needed object cannot be told apart, keeps A (operator 2026-11-09)
+    else if (isC19 && b.mainIdea && b.mainIdea.shown === false) row.veto = { kind: "lost-main-idea", narrationPart: String(b.mainIdea.idea || ""), onScreen: "B does not show the beat's main idea" };
+    else if (isC19 && b.object && b.object.needed && b.object.readable && b.object.readable !== "yes") row.veto = { kind: "unreadable-object", narrationPart: String(b.object.needed), onScreen: `${b.object.readable}: ${String(b.object.looksLike || "")}` };
+    if (isC19) row.review = { mainIdeaB: b.mainIdea || null, objectB: b.object || null, mainIdeaA: (r[map.X === "A" ? "X" : "Y"] || {}).mainIdea || null, objectA: (r[map.X === "A" ? "X" : "Y"] || {}).object || null };
   }
   // the fingerprint of the B these ratings and the narration review are FOR (cycle 19)
   try { const ph = Object.fromEntries((readJSON(path.join(previewDir, "pairs.json")).pairs || []).map((p) => [p.sceneIndex, p.bContractHash])); for (const row of rows) if (ph[row.sceneIndex]) row.bContractHash = ph[row.sceneIndex]; } catch {}
