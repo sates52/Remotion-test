@@ -95,6 +95,9 @@ function preview(root, slug, out) {
       for (const ch of sh.characters) if (ch.actionAt != null) { crit.add(base + ch.actionAt); crit.add(base + ch.actionAt + 6); }
       for (const p of sh.props) if (p.motionAt != null && p.motionAt >= 0) { crit.add(base + p.motionAt + 2); crit.add(base + p.motionAt + 14); }
     }
+    // + the END of every beat (2026-11-10, Unwind #4): the beat's own words and the finished result land late — a blind
+    // strip of only the cue moments showed neither "THE DECENT THING" (frame 160) nor the finished signature
+    for (const idx of idxs) crit.add(cfg.scenes[idx].fromFrame - off + cfg.scenes[idx].durationFrames - 12);
     const frames = [...crit].filter((f) => f < A.totalFrames).sort((x, y) => x - y);
     for (const [arm, conf] of [["A", A], ["B", Bc]]) {
       const id = `s${i}-${arm}`;
