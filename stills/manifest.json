@@ -1,0 +1,38 @@
+{
+ "schema": "stills/1",
+ "name": "C19 A/B unwind",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s4-B",
+   "config": "configs/s4-B.json",
+   "frames": [
+    216,
+    268,
+    286,
+    292,
+    422
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 433
+   }
+  }
+ ],
+ "inputHash": "106239e083b33101",
+ "files": {
+  "stills/configs/s4-B.json": "9cf7f0914febfb4f2aa66472c8dd3c278edb09a6cf902d7e09b0ca1bea067526"
+ },
+ "builtAt": "2026-11-10T07:40:01.633Z"
+}
