@@ -72,10 +72,9 @@ const Letter: G = ({ ink, accent }) => (
   </g>
 );
 
-// gold, whatever the book's accent: an accent-coloured coin (navy) on a dark suit read as nothing (Free to Focus #5)
-const Coin: G = ({ ink }) => (
+const Coin: G = ({ ink, accent }) => (
   <g>
-    <circle cx={0} cy={0} r={40} fill="#F2C14E" />
+    <circle cx={0} cy={0} r={40} fill={accent} />
     <circle cx={0} cy={0} r={40} fill="none" stroke={ink} strokeWidth={5} opacity={0.5} />
     <text x={0} y={15} textAnchor="middle" fontSize={46} fontWeight={800} fill={ink} opacity={0.7} fontFamily="Georgia, serif">$</text>
   </g>
@@ -395,7 +394,9 @@ export const HeldProp: React.FC<{ prop: HandProp; ink: string; accent: string; s
         </defs>
       ) : null}
       <g filter={halo ? `url(#halo-${prop})` : undefined}>
-        <Glyph ink={ink} accent={accent} />
+        {/* C19 only (halo): a coin is gold whatever the book's accent — a navy coin on a dark suit read as nothing
+            (Free to Focus #5); every other scene keeps the accent coin byte-for-byte */}
+        <Glyph ink={ink} accent={halo && prop === "coin" ? "#F2C14E" : accent} />
       </g>
     </g>
   );
