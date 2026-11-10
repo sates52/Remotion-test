@@ -334,7 +334,7 @@ const Pebble: G = ({ ink }) => (
 );
 // "press down and sign your name" (Unwind): a pen, nib down
 const Pen: G = ({ ink }) => (
-  <g transform="rotate(28)">
+  <g transform="rotate(28) scale(0.7) translate(0 30)">
     <rect x={-9} y={-70} width={18} height={96} rx={7} fill="#1F3A93" stroke={ink} strokeWidth={4} />
     <rect x={-9} y={-70} width={18} height={20} rx={6} fill="#C9CED6" stroke={ink} strokeWidth={4} />
     <path d="M-9 26 L0 50 L9 26 Z" fill="#E9E4D8" stroke={ink} strokeWidth={4} />

@@ -134,6 +134,8 @@ function validate(c, config, ctx = {}) {
       for (const ch of sh.characters) {
         if (!cast.includes(ch.identity)) err(`${where}: "${ch.identity}" is not in the book's cast`);
         if (!ACTIONS.includes(ch.action)) err(`${where}: action "${ch.action}" is not an Antidote action`);
+        // signing needs the paper on the table at a readable size: the full-body rig never reaches it (sign lab 2026-11-10)
+        if (ch.action === "sign" && ch.body === "full") err(`${where}: "sign" needs a waist-up shot (medium / closeUp) — the hand, the pen and the signature are too small or out of reach in a full-body shot`);
         if (LEG_ACTIONS.includes(ch.action) && ch.body !== "full") err(`${where}: "${ch.action}" needs the legs — use a full-body shot (${FULL_SHOTS.join(", ")})`);
         if (CUED.includes(ch.action) && !(b.shots[k].cues && Object.values(b.shots[k].cues).length && ch.cueExact)) err(`${where}: "${ch.action}" must be cued on the narrator's word (cues)`);
         if (ch.holds && !named(HAND_WORDS[ch.holds] || [ch.holds], around)) err(`${where}: "${ch.holds}" is drawn but the narration never names it`);
