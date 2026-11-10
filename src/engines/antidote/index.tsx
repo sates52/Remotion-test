@@ -74,7 +74,10 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
                 const len = sh.to - sh.from;
                 const sub = { ...beat, shot: sh.shot ?? beat.shot, bg: { ...(beat.bg || {}), ...(sh.bg || {}) }, camera: sh.camera ?? { zoom: [1, 1], panX: [0, 0], panY: [0, 0] },
                   characters: sh.characters ?? [], props: sh.props ?? [], texts: sh.texts ?? [], id: `${scene.id}#${k + 1}`, fromFrame: scene.fromFrame + sh.from, durationFrames: len,
-                  transition: k === 0 ? beat.transition : { type: "cut" as const, frames: 0 }, continueFromPrev: undefined, carryState: undefined } as typeof scene;
+                  transition: k === 0 ? beat.transition : { type: "cut" as const, frames: 0 },
+                  // the FIRST shot is the beat's own start: it keeps the beat's continuity with the previous beat (Unwind #4: a
+                  // continued icon popped in again); only the inner cuts start fresh
+                  continueFromPrev: k === 0 ? beat.continueFromPrev : undefined, carryState: k === 0 ? beat.carryState : undefined } as typeof scene;
                 return (
                   <Sequence key={`${scene.id}-shot${k}`} from={k === 0 ? 0 : transIn + sh.from} durationInFrames={k === 0 ? transIn + len : len} name={`${scene.id}#${k + 1}`} layout="none">
                     <Scene scene={sub} transIn={k === 0 ? transIn : 0} cast={config.meta.cast} multiplane={config.meta.multiplane} singleRelation={false} />
