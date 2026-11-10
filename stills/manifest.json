@@ -1,0 +1,55 @@
+{
+ "schema": "stills/1",
+ "name": "C19 A/B free-to-focus",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s5-A",
+   "config": "configs/s5-A.json",
+   "frames": [
+    211,
+    391,
+    423,
+    429,
+    434
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 575
+   }
+  },
+  {
+   "id": "s5-B",
+   "config": "configs/s5-B.json",
+   "frames": [
+    211,
+    391,
+    423,
+    429,
+    434
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 575
+   }
+  }
+ ],
+ "inputHash": "d721fb5ab19bbe00",
+ "files": {
+  "stills/configs/s5-A.json": "6728810e213706fe557fcb428847cb01ffd837d0d9aadae7b74e5222d92777e9",
+  "stills/configs/s5-B.json": "6e961ea79a4f5a400078aff590799dcd0ddbe00b790aa1d3559bd42bc4581f46"
+ },
+ "builtAt": "2026-11-10T05:56:57.105Z"
+}
