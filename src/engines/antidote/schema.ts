@@ -910,7 +910,7 @@ export const relationshipStagingSchema = z.object({
 /** C19 BEAT SHOT: one shot cut INSIDE a beat on the narrator's word. from/to are beat-relative frames; the shot brings
  *  its own staging (absent characters / props / texts = none), the beat keeps its id, start, length and transition. */
 export const beatShotSchema = z.object({
-  from: z.number(), to: z.number(),
+  from: z.number(), to: z.number(), kept: z.boolean().optional(), // kept = the beat's own authored staging
   shot: z.string().optional(), bg: z.any().optional(), camera: z.any().optional(),
   characters: z.array(characterSchema).optional(), props: z.array(propSchema).optional(), texts: z.array(z.any()).optional(),
   /** the narrator's word the shot was cut on (null for the first shot) — provenance, not read by the renderer */

@@ -80,7 +80,9 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
                   continueFromPrev: k === 0 ? beat.continueFromPrev : undefined, carryState: k === 0 ? beat.carryState : undefined } as typeof scene;
                 return (
                   <Sequence key={`${scene.id}-shot${k}`} from={k === 0 ? 0 : transIn + sh.from} durationInFrames={k === 0 ? transIn + len : len} name={`${scene.id}#${k + 1}`} layout="none">
-                    <Scene scene={sub} transIn={k === 0 ? transIn : 0} cast={config.meta.cast} multiplane={config.meta.multiplane} singleRelation={false} />
+                    <Scene scene={sub} transIn={k === 0 ? transIn : 0} cast={config.meta.cast} multiplane={config.meta.multiplane}
+                      continuity={k === 0 && continues ? continuity[i] : undefined}
+                      singleRelation={(sh as { kept?: boolean }).kept === true && (config.meta as { singleRelation?: boolean }).singleRelation === true} />
                   </Sequence>
                 );
               });
