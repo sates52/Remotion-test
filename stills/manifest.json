@@ -1,0 +1,47 @@
+{
+ "schema": "stills/1",
+ "name": "C19 sign lab",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "sign-wide",
+   "config": "configs/sign-wide.json",
+   "frames": [
+    20,
+    62,
+    72,
+    90,
+    140
+   ],
+   "strip": true
+  },
+  {
+   "id": "sign-medium",
+   "config": "configs/sign-medium.json",
+   "frames": [
+    20,
+    62,
+    72,
+    90,
+    140
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "44f3d96fa3da89e1",
+ "files": {
+  "stills/configs/sign-wide.json": "9c7ec87855ba6499b6aba94ac9f46ba3f24ec9d42fa7ce9ee44b2514bf4c700d",
+  "stills/configs/sign-medium.json": "96da75d45e7a41d56541803b1f143e62dd2f5af3791c8834f5e76feb31160a2d"
+ },
+ "builtAt": "2026-11-10T06:17:56.702Z"
+}
