@@ -22,11 +22,11 @@ const { wordsOf } = require("./shot-plan");
 
 const SCHEMA = "c19-sequence/1";
 // the actions whose MOMENT is a result on screen — each must sit on the narrator's word (the timing rule)
-const CUED = ["chop", "throw", "take", "place", "stop", "reach", "offer", "drink", "leave", "flee", "embrace", "lift", "grabbing", "fighting", "falling"];
+const CUED = ["sign", "chop", "throw", "take", "place", "stop", "reach", "offer", "drink", "leave", "flee", "embrace", "lift", "grabbing", "fighting", "falling"];
 const ACTIONS = ["idle", "talk", "point", "celebrate", "slump", "think", "walk", "sit", "hold", "reach", "offer", "leave", "flee", "drink", "lying", "collapsed",
-  "falling", "fighting", "struggling", "grabbing", "place", "take", "embrace", "lift", "lifted", "run", "stop", "chop", "throw"];
+  "falling", "fighting", "struggling", "grabbing", "place", "take", "embrace", "lift", "lifted", "run", "stop", "chop", "throw", "sign"];
 // the narration words that name each hand object (grounding: an object is drawn only when the narration names it)
-const HAND_WORDS = { cash: ["cash", "money", "bills", "banknote"], axe: ["axe", "ax", "hacking", "chop"], shoe: ["shoe", "sneaker"], pebble: ["pebble", "stone", "rock"], ball: ["ball"], sword: ["sword", "blade"],
+const HAND_WORDS = { pen: ["pen", "sign", "signs", "signed", "signing", "signature"], cash: ["cash", "money", "bills", "banknote"], axe: ["axe", "ax", "hacking", "chop"], shoe: ["shoe", "sneaker"], pebble: ["pebble", "stone", "rock"], ball: ["ball"], sword: ["sword", "blade"],
   book: ["book"], phone: ["phone"], key: ["key"], letter: ["letter"], coin: ["coin", "money", "cash"], cup: ["cup", "coffee", "tea"], wrench: ["wrench", "tool"] };
 // the shots whose preset frames a FULL body (src/engines/antidote/shots.ts charsFull); any other shot is waist-up and a
 // forced full body there crops the head off the frame (C19 e2e, the-choice-factory 123)

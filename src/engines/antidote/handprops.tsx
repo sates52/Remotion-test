@@ -332,6 +332,14 @@ const Pebble: G = ({ ink }) => (
     <path d="M-6,-6 Q0,-9 6,-5" fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={0.7} />
   </g>
 );
+// "press down and sign your name" (Unwind): a pen, nib down
+const Pen: G = ({ ink }) => (
+  <g transform="rotate(28)">
+    <rect x={-9} y={-70} width={18} height={96} rx={7} fill="#1F3A93" stroke={ink} strokeWidth={4} />
+    <rect x={-9} y={-70} width={18} height={20} rx={6} fill="#C9CED6" stroke={ink} strokeWidth={4} />
+    <path d="M-9 26 L0 50 L9 26 Z" fill="#E9E4D8" stroke={ink} strokeWidth={4} />
+  </g>
+);
 // "drops some cash on the table": a fanned stack of green banknotes — reads as money at a glance (a coin is a coin)
 const Cash: G = ({ ink }) => (
   <g>
@@ -353,7 +361,7 @@ const Ball: G = ({ ink }) => (
 );
 
 export const HAND_PROPS: Record<HandProp, G> = {
-  axe: Axe, shoe: Shoe, pebble: Pebble, ball: Ball, cash: Cash,
+  axe: Axe, shoe: Shoe, pebble: Pebble, ball: Ball, cash: Cash, pen: Pen,
   cigarette: Cigarette,
   book: Book, phone: Phone, key: Key, notes: Notes, letter: Letter, coin: Coin,
   cup: Cup, lightbulb: Lightbulb, mask: Mask, photo: Photo, mirror: Mirror,

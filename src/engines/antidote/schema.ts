@@ -53,6 +53,7 @@ export const charAction = z.enum([
   "stop", // running until the cue word, then the body slows and stands still on it (feel-good 224 "You stop running")
   "chop", // `holds` an axe: it rises overhead before the cue and comes DOWN on it — the edge lands on the impact point
   "throw", // `holds` an object: wind-up before the cue, the arm whips forward on it and the object leaves the hand
+  "sign", // C19 (2026-11-10): `holds: "pen"` over a paper on the table; on the cue the signature is written out and stays
   //          and flies to `throwTo` (or out of the frame) — the hand is empty from then on
 ]);
 export type CharAction = z.infer<typeof charAction>;
@@ -157,7 +158,7 @@ export const handProp = z.enum([
   // Action 3.0 (2026-10-28): a tool that is picked up and put down (don-t-believe 79: "put the tool down")
   "wrench",
   // C19 (2026-11-07): sequence objects — struck with, taken off, found, thrown
-  "axe", "shoe", "pebble", "ball", "cash",
+  "axe", "shoe", "pebble", "ball", "cash", "pen",
 ]);
 export type HandProp = z.infer<typeof handProp>;
 

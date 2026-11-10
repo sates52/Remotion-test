@@ -149,6 +149,9 @@ export type Pose = {
   placed?: number;
   /** `place` 2.0 (cycle 6): 1 = the rig draws a table beside the reaching hand; the object rests ON it once let go */
   table?: number;
+  /** C19 `sign` (2026-11-10): a paper lies on the table (1) and the signature on it is written out 0 → 1 from the cue */
+  paper?: number;
+  signed?: number;
   /** `lift` release (10x P1): 0..1 the lifter steps back from her grip to stand BESIDE the destination */
   back?: number;
   /** seated but HELD (in someone's arms, then in the destination): the rig draws no stool under her */
@@ -182,7 +185,7 @@ export const LEAVE_LEN = 80, FLEE_LEN = 42, TURN_LEN = 6;
 export const TAKE_BRING = 24;
 /** C19 sequence actions, in frames around the cue: the axe rises for CHOP_UP before the cue and lands in CHOP_DOWN;
  *  a throw winds up for THROW_WIND before the cue, the object flies THROW_FLY after it; a stop slows in STOP_SLOW */
-export const CHOP_UP = 18, CHOP_DOWN = 4, THROW_WIND = 14, THROW_FLY = 22, STOP_SLOW = 14;
+export const CHOP_UP = 18, CHOP_DOWN = 4, THROW_WIND = 14, THROW_FLY = 22, STOP_SLOW = 14, SIGN_DUR = 24;
 /** the forearm angle (armR + elbowR) at the strike: the axe edge is level with the hips, in front of the body */
 export const CHOP_STRIKE_ARM = -70;
 /** PLACE (Action 3.0): the held object goes out to the rest position (PLACE_OUT), is let go, the empty hand stays a
@@ -335,6 +338,15 @@ export function pose(action: CharAction, frame: number, fps: number, cue = ACTIO
         gazeX: lerp(0.3, at.gazeX, out), gazeY: lerp(0.35, at.gazeY, out),
         take: out < 1 ? 1 : 0, bring: 1 - out, table: 1,
       };
+    }
+    case "sign": {
+      // C19 (2026-11-10, Unwind: "as you press down and sign your name"): SIGNING A FORM. The table and a paper on it
+      // are there from the first frame, the pen already in the hand over the paper (place's reach, held). ON the cue the
+      // hand scribbles (a small quick shake of the forearm) and the signature is written out on the paper; it STAYS.
+      const reach = { ...BASE, armR: PLACE_ARM + 6, elbowR: -10, armL: 10, lean: 4, headY: 6, blink, gazeX: 0.7, gazeY: 0.85 };
+      const w = Math.max(0, Math.min(1, (frame - cue) / SIGN_DUR));
+      const shake = w > 0 && w < 1 ? Math.sin((frame - cue) * 1.6) * 4 : 0;
+      return { ...reach, elbowR: reach.elbowR + shake, take: 1, table: 1, paper: 1, signed: w };
     }
     case "lift": {
       // THE LIFTER (cast[0]). Before the cue: steps in (Scene: approach x contact) and bends, arms reaching low and

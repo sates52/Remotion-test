@@ -372,6 +372,15 @@ export const Everyman: React.FC<{
                 <rect x={PLACE_TABLE.x + 10} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
                 <rect x={PLACE_TABLE.x + PLACE_TABLE.w - 24} y={PLACE_TABLE_TOP + 14} width={14} height={ground - PLACE_TABLE_TOP - 14} rx={4} fill="#7A4E26" stroke="#4A2E14" strokeWidth={4} />
                 <rect x={PLACE_TABLE.x} y={PLACE_TABLE_TOP} width={PLACE_TABLE.w} height={20} rx={6} fill="#A8743F" stroke="#4A2E14" strokeWidth={5} />
+                {(pose.paper ?? 0) > 0 ? (
+                  // C19 `sign`: a form lying on the table top, seen at an angle; the signature is written out by pose.signed
+                  <g transform={`translate(${PLACE_REST.x - 6} ${PLACE_TABLE_TOP - 4}) skewX(-28)`}>
+                    <rect x={-58} y={-26} width={116} height={30} rx={3} fill="#FFFFFF" stroke="#4A2E14" strokeWidth={4} />
+                    <path d="M-46 -17 H30 M-46 -9 H18" stroke="#B9B4AA" strokeWidth={3} />
+                    <path d="M-44 -1 C-36 -12 -30 4 -22 -6 S-8 2 2 -8 S18 0 30 -4" fill="none" stroke="#1F3A93" strokeWidth={4}
+                      strokeLinecap="round" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - (pose.signed ?? 0)} />
+                  </g>
+                ) : null}
               </g>
             ) : null}
             {holds && pose.take === 0 && (pose.table ?? 0) > 0 ? (
