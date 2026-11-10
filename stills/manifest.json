@@ -1,0 +1,91 @@
+{
+ "schema": "stills/1",
+ "name": "C19 A/B unwind",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s0-A",
+   "config": "configs/s0-A.json",
+   "frames": [
+    2,
+    139,
+    254,
+    268,
+    487,
+    501,
+    564,
+    576,
+    582,
+    780,
+    794,
+    994,
+    1008,
+    1078,
+    1084,
+    1214,
+    1228,
+    1416,
+    1430,
+    1622,
+    1624,
+    1628,
+    1666
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 1677
+   }
+  },
+  {
+   "id": "s0-B",
+   "config": "configs/s0-B.json",
+   "frames": [
+    2,
+    139,
+    254,
+    268,
+    487,
+    501,
+    564,
+    576,
+    582,
+    780,
+    794,
+    994,
+    1008,
+    1078,
+    1084,
+    1214,
+    1228,
+    1416,
+    1430,
+    1622,
+    1624,
+    1628,
+    1666
+   ],
+   "strip": true,
+   "clip": {
+    "from": 0,
+    "to": 1677
+   }
+  }
+ ],
+ "inputHash": "a591def9f7ae5331",
+ "files": {
+  "stills/configs/s0-A.json": "75bfa122a98d76923a1cc11c71842c4ae8795ed42bb7df236e3cf5f0e3f395b2",
+  "stills/configs/s0-B.json": "e0d092fc9e21f26188e5995d9434bb08ed658ffe5a6276c0c5a22eff241d02cb"
+ },
+ "builtAt": "2026-11-10T13:09:30.004Z"
+}
