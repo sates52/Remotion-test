@@ -1,0 +1,48 @@
+{
+ "schema": "stills/1",
+ "name": "Unwind opening A/B (normal: audio + captions)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": false,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav",
+  "public/audio/unwind-open.m4a"
+ ],
+ "jobs": [
+  {
+   "id": "open-A-normal",
+   "config": "configs/s0-A-normal.json",
+   "frames": [
+    300
+   ],
+   "strip": false,
+   "clip": {
+    "from": 0,
+    "to": 1677
+   }
+  },
+  {
+   "id": "open-B-normal",
+   "config": "configs/s0-B-normal.json",
+   "frames": [
+    300
+   ],
+   "strip": false,
+   "clip": {
+    "from": 0,
+    "to": 1677
+   }
+  }
+ ],
+ "inputHash": "273efc65af4875b5",
+ "files": {
+  "stills/configs/s0-A-normal.json": "28e1d61aae60346ca160c1a6ac43d17b83542720397d535e31de8db6ddf54dc8",
+  "stills/configs/s0-B-normal.json": "6758a3f08e7b064412ac99371a444de42974894c569fc8477f567b9e2ad5c700"
+ },
+ "builtAt": "2026-11-10T13:12:16.859Z"
+}
