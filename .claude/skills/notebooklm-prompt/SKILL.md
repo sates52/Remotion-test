@@ -100,8 +100,23 @@ Then the engine is final. Tell the operator in one line (a statement, not a ques
 Rewrite the block in `books/<slug>/prompt.notebooklm.md` exactly as make-prompt instructs:
 non-obvious lens + one arguable thesis + mid-thought cold open, 8 argued beats with concrete
 examples from the book, an honest counterpoint, a reframing closer; keep the DEPTH ENGINE and
-LENGTH blocks (45-60 min, no padding); English only; ~3.5-5k characters (the fixed spine alone is ~2.6k; `--check` warns above 5000). Shape the beats for the
-engine:
+LENGTH blocks (45-60 min, no padding); English only; ~4-5k characters (the fixed spine alone is ~3.1k; `--check` warns above 5000, so keep each beat to one tight sentence).
+
+**Two blocks come from the channel's own analytics (2026-11-11, skill `channel-analytics`) — keep them and make them
+book-specific; `--check` refuses a prompt without them:**
+- **FIRST MINUTE.** Half the viewers leave before 0:50. Under the block, write this book's own lines: the title +
+  author sentence the host says by 0:30, and the **three named things** the listener will understand by the end
+  (a claim, a character's choice, the ending's meaning — never "key ideas" or "main themes").
+- **PICTURE FIRST.** The narration is drawn afterwards, and a sentence with nothing to draw becomes a dead or
+  text-carried scene. For each of the 8 beats add its picture in a few words, taken from the book itself (Antidote:
+  a physical demonstration — two sizes, a threshold that flips, one thing changed, a before and after; Vox: a named
+  person in a named place doing one thing). Write it into the beat line: `claim — picture: <what is seen>`.
+- **Use the book's text when the operator gave it.** The operator has the book's PDF; if a path to it (or to its
+  text) is in the request, read the contents page and the chapters you need and take every example, scene and number
+  from it. Never copy the book file into the repo, and never quote more than a sentence of it in the prompt.
+- Never write "audiobook" in the prompt, titles or tags: people who search for the audiobook leave within seconds.
+
+Shape the beats for the engine:
 - **Vox** — build beats on named people, real/period places and scenes a camera could photograph.
 - **Antidote** — build beats on the characters' situations and the ideas; everyman moments.
 - `violence: central` or `minorHarm` — ask the hosts to analyse critically, never to glamorise or

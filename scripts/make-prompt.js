@@ -107,14 +107,31 @@ const OUT = rel.prompt(SLUG);
 // block fits NotebookLM's "Customize" character limit (long prompts get cut off
 // mid-sentence). This is what keeps videos YPP-safe and retention-friendly;
 // the LLM (or Claude, when no API key) fills in the book-specific angle.
-const SPINE = `
+// 2026-11-11, from the channel's own analytics (skill channel-analytics): the median film keeps 96 % of its viewers at
+// 1 % of its length and 46 % at 2 % (~0:50); YouTube-search and home views last about a minute while Google / suggested
+// views last 4-6. So the spine now states what the first minute must do (FIRST MINUTE), and — the root cause the
+// visionless-10x audit named, narration that is "a topic to show" instead of "an event to stage" — asks the hosts to
+// put one drawable picture under every beat (PICTURE FIRST, written for the engine). LENGTH was tightened to pay for
+// the two blocks; its rules are unchanged.
+const PICTURE_FIRST = {
+  antidote: `PICTURE FIRST (this becomes animation — give the artist something to draw): build every beat on ONE physical demonstration and say it out loud BEFORE its meaning: two things of different size side by side, a threshold where something flips, one thing changed while everything else stays fixed, steps that shrink, a before and an after. Name the object, who does what to it, and what changes. Return to the same picture when the beat ends. An idea with no picture is not ready to be said.`,
+  vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every beat on ONE scene a camera could photograph — a named person, in a named place, doing one thing, with one object in their hands. Say the scene out loud BEFORE its meaning, and return to the same scene when the beat ends. An idea with no scene is not ready to be said.`,
+};
+const spineFor = (engine) => `
 STRUCTURE (follow strictly):
 1. COLD OPEN (0:00-0:25): open mid-thought on the single most provocative idea. No greetings, no "welcome back", no "today we're looking at".
 2. THESIS: state the one argument this whole discussion will prove.
 3. SETUP: who/what the book puts in play (concrete names, stakes).
-4. BEATS: 8 beats, each ONE specific claim from the book. DEVELOP each beat fully before moving on — do NOT list them quickly.
+4. BEATS: 8 beats, each ONE specific claim from the book. Open each beat by asking, in one plain sentence, the question it answers. DEVELOP each beat fully before moving on — do NOT list them quickly.
 5. COUNTERPOINT: one honest criticism — where the book strains or a reader pushes back.
 6. PAYOFF: land the thesis on a line that reframes everything said before.
+
+FIRST MINUTE (half the audience decides before 0:50):
+- by 0:30 one host says the book's title and author, and says plainly that this is an analysis of the whole book, its ending included;
+- by 0:50 name the three specific things the listener will understand by the end, then start the first one at once;
+- in the first minute: no banter, no praise of the book, no talk about the conversation itself.
+
+${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
 
 DEPTH ENGINE (run this on EVERY beat — this is how the episode earns its length):
 a) drop us into a scene in present tense with one vivid sensory detail; voice the people;
@@ -123,7 +140,7 @@ c) add a SECOND concrete example, number, or angle from the book;
 d) take one honest "wait - but then..." turn where the two hosts genuinely disagree;
 e) tie it back to the recurring phrase-that-pays before moving to the next beat.
 
-LENGTH (target 45-60 minutes, minimum 45 — never shorter): give each beat 4-6 real minutes. BUT never pad to hit the number. Do NOT repeat a point you already made, do NOT restate the thesis over and over, do NOT stall with filler, throat-clearing, or "as we said earlier". Earn the length by going DEEPER, not longer on the same ground: a fresh example, a sharper objection, a genuine disagreement between the two hosts, a real "wait — but then..." turn. If you truly run out of things to say about a beat, MOVE ON rather than recycle it. Sound like two sharp people who honestly can't stop talking about this book — not a summary stretched to fill time. Do NOT signal an ending ("to wrap up", "in short", "so to sum up") before the final PAYOFF.
+LENGTH (target 45-60 minutes, minimum 45 — never shorter): give each beat 4-6 real minutes, and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a genuine disagreement between the two hosts. No filler, no restating the thesis, no "as we said earlier". Out of things to say about a beat? MOVE ON. Sound like two sharp people who can't stop talking about this book, not a summary stretched to fill time. Do NOT signal an ending ("to wrap up", "in short") before the final PAYOFF.
 
 HARD RULES:
 - English only (US audience). Two hosts in real conversation — disagree, interrupt, build on each other.
@@ -317,7 +334,7 @@ END BY REFRAMING: ${angle.closer}`
 
 ${body}
 
-${SPINE}`;
+${spineFor(ENGINE)}`;
 
   const md = `# NotebookLM prompt — ${TITLE}${AUTHOR ? " (" + AUTHOR + ")" : ""}
 
@@ -348,6 +365,8 @@ ${prompt}
     console.log(`   ${OUT} içindeki bloğu, kitaba özgü açıyla YENİDEN yaz:`);
     console.log(`     • non-obvious lens + tek arguable thesis + mid-thought cold-open`);
     console.log(`     • 8 argued beat (her biri kitaptan somut örnek/sayı) + honest counterpoint + reframing closer`);
+    console.log(`     • FIRST MINUTE: 0:30'a kadar kitap adı + yazar + "tüm kitabın analizi"; 0:50'ye kadar bu kitaba özgü 3 vaat (adlarıyla)`);
+    console.log(`     • PICTURE FIRST: her beat'in altına çizilebilir TEK resim yaz (nesne, kim ne yapıyor, ne değişiyor) — kitabın kendi sahnesinden`);
     console.log(`     • DEPTH ENGINE + LENGTH block korunur (45 dk floor, 45-60 hedef; dolgu/tekrar YOK, derinleşerek uzar), tam İngilizce, ~2.5–3.5k char`);
     console.log(`     • MOTORA GÖRE (${ENGINE}): ${ENGINE === "vox"
       ? "beat'leri gerçek/isimlendirilebilir figürler + belgesel sahneler üzerine kur (Flux cut-out'a uygun)"

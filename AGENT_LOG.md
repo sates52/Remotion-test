@@ -2566,6 +2566,33 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-11 — First changes from the channel's numbers: skill `channel-analytics`, `insights`, prompt FIRST MINUTE + PICTURE FIRST, no "audiobook"
+
+- **Measured (2026-11-11, 202 long videos, last 90 days):** median still watching 0:30 82 % · 1:00 39 % · 2:00 23 % ·
+  half 9 %; average view 3:36. YouTube search = 43 % of views at 65 s per view, browse (home + subscriptions) 40 % at
+  41 s; Google Search / suggested viewers stay 4.5–6 min. Search terms are mostly "<book> audiobook". 25–35 min films
+  have the best average-viewed share (12.7 % vs 6.8 % over 45 min). Subscribers +48 / −61.
+- **Skill `channel-analytics`** (`.claude/skills/channel-analytics/SKILL.md`; pointer `.agents/skills/…`; rows in
+  AGENTS.md, CLAUDE.md, the operating contract; `test-agent-entrypoints.js` PROCS): every harness refreshes with
+  `node scripts/yt-analytics.js all` and reads the same `channel-insights.md`. Rule: before a systemic change name the
+  row it should move and its value today; after it shipped on 5+ published films report the same row.
+- **`yt-analytics.js insights`** (also in `all`): the standing analysis from pulled data — sources with seconds per
+  view, retention checkpoints, by publishing month / engine / kind / length / title wording, search terms, browse
+  detail. `pull` now also stores channel-level facts (`channel-level.json`, last 90 days).
+- **NotebookLM prompt spine (`make-prompt.js`, new books only):** `FIRST MINUTE` (title + author + "analysis of the
+  whole book" by 0:30, three named promises by 0:50, no banter) and `PICTURE FIRST`, written for the engine (Antidote:
+  one physical demonstration per beat; Vox: one photographable scene per beat) — the root cause the visionless-10x
+  audit named (narration as "a topic to show", not "an event to stage"), addressed where the audio is made. Beats now
+  open on the question they answer. LENGTH tightened in wording only (45–60 min target unchanged — the length data
+  above is the operator's call). `notebooklm-prompt-check.js` refuses a prompt without the two blocks or with the
+  other engine's PICTURE FIRST, and warns on "audiobook". Skill `notebooklm-prompt` §3 updated (book-specific first
+  minute, a picture per beat, use the book's text when the operator gives its path). Spine ~2.6k → ~3.1k chars.
+- **"audiobook" removed** from generated tags (`plan-meta.js`) and from the accepted title modifiers
+  (`title-lint.js`; still a neutral word for the repetition check). Published packs untouched.
+- **To verify later (not proven):** "still at 1:00" for films recorded from the new spine vs 39–42 % today.
+- **Not touched:** engine code, any book, gate, threshold, render, upload, cleanup. Tests: `test-step0.js` (+4),
+  `test-yt-analytics.js`, title / package / youtube-gate tests pass locally; full suite on `ci/regression/yt-analytics`.
+
 ### 2026-11-11 — Channel analytics loop: `yt-analytics.js` + `retention-map.js` (read-only, report-only)
 
 - **Why:** nothing in the repo read the channel's own performance (no views, watch time, retention; 0 video URLs in

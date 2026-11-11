@@ -25,14 +25,16 @@ const MIN_TITLES = 5;
 const MIN_ANGLES = 2;
 
 // Search modifiers — these SHOULD repeat across books (they are what people type).
+// "audiobook" is NOT one (2026-11-11, channel analytics): people who search "<book> audiobook" want the audiobook and
+// leave within seconds; it stays a neutral word for the repetition check only.
 const MODIFIER_PHRASES = [
   "ending explained", "book summary", "full summary", "summary", "explained", "review", "analysis",
-  "key ideas", "key lessons", "lessons", "themes", "breakdown", "recap", "audiobook", "meaning",
+  "key ideas", "key lessons", "lessons", "themes", "breakdown", "recap", "meaning",
   "characters", "character analysis", "big ideas", "takeaways", "animated", "plot", "spoilers",
 ];
 const MODIFIER_RE = new RegExp(`\\b(${MODIFIER_PHRASES.map((p) => p.replace(/ /g, "\\s+")).join("|")})\\b`, "i");
 // Modifier words never count as angle words (stemmed into MODIFIER_WORDS below).
-const MODIFIER_LIST = MODIFIER_PHRASES.join(" ").split(" ").concat(["full", "key", "big", "every", "minutes", "complete", "deep", "dive", "ending", "turning", "points", "guide", "chapter", "chapters"]);
+const MODIFIER_LIST = MODIFIER_PHRASES.join(" ").split(" ").concat(["full", "key", "big", "every", "minutes", "complete", "deep", "dive", "ending", "turning", "points", "guide", "chapter", "chapters", "audiobook"]);
 
 // A counter-narrative title contradicts what most people believe about the book / topic.
 const COUNTER_RE = /\b(wrong|misread|misreads?|misunderstood|misunderstand|myth|myths|isn['’]?t|aren['’]?t|wasn['’]?t|weren['’]?t|doesn['’]?t|don['’]?t|didn['’]?t|not|never|actually|really|lie|lies|lied|lying|backfires?|backfired|mistake|mistaken|misses|missed|miss|overlook(ed)?|opposite|nobody|no one|everyone|secretly|stop|forget|fails?|failed|trap|illusion|against|instead|rather than|just|disguised)\b/i;

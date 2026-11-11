@@ -184,7 +184,8 @@ function fallbackMeta() {
     tags: [
       `${shortTitle} summary`, `${shortTitle} ${author || ""}`.trim(), author, `${shortTitle} explained`,
       `${shortTitle} analysis`, `${shortTitle} book review`, "book summary", `${genre} books`,
-      `${genre} audiobook`, "book breakdown", "books explained", "self improvement",
+      // no "audiobook" tag (2026-11-11, channel analytics): "<book> audiobook" searchers leave within seconds
+      `${genre} book summary`, "book breakdown", "books explained", "self improvement",
       "personal development", `best ${genre} books`, "book club", "nonfiction summary",
       title, `${shortTitle} key ideas`,
     ].filter(Boolean),

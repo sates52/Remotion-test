@@ -40,6 +40,17 @@ try {
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("English only (US audience).", "Sadece İngilizce değil, Türkçe konuşun."));
   r = run("--check", `--slug=${SLUG}`);
   t("language: a paste block that is not English is NOT READY", r.status === 1 && /not English/.test(r.stdout), r.stdout);
+  // 2026-11-11: the first minute and one drawable picture per beat are part of the spine, written for the engine
+  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50\)/.test(md) && /PICTURE FIRST \(this becomes animation/.test(md) && /Open each beat by asking/.test(md));
+  fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("FIRST MINUTE", "OPENING"));
+  r = run("--check", `--slug=${SLUG}`);
+  t("spine: a prompt without the FIRST MINUTE block is NOT READY", r.status === 1 && /no FIRST MINUTE block/.test(r.stdout), r.stdout);
+  fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("this becomes animation", "this is illustrated with photoreal scenes"));
+  r = run("--check", `--slug=${SLUG}`);
+  t("spine: PICTURE FIRST written for the other engine is NOT READY", r.status === 1 && /PICTURE FIRST is not the antidote version/.test(r.stdout), r.stdout);
+  fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("English only (US audience).", "English only (US audience). Like an audiobook."));
+  r = run("--check", `--slug=${SLUG}`);
+  t("spine: the word audiobook in the paste block is warned", r.status === 0 && /says "audiobook"/.test(r.stdout), r.stdout);
   // the agent's own override: refused without an argument, recorded with one — never an operator question
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--engine=vox", "--engine-why=short");
   t("override: against the rubric without a capability argument → refused", r.status === 1 && /overrides the rubric/.test(r.stderr), r.stderr);

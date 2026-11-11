@@ -93,6 +93,14 @@ with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or cl
   prints NOT_APPLICABLE. Never run it by hand to "produce the quality report" — render.js's preflight runs it.
   Whether quality debt / the production render is already decided: `node scripts/render-decision.js --slug=<slug>`.
 
+## 📈 Channel analytics — the measure of what works (every agent, 2026-11-11)
+
+- The channel's own numbers decide what to build next; mute tests and gates are proxies. Skill **`channel-analytics`**
+  (`.claude/skills/channel-analytics/SKILL.md`): `node scripts/yt-analytics.js all`, then read `channel-insights.md` in
+  `%USERPROFILE%.yt-analyticsdata` (credentials + data live there, outside every checkout — never commit or paste them).
+- Before a systemic change (prompt, engine, titles, thumbnails, length) name the row it should move and its value today;
+  after it shipped on 5+ published films, report the same row. Read-only: it never edits a video or a published book.
+
 ## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)
 
 - The operator opens ONE session per book. When they say **"dosyalar hazır" / "preview hazırla"** in that

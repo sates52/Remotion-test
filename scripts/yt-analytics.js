@@ -9,7 +9,8 @@
  *                                                     per video: totals, daily, traffic sources, retention curve
  *   node scripts/yt-analytics.js import-csv <file>    impressions + CTR from a YouTube Studio export (not in the API)
  *   node scripts/yt-analytics.js report               channel table → <store>/data/channel-report.md
- *   node scripts/yt-analytics.js all                  sync + match + pull + report
+ *   node scripts/yt-analytics.js insights             the standing analysis → <store>/data/channel-insights.md
+ *   node scripts/yt-analytics.js all                  sync + match + pull + report + insights
  *
  * Credentials AND data live outside every checkout: %USERPROFILE%/.yt-analytics (YT_ANALYTICS_DIR), so all worktrees
  * share one copy and nothing about the channel's performance is committed or bundled. Scopes are read-only.
@@ -32,6 +33,7 @@ const DATA = path.join(STORE, "data");
 const P = {
   videos: path.join(DATA, "videos.json"), map: path.join(DATA, "video-map.json"), manual: path.join(DATA, "video-map.manual.json"),
   ctr: path.join(DATA, "ctr.json"), analytics: path.join(DATA, "analytics"), report: path.join(DATA, "channel-report.md"),
+  channel: path.join(DATA, "channel-level.json"), insights: path.join(DATA, "channel-insights.md"),
 };
 const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const writeJSON = (p, v) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, JSON.stringify(v, null, 2)); };
@@ -164,6 +166,26 @@ async function pull() {
   }));
   console.log(`pull: ${done} of ${list.length} videos up to date${failed ? `, ${failed} failed` : ""}`);
   if (failed) process.exitCode = 1;
+  if (!flags.only) await pullChannel();
+}
+
+/** Channel-level facts no per-video query gives: watch time per source, what people typed, who is subscribed. */
+async function pullChannel() {
+  const days = Number(flags.days) || 90;
+  const startDate = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10), endDate = today();
+  const base = { startDate, endDate };
+  const safe = async (p) => { try { return await query({ ...base, ...p }); } catch (e) { return { error: e.message }; } };
+  const detail = (type, n = 25) => safe({ dimensions: "insightTrafficSourceDetail", filters: `insightTrafficSourceType==${type}`, metrics: "views,estimatedMinutesWatched", sort: "-views", maxResults: n });
+  const out = {
+    pulledAt: new Date().toISOString(), startDate, endDate,
+    totals: await safe({ metrics: "views,estimatedMinutesWatched,averageViewDuration,subscribersGained,subscribersLost" }),
+    sources: await safe({ dimensions: "insightTrafficSourceType", metrics: "views,estimatedMinutesWatched", sort: "-views" }),
+    searchTerms: await detail("YT_SEARCH"), browse: await detail("SUBSCRIBER", 10), external: await detail("EXT_URL", 10),
+    subscribed: await safe({ dimensions: "subscribedStatus", metrics: "views,estimatedMinutesWatched,averageViewDuration" }),
+    devices: await safe({ dimensions: "deviceType", metrics: "views,estimatedMinutesWatched", sort: "-views" }),
+  };
+  writeJSON(P.channel, out);
+  console.log(`pull: channel-level facts for the last ${days} days`);
 }
 
 function importCsv() {
@@ -196,7 +218,9 @@ function rowsForReport() {
       return {
         id: x.id, slug: m ? m.slug : null, confidence: m ? m.confidence : null, title: x.title, engine: b.engine || null, kind: b.kind || null, genre: b.genre || null,
         published: x.publishedAt.slice(0, 10), days, durationSec: x.durationSec, views: t.views ?? x.views, views7: firstN(7), views28: firstN(28),
-        avgPct: t.averageViewPercentage ?? null, avgDur: t.averageViewDuration ?? null, r30: at(30), r50: curve.length ? ch.interp(curve, 0.5) : null,
+        avgPct: t.averageViewPercentage ?? null, avgDur: t.averageViewDuration ?? null, r30: at(30), r60: at(60), r120: at(120), r50: curve.length ? ch.interp(curve, 0.5) : null,
+        searchShare: t.views ? (((a && a.traffic) || []).find((s) => s.insightTrafficSourceType === "YT_SEARCH") || { views: 0 }).views / t.views : null,
+        firstWeekShare: t.views && days >= 7 ? Math.min(1, firstN(7) / t.views) : null,
         subs: t.subscribersGained ?? null, topSource: src ? `${src.insightTrafficSourceType} ${t.views ? Math.round((src.views / t.views) * 100) : "?"}%` : null,
         impressions: ctr[x.id] ? ctr[x.id].impressions : null, ctr: ctr[x.id] ? ctr[x.id].ctr : null, mute: b.mute || null,
       };
@@ -239,6 +263,76 @@ function report() {
   console.log(`report: ${P.report}`);
 }
 
+/**
+ * insights — the same analysis for every agent, from the pulled data only (no network). It answers: where do views come
+ * from and how long do they last, where in the film do viewers leave, what did people type, which titles / lengths /
+ * months do better. Small samples are marked; nothing here is a verdict on one video.
+ */
+const SOURCE_NAMES = {
+  YT_SEARCH: "YouTube search", SUBSCRIBER: "Browse (home + subscriptions feed)", EXT_URL: "External (mostly Google Search)", RELATED_VIDEO: "Suggested videos",
+  NO_LINK_OTHER: "Direct / unknown", YT_OTHER_PAGE: "Other YouTube pages", YT_CHANNEL: "Channel page", NOTIFICATION: "Notifications", PLAYLIST: "Playlists", SHORTS: "Shorts feed",
+};
+function insights() {
+  const { channel, syncedAt, rows } = rowsForReport();
+  const cl = readJSON(P.channel);
+  const f = (n, d = 0) => (Number.isFinite(n) ? n.toFixed(d) : "–");
+  const pct = (n) => (Number.isFinite(n) ? `${(n * 100).toFixed(0)}%` : "–");
+  const md = (xs) => ch.median(xs);
+  const thin = (n) => (n < 15 ? " (thin)" : "");
+  const seen = rows.filter((r) => r.days >= 10 && r.views >= 20); // enough days and views for a curve to mean something
+  const L = [`# Channel insights — ${channel.title}`, "", `Synced ${syncedAt.slice(0, 16).replace("T", " ")} UTC · ${rows.length} long videos · ${f(channel.subscribers)} subscribers. Medians over the ${seen.length} videos at least 10 days old with 20+ views, unless a table says otherwise. Groups under 15 videos are marked (thin): read them as a hint.`, ""];
+
+  if (cl && Array.isArray(cl.sources)) {
+    const tot = cl.sources.reduce((s, r) => s + r.views, 0);
+    L.push(`## Where views come from, and how long they last (${cl.startDate} → ${cl.endDate})`, "", "| source | views | share | seconds watched per view |", "|---|---|---|---|");
+    for (const r of cl.sources.filter((x) => x.views / tot >= 0.005)) L.push(`| ${SOURCE_NAMES[r.insightTrafficSourceType] || r.insightTrafficSourceType} | ${r.views} | ${pct(r.views / tot)} | ${f((r.estimatedMinutesWatched * 60) / r.views)} |`);
+    const t = Array.isArray(cl.totals) && cl.totals[0];
+    if (t) L.push("", `Channel in this window: ${t.views} views, ${f(t.averageViewDuration)} s average view, subscribers +${t.subscribersGained} / −${t.subscribersLost}.`);
+    if (Array.isArray(cl.subscribed)) L.push(`Subscribed viewers: ${cl.subscribed.map((s) => `${s.subscribedStatus.toLowerCase()} ${s.views} views (${f(s.averageViewDuration)} s)`).join(", ")}.`);
+    L.push("");
+  }
+
+  const cps = [["0:30", "r30"], ["1:00", "r60"], ["2:00", "r120"], ["half", "r50"]];
+  L.push("## Where viewers leave", "", `Still watching (median): ${cps.map(([n, k]) => `${n} ${pct(md(seen.map((r) => r[k])))}`).join(" · ")}. Average view ${ch.clock(md(seen.map((r) => r.avgDur)))} = ${f(md(seen.map((r) => r.avgPct)), 1)}% of the film.`, "");
+  L.push("By publishing month — the row to watch after a change to the prompt's first minute or the opening scenes:", "", "| published | videos | still at 1:00 | still at 2:00 | avg view | views 7d | search share |", "|---|---|---|---|---|---|---|");
+  const months = new Map();
+  for (const r of rows.filter((x) => x.views >= 20)) months.set(r.published.slice(0, 7), [...(months.get(r.published.slice(0, 7)) || []), r]);
+  for (const [m, g] of [...months].sort()) L.push(`| ${m} | ${g.length}${thin(g.length)} | ${pct(md(g.map((r) => r.r60)))} | ${pct(md(g.map((r) => r.r120)))} | ${ch.clock(md(g.map((r) => r.avgDur)))} | ${f(md(g.map((r) => r.views7)))} | ${pct(md(g.map((r) => r.searchShare)))} |`);
+  L.push("");
+
+  const table = (title, groups) => {
+    L.push(`## ${title}`, "", "| group | videos | views | views 7d | still at 1:00 | avg view | avg viewed | search share |", "|---|---|---|---|---|---|---|---|");
+    for (const [name, g] of groups.filter(([, g]) => g.length)) L.push(`| ${name} | ${g.length}${thin(g.length)} | ${f(md(g.map((r) => r.views)))} | ${f(md(g.map((r) => r.views7)))} | ${pct(md(g.map((r) => r.r60)))} | ${ch.clock(md(g.map((r) => r.avgDur)))} | ${f(md(g.map((r) => r.avgPct)), 1)}% | ${pct(md(g.map((r) => r.searchShare)))} |`);
+    L.push("");
+  };
+  const by = (key) => { const g = new Map(); for (const r of seen) g.set(r[key] || "unknown", [...(g.get(r[key] || "unknown") || []), r]); return [...g].sort((a, b) => b[1].length - a[1].length); };
+  table("By engine (different books — not a controlled comparison)", by("engine"));
+  table("By kind", by("kind"));
+  const len = (r) => (r.durationSec < 1500 ? "under 25 min" : r.durationSec < 2100 ? "25–35 min" : r.durationSec < 2700 ? "35–45 min" : "over 45 min");
+  table("By length", ["under 25 min", "25–35 min", "35–45 min", "over 45 min"].map((k) => [k, seen.filter((r) => len(r) === k)]));
+  const pats = [["Ending Everyone Gets Wrong", /ending everyone gets wrong/i], ["Why Smart People…", /why smart people/i], ["…Explained", /explained/i], ["…Summary", /summary/i], ["Full Summary", /full summary/i], ["Key Ideas", /key ideas/i], ["Summary & Analysis | … (old format)", /summary & analysis \|/i], ["names the author", null]];
+  table("By title wording (a video can be in several rows)", pats.map(([n, re]) => [n, seen.filter((r) => (re ? re.test(r.title) : / by [A-Z]|\([A-Z][a-z]+ [A-Z]/.test(r.title)))]));
+
+  if (cl && Array.isArray(cl.searchTerms)) {
+    L.push("## What people typed on YouTube to find us", "", "| search term | views | minutes watched | seconds per view |", "|---|---|---|---|");
+    for (const r of cl.searchTerms) L.push(`| ${String(r.insightTrafficSourceDetail).replace(/\|/g, "/")} | ${r.views} | ${f(r.estimatedMinutesWatched)} | ${f((r.estimatedMinutesWatched * 60) / r.views)} |`);
+    const ab = cl.searchTerms.filter((r) => /audio\s?book/i.test(r.insightTrafficSourceDetail));
+    const sum = (xs, k) => xs.reduce((s, r) => s + r[k], 0);
+    if (ab.length) L.push("", `"audiobook" terms: ${sum(ab, "views")} views at ${f((sum(ab, "estimatedMinutesWatched") * 60) / sum(ab, "views"))} s per view; every other term: ${f((sum(cl.searchTerms.filter((r) => !ab.includes(r)), "estimatedMinutesWatched") * 60) / Math.max(1, sum(cl.searchTerms.filter((r) => !ab.includes(r)), "views")))} s.`);
+    L.push("");
+  }
+  if (cl && Array.isArray(cl.browse)) L.push("## Browse, in detail", "", ...cl.browse.map((r) => `- ${r.insightTrafficSourceDetail}: ${r.views} views, ${f((r.estimatedMinutesWatched * 60) / r.views)} s per view`), "");
+
+  const line = (r) => `| ${r.published} | ${(r.slug ? `\`${r.slug}\`` : r.title.slice(0, 60)).replace(/\|/g, "/")} | ${r.engine || "–"} | ${f(r.views)} | ${f(r.views7)} | ${pct(r.r60)} | ${ch.clock(r.avgDur)} | ${pct(r.searchShare)} |`;
+  const head = "| published | video | engine | views | views 7d | still at 1:00 | avg view | search share |\n|---|---|---|---|---|---|---|---|";
+  L.push("## Longest average view (20+ views)", "", head, ...[...seen].sort((a, b) => (b.avgDur || 0) - (a.avgDur || 0)).slice(0, 10).map(line), "");
+  L.push("## Most search views", "", head, ...[...seen].sort((a, b) => (b.searchShare || 0) * b.views - (a.searchShare || 0) * a.views).slice(0, 10).map(line), "");
+  L.push("## Not in this data", "", "- Thumbnail impressions and click-through rate: export from Studio (Analytics → Advanced mode → Export) and run `import-csv`.", "- The last 2–3 days: YouTube Analytics lags.", "- Why a viewer left: retention says when, never why. Compare a change against the month table above, on videos made after it.", "");
+  fs.mkdirSync(path.dirname(P.insights), { recursive: true });
+  fs.writeFileSync(P.insights, L.join("\n"));
+  console.log(`insights: ${P.insights}`);
+}
+
 async function main() {
   auth.assertOutsideRepo(STORE, ROOT);
   if (cmd === "auth") { const r = await auth.authorize(); console.log(`auth: done (read-only scopes granted: ${String(r.scope || "").split(" ").length})`); }
@@ -247,8 +341,9 @@ async function main() {
   else if (cmd === "pull") await pull();
   else if (cmd === "import-csv") importCsv();
   else if (cmd === "report") report();
-  else if (cmd === "all") { await sync(); match(); await pull(); report(); }
-  else { console.log("usage: node scripts/yt-analytics.js auth | sync | match | pull [--only=..] [--force] | import-csv <file> | report | all"); process.exitCode = cmd ? 2 : 0; }
+  else if (cmd === "insights") insights();
+  else if (cmd === "all") { await sync(); match(); await pull(); report(); insights(); }
+  else { console.log("usage: node scripts/yt-analytics.js auth | sync | match | pull [--only=..] [--force] | import-csv <file> | report | insights | all"); process.exitCode = cmd ? 2 : 0; }
 }
 if (require.main === module) main().catch((e) => { console.error(`yt-analytics: ${e.message}`); process.exit(1); });
 module.exports = { loadBooks, P };

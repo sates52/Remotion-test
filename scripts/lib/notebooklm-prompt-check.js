@@ -26,6 +26,11 @@ function checkNotebookPrompt(md, { title = null, engine = null } = {}) {
   const rewritten = Object.values(GENERIC).filter((g) => !block.includes(g)).length;
   if (!hasAngle && rewritten < 2) errors.push(`the structure is still generic (${3 - rewritten} of COLD OPEN / SETUP / BEATS unchanged) — name the book's opening image, its people and stakes, and its 8 concrete beats`);
   for (const k of ["DEPTH ENGINE", "LENGTH", "HARD RULES"]) if (!block.includes(k)) errors.push(`the fixed spine lost its ${k} block`);
+  // 2026-11-11 (channel analytics: half the viewers leave before 0:50; narration without a picture cannot be staged)
+  for (const k of ["FIRST MINUTE", "PICTURE FIRST"]) if (!block.includes(k)) errors.push(`the spine has no ${k} block — re-run make-prompt.js on current code and keep it`);
+  const want = engine && { vox: /photoreal scenes/, antidote: /becomes animation/ }[String(engine).toLowerCase()];
+  if (want && block.includes("PICTURE FIRST") && !want.test(block)) errors.push(`PICTURE FIRST is not the ${engine} version — the audio is recorded for the engine that renders`);
+  if (/audio\s?book/i.test(block)) warnings.push('the paste block says "audiobook" — the film is an analysis; viewers who search for the audiobook leave in seconds');
   if (title && !block.toLowerCase().includes(String(title).toLowerCase())) errors.push(`the paste block never names "${title}"`);
   if (/[ğĞşŞıİ]/.test(block)) errors.push("the paste block is not English (Turkish characters inside it) — the channel is US / English");
   const hdr = text.match(/\*\*Engine:\*\*\s*([a-z]+)/i);
