@@ -28,6 +28,9 @@ empire-downfall-skool-pack/
 
 # Never commit: local credentials & render-account config
 render-accounts.json
+# YouTube OAuth client + token live in %USERPROFILE%/.yt-analytics, never in a checkout (belt and braces)
+client_secret*.json
+token.json
 nvidia_preview.html
 test_aws_creds.js
 AWS_SESSION_REGISTRY.md

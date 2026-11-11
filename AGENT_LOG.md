@@ -2566,6 +2566,29 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-11 — Channel analytics loop: `yt-analytics.js` + `retention-map.js` (read-only, report-only)
+
+- **Why:** nothing in the repo read the channel's own performance (no views, watch time, retention; 0 video URLs in
+  `PUBLISHED_BOOKS.md`). Every quality number so far is a proxy that was never compared with what viewers do.
+- **`scripts/yt-analytics.js`** `auth | sync | match | pull | import-csv | report | all` — YouTube Data API v3 +
+  Analytics API v2, scopes `youtube.readonly` + `yt-analytics.readonly` only. No new dependency (Node fetch + http,
+  desktop loopback OAuth with PKCE: `scripts/lib/yt-auth.js`). Per video: totals, daily, traffic sources, 100-point
+  retention curve. Thumbnail impressions / CTR are NOT in the Analytics API (only the bulk Reporting API):
+  `import-csv` reads a Studio export instead.
+- **Credentials and data live outside every checkout:** `%USERPROFILE%/.yt-analytics` (`YT_ANALYTICS_DIR`) holds
+  `client_secret.json`, `token.json` and `data/` (videos, video-map, analytics/, channel-report.md, snapshots). The tool
+  refuses a store inside a git checkout; nothing about channel performance is committed or bundled. `.gitignore` also
+  lists `client_secret*.json` / `token.json`.
+- **Video ↔ slug:** `match` reads `PUBLISHED_BOOKS.md`'s table, `books/*/book.json` here, in `../wt-book-<slug>` and in
+  the main checkout, and `data/engine-outcomes.json` (engine + latest mute numbers). exact = recorded title, or title +
+  duration ±3 s; fuzzy = title in exactly one video; never a guess — fix by hand in `<store>/data/video-map.manual.json`.
+- **`scripts/retention-map.js --slug=<slug> [--book-root=]`** lays the retention curve over the rendered config's scenes.
+  One retention point on a 40-minute film is ~24 s (several scenes): a bucket's drop is shared among its scenes by time —
+  an attribution to look at, not a verdict on a scene.
+- **First run (2026-11-11):** 202 long videos read, 112 matched to a book, analytics pulled for all 202.
+- **Not touched:** no book file, `PUBLISHED_BOOKS.md`, gate, threshold, render, upload or cleanup. Test:
+  `scripts/test-yt-analytics.js` (9 checks, no network, no credentials — safe in `regression.yml`).
+
 ### 2026-11-03 — Cycle 8: CSD 1.1 speech NO SHIP, mute shadow study (no gate change), render CLI guard + evidence integrity + operator approvals SHIPPED, Vox image retry control SHIPPED
 
 - **Vox image retry control (81a6c250, earlier today):** `gen-vox-images.py --beats/--dry-run/--max-calls/--retry-failed/--root`;
