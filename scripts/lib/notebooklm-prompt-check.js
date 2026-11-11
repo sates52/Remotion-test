@@ -23,13 +23,17 @@ function checkNotebookPrompt(md, { title = null, engine = null } = {}) {
   if (!block) return { ok: false, errors: ["no paste block (```…```) in the prompt file"], warnings, chars: 0 };
   if (/one arguable thesis about how ".*" works as [^,\n]*, not a summary/i.test(block)) errors.push('the angle is still the scaffold sentence ("one arguable thesis about how … works as …") — write the book-specific thesis');
   const hasAngle = /Thesis to prove:/i.test(block) && (block.match(/^\s*\d+\.\s+\S/gm) || []).length >= 6 + 6; // angle beats + the spine's 6 steps
-  const rewritten = Object.values(GENERIC).filter((g) => !block.includes(g)).length;
+  // the beats line is generic at any length tier (8 / 10 / 12 beats)
+  const generic = (g) => (g === GENERIC.beats ? /BEATS: (8|10|12) beats, each ONE specific claim from the book\./.test(block) : block.includes(g));
+  const rewritten = Object.values(GENERIC).filter((g) => !generic(g)).length;
   if (!hasAngle && rewritten < 2) errors.push(`the structure is still generic (${3 - rewritten} of COLD OPEN / SETUP / BEATS unchanged) — name the book's opening image, its people and stakes, and its 8 concrete beats`);
   for (const k of ["DEPTH ENGINE", "LENGTH", "HARD RULES"]) if (!block.includes(k)) errors.push(`the fixed spine lost its ${k} block`);
   // 2026-11-11 (channel analytics: half the viewers leave before 0:50; narration without a picture cannot be staged)
   for (const k of ["FIRST MINUTE", "PICTURE FIRST"]) if (!block.includes(k)) errors.push(`the spine has no ${k} block — re-run make-prompt.js on current code and keep it`);
   const want = engine && { vox: /photoreal scenes/, antidote: /becomes animation/ }[String(engine).toLowerCase()];
   if (want && block.includes("PICTURE FIRST") && !want.test(block)) errors.push(`PICTURE FIRST is not the ${engine} version — the audio is recorded for the engine that renders`);
+  // the opening is the book's own (lib/opening-grammar.js): its three lines must still be there, never a stock intro
+  if (block.includes("FIRST MINUTE") && !["- OPEN:", "- NAME IT:", "- PROMISE"].every((k) => block.includes(k))) errors.push("FIRST MINUTE lost its OPEN / NAME IT / PROMISE lines — they carry this book's own opening (re-run make-prompt.js and write under them)");
   if (/audio\s?book/i.test(block)) warnings.push('the paste block says "audiobook" — the film is an analysis; viewers who search for the audiobook leave in seconds');
   if (title && !block.toLowerCase().includes(String(title).toLowerCase())) errors.push(`the paste block never names "${title}"`);
   if (/[ğĞşŞıİ]/.test(block)) errors.push("the paste block is not English (Turkish characters inside it) — the channel is US / English");

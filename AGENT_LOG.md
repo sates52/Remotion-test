@@ -2566,6 +2566,30 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-11 — Step 0: per-book opening grammar (nothing static), length follows the book, the book is asked in NotebookLM
+
+- **Operator, same day:** (1) nothing added may be a static template — YPP "inauthentic / repetitive content"; every
+  book's opening must be its own; (2) the PDF is never given to an agent: what is needed from the book is asked in
+  NotebookLM and the answer brought back; (3) never shorten the films; 300+ page books may run 60–90 minutes.
+- **Opening grammar (`scripts/lib/opening-grammar.js`, like thumbnail-grammar):** the FIRST MINUTE block added this
+  morning was one formula for every book — replaced. make-prompt now picks the opening per book on three axes (8 hooks
+  × 3 ways to name the book × 4 promise forms; hooks filtered by fiction / nonfiction), farthest from the last 8
+  books' openings (read from every book.json: here, `../wt-book-*`, the main checkout), never the previous hook, never
+  a combination from the window. Recorded in `book.json → opening {hook, naming, promise, at, by}`, stable on re-run
+  (`--reopen` re-picks; `--opening=hook/naming/promise` = the agent's explicit choice). The engine is meant to read
+  the same record so opening SCENES vary with the opening WORDS (engine architecture: next).
+- **Length tiers (`--pages`):** ≤ 300 pages 45–60 min / 8 beats (unchanged); 301–500 → 60–75 min, floor 55, 10 beats;
+  > 500 → 75–90 min, floor 70, 12 beats. Recorded as `book.json → pages`. The prompt check treats the beats line as
+  generic at any tier.
+- **Source brief (`make-prompt.js --brief`, `scripts/lib/source-brief.js`):** writes `books/<slug>/notebooklm-brief.md`,
+  one question block for the NotebookLM CHAT (10 headings: facts + pages, structure, opening / ending, people + looks,
+  12 scenes, numbers, objects, the misreading, hardest moments, three short lines). The answer is saved as
+  `books/<slug>/source-brief.md`; `--check` reports it (or says the prompt rests on memory). One paste for the
+  operator, optional on their word. Skill `notebooklm-prompt` §0 + §3; the "use the PDF path" line added this morning
+  is removed (wrong: the operator never hands over the book).
+- **Tests:** `test-opening-grammar.js` (7: 60 books in a row never repeat the previous hook or a recent combination),
+  `test-step0.js` (24). No engine code, book, gate, threshold, render, upload or cleanup touched.
+
 ### 2026-11-11 — First changes from the channel's numbers: skill `channel-analytics`, `insights`, prompt FIRST MINUTE + PICTURE FIRST, no "audiobook"
 
 - **Measured (2026-11-11, 202 long videos, last 90 days):** median still watching 0:30 82 % · 1:00 39 % · 2:00 23 % ·

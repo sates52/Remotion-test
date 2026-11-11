@@ -88,8 +88,25 @@ if (args.check) {
   console.log(`${ok ? "STEP 0 READY" : "STEP 0 NOT READY"} ${slug}: engine ${book.engine || "?"} (${book.engineDecidedBy || "?"})${book.engineOverride ? ` — override ${book.engineOverride.from}→${book.engineOverride.to}: ${book.engineOverride.why}` : ""} · paste block ${r.chars} chars`);
   for (const e of r.errors) console.log(`  ✗ ${e}`);
   for (const w of r.warnings) console.log(`  ⚠ ${w}`);
+  // The book itself is only in NotebookLM: say whether this prompt was written from its answer or from memory.
+  const briefPath = path.join(path.dirname(abs.manifest(slug)), "source-brief.md");
+  if (fs.existsSync(briefPath)) {
+    const b = require("./lib/source-brief").readBrief(fs.readFileSync(briefPath, "utf8"));
+    console.log(`  ${b.ok ? "✓" : "⚠"} source brief: ${b.found}/10 headings${b.missing.length ? ` (missing: ${b.missing.join(", ")})` : ""}${b.pages ? ` · ${b.pages} pages` : ""}${b.pages && !book.pages ? " — pass --pages to make-prompt.js so the length follows the book" : ""}`);
+  } else console.log(`  ⚠ no source brief (books/${slug}/source-brief.md): the prompt rests on what the agent remembers of the book — \`make-prompt.js --brief\` asks NotebookLM instead`);
   if (ok) console.log(`  → hand the operator ${rel.prompt(slug)} (its paste block) + the MP3 / VTT steps at its end`);
   process.exit(ok ? 0 : 1);
+}
+// SOURCE BRIEF: `--brief --title=… [--author=…] [--slug=…]` writes books/<slug>/notebooklm-brief.md — the question the
+// operator pastes into the NotebookLM chat (lib/source-brief.js). No engine decision, no prompt yet.
+if (args.brief) {
+  if (!args.title || args.title === true) { console.error('usage: node scripts/make-prompt.js --brief --title="…" --author="…" [--slug=<slug>]'); process.exit(2); }
+  const slug = args.slug || String(args.title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  ensureBookDir(slug);
+  const out = path.join(path.dirname(abs.manifest(slug)), "notebooklm-brief.md");
+  fs.writeFileSync(out, require("./lib/source-brief").briefFile({ title: args.title, author: args.author === true ? "" : args.author || "", slug }));
+  console.log(`✓ ${path.relative(path.join(__dirname, ".."), out)} — the operator pastes its block into the NotebookLM CHAT and returns the answer → save it as books/${slug}/source-brief.md`);
+  process.exit(0);
 }
 const TITLE = args.title;
 const AUTHOR = args.author || "";
@@ -113,23 +130,39 @@ const OUT = rel.prompt(SLUG);
 // visionless-10x audit named, narration that is "a topic to show" instead of "an event to stage" — asks the hosts to
 // put one drawable picture under every beat (PICTURE FIRST, written for the engine). LENGTH was tightened to pay for
 // the two blocks; its rules are unchanged.
+// LENGTH follows the book (operator, 2026-11-11: never shorten; a 300+ page book may run past the hour). NotebookLM
+// decides the real length — more beats and a higher floor are what move it.
+const { pickOpening, parseOpening, validOpening, openingBlock } = require("./lib/opening-grammar");
+function lengthTier(pages) {
+  const n = Number(pages) || 0;
+  if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 12, perBeat: "6-7" };
+  if (n > 300) return { name: "long", pages: n, target: "60-75", min: 55, beats: 10, perBeat: "5-7" };
+  return { name: "standard", pages: n || null, target: "45-60", min: 45, beats: 8, perBeat: "4-6" };
+}
+/** The openings of the books made before this one, newest first — from every place a book record lives. */
+function recentOpenings(slug) {
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => { try { const b = JSON.parse(fs.readFileSync(file, "utf8")); if (b.slug && b.slug !== slug && validOpening(b.opening) && !seen.has(b.slug)) seen.set(b.slug, b.opening); } catch {} };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
+}
 const PICTURE_FIRST = {
   antidote: `PICTURE FIRST (this becomes animation — give the artist something to draw): build every beat on ONE physical demonstration and say it out loud BEFORE its meaning: two things of different size side by side, a threshold where something flips, one thing changed while everything else stays fixed, steps that shrink, a before and an after. Name the object, who does what to it, and what changes. Return to the same picture when the beat ends. An idea with no picture is not ready to be said.`,
   vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every beat on ONE scene a camera could photograph — a named person, in a named place, doing one thing, with one object in their hands. Say the scene out loud BEFORE its meaning, and return to the same scene when the beat ends. An idea with no scene is not ready to be said.`,
 };
-const spineFor = (engine) => `
+const spineFor = (engine, opening, tier) => `
 STRUCTURE (follow strictly):
 1. COLD OPEN (0:00-0:25): open mid-thought on the single most provocative idea. No greetings, no "welcome back", no "today we're looking at".
 2. THESIS: state the one argument this whole discussion will prove.
 3. SETUP: who/what the book puts in play (concrete names, stakes).
-4. BEATS: 8 beats, each ONE specific claim from the book. Open each beat by asking, in one plain sentence, the question it answers. DEVELOP each beat fully before moving on — do NOT list them quickly.
+4. BEATS: ${tier.beats} beats, each ONE specific claim from the book. Open each beat by asking, in one plain sentence, the question it answers. DEVELOP each beat fully before moving on — do NOT list them quickly.
 5. COUNTERPOINT: one honest criticism — where the book strains or a reader pushes back.
 6. PAYOFF: land the thesis on a line that reframes everything said before.
 
-FIRST MINUTE (half the audience decides before 0:50):
-- by 0:30 one host says the book's title and author, and says plainly that this is an analysis of the whole book, its ending included;
-- by 0:50 name the three specific things the listener will understand by the end, then start the first one at once;
-- in the first minute: no banter, no praise of the book, no talk about the conversation itself.
+${openingBlock(opening)}
 
 ${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
 
@@ -140,7 +173,7 @@ c) add a SECOND concrete example, number, or angle from the book;
 d) take one honest "wait - but then..." turn where the two hosts genuinely disagree;
 e) tie it back to the recurring phrase-that-pays before moving to the next beat.
 
-LENGTH (target 45-60 minutes, minimum 45 — never shorter): give each beat 4-6 real minutes, and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a genuine disagreement between the two hosts. No filler, no restating the thesis, no "as we said earlier". Out of things to say about a beat? MOVE ON. Sound like two sharp people who can't stop talking about this book, not a summary stretched to fill time. Do NOT signal an ending ("to wrap up", "in short") before the final PAYOFF.
+LENGTH (target ${tier.target} minutes, minimum ${tier.min} — never shorter): give each beat ${tier.perBeat} real minutes, and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a genuine disagreement between the two hosts. No filler, no restating the thesis, no "as we said earlier". Out of things to say about a beat? MOVE ON. Sound like two sharp people who can't stop talking about this book, not a summary stretched to fill time. Do NOT signal an ending ("to wrap up", "in short") before the final PAYOFF.
 
 HARD RULES:
 - English only (US audience). Two hosts in real conversation — disagree, interrupt, build on each other.
@@ -287,6 +320,14 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     // New books get the per-book palette-tinted background by default (Vox). Existing
     // books lack this field → plain shared background, so they look unchanged.
     bgTint: manifest.bgTint ?? true };
+  // The opening is this book's own (lib/opening-grammar.js): chosen once, farthest from the last 8 books, kept on a re-run.
+  const TIER = lengthTier(args.pages || manifest.pages);
+  if (TIER.pages) manifest.pages = TIER.pages;
+  const asked = args.opening ? parseOpening(args.opening) : null;
+  if (args.opening && !asked) { console.error(`❌ --opening="${args.opening}" — use hook/naming/promise from scripts/lib/opening-grammar.js`); process.exit(1); }
+  const kind = (profile && profile.kind) || (manifest.engineProfile && manifest.engineProfile.kind) || null;
+  const OPENING = asked || (validOpening(manifest.opening) && !args.reopen ? manifest.opening : pickOpening({ slug: SLUG, kind, recent: recentOpenings(SLUG) }));
+  manifest.opening = { hook: OPENING.hook, naming: OPENING.naming, promise: OPENING.promise, at: (manifest.opening && !args.reopen && !asked && manifest.opening.at) || new Date().toISOString(), by: asked ? "agent" : "opening-grammar" };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
   const source = args.engine ? "Claude, açık" : profileFit ? "kitap profili" : (vttSignal && vttSignal.confidence !== "weak") ? "VTT analizi" : "genre heuristik (GEÇİCİ)";
   if (!args.engine && !profileFit) {
@@ -303,6 +344,9 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     ? "gerçek/isimlendirilebilir figürler + belgesel sahneler (Flux cut-out'a uygun)"
     : "soyut/everyman beat'ler (vektör rig gerçek kişi canlandıramaz)"}\n`);
   const ENGINE = picked.engine;
+  console.log(`🎬 AÇILIŞ → ${OPENING.hook} / ${OPENING.naming} / ${OPENING.promise}  (son 8 kitaptan en uzak; değiştir: --opening=hook/naming/promise veya --reopen)`);
+  console.log(`⏱  UZUNLUK → ${TIER.target} dk, ${TIER.beats} beat${TIER.pages ? ` (${TIER.pages} sayfa)` : " (sayfa sayısı verilmedi: --pages=<n>; 300+ sayfa 60-75, 500+ sayfa 75-90 dk)"}
+`);
 
   // Claude-first: the bespoke angle is authored by Claude directly (sharper &
   // more book-specific than llama). The NVIDIA path is dormant unless opted in
@@ -334,13 +378,13 @@ END BY REFRAMING: ${angle.closer}`
 
 ${body}
 
-${spineFor(ENGINE)}`;
+${spineFor(ENGINE, OPENING, TIER)}`;
 
   const md = `# NotebookLM prompt — ${TITLE}${AUTHOR ? " (" + AUTHOR + ")" : ""}
 
-**Slug:** \`${SLUG}\` · **Genre:** ${GENRE} · **Engine:** ${ENGINE} · **Target:** 45–60 min · **Market:** US (English)
+**Slug:** \`${SLUG}\` · **Genre:** ${GENRE} · **Engine:** ${ENGINE} · **Target:** ${TIER.target} min · **Opening:** ${OPENING.hook}/${OPENING.naming}/${OPENING.promise} · **Market:** US (English)
 
-**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **45 dk'nın altına düşerse** tekrar üret — prompt 8 beat + Depth Engine ile 45-60 dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
+**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **${TIER.min} dk'nın altına düşerse** tekrar üret — prompt ${TIER.beats} beat + Depth Engine ile ${TIER.target} dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
 
 \`\`\`
 ${prompt}
@@ -364,10 +408,10 @@ ${prompt}
     console.log(`⚠  AÇI YAZILMADI (scaffold) — CLAUDE ŞİMDİ YAZMALI (tercih edilen, en kaliteli yol):`);
     console.log(`   ${OUT} içindeki bloğu, kitaba özgü açıyla YENİDEN yaz:`);
     console.log(`     • non-obvious lens + tek arguable thesis + mid-thought cold-open`);
-    console.log(`     • 8 argued beat (her biri kitaptan somut örnek/sayı) + honest counterpoint + reframing closer`);
-    console.log(`     • FIRST MINUTE: 0:30'a kadar kitap adı + yazar + "tüm kitabın analizi"; 0:50'ye kadar bu kitaba özgü 3 vaat (adlarıyla)`);
+    console.log(`     • ${TIER.beats} argued beat (her biri kitaptan somut örnek/sayı) + honest counterpoint + reframing closer`);
+    console.log(`     • FIRST MINUTE bu kitaba özgü seçildi (${OPENING.hook}/${OPENING.naming}/${OPENING.promise}): OPEN / NAME IT / PROMISE satırlarının altına kitabın KENDİ sahnesini, cümlesini ve vaadini yaz`);
     console.log(`     • PICTURE FIRST: her beat'in altına çizilebilir TEK resim yaz (nesne, kim ne yapıyor, ne değişiyor) — kitabın kendi sahnesinden`);
-    console.log(`     • DEPTH ENGINE + LENGTH block korunur (45 dk floor, 45-60 hedef; dolgu/tekrar YOK, derinleşerek uzar), tam İngilizce, ~2.5–3.5k char`);
+    console.log(`     • DEPTH ENGINE + LENGTH block korunur (${TIER.min} dk floor, ${TIER.target} hedef; dolgu/tekrar YOK, derinleşerek uzar), tam İngilizce, ~2.5–3.5k char`);
     console.log(`     • MOTORA GÖRE (${ENGINE}): ${ENGINE === "vox"
       ? "beat'leri gerçek/isimlendirilebilir figürler + belgesel sahneler üzerine kur (Flux cut-out'a uygun)"
       : "beat'leri soyut/everyman durumlar üzerine kur (vektör rig gerçek kişi canlandıramaz)"}`);

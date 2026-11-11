@@ -41,7 +41,7 @@ try {
   r = run("--check", `--slug=${SLUG}`);
   t("language: a paste block that is not English is NOT READY", r.status === 1 && /not English/.test(r.stdout), r.stdout);
   // 2026-11-11: the first minute and one drawable picture per beat are part of the spine, written for the engine
-  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50\)/.test(md) && /PICTURE FIRST \(this becomes animation/.test(md) && /Open each beat by asking/.test(md));
+  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50/.test(md) && /- OPEN: /.test(md) && /- NAME IT: /.test(md) && /- PROMISE \(by 0:50\): /.test(md) && /PICTURE FIRST \(this becomes animation/.test(md) && /Open each beat by asking/.test(md));
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("FIRST MINUTE", "OPENING"));
   r = run("--check", `--slug=${SLUG}`);
   t("spine: a prompt without the FIRST MINUTE block is NOT READY", r.status === 1 && /no FIRST MINUTE block/.test(r.stdout), r.stdout);
@@ -51,6 +51,33 @@ try {
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("English only (US audience).", "English only (US audience). Like an audiobook."));
   r = run("--check", `--slug=${SLUG}`);
   t("spine: the word audiobook in the paste block is warned", r.status === 0 && /says "audiobook"/.test(r.stdout), r.stdout);
+  // 2026-11-11: the opening is this book's own, recorded and stable; the length follows the book; the book is asked in NotebookLM
+  const op1 = book().opening;
+  t("opening: chosen by the grammar, recorded in book.json, written into the prompt header", op1 && op1.hook && op1.by === "opening-grammar" && md.includes(`**Opening:** ${op1.hook}/${op1.naming}/${op1.promise}`), JSON.stringify(op1));
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`);
+  t("opening: a re-run keeps the book's opening (same choice, same date)", JSON.stringify(book().opening) === JSON.stringify(op1));
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--opening=object/author/map");
+  t("opening: the agent may set it explicitly (recorded as the agent's)", r.status === 0 && book().opening.hook === "object" && book().opening.by === "agent" && /one object from the book in someone's hands/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")));
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--opening=magic/early/three");
+  t("opening: an unknown opening is refused", r.status === 1 && /--opening=/.test(r.stderr), r.stderr);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=420");
+  let long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
+  t("length: a 420-page book targets 60-75 minutes with 10 beats, recorded", r.status === 0 && /LENGTH \(target 60-75 minutes, minimum 55/.test(long) && /BEATS: 10 beats/.test(long) && /\*\*Target:\*\* 60-75 min/.test(long) && book().pages === 420, r.stderr);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=640");
+  long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
+  t("length: a 640-page book targets 75-90 minutes with 12 beats", /LENGTH \(target 75-90 minutes, minimum 70/.test(long) && /BEATS: 12 beats/.test(long));
+  r = run("--check", `--slug=${SLUG}`);
+  t("length: a long-form scaffold is still NOT READY (its beats line is generic at any tier)", r.status === 1 && /still generic|scaffold sentence/.test(r.stdout), r.stdout);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=200");
+  t("length: a short book stays at 45-60 minutes, 8 beats — never shorter", /LENGTH \(target 45-60 minutes, minimum 45/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")));
+  r = run("--brief", "--title=Zz Portal Probe", "--author=A. Writer", `--slug=${SLUG}`);
+  const briefMd = fs.existsSync(path.join(DIR, "notebooklm-brief.md")) ? fs.readFileSync(path.join(DIR, "notebooklm-brief.md"), "utf8") : "";
+  t("brief: the question for the NotebookLM chat is written; the book is never asked from the operator", r.status === 0 && /Answer only from the uploaded source of "Zz Portal Probe"/.test(briefMd) && /source-brief\.md/.test(r.stdout), r.stderr || r.stdout);
+  r = run("--check", `--slug=${SLUG}`);
+  t("brief: --check says when the prompt rests on memory (no returned answer)", /no source brief/.test(r.stdout), r.stdout);
+  fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md); // back to the finished antidote prompt for the checks below
+  run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--reopen");
+  fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md);
   // the agent's own override: refused without an argument, recorded with one — never an operator question
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--engine=vox", "--engine-why=short");
   t("override: against the rubric without a capability argument → refused", r.status === 1 && /overrides the rubric/.test(r.stderr), r.stderr);

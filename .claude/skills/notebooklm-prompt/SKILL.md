@@ -35,12 +35,28 @@ staged cast, invented worlds), and the operator records the audio from it. Switc
 means a new prompt, a new recording and a new VTT — so decide carefully, the same way every time.
 Talk to the operator in **Turkish**; the prompt itself is **English (US)**.
 
-**The flow, end to end, with no operator question:** title → profile → engine decided and recorded
+**The flow, end to end, with no operator question** (the one round trip is the source brief, §0 — a paste, not a
+decision): title → source brief → profile → engine decided and recorded
 (steps 1-2) → the finished, book-specific English prompt (step 3) → `make-prompt.js --check` READY →
 hand-off (step 4). **The engine is your decision: never ask the operator to choose the engine** — tell
 them which one and why. A scaffold is not Step 0 done.
 
-## 1. Fill the book profile — from what you know about the book
+## 0. Ask the book — the source brief (the operator never hands over the PDF)
+The book is uploaded to NotebookLM and stays there: **never ask the operator for the PDF or the book's text.**
+What you need from it you ask THERE, in one round trip:
+```bash
+node scripts/make-prompt.js --brief --title="<title>" --author="<author>" [--slug=<slug>]
+```
+It writes `books/<slug>/notebooklm-brief.md`: one question block (facts and page count, structure, opening and
+ending, people and their looks, 12 scenes to see, numbers, objects, the misreading, the hardest moments, three short
+lines). Give the operator that block (Turkish hand-off: "bunu NotebookLM'in sohbet kutusuna yapıştır, cevabı bana
+getir"). When the answer comes back, save it verbatim as `books/<slug>/source-brief.md` and use it for the profile
+(§1), `--pages`, the beats, their pictures and the opening (§3); later the story bible and cast looks read it too.
+If the operator says to skip it ("brief'siz devam"), go on from what you know — `--check` then says the prompt
+rests on memory. A missing fact later (a scene, a look, a number) is asked the same way: write the question, the
+operator pastes it into NotebookLM, the answer is appended to `source-brief.md`.
+
+## 1. Fill the book profile — from the source brief, or from what you know about the book
 Read `data/engine-profile-examples.json`: the **rubric** defines every field and the **examples**
 are the reference books to compare against (We Were Liars, The Frozen River, All the Light We
 Cannot See, Just Mercy, Stolen Focus, Southern Book Club…, Lolita, Unhinged). Pick field values by
@@ -104,16 +120,23 @@ LENGTH blocks (45-60 min, no padding); English only; ~4-5k characters (the fixed
 
 **Two blocks come from the channel's own analytics (2026-11-11, skill `channel-analytics`) — keep them and make them
 book-specific; `--check` refuses a prompt without them:**
-- **FIRST MINUTE.** Half the viewers leave before 0:50. Under the block, write this book's own lines: the title +
-  author sentence the host says by 0:30, and the **three named things** the listener will understand by the end
-  (a claim, a character's choice, the ending's meaning — never "key ideas" or "main themes").
+- **FIRST MINUTE — this book's own opening, never a stock intro (YPP: repetitive content).** Half the viewers leave
+  before 0:50, so the first minute has rules; a fixed formula would make every film open the same way. make-prompt
+  therefore picks the opening per book on three axes (`scripts/lib/opening-grammar.js`: how it hooks / when the book
+  is named / what is promised), farthest from the last 8 books, records it in `book.json` → `opening`, and writes
+  its `OPEN` / `NAME IT` / `PROMISE` lines. Under each line write THIS book's content: the actual scene, object,
+  number or belief; the sentence that names the book; the promise in the book's own terms (never "key ideas" or
+  "main themes"). If the chosen hook truly cannot be honest for this book, choose another yourself:
+  `--opening=<hook>/<naming>/<promise>` (recorded as the agent's) — never the same as the previous book's.
 - **PICTURE FIRST.** The narration is drawn afterwards, and a sentence with nothing to draw becomes a dead or
   text-carried scene. For each of the 8 beats add its picture in a few words, taken from the book itself (Antidote:
   a physical demonstration — two sizes, a threshold that flips, one thing changed, a before and after; Vox: a named
   person in a named place doing one thing). Write it into the beat line: `claim — picture: <what is seen>`.
-- **Use the book's text when the operator gave it.** The operator has the book's PDF; if a path to it (or to its
-  text) is in the request, read the contents page and the chapters you need and take every example, scene and number
-  from it. Never copy the book file into the repo, and never quote more than a sentence of it in the prompt.
+- **Write from the source brief** (§0) when there is one: every beat's example, picture, number and the opening
+  come from the answer NotebookLM gave, not from memory. Never quote more than a sentence of the book.
+- **The length follows the book — never shorten (operator, 2026-11-11).** Pass `--pages=<n>` (from the brief):
+  up to 300 pages → 45-60 min, 8 beats; 301-500 → 60-75 min, 10 beats; over 500 → 75-90 min, 12 beats. NotebookLM
+  decides the real length; the floor in the prompt and the beat count are what move it.
 - Never write "audiobook" in the prompt, titles or tags: people who search for the audiobook leave within seconds.
 
 Shape the beats for the engine:
