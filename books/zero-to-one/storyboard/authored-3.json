@@ -1,0 +1,954 @@
+[
+  {
+    "i": 72,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "HUNDREDS OF BILLIONS",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "explainedBy": "Airlines create huge value: a host marvels beside cash.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Airlines create huge value: a host marvels beside cash.",
+      "concreteVisual": "Host A points at a coin icon, surprised.",
+      "onScreenText": "HUNDREDS OF BILLIONS",
+      "relationToPrevious": "Opens the airline example.",
+      "addedInformation": "Money icon shows the scale of value created."
+    }
+  },
+  {
+    "i": 73,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "500 MILES AN HOUR",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Host B marvels that flying is a miracle.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host B marvels that flying is a miracle.",
+      "concreteVisual": "Host B delighted, arms up.",
+      "onScreenText": "500 MILES AN HOUR",
+      "relationToPrevious": "From value in dollars to the miracle of the service.",
+      "addedInformation": "weak: reaction to the speed claim."
+    }
+  },
+  {
+    "i": 74,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "A price war",
+        "They buy the same planes"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A price war plus identical costs is the cause of the squeeze.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A price war plus identical costs is the cause of the squeeze.",
+      "concreteVisual": "Flow diagram: Price war leads to Same planes, same fuel.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Starts the cause chain behind the airline margins.",
+      "addedInformation": "Cause side of the trap."
+    }
+  },
+  {
+    "i": 75,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "A price war",
+        "They buy the same planes",
+        "Profit is 37 cents"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The cause chain ends in almost no captured value: 37 cents.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The cause chain ends in almost no captured value: 37 cents.",
+      "concreteVisual": "Same flow gains the label 37 cents.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Adds the result to the kept flow.",
+      "addedInformation": "The effect: 37 cents of profit per trip."
+    }
+  },
+  {
+    "i": 76,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "37 CENTS",
+      "style": "reveal"
+    },
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "The hosts are stunned at 37 cents, then turn to Google.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The hosts are stunned at 37 cents, then turn to Google.",
+      "concreteVisual": "Host B surprised, callout 37 CENTS, host A beside also surprised.",
+      "onScreenText": "37 CENTS",
+      "relationToPrevious": "Reaction to the number, then the pivot to the contrast.",
+      "addedInformation": "weak: reaction."
+    }
+  },
+  {
+    "i": 77,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Airlines: 37 cents",
+        "Google: 21% kept"
+      ],
+      "values": [
+        1
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Airlines sit at one pole of profit, Google at the other.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Airlines sit at one pole of profit, Google at the other.",
+      "concreteVisual": "Spectrum from Airlines 37 cents to Google 21% kept, marker at Google.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Contrast replaces the airline flow.",
+      "addedInformation": "Two very different profit levels side by side."
+    }
+  },
+  {
+    "i": 78,
+    "concept": "puppeteer",
+    "diagram": null,
+    "callout": {
+      "text": "THEY DICTATE THE TERMS",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Google controls the ad auction because it stands alone.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Google controls the ad auction because it stands alone.",
+      "concreteVisual": "Host A smirking beside a puppeteer icon.",
+      "onScreenText": "THEY DICTATE THE TERMS",
+      "relationToPrevious": "Explains why Google escapes the price war.",
+      "addedInformation": "Control of the auction is the cause of the margin."
+    }
+  },
+  {
+    "i": 79,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "DISGUISE THEIR MONOPOLIES",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "Monopolists wear a false face to look small.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Monopolists wear a false face to look small.",
+      "concreteVisual": "Host A with a mask icon.",
+      "onScreenText": "DISGUISE THEIR MONOPOLIES",
+      "relationToPrevious": "New claim: the optical illusion.",
+      "addedInformation": "Mask shows the pretense."
+    }
+  },
+  {
+    "i": 80,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "TERRIFIED OF REGULATORS",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "afraid",
+    "action": "talk",
+    "explainedBy": "They fear government and dress up as tiny players.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They fear government and dress up as tiny players.",
+      "concreteVisual": "Host B afraid beside the law icon.",
+      "onScreenText": "TERRIFIED OF REGULATORS",
+      "relationToPrevious": "Gives the reason for the disguise.",
+      "addedInformation": "Regulators are the threat."
+    }
+  },
+  {
+    "i": 81,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "JUST A TINY FRACTION",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "At the hearing Google lumps itself in with billboards and TV.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "At the hearing Google lumps itself in with billboards and TV.",
+      "concreteVisual": "Host A smirking at the law icon, testifying.",
+      "onScreenText": "JUST A TINY FRACTION",
+      "relationToPrevious": "Same hearing, now the testimony itself.",
+      "addedInformation": "The diluting claim."
+    }
+  },
+  {
+    "i": 82,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "THE OPPOSITE LIE",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Non-monopolists tell the reverse lie to investors.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Non-monopolists tell the reverse lie to investors.",
+      "concreteVisual": "Host B smirking with a mask icon.",
+      "onScreenText": "THE OPPOSITE LIE",
+      "relationToPrevious": "Flips the direction of the lie.",
+      "addedInformation": "Both sides fake the market size."
+    }
+  },
+  {
+    "i": 83,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Narrowing the category until he wins",
+      "style": "highlight"
+    },
+    "set": "classroom",
+    "cast": [
+      "student"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "trophy",
+    "explainedBy": "A student claims to be top athlete only in a tiny category.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A student claims to be top athlete only in a tiny category.",
+      "concreteVisual": "Student in a classroom holding a trophy, smirking.",
+      "onScreenText": "Narrowing the category until he wins",
+      "relationToPrevious": "Analogy for the narrow category.",
+      "addedInformation": "Absurdly narrow category."
+    }
+  },
+  {
+    "i": 84,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "They define the market narrowly",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "The restaurant owner defines the market narrowly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The restaurant owner defines the market narrowly.",
+      "concreteVisual": "Host B as the owner, plate icon.",
+      "onScreenText": "They define the market narrowly",
+      "relationToPrevious": "Moves from analogy to the real case.",
+      "addedInformation": "Narrow definition."
+    }
+  },
+  {
+    "i": 85,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They share one $20 budget",
+      "style": "highlight"
+    },
+    "cast": [],
+    "explainedBy": "All of them fight for the same $20 dining budget.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "All of them fight for the same $20 dining budget.",
+      "concreteVisual": "The line on screen, held over the people",
+      "onScreenText": "They share one $20 budget",
+      "relationToPrevious": "Shows the real competitors.",
+      "addedInformation": "The competition the owner ignores."
+    }
+  },
+  {
+    "i": 86,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A FICTIONAL CATEGORY",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "They invent a category while ignoring the ocean of competition.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They invent a category while ignoring the ocean of competition.",
+      "concreteVisual": "Host B pointing, frowning.",
+      "onScreenText": "A FICTIONAL CATEGORY",
+      "relationToPrevious": "Summary of the narrow-market lie.",
+      "addedInformation": "weak: restates."
+    }
+  },
+  {
+    "i": 87,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "ECONOMICS 101",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "partnerExpression": "neutral",
+    "partnerAction": "idle",
+    "explainedBy": "Host B interrupts to challenge with the textbook.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host B interrupts to challenge with the textbook.",
+      "concreteVisual": "Host B pointing at a book icon, host A listening.",
+      "onScreenText": "ECONOMICS 101",
+      "relationToPrevious": "Turns to the textbook view.",
+      "addedInformation": "The interruption sets up the challenge."
+    }
+  },
+  {
+    "i": 88,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COMPETITION DRIVES PRICES DOWN",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "The textbook premise: competition helps consumers.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The textbook premise: competition helps consumers.",
+      "concreteVisual": "Host A explaining.",
+      "onScreenText": "COMPETITION DRIVES PRICES DOWN",
+      "relationToPrevious": "States the textbook premise.",
+      "addedInformation": "weak: statement of the premise."
+    }
+  },
+  {
+    "i": 89,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "THE TEXTBOOK SAYS",
+        "claim": "Monopolies are rent collectors",
+        "inputs": [
+          "Cornering the board",
+          "Jacking up prices",
+          "Extracting wealth"
+        ],
+        "hub": "Monopoly",
+        "output": "Greed",
+        "verdict": "a completely flawed assumption",
+        "reason": "It assumes a static world",
+        "truth": "A dynamic world",
+        "cues": {
+          "links": "greedy rent collectors"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The textbook claim that monopolies are greedy rent collectors is built.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The textbook claim that monopolies are greedy rent collectors is built.",
+      "concreteVisual": "Refute diagram builds the textbook claim.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Starts the claim that will be rejected.",
+      "addedInformation": "The claim appears."
+    }
+  },
+  {
+    "i": 90,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "THE TEXTBOOK SAYS",
+        "claim": "Monopolies are rent collectors",
+        "inputs": [
+          "Cornering the board",
+          "Jacking up prices",
+          "Extracting wealth"
+        ],
+        "hub": "Monopoly",
+        "output": "Greed",
+        "verdict": "a completely flawed assumption",
+        "reason": "It assumes a static world",
+        "truth": "A dynamic world",
+        "cues": {
+          "result": "extracting wealth"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The claim completes: extracting wealth.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The claim completes: extracting wealth.",
+      "concreteVisual": "Same diagram fills.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Completes the claim.",
+      "addedInformation": "The standard critique."
+    }
+  },
+  {
+    "i": 91,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "THE TEXTBOOK SAYS",
+        "claim": "Monopolies are rent collectors",
+        "inputs": [
+          "Cornering the board",
+          "Jacking up prices",
+          "Extracting wealth"
+        ],
+        "hub": "Monopoly",
+        "output": "Greed",
+        "verdict": "a completely flawed assumption",
+        "reason": "It assumes a static world",
+        "truth": "A dynamic world",
+        "cues": {
+          "doubt": "But it operates",
+          "rejected": {
+            "phrase": "completely flawed assumption",
+            "occurrence": 1
+          },
+          "reason": "It assumes a static world"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The claim is rejected because it assumes a static world.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The claim is rejected because it assumes a static world.",
+      "concreteVisual": "Claim greys and is stamped; reason appears.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Rejection and reason.",
+      "addedInformation": "The flaw."
+    }
+  },
+  {
+    "i": 92,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "THE TEXTBOOK SAYS",
+        "claim": "Monopolies are rent collectors",
+        "inputs": [
+          "Cornering the board",
+          "Jacking up prices",
+          "Extracting wealth"
+        ],
+        "hub": "Monopoly",
+        "output": "Greed",
+        "verdict": "a completely flawed assumption",
+        "reason": "It assumes a static world",
+        "truth": "A dynamic world",
+        "cues": {}
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "In a frozen world a monopolist would be a rent collector.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In a frozen world a monopolist would be a rent collector.",
+      "concreteVisual": "Rejected claim stays on screen.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Illustrates when the claim holds.",
+      "addedInformation": "weak: explains the static case."
+    }
+  },
+  {
+    "i": 93,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "THE TEXTBOOK SAYS",
+        "claim": "Monopolies are rent collectors",
+        "inputs": [
+          "Cornering the board",
+          "Jacking up prices",
+          "Extracting wealth"
+        ],
+        "hub": "Monopoly",
+        "output": "Greed",
+        "verdict": "a completely flawed assumption",
+        "reason": "It assumes a static world",
+        "truth": "A dynamic world",
+        "cues": {
+          "truth": "we live in a dynamic world"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The correct model: a dynamic world where new things can be invented.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The correct model: a dynamic world where new things can be invented.",
+      "concreteVisual": "Truth model draws in.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Replaces the claim with the right model.",
+      "addedInformation": "The correct model."
+    }
+  },
+  {
+    "i": 94,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "NEW CATEGORIES OF ABUNDANCE",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Creative monopolies drive innovation by inventing new categories.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Creative monopolies drive innovation by inventing new categories.",
+      "concreteVisual": "Host A pointing at a lightbulb icon.",
+      "onScreenText": "NEW CATEGORIES OF ABUNDANCE",
+      "relationToPrevious": "Result of the dynamic world.",
+      "addedInformation": "Innovation as the effect."
+    }
+  },
+  {
+    "i": 95,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT EXTORTION",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "smartphone",
+    "explainedBy": "Apple early iPhone margins as a reward.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Apple early iPhone margins as a reward.",
+      "concreteVisual": "Host B holding a smartphone.",
+      "onScreenText": "NOT EXTORTION",
+      "relationToPrevious": "Concrete example.",
+      "addedInformation": "Apple example."
+    }
+  },
+  {
+    "i": 96,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT ARTIFICIAL SCARCITY",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "smartphone",
+    "continue": true,
+    "explainedBy": "The iOS profits were a reward for building something that worked.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The iOS profits were a reward for building something that worked.",
+      "concreteVisual": "Host B still holding the smartphone.",
+      "onScreenText": "NOT ARTIFICIAL SCARCITY",
+      "relationToPrevious": "Same stage, adds the reason.",
+      "addedInformation": "Reward not scarcity."
+    }
+  },
+  {
+    "i": 97,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SMARTPHONE THAT WORKED",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "smartphone",
+    "continue": true,
+    "explainedBy": "It worked while everyone else made clunky phones.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It worked while everyone else made clunky phones.",
+      "concreteVisual": "Host B holding the working smartphone, smirking.",
+      "onScreenText": "A SMARTPHONE THAT WORKED",
+      "relationToPrevious": "Contrast with clunky rivals.",
+      "addedInformation": "weak: contrast not drawn."
+    }
+  },
+  {
+    "i": 98,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Workers",
+        "Product design",
+        "Decadelong research"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Monopoly profits fund care for workers, design and research.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Monopoly profits fund care for workers, design and research.",
+      "concreteVisual": "Sorter with three things profit pays for.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "The mechanical secret.",
+      "addedInformation": "What breathing room buys."
+    }
+  },
+  {
+    "i": 99,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A 2% margin cannot fund R&D",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "holds": "wallet",
+    "explainedBy": "A restaurant at 2% cannot fund research.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A restaurant at 2% cannot fund research.",
+      "concreteVisual": "Host B slumping with an empty wallet.",
+      "onScreenText": "A 2% margin cannot fund R&D",
+      "relationToPrevious": "Counter-example to the sorter.",
+      "addedInformation": "Cost of thin margins."
+    }
+  },
+  {
+    "i": 100,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BLEEDING OUT IN A PRICE WAR",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "You cannot fund the future while bleeding in a price war.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You cannot fund the future while bleeding in a price war.",
+      "concreteVisual": "Host A pointing sternly.",
+      "onScreenText": "BLEEDING OUT IN A PRICE WAR",
+      "relationToPrevious": "Conclusion of the argument.",
+      "addedInformation": "weak: summary."
+    }
+  },
+  {
+    "i": 101,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "HOW YOU BUILD ONE",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "Transition to how a monopoly is built.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Transition to how a monopoly is built.",
+      "concreteVisual": "Host B introducing.",
+      "onScreenText": "HOW YOU BUILD ONE",
+      "relationToPrevious": "Turns to mechanics.",
+      "addedInformation": "weak: transition."
+    }
+  },
+  {
+    "i": 102,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "BACK TO 1999",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Wind the clock back to 1999.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Wind the clock back to 1999.",
+      "concreteVisual": "Host A beside a clock icon.",
+      "onScreenText": "BACK TO 1999",
+      "relationToPrevious": "Time jump.",
+      "addedInformation": "Sets the year."
+    }
+  },
+  {
+    "i": 103,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SKEPTICAL JOURNALISTS",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "A stuffy room of doubting reporters.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A stuffy room of doubting reporters.",
+      "concreteVisual": "Host B as a smirking skeptic in a room.",
+      "onScreenText": "SKEPTICAL JOURNALISTS",
+      "relationToPrevious": "Scene setting.",
+      "addedInformation": "The audience."
+    }
+  },
+  {
+    "i": 104,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CHUNKY PALM PILOTS",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "phone",
+    "explainedBy": "Nerds on stage hold primitive handhelds.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Nerds on stage hold primitive handhelds.",
+      "concreteVisual": "James on stage holding a handheld.",
+      "onScreenText": "CHUNKY PALM PILOTS",
+      "relationToPrevious": "Cut to the stage.",
+      "addedInformation": "The presenters."
+    }
+  },
+  {
+    "i": 105,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "BEAMING MONEY BY INFRARED",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "phone",
+    "continue": true,
+    "explainedBy": "They beam money between devices.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They beam money between devices.",
+      "concreteVisual": "James holding handheld, a coin icon.",
+      "onScreenText": "BEAMING MONEY BY INFRARED",
+      "relationToPrevious": "Adds the money.",
+      "addedInformation": "What the device does."
+    }
+  },
+  {
+    "i": 106,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "GROANING AND ROLLING EYES",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "partnerExpression": "angry",
+    "partnerAction": "idle",
+    "explainedBy": "The audience groans.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The audience groans.",
+      "concreteVisual": "Two journalists with blank and angry faces.",
+      "onScreenText": "GROANING AND ROLLING EYES",
+      "relationToPrevious": "Audience reaction.",
+      "addedInformation": "Skepticism."
+    }
+  },
+  {
+    "i": 107,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "10 WORST IDEAS OF 1999",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "holds": "notes",
+    "explainedBy": "The press wrote it off as a top-ten worst idea.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The press wrote it off as a top-ten worst idea.",
+      "concreteVisual": "Host A smirking holding notes.",
+      "onScreenText": "10 WORST IDEAS OF 1999",
+      "relationToPrevious": "Verdict from the press.",
+      "addedInformation": "The list."
+    }
+  },
+  {
+    "i": 108,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOBODY NEEDED IT",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Nobody needed it, users were scattered.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Nobody needed it, users were scattered.",
+      "concreteVisual": "James slumped on stage.",
+      "onScreenText": "NOBODY NEEDED IT",
+      "relationToPrevious": "Concedes the critics were right.",
+      "addedInformation": "The failure."
+    }
+  }
+]

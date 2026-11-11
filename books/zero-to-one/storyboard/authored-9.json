@@ -1,0 +1,281 @@
+[
+  {
+    "i": 308,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE POWER LAW",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "A host explains the VC's cold power-law view of the world; commentary, so a face with the label.",
+    "noVisual": "No icon reads as a power law; the sentence is commentary.",
+    "storyboard": {
+      "claim": "VCs see the world through the power law",
+      "concreteVisual": "Host A in the office, smirking and talking",
+      "onScreenText": "THE POWER LAW",
+      "relationToPrevious": "continues the VC critique",
+      "addedInformation": "weak: label names the lens"
+    }
+  },
+  {
+    "i": 309,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "HISTORY OF THE VICTORS",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "The history is written by the winners: a book beside the host who warns of the trap.",
+    "storyboard": {
+      "claim": "Calling success a secret afterwards is a trap; history is written by victors",
+      "concreteVisual": "Host B, worried, beside a book icon",
+      "onScreenText": "HISTORY OF THE VICTORS",
+      "relationToPrevious": "concedes the critique",
+      "addedInformation": "the book stands for the written history"
+    }
+  },
+  {
+    "i": 310,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE MATH STILL HOLDS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "The host pushes back: without VC motives the mathematics still stands; commentary.",
+    "noVisual": "No object reads as business mathematics.",
+    "storyboard": {
+      "claim": "Strip away VC motives and the math remains sound",
+      "concreteVisual": "Host A pointing, smirking",
+      "onScreenText": "THE MATH STILL HOLDS",
+      "relationToPrevious": "turns from concession to rebuttal",
+      "addedInformation": "weak: a stance, no mechanism"
+    }
+  },
+  {
+    "i": 311,
+    "concept": "food",
+    "diagram": null,
+    "callout": {
+      "text": "A STANDARD RESTAURANT",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "holds": null,
+    "explainedBy": "A solo founder with no backing starts an ordinary commodity business; the plate stands for the restaurant.",
+    "storyboard": {
+      "claim": "A solo founder starts an undifferentiated commodity business",
+      "concreteVisual": "Founder in the garage beside a dinner-plate icon",
+      "onScreenText": "A STANDARD RESTAURANT",
+      "relationToPrevious": "moves from VC to the solo founder",
+      "addedInformation": "the restaurant is the named example"
+    }
+  },
+  {
+    "i": 312,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Perfect competition",
+        "Margins",
+        "Zero"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause to effect: perfect competition drives profit margins to zero.",
+    "storyboard": {
+      "claim": "Perfect competition drives margins to zero",
+      "concreteVisual": "A flow diagram: perfect competition, margins, zero",
+      "onScreenText": "Perfect competition / Margins / Zero",
+      "relationToPrevious": "the cause of the commodity trap",
+      "addedInformation": "the mechanism"
+    }
+  },
+  {
+    "i": 313,
+    "concept": "lightbulb",
+    "diagram": null,
+    "callout": {
+      "text": "NOBODY CAN EASILY COPY",
+      "style": "reveal"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Differentiation: doing something genuinely new that others cannot copy; the lightbulb beside the founder.",
+    "storyboard": {
+      "claim": "Differentiation is doing something new others cannot copy",
+      "concreteVisual": "Founder, happy, with a lightbulb icon",
+      "onScreenText": "NOBODY CAN EASILY COPY",
+      "relationToPrevious": "the answer to the treadmill",
+      "addedInformation": "the lightbulb stands for the new thing"
+    }
+  },
+  {
+    "i": 314,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "LASTING CASH FLOW",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Differentiation is the only way to the lasting cash flow needed to survive.",
+    "storyboard": {
+      "claim": "Differentiation generates the cash flow to survive",
+      "concreteVisual": "Founder beside a coin icon",
+      "onScreenText": "LASTING CASH FLOW",
+      "relationToPrevious": "what differentiation buys",
+      "addedInformation": "weak: coin reads as cash"
+    }
+  },
+  {
+    "i": 315,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "VCs need a monopoly",
+        "Founders need to survive"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Two different motives sorted side by side; both escape the gravity of competition.",
+    "storyboard": {
+      "claim": "VC and founder motives differ but both escape competition",
+      "concreteVisual": "A sorter with two buckets: VC scale, founder survival",
+      "onScreenText": "VC: world-dominating scale / Founder: survival",
+      "relationToPrevious": "compares the two motives",
+      "addedInformation": "the comparison"
+    }
+  },
+  {
+    "i": 316,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A SLIGHTLY BETTER COPY",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "smartphone",
+    "explainedBy": "The founder studies today's titans holding a smartphone, trying to build a slightly better one.",
+    "storyboard": {
+      "claim": "Copying today's titans means you have already lost",
+      "concreteVisual": "Founder, worried, holding a smartphone",
+      "onScreenText": "A SLIGHTLY BETTER COPY",
+      "relationToPrevious": "the warning to the reader",
+      "addedInformation": "the smartphone is the named copy"
+    }
+  },
+  {
+    "i": 317,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT AN OPERATING SYSTEM",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "The next Gates will not build an operating system, the next Zuckerberg no social network; the host states the denial.",
+    "storyboard": {
+      "claim": "The next Gates and Zuckerberg will not repeat their predecessors",
+      "concreteVisual": "Host B pointing and smirking",
+      "onScreenText": "NOT AN OPERATING SYSTEM",
+      "relationToPrevious": "gives the examples of the warning",
+      "addedInformation": "weak: negation carried by the callout"
+    }
+  },
+  {
+    "i": 318,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "COPYING ISN'T LEARNING",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Copying the greats is not learning from them; the host states the lesson.",
+    "noVisual": "No object reads as copying versus learning.",
+    "storyboard": {
+      "claim": "Copying these people is not learning from them",
+      "concreteVisual": "Host A talking",
+      "onScreenText": "COPYING ISN'T LEARNING",
+      "relationToPrevious": "the lesson",
+      "addedInformation": "weak: commentary"
+    }
+  },
+  {
+    "i": 319,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOBODY HAS EVEN NAMED",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "The sentence finishes: the next great company is one nobody has even named; the host's face turns to the reveal.",
+    "storyboard": {
+      "claim": "The next great company is one nobody has even named",
+      "concreteVisual": "Host A, surprised, finishing the line",
+      "onScreenText": "NOBODY HAS EVEN NAMED",
+      "relationToPrevious": "finishes the sentence from 318",
+      "addedInformation": "the reveal"
+    }
+  }
+]

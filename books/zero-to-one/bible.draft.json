@@ -1,0 +1,485 @@
+{
+  "slug": "zero-to-one",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "The draft's era, cast keys, ages and places are a HEURISTIC and are often wrong (Trust Fall: one metaphor gave a",
+    "  sci-fi era; The Art of Strategy: 'lean', 'fred', 'end' as characters). Correcting them from the narration is",
+    "  routine authoring — never a question for the operator. Ages, roles and relations come from what the narration says.",
+    "Then: node scripts/plan-bible.js --slug=zero-to-one --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "zero-to-one",
+    "world": {
+      "era": "1972–2026",
+      "eraEvidence": "stated years",
+      "worldId": "",
+      "approxYear": 2013,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "zero-to-one",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "google": {
+        "name": "Google",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "twitter": {
+        "name": "Twitter",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "everyone": {
+        "name": "Everyone",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "cafe": {
+        "set": "cafe",
+        "look": "",
+        "mentions": 7
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 7
+      },
+      "hospital": {
+        "set": "hospital",
+        "look": "",
+        "mentions": 2
+      },
+      "kitchen": {
+        "set": "kitchen",
+        "look": "",
+        "mentions": 1
+      },
+      "classroom": {
+        "set": "classroom",
+        "look": "",
+        "mentions": 1
+      },
+      "street": {
+        "set": "street",
+        "look": "",
+        "mentions": 1
+      },
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 1
+      },
+      "office": {
+        "set": "office",
+        "look": "",
+        "mentions": 1
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 1
+      },
+      "agora": {
+        "set": "agora",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "rocketLaunch",
+        "mentions": 42,
+        "why": ""
+      },
+      {
+        "concept": "coin",
+        "mentions": 26,
+        "why": ""
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 23,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 18,
+        "why": ""
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 17,
+        "why": ""
+      },
+      {
+        "concept": "game",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "wallet",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "road",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "target",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "school",
+        "mentions": 6,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 15029,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 32203,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 49867,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 68501,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 592,
+    "cast": [
+      {
+        "name": "Google",
+        "asSubject": 3,
+        "total": 12,
+        "samples": [
+          "Exactly. I mean, Microsoft was the undisputed dominant king of operating systems and, you know, desktop office And Google was this pure algorithm-driven search ",
+          "Google will sit in front of a congressional hearing and testify that they are just a tiny vulnerable fraction of the global advertising market.",
+          "Yes. You want to make the final great technological development in a specific market the way Google was the last search engine that mattered or Facebook was the"
+        ]
+      },
+      {
+        "name": "Twitter",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "Right on the chaotic floor of the New York Stock Exchange, Twitter is going public.",
+          "The New York Times made $133 million in actual profit last year, and Twitter is fundamentally losing money."
+        ]
+      },
+      {
+        "name": "Everyone",
+        "asSubject": 2,
+        "total": 2,
+        "samples": [
+          "Everyone is gunning for that top spot.",
+          "Everyone wants to go viral."
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "cafe",
+        "mentions": 7,
+        "samples": [
+          "To really feel the weight of perfect competition, we need to step into the kitchen of a three Michelin star restaurant in France.",
+          "Tragically, in 2003, when a competing French dining guy downgraded his restaurant, the pressure broke him, and he did exactly that."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 7,
+        "samples": [
+          "Right? They invent a fictional category where they are the only player while ignoring the massive ocean of competition they actually swim in.",
+          "That's exactly what the PayPal founders realized after that Palm Pilot disaster."
+        ]
+      },
+      {
+        "set": "hospital",
+        "mentions": 2,
+        "samples": [
+          "Instead, they found a tiny, highly specific entry point, the Stanford Sleep Clinic.",
+          "Once the researchers were hooked, the product spread laterally to other departments until eventually Stanford Hospital and the university itself were "
+        ]
+      },
+      {
+        "set": "kitchen",
+        "mentions": 1,
+        "samples": [
+          "To really feel the weight of perfect competition, we need to step into the kitchen of a three Michelin star restaurant in France."
+        ]
+      },
+      {
+        "set": "classroom",
+        "mentions": 1,
+        "samples": [
+          "Oh, exactly. It's like a high school student claiming they are the number one athlete in the school, but only if you narrow the category down to like "
+        ]
+      },
+      {
+        "set": "street",
+        "mentions": 1,
+        "samples": [
+          "They define their markets so incredibly narrowly to pretend they have a monopoly, completely blinding themselves to the reality that they are fighting"
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 1,
+        "samples": [
+          "They ended up writing this off as one of the quote unquote 10 worst business ideas of 1999."
+        ]
+      },
+      {
+        "set": "office",
+        "mentions": 1,
+        "samples": [
+          "But they didn't try to walk into the office of the president of Stanford University and sell a massive campuswide IT overhaul."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 1,
+        "samples": [
+          "Wall Street bankers largely just rearrange the capital structures of existing companies, moving money from one column to another instead of directing "
+        ]
+      },
+      {
+        "set": "agora",
+        "mentions": 1,
+        "samples": [
+          "Kevin Syram made a definite, highly opinionated design choice to strip away everything except a beautifully constrained square photo Okay, let's slow "
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "rocketLaunch",
+        "mentions": 42,
+        "sample": "If you look at the absolute I mean the absolute Shakespearean tragedy that played out in Silicon Valley during the 2010s between Microsoft a"
+      },
+      {
+        "concept": "coin",
+        "mentions": 26,
+        "sample": "Microsoft and Google poured billions of dollars into fighting over the exact same turf."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 23,
+        "sample": "Do you have a systemic way to not just create, but actually deliver and sell your product?"
+      },
+      {
+        "concept": "war",
+        "mentions": 18,
+        "sample": "It just became this massive expensive street fight."
+      },
+      {
+        "concept": "codeWindow",
+        "mentions": 17,
+        "sample": "Exactly. I mean, Microsoft was the undisputed dominant king of operating systems and, you know, desktop office And Google was this pure algo"
+      },
+      {
+        "concept": "game",
+        "mentions": 11,
+        "sample": "Do you have the exact right founding team?"
+      },
+      {
+        "concept": "wallet",
+        "mentions": 10,
+        "sample": "They define their markets so incredibly narrowly to pretend they have a monopoly, completely blinding themselves to the reality that they ar"
+      },
+      {
+        "concept": "lightbulb",
+        "mentions": 8,
+        "sample": "Can you create breakthrough technology or are you just making incremental improvements?"
+      },
+      {
+        "concept": "road",
+        "mentions": 8,
+        "sample": "They serve millions of passengers, flying them safely across the globe at 500 miles an hour, which is a miracle."
+      },
+      {
+        "concept": "target",
+        "mentions": 8,
+        "sample": "If the founders develop irreconcilable differences about the core mission of the company, the company itself becomes the primary victim."
+      },
+      {
+        "concept": "work",
+        "mentions": 7,
+        "sample": "Exactly. I mean, Microsoft was the undisputed dominant king of operating systems and, you know, desktop office And Google was this pure algo"
+      },
+      {
+        "concept": "school",
+        "mentions": 6,
+        "sample": "Oh, exactly. It's like a high school student claiming they are the number one athlete in the school, but only if you narrow the category dow"
+      }
+    ],
+    "openingLines": [
+      "If you look at the absolute I mean the absolute Shakespearean tragedy that played out in Silicon Valley during the 2010s between Microsoft and Google, you quickly realize a really fundamental counterintuitive truth and that is competition is for losers.",
+      "Yeah. Literally. Like it's not healthy.",
+      "It's not a driver of ultimate value and it completely blinds you.",
+      "You had these two tech behemoths.",
+      "Right. Right. They started out in entirely different universes.",
+      "Exactly. I mean, Microsoft was the undisputed dominant king of operating systems and, you know, desktop office And Google was this pure algorithm-driven search engine focused entirely on the internet."
+    ],
+    "closingLines": [
+      "The next Mark Zuckerberg will not create a social network.",
+      "The next Larry Page won't build a search engine.",
+      "If you are copying these people, you aren't learning from them.",
+      "Because the defining characteristic of the next great company is that it is one nobody has even named"
+    ]
+  }
+}

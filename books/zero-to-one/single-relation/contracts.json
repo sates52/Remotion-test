@@ -1,0 +1,32 @@
+{
+ "schema": "single-relation-contracts/1",
+ "slug": "zero-to-one",
+ "at": "2026-11-09T11:02:48.012Z",
+ "valid": [
+  252
+ ],
+ "invalid": [],
+ "contracts": {
+  "252": {
+   "sceneIndex": 252,
+   "sceneId": "scene-252",
+   "previousSceneId": "scene-251",
+   "author": "claude-haiku-5.5",
+   "inputHash": "40ac09c001914960",
+   "contractHash": "7665662b808b8f18",
+   "valid": true,
+   "errors": [],
+   "review": {
+    "verdict": "OK",
+    "ends": [
+     "frontiers",
+     "people"
+    ],
+    "labelCarried": [
+     "frontiers"
+    ],
+    "labelDependence": 0.5
+   }
+  }
+ }
+}

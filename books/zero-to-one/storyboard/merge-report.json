@@ -1,0 +1,114 @@
+{
+  "slug": "zero-to-one",
+  "engine": "antidote",
+  "at": "2026-11-09T12:43:00.730Z",
+  "write": true,
+  "written": true,
+  "problems": 0,
+  "byClass": {
+    "OPERATOR": 0,
+    "AGENT_STEP": 0,
+    "REAUTHOR": 0,
+    "ROUTINE": 0
+  },
+  "byCode": [],
+  "byFile": {},
+  "operatorNeeded": false,
+  "next": "merged — next: node scripts/preview-state.js status (it names the next step: readcheck for Antidote, make-book for Vox); routine, never end the turn",
+  "items": [],
+  "warnings": 0,
+  "review": [
+    {
+      "i": 29,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"The exact same trap\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 38,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"Hard physical limits\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 57,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"Without new technology\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 59,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"Owning the whole pie\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 88,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"COMPETITION DRIVES PRICES DOWN\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 100,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"BLEEDING OUT IN A PRICE WAR\" repeats the narration and nothing else on screen carries the meaning (lone point, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 104,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"CHUNKY PALM PILOTS\" shows \"chunky palm pilots\" before the narration says it (beat 105) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 155,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"CLV must exceed CAC\" shows \"must exceed\" before the narration says it (beat 156) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 169,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"A bizarre team dynamic\" shows \"team dynamic\" before the narration says it (beat 170) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 175,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"A strange ideological microculture\" shows \"ideological microculture\" before the narration says it (beat 176) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 185,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"ELIMINATING INTERNAL FRICTION\" repeats the narration and nothing else on screen carries the meaning (lone point, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 202,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"$24 BILLION VALUATION\" shows \"billion valuation\" before the narration says it (beat 203) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 254,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"We are taught tiny, safe steps\" shows \"taught steps\" before the narration says it (beat 255) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    }
+  ],
+  "refused": {}
+}

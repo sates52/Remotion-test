@@ -1477,3 +1477,12 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail A from the earlier build, hook THE SETUP.
 - **Cleanup:** operator-ordered post-upload cleanup 2026-11-09: render-github-cleanup.js (10 artifacts, 10 runs, ~3158 MB), purge-render-branches.js (11 refs on the workers), render-purge.js (film and thumbnails, ~3208 MB). Local MP3 and mastered audio removed by the GitHub cleanup step.
 - **Earlier unintended deletion:** the post-render finalizer removed the raw `public/captions/the-witch.vtt` before the cleanup order. `clean.vtt` was not affected.
+
+## zero-to-one (Peter Thiel, Blake Masters) — Antidote
+- **Status:** Published on YouTube (operator-confirmed, 2026-11-11).
+- **Length:** 87,011 frames (48.5 min); technical VERIFIED in cloud assembly (run 42661760861), full decode clean, audio present, 974 MB. Join dropouts: 219 (DEFECT_REPORTED).
+- **Render:** 10-worker GitHub split render, all 10 segments on the pool; operator-accepted quality debt (513 REVIEW, 0 BLOCK) for this render input only.
+- **Quality provenance:** first sealed mute test FAIL (WRONG 2/30, beats 130/271, authoring-fixed); fresh holdout run2 PASS (WRONG 0/30, dead 0/30, ADDS 11/30 text-carried, EXPLAINS 0/30). Readcheck 0 WRONG.
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail A/B/C generated (hook ONE MONOPOLY).
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-11: render-github-cleanup.js (14 artifacts, 12 runs, ~1984 MB), purge-render-branches.js --force (11 refs), render-purge.js (film + thumbnails, ~975 MB). Local mp3, mastered audio, raw VTT and split state removed.
+- **Kept:** committed source under `books/zero-to-one/`, and `public/captions/zero-to-one.clean.vtt`.

@@ -1,0 +1,333 @@
+{
+  "date": "2026-11-09T12:44:13.793Z",
+  "n": 320,
+  "total": 320,
+  "sources": [
+    "readcheck",
+    "recheck-1",
+    "recheck-2",
+    "recheck-3"
+  ],
+  "evidence": {
+    "status": "OK",
+    "signals": [
+      "full run: readers 1: 140 items written 90 s after the input (a fresh reader needs >= 105 s)",
+      "full run: judges 1: 140 items written 48 s after the input (a fresh reader needs >= 105 s)",
+      "full run: readers 2: 140 items written 93 s after the input (a fresh reader needs >= 105 s)",
+      "full run: judges 2: 140 items written 57 s after the input (a fresh reader needs >= 105 s)"
+    ]
+  },
+  "binding": "BOUND",
+  "tallied": {
+    "baseRun": "zero-to-one-prep-591d12292267",
+    "folders": {
+      "readcheck": {
+        "run": "zero-to-one-prep-591d12292267",
+        "evidenceSha256": "4da9d88b7023d5ddfcd87aa991c96fdf08d08676ed0d43ddc0c8cd45ce8604af"
+      },
+      "recheck-1": {
+        "run": "zero-to-one-prep-1ad3c51863c6",
+        "evidenceSha256": "dd24fe789a72d802d50495944bbeaceeab4805f062afa443befcf2332d3c9255"
+      },
+      "recheck-2": {
+        "run": "zero-to-one-prep-1409af288d7c",
+        "evidenceSha256": "45a240eb19efe4c70e923bb57b9b05945eae570655399b2575df56e2f6346b54"
+      },
+      "recheck-3": {
+        "run": "zero-to-one-prep-2a9f1cf9d986",
+        "evidenceSha256": "ffed4fa1f88a3f74d00a82c8464f2bf89c666d9a825890336ddaacf9f0436053"
+      }
+    }
+  },
+  "totals": {
+    "CORRECT": 290,
+    "NEUTRAL": 30,
+    "WRONG": 0
+  },
+  "wrongRate": 0,
+  "blame": {
+    "words": 12,
+    "diagram": 17,
+    "people": 1
+  },
+  "iconBlame": {},
+  "beats": [
+    {
+      "i": 49,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is generic about feeding a family and misses the copy-a-proven-model question.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "Feed their family"
+    },
+    {
+      "i": 76,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess only emphasizes 37 cents and omits the contrast with Google.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "37 CENTS"
+    },
+    {
+      "i": 89,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Blank refute diagram gives no content, so the guess is vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 90,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Blank refute diagram gives no content, so the guess is vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 91,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Blank refute diagram gives no content, so the guess is vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 92,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Blank refute diagram gives no content, so the guess is vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 93,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Blank refute diagram gives no content, so the guess is vague.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 117,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says grew 25 percent rather than captured 25 percent of the eBay sellers.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "25% IN 3 MONTHS"
+    },
+    {
+      "i": 141,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague about who is the authority and misses Scotty/Star Trek.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "SCOTTY AS THE AUTHORITY"
+    },
+    {
+      "i": 180,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess says hiring heuristic, but it is an investing rule.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A BIZARRE HEURISTIC"
+    },
+    {
+      "i": 181,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess names a suit rule without saying it governs investing.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "THE SUIT RULE"
+    },
+    {
+      "i": 190,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Empty refute diagram gives a generic claim-refuted reading, not the diversity-of-thought point.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 191,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Empty refute diagram gives only a generic reading.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 192,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Empty refute diagram gives only a generic reading.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 193,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Empty refute diagram gives only a generic reading.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 194,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Empty refute diagram gives only a generic reading.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 199,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess catches the secret line but not the turn to durability.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "BUILT ON A SECRET"
+    },
+    {
+      "i": 216,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "The guess lists durability factors, but the narration is specifically about network effects and iOS developers, and the 'brand is surface' bucket is not what is being said.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 217,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "The guess is broadly right about network effects, but it adds technology, scale and branding claims the narration does not make; the narration is about the Apple ecosystem lock-in.",
+      "from": "recheck-2",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 224,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess shows only a pet food seller, missing the first-mover point.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 236,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess is vague and omits that agreement signals no secret.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 246,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess ties capital to monopoly, not the definition of capitalism.",
+      "from": "readcheck",
+      "concept": "coin",
+      "callout": "ACCUMULATION OF CAPITAL"
+    },
+    {
+      "i": 258,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess is vague and omits the Uber/Lyft secret.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 271,
+      "verdict": "NEUTRAL",
+      "blame": "people",
+      "why": "The guess captures preparing for an uncertain future but misses the well-rounded resume point, and the student/adult classroom setup stays generic.",
+      "from": "recheck-3",
+      "concept": null,
+      "callout": "PREPARING FOR THE UNKNOWN"
+    },
+    {
+      "i": 272,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess muddles the message about spreading oneself too thin.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "NOT A LOTTERY TICKET"
+    },
+    {
+      "i": 276,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Diagram repeats the contrast and omits Jobs.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 277,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess is vague and misses the iPod launch.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "NOT A QUIRKY EXPERIMENT"
+    },
+    {
+      "i": 290,
+      "verdict": "NEUTRAL",
+      "blame": "diagram",
+      "why": "Guess describes the scale but does not convey that evolution suits biology, not startups.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": null
+    },
+    {
+      "i": 298,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess misreads it as the first Instagram photo rather than a deliberate constrained design choice.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A SQUARE PHOTO"
+    },
+    {
+      "i": 306,
+      "verdict": "NEUTRAL",
+      "blame": "words",
+      "why": "Guess muddles the question of whether the advice holds for ordinary founders.",
+      "from": "readcheck",
+      "concept": "balance",
+      "callout": "ORDINARY FOUNDER OR GOSPEL?"
+    }
+  ],
+  "reviewRequired": {
+    "flagged": 13,
+    "wrong": [],
+    "neutral": [],
+    "cleared": 13,
+    "unread": []
+  }
+}

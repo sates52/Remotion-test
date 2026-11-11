@@ -1,0 +1,33 @@
+{
+ "schema": "single-relation-preview/1",
+ "slug": "zero-to-one",
+ "level": "isolated A/B preview configs — the book is unchanged",
+ "pairs": [
+  {
+   "sceneIndex": 252,
+   "sceneId": "scene-252",
+   "narration": "And therefore, modern people are deeply unsatisfied because there are no frontiers left. Doesn't that ring true for a founder in 2026?",
+   "previousNarration": "Exactly. He argued we are only left with tasks that are either entirely trivial, like designing a better toaster, or completely impossible, like achieving immor",
+   "contract": "contracts/252.json",
+   "type": "B",
+   "frames": [
+    367,
+    437,
+    507
+   ],
+   "timing": [
+    {
+     "effect": "modern people",
+     "effectAt": 19,
+     "changeStart": 30,
+     "changeEnd": 50
+    }
+   ],
+   "derived": [
+    "event 0: result \"modern people\" (derived from the evidence)"
+   ],
+   "bContractHash": "ca09c8c7f303d5a4"
+  }
+ ],
+ "timingDropped": []
+}

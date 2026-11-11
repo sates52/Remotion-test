@@ -1,0 +1,253 @@
+{
+  "slug": "zero-to-one",
+  "world": {
+    "era": "1999–2026",
+    "eraEvidence": "stated years in the narration: 1999 (Palm Pilot money-beaming), 2003, 2008 (air mattresses), 2013 (Twitter IPO), 2026 (founders today)",
+    "worldId": "startup-economy",
+    "approxYear": 2013,
+    "setting": "Silicon Valley startups and the modern business world, told as a two-host conversation",
+    "register": "two sharp US hosts arguing about business strategy; contemporary, no costume drama",
+    "forbid": [
+      "Palm Pilot used as a 2026 device",
+      "typewriter as a current office tool",
+      "Blackberry as a current phone"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "zero-to-one",
+    "worldId": "startup-economy",
+    "allowedMotifs": [
+      "rocketLaunch",
+      "coin",
+      "funnelMetrics",
+      "chains",
+      "target",
+      "shield",
+      "car",
+      "city",
+      "book",
+      "key",
+      "lightbulb",
+      "clock",
+      "home",
+      "star",
+      "mask",
+      "law",
+      "food",
+      "balance",
+      "heart",
+      "compass",
+      "hourglass",
+      "road",
+      "puppeteer",
+      "fire"
+    ],
+    "forbiddenMotifs": [
+      "war",
+      "grave",
+      "medical"
+    ],
+    "allowedCharacters": [
+      "host-a",
+      "advocate",
+      "founder",
+      "james",
+      "student"
+    ],
+    "allowedLocations": [
+      "pitchStage",
+      "startupGarage",
+      "office",
+      "street",
+      "classroom",
+      "workstation",
+      "room",
+      "horizon"
+    ],
+    "allowedProps": [
+      "laptopMockup",
+      "phone",
+      "codeWindow",
+      "coffee",
+      "notes"
+    ]
+  },
+  "cast": {
+    "host-a": {
+      "name": "Host A",
+      "role": "host, sharp and skeptical, pushes the thesis",
+      "look": "A man in his late thirties in a plain navy crew-neck sweater, short tidy brown hair, leaning forward with an open laptop, expression engaged.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "outfit": "casual",
+        "build": "average",
+        "expression": "neutral",
+        "suit": "#1f2a44",
+        "hair": "#3b2a1e"
+      },
+      "mentions": 60
+    },
+    "advocate": {
+      "name": "Host B",
+      "role": "host, enthusiastic, plays the devil's advocate on the consensus view",
+      "look": "A woman in her early forties in a grey blazer over a white shirt, shoulder-length dark wavy hair, a notepad in hand, expression curious.",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "hairStyle": "long",
+        "outfit": "vest",
+        "build": "average",
+        "expression": "neutral",
+        "suit": "#6b6b72",
+        "hair": "#2b1d14"
+      },
+      "mentions": 60
+    },
+    "founder": {
+      "name": "The founder",
+      "role": "everyman founder, the reader in the garage deciding what to build",
+      "look": "A young man in his late twenties in a grey hoodie and jeans, messy hair, sitting on a stool in a cluttered garage with a laptop, looking up thoughtfully.",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "hairStyle": "messy",
+        "outfit": "hoodie",
+        "build": "slight",
+        "expression": "worried",
+        "suit": "#4a4f57",
+        "hair": "#5a4632"
+      },
+      "mentions": 12
+    },
+    "james": {
+      "name": "James Duhan",
+      "role": "the actor hired as a spokesman at the 1999 PayPal launch event, stands on a stage pitching to a half-empty room",
+      "look": "A middle-aged man in a dark suit with a cheerful stage smile, short graying hair, holding a small handheld device aloft.",
+      "variant": {
+        "gender": "m",
+        "age": "adult",
+        "hairStyle": "short",
+        "outfit": "suit",
+        "build": "average",
+        "expression": "happy",
+        "suit": "#1c1f26",
+        "hair": "#9a9a9a"
+      },
+      "mentions": 2
+    },
+    "student": {
+      "name": "The student",
+      "role": "everyman high-school student collecting extracurriculars for a college resume",
+      "look": "A teenage girl in a school hoodie carrying a stack of folders and a violin case, hair in a ponytail, looking overwhelmed.",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "hairStyle": "ponytail",
+        "outfit": "casual",
+        "build": "slight",
+        "expression": "worried",
+        "suit": "#2e5e8c",
+        "hair": "#3d2b1f"
+      },
+      "mentions": 2
+    }
+  },
+  "places": {
+    "pitchStage": {
+      "set": "pitchStage",
+      "look": "A 1999 tech conference stage with a dim hall, a few rows of empty seats, and a small projected slide.",
+      "mentions": 3
+    },
+    "startupGarage": {
+      "set": "startupGarage",
+      "look": "A cluttered garage workspace with a whiteboard covered in sketches and a single laptop on a folding table.",
+      "mentions": 4
+    },
+    "office": {
+      "set": "office",
+      "look": "A glass-walled corporate office with rows of desks and a long conference table, clean and bright.",
+      "mentions": 5
+    },
+    "street": {
+      "set": "street",
+      "look": "A dense city street with traffic, rows of new towers, and a hazy skyline.",
+      "mentions": 3
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "A high-school classroom with a whiteboard and rows of desks, afternoon light through the windows.",
+      "mentions": 2
+    },
+    "workstation": {
+      "set": "workstation",
+      "look": "A busy desk with several monitors showing auction listings and a stack of shipping boxes.",
+      "mentions": 3
+    }
+  },
+  "objects": [
+    {
+      "concept": "rocketLaunch",
+      "mentions": 4,
+      "why": "the ambition of 0 to 1: a bold leap nobody has made yet"
+    },
+    {
+      "concept": "coin",
+      "mentions": 6,
+      "why": "money moved between people; PayPal and the margins that competition destroys"
+    },
+    {
+      "concept": "funnelMetrics",
+      "mentions": 4,
+      "why": "customer lifetime value against acquisition cost, the distribution math"
+    },
+    {
+      "concept": "chains",
+      "mentions": 4,
+      "why": "competition as a trap that binds the rivals"
+    },
+    {
+      "concept": "target",
+      "mentions": 3,
+      "why": "a monopoly that starts from a small, exact niche"
+    },
+    {
+      "concept": "shield",
+      "mentions": 3,
+      "why": "durability: a moat that keeps competitors out"
+    },
+    {
+      "concept": "car",
+      "mentions": 2,
+      "why": "the hidden secret of ride-sharing: cars already on the road and unused demand"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Competition is for losers: rivals who fight over the same turf become the same company, and the real goal is a monopoly built on a secret."
+    },
+    {
+      "act": "development",
+      "fromFrame": 15029,
+      "claim": "Progress is vertical, 0 to 1, not horizontal, 1 to n: starting small, owning distribution and the seven questions decide who builds the future."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 32203,
+      "claim": "The honest pushback: monopoly advice can be self-serving and easy to claim only after the win, and iteration still matters."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 49867,
+      "claim": "Definite optimism beats indefinite optimism: a founder who designs the future on purpose outlasts one who keeps options open."
+    },
+    {
+      "act": "close",
+      "fromFrame": 68501,
+      "claim": "The next great company is one nobody has named yet, built on a secret few people believe is true."
+    }
+  ]
+}

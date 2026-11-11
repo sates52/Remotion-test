@@ -1,0 +1,114 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-11-09T14:33:44.174Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "8d228546",
+      "tools": "1313d9b1",
+      "pin": "8d2285464c2b",
+      "configHash": "be61d5e8ffe11af7",
+      "renderInputHash": "aa6475b338abb1bc",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 513
+      },
+      "preview": {
+        "state": "READY",
+        "covered": false,
+        "mute": {
+          "label": "run2",
+          "sample": "fresh",
+          "n": 30,
+          "wrong": 0,
+          "dead": 0,
+          "adds": 11,
+          "pass": true
+        }
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator accepted 513 REVIEW-level narrative-firewall findings (0 BLOCK) for zero-to-one: the preview passed the blind mute test on a fresh holdout (run2: WRONG 0/30, dead 0/30).",
+        "covered": 38,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "authorization": {
+        "at": "2026-11-09T14:33:11.667Z",
+        "recordedNow": true,
+        "kind": "render-authorization"
+      },
+      "technical": "NOT_RUN",
+      "credentials": {
+        "ok": true,
+        "source": "main checkout (read in place, not copied)",
+        "active": 10,
+        "usable": 10,
+        "verified": 10,
+        "refused": 0
+      }
+    },
+    {
+      "at": "2026-11-09T17:56:33.219Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\zero-to-one.mp4",
+      "frames": 87011,
+      "expectedFrames": 87011,
+      "decodes": true,
+      "problems": [],
+      "media": {
+        "narrationFile": "public\\audio\\zero-to-one.mastered.m4a",
+        "sync": {
+          "verdict": "PASS",
+          "startOffsetSec": 0,
+          "endOffsetSec": 0.0467,
+          "endToleranceSec": 0.076,
+          "audioDiscontinuities": 0,
+          "problems": []
+        },
+        "video": {
+          "packets": 87011,
+          "endSec": 2912.6147,
+          "holds": 219,
+          "chunkHolds": 210,
+          "segmentHolds": 9,
+          "offGridHolds": 0,
+          "stretchSec": 12.248,
+          "stretchPct": 0.422
+        },
+        "audio": {
+          "packets": 136531,
+          "endSec": 2912.6613,
+          "excessOverNarrationSec": 12.161
+        },
+        "joinDropouts": {
+          "status": "DEFECT_REPORTED",
+          "count": 219,
+          "totalSec": 8.53,
+          "maxSec": 0.0631,
+          "filmZeroRuns": 220,
+          "sourceZeroRuns": 2,
+          "first": [
+            13.388,
+            26.792,
+            40.169
+          ]
+        },
+        "loudness": {
+          "integratedLufs": -14.3,
+          "lraLu": 4.4,
+          "samplePeakDbfs": -0.6,
+          "status": "REPORT_ONLY"
+        }
+      },
+      "checkedBy": "8d2285464c2b684c4095d5ad7b2f622c76ad4472",
+      "tools": "8d228546",
+      "pin": "8d2285464c2b"
+    }
+  ]
+}

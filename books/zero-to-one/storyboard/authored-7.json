@@ -1,0 +1,1157 @@
+[
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FIRST MOVER ADVANTAGE",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "partnerExpression": "smirk",
+    "partnerAction": "talk",
+    "explainedBy": "One host asks whether getting there first wins; the other shakes it off with a smirk.",
+    "storyboard": {
+      "claim": "Isn't first-mover advantage the ultimate moat? Actually, no.",
+      "concreteVisual": "Host B asks, surprised; Host A answers with a smirk, in an office",
+      "onScreenText": "FIRST MOVER ADVANTAGE",
+      "relationToPrevious": "New topic: the other moat",
+      "addedInformation": "weak: the question and the pushback, shown as two faces"
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A TACTIC, NOT A GOAL",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "talk",
+    "continue": true,
+    "explainedBy": "Host A flatly rejects the idea that grabbing the real estate wins automatically; Host B doubts.",
+    "storyboard": {
+      "claim": "First mover is a tactic, not a goal.",
+      "concreteVisual": "Host A points and answers; Host B objects, worried",
+      "onScreenText": "A TACTIC, NOT A GOAL",
+      "relationToPrevious": "Same two hosts: the objection is answered",
+      "addedInformation": "The verdict: tactic"
+    }
+  },
+  {
+    "i": 224,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "They sell pet food online"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "The flow starts with the first company selling pet food online.",
+    "storyboard": {
+      "claim": "Being first to sell pet food online does you no good if...",
+      "concreteVisual": "A flow diagram starts with one label",
+      "onScreenText": "FIRST ONLINE PET FOOD",
+      "relationToPrevious": "Narration moves from the claim to a concrete example",
+      "addedInformation": "The example begins"
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "They go online first",
+        "A rival builds better tools"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "continue": true,
+    "explainedBy": "Cause to effect: a second company learns from your mistakes and undercuts you.",
+    "storyboard": {
+      "claim": "A second company builds a slightly better interface and undercuts your prices.",
+      "concreteVisual": "The flow grows by one label",
+      "onScreenText": "BETTER INTERFACE, LOWER PRICE",
+      "relationToPrevious": "Adds the trigger to the first label",
+      "addedInformation": "The second company arrives"
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "They go online first",
+        "A rival builds better tools",
+        "The rival unseats them"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "continue": true,
+    "explainedBy": "The result: the first mover is unseated and paid tuition for the rival.",
+    "storyboard": {
+      "claim": "You completely unseat the first mover; you did their R&D.",
+      "concreteVisual": "Third label completes the chain",
+      "onScreenText": "UNSEATED",
+      "relationToPrevious": "Adds the result",
+      "addedInformation": "The result: the first mover loses"
+    }
+  },
+  {
+    "i": 227,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE LAST MOVER",
+      "style": "reveal"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Host A names the real goal, last mover, against first mover.",
+    "storyboard": {
+      "claim": "The goal is to be the last mover.",
+      "concreteVisual": "Host A points forward, smirking, in the office",
+      "onScreenText": "THE LAST MOVER",
+      "relationToPrevious": "The answer to the first-mover claim",
+      "addedInformation": "Names the real goal"
+    }
+  },
+  {
+    "i": 228,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "DECADES OF MONOPOLY PROFITS",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Google and Facebook were the last ones that mattered, and the last mover then collects decades of profit.",
+    "storyboard": {
+      "claim": "Google and Facebook were the last that mattered; then decades of monopoly profits.",
+      "concreteVisual": "Host A with a coin icon beside him",
+      "onScreenText": "DECADES OF MONOPOLY PROFITS",
+      "relationToPrevious": "Same host: examples and payoff of the last mover",
+      "addedInformation": "Examples: Google, Facebook; the payoff"
+    }
+  },
+  {
+    "i": 229,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "START THE RACE",
+        "END THE RACE"
+      ],
+      "values": [
+        1
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "A spectrum from starting the race to permanently ending it: the aim is the far end.",
+    "storyboard": {
+      "claim": "Study the endgame first; you want to permanently end the race.",
+      "concreteVisual": "A spectrum from START THE RACE to END THE RACE, marker at the end",
+      "onScreenText": "START THE RACE / END THE RACE",
+      "relationToPrevious": "Moves from examples to the principle",
+      "addedInformation": "Start vs end the race"
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BUILT ON A SECRET",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "talk",
+    "explainedBy": "Host A says every real monopoly rests on a secret; Host B asks how to find the opportunity.",
+    "storyboard": {
+      "claim": "A monopoly is built on a secret; how do you find it?",
+      "concreteVisual": "Host A states it; Host B asks, surprised",
+      "onScreenText": "BUILT ON A SECRET",
+      "relationToPrevious": "Back to two voices: the question of where",
+      "addedInformation": "Introduces the secret"
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WHAT EVERYONE IS IGNORING",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "Host B holds a magnifier: the search is for what everyone else ignores.",
+    "storyboard": {
+      "claim": "Look for what everyone else is ignoring; Airbnb, 2008.",
+      "concreteVisual": "Host B holds a magnifying glass",
+      "onScreenText": "WHAT EVERYONE IS IGNORING",
+      "relationToPrevious": "Answers the where-to-look question",
+      "addedInformation": "Magnifier = looking"
+    }
+  },
+  {
+    "i": 232,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "AIR MATTRESSES ON THE FLOOR",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "room",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "sit",
+    "explainedBy": "The founders, unable to pay rent, host paying guests on air mattresses in their living room.",
+    "storyboard": {
+      "claim": "Airbnb founders let people pay to sleep on air mattresses in their living room.",
+      "concreteVisual": "A founder seated in a living room, a home icon beside him",
+      "onScreenText": "AIR MATTRESSES ON THE FLOOR",
+      "relationToPrevious": "Moves to the story",
+      "addedInformation": "Scrappy Airbnb origin"
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LAUGHING THEM OUT",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "founder",
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "partnerExpression": "smirk",
+    "partnerAction": "idle",
+    "explainedBy": "The founder pitches while the skeptic laughs at him.",
+    "storyboard": {
+      "claim": "Investors and hotel executives laugh them out of the room.",
+      "concreteVisual": "Founder pitches, worried; the skeptic smirks",
+      "onScreenText": "LAUGHING THEM OUT",
+      "relationToPrevious": "Pitch meets scorn",
+      "addedInformation": "The pitch is rejected"
+    }
+  },
+  {
+    "i": 234,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "Strangers will never rent bedrooms",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a",
+      "founder"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "slump",
+    "continue": true,
+    "explainedBy": "The unanimous wisdom: strangers will never rent private bedrooms, and the founder is turned down.",
+    "storyboard": {
+      "claim": "Conventional wisdom: nobody rents out bedrooms to strangers.",
+      "concreteVisual": "Skeptic points, angry; founder slumps, a home icon between them",
+      "onScreenText": "Strangers will never rent bedrooms",
+      "relationToPrevious": "Same room: the objection spelled out",
+      "addedInformation": "The conventional wisdom"
+    }
+  },
+  {
+    "i": 235,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BUILT ON A SECRET",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "talk",
+    "explainedBy": "Host B says it sounded insane; Host A says that is exactly the sign of a secret.",
+    "storyboard": {
+      "claim": "It sounded insane, but that is exactly what you are looking for.",
+      "concreteVisual": "Host B worried, Host A smirking",
+      "onScreenText": "BUILT ON A SECRET",
+      "relationToPrevious": "Draws the lesson from Airbnb",
+      "addedInformation": "Lesson: insane-sounding = secret"
+    }
+  },
+  {
+    "i": 236,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EVERYONE AGREES"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "A pitch that everyone agrees is brilliant starts the chain.",
+    "storyboard": {
+      "claim": "If the room nods and agrees it is brilliant and safe...",
+      "concreteVisual": "A flow starts with EVERYONE AGREES",
+      "onScreenText": "EVERYONE AGREES",
+      "relationToPrevious": "Test of a good idea",
+      "addedInformation": "Start of the chain"
+    }
+  },
+  {
+    "i": 237,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EVERYONE AGREES",
+        "NOT A SECRET",
+        "SATURATED"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "continue": true,
+    "explainedBy": "Cause to effect: agreement means no secret, and a saturated market.",
+    "storyboard": {
+      "claim": "It is not a secret and the market is saturated.",
+      "concreteVisual": "Flow gets two more labels",
+      "onScreenText": "NOT A SECRET, SATURATED",
+      "relationToPrevious": "Finishes the chain",
+      "addedInformation": "Result: saturated market"
+    }
+  },
+  {
+    "i": 238,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CRAZY TO MOST PEOPLE",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "lightbulb",
+    "explainedBy": "Host A holds a lightbulb: the right idea sounds crazy to others but makes sense to you.",
+    "storyboard": {
+      "claim": "You want an idea that sounds crazy but makes mechanical sense to you.",
+      "concreteVisual": "Host A holds a lightbulb, smirking",
+      "onScreenText": "CRAZY TO MOST PEOPLE",
+      "relationToPrevious": "Counter to the nodding room",
+      "addedInformation": "The ideal idea"
+    }
+  },
+  {
+    "i": 239,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "SECRETS OF NATURE",
+        "SECRETS ABOUT PEOPLE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "Two buckets show the two types of secrets.",
+    "storyboard": {
+      "claim": "There are two types of secrets: nature and people.",
+      "concreteVisual": "Sorter with two buckets",
+      "onScreenText": "SECRETS OF NATURE / SECRETS ABOUT PEOPLE",
+      "relationToPrevious": "Introduces the two types",
+      "addedInformation": "Two categories"
+    }
+  },
+  {
+    "i": 240,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PHYSICS, BIOLOGY, CHEMISTRY",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "magnifier",
+    "explainedBy": "Host B holds a magnifier on the hard sciences: what truths about the universe are missing.",
+    "storyboard": {
+      "claim": "Secrets of nature: physics, biology, chemistry.",
+      "concreteVisual": "Host B holds a magnifier",
+      "onScreenText": "PHYSICS, BIOLOGY, CHEMISTRY",
+      "relationToPrevious": "Expands the first bucket",
+      "addedInformation": "Examples"
+    }
+  },
+  {
+    "i": 241,
+    "concept": "mask",
+    "diagram": null,
+    "callout": {
+      "text": "People actively hide the truth",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "A mask icon: the second kind of secret is what people hide.",
+    "storyboard": {
+      "claim": "Secrets about people: what they hide or are not allowed to say.",
+      "concreteVisual": "Host A with a mask icon",
+      "onScreenText": "People actively hide the truth",
+      "relationToPrevious": "Expands the second bucket",
+      "addedInformation": "Hidden things"
+    }
+  },
+  {
+    "i": 242,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NOT ALLOWED TO SAY",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "partnerExpression": "smirk",
+    "partnerAction": "point",
+    "explainedBy": "One host stays silent while the other asks what is taboo.",
+    "storyboard": {
+      "claim": "What is taboo; what are institutions not allowed to say?",
+      "concreteVisual": "Host B silent, blank; Host A asks",
+      "onScreenText": "NOT ALLOWED TO SAY",
+      "relationToPrevious": "Narrows to the taboo",
+      "addedInformation": "Taboo"
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE REALITY OF MONOPOLIES",
+      "style": "highlight"
+    },
+    "noVisual": "a framework applied back to an earlier topic has no literal picture",
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "No picture shows a framework; Host A commentary.",
+    "storyboard": {
+      "claim": "The framework uncovers the reality of monopolies.",
+      "concreteVisual": "Host A talks",
+      "onScreenText": "THE REALITY OF MONOPOLIES",
+      "relationToPrevious": "Applies the framework",
+      "addedInformation": "weak: bridge beat"
+    }
+  },
+  {
+    "i": 244,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "HIGHLY COMPETITIVE MARKETS",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "A suited CEO, forced smile, claims a fierce market; the law icon marks antitrust scrutiny.",
+    "storyboard": {
+      "claim": "CEOs claim to be in competitive markets to avoid antitrust scrutiny.",
+      "concreteVisual": "Suited man on a stage with a law icon, smirking",
+      "onScreenText": "HIGHLY COMPETITIVE MARKETS",
+      "relationToPrevious": "Example of a secret",
+      "addedInformation": "Why they say it"
+    }
+  },
+  {
+    "i": 245,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ACT LIKE THEY'RE STRUGGLING",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "The same man now acts struggling while praising competition: an act.",
+    "storyboard": {
+      "claim": "They praise competition and act like they are struggling.",
+      "concreteVisual": "The same CEO slumps, worried",
+      "onScreenText": "ACT LIKE THEY'RE STRUGGLING",
+      "relationToPrevious": "Same man: now acting",
+      "addedInformation": "The act"
+    }
+  },
+  {
+    "i": 246,
+    "concept": "coin",
+    "diagram": null,
+    "callout": {
+      "text": "ACCUMULATION OF CAPITAL",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "talk",
+    "explainedBy": "Host B is shocked at opposites; Host A says capitalism is accumulating capital, with a coin icon.",
+    "storyboard": {
+      "claim": "Capitalism is the accumulation of capital.",
+      "concreteVisual": "Host B surprised; Host A explains; a coin icon",
+      "onScreenText": "ACCUMULATION OF CAPITAL",
+      "relationToPrevious": "Answers the wait, opposites?",
+      "addedInformation": "Defines capitalism"
+    }
+  },
+  {
+    "i": 247,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "COMPETITION",
+        "PROFIT MARGINS",
+        "ZERO"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "Cause to effect: competition drives profit margins to zero.",
+    "storyboard": {
+      "claim": "Competition destroys capital by driving margins to zero.",
+      "concreteVisual": "Flow with three labels",
+      "onScreenText": "COMPETITION, PROFIT MARGINS, ZERO",
+      "relationToPrevious": "Contrasts capitalism accumulating",
+      "addedInformation": "Competition destroys capital"
+    }
+  },
+  {
+    "i": 248,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ESCAPE COMPETITION",
+      "style": "highlight"
+    },
+    "noVisual": "escaping competition has no icon in the vocabulary",
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Host A states the conclusion; no picture beyond the host pointing onward.",
+    "storyboard": {
+      "claim": "Every smart capitalist is trying to escape competition.",
+      "concreteVisual": "Host A points, smirking",
+      "onScreenText": "ESCAPE COMPETITION",
+      "relationToPrevious": "Conclusion of the secret",
+      "addedInformation": "weak: statement"
+    }
+  },
+  {
+    "i": 249,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "EVERYTHING ALREADY INVENTED?",
+      "style": "highlight"
+    },
+    "noVisual": "a doubt has no picture",
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "Host B plays skeptic and asks the question.",
+    "storyboard": {
+      "claim": "Hasn't everything important already been invented?",
+      "concreteVisual": "Host B asks, worried",
+      "onScreenText": "EVERYTHING ALREADY INVENTED?",
+      "relationToPrevious": "New skeptic challenge",
+      "addedInformation": "weak: question"
+    }
+  },
+  {
+    "i": 250,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE FRONTIER IS CLOSED",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "horizon",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "A slumped person at a bare horizon: the frontier is closed.",
+    "storyboard": {
+      "claim": "All hard problems are solved; the frontier is closed.",
+      "concreteVisual": "Host B slumps, sad, against a horizon",
+      "onScreenText": "THE FRONTIER IS CLOSED",
+      "relationToPrevious": "States the argument",
+      "addedInformation": "Argument stated"
+    }
+  },
+  {
+    "i": 251,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "TRIVIAL",
+        "IMPOSSIBLE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "Two buckets: what is left is trivial or impossible.",
+    "storyboard": {
+      "claim": "Only trivial tasks or impossible ones remain.",
+      "concreteVisual": "Sorter, two buckets",
+      "onScreenText": "TRIVIAL / IMPOSSIBLE",
+      "relationToPrevious": "Extends the argument",
+      "addedInformation": "Two options"
+    }
+  },
+  {
+    "i": 252,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO FRONTIERS LEFT",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "holds": "laptop",
+    "explainedBy": "The founder with a laptop slumps: he feels no frontier left.",
+    "storyboard": {
+      "claim": "Modern people are unsatisfied; no frontiers; does it ring true for a founder?",
+      "concreteVisual": "Founder slumps with a laptop in the garage",
+      "onScreenText": "NO FRONTIERS LEFT",
+      "relationToPrevious": "Applies to the founder",
+      "addedInformation": "Founder asks"
+    }
+  },
+  {
+    "i": 253,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE TRAP OF INCREMENTALISM",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "The same founder holds his laptop, worried: the mindset is the trap.",
+    "storyboard": {
+      "claim": "That mindset is the trap of incrementalism.",
+      "concreteVisual": "Founder worried, laptop in hand",
+      "onScreenText": "THE TRAP OF INCREMENTALISM",
+      "relationToPrevious": "Same person; names the trap",
+      "addedInformation": "The trap"
+    }
+  },
+  {
+    "i": 254,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "We are taught tiny, safe steps",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "student"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "book",
+    "explainedBy": "A student with a book: school trains tiny safe steps.",
+    "storyboard": {
+      "claim": "Education trains us to take tiny, safe, measured steps.",
+      "concreteVisual": "Student with a book in a classroom",
+      "onScreenText": "We are taught tiny, safe steps",
+      "relationToPrevious": "Cause of the illusion",
+      "addedInformation": "Schooling"
+    }
+  },
+  {
+    "i": 255,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "OPTIMIZE YOUR GPA",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "student"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "The student now holds notes to optimize the grade.",
+    "storyboard": {
+      "claim": "Color inside the lines, optimize GPA.",
+      "concreteVisual": "Student holds notes",
+      "onScreenText": "OPTIMIZE YOUR GPA",
+      "relationToPrevious": "Same student; notes in hand",
+      "addedInformation": "GPA focus"
+    }
+  },
+  {
+    "i": 256,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FAIL AND RUIN OUR LIVES",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "student"
+    ],
+    "expression": "afraid",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "The student, afraid, clutches the notes: straying means failure.",
+    "storyboard": {
+      "claim": "Straying from the path means failing and ruining our lives.",
+      "concreteVisual": "Student afraid, clutching notes",
+      "onScreenText": "FAIL AND RUIN OUR LIVES",
+      "relationToPrevious": "Face changes to fear",
+      "addedInformation": "Fear"
+    }
+  },
+  {
+    "i": 257,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "People settle for the trivial",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "student"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "book",
+    "continue": true,
+    "explainedBy": "The student slumps: she settles for the trivial.",
+    "storyboard": {
+      "claim": "So we aim lower and settle for the trivial.",
+      "concreteVisual": "Student slumps, notes down",
+      "onScreenText": "People settle for the trivial",
+      "relationToPrevious": "Result: gives up",
+      "addedInformation": "Result"
+    }
+  },
+  {
+    "i": 258,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "CAR OWNERS",
+        "UNMET DEMAND"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "explainedBy": "Uber and Lyft: supply of car owners wanting money, demand for rides.",
+    "storyboard": {
+      "claim": "Untapped supply of drivers and unmet demand for rides.",
+      "concreteVisual": "Flow, two labels",
+      "onScreenText": "CAR OWNERS, UNMET DEMAND",
+      "relationToPrevious": "Example of the secret",
+      "addedInformation": "Supply meets demand"
+    }
+  },
+  {
+    "i": 259,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "CAR OWNERS",
+        "UNMET DEMAND",
+        "TAXI MEDALLIONS"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "noVisual": null,
+    "continue": true,
+    "explainedBy": "It was hidden beneath the regulated taxi medallion system.",
+    "storyboard": {
+      "claim": "Hidden beneath regulated cab medallions.",
+      "concreteVisual": "Third label added",
+      "onScreenText": "TAXI MEDALLIONS",
+      "relationToPrevious": "Adds what hid it",
+      "addedInformation": "The obstacle"
+    }
+  },
+  {
+    "i": 260,
+    "concept": "road",
+    "diagram": null,
+    "callout": {
+      "text": "DON'T GET IN CARS WITH STRANGERS",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "street",
+    "cast": [
+      "founder",
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "partnerExpression": "afraid",
+    "partnerAction": "idle",
+    "explainedBy": "The social convention: two people, one afraid of getting in with a stranger.",
+    "storyboard": {
+      "claim": "You must look past don't-get-in-cars-with-strangers.",
+      "concreteVisual": "Two people on a street with a road icon, one afraid",
+      "onScreenText": "DON'T GET IN CARS WITH STRANGERS",
+      "relationToPrevious": "From structure to the convention",
+      "addedInformation": "The convention"
+    }
+  },
+  {
+    "i": 261,
+    "concept": "chains",
+    "diagram": null,
+    "callout": {
+      "text": "BREAK THE CONVENTION",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "conceptMotion": "break",
+    "conceptMotionCue": "break",
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The chains snap apart on \"break\": the convention is broken.",
+    "storyboard": {
+      "claim": "You have to break the convention to build the future.",
+      "concreteVisual": "Host A beside chains that snap",
+      "onScreenText": "BREAK THE CONVENTION",
+      "relationToPrevious": "Conclusion",
+      "addedInformation": "Breaking chains"
+    }
+  },
+  {
+    "i": 262,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A STRUCTURAL MINDSET",
+      "style": "highlight"
+    },
+    "noVisual": "a mindset has no icon",
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Two hosts introduce the next topic.",
+    "storyboard": {
+      "claim": "Acting on the secret needs a structural mindset.",
+      "concreteVisual": "Two hosts talk",
+      "onScreenText": "A STRUCTURAL MINDSET",
+      "relationToPrevious": "New topic",
+      "addedInformation": "weak: transition"
+    }
+  },
+  {
+    "i": 263,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE EARLY 1960s",
+      "style": "highlight"
+    },
+    "noVisual": "no icon for an era",
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Host A sets the scene: the early 1960s.",
+    "storyboard": {
+      "claim": "Picture the early 1960s.",
+      "concreteVisual": "Host A points",
+      "onScreenText": "THE EARLY 1960s",
+      "relationToPrevious": "New era",
+      "addedInformation": "weak: time marker"
+    }
+  },
+  {
+    "i": 264,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SLIDE RULES AND CHALKBOARDS",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Two engineers in a room with a chalkboard.",
+    "storyboard": {
+      "claim": "NASA engineers with slide rules and chalkboards.",
+      "concreteVisual": "Two people in front of a chalkboard",
+      "onScreenText": "SLIDE RULES AND CHALKBOARDS",
+      "relationToPrevious": "The NASA scene",
+      "addedInformation": "Setting"
+    }
+  },
+  {
+    "i": 265,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO SUPERCOMPUTERS",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "continue": true,
+    "explainedBy": "The same engineers, with little tech, still plan.",
+    "storyboard": {
+      "claim": "No supercomputers, barely calculators.",
+      "concreteVisual": "Same two engineers",
+      "onScreenText": "NO SUPERCOMPUTERS",
+      "relationToPrevious": "Same room",
+      "addedInformation": "Limited tools"
+    }
+  },
+  {
+    "i": 266,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "A HUMAN ON THE MOON BY 1972",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "happy",
+    "partnerAction": "talk",
+    "continue": true,
+    "explainedBy": "The engineers aim at the goal icon: a human on the moon by 1972.",
+    "storyboard": {
+      "claim": "A step-by-step plan to put a human on the moon by 1972.",
+      "concreteVisual": "Engineers with a target icon",
+      "onScreenText": "A HUMAN ON THE MOON BY 1972",
+      "relationToPrevious": "Same room; the goal appears",
+      "addedInformation": "The goal"
+    }
+  },
+  {
+    "i": 267,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THEY MATHEMATICALLY DESIGN IT",
+      "style": "highlight"
+    },
+    "noVisual": null,
+    "set": "classroom",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "partnerExpression": "happy",
+    "partnerAction": "talk",
+    "continue": true,
+    "explainedBy": "The engineers did not hope; they designed it.",
+    "storyboard": {
+      "claim": "They do not hope; they mathematically design it.",
+      "concreteVisual": "Same two engineers",
+      "onScreenText": "THEY MATHEMATICALLY DESIGN IT",
+      "relationToPrevious": "Same scene",
+      "addedInformation": "Design, not hope"
+    }
+  }
+]

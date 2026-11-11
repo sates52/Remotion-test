@@ -1,0 +1,11 @@
+{
+  "schema": "single-relation-elimination/1",
+  "slug": "zero-to-one",
+  "perCandidate": [
+    { "sceneIndex": 257, "outcome": "eliminated", "reason": "\"big secrets\" is an abstraction with no drawable entity, and \"stop looking\" is a change in behaviour that no visible state can show." },
+    { "sceneIndex": 238, "outcome": "eliminated", "reason": "The sentence is a contrast between two audiences (\"crazy to most people\" but \"sense to you\"), not a stated cause and effect, and nothing visibly changes." },
+    { "sceneIndex": 284, "outcome": "eliminated", "reason": "The transcript is garbled (\"0ero to1\", truncated \"because what\") and the cue is a \"rather than\" setup half, so no honest relation can be drawn." },
+    { "sceneIndex": 252, "outcome": "contract", "reason": "\"no frontiers left\" causes \"modern people are deeply unsatisfied\": both ends are named, the cause is asserted without negation or hedge, and it can be drawn as a road ending and the people looking worried." },
+    { "sceneIndex": 308, "outcome": "eliminated", "reason": "The effect \"VCs view the world through the cold mathematical lens\" is a way of seeing, not an observable state change, so the stated business-model cause has no drawable effect." }
+  ]
+}

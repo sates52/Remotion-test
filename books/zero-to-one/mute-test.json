@@ -1,0 +1,68 @@
+{
+  "runs": [
+    {
+      "label": "final",
+      "date": "2026-11-09T12:19:02.373Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 23,
+        "ADDS": 9,
+        "TEXT_ONLY": 21,
+        "NEUTRAL": 5,
+        "WRONG": 2,
+        "EXPLAINS": 1
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": false,
+      "sample": "fresh",
+      "sealed": true,
+      "sealSha256": "651c95fd5050fc9339c10d23056cea38126f8b8c29522f3f95744ae4e2025e8a",
+      "verdict": false,
+      "dead": 0,
+      "addsTargetMet": false,
+      "evidenceSha256": "8a04b66aa5dfe2680a88a3914b46f6487b086d18d2c5e1e1f073c073b03d9e45",
+      "binding": "BOUND",
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 30,
+      "configSha256": "844e793d8dd5f25e54e6640d598937e8b2375947a7bd386a31a52aa5f560e32c",
+      "renderInputHash": "4b9220b31d240bf0",
+      "codeHead": "8d2285464c2b684c4095d5ad7b2f622c76ad4472",
+      "framesConfigSha": "844e793d8dd5f25e"
+    },
+    {
+      "label": "run2",
+      "date": "2026-11-09T13:33:58.988Z",
+      "n": 30,
+      "totals": {
+        "CORRECT": 19,
+        "ADDS": 11,
+        "TEXT_ONLY": 19,
+        "NEUTRAL": 11
+      },
+      "bars": {
+        "wrongPer30": 1,
+        "deadPer30": 5,
+        "addsTarget": 0.6
+      },
+      "pass": true,
+      "sample": "fresh",
+      "verdict": true,
+      "dead": 0,
+      "addsTargetMet": false,
+      "evidenceSha256": "4be22af27ab0572b372efb66f93aaeb0b734b4ed9b83d0df432fe25b6adfb6a6",
+      "binding": "BOUND",
+      "imageBeats": 0,
+      "imageAdds": 0,
+      "addsAll": 37,
+      "configSha256": "be61d5e8ffe11af70228bc4048c70f5bfff4ea597311eea66a12eec1bd1f0cc1",
+      "renderInputHash": "aa6475b338abb1bc",
+      "codeHead": "8d2285464c2b684c4095d5ad7b2f622c76ad4472",
+      "framesConfigSha": "be61d5e8ffe11af7"
+    }
+  ]
+}

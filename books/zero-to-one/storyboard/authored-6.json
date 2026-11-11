@@ -1,0 +1,1206 @@
+[
+  {
+    "i": 177,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "LIKE GETTING MARRIED",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "explainedBy": "Comparison: picking a co-founder is like a marriage, and a founder fight is like a bitter divorce; the heart icon carries the marriage side.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Choosing a co-founder is like marriage; founder conflict is like an ugly divorce.",
+      "concreteVisual": "Host A smiling beside Host B in a room with a heart icon between them.",
+      "onScreenText": "LIKE GETTING MARRIED",
+      "relationToPrevious": "Opens the people section.",
+      "addedInformation": "weak: the divorce half is only in the words"
+    }
+  },
+  {
+    "i": 178,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IRRECONCILABLE DIFFERENCES",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "angry",
+    "explainedBy": "Relationship: two co-founders glaring at each other, the company they share is the victim of their split.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Founder conflict about the core mission can tank the company.",
+      "concreteVisual": "The hoodie founder and the suited man glare at each other in the garage.",
+      "onScreenText": "IRRECONCILABLE DIFFERENCES",
+      "relationToPrevious": "New pair: the co-founders in conflict.",
+      "addedInformation": "two faces in opposition show the split"
+    }
+  },
+  {
+    "i": 179,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WILDLY ALIGNED",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "happy",
+    "continue": true,
+    "explainedBy": "Before vs after: the same two founders now smiling, aligned on one shared vision.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You need people wildly aligned on a specific shared vision.",
+      "concreteVisual": "The same two founders now both smiling in the garage.",
+      "onScreenText": "WILDLY ALIGNED",
+      "relationToPrevious": "Same pair, faces flip from angry to happy.",
+      "addedInformation": "contrast with the previous beat shows alignment vs conflict"
+    }
+  },
+  {
+    "i": 180,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A BIZARRE HEURISTIC",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "Commentary: the host introduces Founders Fund's odd hiring-by-clothes rule, to be shown next.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Founders Fund developed a bizarre heuristic during the clean tech bubble.",
+      "concreteVisual": "Host A in an office holding notes with a smirk.",
+      "onScreenText": "A BIZARRE HEURISTIC",
+      "relationToPrevious": "Introduces the rule.",
+      "addedInformation": "weak: setup beat"
+    }
+  },
+  {
+    "i": 181,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE SUIT RULE",
+      "style": "box"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "The suited CEO on a pitch stage is the one the rule rejects.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Never invest in a tech CEO who shows up to a pitch in a suit.",
+      "concreteVisual": "The man in the dark suit stands on the pitch stage with a smirk.",
+      "onScreenText": "THE SUIT RULE",
+      "relationToPrevious": "Shows the suited pitcher.",
+      "addedInformation": "the suit itself is drawn"
+    }
+  },
+  {
+    "i": 182,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The engineers wear t-shirts",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "laptop",
+    "partnerExpression": "smirk",
+    "explainedBy": "Comparison: the hoodie founder obsessed with the product beside the suited presenter.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Real technologists wear t-shirts and jeans; they care about product, not presentation.",
+      "concreteVisual": "The hoodie founder holding a laptop next to the suited man on stage.",
+      "onScreenText": "The engineers wear t-shirts",
+      "relationToPrevious": "Adds the hoodie side of the comparison.",
+      "addedInformation": "clothing contrast drawn"
+    }
+  },
+  {
+    "i": 183,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "POSING AS ENGINEERS",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "wrench",
+    "continue": true,
+    "explainedBy": "A smirking salesman in a suit holding an engineer's wrench: posing as an engineer.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Suited clean tech CEOs were salesmen posing as engineers.",
+      "concreteVisual": "The suited man smirks while holding a wrench like a prop.",
+      "onScreenText": "POSING AS ENGINEERS",
+      "relationToPrevious": "Same suited figure, now with the wrench.",
+      "addedInformation": "the wrench as a prop shows the pose"
+    }
+  },
+  {
+    "i": 184,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "RAISING GOVERNMENT SUBSIDIES",
+      "style": "highlight"
+    },
+    "set": "pitchStage",
+    "cast": [
+      "james"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "coin",
+    "continue": true,
+    "explainedBy": "The suited smoozer clutches cash: he raises subsidies instead of building products.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They schmoozed politicians for subsidies but could not build solar panels or batteries.",
+      "concreteVisual": "The suited man smirks holding a coin.",
+      "onScreenText": "RAISING GOVERNMENT SUBSIDIES",
+      "relationToPrevious": "The wrench is swapped for a coin.",
+      "addedInformation": "coin shows subsidy-chasing"
+    }
+  },
+  {
+    "i": 185,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ELIMINATING INTERNAL FRICTION",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Commentary: the host turns from the suit signal to the mechanical point about friction.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It is entirely about eliminating internal friction in an early-stage startup.",
+      "concreteVisual": "Host A points while explaining in an office.",
+      "onScreenText": "ELIMINATING INTERNAL FRICTION",
+      "relationToPrevious": "New point.",
+      "addedInformation": "weak: text-carried"
+    }
+  },
+  {
+    "i": 186,
+    "concept": "clock",
+    "diagram": null,
+    "callout": {
+      "text": "THE RUNWAY IS SHORT",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "A worried founder beside a clock: tiny team, short runway, every day counts.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Resources are limited, the team is tiny, the runway short.",
+      "concreteVisual": "The founder looks worried in the garage with a clock icon.",
+      "onScreenText": "THE RUNWAY IS SHORT",
+      "relationToPrevious": "Moves to the pressure of time.",
+      "addedInformation": "clock shows the deadline pressure"
+    }
+  },
+  {
+    "i": 187,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A visionary engineer clashes with an MBA",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "lightbulb",
+    "partnerExpression": "smirk",
+    "explainedBy": "Comparison: the engineer with a lightbulb beside the pragmatic MBA with the cash-in mindset.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A visionary engineer paired with a pragmatic MBA have different worldviews.",
+      "concreteVisual": "Founder holds a lightbulb; the suited man smirks beside him.",
+      "onScreenText": "A visionary engineer clashes with an MBA",
+      "relationToPrevious": "The two worldviews are cast.",
+      "addedInformation": "who is who is visible from the lightbulb and suit"
+    }
+  },
+  {
+    "i": 188,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "CLASH ON EVERY DECISION",
+      "style": "highlight"
+    },
+    "set": "room",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "lightbulb",
+    "partnerExpression": "angry",
+    "continue": true,
+    "explainedBy": "Relationship: the same pair now glaring at each other, clashing.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They will clash on every single micro decision.",
+      "concreteVisual": "Both angry, the lightbulb still in the founder's hand.",
+      "onScreenText": "CLASH ON EVERY DECISION",
+      "relationToPrevious": "Same pair, faces turn angry.",
+      "addedInformation": "conflict result of the mismatch"
+    }
+  },
+  {
+    "i": 189,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WAIT, I HAVE TO STOP YOU",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "point",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Relationship: Host A interrupts and objects while Host B listens.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host A objects: this contradicts modern leadership theory.",
+      "concreteVisual": "Host A points at Host B in an office.",
+      "onScreenText": "WAIT, I HAVE TO STOP YOU",
+      "relationToPrevious": "Back to the hosts; an objection starts.",
+      "addedInformation": "the interruption is staged"
+    }
+  },
+  {
+    "i": 190,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "MANAGEMENT BOOKS SAY",
+        "claim": "Diversity of thought builds a founding team",
+        "inputs": [
+          "Different thinking",
+          "Different backgrounds"
+        ],
+        "hub": "Founding team",
+        "output": "Fewer blind spots",
+        "cues": {
+          "links": "diversity of thought",
+          "result": "from day one"
+        },
+        "verdict": "CONVENTIONAL WISDOM",
+        "reason": "A clash prevents blind spots",
+        "truth": "Six people have no time"
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The conventional claim built: diversity of thought and background makes a founding team.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Management books say a founding team needs diversity of thought and background.",
+      "concreteVisual": "A refute diagram: two inputs feed a founding-team hub.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Starts the conventional claim.",
+      "addedInformation": "claim drawn as a structure"
+    }
+  },
+  {
+    "i": 191,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "MANAGEMENT BOOKS SAY",
+        "claim": "Diversity of thought builds a founding team",
+        "inputs": [
+          "Different thinking",
+          "Different backgrounds"
+        ],
+        "hub": "Founding team",
+        "output": "Fewer blind spots",
+        "verdict": "CONVENTIONAL WISDOM",
+        "reason": "A clash prevents groupthink",
+        "truth": "Six people have no time"
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Same claim: conflicting viewpoints supposedly avoid groupthink and blind spots.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "You need conflicting viewpoints and a devil's advocate.",
+      "concreteVisual": "The same claim diagram stays on screen.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Keeps the claim; narration adds its rationale.",
+      "addedInformation": "weak: rationale in words"
+    }
+  },
+  {
+    "i": 192,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "MANAGEMENT BOOKS SAY",
+        "claim": "Diversity of thought builds a founding team",
+        "inputs": [
+          "Different thinking",
+          "Different backgrounds"
+        ],
+        "hub": "Founding team",
+        "output": "Fewer blind spots",
+        "verdict": "CONVENTIONAL WISDOM",
+        "reason": "It becomes an echo chamber",
+        "truth": "Six people have no time"
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Same claim: the objection that a like-minded team is an echo chamber.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "A team that read the same sci-fi books is an echo chamber.",
+      "concreteVisual": "The same claim diagram stays on screen.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Keeps the claim during the objection.",
+      "addedInformation": "weak: held stage"
+    }
+  },
+  {
+    "i": 193,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "MANAGEMENT BOOKS SAY",
+        "claim": "Diversity of thought builds a founding team",
+        "inputs": [
+          "Different thinking",
+          "Different backgrounds"
+        ],
+        "hub": "Founding team",
+        "output": "Fewer blind spots",
+        "cues": {
+          "doubt": "But"
+        },
+        "verdict": "CONVENTIONAL WISDOM",
+        "reason": "The team needs a clash",
+        "truth": "Firms need it, not startups"
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The pivot: the claim holds for big bureaucracies, but a six-person startup differs.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Diversity theory suits the UN or a Fortune 500, but not a six-person startup.",
+      "concreteVisual": "The claim diagram wavers at \"But\".",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Doubt enters the claim.",
+      "addedInformation": "doubt marker on the claim"
+    }
+  },
+  {
+    "i": 194,
+    "concept": null,
+    "diagram": {
+      "type": "refute",
+      "labels": [],
+      "scale": 1.3,
+      "refute": {
+        "owner": "MANAGEMENT BOOKS SAY",
+        "claim": "Diversity of thought builds a founding team",
+        "inputs": [
+          "Different thinking",
+          "Different backgrounds"
+        ],
+        "hub": "Founding team",
+        "output": "Fewer blind spots",
+        "cues": {
+          "rejected": {
+            "phrase": "fatal liability",
+            "occurrence": 1
+          }
+        },
+        "verdict": "A FATAL LIABILITY",
+        "reason": "There is no runway",
+        "truth": "Diversity is a fatal liability"
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The claim is rejected: for a startup extreme diversity of thought is a fatal liability.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "For a startup, extreme diversity of thought is a fatal liability.",
+      "concreteVisual": "The claim greys and is stamped as a fatal liability.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Claim stamped rejected on the word.",
+      "addedInformation": "verdict stamped on the claim"
+    }
+  },
+  {
+    "i": 195,
+    "concept": null,
+    "diagram": {
+      "type": "causal",
+      "labels": [],
+      "scale": 1.25,
+      "causal": {
+        "stations": [
+          {
+            "label": "Factional strife",
+            "glyph": "people"
+          },
+          {
+            "label": "Slowed them down",
+            "glyph": "clock"
+          },
+          {
+            "label": "Ran out of cash",
+            "glyph": "coin"
+          }
+        ],
+        "cues": {
+          "n2": "ran out of cash"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The autopsy reads \"ran out of cash\": the last station of a chain whose earlier stations are still unknown.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The technical cause of death reads ran out of cash.",
+      "concreteVisual": "A causal chain with only the cash station drawn; the earlier stations are dashed question marks.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Starts the chain from its end.",
+      "addedInformation": "the missing why is visible"
+    }
+  },
+  {
+    "i": 196,
+    "concept": null,
+    "diagram": {
+      "type": "causal",
+      "labels": [],
+      "scale": 1.25,
+      "causal": {
+        "stations": [
+          {
+            "label": "Factional strife",
+            "glyph": "people"
+          },
+          {
+            "label": "Slowed them down",
+            "glyph": "clock"
+          },
+          {
+            "label": "Ran out of cash",
+            "glyph": "coin"
+          }
+        ],
+        "cues": {
+          "n0": "factional strife",
+          "n1": "slowed them down"
+        }
+      }
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The real cause fills in: factional strife slowed them down until the cash ran out.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "The real cause was factional strife and politics that slowed them down.",
+      "concreteVisual": "The strife and slowdown stations fill in before the cash station.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Earlier stations are drawn on their words.",
+      "addedInformation": "cause chain completed"
+    }
+  },
+  {
+    "i": 197,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "THE SAME PROBLEM",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "happy",
+    "explainedBy": "Relationship: two founders side by side looking at the same target.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "You need a hive mind obsessed with the exact same problem.",
+      "concreteVisual": "The two founders smile at one target icon.",
+      "onScreenText": "THE SAME PROBLEM",
+      "relationToPrevious": "Back to the aligned pair.",
+      "addedInformation": "one shared target for both"
+    }
+  },
+  {
+    "i": 198,
+    "concept": "compass",
+    "diagram": null,
+    "callout": {
+      "text": "NO LIFTOFF",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "angry",
+    "continue": true,
+    "explainedBy": "The negative case: a crew fighting over the direction cannot lift off.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Progress is vertical; you cannot lift off if the crew fights over the wheel.",
+      "concreteVisual": "The founders glare at each other with a compass icon between them.",
+      "onScreenText": "NO LIFTOFF",
+      "relationToPrevious": "Same pair, now angry, with a direction icon.",
+      "addedInformation": "weak: the wheel is only a compass"
+    }
+  },
+  {
+    "i": 199,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BUILT ON A SECRET",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Commentary: Host B restates the thesis and moves on to durability.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A real monopoly is built on a secret; next is whether it survives.",
+      "concreteVisual": "Host B points in an office with a knowing smirk.",
+      "onScreenText": "BUILT ON A SECRET",
+      "relationToPrevious": "Transition beat.",
+      "addedInformation": "weak: transition"
+    }
+  },
+  {
+    "i": 200,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DURABILITY",
+      "style": "highlight"
+    },
+    "set": "horizon",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Commentary: the question of surviving the market over time.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The next question is whether the business survives the pull of the market.",
+      "concreteVisual": "Host A on a horizon set.",
+      "onScreenText": "DURABILITY",
+      "relationToPrevious": "Names the next topic.",
+      "addedInformation": "weak: topic label"
+    }
+  },
+  {
+    "i": 201,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "TWITTER GOES PUBLIC",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "The event: Twitter's listing day in November 2013, a city icon standing for the exchange.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "November 2013: Twitter goes public on the NYSE floor.",
+      "concreteVisual": "Host B on the street with a city icon.",
+      "onScreenText": "TWITTER GOES PUBLIC",
+      "relationToPrevious": "New story starts.",
+      "addedInformation": "weak: event named in text"
+    }
+  },
+  {
+    "i": 202,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "$24 BILLION VALUATION",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "celebrate",
+    "continue": true,
+    "explainedBy": "The bell rings and the confetti falls: Host B celebrates the massive valuation.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The bell rings, confetti falls, and the ticker shows a $24 billion valuation.",
+      "concreteVisual": "Host B celebrates on the street.",
+      "onScreenText": "$24 BILLION VALUATION",
+      "relationToPrevious": "Same host, now celebrating.",
+      "addedInformation": "the celebration shows the IPO mood"
+    }
+  },
+  {
+    "i": 203,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "LOOK AT THE MATH",
+      "style": "highlight"
+    },
+    "set": "street",
+    "cast": [
+      "james",
+      "host-a"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "angry",
+    "explainedBy": "Relationship: red-faced old-school investors yelling over the noise.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Confused old-school value investors scream, look at the math.",
+      "concreteVisual": "The suited man and Host A shout angrily at each other.",
+      "onScreenText": "LOOK AT THE MATH",
+      "relationToPrevious": "Cheering turns to angry yelling.",
+      "addedInformation": "angry investors drawn"
+    }
+  },
+  {
+    "i": 204,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "The NYT made $133M",
+        "Twitter was losing money"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Comparison: the profitable newspaper beside the money-losing app that was valued higher.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The Times made $133 million profit while Twitter loses money.",
+      "concreteVisual": "A sorter with two buckets: the Times and Twitter.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Splits the two companies.",
+      "addedInformation": "the paradox structured"
+    }
+  },
+  {
+    "i": 205,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "WHAT GIVES VALUE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Commentary: the host explains where the confusion comes from.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The confusion is a misunderstanding of what gives a company value.",
+      "concreteVisual": "Host B points while explaining.",
+      "onScreenText": "WHAT GIVES VALUE",
+      "relationToPrevious": "Moves from the paradox to its explanation.",
+      "addedInformation": "weak: text-carried"
+    }
+  },
+  {
+    "i": 206,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FUTURE CASH FLOWS",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "coin",
+    "explainedBy": "The host holds a coin: the definition of a great business is future cash flow.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A great business is defined by its ability to generate massive future cash flows.",
+      "concreteVisual": "Host B holds a coin.",
+      "onScreenText": "FUTURE CASH FLOWS",
+      "relationToPrevious": "Adds the coin to the explanation.",
+      "addedInformation": "the coin stands for cash flow"
+    }
+  },
+  {
+    "i": 207,
+    "concept": "hourglass",
+    "diagram": null,
+    "callout": {
+      "text": "THE NEXT DECADE",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Commentary: present revenue means nothing if the business will not survive a decade, shown by an hourglass.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Present revenue means nothing if the business will not survive the next decade.",
+      "concreteVisual": "Host A points near an hourglass.",
+      "onScreenText": "THE NEXT DECADE",
+      "relationToPrevious": "Adds the time horizon.",
+      "addedInformation": "hourglass shows the time frame"
+    }
+  },
+  {
+    "i": 208,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Network effect",
+        "Monopoly profits"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause to effect: the network effect leads to monopoly profits years down the line.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Investors expected Twitter to capture monopoly profits through the network effect.",
+      "concreteVisual": "A flow from network effect to monopoly profits.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Opens the Twitter side.",
+      "addedInformation": "cause chain drawn"
+    }
+  },
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Printing presses",
+        "Destroyed by the internet"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause to effect for the Times: the printing-press monopoly was destroyed by the internet.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The newspaper monopoly of presses and delivery was destroyed by the internet.",
+      "concreteVisual": "A flow from printing presses to destroyed by the internet.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "New diagram for the Times side.",
+      "addedInformation": "the Times side is drawn"
+    }
+  },
+  {
+    "i": 210,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Printing presses",
+        "Destroyed by the internet",
+        "The end of an era"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The Times chain gains its result: current profits were the end of an era.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "The Times' current profits were the end of an era.",
+      "concreteVisual": "The flow gains a third label.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Adds one label.",
+      "addedInformation": "conclusion of the chain"
+    }
+  },
+  {
+    "i": 211,
+    "concept": "shield",
+    "diagram": null,
+    "callout": {
+      "text": "APPLE'S MOAT",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The shield icon stands for the impenetrable moat protecting Apple.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Apple's moat is impenetrable, and not only because of the brand.",
+      "concreteVisual": "Host A beside a shield icon.",
+      "onScreenText": "APPLE'S MOAT",
+      "relationToPrevious": "Opens the Apple example.",
+      "addedInformation": "shield reads as protection"
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The brand is only the surface",
+      "style": "highlight"
+    },
+    "cast": [],
+    "explainedBy": "Parts: the brand is only the surface; underneath is proprietary technology.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The brand is the surface; the moat starts with proprietary technology.",
+      "concreteVisual": "The line on screen, held over the people",
+      "onScreenText": "The brand is only the surface",
+      "relationToPrevious": "Starts the moat breakdown.",
+      "addedInformation": "moat as parts"
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Shiny brand",
+        "Proprietary technology"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Same part: custom chips and software together, which no Android phone replicates.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Custom chips and proprietary software create an experience Android cannot replicate.",
+      "concreteVisual": "The same sorter stays.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Holds the technology bucket.",
+      "addedInformation": "weak: held stage"
+    }
+  },
+  {
+    "i": 214,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Shiny brand",
+        "Proprietary technology",
+        "Economies of scale"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A new part is added: economies of scale.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Buying components for hundreds of millions of iPhones is economies of scale.",
+      "concreteVisual": "The sorter gains a third bucket.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Adds one bucket.",
+      "addedInformation": "second moat layer"
+    }
+  },
+  {
+    "i": 215,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Shiny brand",
+        "Proprietary technology",
+        "Economies of scale"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Same part: buying out the global supply of milling machines blocks competitors.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Apple buys out supply of CNC machines, blocking competitors.",
+      "concreteVisual": "The same sorter stays.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Holds the scale bucket.",
+      "addedInformation": "weak: held stage"
+    }
+  },
+  {
+    "i": 216,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "The brand is surface",
+        "Proprietary tech",
+        "Buying at scale",
+        "Network effects"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A fourth part: network effects between developers and users.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Developers write for iOS because the high-paying users are there.",
+      "concreteVisual": "The sorter gains a fourth bucket.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Adds one bucket.",
+      "addedInformation": "third moat layer"
+    }
+  },
+  {
+    "i": 217,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "The brand is surface",
+        "Proprietary tech",
+        "Buying at scale",
+        "Network effects"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The parts reinforce one another into a fortress.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Users stay locked in because the best apps are there; a self-reinforcing fortress.",
+      "concreteVisual": "The same four-bucket sorter stays.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Holds the final diagram.",
+      "addedInformation": "weak: held stage"
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "10 TIMES BETTER",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "laptop",
+    "explainedBy": "The founder in the garage with a laptop: the product must be ten times better than the closest substitute.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Technology must be at least 10 times better than its closest substitute.",
+      "concreteVisual": "The founder holds a laptop in the garage.",
+      "onScreenText": "10 TIMES BETTER",
+      "relationToPrevious": "Shifts to the founder's product.",
+      "addedInformation": "weak: the 10x is in the callout"
+    }
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Slight improvement",
+        "10x better"
+      ],
+      "values": [
+        0.2
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Degrees: a 20% improvement sits far from the 10x end of the scale.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A search engine only 20% better than Google will not matter.",
+      "concreteVisual": "A spectrum with the marker near the slight-improvement end.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Starts the degree scale.",
+      "addedInformation": "marker at the weak end"
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Slight improvement",
+        "10x better"
+      ],
+      "values": [
+        0.2
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The marker stays: switching costs wipe out a slight improvement.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "Switching costs and learning friction negate a slight improvement.",
+      "concreteVisual": "The marker stays at the weak end.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Holds the marker.",
+      "addedInformation": "weak: held stage"
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "Slight improvement",
+        "10x better"
+      ],
+      "values": [
+        1
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The marker moves to the far end: typewriter to word processor is a 10x leap.",
+    "noVisual": null,
+    "continue": true,
+    "storyboard": {
+      "claim": "You need a 10x improvement like the typewriter to the word processor.",
+      "concreteVisual": "The marker slides to the 10x end.",
+      "onScreenText": "diagram labels",
+      "relationToPrevious": "Marker moves to the far end.",
+      "addedInformation": "the result end of the scale"
+    }
+  }
+]

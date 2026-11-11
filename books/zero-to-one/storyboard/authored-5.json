@@ -1,0 +1,779 @@
+[
+  {
+    "i": 145,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Distribution is core design",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "A host insists distribution belongs inside the product design.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A host insists distribution belongs inside the product design.",
+      "concreteVisual": "Host A points emphatically in an office.",
+      "onScreenText": "Distribution is core design",
+      "relationToPrevious": "opens the Box example",
+      "addedInformation": "weak: framing sentence"
+    }
+  },
+  {
+    "i": 146,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Box stores files better than drives",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "laptop",
+    "explainedBy": "Box offers a better way to store files than local drives.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Box offers a better way to store files than local drives.",
+      "concreteVisual": "Host B holds a laptop and explains Box.",
+      "onScreenText": "Box stores files better than drives",
+      "relationToPrevious": "introduces Box",
+      "addedInformation": "names the company and its edge"
+    }
+  },
+  {
+    "i": 147,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Not the Stanford president",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "founder",
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "reach",
+    "holds": "briefcase",
+    "partnerExpression": "neutral",
+    "partnerAction": "idle",
+    "explainedBy": "A founder with a briefcase does NOT approach the university president with a campuswide pitch.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A founder with a briefcase does NOT approach the university president with a campuswide pitch.",
+      "concreteVisual": "Founder with briefcase reaching toward a neutral partner, struck callout.",
+      "onScreenText": "Not the Stanford president",
+      "relationToPrevious": "what Box did not do",
+      "addedInformation": "rejects the big-pitch route"
+    }
+  },
+  {
+    "i": 148,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "A 2-year sales process",
+        "Compliance committees",
+        "They would lose to IBM"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A flow of grueling sales, committees, then losing to a legacy player.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A flow of grueling sales, committees, then losing to a legacy player.",
+      "concreteVisual": "Three-step flow diagram.",
+      "onScreenText": "2-year sales process / Compliance committees / Lost to IBM",
+      "relationToPrevious": "explains why the big pitch fails",
+      "addedInformation": "cause to effect chain"
+    }
+  },
+  {
+    "i": 149,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Stanford Sleep Clinic",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "founder"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "holds": "laptop",
+    "explainedBy": "Instead of the big pitch, Box found one tiny entry point.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Instead of the big pitch, Box found one tiny entry point.",
+      "concreteVisual": "Founder with laptop in an office naming the clinic.",
+      "onScreenText": "Stanford Sleep Clinic",
+      "relationToPrevious": "the alternative entry point",
+      "addedInformation": "names the entry point"
+    }
+  },
+  {
+    "i": 150,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Researchers have a painful data problem",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "founder",
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "laptop",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "Researchers had a painful problem with sleep-study data and Box went to them directly.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Researchers had a painful problem with sleep-study data and Box went to them directly.",
+      "concreteVisual": "Founder holding laptop beside a worried partner.",
+      "onScreenText": "Researchers have a painful data problem",
+      "relationToPrevious": "the problem and who Box targeted",
+      "addedInformation": "names the user and the pain"
+    }
+  },
+  {
+    "i": 151,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Sleep researchers",
+        "Small cheap accounts",
+        "IT bureaucracy bypassed"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Box sold cheap accounts straight to researchers and skipped IT.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Box sold cheap accounts straight to researchers and skipped IT.",
+      "concreteVisual": "Three-step flow diagram.",
+      "onScreenText": "Sleep researchers / Small cheap accounts / IT bureaucracy bypassed",
+      "relationToPrevious": "the sales route",
+      "addedInformation": "cause to effect chain"
+    }
+  },
+  {
+    "i": 152,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Researchers hooked",
+        "Other departments",
+        "University forced onto Box"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Use spread laterally from researchers to departments to the whole university.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Use spread laterally from researchers to departments to the whole university.",
+      "concreteVisual": "Three-step flow diagram of spread.",
+      "onScreenText": "Researchers hooked / Other departments / University forced onto Box",
+      "relationToPrevious": "the spread",
+      "addedInformation": "growth chain"
+    }
+  },
+  {
+    "i": 153,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The mathematics of distribution",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "The host turns to the underlying math of distribution.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The host turns to the underlying math of distribution.",
+      "concreteVisual": "Host A talking at a desk.",
+      "onScreenText": "The mathematics of distribution",
+      "relationToPrevious": "topic shift to math",
+      "addedInformation": "weak: transition"
+    }
+  },
+  {
+    "i": 154,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Customer lifetime value",
+        "Customer acquisition cost"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Distribution math sorts into two metrics, CLV and CAC.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Distribution math sorts into two metrics, CLV and CAC.",
+      "concreteVisual": "Two-bucket sorter.",
+      "onScreenText": "CLV / CAC",
+      "relationToPrevious": "names the two metrics",
+      "addedInformation": "two parts"
+    }
+  },
+  {
+    "i": 155,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "CLV must exceed CAC",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "neutral",
+    "action": "point",
+    "explainedBy": "Lifetime profit must outweigh acquisition spend: two sides weighed.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Lifetime profit must outweigh acquisition spend: two sides weighed.",
+      "concreteVisual": "Host B points at a scale of two sides.",
+      "onScreenText": "CLV must exceed CAC",
+      "relationToPrevious": "the ratio rule",
+      "addedInformation": "comparison of two sides"
+    }
+  },
+  {
+    "i": 156,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Cheap to acquire, massive value",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "continue": true,
+    "explainedBy": "Box fits: tiny acquisition cost, massive lifetime value.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Box fits: tiny acquisition cost, massive lifetime value.",
+      "concreteVisual": "Same scale kept, host A explains the Box fit.",
+      "onScreenText": "Cheap to acquire, massive value",
+      "relationToPrevious": "applies the rule to Box",
+      "addedInformation": "applies ratio to the example"
+    }
+  },
+  {
+    "i": 157,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "What about viral marketing?",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "smartphone",
+    "explainedBy": "Host B raises the viral marketing objection.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host B raises the viral marketing objection.",
+      "concreteVisual": "Host B with a smartphone, smirking.",
+      "onScreenText": "What about viral marketing?",
+      "relationToPrevious": "new objection",
+      "addedInformation": "weak: question"
+    }
+  },
+  {
+    "i": 158,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Everyone wants to go viral",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "smartphone",
+    "explainedBy": "The myth: PayPal, Facebook, Instagram grew just because the product was cool.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The myth: PayPal, Facebook, Instagram grew just because the product was cool.",
+      "concreteVisual": "Host A with smartphone voicing the common belief.",
+      "onScreenText": "Everyone wants to go viral",
+      "relationToPrevious": "states the myth",
+      "addedInformation": "puts the claim forward"
+    }
+  },
+  {
+    "i": 159,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Awesome product",
+        "Friends invited",
+        "Viral loop"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The believed chain: awesome product, friends invited, a viral loop.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The believed chain: awesome product, friends invited, a viral loop.",
+      "concreteVisual": "Three-step flow diagram of the myth.",
+      "onScreenText": "Awesome product / Friends invited / Viral loop",
+      "relationToPrevious": "the myth as a chain",
+      "addedInformation": "cause to effect chain"
+    }
+  },
+  {
+    "i": 160,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Organic growth",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "explainedBy": "The host rejects organic viral growth as a myth.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The host rejects organic viral growth as a myth.",
+      "concreteVisual": "Host A pointing with an angry face, struck callout.",
+      "onScreenText": "Organic growth",
+      "relationToPrevious": "rejects the myth",
+      "addedInformation": "verdict on the claim"
+    }
+  },
+  {
+    "i": 161,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PayPal's supposed organic growth",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "Host A asks what PayPal really did, host B listens curious.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host A asks what PayPal really did, host B listens curious.",
+      "concreteVisual": "Two hosts at a desk, one asking.",
+      "onScreenText": "PayPal's supposed organic growth",
+      "relationToPrevious": "sets up the evidence",
+      "addedInformation": "weak: question"
+    }
+  },
+  {
+    "i": 162,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "$20 cash to sign up",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "advocate",
+      "founder"
+    ],
+    "expression": "happy",
+    "action": "offer",
+    "holds": "coin",
+    "partnerExpression": "happy",
+    "partnerAction": "idle",
+    "explainedBy": "PayPal paid people $20 cash to sign up and $20 per referral.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "PayPal paid people $20 cash to sign up and $20 per referral.",
+      "concreteVisual": "Host B holds a coin out to a person.",
+      "onScreenText": "$20 cash to sign up",
+      "relationToPrevious": "the bounty",
+      "addedInformation": "concrete mechanism of growth"
+    }
+  },
+  {
+    "i": 163,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "Burning venture capital",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "The bounty was a calculated acquisition cost, money set on fire.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The bounty was a calculated acquisition cost, money set on fire.",
+      "concreteVisual": "Host A beside a fire icon.",
+      "onScreenText": "Burning venture capital",
+      "relationToPrevious": "reframes growth as spending",
+      "addedInformation": "growth is paid, not luck"
+    }
+  },
+  {
+    "i": 164,
+    "concept": "balance",
+    "diagram": null,
+    "callout": {
+      "text": "Lifetime value is far above $40",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "A power seller's lifetime value was far higher than the $40 cost.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A power seller's lifetime value was far higher than the $40 cost.",
+      "concreteVisual": "Host B beside a scale weighing value against cost.",
+      "onScreenText": "Lifetime value is far above $40",
+      "relationToPrevious": "why the math worked",
+      "addedInformation": "value vs cost"
+    }
+  },
+  {
+    "i": 165,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "$20 bought 7%",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "surprised",
+    "partnerAction": "idle",
+    "explainedBy": "The $20 bounty bought 7% growth and host B realises the math worked.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The $20 bounty bought 7% growth and host B realises the math worked.",
+      "concreteVisual": "Host A explaining, host B surprised.",
+      "onScreenText": "$20 bought 7%",
+      "relationToPrevious": "payoff of the bounty",
+      "addedInformation": "states the return"
+    }
+  },
+  {
+    "i": 166,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Growth is 7% daily",
+        "Users double in 10 days"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The 7% daily growth meant users doubled every 10 days.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The 7% daily growth meant users doubled every 10 days.",
+      "concreteVisual": "Two-label flow diagram.",
+      "onScreenText": "7% daily growth / Doubling every 10 days",
+      "relationToPrevious": "the growth rate",
+      "addedInformation": "cause to effect"
+    }
+  },
+  {
+    "i": 167,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "They buy the best users",
+        "They lock in the network",
+        "They reach critical mass"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "They bought valuable users, locked in the network effect and hit critical mass.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They bought valuable users, locked in the network effect and hit critical mass.",
+      "concreteVisual": "Three-step flow diagram.",
+      "onScreenText": "Most valuable users first / Network effect locked in / Critical mass",
+      "relationToPrevious": "the strategy chain",
+      "addedInformation": "cause to effect chain"
+    }
+  },
+  {
+    "i": 168,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They engineered growth, not luck",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "The conclusion: engineer the growth rather than hope for it.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The conclusion: engineer the growth rather than hope for it.",
+      "concreteVisual": "Host A points confidently.",
+      "onScreenText": "They engineered growth, not luck",
+      "relationToPrevious": "concludes the passage",
+      "addedInformation": "weak: conclusion"
+    }
+  },
+  {
+    "i": 169,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A bizarre team dynamic",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "That growth strategy needs an unusual team.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That growth strategy needs an unusual team.",
+      "concreteVisual": "Host B talking, surprised.",
+      "onScreenText": "A bizarre team dynamic",
+      "relationToPrevious": "bridges to the team",
+      "addedInformation": "weak: transition"
+    }
+  },
+  {
+    "i": 170,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PayPal office, 1999",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Host A invites a look around the early PayPal office.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host A invites a look around the early PayPal office.",
+      "concreteVisual": "Host A in an office pointing around.",
+      "onScreenText": "PayPal office, 1999",
+      "relationToPrevious": "sets scene",
+      "addedInformation": "places the time and room"
+    }
+  },
+  {
+    "i": 171,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Built homemade bombs",
+        "Escaped communist countries"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Among six founders, some built bombs and some escaped communism.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Among six founders, some built bombs and some escaped communism.",
+      "concreteVisual": "Two-bucket sorter.",
+      "onScreenText": "Built homemade bombs / Escaped communist countries",
+      "relationToPrevious": "the founders' backgrounds",
+      "addedInformation": "two facts about the team"
+    }
+  },
+  {
+    "i": 172,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "They debated sci-fi, not sports",
+      "style": "strike"
+    },
+    "set": "office",
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "The break room had no sports or pop small talk.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The break room had no sports or pop small talk.",
+      "concreteVisual": "Two hosts reacting, struck callout on small talk.",
+      "onScreenText": "They debated sci-fi, not sports",
+      "relationToPrevious": "contrast with normal office talk",
+      "addedInformation": "negation of small talk"
+    }
+  },
+  {
+    "i": 173,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Cryptonomicon",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "They geeked out over Neal Stephenson's novel Cryptonomicon.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They geeked out over Neal Stephenson's novel Cryptonomicon.",
+      "concreteVisual": "A book icon alone.",
+      "onScreenText": "Cryptonomicon",
+      "relationToPrevious": "what they talked about",
+      "addedInformation": "names the book"
+    }
+  },
+  {
+    "i": 174,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Star Wars: decentralized",
+        "Star Trek: centralized"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "They debated Star Wars versus Star Trek economics.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They debated Star Wars versus Star Trek economics.",
+      "concreteVisual": "Two-bucket sorter.",
+      "onScreenText": "Star Wars vs Star Trek",
+      "relationToPrevious": "the debate",
+      "addedInformation": "two sides compared"
+    }
+  },
+  {
+    "i": 175,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A strange ideological microculture",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "It was a concentrated, strange microculture, not just a workplace.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It was a concentrated, strange microculture, not just a workplace.",
+      "concreteVisual": "Host B reacting with surprise.",
+      "onScreenText": "A strange ideological microculture",
+      "relationToPrevious": "characterises the office",
+      "addedInformation": "weak: commentary"
+    }
+  },
+  {
+    "i": 176,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The question of people",
+      "style": "reveal"
+    },
+    "set": "office",
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Host A moves on to the question of people.",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host A moves on to the question of people.",
+      "concreteVisual": "Host A pointing forward.",
+      "onScreenText": "The question of people",
+      "relationToPrevious": "topic transition",
+      "addedInformation": "weak: transition"
+    }
+  }
+]

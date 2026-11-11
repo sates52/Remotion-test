@@ -1,0 +1,9 @@
+{
+ "schema": "single-relation-decision/1",
+ "decision": "none",
+ "reason": "5 candidates: 4 skipped by scene (negation/hypothetical/not drawable), 252 valid contract but A/B tie 16.7 vs 16.7; selection 0 scenes; config stays A",
+ "candidates": 5,
+ "decided": 5,
+ "policy": "c17-operator-selective-rollout",
+ "at": "2026-11-09T11:12:18.720Z"
+}

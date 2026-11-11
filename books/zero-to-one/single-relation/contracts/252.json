@@ -1,0 +1,26 @@
+{
+  "schema": "single-relation/1",
+  "type": "B",
+  "understanding": "No frontiers left, so modern people are unsatisfied.",
+  "evidence": "And therefore, modern people are deeply unsatisfied because there are no frontiers left.",
+  "claim": {
+    "asserted": "Modern people are deeply unsatisfied because there are no frontiers left.",
+    "polarity": "asserted",
+    "speaker": "narrator",
+    "notAsserted": []
+  },
+  "before": "a road leading out into open land beside modern people",
+  "transformation": "the road ends and disappears, and the people turn worried",
+  "after": "no road left, and the people look unsatisfied",
+  "camera": { "framing": "wide-locked", "purpose": "the road and the people in one frame" },
+  "entities": [
+    { "id": "frontiers", "kind": "object", "glyph": "road", "label": "frontiers" },
+    { "id": "people", "kind": "person", "label": "modern people" }
+  ],
+  "events": [
+    { "at": 0.5, "cause": "frontiers", "effects": [{ "entity": "frontiers", "present": false }, { "entity": "people", "mood": "worried" }] }
+  ],
+  "required": ["the road ending", "the people looking worried"],
+  "omitted": ["founders in 2026", "the question to the viewer"],
+  "_author": "claude-haiku-5.5"
+}

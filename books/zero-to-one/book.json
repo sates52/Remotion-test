@@ -1,0 +1,59 @@
+{
+  "slug": "zero-to-one",
+  "title": "Zero to One: Notes on Startups, or How to Build the Future",
+  "author": "Peter Thiel, Blake Masters",
+  "genre": "business",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "nonfiction",
+    "world": "ideas",
+    "era": 2014,
+    "realPeople": false,
+    "format": "argument",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "a startup team building one new product from nothing",
+      "a flat line of progress versus a steep upward curve",
+      "the Google search bar as a monopoly example",
+      "a monopoly board game with its winner-take-all tiles",
+      "a founder at a whiteboard sketching the future"
+    ]
+  },
+  "engineRubric": {
+    "pick": "antidote",
+    "confidence": "strong",
+    "voxScore": 0,
+    "antidoteScore": 45,
+    "reasons": [
+      "an ideas/advice book → concepts are drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": []
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-09",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 10.9,
+    "antidoteScore": 14.1,
+    "signals": {
+      "year": 1.7,
+      "history": 1.7,
+      "second": 21.4,
+      "abstract": 8.3,
+      "sensitive": 2,
+      "era": 2013,
+      "words": 8188
+    },
+    "reasons": [
+      "real-world / dated references (1.7 years, 1.7 history terms per 1k words) → photoreal shows the actual world (Vox)",
+      "the narration addresses the viewer (\"you\" 21.4/1k) → an idea/advice film, drawn as icons, diagrams and an everyman (Antidote)"
+    ],
+    "risks": [],
+    "confirmed": false
+  },
+  "audioSource": "public/audio/zero-to-one.mp3"
+}

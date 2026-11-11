@@ -1,0 +1,4083 @@
+{
+  "slug": "zero-to-one",
+  "totalSequences": 112,
+  "totalScenes": 320,
+  "averageDurationSecs": 25.9,
+  "sequences": [
+    {
+      "id": "seq-01",
+      "source": "engine",
+      "fromFrame": 2,
+      "durationFrames": 1229,
+      "durationSeconds": 41,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 0,
+          "sceneId": "intro",
+          "fromFrame": 2,
+          "durationFrames": 370,
+          "role": "setup",
+          "narration": "If you look at the absolute I mean the absolute Shakespearean tragedy that played out in Silicon Val"
+        },
+        {
+          "index": 1,
+          "sceneId": "scene-01",
+          "fromFrame": 372,
+          "durationFrames": 343,
+          "role": "question",
+          "narration": "truth and that is competition is for losers. Yeah. Literally. Like it's not healthy. It's not a driv"
+        },
+        {
+          "index": 2,
+          "sceneId": "scene-02",
+          "fromFrame": 715,
+          "durationFrames": 183,
+          "role": "complication",
+          "narration": "Right. Right. They started out in entirely different universes. Exactly. I mean, Microsoft was the u"
+        },
+        {
+          "index": 3,
+          "sceneId": "scene-03",
+          "fromFrame": 898,
+          "durationFrames": 333,
+          "role": "reveal",
+          "narration": "dominant king of operating systems and, you know, desktop office And Google was this pure algorithm-"
+        }
+      ]
+    },
+    {
+      "id": "seq-02",
+      "source": "engine",
+      "fromFrame": 1231,
+      "durationFrames": 982,
+      "durationSeconds": 32.7,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 4,
+          "sceneId": "scene-04",
+          "fromFrame": 1231,
+          "durationFrames": 319,
+          "role": "setup",
+          "narration": "There was absolutely zero structural reason for them to ever cross paths or step on each other's toe"
+        },
+        {
+          "index": 5,
+          "sceneId": "scene-05",
+          "fromFrame": 1550,
+          "durationFrames": 178,
+          "role": "question",
+          "narration": "inexplicably obsessed with each other. It just became this massive expensive street fight."
+        },
+        {
+          "index": 6,
+          "sceneId": "scene-06",
+          "fromFrame": 1728,
+          "durationFrames": 206,
+          "role": "complication",
+          "narration": "It really was. It was Windows versus Chrome OS. It was Bing versus Google Search. Internet Explorer "
+        },
+        {
+          "index": 7,
+          "sceneId": "scene-07",
+          "fromFrame": 1934,
+          "durationFrames": 279,
+          "role": "reveal",
+          "narration": "Yes. Microsoft Office versus Google Docs. Just endless. It really is, like you said, the perfect mod"
+        }
+      ]
+    },
+    {
+      "id": "seq-03",
+      "source": "engine",
+      "fromFrame": 2213,
+      "durationFrames": 1034,
+      "durationSeconds": 34.5,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 8,
+          "sceneId": "scene-08",
+          "fromFrame": 2213,
+          "durationFrames": 235,
+          "role": "setup",
+          "narration": "You know, the opening lines of that play, right? Two households both alike in dignity. Oh, that's a "
+        },
+        {
+          "index": 9,
+          "sceneId": "scene-09",
+          "fromFrame": 2448,
+          "durationFrames": 305,
+          "role": "question",
+          "narration": "It's that they are basically the exact same family. What's so fascinating here, if we apply that to "
+        },
+        {
+          "index": 10,
+          "sceneId": "scene-10",
+          "fromFrame": 2753,
+          "durationFrames": 180,
+          "role": "complication",
+          "narration": "Yeah, that makes sense. Microsoft and Google poured billions of dollars into fighting over the exact"
+        },
+        {
+          "index": 11,
+          "sceneId": "scene-11",
+          "fromFrame": 2933,
+          "durationFrames": 314,
+          "role": "reveal",
+          "narration": "Basically matching each other feature for feature, product for product. They completely lost sight o"
+        }
+      ]
+    },
+    {
+      "id": "seq-04",
+      "source": "engine",
+      "fromFrame": 3247,
+      "durationFrames": 564,
+      "durationSeconds": 18.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 12,
+          "sceneId": "scene-12",
+          "fromFrame": 3247,
+          "durationFrames": 355,
+          "role": "setup",
+          "narration": "And while they were locked in this endless petty war over desktop dominance and search bars, they al"
+        },
+        {
+          "index": 13,
+          "sceneId": "scene-13",
+          "fromFrame": 3602,
+          "durationFrames": 209,
+          "role": "reveal",
+          "narration": "which is such a massive blind spot. And well, that brings us directly to the core argument we are go"
+        }
+      ]
+    },
+    {
+      "id": "seq-05",
+      "source": "authored",
+      "fromFrame": 3811,
+      "durationFrames": 540,
+      "durationSeconds": 18,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 14,
+          "sceneId": "scene-14",
+          "fromFrame": 3811,
+          "durationFrames": 245,
+          "role": "authored-start",
+          "narration": "Let's do it. The thesis we are looking at is this. Progress is vertical, not horizontal. Right? Goin"
+        },
+        {
+          "index": 15,
+          "sceneId": "scene-15",
+          "fromFrame": 4056,
+          "durationFrames": 295,
+          "role": "authored-kept",
+          "narration": "meaning creating a brand new thing that nobody in the world has ever built before, creates vastly mo"
+        }
+      ]
+    },
+    {
+      "id": "seq-06",
+      "source": "engine",
+      "fromFrame": 4351,
+      "durationFrames": 989,
+      "durationSeconds": 33,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 16,
+          "sceneId": "scene-16",
+          "fromFrame": 4351,
+          "durationFrames": 211,
+          "role": "setup",
+          "narration": "Therefore, if you are a founder in 2026, your real job is not to beat the competition. Competing is "
+        },
+        {
+          "index": 17,
+          "sceneId": "scene-17",
+          "fromFrame": 4562,
+          "durationFrames": 317,
+          "role": "question",
+          "narration": "Your actual mandate is to build a monopoly based on a secret that very few people currently believe "
+        },
+        {
+          "index": 18,
+          "sceneId": "scene-18",
+          "fromFrame": 4879,
+          "durationFrames": 262,
+          "role": "complication",
+          "narration": "It's built on seven fundamental questions that every single founder must answer if they actually wan"
+        },
+        {
+          "index": 19,
+          "sceneId": "scene-19",
+          "fromFrame": 5141,
+          "durationFrames": 199,
+          "role": "reveal",
+          "narration": "First is engineering. Can you create breakthrough technology or are you just making incremental impr"
+        }
+      ]
+    },
+    {
+      "id": "seq-07",
+      "source": "engine",
+      "fromFrame": 5340,
+      "durationFrames": 1068,
+      "durationSeconds": 35.6,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 20,
+          "sceneId": "scene-20",
+          "fromFrame": 5340,
+          "durationFrames": 242,
+          "role": "setup",
+          "narration": "Exactly. Second is timing. Is now the right historical moment to start this specific business? Third"
+        },
+        {
+          "index": 21,
+          "sceneId": "scene-21",
+          "fromFrame": 5582,
+          "durationFrames": 272,
+          "role": "question",
+          "narration": "Are you starting by capturing a big share of a very small market? That one is so counterintuitive, b"
+        },
+        {
+          "index": 22,
+          "sceneId": "scene-22",
+          "fromFrame": 5854,
+          "durationFrames": 314,
+          "role": "complication",
+          "narration": "Do you have the exact right founding team? Fifth is distribution. Do you have a systemic way to not "
+        },
+        {
+          "index": 23,
+          "sceneId": "scene-23",
+          "fromFrame": 6168,
+          "durationFrames": 240,
+          "role": "reveal",
+          "narration": "Not at all. Sixth is durability. Will your market position be defensible 10, maybe 20 years into the"
+        }
+      ]
+    },
+    {
+      "id": "seq-08",
+      "source": "engine",
+      "fromFrame": 6408,
+      "durationFrames": 336,
+      "durationSeconds": 11.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 24,
+          "sceneId": "scene-24",
+          "fromFrame": 6408,
+          "durationFrames": 336,
+          "role": "reveal",
+          "narration": "And finally, the seventh question is the secret. Have you identified a unique opportunity that every"
+        }
+      ]
+    },
+    {
+      "id": "seq-09",
+      "source": "authored",
+      "fromFrame": 6744,
+      "durationFrames": 485,
+      "durationSeconds": 16.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 25,
+          "sceneId": "scene-25",
+          "fromFrame": 6744,
+          "durationFrames": 202,
+          "role": "authored-start",
+          "narration": "Toltoy's Anacarina. You know the one, all happy families are alike. That one. Yes. All happy familie"
+        },
+        {
+          "index": 26,
+          "sceneId": "scene-26",
+          "fromFrame": 6946,
+          "durationFrames": 283,
+          "role": "authored-kept",
+          "narration": "Each unhappy family is unhappy in its own way. But when you look at those seven questions and apply "
+        }
+      ]
+    },
+    {
+      "id": "seq-10",
+      "source": "engine",
+      "fromFrame": 7229,
+      "durationFrames": 852,
+      "durationSeconds": 28.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 27,
+          "sceneId": "scene-27",
+          "fromFrame": 7229,
+          "durationFrames": 235,
+          "role": "setup",
+          "narration": "How so? Well, all happy companies are different. Every genuinely successful business is a monopoly t"
+        },
+        {
+          "index": 28,
+          "sceneId": "scene-28",
+          "fromFrame": 7464,
+          "durationFrames": 214,
+          "role": "question",
+          "narration": "They figured out something no one else did. But all failed companies are exactly the same. They fail"
+        },
+        {
+          "index": 29,
+          "sceneId": "scene-29",
+          "fromFrame": 7678,
+          "durationFrames": 403,
+          "role": "reveal",
+          "narration": "They got caught in the exact same trap as Microsoft and Google, just on a smaller scale. Precisely. "
+        }
+      ]
+    },
+    {
+      "id": "seq-11",
+      "source": "authored",
+      "fromFrame": 8081,
+      "durationFrames": 578,
+      "durationSeconds": 19.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 30,
+          "sceneId": "scene-30",
+          "fromFrame": 8081,
+          "durationFrames": 237,
+          "role": "authored-start",
+          "narration": "Okay, let's make this incredibly concrete for you listening. I want you to picture standing in the m"
+        },
+        {
+          "index": 31,
+          "sceneId": "scene-31",
+          "fromFrame": 8318,
+          "durationFrames": 341,
+          "role": "authored-kept",
+          "narration": "Okay, I'm picturing it. The sheer scale of it is just overwhelming. You can literally smell the raw "
+        }
+      ]
+    },
+    {
+      "id": "seq-12",
+      "source": "engine",
+      "fromFrame": 8659,
+      "durationFrames": 1236,
+      "durationSeconds": 41.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 32,
+          "sceneId": "scene-32",
+          "fromFrame": 8659,
+          "durationFrames": 315,
+          "role": "setup",
+          "narration": "Yeah. And you look at the skylines, you listen to the developers and city planners and they are esse"
+        },
+        {
+          "index": 33,
+          "sceneId": "scene-33",
+          "fromFrame": 8974,
+          "durationFrames": 264,
+          "role": "question",
+          "narration": "They aren't inventing a new city Exactly. They are looking at existing models of success and replica"
+        },
+        {
+          "index": 34,
+          "sceneId": "scene-34",
+          "fromFrame": 9238,
+          "durationFrames": 280,
+          "role": "complication",
+          "narration": "Sure, but they are building the exact same skyscrapers, paving the exact same highways, rolling out "
+        },
+        {
+          "index": 35,
+          "sceneId": "scene-35",
+          "fromFrame": 9518,
+          "durationFrames": 377,
+          "role": "reveal",
+          "narration": "Yes, they are straightforwardly taking 19th century railroads, 20th century air conditioning and com"
+        }
+      ]
+    },
+    {
+      "id": "seq-13",
+      "source": "authored",
+      "fromFrame": 9895,
+      "durationFrames": 403,
+      "durationSeconds": 13.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 36,
+          "sceneId": "scene-36",
+          "fromFrame": 9895,
+          "durationFrames": 180,
+          "role": "authored-start",
+          "narration": "the exact definition of horizontal progress. It is globalization in a nutshell."
+        },
+        {
+          "index": 37,
+          "sceneId": "scene-37",
+          "fromFrame": 10075,
+          "durationFrames": 223,
+          "role": "authored-kept",
+          "narration": "Taking things that already work in one part of the world and making them work everywhere else. Going"
+        }
+      ]
+    },
+    {
+      "id": "seq-14",
+      "source": "engine",
+      "fromFrame": 10298,
+      "durationFrames": 1133,
+      "durationSeconds": 37.8,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 38,
+          "sceneId": "scene-38",
+          "fromFrame": 10298,
+          "durationFrames": 264,
+          "role": "setup",
+          "narration": "You have the template and you are just multiplying it. But the critical takeaway for a founder liste"
+        },
+        {
+          "index": 39,
+          "sceneId": "scene-39",
+          "fromFrame": 10562,
+          "durationFrames": 351,
+          "role": "question",
+          "narration": "Right? It doesn't scale forever. No, it doesn't. If you just take the old ways of creating wealth an"
+        },
+        {
+          "index": 40,
+          "sceneId": "scene-40",
+          "fromFrame": 10913,
+          "durationFrames": 187,
+          "role": "complication",
+          "narration": "the end result is not global riches. And what is it then? It is environmental and economic devastati"
+        },
+        {
+          "index": 41,
+          "sceneId": "scene-41",
+          "fromFrame": 11100,
+          "durationFrames": 331,
+          "role": "reveal",
+          "narration": "You simply cannot take the current resource consumption of the United States, multiply it by the mas"
+        }
+      ]
+    },
+    {
+      "id": "seq-15",
+      "source": "engine",
+      "fromFrame": 11431,
+      "durationFrames": 821,
+      "durationSeconds": 27.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 42,
+          "sceneId": "scene-42",
+          "fromFrame": 11431,
+          "durationFrames": 329,
+          "role": "setup",
+          "narration": "It just breaks the math. which is exactly why vertical progress is the only viable way forward. Let'"
+        },
+        {
+          "index": 43,
+          "sceneId": "scene-43",
+          "fromFrame": 11760,
+          "durationFrames": 269,
+          "role": "question",
+          "narration": "build 100 pristine, perfectly engineered typewriters, you have achieved horizontal progress, right? "
+        },
+        {
+          "index": 44,
+          "sceneId": "scene-44",
+          "fromFrame": 12029,
+          "durationFrames": 223,
+          "role": "reveal",
+          "narration": "recognize its limitations, and invent the digital word processor, you have just made vertical progre"
+        }
+      ]
+    },
+    {
+      "id": "seq-16",
+      "source": "authored",
+      "fromFrame": 12252,
+      "durationFrames": 715,
+      "durationSeconds": 23.8,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 45,
+          "sceneId": "scene-45",
+          "fromFrame": 12252,
+          "durationFrames": 197,
+          "role": "authored-start",
+          "narration": "Oh, I see. You've introduced an entirely new paradigm that allows people to do exponentially more wo"
+        },
+        {
+          "index": 46,
+          "sceneId": "scene-46",
+          "fromFrame": 12449,
+          "durationFrames": 201,
+          "role": "authored-kept",
+          "narration": "significantly fewer physical resources. The word processor doesn't use paper. It doesn't need physic"
+        },
+        {
+          "index": 47,
+          "sceneId": "scene-47",
+          "fromFrame": 12650,
+          "durationFrames": 317,
+          "role": "authored-kept",
+          "narration": "And it allows for infinite editing. That 0ero to one leap changes the economic equation entirely. Wa"
+        }
+      ]
+    },
+    {
+      "id": "seq-17",
+      "source": "engine",
+      "fromFrame": 12967,
+      "durationFrames": 1150,
+      "durationSeconds": 38.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 48,
+          "sceneId": "scene-48",
+          "fromFrame": 12967,
+          "durationFrames": 233,
+          "role": "setup",
+          "narration": "bit intellectually arrogant. How do you mean? Well, globalization is actively pulling hundreds of mi"
+        },
+        {
+          "index": 49,
+          "sceneId": "scene-49",
+          "fromFrame": 13200,
+          "durationFrames": 346,
+          "role": "question",
+          "narration": "Like that is a measurable fact. So for an ordinary founder sitting here in 2026 looking for a practi"
+        },
+        {
+          "index": 50,
+          "sceneId": "scene-50",
+          "fromFrame": 13546,
+          "durationFrames": 357,
+          "role": "complication",
+          "narration": "existing business model and applying it to an underserved emerging market make vastly more financial"
+        },
+        {
+          "index": 51,
+          "sceneId": "scene-51",
+          "fromFrame": 13903,
+          "durationFrames": 214,
+          "role": "reveal",
+          "narration": "I mean, it might make sense for a quick flip or a lifestyle business in the short term, but if we zo"
+        }
+      ]
+    },
+    {
+      "id": "seq-18",
+      "source": "engine",
+      "fromFrame": 14117,
+      "durationFrames": 1077,
+      "durationSeconds": 35.9,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 52,
+          "sceneId": "scene-52",
+          "fromFrame": 14117,
+          "durationFrames": 336,
+          "role": "setup",
+          "narration": "globalization without new technology is a complete dead end. A dead end. Look at the energy math. If"
+        },
+        {
+          "index": 53,
+          "sceneId": "scene-53",
+          "fromFrame": 14453,
+          "durationFrames": 189,
+          "role": "question",
+          "narration": "existing methods of burning fossil fuels, it doubles its air pollution. It literally chokes its own"
+        },
+        {
+          "index": 54,
+          "sceneId": "scene-54",
+          "fromFrame": 14642,
+          "durationFrames": 298,
+          "role": "complication",
+          "narration": "Okay, true. If every household in a country of a billion people suddenly adopts the exact consumptio"
+        },
+        {
+          "index": 55,
+          "sceneId": "scene-55",
+          "fromFrame": 14940,
+          "durationFrames": 254,
+          "role": "reveal",
+          "narration": "the result is catastrophic resource depletion. So you're saying the copying model eventually hits a "
+        }
+      ]
+    },
+    {
+      "id": "seq-19",
+      "source": "engine",
+      "fromFrame": 15194,
+      "durationFrames": 1071,
+      "durationSeconds": 35.7,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 56,
+          "sceneId": "scene-56",
+          "fromFrame": 15194,
+          "durationFrames": 288,
+          "role": "setup",
+          "narration": "technological breakthroughs to massively increase efficiency, the one to end copying eventually cons"
+        },
+        {
+          "index": 57,
+          "sceneId": "scene-57",
+          "fromFrame": 15482,
+          "durationFrames": 269,
+          "role": "question",
+          "narration": "You cannot sustain a globalized economic plateau without new technology to relieve that intense comp"
+        },
+        {
+          "index": 58,
+          "sceneId": "scene-58",
+          "fromFrame": 15751,
+          "durationFrames": 231,
+          "role": "complication",
+          "narration": "Because at the end of the day, true progress is vertical. If you're not doing something genuinely ne"
+        },
+        {
+          "index": 59,
+          "sceneId": "scene-59",
+          "fromFrame": 15982,
+          "durationFrames": 283,
+          "role": "reveal",
+          "narration": "And a real monopoly that escapes that fight is always built on a secret. And understanding that diff"
+        }
+      ]
+    },
+    {
+      "id": "seq-20",
+      "source": "engine",
+      "fromFrame": 16265,
+      "durationFrames": 993,
+      "durationSeconds": 33.1,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 60,
+          "sceneId": "scene-60",
+          "fromFrame": 16265,
+          "durationFrames": 386,
+          "role": "setup",
+          "narration": "reality of the competitive ecosystem itself. It's a harsh reality, too. Oh, incredibly harsh. To rea"
+        },
+        {
+          "index": 61,
+          "sceneId": "scene-61",
+          "fromFrame": 16651,
+          "durationFrames": 219,
+          "role": "question",
+          "narration": "Ooh, wow. Okay. High stress. Just imagine the environment. The heat is absolutely suffocating."
+        },
+        {
+          "index": 62,
+          "sceneId": "scene-62",
+          "fromFrame": 16870,
+          "durationFrames": 388,
+          "role": "reveal",
+          "narration": "The screaming from the head chef is just I can feel the anxiety already. Right. There is this palpab"
+        }
+      ]
+    },
+    {
+      "id": "seq-21",
+      "source": "engine",
+      "fromFrame": 17258,
+      "durationFrames": 260,
+      "durationSeconds": 8.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 63,
+          "sceneId": "scene-63",
+          "fromFrame": 17258,
+          "durationFrames": 260,
+          "role": "reveal",
+          "narration": "are razor thin and competition is infinite. Everyone is gunning for that top spot. Exactly. And ther"
+        }
+      ]
+    },
+    {
+      "id": "seq-22",
+      "source": "authored",
+      "fromFrame": 17518,
+      "durationFrames": 484,
+      "durationSeconds": 16.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 64,
+          "sceneId": "scene-64",
+          "fromFrame": 17518,
+          "durationFrames": 247,
+          "role": "authored-start",
+          "narration": "who was literally recorded whispering to the press, \"If I lose a star, I will commit suicide.\" Good "
+        },
+        {
+          "index": 65,
+          "sceneId": "scene-65",
+          "fromFrame": 17765,
+          "durationFrames": 237,
+          "role": "authored-kept",
+          "narration": "Tragically, in 2003, when a competing French dining guy downgraded his restaurant, the pressure brok"
+        }
+      ]
+    },
+    {
+      "id": "seq-23",
+      "source": "engine",
+      "fromFrame": 18002,
+      "durationFrames": 1028,
+      "durationSeconds": 34.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 66,
+          "sceneId": "scene-66",
+          "fromFrame": 18002,
+          "durationFrames": 351,
+          "role": "setup",
+          "narration": "That is just wow. The lesson there is dark, but it's essential to understand. The competitive ecosys"
+        },
+        {
+          "index": 67,
+          "sceneId": "scene-67",
+          "fromFrame": 18353,
+          "durationFrames": 177,
+          "role": "question",
+          "narration": "or It's just survival. Pure survival. When economists talk about perfect competition,"
+        },
+        {
+          "index": 68,
+          "sceneId": "scene-68",
+          "fromFrame": 18530,
+          "durationFrames": 190,
+          "role": "complication",
+          "narration": "they are describing a market where no single company has any real power. The products are largely un"
+        },
+        {
+          "index": 69,
+          "sceneId": "scene-69",
+          "fromFrame": 18720,
+          "durationFrames": 310,
+          "role": "reveal",
+          "narration": "Right. One restaurant is basically substituting for another in the eyes of the market. Exactly. In t"
+        }
+      ]
+    },
+    {
+      "id": "seq-24",
+      "source": "engine",
+      "fromFrame": 19030,
+      "durationFrames": 878,
+      "durationSeconds": 29.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 70,
+          "sceneId": "scene-70",
+          "fromFrame": 19030,
+          "durationFrames": 158,
+          "role": "setup",
+          "narration": "shaving a penny off the cost of ingredients that it cannot possibly plan for a long-term future."
+        },
+        {
+          "index": 71,
+          "sceneId": "scene-71",
+          "fromFrame": 19188,
+          "durationFrames": 223,
+          "role": "question",
+          "narration": "It becomes a brute daily struggle for basic survival. You don't even have to look at high-end dining"
+        },
+        {
+          "index": 72,
+          "sceneId": "scene-72",
+          "fromFrame": 19411,
+          "durationFrames": 288,
+          "role": "complication",
+          "narration": "Oh, the perfect example. It is the ultimate example of a hyperco competitive trap. They create hundr"
+        },
+        {
+          "index": 73,
+          "sceneId": "scene-73",
+          "fromFrame": 19699,
+          "durationFrames": 209,
+          "role": "reveal",
+          "narration": "They serve millions of passengers, flying them safely across the globe at 500 miles an hour, which i"
+        }
+      ]
+    },
+    {
+      "id": "seq-25",
+      "source": "authored",
+      "fromFrame": 19908,
+      "durationFrames": 617,
+      "durationSeconds": 20.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 74,
+          "sceneId": "scene-74",
+          "fromFrame": 19908,
+          "durationFrames": 257,
+          "role": "authored-start",
+          "narration": "But because they are locked in a brutal price war on travel websites, buying planes from the same ma"
+        },
+        {
+          "index": 75,
+          "sceneId": "scene-75",
+          "fromFrame": 20165,
+          "durationFrames": 360,
+          "role": "authored-kept",
+          "narration": "they capture almost none of that value. Their margins are famously terrible. Do you know what they a"
+        }
+      ]
+    },
+    {
+      "id": "seq-26",
+      "source": "engine",
+      "fromFrame": 20525,
+      "durationFrames": 1061,
+      "durationSeconds": 35.4,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 76,
+          "sceneId": "scene-76",
+          "fromFrame": 20525,
+          "durationFrames": 233,
+          "role": "setup",
+          "narration": "profit per passenger trip. Wow. 37 cents. 37 cents. Now, contrast that grueling reality with Google."
+        },
+        {
+          "index": 77,
+          "sceneId": "scene-77",
+          "fromFrame": 20758,
+          "durationFrames": 340,
+          "role": "question",
+          "narration": "Google keeps roughly 21% of its revenues as pure unadulterated profit. We're talking tens of billion"
+        },
+        {
+          "index": 78,
+          "sceneId": "scene-78",
+          "fromFrame": 21098,
+          "durationFrames": 144,
+          "role": "complication",
+          "narration": "They stand completely alone in search. They dictate the terms of the ad auction."
+        },
+        {
+          "index": 79,
+          "sceneId": "scene-79",
+          "fromFrame": 21242,
+          "durationFrames": 344,
+          "role": "reveal",
+          "narration": "They are a And this stark contrast reveals a massive optical illusion in how we talk about business."
+        }
+      ]
+    },
+    {
+      "id": "seq-27",
+      "source": "engine",
+      "fromFrame": 21586,
+      "durationFrames": 1003,
+      "durationSeconds": 33.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 80,
+          "sceneId": "scene-80",
+          "fromFrame": 21586,
+          "durationFrames": 345,
+          "role": "setup",
+          "narration": "Exactly. They are terrified of government regulators. So, they frame themselves as tiny players in m"
+        },
+        {
+          "index": 81,
+          "sceneId": "scene-81",
+          "fromFrame": 21931,
+          "durationFrames": 322,
+          "role": "question",
+          "narration": "tiny vulnerable fraction of the global advertising market. Right. We just sell ads. Yeah. They'll lu"
+        },
+        {
+          "index": 82,
+          "sceneId": "scene-82",
+          "fromFrame": 22253,
+          "durationFrames": 336,
+          "role": "reveal",
+          "narration": "paper and avoid antitrust scrutiny. Meanwhile, the non- monopouists, the people opening another rest"
+        }
+      ]
+    },
+    {
+      "id": "seq-28",
+      "source": "engine",
+      "fromFrame": 22589,
+      "durationFrames": 1008,
+      "durationSeconds": 33.6,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 83,
+          "sceneId": "scene-83",
+          "fromFrame": 22589,
+          "durationFrames": 403,
+          "role": "setup",
+          "narration": "Oh, exactly. It's like a high school student claiming they are the number one athlete in the school,"
+        },
+        {
+          "index": 84,
+          "sceneId": "scene-84",
+          "fromFrame": 22992,
+          "durationFrames": 346,
+          "role": "question",
+          "narration": "The restaurant owner will say, \"We are the only British fusion farm-totable dining experience in Pal"
+        },
+        {
+          "index": 85,
+          "sceneId": "scene-85",
+          "fromFrame": 23338,
+          "durationFrames": 259,
+          "role": "reveal",
+          "narration": "reality that they are fighting for the exact same $20 dining budget as the sushi place next door, th"
+        }
+      ]
+    },
+    {
+      "id": "seq-29",
+      "source": "engine",
+      "fromFrame": 23597,
+      "durationFrames": 881,
+      "durationSeconds": 29.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 86,
+          "sceneId": "scene-86",
+          "fromFrame": 23597,
+          "durationFrames": 235,
+          "role": "setup",
+          "narration": "Right? They invent a fictional category where they are the only player while ignoring the massive oc"
+        },
+        {
+          "index": 87,
+          "sceneId": "scene-87",
+          "fromFrame": 23832,
+          "durationFrames": 336,
+          "role": "question",
+          "narration": "But let me interrupt here because this is where the theory rubs up against everything we are traditi"
+        },
+        {
+          "index": 88,
+          "sceneId": "scene-88",
+          "fromFrame": 24168,
+          "durationFrames": 310,
+          "role": "reveal",
+          "narration": "The entire premise of free market capitalism as taught in universities is that competition drives pr"
+        }
+      ]
+    },
+    {
+      "id": "seq-30",
+      "source": "authored",
+      "fromFrame": 24478,
+      "durationFrames": 1279,
+      "durationSeconds": 42.6,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 89,
+          "sceneId": "scene-89",
+          "fromFrame": 24478,
+          "durationFrames": 268,
+          "role": "authored-start",
+          "narration": "Right. We are taught that monopolies are inherently bad. Aren't monopolies just greedy rent collecto"
+        },
+        {
+          "index": 90,
+          "sceneId": "scene-90",
+          "fromFrame": 24746,
+          "durationFrames": 257,
+          "role": "authored-kept",
+          "narration": "cornering the board, jacking up prices, and extracting wealth from the rest of us without actually p"
+        },
+        {
+          "index": 91,
+          "sceneId": "scene-91",
+          "fromFrame": 25003,
+          "durationFrames": 298,
+          "role": "authored-kept",
+          "narration": "But it operates on a completely flawed assumption. It assumes a static world. Yes. In a static world"
+        },
+        {
+          "index": 92,
+          "sceneId": "scene-92",
+          "fromFrame": 25301,
+          "durationFrames": 283,
+          "role": "authored-kept",
+          "narration": "A monopolist is absolutely just a rent collector. If you own all the water rights in a town and neve"
+        },
+        {
+          "index": 93,
+          "sceneId": "scene-93",
+          "fromFrame": 25584,
+          "durationFrames": 173,
+          "role": "authored-kept",
+          "narration": "But we live in a dynamic world. It's possible to invent entirely new and better things."
+        }
+      ]
+    },
+    {
+      "id": "seq-31",
+      "source": "engine",
+      "fromFrame": 25757,
+      "durationFrames": 302,
+      "durationSeconds": 10.1,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 94,
+          "sceneId": "scene-94",
+          "fromFrame": 25757,
+          "durationFrames": 302,
+          "role": "reveal",
+          "narration": "Creative monopolies don't strangle innovation. They actually drive it. They give customers more choi"
+        }
+      ]
+    },
+    {
+      "id": "seq-32",
+      "source": "authored",
+      "fromFrame": 26059,
+      "durationFrames": 631,
+      "durationSeconds": 21,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 95,
+          "sceneId": "scene-95",
+          "fromFrame": 26059,
+          "durationFrames": 185,
+          "role": "authored-start",
+          "narration": "So, you're saying Apple's massive margins on the early iPhone weren't extortion. They were the rewar"
+        },
+        {
+          "index": 96,
+          "sceneId": "scene-96",
+          "fromFrame": 26244,
+          "durationFrames": 264,
+          "role": "authored-kept",
+          "narration": "for pulling the future forward. Precisely. Apple's monopoly profits from the iOS ecosystem weren't a"
+        },
+        {
+          "index": 97,
+          "sceneId": "scene-97",
+          "fromFrame": 26508,
+          "durationFrames": 182,
+          "role": "authored-kept",
+          "narration": "They were a financial reward for creating a smartphone that actually worked when everyone else was m"
+        }
+      ]
+    },
+    {
+      "id": "seq-33",
+      "source": "engine",
+      "fromFrame": 26690,
+      "durationFrames": 1008,
+      "durationSeconds": 33.6,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 98,
+          "sceneId": "scene-98",
+          "fromFrame": 26690,
+          "durationFrames": 394,
+          "role": "setup",
+          "narration": "Oh, I remember those. And here's the mechanical secret of the monopoly. Those massive profits give c"
+        },
+        {
+          "index": 99,
+          "sceneId": "scene-99",
+          "fromFrame": 27084,
+          "durationFrames": 276,
+          "role": "question",
+          "narration": "decadelong research projects that a hyperco competitive company could never afford. A restaurant fig"
+        },
+        {
+          "index": 100,
+          "sceneId": "scene-100",
+          "fromFrame": 27360,
+          "durationFrames": 338,
+          "role": "reveal",
+          "narration": "Google can't because fundamentally true progress is You can only fund the future if you aren't bleed"
+        }
+      ]
+    },
+    {
+      "id": "seq-34",
+      "source": "engine",
+      "fromFrame": 27698,
+      "durationFrames": 788,
+      "durationSeconds": 26.3,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 101,
+          "sceneId": "scene-101",
+          "fromFrame": 27698,
+          "durationFrames": 351,
+          "role": "setup",
+          "narration": "room is always built on a Which perfectly transitions into the actual mechanics of how you build one"
+        },
+        {
+          "index": 102,
+          "sceneId": "scene-102",
+          "fromFrame": 28049,
+          "durationFrames": 177,
+          "role": "question",
+          "narration": "counterintuitive starting strategy. It really does. Let's wind the clock back to 1999."
+        },
+        {
+          "index": 103,
+          "sceneId": "scene-103",
+          "fromFrame": 28226,
+          "durationFrames": 260,
+          "role": "reveal",
+          "narration": "Picture a stuffy conference room full of skeptical technology journalists. I can picture the oversiz"
+        }
+      ]
+    },
+    {
+      "id": "seq-35",
+      "source": "authored",
+      "fromFrame": 28486,
+      "durationFrames": 391,
+      "durationSeconds": 13,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 104,
+          "sceneId": "scene-104",
+          "fromFrame": 28486,
+          "durationFrames": 163,
+          "role": "authored-start",
+          "narration": "Up on the stage, you have a group of very intense nerds holding these primitive"
+        },
+        {
+          "index": 105,
+          "sceneId": "scene-105",
+          "fromFrame": 28649,
+          "durationFrames": 228,
+          "role": "authored-kept",
+          "narration": "chunky Palm Pilots and they are attempting to physically beam money to each other using the infrared"
+        }
+      ]
+    },
+    {
+      "id": "seq-36",
+      "source": "engine",
+      "fromFrame": 28877,
+      "durationFrames": 1130,
+      "durationSeconds": 37.7,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 106,
+          "sceneId": "scene-106",
+          "fromFrame": 28877,
+          "durationFrames": 199,
+          "role": "setup",
+          "narration": "That sounds incredibly clunky. It was the journalists in the audience are literally groaning. They a"
+        },
+        {
+          "index": 107,
+          "sceneId": "scene-107",
+          "fromFrame": 29076,
+          "durationFrames": 175,
+          "role": "question",
+          "narration": "They ended up writing this off as one of the quote unquote 10 worst business ideas of 1999."
+        },
+        {
+          "index": 108,
+          "sceneId": "scene-108",
+          "fromFrame": 29251,
+          "durationFrames": 195,
+          "role": "partial_answer",
+          "narration": "And honestly, they were kind of right at the time. Nobody needed it. The users were totally scattere"
+        },
+        {
+          "index": 109,
+          "sceneId": "scene-109",
+          "fromFrame": 29446,
+          "durationFrames": 324,
+          "role": "complication",
+          "narration": "You couldn't beam money to someone unless they were physically standing next to you with the exact s"
+        },
+        {
+          "index": 110,
+          "sceneId": "scene-110",
+          "fromFrame": 29770,
+          "durationFrames": 237,
+          "role": "reveal",
+          "narration": "to think big. But mechanically, you must always heir on the side of starting too small. Wait, start "
+        }
+      ]
+    },
+    {
+      "id": "seq-37",
+      "source": "authored",
+      "fromFrame": 30007,
+      "durationFrames": 492,
+      "durationSeconds": 16.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 111,
+          "sceneId": "scene-111",
+          "fromFrame": 30007,
+          "durationFrames": 199,
+          "role": "authored-start",
+          "narration": "Yes. Every single startup is tiny at its genesis. But every true monopoly by definition"
+        },
+        {
+          "index": 112,
+          "sceneId": "scene-112",
+          "fromFrame": 30206,
+          "durationFrames": 293,
+          "role": "authored-kept",
+          "narration": "dominates a large share of its market. Therefore, the only mathematically possible way to be a monop"
+        }
+      ]
+    },
+    {
+      "id": "seq-38",
+      "source": "engine",
+      "fromFrame": 30499,
+      "durationFrames": 1255,
+      "durationSeconds": 41.8,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 113,
+          "sceneId": "scene-113",
+          "fromFrame": 30499,
+          "durationFrames": 298,
+          "role": "setup",
+          "narration": "If you pitch an idea and you think your initial market is too big, you are already dead in the water"
+        },
+        {
+          "index": 114,
+          "sceneId": "scene-114",
+          "fromFrame": 30797,
+          "durationFrames": 269,
+          "role": "question",
+          "narration": "They didn't stubbornly keep trying to capture all of online payments from day one. That would have p"
+        },
+        {
+          "index": 115,
+          "sceneId": "scene-115",
+          "fromFrame": 31066,
+          "durationFrames": 369,
+          "role": "complication",
+          "narration": "Exactly. Instead, they looked at their data and pivoted to a hyperconentrated, incredibly specific n"
+        },
+        {
+          "index": 116,
+          "sceneId": "scene-116",
+          "fromFrame": 31435,
+          "durationFrames": 319,
+          "role": "reveal",
+          "narration": "Very specific. These were heavy volume auctioneers who desperately needed a way to get paid instantl"
+        }
+      ]
+    },
+    {
+      "id": "seq-39",
+      "source": "engine",
+      "fromFrame": 31754,
+      "durationFrames": 1138,
+      "durationSeconds": 37.9,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 117,
+          "sceneId": "scene-117",
+          "fromFrame": 31754,
+          "durationFrames": 243,
+          "role": "setup",
+          "narration": "and PayPal solved it. They did. Within 3 months of dedicated laser focused effort, PayPal captured 2"
+        },
+        {
+          "index": 118,
+          "sceneId": "scene-118",
+          "fromFrame": 31997,
+          "durationFrames": 379,
+          "role": "question",
+          "narration": "They achieved monopoly status in that tiny closed ecosystem before they ever tried to take on the br"
+        },
+        {
+          "index": 119,
+          "sceneId": "scene-119",
+          "fromFrame": 32376,
+          "durationFrames": 250,
+          "role": "complication",
+          "narration": "The grand vision was always the everything store. He wanted to dominate all of global retail, but he"
+        },
+        {
+          "index": 120,
+          "sceneId": "scene-120",
+          "fromFrame": 32626,
+          "durationFrames": 266,
+          "role": "reveal",
+          "narration": "He started purely with books because it was a manageable niche. Think about the mechanical advantage"
+        }
+      ]
+    },
+    {
+      "id": "seq-40",
+      "source": "engine",
+      "fromFrame": 32892,
+      "durationFrames": 1092,
+      "durationSeconds": 36.4,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 121,
+          "sceneId": "scene-121",
+          "fromFrame": 32892,
+          "durationFrames": 180,
+          "role": "setup",
+          "narration": "meaning a physical bookstore could never stock them all, giving a digital catalog an instant advanta"
+        },
+        {
+          "index": 122,
+          "sceneId": "scene-122",
+          "fromFrame": 33072,
+          "durationFrames": 235,
+          "role": "question",
+          "narration": "Books are uniform in size. They are incredibly easy to pack and ship and they don't expire. Perfect "
+        },
+        {
+          "index": 123,
+          "sceneId": "scene-123",
+          "fromFrame": 33307,
+          "durationFrames": 358,
+          "role": "complication",
+          "narration": "Exactly. Bezos could become the absolute dominant solution for a very specific type of customer seek"
+        },
+        {
+          "index": 124,
+          "sceneId": "scene-124",
+          "fromFrame": 33665,
+          "durationFrames": 319,
+          "role": "reveal",
+          "narration": "to CDEs than videos and eventually cloud computing and everything else. Wait, I really need to stop "
+        }
+      ]
+    },
+    {
+      "id": "seq-41",
+      "source": "engine",
+      "fromFrame": 33984,
+      "durationFrames": 257,
+      "durationSeconds": 8.6,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 125,
+          "sceneId": "scene-125",
+          "fromFrame": 33984,
+          "durationFrames": 257,
+          "role": "reveal",
+          "narration": "Well, what does this start small advice actually mean for a founder pitching investors today? Becaus"
+        }
+      ]
+    },
+    {
+      "id": "seq-42",
+      "source": "authored",
+      "fromFrame": 34241,
+      "durationFrames": 521,
+      "durationSeconds": 17.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 126,
+          "sceneId": "scene-126",
+          "fromFrame": 34241,
+          "durationFrames": 245,
+          "role": "authored-start",
+          "narration": "pitch deck right now proudly features a slide that says the total addressable market for our product"
+        },
+        {
+          "index": 127,
+          "sceneId": "scene-127",
+          "fromFrame": 34486,
+          "durationFrames": 276,
+          "role": "authored-kept",
+          "narration": "And the founder always says, \"Look, if we just capture a measly 1% of this massive global market, we"
+        }
+      ]
+    },
+    {
+      "id": "seq-43",
+      "source": "engine",
+      "fromFrame": 34762,
+      "durationFrames": 499,
+      "durationSeconds": 16.6,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 128,
+          "sceneId": "scene-128",
+          "fromFrame": 34762,
+          "durationFrames": 151,
+          "role": "setup",
+          "narration": "Doesn't showing a massive total addressable market prove to investors that you have ambition?"
+        },
+        {
+          "index": 129,
+          "sceneId": "scene-129",
+          "fromFrame": 34913,
+          "durationFrames": 348,
+          "role": "reveal",
+          "narration": "Why would a VC fund a company going after 20,000 eBay Because that 1% of a massive market pitch show"
+        }
+      ]
+    },
+    {
+      "id": "seq-44",
+      "source": "authored",
+      "fromFrame": 35261,
+      "durationFrames": 629,
+      "durationSeconds": 21,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 130,
+          "sceneId": "scene-130",
+          "fromFrame": 35261,
+          "durationFrames": 329,
+          "role": "authored-start",
+          "narration": "Large pre-existing markets are a complete trap. A trap. Think about it mechanically. If a market is "
+        },
+        {
+          "index": 131,
+          "sceneId": "scene-131",
+          "fromFrame": 35590,
+          "durationFrames": 300,
+          "role": "authored-kept",
+          "narration": "cutthroat incumbents where you will bleed to death fighting for that 1%. Or it lacks a cohesive star"
+        }
+      ]
+    },
+    {
+      "id": "seq-45",
+      "source": "authored",
+      "fromFrame": 35890,
+      "durationFrames": 544,
+      "durationSeconds": 18.1,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 132,
+          "sceneId": "scene-132",
+          "fromFrame": 35890,
+          "durationFrames": 225,
+          "role": "authored-start",
+          "narration": "Exactly. You do not want 1% of a bloody, highly competitive ocean. If you throw a pebble into the oc"
+        },
+        {
+          "index": 133,
+          "sceneId": "scene-133",
+          "fromFrame": 36115,
+          "durationFrames": 319,
+          "role": "authored-kept",
+          "narration": "But if you throw a pebble into a small puddle, you create massive I like that analogy. You want 100%"
+        }
+      ]
+    },
+    {
+      "id": "seq-46",
+      "source": "engine",
+      "fromFrame": 36434,
+      "durationFrames": 1001,
+      "durationSeconds": 33.4,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 134,
+          "sceneId": "scene-134",
+          "fromFrame": 36434,
+          "durationFrames": 358,
+          "role": "setup",
+          "narration": "Once you dominate that niche and only then do you use your cash flowing captive audience to graduall"
+        },
+        {
+          "index": 135,
+          "sceneId": "scene-135",
+          "fromFrame": 36792,
+          "durationFrames": 276,
+          "role": "question",
+          "narration": "a niche before you build the skyscraper, right? And a real monopoly is always built on a secret. But"
+        },
+        {
+          "index": 136,
+          "sceneId": "scene-136",
+          "fromFrame": 37068,
+          "durationFrames": 367,
+          "role": "reveal",
+          "narration": "absolutely useless if you don't have a systemic way to get it into the user's Distribution is everyt"
+        }
+      ]
+    },
+    {
+      "id": "seq-47",
+      "source": "engine",
+      "fromFrame": 37435,
+      "durationFrames": 149,
+      "durationSeconds": 5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 137,
+          "sceneId": "scene-137",
+          "fromFrame": 37435,
+          "durationFrames": 149,
+          "role": "reveal",
+          "narration": "payment system for the web. But they realized they needed to actually market Uh-oh."
+        }
+      ]
+    },
+    {
+      "id": "seq-48",
+      "source": "authored",
+      "fromFrame": 37584,
+      "durationFrames": 965,
+      "durationSeconds": 32.2,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 138,
+          "sceneId": "scene-138",
+          "fromFrame": 37584,
+          "durationFrames": 338,
+          "role": "authored-start",
+          "narration": "Engineers doing marketing. Yeah. Relying on their own nerdy instincts, they hired James Duhan, the a"
+        },
+        {
+          "index": 139,
+          "sceneId": "scene-139",
+          "fromFrame": 37922,
+          "durationFrames": 377,
+          "role": "authored-kept",
+          "narration": "They rented a space, invited the financial press, and Duhan stands up there and enthusiastically say"
+        },
+        {
+          "index": 140,
+          "sceneId": "scene-140",
+          "fromFrame": 38299,
+          "durationFrames": 250,
+          "role": "authored-kept",
+          "narration": "And crickets. The room was practically empty. The journalists who did show up were confused. The who"
+        }
+      ]
+    },
+    {
+      "id": "seq-49",
+      "source": "engine",
+      "fromFrame": 38549,
+      "durationFrames": 1085,
+      "durationSeconds": 36.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 141,
+          "sceneId": "scene-141",
+          "fromFrame": 38549,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "The founders honestly thought that because they loved Star Trek, Scotty would be the ultimate unques"
+        },
+        {
+          "index": 142,
+          "sceneId": "scene-142",
+          "fromFrame": 38765,
+          "durationFrames": 317,
+          "role": "question",
+          "narration": "It's funny, but it exposes a fatal flaw in the engineering mindset. Engineers love to build and they"
+        },
+        {
+          "index": 143,
+          "sceneId": "scene-143",
+          "fromFrame": 39082,
+          "durationFrames": 194,
+          "role": "complication",
+          "narration": "The field of dreams mentality. Exactly. If you build it, they will come is a complete myth in the bu"
+        },
+        {
+          "index": 144,
+          "sceneId": "scene-144",
+          "fromFrame": 39276,
+          "durationFrames": 358,
+          "role": "reveal",
+          "narration": "If you invent the most revolutionary technology of the decade, but you have no effective, scalable w"
+        }
+      ]
+    },
+    {
+      "id": "seq-50",
+      "source": "engine",
+      "fromFrame": 39634,
+      "durationFrames": 1125,
+      "durationSeconds": 37.5,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 145,
+          "sceneId": "scene-145",
+          "fromFrame": 39634,
+          "durationFrames": 211,
+          "role": "setup",
+          "narration": "Distribution cannot be an afterthought. It is essential to the core design of the product itself. Lo"
+        },
+        {
+          "index": 146,
+          "sceneId": "scene-146",
+          "fromFrame": 39845,
+          "durationFrames": 254,
+          "role": "question",
+          "narration": "the enterprise cloud storage company. Back when cloud computing was barely a recognized concept, the"
+        },
+        {
+          "index": 147,
+          "sceneId": "scene-147",
+          "fromFrame": 40099,
+          "durationFrames": 195,
+          "role": "complication",
+          "narration": "But they didn't try to walk into the office of the president of Stanford University and sell a massi"
+        },
+        {
+          "index": 148,
+          "sceneId": "scene-148",
+          "fromFrame": 40294,
+          "durationFrames": 254,
+          "role": "complication",
+          "narration": "That would have required a grueling 2-year enterprise sales process, multiple compliance committees,"
+        },
+        {
+          "index": 149,
+          "sceneId": "scene-149",
+          "fromFrame": 40548,
+          "durationFrames": 211,
+          "role": "reveal",
+          "narration": "It would have been impossible. Instead, they found a tiny, highly specific entry point, the Stanford"
+        }
+      ]
+    },
+    {
+      "id": "seq-51",
+      "source": "engine",
+      "fromFrame": 40759,
+      "durationFrames": 1157,
+      "durationSeconds": 38.6,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 150,
+          "sceneId": "scene-150",
+          "fromFrame": 40759,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "They realized researchers had an acute, painful problem storing massive data logs from sleep studies"
+        },
+        {
+          "index": 151,
+          "sceneId": "scene-151",
+          "fromFrame": 40975,
+          "durationFrames": 240,
+          "role": "question",
+          "narration": "Exactly. Box sold small, cheap accounts directly to those researchers. They completely bypassed the "
+        },
+        {
+          "index": 152,
+          "sceneId": "scene-152",
+          "fromFrame": 41215,
+          "durationFrames": 276,
+          "role": "partial_answer",
+          "narration": "Once the researchers were hooked, the product spread laterally to other departments until eventually"
+        },
+        {
+          "index": 153,
+          "sceneId": "scene-153",
+          "fromFrame": 41491,
+          "durationFrames": 197,
+          "role": "complication",
+          "narration": "because everyone was already using What's fascinating here is the underlying mathematics of distribu"
+        },
+        {
+          "index": 154,
+          "sceneId": "scene-154",
+          "fromFrame": 41688,
+          "durationFrames": 228,
+          "role": "reveal",
+          "narration": "It always comes down to two absolute metrics. customer lifetime value or CLV and customer acquisitio"
+        }
+      ]
+    },
+    {
+      "id": "seq-52",
+      "source": "authored",
+      "fromFrame": 41916,
+      "durationFrames": 674,
+      "durationSeconds": 22.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 155,
+          "sceneId": "scene-155",
+          "fromFrame": 41916,
+          "durationFrames": 319,
+          "role": "authored-start",
+          "narration": "The classic CLV to CAC ratio, right? The equation is brutally simple. The total net profit you earn "
+        },
+        {
+          "index": 156,
+          "sceneId": "scene-156",
+          "fromFrame": 42235,
+          "durationFrames": 355,
+          "role": "authored-kept",
+          "narration": "must significantly exceed the total amount of marketing and sales money you spend to acquire them in"
+        }
+      ]
+    },
+    {
+      "id": "seq-53",
+      "source": "engine",
+      "fromFrame": 42590,
+      "durationFrames": 992,
+      "durationSeconds": 33.1,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 157,
+          "sceneId": "scene-157",
+          "fromFrame": 42590,
+          "durationFrames": 262,
+          "role": "setup",
+          "narration": "but the lifetime value of eventually capturing the whole university was massive. But hold on, let's "
+        },
+        {
+          "index": 158,
+          "sceneId": "scene-158",
+          "fromFrame": 42852,
+          "durationFrames": 379,
+          "role": "question",
+          "narration": "This is what every single founder is trying to replicate. Everyone wants to go viral. Surely compani"
+        },
+        {
+          "index": 159,
+          "sceneId": "scene-159",
+          "fromFrame": 43231,
+          "durationFrames": 159,
+          "role": "complication",
+          "narration": "Users invited their friends because it was awesome. Isn't that the holy grail? Just build a viral lo"
+        },
+        {
+          "index": 160,
+          "sceneId": "scene-160",
+          "fromFrame": 43390,
+          "durationFrames": 192,
+          "role": "reveal",
+          "narration": "That organic viral growth myth completely ignores the actual mechanical engineering behind those net"
+        }
+      ]
+    },
+    {
+      "id": "seq-54",
+      "source": "engine",
+      "fromFrame": 43582,
+      "durationFrames": 1089,
+      "durationSeconds": 36.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 161,
+          "sceneId": "scene-161",
+          "fromFrame": 43582,
+          "durationFrames": 216,
+          "role": "setup",
+          "narration": "Let's look at PayPal's supposed organic growth. They didn't just hope people would invite their frie"
+        },
+        {
+          "index": 162,
+          "sceneId": "scene-162",
+          "fromFrame": 43798,
+          "durationFrames": 324,
+          "role": "question",
+          "narration": "PayPal literally paid people $20 in hard cash just to sign up for an account. And then they paid the"
+        },
+        {
+          "index": 163,
+          "sceneId": "scene-163",
+          "fromFrame": 44122,
+          "durationFrames": 288,
+          "role": "complication",
+          "narration": "It wasn't magic. It was a highly calculated customer acquisition cost. They were just setting money "
+        },
+        {
+          "index": 164,
+          "sceneId": "scene-164",
+          "fromFrame": 44410,
+          "durationFrames": 261,
+          "role": "reveal",
+          "narration": "Yes. But they looked at the math. They knew the customer lifetime value of an eBay power seller who "
+        }
+      ]
+    },
+    {
+      "id": "seq-55",
+      "source": "engine",
+      "fromFrame": 44671,
+      "durationFrames": 1116,
+      "durationSeconds": 37.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 165,
+          "sceneId": "scene-165",
+          "fromFrame": 44671,
+          "durationFrames": 228,
+          "role": "setup",
+          "narration": "was far higher than $40. Oh, so the math actually worked out. Exactly. So that $20 bounty bought the"
+        },
+        {
+          "index": 166,
+          "sceneId": "scene-166",
+          "fromFrame": 44899,
+          "durationFrames": 204,
+          "role": "question",
+          "narration": "daily exponential growth. Their user base was literally doubling every 10 days."
+        },
+        {
+          "index": 167,
+          "sceneId": "scene-167",
+          "fromFrame": 45103,
+          "durationFrames": 351,
+          "role": "complication",
+          "narration": "They bought the most valuable users in the world first, locked in the network effect, and achieved c"
+        },
+        {
+          "index": 168,
+          "sceneId": "scene-168",
+          "fromFrame": 45454,
+          "durationFrames": 333,
+          "role": "reveal",
+          "narration": "distribution, not organic luck. Because true progress is vertical. You have to engineer the growth, "
+        }
+      ]
+    },
+    {
+      "id": "seq-56",
+      "source": "engine",
+      "fromFrame": 45787,
+      "durationFrames": 1147,
+      "durationSeconds": 38.2,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 169,
+          "sceneId": "scene-169",
+          "fromFrame": 45787,
+          "durationFrames": 255,
+          "role": "setup",
+          "narration": "And if you are going to execute that kind of highly calculated rapidfire growth strategy, it require"
+        },
+        {
+          "index": 170,
+          "sceneId": "scene-170",
+          "fromFrame": 46042,
+          "durationFrames": 206,
+          "role": "question",
+          "narration": "kind of team dynamic. Bizarre is definitely the right word for Let's just look around the early PayP"
+        },
+        {
+          "index": 171,
+          "sceneId": "scene-171",
+          "fromFrame": 46248,
+          "durationFrames": 298,
+          "role": "complication",
+          "narration": "The demographics and the culture are completely startling. Out of the six original founders, four of"
+        },
+        {
+          "index": 172,
+          "sceneId": "scene-172",
+          "fromFrame": 46546,
+          "durationFrames": 388,
+          "role": "reveal",
+          "narration": "fun, which is terrifying, by the way. It is. And three of them had escaped communist countries as ch"
+        }
+      ]
+    },
+    {
+      "id": "seq-57",
+      "source": "engine",
+      "fromFrame": 46934,
+      "durationFrames": 1006,
+      "durationSeconds": 33.5,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 173,
+          "sceneId": "scene-173",
+          "fromFrame": 46934,
+          "durationFrames": 375,
+          "role": "setup",
+          "narration": "small talk. No. They were intensely geeking out over Neil Stevenson's dense sci-fi novel Cryptonnomi"
+        },
+        {
+          "index": 174,
+          "sceneId": "scene-174",
+          "fromFrame": 47309,
+          "durationFrames": 194,
+          "role": "question",
+          "narration": "Star Wars was philosophically and economically vastly superior to the centralized post scarcity"
+        },
+        {
+          "index": 175,
+          "sceneId": "scene-175",
+          "fromFrame": 47503,
+          "durationFrames": 283,
+          "role": "complication",
+          "narration": "communist universe of Star Trek. That's incredibly specific, right? It wasn't just a workplace. It w"
+        },
+        {
+          "index": 176,
+          "sceneId": "scene-176",
+          "fromFrame": 47786,
+          "durationFrames": 154,
+          "role": "reveal",
+          "narration": "deeply ideological microculture. And that brings us to the question of people."
+        }
+      ]
+    },
+    {
+      "id": "seq-58",
+      "source": "engine",
+      "fromFrame": 47940,
+      "durationFrames": 262,
+      "durationSeconds": 8.7,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 177,
+          "sceneId": "scene-177",
+          "fromFrame": 47940,
+          "durationFrames": 262,
+          "role": "reveal",
+          "narration": "Choosing a co-founder is exactly like getting married. And founder conflict is just as ugly, expensi"
+        }
+      ]
+    },
+    {
+      "id": "seq-59",
+      "source": "authored",
+      "fromFrame": 48202,
+      "durationFrames": 638,
+      "durationSeconds": 21.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 178,
+          "sceneId": "scene-178",
+          "fromFrame": 48202,
+          "durationFrames": 369,
+          "role": "authored-start",
+          "narration": "It can tank the whole company. Oh, absolutely. A startup that is fundamentally messed up at its foun"
+        },
+        {
+          "index": 179,
+          "sceneId": "scene-179",
+          "fromFrame": 48571,
+          "durationFrames": 269,
+          "role": "authored-kept",
+          "narration": "itself becomes the primary victim. You need people who are not just technically skilled on paper, bu"
+        }
+      ]
+    },
+    {
+      "id": "seq-60",
+      "source": "engine",
+      "fromFrame": 48840,
+      "durationFrames": 497,
+      "durationSeconds": 16.6,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 180,
+          "sceneId": "scene-180",
+          "fromFrame": 48840,
+          "durationFrames": 245,
+          "role": "setup",
+          "narration": "This alignment is so critical that Peter Theal's venture capital firm, Founders Fund, actually devel"
+        },
+        {
+          "index": 181,
+          "sceneId": "scene-181",
+          "fromFrame": 49085,
+          "durationFrames": 252,
+          "role": "reveal",
+          "narration": "Oh, the suit rule. Yes, they instituted a blanket rule to never invest in a tech CEO who showed up t"
+        }
+      ]
+    },
+    {
+      "id": "seq-61",
+      "source": "authored",
+      "fromFrame": 49337,
+      "durationFrames": 912,
+      "durationSeconds": 30.4,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 182,
+          "sceneId": "scene-182",
+          "fromFrame": 49337,
+          "durationFrames": 324,
+          "role": "authored-start",
+          "narration": "traditional right? But in their view, real technologists, the ones actually building the future, wea"
+        },
+        {
+          "index": 183,
+          "sceneId": "scene-183",
+          "fromFrame": 49661,
+          "durationFrames": 240,
+          "role": "authored-kept",
+          "narration": "sharp tailored suits were almost always salesman executives posing as engineers. They were optimizin"
+        },
+        {
+          "index": 184,
+          "sceneId": "scene-184",
+          "fromFrame": 49901,
+          "durationFrames": 348,
+          "role": "authored-kept",
+          "narration": "They were fantastic at smoozing politicians and raising government subsidies, but they were terrible"
+        }
+      ]
+    },
+    {
+      "id": "seq-62",
+      "source": "engine",
+      "fromFrame": 50249,
+      "durationFrames": 564,
+      "durationSeconds": 18.8,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 185,
+          "sceneId": "scene-185",
+          "fromFrame": 50249,
+          "durationFrames": 309,
+          "role": "setup",
+          "narration": "priorities. If we connect this to the mechanical reality of an earlystage startup, it's entirely abo"
+        },
+        {
+          "index": 186,
+          "sceneId": "scene-186",
+          "fromFrame": 50558,
+          "durationFrames": 255,
+          "role": "reveal",
+          "narration": "resources are incredibly limited. The team is tiny, the runway is short, and you must work incredibl"
+        }
+      ]
+    },
+    {
+      "id": "seq-63",
+      "source": "authored",
+      "fromFrame": 50813,
+      "durationFrames": 588,
+      "durationSeconds": 19.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 187,
+          "sceneId": "scene-187",
+          "fromFrame": 50813,
+          "durationFrames": 338,
+          "role": "authored-start",
+          "narration": "Every day counts, right? So if the core team has fundamentally different worldviews, for example, if"
+        },
+        {
+          "index": 188,
+          "sceneId": "scene-188",
+          "fromFrame": 51151,
+          "durationFrames": 250,
+          "role": "authored-kept",
+          "narration": "with a pragmatic MBA who just wants to slap a brand on something and cash in on a quick acquisition,"
+        }
+      ]
+    },
+    {
+      "id": "seq-64",
+      "source": "engine",
+      "fromFrame": 51401,
+      "durationFrames": 341,
+      "durationSeconds": 11.4,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 189,
+          "sceneId": "scene-189",
+          "fromFrame": 51401,
+          "durationFrames": 341,
+          "role": "reveal",
+          "narration": "single micro decision. Every meeting becomes a philosophical battle. Wait, I have to stop you becaus"
+        }
+      ]
+    },
+    {
+      "id": "seq-65",
+      "source": "authored",
+      "fromFrame": 51742,
+      "durationFrames": 1624,
+      "durationSeconds": 54.1,
+      "sceneCount": 5,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 190,
+          "sceneId": "scene-190",
+          "fromFrame": 51742,
+          "durationFrames": 223,
+          "role": "authored-start",
+          "narration": "Every management book, every HR seminar tells us that a founding team needs extreme diversity of tho"
+        },
+        {
+          "index": 191,
+          "sceneId": "scene-191",
+          "fromFrame": 51965,
+          "durationFrames": 269,
+          "role": "authored-kept",
+          "narration": "You need conflicting viewpoints to avoid group That's the conventional wisdom. Sure. You need someon"
+        },
+        {
+          "index": 192,
+          "sceneId": "scene-192",
+          "fromFrame": 52234,
+          "durationFrames": 352,
+          "role": "authored-kept",
+          "narration": "Isn't building a team of guys who all read the same sci-fi books just creating a toxic echo chamber?"
+        },
+        {
+          "index": 193,
+          "sceneId": "scene-193",
+          "fromFrame": 52586,
+          "durationFrames": 408,
+          "role": "authored-kept",
+          "narration": "bureaucratic organization like the United Nations or a Fortune 500 company trying to ensure they don"
+        },
+        {
+          "index": 194,
+          "sceneId": "scene-194",
+          "fromFrame": 52994,
+          "durationFrames": 372,
+          "role": "authored-kept",
+          "narration": "extreme diversity of thought is a fatal liability. Yes. uh you do not have the time or the runway to"
+        }
+      ]
+    },
+    {
+      "id": "seq-66",
+      "source": "authored",
+      "fromFrame": 53366,
+      "durationFrames": 552,
+      "durationSeconds": 18.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 195,
+          "sceneId": "scene-195",
+          "fromFrame": 53366,
+          "durationFrames": 324,
+          "role": "authored-start",
+          "narration": "Internal conflict is like an autoimmune disease for a startup. When a startup fails, the technical c"
+        },
+        {
+          "index": 196,
+          "sceneId": "scene-196",
+          "fromFrame": 53690,
+          "durationFrames": 228,
+          "role": "authored-kept",
+          "narration": "But if you look closer, the real cause was almost always factional strife and internal politics that"
+        }
+      ]
+    },
+    {
+      "id": "seq-67",
+      "source": "authored",
+      "fromFrame": 53918,
+      "durationFrames": 516,
+      "durationSeconds": 17.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 197,
+          "sceneId": "scene-197",
+          "fromFrame": 53918,
+          "durationFrames": 317,
+          "role": "authored-start",
+          "narration": "So you need a hive mind essentially. You need a team that is obsessed with the exact same specific p"
+        },
+        {
+          "index": 198,
+          "sceneId": "scene-198",
+          "fromFrame": 54235,
+          "durationFrames": 199,
+          "role": "authored-kept",
+          "narration": "speed of light because true progress is vertical. You can't achieve liftoff if the crew is fighting "
+        }
+      ]
+    },
+    {
+      "id": "seq-68",
+      "source": "engine",
+      "fromFrame": 54434,
+      "durationFrames": 555,
+      "durationSeconds": 18.5,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 199,
+          "sceneId": "scene-199",
+          "fromFrame": 54434,
+          "durationFrames": 329,
+          "role": "setup",
+          "narration": "Exactly. And a real monopoly is always built on a secret. And once that unified obsessive team actua"
+        },
+        {
+          "index": 200,
+          "sceneId": "scene-200",
+          "fromFrame": 54763,
+          "durationFrames": 226,
+          "role": "reveal",
+          "narration": "whether that business can actually survive the gravitational pull of the market over Yes, durability"
+        }
+      ]
+    },
+    {
+      "id": "seq-69",
+      "source": "authored",
+      "fromFrame": 54989,
+      "durationFrames": 420,
+      "durationSeconds": 14,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 201,
+          "sceneId": "scene-201",
+          "fromFrame": 54989,
+          "durationFrames": 201,
+          "role": "authored-start",
+          "narration": "Let's jump to November 2013. Right on the chaotic floor of the New York Stock Exchange, Twitter is g"
+        },
+        {
+          "index": 202,
+          "sceneId": "scene-202",
+          "fromFrame": 55190,
+          "durationFrames": 219,
+          "role": "authored-kept",
+          "narration": "I remember that day. The bell rings, the confetti falls, and the ticker is flashing this absolutely "
+        }
+      ]
+    },
+    {
+      "id": "seq-70",
+      "source": "engine",
+      "fromFrame": 55409,
+      "durationFrames": 1209,
+      "durationSeconds": 40.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 203,
+          "sceneId": "scene-203",
+          "fromFrame": 55409,
+          "durationFrames": 379,
+          "role": "setup",
+          "narration": "billion valuation. And on the financial networks, you have these confused, red-faced, old school val"
+        },
+        {
+          "index": 204,
+          "sceneId": "scene-204",
+          "fromFrame": 55788,
+          "durationFrames": 293,
+          "role": "question",
+          "narration": "The New York Times made $133 million in actual profit last year, and Twitter is fundamentally losing"
+        },
+        {
+          "index": 205,
+          "sceneId": "scene-205",
+          "fromFrame": 56081,
+          "durationFrames": 273,
+          "role": "complication",
+          "narration": "tech app worth 12 times more than the most prestigious newspaper in the world? The confusion comes f"
+        },
+        {
+          "index": 206,
+          "sceneId": "scene-206",
+          "fromFrame": 56354,
+          "durationFrames": 264,
+          "role": "reveal",
+          "narration": "The fundamental truth of valuation is that a great business is defined solely by its ability to gene"
+        }
+      ]
+    },
+    {
+      "id": "seq-71",
+      "source": "engine",
+      "fromFrame": 56618,
+      "durationFrames": 598,
+      "durationSeconds": 19.9,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 207,
+          "sceneId": "scene-207",
+          "fromFrame": 56618,
+          "durationFrames": 228,
+          "role": "setup",
+          "narration": "right? Not present, Short-term growth or present- day revenue means absolutely nothing if the busine"
+        },
+        {
+          "index": 208,
+          "sceneId": "scene-208",
+          "fromFrame": 56846,
+          "durationFrames": 370,
+          "role": "reveal",
+          "narration": "Those investors valued Twitter so highly despite the losses because they looked at the network effec"
+        }
+      ]
+    },
+    {
+      "id": "seq-72",
+      "source": "authored",
+      "fromFrame": 57216,
+      "durationFrames": 708,
+      "durationSeconds": 23.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 209,
+          "sceneId": "scene-209",
+          "fromFrame": 57216,
+          "durationFrames": 374,
+          "role": "authored-start",
+          "narration": "Exactly. Conversely, they looked at the New York Times and realized that the traditional newspaper m"
+        },
+        {
+          "index": 210,
+          "sceneId": "scene-210",
+          "fromFrame": 57590,
+          "durationFrames": 334,
+          "role": "authored-kept",
+          "narration": "the internet. The Times current profits were the end of an era. While Twitter's future cash flows we"
+        }
+      ]
+    },
+    {
+      "id": "seq-73",
+      "source": "engine",
+      "fromFrame": 57924,
+      "durationFrames": 199,
+      "durationSeconds": 6.6,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 211,
+          "sceneId": "scene-211",
+          "fromFrame": 57924,
+          "durationFrames": 199,
+          "role": "reveal",
+          "narration": "have to look at Apple's moat. It is impenetrable. It really is. And it's not just because they have "
+        }
+      ]
+    },
+    {
+      "id": "seq-74",
+      "source": "authored",
+      "fromFrame": 58123,
+      "durationFrames": 1752,
+      "durationSeconds": 58.4,
+      "sceneCount": 6,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 212,
+          "sceneId": "scene-212",
+          "fromFrame": 58123,
+          "durationFrames": 370,
+          "role": "authored-start",
+          "narration": "The brand is just the shiny surface. Underneath the marketing is a fortress of interlocking mechanic"
+        },
+        {
+          "index": 213,
+          "sceneId": "scene-213",
+          "fromFrame": 58493,
+          "durationFrames": 257,
+          "role": "authored-kept",
+          "narration": "with their proprietary software, creating an experience no Android phone can seamlessly replicate. R"
+        },
+        {
+          "index": 214,
+          "sceneId": "scene-214",
+          "fromFrame": 58750,
+          "durationFrames": 328,
+          "role": "authored-kept",
+          "narration": "Then you add their insane economies of scale. Because Apple buys components for hundreds of millions"
+        },
+        {
+          "index": 215,
+          "sceneId": "scene-215",
+          "fromFrame": 59078,
+          "durationFrames": 240,
+          "role": "authored-kept",
+          "narration": "of advanced CNC milling machines, physically preventing competitors from manufacturing laptops. the "
+        },
+        {
+          "index": 216,
+          "sceneId": "scene-216",
+          "fromFrame": 59318,
+          "durationFrames": 387,
+          "role": "authored-kept",
+          "narration": "Yes. And finally, you have the massive network effects. Hundreds of thousands of independent develop"
+        },
+        {
+          "index": 217,
+          "sceneId": "scene-217",
+          "fromFrame": 59705,
+          "durationFrames": 170,
+          "role": "authored-kept",
+          "narration": "the Apple ecosystem because that's where all the best apps are. It's a self-reinforcing fortress."
+        }
+      ]
+    },
+    {
+      "id": "seq-75",
+      "source": "engine",
+      "fromFrame": 59875,
+      "durationFrames": 363,
+      "durationSeconds": 12.1,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 218,
+          "sceneId": "scene-218",
+          "fromFrame": 59875,
+          "durationFrames": 363,
+          "role": "reveal",
+          "narration": "And that proprietary technology layer really needs to be understood to create a real monopolistic ad"
+        }
+      ]
+    },
+    {
+      "id": "seq-76",
+      "source": "authored",
+      "fromFrame": 60238,
+      "durationFrames": 748,
+      "durationSeconds": 24.9,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 219,
+          "sceneId": "scene-219",
+          "fromFrame": 60238,
+          "durationFrames": 252,
+          "role": "authored-start",
+          "narration": "10 times at least. If you build a new search engine that is only a 20% improvement over Google, nobo"
+        },
+        {
+          "index": 220,
+          "sceneId": "scene-220",
+          "fromFrame": 60490,
+          "durationFrames": 213,
+          "role": "authored-kept",
+          "narration": "The switching costs and the friction of learning a new tool will negate your slight improvement. It "
+        },
+        {
+          "index": 221,
+          "sceneId": "scene-221",
+          "fromFrame": 60703,
+          "durationFrames": 283,
+          "role": "authored-kept",
+          "narration": "You need a 10x improvement, like going from the physical typewriter to the digital word processor to"
+        }
+      ]
+    },
+    {
+      "id": "seq-77",
+      "source": "authored",
+      "fromFrame": 60986,
+      "durationFrames": 497,
+      "durationSeconds": 16.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 222,
+          "sceneId": "scene-222",
+          "fromFrame": 60986,
+          "durationFrames": 312,
+          "role": "authored-start",
+          "narration": "Okay, but let's talk about the other moat. We always hear about first mover advantage. Isn't getting"
+        },
+        {
+          "index": 223,
+          "sceneId": "scene-223",
+          "fromFrame": 61298,
+          "durationFrames": 185,
+          "role": "authored-kept",
+          "narration": "else, you grab the real estate, you establish the brand, don't you automatically win? First mover is"
+        }
+      ]
+    },
+    {
+      "id": "seq-78",
+      "source": "authored",
+      "fromFrame": 61483,
+      "durationFrames": 790,
+      "durationSeconds": 26.3,
+      "sceneCount": 3,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 224,
+          "sceneId": "scene-224",
+          "fromFrame": 61483,
+          "durationFrames": 228,
+          "role": "authored-start",
+          "narration": "It is absolutely not a goal in itself. Think about it mechanically. Being the first company to sell "
+        },
+        {
+          "index": 225,
+          "sceneId": "scene-225",
+          "fromFrame": 61711,
+          "durationFrames": 351,
+          "role": "authored-kept",
+          "narration": "does you absolutely no good if a second company comes along a year later, looks at all the expensive"
+        },
+        {
+          "index": 226,
+          "sceneId": "scene-226",
+          "fromFrame": 62062,
+          "durationFrames": 211,
+          "role": "authored-kept",
+          "narration": "and completely unseats you, right? You just did their R&amp;D for them. You just paid the expensive "
+        }
+      ]
+    },
+    {
+      "id": "seq-79",
+      "source": "authored",
+      "fromFrame": 62273,
+      "durationFrames": 578,
+      "durationSeconds": 19.3,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 227,
+          "sceneId": "scene-227",
+          "fromFrame": 62273,
+          "durationFrames": 348,
+          "role": "authored-start",
+          "narration": "The actual goal is not to be the first mover. The goal is to be the last mover. The last mover. Yes."
+        },
+        {
+          "index": 228,
+          "sceneId": "scene-228",
+          "fromFrame": 62621,
+          "durationFrames": 230,
+          "role": "authored-kept",
+          "narration": "last search engine that mattered or Facebook was the last social network that mattered and then enjo"
+        }
+      ]
+    },
+    {
+      "id": "seq-80",
+      "source": "engine",
+      "fromFrame": 62851,
+      "durationFrames": 1188,
+      "durationSeconds": 39.6,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 229,
+          "sceneId": "scene-229",
+          "fromFrame": 62851,
+          "durationFrames": 298,
+          "role": "setup",
+          "narration": "You have to study the endgame before you worry about being first off the starting block because true"
+        },
+        {
+          "index": 230,
+          "sceneId": "scene-230",
+          "fromFrame": 63149,
+          "durationFrames": 261,
+          "role": "question",
+          "narration": "Exactly. And a real monopoly is always built on a secret. So, the trillion dollar question becomes, "
+        },
+        {
+          "index": 231,
+          "sceneId": "scene-231",
+          "fromFrame": 63410,
+          "durationFrames": 332,
+          "role": "complication",
+          "narration": "Where do you look? You have to look for what everyone else is actively ignoring. The secret. Which b"
+        },
+        {
+          "index": 232,
+          "sceneId": "scene-232",
+          "fromFrame": 63742,
+          "durationFrames": 297,
+          "role": "reveal",
+          "narration": "The founders can't afford rent in San Francisco, so they are quite literally having people pay to sl"
+        }
+      ]
+    },
+    {
+      "id": "seq-81",
+      "source": "authored",
+      "fromFrame": 64039,
+      "durationFrames": 708,
+      "durationSeconds": 23.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 233,
+          "sceneId": "scene-233",
+          "fromFrame": 64039,
+          "durationFrames": 315,
+          "role": "authored-start",
+          "narration": "It sounds so ridiculous in hindsight. It really does. When they start pitching this as a global busi"
+        },
+        {
+          "index": 234,
+          "sceneId": "scene-234",
+          "fromFrame": 64354,
+          "durationFrames": 393,
+          "role": "authored-kept",
+          "narration": "out of the room. The conventional wisdom is loud and unanimous. People will never rent out their per"
+        }
+      ]
+    },
+    {
+      "id": "seq-82",
+      "source": "engine",
+      "fromFrame": 64747,
+      "durationFrames": 336,
+      "durationSeconds": 11.2,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 235,
+          "sceneId": "scene-235",
+          "fromFrame": 64747,
+          "durationFrames": 336,
+          "role": "reveal",
+          "narration": "It sounded like an insane, dangerous It did. But that is exactly what you are looking for. The absol"
+        }
+      ]
+    },
+    {
+      "id": "seq-83",
+      "source": "authored",
+      "fromFrame": 65083,
+      "durationFrames": 528,
+      "durationSeconds": 17.6,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 236,
+          "sceneId": "scene-236",
+          "fromFrame": 65083,
+          "durationFrames": 382,
+          "role": "authored-start",
+          "narration": "that is hidden in plain sight. Something that others are completely ignoring or dismissing because o"
+        },
+        {
+          "index": 237,
+          "sceneId": "scene-237",
+          "fromFrame": 65465,
+          "durationFrames": 146,
+          "role": "authored-kept",
+          "narration": "It is absolutely not a secret and the market is probably already saturated with competitors."
+        }
+      ]
+    },
+    {
+      "id": "seq-84",
+      "source": "engine",
+      "fromFrame": 65611,
+      "durationFrames": 1078,
+      "durationSeconds": 35.9,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 238,
+          "sceneId": "scene-238",
+          "fromFrame": 65611,
+          "durationFrames": 156,
+          "role": "setup",
+          "narration": "You want an idea that sounds crazy to most people but makes perfect mechanical sense to you."
+        },
+        {
+          "index": 239,
+          "sceneId": "scene-239",
+          "fromFrame": 65767,
+          "durationFrames": 142,
+          "role": "question",
+          "narration": "Theel argues there are really two distinct types of secrets you can look for as a founder."
+        },
+        {
+          "index": 240,
+          "sceneId": "scene-240",
+          "fromFrame": 65909,
+          "durationFrames": 269,
+          "role": "partial_answer",
+          "narration": "First, there are secrets of nature. These are about physics, biology, chemistry. What fundamental tr"
+        },
+        {
+          "index": 241,
+          "sceneId": "scene-241",
+          "fromFrame": 66178,
+          "durationFrames": 256,
+          "role": "complication",
+          "narration": "Exactly. But the second kind are secrets about people. These are the things people actively hide or "
+        },
+        {
+          "index": 242,
+          "sceneId": "scene-242",
+          "fromFrame": 66434,
+          "durationFrames": 255,
+          "role": "reveal",
+          "narration": "To find these, you have to ask yourself, what is taboo? What are people running massive institutions"
+        }
+      ]
+    },
+    {
+      "id": "seq-85",
+      "source": "engine",
+      "fromFrame": 66689,
+      "durationFrames": 151,
+      "durationSeconds": 5,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 243,
+          "sceneId": "scene-243",
+          "fromFrame": 66689,
+          "durationFrames": 151,
+          "role": "reveal",
+          "narration": "And that framework is exactly how you uncover the reality of monopolies that we discussed earlier."
+        }
+      ]
+    },
+    {
+      "id": "seq-86",
+      "source": "authored",
+      "fromFrame": 66840,
+      "durationFrames": 547,
+      "durationSeconds": 18.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 244,
+          "sceneId": "scene-244",
+          "fromFrame": 66840,
+          "durationFrames": 259,
+          "role": "authored-start",
+          "narration": "If you study what successful CEOs say on television, they always claim to be in highly competitive, "
+        },
+        {
+          "index": 245,
+          "sceneId": "scene-245",
+          "fromFrame": 67099,
+          "durationFrames": 288,
+          "role": "authored-kept",
+          "narration": "They constantly praise competition, right? They act like they're struggling. But the secret, the thi"
+        }
+      ]
+    },
+    {
+      "id": "seq-87",
+      "source": "engine",
+      "fromFrame": 67387,
+      "durationFrames": 1155,
+      "durationSeconds": 38.5,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 246,
+          "sceneId": "scene-246",
+          "fromFrame": 67387,
+          "durationFrames": 161,
+          "role": "setup",
+          "narration": "Wait, opposites? Yes, capitalism is about the accumulation of capital."
+        },
+        {
+          "index": 247,
+          "sceneId": "scene-247",
+          "fromFrame": 67548,
+          "durationFrames": 151,
+          "role": "question",
+          "narration": "Competition is a mechanism that destroys capital by driving profit margins to zero."
+        },
+        {
+          "index": 248,
+          "sceneId": "scene-248",
+          "fromFrame": 67699,
+          "durationFrames": 216,
+          "role": "complication",
+          "narration": "The secret is that every smart capitalist is trying to escape competition. But let me play the ultim"
+        },
+        {
+          "index": 249,
+          "sceneId": "scene-249",
+          "fromFrame": 67915,
+          "durationFrames": 418,
+          "role": "complication",
+          "narration": "Hasn't everything important already been invented? That's a common fear. There's that famous, albeit"
+        },
+        {
+          "index": 250,
+          "sceneId": "scene-250",
+          "fromFrame": 68333,
+          "durationFrames": 209,
+          "role": "reveal",
+          "narration": "all the genuinely hard meaningful problems in the world have already been solved by previous Right. "
+        }
+      ]
+    },
+    {
+      "id": "seq-88",
+      "source": "engine",
+      "fromFrame": 68542,
+      "durationFrames": 297,
+      "durationSeconds": 9.9,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 251,
+          "sceneId": "scene-251",
+          "fromFrame": 68542,
+          "durationFrames": 297,
+          "role": "reveal",
+          "narration": "Exactly. He argued we are only left with tasks that are either entirely trivial, like designing a be"
+        }
+      ]
+    },
+    {
+      "id": "seq-89",
+      "source": "authored",
+      "fromFrame": 68839,
+      "durationFrames": 447,
+      "durationSeconds": 14.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 252,
+          "sceneId": "scene-252",
+          "fromFrame": 68839,
+          "durationFrames": 233,
+          "role": "authored-start",
+          "narration": "And therefore, modern people are deeply unsatisfied because there are no frontiers left. Doesn't tha"
+        },
+        {
+          "index": 253,
+          "sceneId": "scene-253",
+          "fromFrame": 69072,
+          "durationFrames": 214,
+          "role": "authored-kept",
+          "narration": "Are there any truly hard solvable problems left? That mindset is the ultimate trap of incrementalism"
+        }
+      ]
+    },
+    {
+      "id": "seq-90",
+      "source": "authored",
+      "fromFrame": 69286,
+      "durationFrames": 864,
+      "durationSeconds": 28.8,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 254,
+          "sceneId": "scene-254",
+          "fromFrame": 69286,
+          "durationFrames": 254,
+          "role": "authored-start",
+          "narration": "It's a psychological illusion. Our entire modern educational system trains us from childhood to take"
+        },
+        {
+          "index": 255,
+          "sceneId": "scene-255",
+          "fromFrame": 69540,
+          "durationFrames": 173,
+          "role": "authored-kept",
+          "narration": "measured steps. We are taught to color inside the lines, to optimize our GPA."
+        },
+        {
+          "index": 256,
+          "sceneId": "scene-256",
+          "fromFrame": 69713,
+          "durationFrames": 199,
+          "role": "authored-kept",
+          "narration": "And then if we stray from the established path to try something radical, we will fail. and ruin our "
+        },
+        {
+          "index": 257,
+          "sceneId": "scene-257",
+          "fromFrame": 69912,
+          "durationFrames": 238,
+          "role": "authored-kept",
+          "narration": "So, we just aim lower. Exactly. So, naturally, people stop looking for big secrets. They settle for "
+        }
+      ]
+    },
+    {
+      "id": "seq-91",
+      "source": "authored",
+      "fromFrame": 70150,
+      "durationFrames": 674,
+      "durationSeconds": 22.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 258,
+          "sceneId": "scene-258",
+          "fromFrame": 70150,
+          "durationFrames": 340,
+          "role": "authored-start",
+          "narration": "But the secrets still exist. Look at the mechanics of Uber andyft. When they launched, the secret wa"
+        },
+        {
+          "index": 259,
+          "sceneId": "scene-259",
+          "fromFrame": 70490,
+          "durationFrames": 334,
+          "role": "authored-kept",
+          "narration": "enormous unressed demand for reliable rides. It was hiding in plain sight. It was completely hidden "
+        }
+      ]
+    },
+    {
+      "id": "seq-92",
+      "source": "engine",
+      "fromFrame": 70824,
+      "durationFrames": 1090,
+      "durationSeconds": 36.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 260,
+          "sceneId": "scene-260",
+          "fromFrame": 70824,
+          "durationFrames": 362,
+          "role": "setup",
+          "narration": "cab medallions. The secret was sitting there, but you had to be willing to look past the overwhelmin"
+        },
+        {
+          "index": 261,
+          "sceneId": "scene-261",
+          "fromFrame": 71186,
+          "durationFrames": 195,
+          "role": "question",
+          "narration": "You have to break the convention to build the future. Precisely. And a real monopoly is always built"
+        },
+        {
+          "index": 262,
+          "sceneId": "scene-262",
+          "fromFrame": 71381,
+          "durationFrames": 257,
+          "role": "complication",
+          "narration": "And actually uncovering and acting on that secret requires a very specific structural mindset about "
+        },
+        {
+          "index": 263,
+          "sceneId": "scene-263",
+          "fromFrame": 71638,
+          "durationFrames": 276,
+          "role": "reveal",
+          "narration": "Yes. Let's contrast two completely different historical eras to really highlight this shift in minds"
+        }
+      ]
+    },
+    {
+      "id": "seq-93",
+      "source": "authored",
+      "fromFrame": 71914,
+      "durationFrames": 703,
+      "durationSeconds": 23.4,
+      "sceneCount": 4,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 264,
+          "sceneId": "scene-264",
+          "fromFrame": 71914,
+          "durationFrames": 151,
+          "role": "authored-start",
+          "narration": "You have NASA engineers sitting in rooms with literal slide rules and chalkboards."
+        },
+        {
+          "index": 265,
+          "sceneId": "scene-265",
+          "fromFrame": 72065,
+          "durationFrames": 206,
+          "role": "authored-kept",
+          "narration": "They don't have supercomputers. They barely have basic calculators. And yet they map out a precise,"
+        },
+        {
+          "index": 266,
+          "sceneId": "scene-266",
+          "fromFrame": 72271,
+          "durationFrames": 180,
+          "role": "authored-kept",
+          "narration": "definite, stepbystep plan to put a human being on the surface of the moon by 1972."
+        },
+        {
+          "index": 267,
+          "sceneId": "scene-267",
+          "fromFrame": 72451,
+          "durationFrames": 166,
+          "role": "authored-kept",
+          "narration": "They don't hope it happens. They mathematically design the Incredible focus."
+        }
+      ]
+    },
+    {
+      "id": "seq-94",
+      "source": "authored",
+      "fromFrame": 72617,
+      "durationFrames": 451,
+      "durationSeconds": 15,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 268,
+          "sceneId": "scene-268",
+          "fromFrame": 72617,
+          "durationFrames": 285,
+          "role": "authored-start",
+          "narration": "Now, fast forward to today. Look at a modern middle school or high school student. They are frantica"
+        },
+        {
+          "index": 269,
+          "sceneId": "scene-269",
+          "fromFrame": 72902,
+          "durationFrames": 166,
+          "role": "authored-kept",
+          "narration": "They do model UN. They run track. They volunteer at the animal shelter. Building the ultimate colleg"
+        }
+      ]
+    },
+    {
+      "id": "seq-95",
+      "source": "authored",
+      "fromFrame": 73068,
+      "durationFrames": 386,
+      "durationSeconds": 12.9,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 270,
+          "sceneId": "scene-270",
+          "fromFrame": 73068,
+          "durationFrames": 187,
+          "role": "authored-start",
+          "narration": "Exactly. If you ask them why they are doing all this, they don't say because I have a definite plan "
+        },
+        {
+          "index": 271,
+          "sceneId": "scene-271",
+          "fromFrame": 73255,
+          "durationFrames": 199,
+          "role": "authored-kept",
+          "narration": "They say I have to be well-rounded so my resume is ready for anything. They are preparing for a comp"
+        }
+      ]
+    },
+    {
+      "id": "seq-96",
+      "source": "engine",
+      "fromFrame": 73454,
+      "durationFrames": 387,
+      "durationSeconds": 12.9,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 272,
+          "sceneId": "scene-272",
+          "fromFrame": 73454,
+          "durationFrames": 387,
+          "role": "reveal",
+          "narration": "And that shift is devastating. The takeaway here is that you are not a lottery ticket. You cannot tr"
+        }
+      ]
+    },
+    {
+      "id": "seq-97",
+      "source": "authored",
+      "fromFrame": 73841,
+      "durationFrames": 405,
+      "durationSeconds": 13.5,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 273,
+          "sceneId": "scene-273",
+          "fromFrame": 73841,
+          "durationFrames": 170,
+          "role": "authored-start",
+          "narration": "thin. Yes. The student hoarding extracurriculars is an indefinite optimist."
+        },
+        {
+          "index": 274,
+          "sceneId": "scene-274",
+          "fromFrame": 74011,
+          "durationFrames": 235,
+          "role": "authored-kept",
+          "narration": "They think the future will generally be better, but they have absolutely no idea how or what their r"
+        }
+      ]
+    },
+    {
+      "id": "seq-98",
+      "source": "authored",
+      "fromFrame": 74246,
+      "durationFrames": 591,
+      "durationSeconds": 19.7,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 275,
+          "sceneId": "scene-275",
+          "fromFrame": 74246,
+          "durationFrames": 264,
+          "role": "authored-start",
+          "narration": "But keeping your options open means you never commit to a singular worldchanging So, what's the alte"
+        },
+        {
+          "index": 276,
+          "sceneId": "scene-276",
+          "fromFrame": 74510,
+          "durationFrames": 327,
+          "role": "authored-kept",
+          "narration": "on the other hand believes the future can be explicitly known and mathematically designed and they m"
+        }
+      ]
+    },
+    {
+      "id": "seq-99",
+      "source": "engine",
+      "fromFrame": 74837,
+      "durationFrames": 965,
+      "durationSeconds": 32.2,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 277,
+          "sceneId": "scene-277",
+          "fromFrame": 74837,
+          "durationFrames": 312,
+          "role": "setup",
+          "narration": "to Apple in October 2001. He didn't just launch the iPod as a random quirky experiment to see if peo"
+        },
+        {
+          "index": 278,
+          "sceneId": "scene-278",
+          "fromFrame": 75149,
+          "durationFrames": 365,
+          "role": "question",
+          "narration": "right? When it launched, the industry analysts completely dismissed it as a nice overpriced feature "
+        },
+        {
+          "index": 279,
+          "sceneId": "scene-279",
+          "fromFrame": 75514,
+          "durationFrames": 288,
+          "role": "reveal",
+          "narration": "He was executing step one of a multi-year, highly definite plan to create an entirely new generation"
+        }
+      ]
+    },
+    {
+      "id": "seq-100",
+      "source": "engine",
+      "fromFrame": 75802,
+      "durationFrames": 1180,
+      "durationSeconds": 39.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 280,
+          "sceneId": "scene-280",
+          "fromFrame": 75802,
+          "durationFrames": 247,
+          "role": "setup",
+          "narration": "He designed the iTunes software, the hardware, the supply chain, and the retail stores as a single u"
+        },
+        {
+          "index": 281,
+          "sceneId": "scene-281",
+          "fromFrame": 76049,
+          "durationFrames": 225,
+          "role": "question",
+          "narration": "What is so fascinating here is how deeply our broader business culture has shifted toward that indef"
+        },
+        {
+          "index": 282,
+          "sceneId": "scene-282",
+          "fromFrame": 76274,
+          "durationFrames": 332,
+          "role": "complication",
+          "narration": "Look at modern finance. Wall Street bankers largely just rearrange the capital structures of existin"
+        },
+        {
+          "index": 283,
+          "sceneId": "scene-283",
+          "fromFrame": 76606,
+          "durationFrames": 376,
+          "role": "reveal",
+          "narration": "industries. It's all just optimization. We see it in management consulting too where armies of MBAs "
+        }
+      ]
+    },
+    {
+      "id": "seq-101",
+      "source": "engine",
+      "fromFrame": 76982,
+      "durationFrames": 329,
+      "durationSeconds": 11,
+      "sceneCount": 1,
+      "curiosityArc": [
+        "setup"
+      ],
+      "beats": [
+        {
+          "index": 284,
+          "sceneId": "scene-284",
+          "fromFrame": 76982,
+          "durationFrames": 329,
+          "role": "reveal",
+          "narration": "percent off supply chain costs rather than helping companies create a 0ero to1 Okay, stop right ther"
+        }
+      ]
+    },
+    {
+      "id": "seq-102",
+      "source": "authored",
+      "fromFrame": 77311,
+      "durationFrames": 605,
+      "durationSeconds": 20.2,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 285,
+          "sceneId": "scene-285",
+          "fromFrame": 77311,
+          "durationFrames": 319,
+          "role": "authored-start",
+          "narration": "the face of literally everything Silicon Valley preaches today. I know it does. What about the entir"
+        },
+        {
+          "index": 286,
+          "sceneId": "scene-286",
+          "fromFrame": 77630,
+          "durationFrames": 286,
+          "role": "authored-kept",
+          "narration": "single button on a website? What about launching a minimum viable product, a buggy half-finish app j"
+        }
+      ]
+    },
+    {
+      "id": "seq-103",
+      "source": "engine",
+      "fromFrame": 77916,
+      "durationFrames": 686,
+      "durationSeconds": 22.9,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 287,
+          "sceneId": "scene-287",
+          "fromFrame": 77916,
+          "durationFrames": 247,
+          "role": "setup",
+          "narration": "The iteration gospel. Yes, we are constantly taught that modern markets are far too complex and chao"
+        },
+        {
+          "index": 288,
+          "sceneId": "scene-288",
+          "fromFrame": 78163,
+          "durationFrames": 255,
+          "role": "question",
+          "narration": "You can't be a 1960s NASA engineer anymore. You have to adapt to the market dynamically, like Darwin"
+        },
+        {
+          "index": 289,
+          "sceneId": "scene-289",
+          "fromFrame": 78418,
+          "durationFrames": 184,
+          "role": "reveal",
+          "narration": "They started as a bloated check-in app called Bourbon, realized people only liked the photo filters "
+        }
+      ]
+    },
+    {
+      "id": "seq-104",
+      "source": "authored",
+      "fromFrame": 78602,
+      "durationFrames": 564,
+      "durationSeconds": 18.8,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 290,
+          "sceneId": "scene-290",
+          "fromFrame": 78602,
+          "durationFrames": 216,
+          "role": "authored-start",
+          "narration": "Isn't that Darwinian evolution working perfectly? Darwinian evolution is a fine theory for biologica"
+        },
+        {
+          "index": 291,
+          "sceneId": "scene-291",
+          "fromFrame": 78818,
+          "durationFrames": 348,
+          "role": "authored-kept",
+          "narration": "But in the life cycle of a startup, intelligent design works vastly Intelligent design. The problem "
+        }
+      ]
+    },
+    {
+      "id": "seq-105",
+      "source": "engine",
+      "fromFrame": 79166,
+      "durationFrames": 960,
+      "durationSeconds": 32,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 292,
+          "sceneId": "scene-292",
+          "fromFrame": 79166,
+          "durationFrames": 212,
+          "role": "setup",
+          "narration": "been elevated from a useful tactic into a religious Leanness is just a methodology for not wasting m"
+        },
+        {
+          "index": 293,
+          "sceneId": "scene-293",
+          "fromFrame": 79378,
+          "durationFrames": 326,
+          "role": "question",
+          "narration": "It is not a vision. If you endlessly iterate based entirely on focus groups and click tracking data,"
+        },
+        {
+          "index": 294,
+          "sceneId": "scene-294",
+          "fromFrame": 79704,
+          "durationFrames": 247,
+          "role": "complication",
+          "narration": "Yeah. You might successfully build the world's most perfectly optimized, mathematically frictionless"
+        },
+        {
+          "index": 295,
+          "sceneId": "scene-295",
+          "fromFrame": 79951,
+          "durationFrames": 175,
+          "role": "reveal",
+          "narration": "But iteration without a bold, definite, top- down plan will never take you from 0 to one."
+        }
+      ]
+    },
+    {
+      "id": "seq-106",
+      "source": "engine",
+      "fromFrame": 80126,
+      "durationFrames": 1198,
+      "durationSeconds": 39.9,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 296,
+          "sceneId": "scene-296",
+          "fromFrame": 80126,
+          "durationFrames": 221,
+          "role": "setup",
+          "narration": "You absolutely cannot AB test your way to the original iPhone because you can't AB test something th"
+        },
+        {
+          "index": 297,
+          "sceneId": "scene-297",
+          "fromFrame": 80347,
+          "durationFrames": 358,
+          "role": "question",
+          "narration": "AB testing assumes the options are already on the table. Intelligent design puts a completely new op"
+        },
+        {
+          "index": 298,
+          "sceneId": "scene-298",
+          "fromFrame": 80705,
+          "durationFrames": 237,
+          "role": "complication",
+          "narration": "opinionated design choice to strip away everything except a beautifully constrained square photo Oka"
+        },
+        {
+          "index": 299,
+          "sceneId": "scene-299",
+          "fromFrame": 80942,
+          "durationFrames": 382,
+          "role": "reveal",
+          "narration": "We have been driving this thesis incredibly hard for the last hour. We have. We've established that "
+        }
+      ]
+    },
+    {
+      "id": "seq-107",
+      "source": "engine",
+      "fromFrame": 81324,
+      "durationFrames": 1171,
+      "durationSeconds": 39,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 300,
+          "sceneId": "scene-300",
+          "fromFrame": 81324,
+          "durationFrames": 257,
+          "role": "setup",
+          "narration": "uncompromising plan. But let's look at this critically right now for an ordinary founder trying to b"
+        },
+        {
+          "index": 301,
+          "sceneId": "scene-301",
+          "fromFrame": 81581,
+          "durationFrames": 324,
+          "role": "question",
+          "narration": "This entire monopoly thesis written by Peter Teal can read as incredibly self-serving advice for a b"
+        },
+        {
+          "index": 302,
+          "sceneId": "scene-302",
+          "fromFrame": 81905,
+          "durationFrames": 257,
+          "role": "complication",
+          "narration": "They mathematically need one company in their portfolio to become a massive global monopoly to cover"
+        },
+        {
+          "index": 303,
+          "sceneId": "scene-303",
+          "fromFrame": 82162,
+          "durationFrames": 333,
+          "role": "reveal",
+          "narration": "Right. The fund economics absolutely demand a monopoly. Furthermore, telling founders they must buil"
+        }
+      ]
+    },
+    {
+      "id": "seq-108",
+      "source": "engine",
+      "fromFrame": 82495,
+      "durationFrames": 1051,
+      "durationSeconds": 35,
+      "sceneCount": 3,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer"
+      ],
+      "beats": [
+        {
+          "index": 304,
+          "sceneId": "scene-304",
+          "fromFrame": 82495,
+          "durationFrames": 370,
+          "role": "setup",
+          "narration": "bias. It is far far easier to point to a behemoth like Airbnb or Facebook today and confidently decl"
+        },
+        {
+          "index": 305,
+          "sceneId": "scene-305",
+          "fromFrame": 82865,
+          "durationFrames": 348,
+          "role": "question",
+          "narration": "already conquered the world.\" Hindsight is 2020. Mhm. But before they win, when they are just six pe"
+        },
+        {
+          "index": 306,
+          "sceneId": "scene-306",
+          "fromFrame": 83213,
+          "durationFrames": 333,
+          "role": "reveal",
+          "narration": "idea. Does this zero to one advice actually hold up for the ordinary founder who doesn't have a bill"
+        }
+      ]
+    },
+    {
+      "id": "seq-109",
+      "source": "engine",
+      "fromFrame": 83546,
+      "durationFrames": 1205,
+      "durationSeconds": 40.2,
+      "sceneCount": 5,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication",
+        "reveal"
+      ],
+      "beats": [
+        {
+          "index": 307,
+          "sceneId": "scene-307",
+          "fromFrame": 83546,
+          "durationFrames": 164,
+          "role": "setup",
+          "narration": "highly necessary critique. The venture capital incentive structure is absolutely real."
+        },
+        {
+          "index": 308,
+          "sceneId": "scene-308",
+          "fromFrame": 83710,
+          "durationFrames": 213,
+          "role": "question",
+          "narration": "VCs do view the world through the cold mathematical lens of the power law because their entire busin"
+        },
+        {
+          "index": 309,
+          "sceneId": "scene-309",
+          "fromFrame": 83923,
+          "durationFrames": 228,
+          "role": "complication",
+          "narration": "And yes, retrospectively labeling success as a secret is a dangerous cognitive trap. It's easy to wr"
+        },
+        {
+          "index": 310,
+          "sceneId": "scene-310",
+          "fromFrame": 84151,
+          "durationFrames": 219,
+          "role": "complication",
+          "narration": "However, even if you strip away the venture capital motives, the fundamental mathematics of business"
+        },
+        {
+          "index": 311,
+          "sceneId": "scene-311",
+          "fromFrame": 84370,
+          "durationFrames": 381,
+          "role": "reveal",
+          "narration": "How so? If you are a solo founder with no VC backing, and you start an undifferentiated commodity bu"
+        }
+      ]
+    },
+    {
+      "id": "seq-110",
+      "source": "engine",
+      "fromFrame": 84751,
+      "durationFrames": 1299,
+      "durationSeconds": 43.3,
+      "sceneCount": 4,
+      "curiosityArc": [
+        "setup",
+        "question",
+        "partial_answer",
+        "complication"
+      ],
+      "beats": [
+        {
+          "index": 312,
+          "sceneId": "scene-312",
+          "fromFrame": 84751,
+          "durationFrames": 336,
+          "role": "setup",
+          "narration": "perfect competition will inevitably drive your profit margins to zero. You will spend your entire li"
+        },
+        {
+          "index": 313,
+          "sceneId": "scene-313",
+          "fromFrame": 85087,
+          "durationFrames": 384,
+          "role": "question",
+          "narration": "either Exactly. The necessity of differentiation of doing something genuinely new that others cannot"
+        },
+        {
+          "index": 314,
+          "sceneId": "scene-314",
+          "fromFrame": 85471,
+          "durationFrames": 233,
+          "role": "complication",
+          "narration": "is the only way to generate the lasting cash flow needed to survive. The VC's motive might be massiv"
+        },
+        {
+          "index": 315,
+          "sceneId": "scene-315",
+          "fromFrame": 85704,
+          "durationFrames": 346,
+          "role": "reveal",
+          "narration": "but the founders's motive is sheer survival and value creation. Both require escaping the crushing g"
+        }
+      ]
+    },
+    {
+      "id": "seq-111",
+      "source": "engine",
+      "fromFrame": 86050,
+      "durationFrames": 619,
+      "durationSeconds": 20.6,
+      "sceneCount": 2,
+      "curiosityArc": [
+        "setup",
+        "question"
+      ],
+      "beats": [
+        {
+          "index": 316,
+          "sceneId": "scene-316",
+          "fromFrame": 86050,
+          "durationFrames": 326,
+          "role": "setup",
+          "narration": "how to copy the titans of today, how to build a slightly better search engine with AI, a slightly fa"
+        },
+        {
+          "index": 317,
+          "sceneId": "scene-317",
+          "fromFrame": 86376,
+          "durationFrames": 293,
+          "role": "reveal",
+          "narration": "the game before you've even started. The next Bill Gates will absolutely not build an operating syst"
+        }
+      ]
+    },
+    {
+      "id": "seq-112",
+      "source": "authored",
+      "fromFrame": 86669,
+      "durationFrames": 342,
+      "durationSeconds": 11.4,
+      "sceneCount": 2,
+      "curiosityArc": [],
+      "beats": [
+        {
+          "index": 318,
+          "sceneId": "scene-318",
+          "fromFrame": 86669,
+          "durationFrames": 312,
+          "role": "authored-start",
+          "narration": "The next Larry Page won't build a search engine. If you are copying these people, you aren't learnin"
+        },
+        {
+          "index": 319,
+          "sceneId": "scene-319",
+          "fromFrame": 86981,
+          "durationFrames": 30,
+          "role": "authored-kept",
+          "narration": "even named"
+        }
+      ]
+    }
+  ]
+}

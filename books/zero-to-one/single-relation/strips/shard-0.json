@@ -1,0 +1,25 @@
+{
+ "shard": 0,
+ "of": 1,
+ "name": "single-relation A/B zero-to-one",
+ "inputHash": "a9abc17336ec8eb5",
+ "jobs": [
+  "s252-A",
+  "s252-B"
+ ],
+ "failed": [],
+ "files": {
+  "raw/s252-A-f367.png": "ece5e694b51e47e90dae2ba148d314c0c7aeaa88532be5c4dfd7453e0687a397",
+  "raw/s252-A-f437.png": "65a2387f0802a4df3d2df8e15c61051a7c8c95df4d21f58a66182f44f5d20bf7",
+  "raw/s252-A-f507.png": "71f34df18eb426efec86ec6e3722b57a6e4ef44b4e7ebb92f4cda31f69e25dd4",
+  "strips/s252-A.png": "d415547c5da2b332116aebf527e054a9d35d1a44ac120cd9f70b6781d5d04417",
+  "raw/s252-B-f367.png": "059a547a8d920b7fb41ffea7157e3a01e0656e3f65117fb0e292d16e5cc9625a",
+  "raw/s252-B-f437.png": "a3c0b3377f7df65ffc02cbe48363c0df3932d69d448ad76c91f2d2ee19f3128d",
+  "raw/s252-B-f507.png": "ba2b28ba04c194107414ddbfa24e68d5ecac467c1a8f154d6469286471213a63",
+  "strips/s252-B.png": "649e1165cdbc54dabb38217808d2bf2dff5291fa4842ba18a6a7dbd1f2f50dc9"
+ },
+ "bundleSec": 3.888,
+ "totalSec": 19.768,
+ "run": "42606264934",
+ "commit": "f0af5aaba436b02b1e2570cf130cd87b464563e3"
+}

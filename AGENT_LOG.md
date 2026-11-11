@@ -7414,3 +7414,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - YouTube pack: hand-refined English meta, lint-titles --pack READY. Thumbnail A is from the earlier build (hook THE SETUP).
 - Cleanup (operator order): render-github-cleanup.js, purge-render-branches.js --force, render-purge.js --force. Recorded in PUBLISHED_BOOKS.md.
 - Engine backlog: the post-render finalizer deleted the raw `the-witch.vtt` before the cleanup order. Add a guard so finalizer cleanup never runs before the upload is confirmed.
+
+### ✅ 2026-11-11 — zero-to-one — PUBLISHED & CLEANED (Antidote)
+- Operator confirmed the YouTube upload is live and ordered cleanup. Render: 10 segments, cloud assembly run 42661760861, 87,011/87,011 frames, decode clean, 974 MB. Redispatch was needed for segments 1–4 after the background dispatch stopped.
+- Cleanup: `render-github-cleanup.js` (14 artifacts, 12 runs), `purge-render-branches.js --force` (11 refs, `render/` only), `render-purge.js` (film + thumbnails). Raw mp3, mastered audio, raw VTT and split state removed; `clean.vtt` kept.
+- Open: join dropouts 219 (DEFECT_REPORTED). Engine note: readcheck judge step in the generated PROMPTS.md had no Judges section, so judges were run by hand with a fresh agent.

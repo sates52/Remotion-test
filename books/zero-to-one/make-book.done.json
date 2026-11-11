@@ -1,0 +1,36 @@
+{
+  "status": "done",
+  "startedAt": "2026-11-09T12:44:56.163Z",
+  "at": "2026-11-09T12:46:27.702Z",
+  "config": "config.antidote.json",
+  "configSha256": "be61d5e8ffe11af70228bc4048c70f5bfff4ea597311eea66a12eec1bd1f0cc1",
+  "inputs": {
+    "storyboard": {
+      "path": "books/zero-to-one/art.json",
+      "sha256": "c1c6e3152536ce259ab68f2351b969ba03dff60e53f4a9319727f8e7b14c2b80"
+    },
+    "storyBible": {
+      "path": "books/zero-to-one/story-bible.json",
+      "sha256": "c6fcae56ebad587299bdd82d8b2c8f3464eb5e6253fd1458f13b63daa397920d"
+    },
+    "motifs": {
+      "path": "books/zero-to-one/motifs.json",
+      "sha256": null
+    },
+    "vtt": {
+      "path": "public/captions/zero-to-one.vtt",
+      "sha256": "4e9f0f38002821803b7ad8f7a5e433a4958945878bf0c9d333df7daa5c1a5832"
+    },
+    "audio": {
+      "path": "public/audio/zero-to-one.mp3",
+      "sha256": "2bd485af2c857bab99d3263ec999e177b0b252e591c3212dcf95642d54bab59d"
+    },
+    "singleRelation": {
+      "path": "books/zero-to-one/single-relation/active.json",
+      "sha256": null
+    }
+  },
+  "head": "8d2285464c2b684c4095d5ad7b2f622c76ad4472",
+  "previewOnly": true,
+  "skipPack": true
+}

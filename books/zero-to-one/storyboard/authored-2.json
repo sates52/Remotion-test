@@ -1,0 +1,942 @@
+[
+  {
+    "i": 32,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "Copy that",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "A planner points at a Western city skyline and says copy it",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Developers point at Western cities and say copy that",
+      "concreteVisual": "Host A points at a standing city icon, skeptical face",
+      "onScreenText": "Copy that",
+      "relationToPrevious": "new point after the mega city picture",
+      "addedInformation": "shows copying as the act, not a mood"
+    }
+  },
+  {
+    "i": 33,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Copper landlines",
+        "Wireless towers"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Two steps compared: the old copper way is skipped for the wireless one",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They replicate existing success and skip copper landlines for wireless towers",
+      "concreteVisual": "Flow diagram: copper landlines then wireless towers",
+      "onScreenText": "Copper landlines / Wireless towers",
+      "relationToPrevious": "from copying cities to the skipped step",
+      "addedInformation": "names the leapfrog example"
+    }
+  },
+  {
+    "i": 34,
+    "concept": "city",
+    "diagram": null,
+    "callout": {
+      "text": "The exact same skyscrapers",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "The same city drawn again at huge scale",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They build the exact same skyscrapers, highways and car infrastructure",
+      "concreteVisual": "Host B beside the standing city icon, worried, pointing at it",
+      "onScreenText": "The exact same skyscrapers",
+      "relationToPrevious": "keeps the copying idea, adds the sameness",
+      "addedInformation": "weak: repeats the city icon"
+    }
+  },
+  {
+    "i": 35,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Railroads",
+        "Air conditioning",
+        "Combustion engines"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Three old inventions sorted into one copy-paste plan",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They copy-paste railroads, air conditioning and engines into a 20-year plan",
+      "concreteVisual": "Sorter with three buckets: railroads, air conditioning, combustion engines",
+      "onScreenText": "Railroads / Air conditioning / Combustion engines",
+      "relationToPrevious": "from sameness to the list of copied things",
+      "addedInformation": "names the three copied technologies"
+    }
+  },
+  {
+    "i": 36,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Copy what works",
+        "Horizontal progress"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Copying what works is named horizontal progress",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "That copying is the definition of horizontal progress, globalization in a nutshell",
+      "concreteVisual": "Flow: copy what works then horizontal progress",
+      "onScreenText": "Copy what works / Horizontal progress",
+      "relationToPrevious": "names the thing the list showed",
+      "addedInformation": "gives the term"
+    }
+  },
+  {
+    "i": 37,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Copy what works",
+        "Horizontal progress",
+        "1 to n"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "continue": true,
+    "explainedBy": "The copy chain ends in one to n",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Taking what works elsewhere and making it work everywhere is going from one to n",
+      "concreteVisual": "Same flow kept, third label one to n draws in",
+      "onScreenText": "Copy what works / Horizontal progress / 1 to n",
+      "relationToPrevious": "keeps the diagram, adds one label",
+      "addedInformation": "adds the one-to-n name"
+    }
+  },
+  {
+    "i": 38,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hard physical limits",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "The founder faces a limit that the multiplying template hits",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A founder must grasp the hard physical limits of template-multiplying growth",
+      "concreteVisual": "Founder sitting, worried, in the garage set",
+      "onScreenText": "Hard physical limits",
+      "relationToPrevious": "shifts from the definition to its consequence for a founder",
+      "addedInformation": "weak: a worried face carries the limit"
+    }
+  },
+  {
+    "i": 39,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It does not scale forever",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Growth by copying runs into a wall of scarcity",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It does not scale forever in a world of scarce resources",
+      "concreteVisual": "Host B shaking her head, worried, with a callout",
+      "onScreenText": "It does not scale forever",
+      "relationToPrevious": "the limit is named",
+      "addedInformation": "weak: commentary beat"
+    }
+  },
+  {
+    "i": 40,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Only 1 to n",
+        "Devastation"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Cause to effect: only one-to-n leads to devastation",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Only one-to-n in a scarce world ends in environmental and economic devastation",
+      "concreteVisual": "Flow: only one to n then devastation",
+      "onScreenText": "Only 1 to n / Devastation",
+      "relationToPrevious": "the limit becomes its result",
+      "addedInformation": "names the result"
+    }
+  },
+  {
+    "i": 41,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "US consumption",
+        "Developing populations",
+        "Breaks the math"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A multiplication of US consumption by billions that the planet cannot hold",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "US consumption times developing-world populations breaks the planet supply chains",
+      "concreteVisual": "Flow: US consumption, developing populations, breaks the math",
+      "onScreenText": "US consumption / Developing populations / Breaks the math",
+      "relationToPrevious": "spells out the devastation with the multiplication",
+      "addedInformation": "the concrete multiplication"
+    }
+  },
+  {
+    "i": 42,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Vertical progress",
+      "style": "reveal"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "happy",
+    "action": "point",
+    "explainedBy": "Horizontal copying fails, vertical progress is the alternative",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The math breaks, so vertical progress is the only way forward; the typewriter example starts",
+      "concreteVisual": "Host A pointing, confident, callout vertical progress",
+      "onScreenText": "Vertical progress",
+      "relationToPrevious": "turns from failure to the alternative",
+      "addedInformation": "introduces the term vertical"
+    }
+  },
+  {
+    "i": 43,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "100 typewriters",
+        "1 to n"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Many copies of one machine equal one to n",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Building 100 perfect typewriters is horizontal progress, 1 to n",
+      "concreteVisual": "Flow: 100 typewriters then one to n",
+      "onScreenText": "100 typewriters / 1 to n",
+      "relationToPrevious": "starts the typewriter example",
+      "addedInformation": "horizontal example"
+    }
+  },
+  {
+    "i": 44,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Typewriter",
+        "Word processor",
+        "Zero to one"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A typewriter limit leads to a new machine, zero to one",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Inventing the digital word processor from the typewriter is vertical progress, zero to one",
+      "concreteVisual": "Flow: typewriter, word processor, zero to one",
+      "onScreenText": "Typewriter / Word processor / Zero to one",
+      "relationToPrevious": "contrasts with the 100 copies",
+      "addedInformation": "vertical example"
+    }
+  },
+  {
+    "i": 45,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An entirely new paradigm",
+      "style": "reveal"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "hold",
+    "holds": "laptop",
+    "explainedBy": "A person with a laptop doing more with less",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A new paradigm lets people do exponentially more work with fewer resources",
+      "concreteVisual": "Host B holding a laptop, surprised",
+      "onScreenText": "An entirely new paradigm",
+      "relationToPrevious": "the invention gains its benefit",
+      "addedInformation": "shows the invented tool in hand"
+    }
+  },
+  {
+    "i": 46,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Does not use paper",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "happy",
+    "action": "hold",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "The laptop replaces paper and ribbons",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The word processor uses no paper and no ink ribbons",
+      "concreteVisual": "Host B keeps holding the laptop, happy",
+      "onScreenText": "Does not use paper",
+      "relationToPrevious": "keeps the laptop, changes face and label",
+      "addedInformation": "one more saving named"
+    }
+  },
+  {
+    "i": 47,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Infinite editing",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "The same laptop now offers infinite editing",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It allows infinite editing, and the leap changes the economic equation; then a pushback begins",
+      "concreteVisual": "Host B with the laptop, smirk",
+      "onScreenText": "Infinite editing",
+      "relationToPrevious": "keeps the laptop, adds editing",
+      "addedInformation": "adds the third benefit"
+    }
+  },
+  {
+    "i": 48,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Out of crushing poverty",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "partnerAction": "idle",
+    "explainedBy": "One host pushes back at the other with a fact",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Globalization is pulling hundreds of millions out of poverty, a measurable fact",
+      "concreteVisual": "Host B points at Host A who looks worried",
+      "onScreenText": "Hundreds of millions out of poverty",
+      "relationToPrevious": "a counter-argument begins",
+      "addedInformation": "new objection"
+    }
+  },
+  {
+    "i": 49,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Feed their family",
+      "style": "highlight"
+    },
+    "set": "startupGarage",
+    "cast": [
+      "founder"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "wallet",
+    "explainedBy": "A founder with a wallet in the garage weighing a practical idea",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "An ordinary founder in 2026 wants a practical idea to feed their family",
+      "concreteVisual": "Founder sitting, holding a wallet, worried",
+      "onScreenText": "Feed their family",
+      "relationToPrevious": "the objection is applied to a founder",
+      "addedInformation": "shows the stakes of a founder"
+    }
+  },
+  {
+    "i": 50,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Proven model",
+        "Risky invention"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Two options compared: proven model or risky invention",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Copying a proven model in an emerging market vs inventing a risky word processor",
+      "concreteVisual": "Sorter with two buckets",
+      "onScreenText": "Proven model / Risky invention",
+      "relationToPrevious": "weighs the two choices",
+      "addedInformation": "names the two options"
+    }
+  },
+  {
+    "i": 51,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A quick flip",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "Short term versus the long view",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It might work for a quick flip in the short term, but zoom out",
+      "concreteVisual": "Host A, skeptical smirk, answers the objection",
+      "onScreenText": "A quick flip",
+      "relationToPrevious": "the reply begins",
+      "addedInformation": "weak: commentary"
+    }
+  },
+  {
+    "i": 52,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Burning fossil fuels",
+        "Double energy",
+        "Double pollution"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Burning fossil fuels doubles energy and so doubles pollution",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Copying fossil fuel methods to double energy doubles air pollution",
+      "concreteVisual": "Flow: burning fossil fuels, double energy, double pollution",
+      "onScreenText": "Burning fossil fuels / Double energy / Double pollution",
+      "relationToPrevious": "the long view becomes a cause chain",
+      "addedInformation": "the energy math"
+    }
+  },
+  {
+    "i": 53,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "It chokes its own",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "The nation chokes on its own air",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It literally chokes its own population",
+      "concreteVisual": "Host B afraid with callout",
+      "onScreenText": "It chokes its own",
+      "relationToPrevious": "finishes the pollution result",
+      "addedInformation": "weak: reaction beat"
+    }
+  },
+  {
+    "i": 54,
+    "concept": "home",
+    "diagram": null,
+    "callout": {
+      "text": "American suburb habits",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "One household habit multiplied by a billion",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A billion households adopting American suburb habits with inefficient tools",
+      "concreteVisual": "Host B worried beside a home icon",
+      "onScreenText": "American suburb habits",
+      "relationToPrevious": "a second example of the same wall",
+      "addedInformation": "the household version"
+    }
+  },
+  {
+    "i": 55,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Copying hits a wall",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "Copying keeps going until it hits a wall",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The result is catastrophic resource depletion; the copying model hits a wall",
+      "concreteVisual": "Host A pointing, worried, callout wall",
+      "onScreenText": "Copying hits a wall",
+      "relationToPrevious": "concludes the examples",
+      "addedInformation": "the wall named"
+    }
+  },
+  {
+    "i": 56,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Copying",
+        "Consumes resources",
+        "Grinds to a halt"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Copying eats resources until it stops",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Without zero-to-one breakthroughs, copying consumes all resources and grinds to a halt",
+      "concreteVisual": "Flow: copying, consumes resources, grinds to a halt",
+      "onScreenText": "Copying / Consumes resources / Grinds to a halt",
+      "relationToPrevious": "states the chain in full",
+      "addedInformation": "final stop"
+    }
+  },
+  {
+    "i": 57,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Without new technology",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "Technology relieves pressure",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A globalized plateau needs new technology to relieve competitive pressure over resources",
+      "concreteVisual": "Host A talking, serious",
+      "onScreenText": "Without new technology",
+      "relationToPrevious": "restates the condition",
+      "addedInformation": "weak: summary"
+    }
+  },
+  {
+    "i": 58,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Fighting over the scraps",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "smirk",
+    "action": "point",
+    "explainedBy": "Doing nothing new means fighting over scraps",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "True progress is vertical; otherwise you fight over scraps",
+      "concreteVisual": "Host B smirk, pointing",
+      "onScreenText": "Fighting over the scraps",
+      "relationToPrevious": "sums up the theme",
+      "addedInformation": "scraps named"
+    }
+  },
+  {
+    "i": 59,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Owning the whole pie",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "Scraps compared with the whole pie",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A real monopoly is built on a secret; scraps versus the whole pie",
+      "concreteVisual": "Host A smirking and talking",
+      "onScreenText": "Owning the whole pie",
+      "relationToPrevious": "introduces the next topic",
+      "addedInformation": "weak: transition"
+    }
+  },
+  {
+    "i": 60,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "Three Michelin stars",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "A star icon beside a host introducing the kitchen",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Step into the kitchen of a three Michelin star restaurant",
+      "concreteVisual": "Star icon, Host B talking",
+      "onScreenText": "Three Michelin stars",
+      "relationToPrevious": "starts the restaurant story",
+      "addedInformation": "sets the scene"
+    }
+  },
+  {
+    "i": 61,
+    "concept": "fire",
+    "diagram": null,
+    "callout": {
+      "text": "The heat is suffocating",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "slump",
+    "explainedBy": "Heat pressing on the kitchen",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The kitchen is high stress, the heat suffocating",
+      "concreteVisual": "Fire icon with a worried host",
+      "onScreenText": "The heat is suffocating",
+      "relationToPrevious": "keeps the kitchen, adds the heat",
+      "addedInformation": "heat shown"
+    }
+  },
+  {
+    "i": 62,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Terror of perfection",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "partnerExpression": "afraid",
+    "partnerAction": "slump",
+    "explainedBy": "A screaming chef and a frightened cook",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The head chef screams; terror of perfection hangs over every plate",
+      "concreteVisual": "Host A angry as the chef, Host B afraid",
+      "onScreenText": "Terror of perfection",
+      "relationToPrevious": "adds the shouting boss and the fear",
+      "addedInformation": "the relationship of chef and cook"
+    }
+  },
+  {
+    "i": 63,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A renowned chef",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "talk",
+    "explainedBy": "The chef under infinite competition",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Margins are razor thin, competition is infinite; a renowned chef",
+      "concreteVisual": "Host A worried, callout the chef name",
+      "onScreenText": "A renowned chef",
+      "relationToPrevious": "introduces the chef",
+      "addedInformation": "names him"
+    }
+  },
+  {
+    "i": 64,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "If I lose a star",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "afraid",
+    "action": "slump",
+    "explainedBy": "A star at risk for a worried chef",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A renowned chef tells the press that losing a star would be unbearable",
+      "concreteVisual": "Star icon, Host A afraid",
+      "onScreenText": "If I lose a star",
+      "relationToPrevious": "the stakes of the star",
+      "addedInformation": "shows what hung on the star"
+    }
+  },
+  {
+    "i": 65,
+    "concept": "star",
+    "diagram": null,
+    "callout": {
+      "text": "The pressure broke him",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "continue": true,
+    "explainedBy": "Downgrade then collapse under pressure",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In 2003 a rival guide downgraded his restaurant and the pressure broke him",
+      "concreteVisual": "Star icon kept, Host A sad and bowed",
+      "onScreenText": "The pressure broke him",
+      "relationToPrevious": "the downgrade lands",
+      "addedInformation": "weak: staged without depicting harm"
+    }
+  },
+  {
+    "i": 66,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Ruthlessness",
+        "Exhaustion",
+        "Survival"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Three outcomes of the ecosystem",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Competition pushes people toward ruthlessness, exhaustion or survival",
+      "concreteVisual": "Sorter: ruthlessness, exhaustion, survival",
+      "onScreenText": "Ruthlessness / Exhaustion / Survival",
+      "relationToPrevious": "draws the lesson",
+      "addedInformation": "lists the pressures"
+    }
+  },
+  {
+    "i": 67,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Perfect competition",
+      "style": "reveal"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "Survival is the name of perfect competition",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Pure survival; economists call this perfect competition",
+      "concreteVisual": "Host B, serious, pointing",
+      "onScreenText": "Perfect competition",
+      "relationToPrevious": "names the concept",
+      "addedInformation": "weak: definition"
+    }
+  },
+  {
+    "i": 68,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "No market power",
+        "Real power"
+      ],
+      "values": [
+        0.05
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "No company stands out from the rest",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In perfect competition no company has power and products are undifferentiated",
+      "concreteVisual": "Spectrum from no power toward power, marker at no power",
+      "onScreenText": "No market power",
+      "relationToPrevious": "defines the market",
+      "addedInformation": "shows the pole"
+    }
+  },
+  {
+    "i": 69,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Interchangeable restaurants",
+      "style": "highlight"
+    },
+    "set": "office",
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "partnerExpression": "blank",
+    "partnerAction": "idle",
+    "explainedBy": "Two interchangeable hosts show substitution",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "One restaurant substitutes for another; the business focuses on todays margins",
+      "concreteVisual": "Host A and Host B in the same pose, both flat faced",
+      "onScreenText": "Interchangeable restaurants",
+      "relationToPrevious": "shows swappability",
+      "addedInformation": "the substitution idea"
+    }
+  },
+  {
+    "i": 70,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Shaving a penny",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a"
+    ],
+    "expression": "worried",
+    "action": "hold",
+    "holds": "coin",
+    "explainedBy": "A host counting a single coin",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It shaves a penny off ingredient costs and cannot plan the long term",
+      "concreteVisual": "Host A holding a coin, worried",
+      "onScreenText": "Shaving a penny",
+      "relationToPrevious": "the margin detail",
+      "addedInformation": "the penny"
+    }
+  },
+  {
+    "i": 71,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The US airline industry",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "expression": "worried",
+    "action": "point",
+    "explainedBy": "A pointer to the next example",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "It becomes a brute daily struggle; look at the US airline industry",
+      "concreteVisual": "Host B pointing, serious",
+      "onScreenText": "The US airline industry",
+      "relationToPrevious": "introduces airlines",
+      "addedInformation": "topic switch"
+    }
+  }
+]

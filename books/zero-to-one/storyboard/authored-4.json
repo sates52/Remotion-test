@@ -1,0 +1,887 @@
+[
+  {
+    "i": 109,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SAME EXPENSIVE DEVICE",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "neutral",
+    "action": "hold",
+    "holds": "phone",
+    "partnerExpression": "surprised",
+    "explainedBy": "Two people must stand side by side, each with the same device, for the payment to work",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Beaming money needed both people next to each other with the same expensive device",
+      "concreteVisual": "Host A holds a handheld device beside Host B in an office",
+      "onScreenText": "SAME EXPENSIVE DEVICE",
+      "relationToPrevious": "Closes the Palm Pilot story",
+      "addedInformation": "weak: the device is a phone glyph, text names the limit"
+    }
+  },
+  {
+    "i": 110,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "START TOO SMALL?",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "set": "office",
+    "expression": "surprised",
+    "action": "talk",
+    "partnerExpression": "smirk",
+    "partnerAction": "talk",
+    "explainedBy": "One host objects to the advice while the other defends it",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Founders are told to think big but should start too small",
+      "concreteVisual": "Host B surprised, questioning; Host A smirking, answering",
+      "onScreenText": "START TOO SMALL?",
+      "relationToPrevious": "Turns from the Palm story to the advice",
+      "addedInformation": "weak: reaction beat"
+    }
+  },
+  {
+    "i": 111,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EVERY STARTUP IS TINY"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The chain begins: every startup is tiny at its genesis",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Every startup is tiny at its genesis",
+      "concreteVisual": "Flow diagram starting with one label",
+      "onScreenText": "EVERY STARTUP IS TINY",
+      "relationToPrevious": "Starts the argument chain",
+      "addedInformation": "A growing chain begins"
+    }
+  },
+  {
+    "i": 112,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "EVERY STARTUP IS TINY",
+        "MONOPOLY HAS A LARGE SHARE",
+        "START WITH A SMALL MARKET"
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "explainedBy": "Tiny start plus monopoly needing a large share leads to a very small first market",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The only way to a monopoly is to start with a very small market",
+      "concreteVisual": "The flow gains two labels, ending at the small market",
+      "onScreenText": "START WITH A SMALL MARKET",
+      "relationToPrevious": "Adds the two later links",
+      "addedInformation": "Completes the cause chain"
+    }
+  },
+  {
+    "i": 113,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Thinking too big: you are dead",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "pitchStage",
+    "expression": "worried",
+    "action": "slump",
+    "holds": "laptop",
+    "explainedBy": "A founder who pitches a market that feels too big is already finished",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If your initial market is too big you are already dead in the water",
+      "concreteVisual": "Founder slumped and worried on the pitch stage with a laptop",
+      "onScreenText": "Thinking too big: you are dead",
+      "relationToPrevious": "Applies the rule to a pitch",
+      "addedInformation": "Face plus laptop carry the failure"
+    }
+  },
+  {
+    "i": 114,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "ALL ONLINE PAYMENTS",
+        "BANKS AND CREDIT CARDS",
+        "A LOSING BATTLE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Trying to take all payments puts PayPal against huge banks, which is a losing battle",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "PayPal did not chase all of online payments against banks",
+      "concreteVisual": "Flow from the huge goal through banks to the losing battle",
+      "onScreenText": "ALL ONLINE PAYMENTS / BANKS AND CREDIT CARDS / A LOSING BATTLE",
+      "relationToPrevious": "Shows what they avoided",
+      "addedInformation": "Cause to effect read"
+    }
+  },
+  {
+    "i": 115,
+    "concept": "target",
+    "diagram": null,
+    "callout": {
+      "text": "They targeted 20,000 eBay sellers",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "surprised",
+    "action": "talk",
+    "explainedBy": "PayPal aimed at one specific group instead of everyone",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They pivoted to a niche of 20,000 eBay power sellers",
+      "concreteVisual": "Host B surprised beside a target icon",
+      "onScreenText": "They targeted 20,000 eBay sellers",
+      "relationToPrevious": "Contrasts with the broad aim just before",
+      "addedInformation": "Names the niche"
+    }
+  },
+  {
+    "i": 116,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "TWO WEEKS FOR A CHECK",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "startupGarage",
+    "expression": "worried",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "A seller waiting two weeks for a mailed check is the acute pain",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Heavy auctioneers needed instant pay instead of waiting two weeks for a check",
+      "concreteVisual": "Founder with a letter, worried",
+      "onScreenText": "TWO WEEKS FOR A CHECK",
+      "relationToPrevious": "Explains why the niche hurt",
+      "addedInformation": "Shows the pain concretely"
+    }
+  },
+  {
+    "i": 117,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "25% IN 3 MONTHS",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "startupGarage",
+    "expression": "happy",
+    "action": "celebrate",
+    "explainedBy": "Solving the pain gives PayPal a quarter of the group quickly",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Within 3 months PayPal captured 25% of that group",
+      "concreteVisual": "Founder celebrating",
+      "onScreenText": "25% IN 3 MONTHS",
+      "relationToPrevious": "Result of the solved pain",
+      "addedInformation": "The payoff"
+    }
+  },
+  {
+    "i": 118,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SAME BLUEPRINT AT AMAZON",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "book",
+    "partnerExpression": "surprised",
+    "explainedBy": "Bezos copied the PayPal approach, starting with books",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "PayPal dominated a tiny ecosystem first; Bezos did the same with books",
+      "concreteVisual": "Host A holds a book while Host B reacts",
+      "onScreenText": "SAME BLUEPRINT AT AMAZON",
+      "relationToPrevious": "Moves from PayPal to Amazon",
+      "addedInformation": "Names the second case"
+    }
+  },
+  {
+    "i": 119,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "They sell only books",
+        "They sell everything"
+      ],
+      "values": [
+        0.1
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "The vision is the everything store but the start is only books",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The vision was everything but he did not start by selling everything",
+      "concreteVisual": "Spectrum marker near the books end",
+      "onScreenText": "BOOKS ONLY / EVERYTHING STORE",
+      "relationToPrevious": "Splits vision from the start",
+      "addedInformation": "Shows the gap"
+    }
+  },
+  {
+    "i": 120,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "MILLIONS OF DISTINCT ITEMS",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "happy",
+    "action": "talk",
+    "explainedBy": "Books are a niche with millions of different items",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "He started with books as a manageable niche with millions of items",
+      "concreteVisual": "Host B beside a book icon",
+      "onScreenText": "MILLIONS OF DISTINCT ITEMS",
+      "relationToPrevious": "Explains the choice",
+      "addedInformation": "Names the first advantage"
+    }
+  },
+  {
+    "i": 121,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "MILLIONS OF TITLES",
+        "NO STORE CAN STOCK THEM",
+        "DIGITAL CATALOG ADVANTAGE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Too many titles for a shop to stock gives the digital catalog the edge",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A physical bookstore could never stock them all, so a digital catalog wins",
+      "concreteVisual": "Three-step flow",
+      "onScreenText": "MILLIONS OF TITLES / NO STORE CAN STOCK THEM / DIGITAL CATALOG ADVANTAGE",
+      "relationToPrevious": "Mechanism behind the previous point",
+      "addedInformation": "Cause to effect"
+    }
+  },
+  {
+    "i": 122,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "UNIFORM SIZE",
+        "EASY TO SHIP",
+        "NEVER EXPIRE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Three traits that make books good for early e-commerce",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Books are uniform, easy to ship and do not expire",
+      "concreteVisual": "Sorter with three traits",
+      "onScreenText": "UNIFORM SIZE / EASY TO SHIP / NEVER EXPIRE",
+      "relationToPrevious": "Adds more advantages",
+      "addedInformation": "Separate points as parts"
+    }
+  },
+  {
+    "i": 123,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "MONOPOLY IN BOOKS",
+        "LEVERAGE THE INFRASTRUCTURE"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Only after owning books did Amazon use the infrastructure to move on",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Only after a books monopoly did Amazon expand",
+      "concreteVisual": "Flow from books monopoly to leveraging infrastructure",
+      "onScreenText": "MONOPOLY IN BOOKS / LEVERAGE THE INFRASTRUCTURE",
+      "relationToPrevious": "Sequence of expansion",
+      "addedInformation": "Order of events"
+    }
+  },
+  {
+    "i": 124,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "VENTURE CAPITAL IN 2026",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "worried",
+    "action": "point",
+    "partnerExpression": "neutral",
+    "explainedBy": "Host A stops the talk to question what this means for investors today",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Host A interrupts to talk about venture capital in 2026",
+      "concreteVisual": "Host A pointing, Host B listening",
+      "onScreenText": "VENTURE CAPITAL IN 2026",
+      "relationToPrevious": "Topic turn",
+      "addedInformation": "weak: transition beat"
+    }
+  },
+  {
+    "i": 125,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "PITCHING INVESTORS TODAY",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "pitchStage",
+    "expression": "neutral",
+    "action": "talk",
+    "holds": "laptop",
+    "explainedBy": "A founder stands pitching investors",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "What start small means for a founder pitching investors today",
+      "concreteVisual": "Founder on a pitch stage with a laptop",
+      "onScreenText": "PITCHING INVESTORS TODAY",
+      "relationToPrevious": "Sets up the pitch scene",
+      "addedInformation": "weak: setup"
+    }
+  },
+  {
+    "i": 126,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "$100 BILLION MARKET",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "pitchStage",
+    "expression": "happy",
+    "action": "point",
+    "holds": "laptop",
+    "explainedBy": "The founder points at a slide claiming a hundred billion dollar market",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Every pitch deck shows a total addressable market of $100 billion",
+      "concreteVisual": "Founder pointing at the slide",
+      "onScreenText": "$100 BILLION MARKET",
+      "relationToPrevious": "Continues the pitch",
+      "addedInformation": "Names the claim"
+    }
+  },
+  {
+    "i": 127,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "JUST 1% = A UNICORN",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "pitchStage",
+    "expression": "smirk",
+    "action": "talk",
+    "holds": "laptop",
+    "continue": true,
+    "explainedBy": "The same founder claims one percent makes a billion dollar company",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Capturing 1% would make a billion dollar unicorn",
+      "concreteVisual": "Same founder on stage, confident",
+      "onScreenText": "JUST 1% = A UNICORN",
+      "relationToPrevious": "Keeps stage; adds the claim",
+      "addedInformation": "The pitch logic"
+    }
+  },
+  {
+    "i": 128,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "MASSIVE MARKET = AMBITION?",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate",
+      "host-a"
+    ],
+    "set": "office",
+    "expression": "surprised",
+    "action": "talk",
+    "partnerExpression": "smirk",
+    "explainedBy": "Host B asks if a huge market proves ambition",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Does showing a massive market prove ambition?",
+      "concreteVisual": "Host B asking, Host A skeptical",
+      "onScreenText": "MASSIVE MARKET = AMBITION?",
+      "relationToPrevious": "Hosts return",
+      "addedInformation": "Raises the objection"
+    }
+  },
+  {
+    "i": 129,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FATAL MISUNDERSTANDING",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "surprised",
+    "explainedBy": "Host A rejects the 1% pitch as a misunderstanding of competition",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The 1% pitch shows a fatal misunderstanding of competition",
+      "concreteVisual": "Host A pointing sternly, Host B surprised",
+      "onScreenText": "FATAL MISUNDERSTANDING",
+      "relationToPrevious": "Answers the objection",
+      "addedInformation": "The verdict"
+    }
+  },
+  {
+    "i": 130,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ALREADY SATURATED",
+      "style": "highlight"
+    },
+    "cast": [],
+    "explainedBy": "A huge market is already filled with cutthroat incumbents",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A large market is either saturated with incumbents",
+      "concreteVisual": "Callout on an empty office set: the words stand for a market already full of rivals",
+      "onScreenText": "ALREADY SATURATED",
+      "relationToPrevious": "Starts the two-way trap",
+      "addedInformation": "First branch"
+    }
+  },
+  {
+    "i": 131,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "NO STARTING POINT",
+      "style": "highlight"
+    },
+    "continue": true,
+    "cast": [],
+    "explainedBy": "Or it offers no cohesive starting point for a new entrant",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Or it has no cohesive starting point",
+      "concreteVisual": "Callout continues the trap: no clear first step for a new entrant",
+      "onScreenText": "NO STARTING POINT",
+      "relationToPrevious": "Adds the other branch",
+      "addedInformation": "Completes the trap"
+    }
+  },
+  {
+    "i": 132,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "HUGE OCEAN",
+        "TINY PUDDLE"
+      ],
+      "values": [
+        0.1
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "A pebble in the ocean makes no impact",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A pebble thrown into the ocean makes no impact",
+      "concreteVisual": "Spectrum marker at the ocean end",
+      "onScreenText": "HUGE OCEAN / TINY PUDDLE",
+      "relationToPrevious": "Starts the analogy",
+      "addedInformation": "Impact is low"
+    }
+  },
+  {
+    "i": 133,
+    "concept": null,
+    "diagram": {
+      "type": "spectrum",
+      "labels": [
+        "HUGE OCEAN",
+        "TINY PUDDLE"
+      ],
+      "values": [
+        0.9
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "explainedBy": "A pebble in a puddle makes a massive splash",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "In a small puddle the pebble makes a massive impact",
+      "concreteVisual": "Marker moves to the puddle end",
+      "onScreenText": "HUGE OCEAN / TINY PUDDLE",
+      "relationToPrevious": "Marker moves",
+      "addedInformation": "Contrast"
+    }
+  },
+  {
+    "i": 134,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "DOMINATE THE NICHE",
+        "CAPTIVE CASH FLOW",
+        "ADJACENT MARKETS"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Dominate the niche, then use its cash to expand step by step",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Dominate the niche, then expand into adjacent markets",
+      "concreteVisual": "Three-step flow",
+      "onScreenText": "DOMINATE THE NICHE / CAPTIVE CASH FLOW / ADJACENT MARKETS",
+      "relationToPrevious": "Expansion path",
+      "addedInformation": "Order of growth"
+    }
+  },
+  {
+    "i": 135,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "FOUNDATION BEFORE SKYSCRAPER",
+      "style": "highlight"
+    },
+    "cast": [
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "smirk",
+    "action": "talk",
+    "explainedBy": "Build the foundation in a niche before the skyscraper",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Build the foundation in a niche before the skyscraper",
+      "concreteVisual": "Host B explaining",
+      "onScreenText": "FOUNDATION BEFORE SKYSCRAPER",
+      "relationToPrevious": "Sums up the analogy",
+      "addedInformation": "weak: commentary"
+    }
+  },
+  {
+    "i": 136,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "DISTRIBUTION IS EVERYTHING",
+      "style": "highlight"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "worried",
+    "explainedBy": "A monopoly product is useless if it cannot reach users",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "A monopoly product is useless without a way to reach the user",
+      "concreteVisual": "Host A pointing emphatically",
+      "onScreenText": "DISTRIBUTION IS EVERYTHING",
+      "relationToPrevious": "New point",
+      "addedInformation": "The catch"
+    }
+  },
+  {
+    "i": 137,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "ENGINEERS NEEDED MARKETING",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "startupGarage",
+    "expression": "worried",
+    "action": "hold",
+    "holds": "laptop",
+    "explainedBy": "The engineers have a product and realize they must market it",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Engineers built the payment system but needed to market it",
+      "concreteVisual": "Founder in the garage with a laptop, uneasy",
+      "onScreenText": "ENGINEERS NEEDED MARKETING",
+      "relationToPrevious": "Story begins",
+      "addedInformation": "Introduces the problem"
+    }
+  },
+  {
+    "i": 138,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "JAMES DUHAN: SCOTTY",
+      "style": "highlight"
+    },
+    "cast": [
+      "james",
+      "founder"
+    ],
+    "set": "pitchStage",
+    "expression": "happy",
+    "action": "hold",
+    "holds": "phone",
+    "partnerExpression": "happy",
+    "explainedBy": "The engineers hire the actor who played Scotty",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They hired James Duhan, who played Scotty, as spokesman",
+      "concreteVisual": "James with a handheld device, founder pleased",
+      "onScreenText": "JAMES DUHAN: SCOTTY",
+      "relationToPrevious": "Hire",
+      "addedInformation": "Introduces the actor"
+    }
+  },
+  {
+    "i": 139,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "BEAM MONEY",
+      "style": "highlight"
+    },
+    "cast": [
+      "james"
+    ],
+    "set": "pitchStage",
+    "expression": "happy",
+    "action": "talk",
+    "holds": "phone",
+    "continue": true,
+    "explainedBy": "James pitches that he can finally beam money",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Duhan says he can finally beam money",
+      "concreteVisual": "James on stage with the device aloft",
+      "onScreenText": "BEAM MONEY",
+      "relationToPrevious": "Keeps stage; he speaks",
+      "addedInformation": "The cringe line"
+    }
+  },
+  {
+    "i": 140,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "THE ROOM WAS EMPTY",
+      "style": "highlight"
+    },
+    "cast": [
+      "james"
+    ],
+    "set": "pitchStage",
+    "expression": "worried",
+    "action": "slump",
+    "holds": "phone",
+    "continue": true,
+    "explainedBy": "Nobody is there: the event flops",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "The room was practically empty and the event flopped",
+      "concreteVisual": "James slumped in an empty room",
+      "onScreenText": "THE ROOM WAS EMPTY",
+      "relationToPrevious": "Same stage; mood turns",
+      "addedInformation": "Result"
+    }
+  },
+  {
+    "i": 141,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "SCOTTY AS THE AUTHORITY",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder",
+      "james"
+    ],
+    "set": "startupGarage",
+    "expression": "happy",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "explainedBy": "Founders believed Scotty carried authority on finance",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "They assumed Scotty would be an unquestionable authority on finance",
+      "concreteVisual": "Founder pleased beside James",
+      "onScreenText": "SCOTTY AS THE AUTHORITY",
+      "relationToPrevious": "Reasoning behind the hire",
+      "addedInformation": "Explains the mistake"
+    }
+  },
+  {
+    "i": 142,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Engineers assume the product sells itself",
+      "style": "highlight"
+    },
+    "cast": [
+      "founder"
+    ],
+    "set": "startupGarage",
+    "expression": "happy",
+    "action": "hold",
+    "holds": "laptop",
+    "explainedBy": "An engineer proudly holds the product and believes it will sell itself",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Engineers believe a great product sells itself",
+      "concreteVisual": "Founder proudly holding a laptop",
+      "onScreenText": "Engineers assume the product sells itself",
+      "relationToPrevious": "Generalizes the story",
+      "addedInformation": "The flaw"
+    }
+  },
+  {
+    "i": 143,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "IF YOU BUILD IT, THEY WILL COME",
+      "style": "strike"
+    },
+    "cast": [
+      "host-a",
+      "advocate"
+    ],
+    "set": "office",
+    "expression": "angry",
+    "action": "point",
+    "partnerExpression": "surprised",
+    "explainedBy": "Host A rejects the field of dreams belief as a myth",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "If you build it, they will come is a myth",
+      "concreteVisual": "Host A rejecting it, Host B reacting",
+      "onScreenText": "IF YOU BUILD IT, THEY WILL COME (struck)",
+      "relationToPrevious": "Names the belief",
+      "addedInformation": "Rejects the myth"
+    }
+  },
+  {
+    "i": 144,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "GREAT TECHNOLOGY",
+        "NO WAY TO DISTRIBUTE",
+        "A BAD BUSINESS"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Great technology without distribution is a bad business",
+    "noVisual": null,
+    "storyboard": {
+      "claim": "Revolutionary technology with no distribution is a bad business",
+      "concreteVisual": "Three-step flow",
+      "onScreenText": "GREAT TECHNOLOGY / NO WAY TO DISTRIBUTE / A BAD BUSINESS",
+      "relationToPrevious": "Concludes the point",
+      "addedInformation": "The verdict"
+    }
+  }
+]
