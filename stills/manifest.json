@@ -1,0 +1,43 @@
+{
+ "schema": "stills/1",
+ "name": "single-relation A/B the-law-of-attraction",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s8-A",
+   "config": "configs/s8-A.json",
+   "frames": [
+    395,
+    467,
+    540
+   ],
+   "strip": true
+  },
+  {
+   "id": "s8-B",
+   "config": "configs/s8-B.json",
+   "frames": [
+    395,
+    467,
+    540
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "2534746be6b77ad9",
+ "files": {
+  "stills/configs/s8-A.json": "5eb1c8623ef430308fd84b3bb08ffc73c0a6759584935234b8f1253c7bd2ef5b",
+  "stills/configs/s8-B.json": "a2d16762768173bbdc67b2b634ffdb74f9648d1ae5829d7b73d5b154c735b86d"
+ },
+ "builtAt": "2026-11-12T13:11:33.536Z"
+}
