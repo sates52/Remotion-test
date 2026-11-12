@@ -10,6 +10,8 @@ import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type
 import { shotPreset, stageChar } from "./shots";
 import { endStateOf, keepsRest } from "./endState";
 import { liftEnd, reframeGroup, reframeOne } from "./liftLayout";
+import { FlowContext, flowLevel, type Flow } from "./flow";
+import { buildSpeech } from "./speech";
 import type { CharacterSpec, ShotName } from "./schema";
 
 // CARRIED STATE (10x P1): the state rules + lift geometry + the shot slots, handed to the pure continuity plan
@@ -38,6 +40,10 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
   // `transition.color || bg.accent`, which changes from beat to beat — skin-in-the-game 228-229: the shield the mother
   // keeps holding turned from yellow to green at the cut. A continued scene takes the accent of the scene it continues.
   const keptAccent = React.useMemo(() => keptAccents(config.scenes), [config.scenes]);
+  // FILM FLOW (flow.ts): only a film planned with meta.flow gets it — every older config renders as it always did.
+  const level = flowLevel(config.meta);
+  const speech = React.useMemo(() => (level >= 1 ? buildSpeech(config.captions as Parameters<typeof buildSpeech>[0], config.meta.fps || 30) : null), [level, config.captions, config.meta.fps]);
+  const flowAt = (base: number): Flow => ({ level, speech, base });
   return (
     <AbsoluteFill style={{ backgroundColor: "#0b0b0b" }}>
       {config.meta.audio ? <Audio src={staticFile(config.meta.audio)} /> : null}
@@ -66,7 +72,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
             {(() => {
               const beat = continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene;
               const shots = (scene as { shots?: BeatShot[] }).shots;
-              if (!shots || !shots.length) return <Scene scene={beat} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} />;
+              if (!shots || !shots.length) return <FlowContext.Provider value={flowAt(scene.fromFrame - transIn)}><Scene scene={beat} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} /></FlowContext.Provider>;
               // C19 BEAT SHOTS: the beat keeps its id, order, start, length and transition; its shots are cut INSIDE it
               // on the narrator's words (from/to are beat-relative). The beat transition enters the first shot only;
               // every later shot is a hard cut. A shot carries its own staging and inherits only the beat's records.
@@ -80,9 +86,11 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
                   continueFromPrev: k === 0 ? beat.continueFromPrev : undefined, carryState: k === 0 ? beat.carryState : undefined } as typeof scene;
                 return (
                   <Sequence key={`${scene.id}-shot${k}`} from={k === 0 ? 0 : transIn + sh.from} durationInFrames={k === 0 ? transIn + len : len} name={`${scene.id}#${k + 1}`} layout="none">
+                    <FlowContext.Provider value={flowAt(k === 0 ? scene.fromFrame - transIn : scene.fromFrame + sh.from)}>
                     <Scene scene={sub} transIn={k === 0 ? transIn : 0} cast={config.meta.cast} multiplane={config.meta.multiplane}
                       continuity={k === 0 && continues ? continuity[i] : undefined}
                       singleRelation={(sh as { kept?: boolean }).kept === true && (config.meta as { singleRelation?: boolean }).singleRelation === true} />
+                    </FlowContext.Provider>
                   </Sequence>
                 );
               });

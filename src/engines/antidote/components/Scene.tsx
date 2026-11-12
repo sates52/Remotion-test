@@ -25,6 +25,8 @@ import type { ScenePlan, RestCarry } from "../continuity";
 import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME } from "../continuity";
 import { composeRest } from "../endState";
 import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
+import { FlowContext } from "../flow";
+import { voiceAt } from "../speech";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -147,6 +149,7 @@ const CharacterLayer: React.FC<{
 }> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const flow = React.useContext(FlowContext); // a hook: before any early return
   // whoever walked out / ran away on an earlier beat is GONE (endState.ts): never drawn back on their slot
   if (rest && rest.posture === "gone") return null;
   const variant = resolveVariant(spec, cast);
@@ -164,7 +167,9 @@ const CharacterLayer: React.FC<{
   // already passed (continuity.ts) — the embrace / the taken object is the starting state, never replayed
   const clockOff = carry ? carry.poseClock : (spec.poseAt ?? 0);
   const cue = carry && carry.cue != null ? carry.cue : actionCueFrame(spec, durationFrames) + clockOff;
-  let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole);
+  // FILM FLOW level 1: the narration on this film frame moves the body (movements.ts livePose); a carried rest keeps its own pose
+  const live = flow.level >= 1 ? { voice: voiceAt(flow.speech, flow.base + frame), seed: index * 17 + (spec.id ? spec.id.length : 0) + (spec.identity ? spec.identity.charCodeAt(spec.identity.length - 1) : 0) } : undefined;
+  let p = pose(spec.action, frame + clockOff, fps, cue, embraceRole, live);
   if (spec.action === "take" && spec.takeFrom === "body") p = { ...p, noRest: 1 } as typeof p;
   // the carried rest (settled: the deed is over) under this beat's own action — seated keeps its seat, down keeps its body
   if (rest) p = composeRest(pose(rest.restAction as CharacterSpec["action"], SETTLED_FRAME, fps), p, rest.posture, spec.action);
