@@ -1,0 +1,59 @@
+{
+ "schema": "stills/1",
+ "name": "told pilot zero-to-one",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "zero-to-one-0-90-T-stills",
+   "config": "configs/zero-to-one-0-90-T.json",
+   "frames": [
+    20,
+    270,
+    460,
+    650,
+    883,
+    1016,
+    1221,
+    1339,
+    1529,
+    1708,
+    1926,
+    2012,
+    2192,
+    2331,
+    2546,
+    2736
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 640
+   }
+  },
+  {
+   "id": "zero-to-one-0-90-T",
+   "config": "configs/zero-to-one-0-90-T.json",
+   "frames": [
+    1926
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2750
+   }
+  }
+ ],
+ "inputHash": "3d75d52c5ccc415d",
+ "files": {
+  "stills/configs/zero-to-one-0-90-T.json": "8b4baeb8db354a1f95faa11bcbaffd3ba56c6d91334376cd6819fd83546b4aa9"
+ },
+ "builtAt": "2026-11-12T16:12:58.530Z"
+}
