@@ -1,0 +1,93 @@
+{
+ "schema": "stills/1",
+ "name": "film-flow passages B flow 1",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 6,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "zero-to-one-0-90-B",
+   "config": "configs/zero-to-one-0-90-B.json",
+   "frames": [
+    1376
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2750
+   }
+  },
+  {
+   "id": "zero-to-one-mid-B",
+   "config": "configs/zero-to-one-mid-B.json",
+   "frames": [
+    1332
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2663
+   }
+  },
+  {
+   "id": "the-creative-curve-0-90-B",
+   "config": "configs/the-creative-curve-0-90-B.json",
+   "frames": [
+    1493
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2984
+   }
+  },
+  {
+   "id": "the-creative-curve-mid-B",
+   "config": "configs/the-creative-curve-mid-B.json",
+   "frames": [
+    1420
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2838
+   }
+  },
+  {
+   "id": "the-new-one-minute-manager-0-90-B",
+   "config": "configs/the-new-one-minute-manager-0-90-B.json",
+   "frames": [
+    1385
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2769
+   }
+  },
+  {
+   "id": "the-new-one-minute-manager-mid-B",
+   "config": "configs/the-new-one-minute-manager-mid-B.json",
+   "frames": [
+    1350
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2699
+   }
+  }
+ ],
+ "inputHash": "30899d9bd0a64de6",
+ "files": {
+  "stills/configs/zero-to-one-0-90-B.json": "bc379e3a5818cefe073c62eea092aa2cbd61bb6c6acd22916cd86c536654800f",
+  "stills/configs/zero-to-one-mid-B.json": "3a3881319a43b88fd0bcdaa52adea53915ae105151f2ddfac6d4241da94aa612",
+  "stills/configs/the-creative-curve-0-90-B.json": "19e5097d4723a73b6cb77e2275d262b4213ad70baf11010dcb83a96d33537d2c",
+  "stills/configs/the-creative-curve-mid-B.json": "e067c6aa61466a27c221edcfdb128412ae9e015e296fac28f6684e341b1218c2",
+  "stills/configs/the-new-one-minute-manager-0-90-B.json": "df99d8abfd10a05efb01d6898b696936c4c1985fe0ba010543bf2193f6f4757e",
+  "stills/configs/the-new-one-minute-manager-mid-B.json": "dee8c2cd62d045055b7d08981df0db69a01b9a87f423b6b25823c7296e1a7c82"
+ },
+ "builtAt": "2026-11-12T10:10:47.062Z"
+}
