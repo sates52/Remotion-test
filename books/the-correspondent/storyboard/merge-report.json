@@ -1,0 +1,107 @@
+{
+  "slug": "the-correspondent",
+  "engine": "antidote",
+  "at": "2026-11-09T11:27:54.637Z",
+  "write": true,
+  "written": true,
+  "problems": 0,
+  "byClass": {
+    "OPERATOR": 0,
+    "AGENT_STEP": 0,
+    "REAUTHOR": 0,
+    "ROUTINE": 0
+  },
+  "byCode": [],
+  "byFile": {},
+  "operatorNeeded": false,
+  "next": "merged — next: node scripts/preview-state.js status (it names the next step: readcheck for Antidote, make-book for Vox); routine, never end the turn",
+  "items": [],
+  "warnings": 1,
+  "review": [
+    {
+      "i": 11,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"Car chases and ticking clocks\" repeats the narration and nothing else on screen carries the meaning (lone figure, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 25,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"It's all on the page\" shows \"it's page\" before the narration says it (beat 26) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 35,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"Authority figures\" shows \"authority figures\" before the narration says it (beat 36) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 40,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"Stubborn, entitled, cold\" shows \"stubborn entitled cold\" before the narration says it (beat 41) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 49,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"A PITCH BLACK VOID\" repeats the narration and nothing else on screen carries the meaning (lone idle, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 71,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"PURE COMEDIC RELIEF\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 84,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"A 76-YEAR-OLD TEXAS LAWYER\" repeats the narration and nothing else on screen carries the meaning (lone talk, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 87,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"Quiet notes from Theodore\" shows \"quiet notes\" before the narration says it (beat 88) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 116,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"REMOTE CUSTOMER SERVICE\" repeats the narration and nothing else on screen carries the meaning (lone idle, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 125,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"A bored wealthy retiree\" repeats the narration and nothing else on screen carries the meaning (lone idle, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 131,
+      "code": "EARLY_TEXT",
+      "field": "callout",
+      "why": "\"BUILDING SOMETHING ELSE\" shows \"something else\" before the narration says it (beat 132) — move the text to that beat or use this beat's words",
+      "signal": "REVIEW_REQUIRED"
+    },
+    {
+      "i": 189,
+      "code": "ECHO_ONLY_CARRIER",
+      "field": "callout",
+      "why": "the callout \"WHEN SOCIETY STOPS LOOKING\" repeats the narration and nothing else on screen carries the meaning (lone idle, no object/icon/diagram) — text-carried",
+      "signal": "REVIEW_REQUIRED"
+    }
+  ],
+  "refused": {}
+}

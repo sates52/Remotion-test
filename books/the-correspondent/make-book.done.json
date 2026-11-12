@@ -1,0 +1,36 @@
+{
+  "status": "done",
+  "startedAt": "2026-11-09T11:31:33.513Z",
+  "at": "2026-11-09T11:34:24.255Z",
+  "config": "config.antidote.json",
+  "configSha256": "12fbf6f4397428c3b75fec622a0c1a65f97e6687d3f28acd763582b1485d4789",
+  "inputs": {
+    "storyboard": {
+      "path": "books/the-correspondent/art.json",
+      "sha256": "757c1dd846c1b96c2da39be05a406f6b2e943efceb7feb6cd4482243e6efbb08"
+    },
+    "storyBible": {
+      "path": "books/the-correspondent/story-bible.json",
+      "sha256": "c8a9ad13983e231aef0199f2cce18cc4d3c55f4c6e00b1a5346f39ebf640cbc3"
+    },
+    "motifs": {
+      "path": "books/the-correspondent/motifs.json",
+      "sha256": null
+    },
+    "vtt": {
+      "path": "public/captions/the-correspondent.vtt",
+      "sha256": "60c900e25757cfce768207901ba83c18c107d2a43c14d7d6ba27d541304615ad"
+    },
+    "audio": {
+      "path": "public/audio/the-correspondent.mp3",
+      "sha256": "2ecbb28158770f074f251628a0d6156dbd939e06296a7ba4cd8f6a45b3147155"
+    },
+    "singleRelation": {
+      "path": "books/the-correspondent/single-relation/active.json",
+      "sha256": null
+    }
+  },
+  "head": "8d2285464c2b684c4095d5ad7b2f622c76ad4472",
+  "previewOnly": true,
+  "skipPack": true
+}

@@ -1,0 +1,56 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-11-09T14:33:19.663Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "8d228546",
+      "tools": "1313d9b1",
+      "pin": "8d2285464c2b",
+      "configHash": "12fbf6f4397428c3",
+      "renderInputHash": "cb8014c2ab6d6809",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 368
+      },
+      "preview": {
+        "state": "READY",
+        "covered": false,
+        "mute": {
+          "label": "run2",
+          "sample": "fresh",
+          "n": 30,
+          "wrong": 0,
+          "dead": 5,
+          "adds": 22,
+          "pass": true
+        }
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Operator approved: accept the 368 REVIEW firewall findings as quality debt (preview READY, mute run2 PASS)",
+        "covered": 22,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "authorization": {
+        "at": "2026-11-09T14:33:14.706Z",
+        "recordedNow": true,
+        "kind": "render-authorization"
+      },
+      "technical": "NOT_RUN",
+      "credentials": {
+        "ok": true,
+        "source": "main checkout (read in place, not copied)",
+        "active": 10,
+        "usable": 10,
+        "verified": 10,
+        "refused": 0
+      }
+    }
+  ]
+}

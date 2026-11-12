@@ -1,0 +1,832 @@
+[
+  {
+    "i": 209,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "No longer writing",
+      "style": "box"
+    },
+    "set": "office",
+    "shotOverride": "medium",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "blank",
+    "action": "idle",
+    "explainedBy": "Sybil with empty hands and a blank face shows she can no longer write.",
+    "storyboard": {
+      "claim": "Sybil sits at her desk, no pen in hand, completely blind.",
+      "concreteVisual": "Sybil seated at the desk, hands empty, blank face.",
+      "onScreenText": "NO LONGER WRITING",
+      "relationToPrevious": "Opens the final scene.",
+      "addedInformation": "Weak: the empty hands and blank face show the loss of writing."
+    }
+  },
+  {
+    "i": 210,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Theodore writes for her",
+      "style": "box"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "explainedBy": "She speaks while someone else writes the page.",
+    "storyboard": {
+      "claim": "Theodore sits beside her transcribing her spoken words.",
+      "concreteVisual": "Sybil speaking beside a notes icon of the page being written for her.",
+      "onScreenText": "THEODORE WRITES FOR HER",
+      "relationToPrevious": "Same desk: now she speaks and the page is written for her.",
+      "addedInformation": "Weak: Theodore is not in the cast; the notes icon and callout carry the transcriber."
+    }
+  },
+  {
+    "i": 211,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Unsent pages",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [],
+    "explainedBy": "The unsent pages are the object the reveal is about.",
+    "storyboard": {
+      "claim": "The unsent pages scattered through the book are addressed to someone named Colt.",
+      "concreteVisual": "A notes icon: the hidden unsent pages.",
+      "onScreenText": "UNSENT PAGES",
+      "relationToPrevious": "From the dictation to the reveal about the hidden pages.",
+      "addedInformation": "The notes icon names the pages the reveal is about."
+    }
+  },
+  {
+    "i": 212,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Colt = her son Gilbert",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "Sybil holds the letter addressed to her dead son.",
+    "storyboard": {
+      "claim": "Colt was her private nickname for her dead son Gilbert.",
+      "concreteVisual": "Sybil sad, holding a letter, the unsent kind.",
+      "onScreenText": "COLT = HER SON GILBERT",
+      "relationToPrevious": "From the pages to who they were addressed to.",
+      "addedInformation": "Shows the pages are held letters to a dead son."
+    }
+  },
+  {
+    "i": 213,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Can never answer us",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "Grief: she talks to someone who cannot answer.",
+    "storyboard": {
+      "claim": "The person we talk to most is often the one who can never answer.",
+      "concreteVisual": "Sybil bowed and sad, no one answering.",
+      "onScreenText": "CAN NEVER ANSWER US",
+      "relationToPrevious": "From who the letters were for to what that means.",
+      "addedInformation": "Weak: a mood beat; the slump carries the grief."
+    }
+  },
+  {
+    "i": 214,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Lake St. Pierre, in 1973.",
+      "style": "box"
+    },
+    "set": "shore",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "explainedBy": "She speaks the memory of the lake.",
+    "storyboard": {
+      "claim": "She finally dictates what happened at Lake St. Pierre in 1973.",
+      "concreteVisual": "Sybil speaking, the lake icon marking where it happened.",
+      "onScreenText": "Lake St. Pierre, in 1973.",
+      "relationToPrevious": "Moves from the present to the memory she tells.",
+      "addedInformation": "The water icon places the confession at the lake."
+    }
+  },
+  {
+    "i": 215,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Her legal file",
+      "style": "box"
+    },
+    "set": "shore",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "angry",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Her attention is on the file, not the lake where her son wants to swim.",
+    "storyboard": {
+      "claim": "Sybil on the beach, irritated, absorbed in a legal file while her son wants to swim.",
+      "concreteVisual": "Sybil at the lake holding the legal file, annoyed.",
+      "onScreenText": "HER LEGAL FILE",
+      "relationToPrevious": "Starts the story of the drowning.",
+      "addedInformation": "The file in her hands beside the water shows what holds her attention."
+    }
+  },
+  {
+    "i": 216,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "Colt, just jump",
+      "style": "box"
+    },
+    "set": "shore",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "angry",
+    "action": "talk",
+    "holds": "notes",
+    "explainedBy": "She snaps the words without lifting her eyes from the file.",
+    "storyboard": {
+      "claim": "Without looking up from the file she snaps at him to jump.",
+      "concreteVisual": "Same beach and file: Sybil snaps, eyes on the paper.",
+      "onScreenText": "Colt, just jump",
+      "relationToPrevious": "Same stage: she speaks sharply without looking up.",
+      "addedInformation": "Keeps the file in hand while she says the words."
+    }
+  },
+  {
+    "i": 217,
+    "concept": "water",
+    "diagram": null,
+    "callout": {
+      "text": "She couldn’t look up",
+      "style": "box"
+    },
+    "set": "shore",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "Cause and effect: the file held her gaze and the boy drowned.",
+    "storyboard": {
+      "claim": "Her obsession with the page cost her son his life; he drowned.",
+      "concreteVisual": "Same beach: Sybil still holding the file, face now stricken.",
+      "onScreenText": "SHE COULDN’T LOOK UP",
+      "relationToPrevious": "Same stage: face turns from irritation to anguish.",
+      "addedInformation": "The unchanged file beside the water carries the cost."
+    }
+  },
+  {
+    "i": 218,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "An absolute tragedy",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The first reading is grief.",
+    "storyboard": {
+      "claim": "The host says it reframes everything and makes the whole book a tragedy.",
+      "concreteVisual": "Sybil bowed and sad.",
+      "onScreenText": "AN ABSOLUTE TRAGEDY",
+      "relationToPrevious": "From the story to the first reading.",
+      "addedInformation": "Weak: mood beat, grief on the face."
+    }
+  },
+  {
+    "i": 219,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Suffocated by guilt",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "slump",
+    "explainedBy": "The tragic reading: one moment ruined her life.",
+    "storyboard": {
+      "claim": "A woman suffocated by guilt whose marriage, estrangement and coldness came from one moment.",
+      "concreteVisual": "Sybil bowed under guilt.",
+      "onScreenText": "SUFFOCATED BY GUILT",
+      "relationToPrevious": "Spells out the tragic reading.",
+      "addedInformation": "Weak: marriage and estrangement are only named; the posture carries guilt."
+    }
+  },
+  {
+    "i": 220,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A prison, not a fortress",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "hold",
+    "holds": "letter",
+    "explainedBy": "The letters as a prison binding her.",
+    "storyboard": {
+      "claim": "On the tragic reading the letters were not a fortress but a prison she built to punish herself.",
+      "concreteVisual": "Sybil holding a letter with an intact chains icon: bound by her own letters.",
+      "onScreenText": "A PRISON, NOT A FORTRESS",
+      "relationToPrevious": "Develops the bleak reading.",
+      "addedInformation": "The chains show the letters as a prison."
+    }
+  },
+  {
+    "i": 221,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Tragedy or triumph?",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "Two readings are weighed against each other.",
+    "storyboard": {
+      "claim": "The other host pushes back: the final scene is not a tragedy at all.",
+      "concreteVisual": "A balance weighing two readings.",
+      "onScreenText": "TRAGEDY OR TRIUMPH?",
+      "relationToPrevious": "From the bleak reading to the pushback.",
+      "addedInformation": "The balance shows two readings of one scene."
+    }
+  },
+  {
+    "i": 222,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A massive triumph",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "talk",
+    "explainedBy": "She speaks the truth aloud and the host calls it a triumph.",
+    "storyboard": {
+      "claim": "It is a triumph because she is dictating, speaking the horrific truth aloud.",
+      "concreteVisual": "Sybil speaking aloud, a trophy beside her.",
+      "onScreenText": "A MASSIVE TRIUMPH",
+      "relationToPrevious": "Turns the reading from tragedy to triumph.",
+      "addedInformation": "The trophy names the verdict; her speaking is the deed."
+    }
+  },
+  {
+    "i": 223,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Hiding behind the paper",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "place",
+    "holds": "notes",
+    "actionCue": "drops",
+    "explainedBy": "The deed: she sets the legal paper down.",
+    "storyboard": {
+      "claim": "She stops hiding behind the paper and drops the defensive legal language and the myth of the perfect clerk.",
+      "concreteVisual": "Sybil sets the legal file down on a table beside her.",
+      "onScreenText": "HIDING BEHIND THE PAPER",
+      "relationToPrevious": "Shows the triumph: she puts down the paper.",
+      "addedInformation": "Setting down the file shows giving up the defense."
+    }
+  },
+  {
+    "i": 224,
+    "concept": "heart",
+    "diagram": null,
+    "callout": {
+      "text": "He still loves her",
+      "style": "box"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "sad",
+    "action": "take",
+    "holds": "notes",
+    "explainedBy": "Her exposed shame is met with love.",
+    "storyboard": {
+      "claim": "She lets another human see her shame and Theodore loves her anyway.",
+      "concreteVisual": "Same stage: file stays down, a heart icon appears.",
+      "onScreenText": "He still loves her",
+      "relationToPrevious": "Same stage: the heart shows what her openness allows.",
+      "addedInformation": "Heart reads love; Theodore is not drawn."
+    }
+  },
+  {
+    "i": 225,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The blanks filled in",
+      "style": "box"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "take",
+    "holds": "notes",
+    "explainedBy": "She makes her final honest choice about who she is on the page.",
+    "storyboard": {
+      "claim": "She no longer leaves things out; the blank spaces are filled in.",
+      "concreteVisual": "Same stage: the file stays down, her face calm.",
+      "onScreenText": "THE BLANKS FILLED IN",
+      "relationToPrevious": "Same stage: the honest decision.",
+      "addedInformation": "Weak: text-led; calm face and empty hands."
+    }
+  },
+  {
+    "i": 226,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "She let someone in",
+      "style": "box"
+    },
+    "set": "office",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "happy",
+    "action": "take",
+    "holds": "notes",
+    "explainedBy": "Relief: she did not write it, she let someone in.",
+    "storyboard": {
+      "claim": "She did not even have to write it; she let someone else in.",
+      "concreteVisual": "Same stage: a genuine, relieved smile.",
+      "onScreenText": "SHE LET SOMEONE IN",
+      "relationToPrevious": "Same stage: relief.",
+      "addedInformation": "Weak: the relief is in her face."
+    }
+  },
+  {
+    "i": 227,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "Incredibly slow",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The book is slow.",
+    "storyboard": {
+      "claim": "Honest criticism: the book is not a perfect reading experience; it is incredibly slow.",
+      "concreteVisual": "A closed book icon.",
+      "onScreenText": "INCREDIBLY SLOW",
+      "relationToPrevious": "Moves from praise to critique.",
+      "addedInformation": "Weak: the book icon and callout carry the criticism."
+    }
+  },
+  {
+    "i": 228,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Almost no plot",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "blank",
+    "action": "sit",
+    "holds": "letter",
+    "explainedBy": "Stillness: nothing happens but letters.",
+    "storyboard": {
+      "claim": "Almost all the action is in the past or inside a mailbox.",
+      "concreteVisual": "Sybil seated and still with a letter.",
+      "onScreenText": "ALMOST NO PLOT",
+      "relationToPrevious": "Continues the critique.",
+      "addedInformation": "Weak: stillness shows the lack of action."
+    }
+  },
+  {
+    "i": 229,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Her voice dominates",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "explainedBy": "Sybil alone is the center.",
+    "storyboard": {
+      "claim": "Sybil’s voice is dominant, the center of the epistolary universe.",
+      "concreteVisual": "Sybil in front, talking.",
+      "onScreenText": "HER VOICE DOMINATES",
+      "relationToPrevious": "Introduces the voices risk.",
+      "addedInformation": "Sybil alone at the center."
+    }
+  },
+  {
+    "i": 230,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Letter writers can all sound alike.",
+      "style": "box"
+    },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": [
+      "sybil",
+      "mick"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Two correspondents speaking identically.",
+    "storyboard": {
+      "claim": "The vast cast of letter writers can start to sound alike.",
+      "concreteVisual": "Sybil and Mick both talking in the same way.",
+      "onScreenText": "Letter writers can all sound alike.",
+      "relationToPrevious": "From her dominance to the risk.",
+      "addedInformation": "Both talk identically; they differ only in costume."
+    }
+  },
+  {
+    "i": 231,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Harry, Basam, Mick",
+      "style": "box"
+    },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": [
+      "harry",
+      "mick"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Different people talking in one voice.",
+    "storyboard": {
+      "claim": "Harry, Basam and Mick blend into the same formal cadence.",
+      "concreteVisual": "Harry and Mick both talking the same way (Basam is not in the cast).",
+      "onScreenText": "HARRY, BASAM, MICK",
+      "relationToPrevious": "Names the writers who blur together.",
+      "addedInformation": "Basam is not drawable; the callout names him."
+    }
+  },
+  {
+    "i": 232,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "One author speaks in many voices.",
+      "style": "box"
+    },
+    "set": "room",
+    "shotOverride": "twoShot",
+    "cast": [
+      "sybil",
+      "harry"
+    ],
+    "expression": "neutral",
+    "action": "talk",
+    "partnerExpression": "neutral",
+    "partnerAction": "talk",
+    "explainedBy": "Different characters speak in one voice.",
+    "storyboard": {
+      "claim": "Readers may bounce off a book that feels like one author doing several voices.",
+      "concreteVisual": "Sybil and Harry talking in the same way.",
+      "onScreenText": "One author speaks in many voices.",
+      "relationToPrevious": "Continues the criticism.",
+      "addedInformation": "Weak: same voices again."
+    }
+  },
+  {
+    "i": 233,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "A necessary side effect",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "smirk",
+    "action": "hold",
+    "holds": "notes",
+    "explainedBy": "A defense of the blend.",
+    "storyboard": {
+      "claim": "The host argues the blended voices are a necessary, almost brilliant side effect of the structure.",
+      "concreteVisual": "Sybil holding notes, confident.",
+      "onScreenText": "A NECESSARY SIDE EFFECT",
+      "relationToPrevious": "Turns from the criticism to the defense.",
+      "addedInformation": "Weak: stance beat."
+    }
+  },
+  {
+    "i": 234,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Her curated world",
+      "style": "box"
+    },
+    "set": "office",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "sit",
+    "explainedBy": "The reader sees only through her letters.",
+    "storyboard": {
+      "claim": "We live inside Sybil’s inbox and see the world only through her curated text lens.",
+      "concreteVisual": "Sybil at her desk beside a notes icon.",
+      "onScreenText": "HER CURATED WORLD",
+      "relationToPrevious": "From the defense to its reason.",
+      "addedInformation": "Notes show the text-only inbox."
+    }
+  },
+  {
+    "i": 235,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Intimidating tone",
+        "People mirror it"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Intimidating tone causes others to mirror it.",
+    "storyboard": {
+      "claim": "People mirror the tone of an intimidating correspondent.",
+      "concreteVisual": "Flow: intimidating tone to people mirror it.",
+      "onScreenText": "none",
+      "relationToPrevious": "Gives the reason for the blended voices.",
+      "addedInformation": "Shows the cause-effect."
+    }
+  },
+  {
+    "i": 236,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Intimidating tone",
+        "People mirror it",
+        "They rise to meet her"
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "explainedBy": "The chain ends with characters rising to her level.",
+    "storyboard": {
+      "claim": "She demands formal discourse and the characters rise to meet it.",
+      "concreteVisual": "The flow gains a third label.",
+      "onScreenText": "none",
+      "relationToPrevious": "One more step in the chain.",
+      "addedInformation": "Adds the result."
+    }
+  },
+  {
+    "i": 237,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "Bringing it together",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "A transition into the summary.",
+    "storyboard": {
+      "claim": "The hosts begin to wrap up.",
+      "concreteVisual": "Only the callout.",
+      "onScreenText": "BRINGING IT TOGETHER",
+      "relationToPrevious": "Closing transition.",
+      "addedInformation": "Weak: banter; staging only."
+    }
+  },
+  {
+    "i": 238,
+    "concept": "law",
+    "diagram": null,
+    "callout": {
+      "text": "Objective facts and clean opinions remain.",
+      "style": "box"
+    },
+    "set": "court",
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "Her career was law.",
+    "storyboard": {
+      "claim": "Her career was built on objective facts, rigid laws and clean judicial opinions.",
+      "concreteVisual": "Sybil in the court set with a law icon.",
+      "onScreenText": "Objective facts and clean opinions remain.",
+      "relationToPrevious": "Starts the summary with her career.",
+      "addedInformation": "The law icon and court set show her career."
+    }
+  },
+  {
+    "i": 239,
+    "concept": null,
+    "diagram": null,
+    "callout": {
+      "text": "The law was her armor",
+      "style": "box"
+    },
+    "set": "court",
+    "continue": true,
+    "cast": [
+      "sybil"
+    ],
+    "expression": "neutral",
+    "action": "idle",
+    "explainedBy": "The law is a shield she hides behind.",
+    "storyboard": {
+      "claim": "Letters were the only place she could be honest about her pain; the law was her armor, the letters her confession.",
+      "concreteVisual": "Same court: a shield icon beside Sybil.",
+      "onScreenText": "THE LAW WAS HER ARMOR",
+      "relationToPrevious": "Same stage: the law becomes armor.",
+      "addedInformation": "Shield reads protection."
+    }
+  },
+  {
+    "i": 240,
+    "concept": "book",
+    "diagram": null,
+    "callout": {
+      "text": "It trusts the reader",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The book trusts its reader.",
+    "storyboard": {
+      "claim": "The book trusts the reader to notice the difference.",
+      "concreteVisual": "A closed book icon.",
+      "onScreenText": "IT TRUSTS THE READER",
+      "relationToPrevious": "From her to the book.",
+      "addedInformation": "Weak: icon and callout only."
+    }
+  },
+  {
+    "i": 241,
+    "concept": null,
+    "diagram": {
+      "type": "sorter",
+      "labels": [
+        "Perfect letters sent",
+        "Agonized letters hoarded"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Two buckets: sent perfect, hoarded agonized.",
+    "storyboard": {
+      "claim": "The gap between the perfect letters she sends and the agonized ones hoarded in her drawer.",
+      "concreteVisual": "Sorter with two buckets.",
+      "onScreenText": "none",
+      "relationToPrevious": "Names the gap.",
+      "addedInformation": "Sorts the two kinds of letters."
+    }
+  },
+  {
+    "i": 242,
+    "concept": "notes",
+    "diagram": null,
+    "callout": {
+      "text": "Your own paper trails",
+      "style": "box"
+    },
+    "set": "room",
+    "cast": [],
+    "explainedBy": "The question turns to the viewer.",
+    "storyboard": {
+      "claim": "A closing thought: think about your own digital and paper trails.",
+      "concreteVisual": "A notes icon.",
+      "onScreenText": "YOUR OWN PAPER TRAILS",
+      "relationToPrevious": "From the book to the viewer.",
+      "addedInformation": "Weak: icon and callout."
+    }
+  },
+  {
+    "i": 243,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Your sent messages",
+        "What they would see"
+      ]
+    },
+    "callout": null,
+    "cast": [],
+    "explainedBy": "Reading only sent messages shapes what they see.",
+    "storyboard": {
+      "claim": "If someone read only your sent messages.",
+      "concreteVisual": "Flow: sent messages to what they would see.",
+      "onScreenText": "none",
+      "relationToPrevious": "Spells out the thought experiment.",
+      "addedInformation": "Cause-effect of reading only the sent."
+    }
+  },
+  {
+    "i": 244,
+    "concept": null,
+    "diagram": {
+      "type": "flow",
+      "labels": [
+        "Your sent messages",
+        "What they would see",
+        "What they would miss"
+      ]
+    },
+    "callout": null,
+    "continue": true,
+    "cast": [],
+    "explainedBy": "The final question: what would they miss.",
+    "storyboard": {
+      "claim": "What defining truth would they completely miss?",
+      "concreteVisual": "The flow gains a final label.",
+      "onScreenText": "none",
+      "relationToPrevious": "Adds the missing truth.",
+      "addedInformation": "Ends on the question."
+    }
+  }
+]

@@ -7498,3 +7498,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Operator confirmed the YouTube upload is live and ordered cleanup. Film verified in the cloud (77,273/77,273 frames, decode clean, 42.9 min). Mute test FAIL on both holdouts; quality debt accepted by the operator, fix round 2 not run.
 - Cleanup: `render-github-cleanup.js` (14 artifacts, 14 runs), `purge-render-branches.js` (12 refs), `render-purge.js` (film + thumbnails). Local mp3, mastered audio, raw VTT and split state removed; `clean.vtt` kept.
 - Open: `books/free-to-focus/` source is untracked in the book worktree (not committed). Book worktree at `wt-book-free-to-focus` is locked; its removal is the operator's cleanup after `preview-state.js unlink`.
+
+## 2026-11-12 — the-correspondent published and cleaned (preview-hazirla + render + cleanup)
+- Preview READY (run2 mute PASS, render input cb8014c2ab6d6809), operator-accepted quality debt for 368 REVIEW findings, GitHub split render 10/10 segments, cloud-verified MP4 (67525 frames).
+- Operator ordered upload and cleanup; ran render-github-cleanup, purge-render-branches --force, render-purge --force (worktree wt-book-the-correspondent).
+- Recorded in PUBLISHED_BOOKS.md. Book source committed under books/the-correspondent/ (no raw audio/VTT, no render outputs).

@@ -1,0 +1,58 @@
+{
+  "slug": "the-correspondent",
+  "title": "The Correspondent",
+  "author": "Virginia Evans",
+  "genre": "fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (moderate): contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "contemporary",
+    "era": 2012,
+    "realPeople": false,
+    "format": "story",
+    "violence": "none",
+    "minorHarm": false,
+    "mustSee": [
+      "Sybil writing a letter by hand at her desk in Maryland",
+      "a letter or email rendered on screen as the characters read it",
+      "the garden club meeting and its petty feud",
+      "a stranger overseas exchanging photographs with Sybil online",
+      "Sybil alone in her house as the seasons pass"
+    ]
+  },
+  "engineRubric": {
+    "pick": "antidote",
+    "confidence": "moderate",
+    "voxScore": 0,
+    "antidoteScore": 15,
+    "reasons": [
+      "contemporary fiction with a cast → staged characters in Antidote (We Were Liars: 0/30 wrong, image adds 70%)"
+    ],
+    "risks": []
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-09",
+    "fit": "antidote",
+    "confidence": "weak",
+    "voxScore": 2.7,
+    "antidoteScore": 7.1,
+    "signals": {
+      "year": 0.5,
+      "history": 0.3,
+      "second": 11.6,
+      "abstract": 3.8,
+      "sensitive": 1.4,
+      "era": 2012,
+      "words": 6539
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [],
+    "confirmed": false
+  },
+  "audioSource": "public/audio/the-correspondent.mp3"
+}

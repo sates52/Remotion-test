@@ -1,0 +1,2438 @@
+{
+  "book": {
+    "slug": "the-correspondent",
+    "title": "The Correspondent",
+    "author": "Virginia Evans",
+    "genre": "fiction"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's sitting at her desk. It's a Monday morning. Um somewhere around 10 or maybe half past,",
+      "callout": {
+        "text": "THE CORRESPONDENT",
+        "style": "plain"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She has her mug of Irish breakfast tea with milk. The bed is made. The dishes are drying beside the sink. The shelves are perfectly dusted.",
+      "callout": null
+    },
+    {
+      "i": 2,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And she just sits there meticulously arranging her fountain pens in a mug and counting her stamps. Just counting them.",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. She is 73 years old, a retired lawyer living in Maryland, and she's just staring out the window at the Seven River preparing to write. Cybil Van Yes, Cybil Van Antwerp.",
+      "callout": {
+        "text": "73 YEARS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 4,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And here is the thing that just completely hooks you right from the start. Oh, absolutely. This is a woman who has spent her entire life writing things down.",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are talking about decades of dense legal briefs, perfectly cited judicial opinions, right? A whole career of it.",
+      "callout": {
+        "text": "WHOLE CAREER",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And now in her retirement, this absolute endless river of letters, letters to literally everyone. But she almost never actually speaks her emotional truth aloud. Right? It is this fascinating",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "overShoulder",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "central contradiction. You have to ask yourself like what does it actually say about a person who uses ink to completely avoid face-to-face",
+      "callout": {
+        "text": "ASK YOURSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 8,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "vulnerability? It's a huge question. What does a habit of relentless documentation mean when you are using it specifically to hide?",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is the ultimate paradox of the human condition. Right. I mean, we usually think of writing as an act of Yeah. Like letting things out into the Exactly.",
+      "callout": null
+    },
+    {
+      "i": 10,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's supposed to be cathartic. But for Syibble, writing is a fortress. A fortress. Yes. It is a highly controlled, sterile environment where she can manage exactly what the world sees and honestly exactly what it doesn't.",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is the exact core of Virginia Evans the correspondent. Like if you pick this up looking for a thriller or a traditional narrative arc with car chases and ticking clocks, you are going to be",
+      "callout": {
+        "text": "YOU PICK",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 12,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "so deeply confused, completely lost because this is not really a novel about a plot.",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is an absolute masterclass in character study, but it's built entirely through And we really have to be incredibly clear about how that structure functions for you as a reader.",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. Let's talk about the episttolary right? The letters, the emails, the direct messages. It is not some cute literary gimmick designed to just make the pages look interesting.",
+      "callout": null
+    },
+    {
+      "i": 15,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Not at all. It is the argument itself. The form is the function. If we read this book closely, we see that Syibbil's letters are where she actively decides who she",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Every single letter. Yeah. Every single letter she writes, every email she sends is a highly calculated decision about how much of herself to reveal. The true beating heart of this book lives entirely in what she chooses to leave",
+      "callout": {
+        "text": "TRUE BEATING HEART",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 17,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "out. That is exactly the lens we want you to look through today in this deep dive. Don't just read the words on the page. No, you have to read the blank spaces between them. Cuz in this world, every letter is a decision about who she is on the page.",
+      "callout": null
+    },
+    {
+      "i": 18,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The words are just the tip of the So, um, let's establish where we actually are in the story. It is 2012, Cybil lives entirely alone in this beautiful but notably",
+      "callout": {
+        "text": "2012",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 19,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "unupdated waterfront house on a point in Annapolis, Maryland. The physical space is just so important to her character. Oh, massively. She tends her hydrangeas and her das with this meticulous almost",
+      "callout": null
+    },
+    {
+      "i": 20,
+      "shot": "split",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "militant care like a general commanding troops. Yeah, she is a divorced mother, a grandmother, but she's deeply, deeply isolated.",
+      "callout": {
+        "text": "DEEPLY",
+        "style": "box"
+      }
+    },
+    {
+      "i": 21,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "The entire architecture of the story is carried by the letters she exchanges with family, with former colleagues, strangers she finds on the internet, right?",
+      "callout": null
+    },
+    {
+      "i": 22,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And even with famous authors who literally don't know she exists. And while it might sound really quiet on the surface, you know, just a woman at a the stakes are actually quietly massive.",
+      "callout": null
+    },
+    {
+      "i": 23,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are. We have a protagonist who is aging. She is secretly going blind, which is a terrifying prospect. Truly terrifying for someone whose entire world, whose entire defense mechanism revolves around reading and",
+      "callout": null
+    },
+    {
+      "i": 24,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, absolutely. She is grappling with her legacy, with the very literal ghosts of her past, and she finds herself suddenly caught in the crosshairs of a late life romance.",
+      "callout": {
+        "text": "LATE LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 25,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, our mission today is to look at how she uses the written word to navigate these massive,",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "crushing existential threats. It's all on the page. So, I want to drop you right into her correspondence because this is where you immediately hear her voice. And it's a very specific voice.",
+      "callout": {
+        "text": "HEAR HER VOICE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 27,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It sounds exactly like a retired lawyer who hasn't realized court is adjourned. Huh. Exactly. Picture this scene.",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Okay. She's at her desk. She's holding her fountain pen smelling that faint distinct scent of wet ink and paper.",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Very sensory. And she is writing a letter to the famous author Anne Patchet.",
+      "callout": null
+    },
+    {
+      "i": 30,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's writing about Patchet's novel, State of but you have to listen to how she writes to this globally renowned author, right?",
+      "callout": null
+    },
+    {
+      "i": 31,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She notes with this clinical mathematical precision that she started the book on a Thursday and finished on a She actually calculates for Anne Patchet exactly how many days it usually",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "takes her to read a standard length novel. Four days, she knows. Four days. Exactly. Four days, right? Four days. She uses the sharp matter-of-fact tone like",
+      "callout": null
+    },
+    {
+      "i": 33,
+      "shot": "illustration",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "she's literally entering evidence into the record. And if you're reading this, you suddenly realize you're dealing with someone who treats human connection like a legal argument. And think about how exhausting it would be to live inside a brain that has to",
+      "callout": {
+        "text": "INSIDE A BRAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 34,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "constantly quantify emotional She is deploying facts, timelines, and quantitative data to manage what is actually a deep, unmanageable well of It's so true.",
+      "callout": null
+    },
+    {
+      "i": 35,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And you see this exact same mechanism applied to how she interacts with institutions, too. Oh, you mean the dean?",
+      "callout": null
+    },
+    {
+      "i": 36,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. It's not just authors, it's authority figures. There is this relentless multi-year letter campaign she wages against Melissa Jana, who is the dean of the College of English at the University of",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Maryland, College Park. Right. And Cibil wants to audit a literature class. Just audit it. Yeah. Now, a normal person in their 70s might just accept a polite no due to space constraints and",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "move on. Maybe buy a syllabus online. But Cibil, Cyibil sites precedent. She points out that previous deans allowed it in the 1990s. Oh my gosh.",
+      "callout": {
+        "text": "CIBIL",
+        "style": "box"
+      }
+    },
+    {
+      "i": 39,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She brings up her specific financial contributions to the college over the decades. She is literally arguing her case like she's back in the courtroom, aggressively cross-examining a hostile",
+      "callout": null
+    },
+    {
+      "i": 40,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "witness over a purely recreational class. Okay, I have to jump in here Go for it. Because when I read those letters to the dean, I didn't see a woman managing deep no.",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I saw a stubborn, highly entitled, frankly cold former lawyer who simply cannot turn off her professional ego. That's a fair initial read.",
+      "callout": null
+    },
+    {
+      "i": 42,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, she's a wealthy boomer living on waterfront property who fundamentally refuses to hear the word no.",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She literally says in an email, \"I am writing for the fifth and final time to you before I am forced to escalate my It is very intense. That's not anxiety.",
+      "callout": {
+        "text": "FINAL TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's just pure unfiltered Karen behavior. She's threatening a college dean over an",
+      "callout": null
+    },
+    {
+      "i": 45,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "I completely see why you'd read it that way on the surface. But but what if you look deeper at the context of what is happening to her physically, it absolutely is not entitlement.",
+      "callout": null
+    },
+    {
+      "i": 46,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a A shield against what? The administration. against her own body. Later in the book, Cyibil explicitly tells a young student that writing is easier than speaking because she can control it. She says, \"If you keep the",
+      "callout": {
+        "text": "OWN BODY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 47,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "mechanism in order, then the contents of the correspondence can go anywhere. Her precision, this legalistic bullying of the dean is a desperate defense because of the blindness.\" Yes.",
+      "callout": null
+    },
+    {
+      "i": 48,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Keep in mind, at the exact same time she is writing these aggressive emails, she is having recurring nightmares where her fountain pen turns into a limp noodle in her hand.",
+      "callout": {
+        "text": "KEEP IN MIND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 49,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, I remember that scene. She's having dreams where she is staring into a pitch black void because she is secretly going blind,",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her entire world is physically blurring out. Her body is betraying her and it is becoming totally uncontrollable. So, she reaches out and bullies a university dean because forcing a bureaucracy to bend",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "to her will proves she still has agency. Exactly. By leaning so hard into her sharp legal tone, she is actively choosing who she is on the page. She is deciding to be a formidable intellect, an unstoppable force, a woman who demands",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "answers, and absolutely not a frightened, isolated, elderly woman losing her sight. So, in every single combative email to that dean,",
+      "callout": {
+        "text": "WOMAN LOSING",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 53,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "every letter is a decision about who she is on the page. Exactly that. Okay, I see what you're saying.",
+      "callout": null
+    },
+    {
+      "i": 54,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You can really see how this legal bullying keeps her safe from the administration. Right. But the real tragedy of Sivil's defense mechanism",
+      "callout": {
+        "text": "KEEPS HER SAFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 55,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is that she doesn't turn it off when she logs out of her university correspondence. No, she does not. It bleeds into the most mundane parts of her daily life. Places where the actual stakes are",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "zero. Zero stakes. But her existential dread is at its absolute peak.",
+      "callout": null
+    },
+    {
+      "i": 57,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Which brings us to the utter absurdity of the Sever Garden Oh, the Garden Club politics.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is a masterpiece of misplaced energy. This is genuinely one of my favorite threads in the entire book. Put yourself right in the middle of this mundane but incredibly fierce email exchange.",
+      "callout": {
+        "text": "PUT YOURSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 59,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Well, let's set the scene. Sibil is sitting at her desk staring at her AOL inbox. She is furiously, passionately typing a response to her friend Alice And",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "why is she so angry? Because a woman named Debbie Banks wants her real estate agent son to present to the garden club about local property instead of a presentation on soil pH. Exactly. which is a cardinal sin in Cibil's",
+      "callout": {
+        "text": "WANTS HER REAL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 61,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "eyes. Soil pH is science. Property values are vulgar. And Cibil doesn't just disagree, she goes for the jugular. She points out in her email how this real estate son was shamelessly flirting with 80-year-old",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Ma O'Reilly at the last mixer purely because Ma owns three prime acres of waterfront real estate. Right. And Cibil specifically notes that Ma",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "smells like two packs a day of cigarette smoke. It's so petty. It is. But it illustrates this brilliant truth about human nature.",
+      "callout": null
+    },
+    {
+      "i": 64,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You know, it's like trying to stop a flood by aggressively organizing your Tupperware That is the perfect analogy.",
+      "callout": {
+        "text": "STOP",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 65,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She channels all of this massive unmanageable dread about her mortality into tiny controllable petty battles over horticulture.",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You see this exact same displacement again in her militant stance on the club's meeting space. Oh, the church basement. Yes. The club is considering moving their meetings to a local church basement to save money.",
+      "callout": {
+        "text": "SAVE MONEY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 67,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Makes sense. But Cibil enthusiastically and in all caps votes nay via email.",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "She cites the mustiness of the basement, the potential for toxic mold, the terrible acoustics, and it escalates.",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "twoShot",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It escalates to the point where she literally allows herself to be quote overthrown as the club secretary rather than yield a single inch to Debbie Notice her vocabulary there. She uses the word overthrown",
+      "callout": null
+    },
+    {
+      "i": 70,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "like she's Napoleon at Waterlue. Not an elderly woman stepping down from a local flower See, to me, this rant is hilarious, but ultimately meaningless rich lady drama.",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You thought it was just comedy. Yeah. It felt like pure comedic relief in a book that otherwise deals with some very heavy, dark themes of grief and I don't know about that.",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a breather for the reader. Like, let's take a break from the existential dread and watch wealthy women fight about Aelas.",
+      "callout": {
+        "text": "BREAK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 73,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I actually think it's the exact opposite of comedic relief. Really? Wait, how? The stakes in these garden club emails are genuinely life or death for Civil's ego.",
+      "callout": {
+        "text": "LIFE OR DEATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 74,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about the reality of her physical existence right now. Right. The blindness. She is losing her eyesight.",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is rapidly losing her independence. She can barely drive at night anymore. Yeah, that's true. The Garden Club is the absolute last place on Earth where she can wield absolute",
+      "callout": {
+        "text": "THAT'S TRUE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 76,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "tyrannical authority and have it respected. Okay, I see that. Her pride over the soil pH presentation isn't a joke. It is a direct, desperate substitute for her failing body. She can't stop the blindness from",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "creeping in, but she can absolutely stop Debbie Banks's son from turning her sanctuary into a real estate seminar. Wow. Okay. So, the Garden Club is where she makes her final stand for order in a chaotic universe. She's enforcing the",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "rules of soil pH because the rules of human biology are failing her. That's beautifully put. In the Garden Club email, she is meticulously choosing who she is on the page,",
+      "callout": {
+        "text": "GARDEN CLUB EMAIL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 79,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and she is crafting herself as a fierce, unyielding guardian of high standards.",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "In a world that is otherwise literally fading to black around her, she's making sure that every letter is a decision about who she is on the page. And this overwhelming need for control, this intense",
+      "callout": {
+        "text": "NEED FOR CONTROL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 81,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "curation of the self, it spills right over into her romantic Oh, absolutely. Or well, what eventually becomes her romantic life.",
+      "callout": null
+    },
+    {
+      "i": 82,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The late life romance is a fascinating study in contrast because it unfolds almost entirely in writing, which is so unique. And writing allows her to take risks she would never ever take in person.",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. I want you to imagine Cibil opening this bold, thick handwritten letter from Mick Watts. Mick is a character.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "He really is. Mick is a 76-year-old Texas lawyer she met briefly at her former colleague, Judge Donny's funeral. And Mick is just a force of nature.",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "He drinks dark spirits. He smokes cigars. And he writes with this brash, persistent cowboy swagger. He doesn't even ask her out. No, he literally demands that she go to dinner with him. He writes, \"I won't take no",
+      "callout": null
+    },
+    {
+      "i": 86,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "for an answer.\" This entire exchange shows you how epistolary romance allows for an audacity that physical presence often especially when you are navigating the physical insecurities of being",
+      "callout": null
+    },
+    {
+      "i": 87,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "in your Exactly. And you have to put mix loud demanding letters right next to the correspondence she has with her neighbor Theodore Lobec.",
+      "callout": null
+    },
+    {
+      "i": 88,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, Theodore. His romance is entirely different. Almost the exact inverse of So quiet. It unfolds through quiet, brief handwritten notes that accompany very thoughtful physical gifts like",
+      "callout": null
+    },
+    {
+      "i": 89,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the white roses. He leaves white roses on her porch for her birthday with a small card. He leaves caramels at Christmas and the cake.",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "At one point, he drops off a cherry strusel cake from a very specific German bakery in Baltimore purely because he remembered a tiny off-hand detail she mentioned months ago about her childhood.",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But Mick is the one who brings the heat. You think so? Mick is exciting. Civil's written responses to Mick are sharp, combative, and witty. They do banter.",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She writes back, \"No is my answer, and you'll have no choice but to take it.\" They're sparring.",
+      "callout": {
+        "text": "NO CHOICE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 93,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "True. But then Mick actually flies all the way from Texas to Baltimore. He takes her to a ridiculously fancy He does do that. And eventually he proposes with a massive ring, offering her a grand, wealthy new life",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "in Texas. Mick is the obvious, exciting romantic lead here. I mean, he is the adventure she's been waiting for.",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Theor is just the nice guy next door who bakes. I hear what you're saying about the romance and the excitement of Mick, but I'm missing something.",
+      "callout": {
+        "text": "GUY NEXT DOOR",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 96,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I think you're getting distracted by the flashy guy and missing what the letters actually Okay, lay it on me.",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Mick is just a reflection of her old combative legal life. When they write to each other, they banter like opposing That's a good point. It's a game.",
+      "callout": {
+        "text": "LEGAL LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 98,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's safe because it's a role she knows how to play perfectly. M offers a fantasy of being young and sharp again, but Theodore offers",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "a quiet reality. At the end of the book, when she is fully blind and stripped of all her independence, she doesn't go to Texas with Mick.",
+      "callout": {
+        "text": "FULLY BLIND",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She says she invites Theodore to move in with her. And more importantly, she trusts Theodore to sit at her desk and transcribe her darkest,",
+      "callout": null
+    },
+    {
+      "i": 101,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "most vulnerable The written word lets her test them both.",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She figures out that with Mick, she is just performing, but Theodore is the one she actually lets behind the armor. Because with Mick, she can just play the character of the sharp tonged, brilliant lawyer.",
+      "callout": null
+    },
+    {
+      "i": 103,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. It requires no real emotional But with Theodore, the notes are so quiet and observant that she actually has to be civil.",
+      "callout": {
+        "text": "REQUIRES NO REAL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 104,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. The correspondence acts as a stress test for intimacy. So with Mick and Theodore, every letter is a decision about who she is on the page.",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She decides to be a sparring partner with Mick, but she slowly allows herself to be a deeply",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "vulnerable companion with Theodore. So, um, let's look at what happens when this very controlled, paperbound world collides with the messy digital global reality",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "of 2012 because it does not go smoothly. Not at all. I want to drop you right into Cibil's utter shock in this scene.",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The Scotland letter. Yes. She is standing in her quiet hallway holding a",
+      "callout": null
+    },
+    {
+      "i": 109,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "physical letter that has arrived all the way from Scotland. It's from a woman named Hattie Gleason who is a botonist in Fort William.",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And what's inside the envelope? Enclosed in this envelope is a photograph of a pregnant woman named Sibila is staring at this physical photo and then she is staring at her computer screen looking at a 49%",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "DNA match result she got from this new online service called the Kindred Project. just mind-blowing for her. She is realizing at 73 years old,",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "sitting alone in Maryland that she has a biological sister in Scotland. This is a massive structural",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "disruption to her life. modern technology, the DNA websites, her emails to the customer service rep, Bassam Mansour,",
+      "callout": null
+    },
+    {
+      "i": 114,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "her young neighbor Harry coding and soothing on the internet to find Hadtie's physical address. It's a whole different world. All of this forces Civil completely out of her",
+      "callout": null
+    },
+    {
+      "i": 115,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "highly curated, predictable, paperbound world. She can't control the flow of information anymore. And her email correspondence with Pasam Mansour is such a perfect cringe-inducing example of",
+      "callout": null
+    },
+    {
+      "i": 116,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "this Oh, the Basam emails. Basam is a Syrian refugee who is working remote customer service for this DNA Right.",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Civil is frustrated with the website, so she starts off by writing this incredibly rude, entitled email. She flat out assumes he is sitting in a call center in India.",
+      "callout": {
+        "text": "RUDE ENTITLED EMAIL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 118,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because, as she writes, dealing with modern customer service is excruciating.",
+      "callout": null
+    },
+    {
+      "i": 119,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She literally types the words, \"Crack on wherever it is you are over in the It is so condescending. It is incredibly abrasive.",
+      "callout": null
+    },
+    {
+      "i": 120,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "But then look at how Pass replies. He's amazing. He doesn't match her anger.",
+      "callout": {
+        "text": "MATCH HER ANGER",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 121,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He politely corrects her. He explains in very clear, dignified, written English that he is actually a Syrian refugee currently living in He mentions that he holds an advanced",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "degree in engineering. Yes, but he is working this entry-level customer service job out of absolute necessity because his home and his country were destroyed.",
+      "callout": {
+        "text": "CUSTOMER SERVICE JOB",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 123,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Civil completely backpedals. It's giving me whiplash. She suddenly pivots from being a Karen to being a She does a total 180.",
+      "callout": {
+        "text": "180",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 124,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She rewrites his resume for him. She sends emails actively trying to get him a highle engineering job through her son's corporate connections, which is a nice thing to do.",
+      "callout": null
+    },
+    {
+      "i": 125,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But but honestly, to me, this just reads like she's a bored wealthy retiree. You think so? Yeah. It's wild how we can sometimes be infinitely more",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "vulnerable or generous with a total stranger via a customer service portal than we can with the people in our actual lives.",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's true. We do that. It feels like she is collecting exotic pen pals to feel cosmopolitan and important.",
+      "callout": null
+    },
+    {
+      "i": 128,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a white savior complex wrapped in high-end stationery. I actually read that completely Okay. How did you see it? If you look at our core psychological wound, it isn't about being a savior.",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's about being tethered. Tethered. Sibil is an adopted orphan. She explicitly writes in one of her letters that she has always felt like Pluto way out there on its own. That is such a devastating image.",
+      "callout": null
+    },
+    {
+      "i": 130,
+      "shot": "split",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "A planetary outlier, cold, distant, not really part of the main system. She has never really felt at home in the world or in her own skin.",
+      "callout": {
+        "text": "PART OF THE MAIN SYSTEM",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 131,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, I see. By corresponding with Basam and eventually building this relationship with her newfound sister, Hattie, she is not collecting exotic friends for clout.",
+      "callout": null
+    },
+    {
+      "i": 132,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's building something else. She is aggressively, desperately curating a global network where she is finally at the center of gravity. She is using these emails to anchor herself in a world where she previously felt entirely rootless",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "and floating. That makes a lot of sense, actually. So, she's basically building the family tree she never had. but she's doing it using postage stamps and broadband. The anonymity of the screen and",
+      "callout": null
+    },
+    {
+      "i": 134,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the distance of the ocean gives her permission to actually care about people without the immediate threat of them being in her physical space.",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Even when she is dealing with international strangers and massive lifealtering DNA shocks, she is still meticulously choosing who she is on the",
+      "callout": null
+    },
+    {
+      "i": 136,
+      "shot": "medium",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She decides to stop being the angry and decides to be a benefactor to Basam and a supportive long-lost sister to Hattie.",
+      "callout": {
+        "text": "STOP BEING THE ANGRY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 137,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Every email is a decision about who she is on the page. Okay? If we are talking about family, we have to talk about her actual immediate The biological and legal ones because the contrast between what she",
+      "callout": null
+    },
+    {
+      "i": 138,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "writes to them and what she actually speaks to them in person is staggering. It really is. Bring yourself to the moment Shibble reads a letter from her best friend, Rosalie.",
+      "callout": {
+        "text": "BEST FRIEND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 139,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a quiet afternoon. The wind chimes are ringing outside Cibil's window on the porch. Beautiful setting. She opens the letter and reads that her ex-husband Dan, who happens to be the brother of Rosalie's",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "husband, Lars, has terminal colon And the kicker is Dan's children knew about the diagnosis for months, but Dan specifically asked them not to tell Civil immediately.",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "This specific plot point reveals such a profound universal truth about family What's that? The heaviest, most devastating truths are often simply too massive, too unwieldy to be spoken",
+      "callout": {
+        "text": "TRUTH ABOUT FAMILY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 142,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "aloud in a room. And the air just can't hold them. Exactly. They have to be mailed.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The physical distance of a letter, the delay between sending and receiving is what makes the emotional weight bearable for the people involved.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We see this exact dynamic again with Dan'sly received letter to Cibil. right after he dies. He dies, the funeral happens, and then out of nowhere, she gets this letter he wrote months earlier",
+      "callout": null
+    },
+    {
+      "i": 145,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "when he knew he was And it is gut-wrenching. It really is. He writes so beautifully, so specifically about the house they used to share.",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He says he can still mentally walk through every single room of it. He remembers exactly where the cereal boxes sat beside the The specific mugs hanging over the stove.",
+      "callout": {
+        "text": "EVERY SINGLE ROOM",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 147,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then he tells her in writing that he still keeps her stones, which was their private code word for secrets. Entirely safe.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Civil reads this. She sits down. She starts to write a letter back to him, but she leaves it unscent. She just stares at the blank page, paralyzed.",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's arguably one of the most heartbreaking moments in the entire book. But honestly, I think it's cowardly. Yeah. Her entire family is fundamentally dysfunctional precisely because they refuse",
+      "callout": {
+        "text": "ENTIRE FAMILY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 150,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to pick up the phone and have a real messy real-time conversation. Well, they have a history. They literally will not talk about dying until someone is already dead. Look at Sibil and her daughter Fiona, right? They are practically estranged.",
+      "callout": {
+        "text": "PICK UP THE PHONE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 151,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Cibil won't talk to Fiona about Fiona's miscarriages. She just sends stiff formal notes.",
+      "callout": null
+    },
+    {
+      "i": 152,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They hide behind paper because paper doesn't cry and paper doesn't yell. Let me stop you right there because I think you are missing the power of the Am I? Yes.",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It avoids immediate conflict. Sure. But think about what writing it down actually achieves for these people. What does it achieve?",
+      "callout": null
+    },
+    {
+      "i": 154,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Writing gives the emotion a permanence that speech completely lacks. A spoken conversation fades the second it's over, but Dan's letter physically outlives him. Oh, Sibil can literally hold his love",
+      "callout": {
+        "text": "HOLD HIS LOVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 155,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and his forgiveness in her hands long after his body is gone. She can reread it when she doubts it. I guess that's true.",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And look at Sibil's letters to her brother Felix who lives in France. Their letters completely bypass the superficial how is the weather chatter of phone calls.",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like when Felix goes through that Exactly. When Felix goes through a totally devastating breakup with his long-term partner, Stuart, they don't have to navigate the awkwardness of hearing each other cry over a",
+      "callout": null
+    },
+    {
+      "i": 158,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "crackly international line. The letters allow them to compose their thoughts and deeply, profoundly",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "support each other through major life shifts with absolute clarity. I see. So, the distance isn't a bug in their communication style.",
+      "callout": {
+        "text": "MAJOR LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 160,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a a vital feature. The delay allows them to process the trauma before they respond to it.",
+      "callout": null
+    },
+    {
+      "i": 161,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. Through her family correspondence, we see the absolute ultimate proof that the true drama is in what she leaves out of the spoken Every letter she writes to her brother or fails to",
+      "callout": {
+        "text": "PROOF THAT THE TRUE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 162,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "write to her daughter is a decision about her identity on the page. Here's where it gets really interesting and a little bit terrifying. Uh-oh. Let's look at the gap between how Cibil presents herself to the world and how",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "others describe her when she isn't controlling the narrative. The public versus private self.",
+      "callout": {
+        "text": "PRIVATE SELF",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 164,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I want to introduce you to this incredibly jarring contrast. First, we have a retrospective Baltimore Sun column written by a journalist named Alex Tulle. The glowing review of her career.",
+      "callout": null
+    },
+    {
+      "i": 165,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right. The column describes Cibil and Judge Donnelly back in their prime as Butch and Sundance.",
+      "callout": null
+    },
+    {
+      "i": 166,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It calls them a brilliant unicorn legal duo whose judicial opinions were clean and neat as a pin. It paints Cibil as this trailblazing feminist",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "icon, a brilliant, infallible legal mind. That is the public mythology, the polished bronze statue of Cibil Vantor.",
+      "callout": {
+        "text": "LEGAL MIND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 168,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then I want you to contrast that glowing newspaper column with the anonymous hate ban starts receiving from someone going by the initials DM.",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "This person doesn't see a unicorn. This person calls her a cold metal [&nbsp;__&nbsp;] with cold and dead eyes. It's so visceral. This person promises in writing to literally spit on her grave.",
+      "callout": {
+        "text": "COLD AND DEAD",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 170,
+      "shot": "diorama",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Ask yourself, what is the gap between our public mythology, the LinkedIn profile version of our lives, and our private It's a scary thought.",
+      "callout": null
+    },
+    {
+      "i": 171,
+      "shot": "closeUp",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "We all have a version of ourselves we project and a totally different, sometimes monstrous version that others actually experience. And the tension of that gap just explodes when we eventually learn who DM is.",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Desi Martinelli. Yes. He is the son of a man named Enzo, a man that Cibil and Judge Donnelly sentenced to a very harsh prison term decades ago.",
+      "callout": null
+    },
+    {
+      "i": 173,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Desi tracks Cibil down to her idyllic, quiet waterfront home. And in an act of pure, visceral,",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "wide",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "malicious grief, he doesn't attack her No, he attacks her sanctuary. Instead, he goes into her prized garden and maliciously cuts the heads off all her blooming spring flowers. He decapitates them and just leaves",
+      "callout": null
+    },
+    {
+      "i": 175,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the severed blooms rotting on the ground for her to find. And you know what? I kind of side with Desi here. You side with the guy destroying her Yes.",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The contrast between his physical, visceral grief and her sterile intellectual life is so stark.",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Cyb was a cold, unfeilling lawyer. I don't know if I'd go that far. She explicitly admits to her neighbor Theodore in a moment of weakness that she vastly preferred the black and white safety of the law over human messiness.",
+      "callout": null
+    },
+    {
+      "i": 178,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "True, but when Desi calls her a cold middle [&nbsp;__&nbsp;] I think he's offering the most accurate, piercing characterization in the entire book.",
+      "callout": null
+    },
+    {
+      "i": 179,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Look at the words cold and metal. It's the exact opposite of her organic blooming garden.",
+      "callout": null
+    },
+    {
+      "i": 180,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She destroyed his family with a sterile strike of a gavvel. I completely disagree that she was fundamentally cold. Really? How can you say that?",
+      "callout": null
+    },
+    {
+      "i": 181,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It was an act. A survival tactic. An act. When Cibil finally breaks down and opens up to her young friend Harry and to Theodore, she confesses something That she knew the Martinelli decision was wrong.",
+      "callout": {
+        "text": "YOUNG FRIEND",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 182,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. She knew it was legally and morally wrong the very moment they made it. But she didn't stop it.",
+      "callout": null
+    },
+    {
+      "i": 183,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, she's just a coward then. No, the coldness wasn't who she inherently was. It was a professional fortress she had to meticulously",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "build to survive a fiercely aggressively maledominated 1970s legal system.",
+      "callout": {
+        "text": "BUILD TO SURVIVE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 185,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Ah, the 70s. If she showed an ounce of hesitation or empathy, she would have been dismissed as a hysterical woman. She had to be So,",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "it was just armor. The real tragedy of Cibil isn't that she is a cold metal [&nbsp;__&nbsp;] It's that she built the fortress so perfectly to protect herself, she became permanently trapped inside it.",
+      "callout": null
+    },
+    {
+      "i": 187,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So the armor essentially fused to her And she forgot how to take it off when she came home. The public symbol, the",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "unicorn legal mind is a myth constructed for survival. And every letter she writes is a decision about how much of that myth to stubbornly uphold and",
+      "callout": null
+    },
+    {
+      "i": 189,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "how much to finally, you know, painfully dismantle. Exactly. So, what what happens to that myth when society stops looking?",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's talk about aging and legacy. This is where it gets really poignant. Picture Syibble in her quiet, drafty house, and in the absolute dead of winter, the river is freezing over. So cold. She is sitting alone at her",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "desk and she is writing a letter to the famous author Joan Ddian. right now. Civil has actually taken Diddian's famous memoir about grief, Blue Knights, and hidden it in a box in her linen because she physically,",
+      "callout": null
+    },
+    {
+      "i": 192,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "viscerally cannot bear to read about the death of a right? But she writes a letter to Diddian anyway, talking at length about the bone crunching grief of losing a child.",
+      "callout": {
+        "text": "LOSING A CHILD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 193,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She aggressively pushes back on this societal cliche that grief is just a season you pass through. This is such a profound",
+      "callout": null
+    },
+    {
+      "i": 194,
+      "shot": "split",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "haunting look at what the act of writing becomes in extreme old age. How so? For civil, writing becomes a way to build a monument to yourself when society has collectively decided to stop looking at you.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh wow. When you are elderly and isolated, the world treats you as invisible.",
+      "callout": null
+    },
+    {
+      "i": 196,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Writing a letter, putting a stamp on it, and forcing it into the postal system is a defiant act of proving you still exist.",
+      "callout": null
+    },
+    {
+      "i": 197,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a physical manifestation of I write, therefore I am. Exactly that. And she does this constantly.",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She doesn't just write to Diddian. She writes to other famous figures. Um the director George Lucas, the author Larry McMerry. Yes. With absolutely zero expectation of getting a reply or any practical game.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She explicitly tells Mick Watts in one of their letters that letters are the links of a long chain. She says that committing oneself to the page,",
+      "callout": {
+        "text": "LONG CHAIN",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 200,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "leaving a paper trail is the only thing that prevents a person from being completely erased from history in three It's a desperate battle against total But doesn't it feel a",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "bit delusional? Yeah. Writing to celebrities who don't know you, pouring your heart out to Joan Diddian just to feel important or relevant as you sit completely alone in a house in Maryland.",
+      "callout": {
+        "text": "YOUR HEART",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I don't see it that way. It feels like screaming into the void and pretending the echo is a conversation. It's not about fame or self-importance at all.",
+      "callout": null
+    },
+    {
+      "i": 203,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's about the intense isolation of her specific What do you mean? It's about finding the exact right peer for a pain that no one around her understands. She writes to Joan Ddian because Ddian,",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "as a public figure who wrote Blue Knights, is the only person Sibil can access who is grappling with the specific unnatural hell about living a child.",
+      "callout": {
+        "text": "LIVING A CHILD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 205,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Oh, I see. The people in Syibbil's daily life don't want to talk about dead children. It makes them uncomfortable. So, she writes to a stranger.",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a desperate, beautiful reach for true So, even when she is literally writing into the void, she's still choosing who she is on the page. She is choosing to be a grieving mother",
+      "callout": {
+        "text": "REACH FOR TRUE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 207,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "seeking an equal, seeking communion rather than just an old woman fading away in silence. Which brings us to the ending, the devastating reveal.",
+      "callout": null
+    },
+    {
+      "i": 208,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The reveal that reframes the entire architecture of the I'm going to drop you into the final breathtaking pages of the correspondent.",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Cibil is sitting at her desk, but she is no longer holding a pen. She is no longer writing. She is completely totally blind.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "The darkness she feared has finally arrived. Theodore Lubc is sitting in a chair beside her, gently transcribing her spoken words onto the page.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And in this moment, we suddenly realize that the unscent pages we've been reading scattered throughout the entire book, these deeply personal, agonized,",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "raw entries, we're addressed to someone named Colt. And we learned that Colt was her private nickname for her dead son, Gilbert.",
+      "callout": null
+    },
+    {
+      "i": 213,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "This reveals the most profound, crushing truth of the novel. The person we talk to the most in our entire lives is often the one who can never ever answer us.",
+      "callout": {
+        "text": "NEVER EVER ANSWER",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 214,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's just devastating. She finally dictates the truth of what happened at Lake St. Pierre. It was 1973.",
+      "callout": {
+        "text": "1973",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 215,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Such a long time ago. Sibil was sitting on the beach by the lake, intensely irritated and distracted by a dense legal file she had brought with her about a robbery. Her young son, Gilbert, wanted to swim.",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He wanted his mother to watch him. He called out to her from a dangerous slippery boulder. And without even looking up from her legal file, without taking her eyes off the paper, she snapped at him. Just go, Colt jump.",
+      "callout": null
+    },
+    {
+      "i": 217,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her absolute pursuit of legal perfection, her obsession with the written word and the work literally cost her son his life. She couldn't look up from the page and he drowned.",
+      "callout": {
+        "text": "SON HIS LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 218,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's unbearable. It makes the entire book an absolute tragedy. It completely reframes everything we just talked about. You think so?",
+      "callout": null
+    },
+    {
+      "i": 219,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. It's the story of a woman completely suffocated by guilt, whose entire life, her failed marriage to Dan, her terrible estrangement from her daughter Fiona, her professional coldness was",
+      "callout": {
+        "text": "LIFE HER FAILED",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 220,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "ruined by one single terrible moment of impatience. That's a very bleak view. The letters weren't a fortress.",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "They were a prison she built to punish Actually, if you look at the mechanics of this final scene, I don't read it as a tragedy at all. Wait, really? How is that not a tragedy?",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I read it as a massive triumph. A triumph because think about what she is doing in this exact moment. She is dictating. By finally speaking this horrific truth out loud to Theodore.",
+      "callout": null
+    },
+    {
+      "i": 223,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She stops hiding behind the paper. Oh, she's actually speaking it. She drops the precise defensive legal language. She completely strips away the myth of the perfect judge's clerk, the infallible unicorn.",
+      "callout": null
+    },
+    {
+      "i": 224,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She just lets it all out. She lets another human being see her ultimate most unforgivable shame. And in doing so, she allows Theodore to love her anyway, exactly as she is.",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Well, in her final dictation, she is no longer leaving things out. The blank spaces are finally filled in. She has made her final most honest decision about who she is on the page, and she",
+      "callout": null
+    },
+    {
+      "i": 226,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "didn't even have to write it She let someone else in. Now, I do want to offer some honest criticism here because we've been heavily praising the thematic depth, but the correspondent is not a perfect",
+      "callout": {
+        "text": "OFFER SOME HONEST",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 227,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "reading experience for everyone. We have to acknowledge that it is incredibly slow.",
+      "callout": null
+    },
+    {
+      "i": 228,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is very plot-like. Almost the entire action of the novel takes place in the past or inside a mailbox, which can be a lot for some readers.",
+      "callout": null
+    },
+    {
+      "i": 229,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And because Sibil's voice is so incredibly dominant, because she is the absolute center of this episttolary universe,",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "overShoulder",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "there is a genuine risk that the vast cast of letter writers can start to sound a bit alike. That is a fair point.",
+      "callout": {
+        "text": "START",
+        "style": "box"
+      }
+    },
+    {
+      "i": 231,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Whether it's the teenage neighbor Harry, the Syrian refugee Basam, or the Texan lawyer Mick, they occasionally all blend into the same formal, precise,",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "slightly archaic cadence of Cibil herself. I can see a lot of readers bouncing off this book because it feels like one author doing a bunch of slightly different voices rather than distinct",
+      "callout": null
+    },
+    {
+      "i": 233,
+      "shot": "diorama",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a completely valid critique and it is a risk of the genre. The voices do blend sometimes, but I would argue it's a necessary, almost brilliant side effect of the structure. We are living entirely inside",
+      "callout": null
+    },
+    {
+      "i": 234,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Cibil's inbox, her curated world. We are seeing the world exclusively through her highly curated textbased lens. Think about human nature. People naturally mirror the tone of",
+      "callout": null
+    },
+    {
+      "i": 235,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "the person they are corresponding with, especially if that person is intimidating. Sibil essentially forces the world to meet her on her terms in formal,",
+      "callout": null
+    },
+    {
+      "i": 236,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "rigorous, written English. She demands a certain level of discourse and the characters naturally rise to meet So what does this all mean?",
+      "callout": null
+    },
+    {
+      "i": 237,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's bring it all together. Yes, let's for a woman who made an entire",
+      "callout": null
+    },
+    {
+      "i": 238,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "legendary career out of objective facts, rigid laws, and clean judicial opinions,",
+      "callout": null
+    },
+    {
+      "i": 239,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "writing letters was the only place Cibil could actually be honest about her subjective pain. The law was her armor. But the letters were her confession.",
+      "callout": {
+        "text": "LETTERS WERE HER CONFESSION",
+        "style": "box"
+      }
+    },
+    {
+      "i": 240,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And The Correspondent is a book that deeply trusts you, the reader, to notice the difference. It trusts you to see the massive, aching",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "gap between the perfectly crafted letters Civil sends out into the world and the messy, agonized ones she hoards in her desk drawer, addressed to a son who can never read Which",
+      "callout": null
+    },
+    {
+      "i": 242,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "leaves us with this final thought. Think about your own digital and paper trails.",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Your emails, your text threads, uh your old letters, your entire documented life. If someone were to read only your sent messages,",
+      "callout": null
+    },
+    {
+      "i": 244,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "the things you actually chose to transmit to the world, what essential defining truth about your life would they be completely missing?",
+      "callout": {
+        "text": "TRUTH ABOUT YOUR LIFE",
+        "style": "reveal"
+      }
+    }
+  ]
+}

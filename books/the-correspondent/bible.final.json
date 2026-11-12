@@ -1,0 +1,78 @@
+{
+  "slug": "the-correspondent",
+  "bible": {
+    "slug": "the-correspondent",
+    "world": {
+      "era": "2012",
+      "eraEvidence": "narration: 2012, AOL inbox, letters and emails",
+      "worldId": "the-correspondent",
+      "approxYear": 2012,
+      "setting": "a waterfront house in Annapolis, Maryland; a garden club; a quiet winter",
+      "register": "intimate, wry, slow; a woman writing to be heard",
+      "forbid": ["smartphone", "social media feed", "video call"]
+    },
+    "visualProvenance": {
+      "bookId": "the-correspondent",
+      "worldId": "the-correspondent",
+      "allowedMotifs": ["notes", "law", "home", "family", "water", "tree", "book", "heart"],
+      "forbiddenMotifs": ["smartphone", "social media"],
+      "allowedCharacters": ["sybil", "mick", "felix", "harry"],
+      "allowedLocations": ["room", "kitchen", "office", "shore", "court", "library"],
+      "allowedProps": ["letter", "desk", "pen", "mug", "legal file"]
+    },
+    "cast": {
+      "sybil": {
+        "name": "Sybil Van Antwerp",
+        "role": "protagonist, 73, retired lawyer, divorced mother and grandmother, lives alone in Annapolis",
+        "look": "a 73-year-old woman, slim, silver hair pinned back, cardigan and pearls, sharp reading glasses, 2012 clothing",
+        "variant": {"gender": "f", "age": "old", "outfit": "dress", "hairStyle": "bun", "hair": "#C9C9C9", "skin": "#E8B98F", "height": 1.0, "build": "slight", "headwear": "none", "glasses": true, "accessory": "necklace"},
+        "mentions": 40
+      },
+      "mick": {
+        "name": "Mick",
+        "role": "a 76-year-old Texas lawyer, Sybil's blunt, forceful correspondent",
+        "look": "a 76-year-old Texan man, broad, white hair, plaid western shirt, 2012 clothing",
+        "variant": {"gender": "m", "age": "old", "outfit": "casual", "hairStyle": "short", "hair": "#F2F2F2", "skin": "#D9A07A", "suit": "#6B4F2A", "shirt": "#7A3B2E", "height": 1.08, "build": "heavy", "headwear": "cowboy", "beard": "none", "glasses": false, "accessory": "none"},
+        "mentions": 7
+      },
+      "felix": {
+        "name": "Felix",
+        "role": "a friend going through a painful breakup with his long-term partner Stuart",
+        "look": "a man in his late forties, lean, neat short hair, button-down shirt, 2012 clothing",
+        "variant": {"gender": "m", "age": "adult", "outfit": "casual", "hairStyle": "short", "hair": "#3B2A1E", "skin": "#E8B98F", "shirt": "#5D7FA3", "height": 1.0, "build": "slight", "headwear": "none", "beard": "none", "glasses": false, "accessory": "collar"},
+        "mentions": 2
+      },
+      "harry": {
+        "name": "Harry",
+        "role": "Sybil's young neighbour, coding and helping with her computer",
+        "look": "a young man in his twenties, hoodie, messy hair, jeans, 2012 clothing",
+        "variant": {"gender": "m", "age": "young", "outfit": "hoodie", "hairStyle": "messy", "hair": "#5A3A22", "skin": "#C68E64", "shirt": "#3E3E3E", "height": 1.0, "build": "slight", "headwear": "none", "beard": "stubble", "glasses": false, "accessory": "none"},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "room": {"set": "room", "look": "Sybil's study: a desk facing a window over the river, shelves dusted, letters in the drawer", "mentions": 24},
+      "kitchen": {"set": "kitchen", "look": "a quiet kitchen with a mug of tea and dishes drying by the sink", "mentions": 4},
+      "shore": {"set": "shore", "look": "a frozen waterfront at the edge of a house, grey winter water", "mentions": 6},
+      "court": {"set": "court", "look": "a courtroom where Sybil once argued, dense legal files on the table", "mentions": 3},
+      "office": {"set": "office", "look": "a garden club meeting room, folding chairs and a committee table", "mentions": 4}
+    },
+    "objects": [
+      {"concept": "notes", "mentions": 64, "why": "the letters and emails the whole book is made of"},
+      {"concept": "law", "mentions": 21, "why": "decades of briefs and judicial opinions, the old discipline"},
+      {"concept": "home", "mentions": 8, "why": "the isolated waterfront house, a life lived alone"},
+      {"concept": "family", "mentions": 26, "why": "divorced mother, grandmother, the people she writes to"},
+      {"concept": "water", "mentions": 9, "why": "the river and the frozen shore outside her window"},
+      {"concept": "tree", "mentions": 9, "why": "the garden club and its petty turf wars"},
+      {"concept": "book", "mentions": 5, "why": "a grief memoir she hides in a drawer"},
+      {"concept": "heart", "mentions": 9, "why": "what she risks when she finally writes something true"}
+    ],
+    "spine": [
+      {"act": "setup", "fromFrame": 5, "claim": "Sybil lives alone in Annapolis, and writing is the only way she still speaks to the world."},
+      {"act": "development", "fromFrame": 13068, "claim": "Her garden club feud and her long-distance letters show her power over people is really a power over words."},
+      {"act": "turn", "fromFrame": 26052, "claim": "A new correspondence reaches her, and she starts to reveal more of herself than she plans to."},
+      {"act": "consequence", "fromFrame": 40490, "claim": "Letters she never sends carry the grief she does not say aloud."},
+      {"act": "close", "fromFrame": 53856, "claim": "The book asks what a reader would miss if they saw only the messages a person chose to send."}
+    ]
+  }
+}

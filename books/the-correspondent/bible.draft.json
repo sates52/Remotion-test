@@ -1,0 +1,499 @@
+{
+  "slug": "the-correspondent",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "The draft's era, cast keys, ages and places are a HEURISTIC and are often wrong (Trust Fall: one metaphor gave a",
+    "  sci-fi era; The Art of Strategy: 'lean', 'fred', 'end' as characters). Correcting them from the narration is",
+    "  routine authoring — never a question for the operator. Ages, roles and relations come from what the narration says.",
+    "Then: node scripts/plan-bible.js --slug=the-correspondent --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "the-correspondent",
+    "world": {
+      "era": "1973–2012",
+      "eraEvidence": "stated years",
+      "worldId": "",
+      "approxYear": 2012,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "the-correspondent",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "mick": {
+        "name": "Mick",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 7
+      },
+      "sibil": {
+        "name": "Sibil",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 5
+      },
+      "cibil": {
+        "name": "Cibil",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "civil": {
+        "name": "Civil",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "club": {
+        "name": "Club",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "felix": {
+        "name": "Felix",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 24
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 5
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 2
+      },
+      "court": {
+        "set": "court",
+        "look": "",
+        "mentions": 1
+      },
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 1
+      },
+      "kitchen": {
+        "set": "kitchen",
+        "look": "",
+        "mentions": 1
+      },
+      "cave": {
+        "set": "cave",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "notes",
+        "mentions": 64,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 26,
+        "why": ""
+      },
+      {
+        "concept": "law",
+        "mentions": 21,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 20,
+        "why": ""
+      },
+      {
+        "concept": "water",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "shield",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "tree",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "home",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "grave",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "work",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 5,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 5,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 13068,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 26052,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 40490,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 53856,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 477,
+    "cast": [
+      {
+        "name": "Mick",
+        "asSubject": 7,
+        "total": 18,
+        "samples": [
+          "Mick is a character.",
+          "Mick is a 76-year-old Texas lawyer she met briefly at her former colleague, Judge Donny's funeral.",
+          "And Mick is just a force of nature."
+        ]
+      },
+      {
+        "name": "Sibil",
+        "asSubject": 5,
+        "total": 7,
+        "samples": [
+          "Sibil is sitting at her desk staring at her AOL inbox.",
+          "Tethered. Sibil is an adopted orphan.",
+          "Oh, Sibil can literally hold his love and his forgiveness in her hands long after his body is gone."
+        ]
+      },
+      {
+        "name": "Cibil",
+        "asSubject": 3,
+        "total": 19,
+        "samples": [
+          "Right. And Cibil wants to audit a literature class.",
+          "Cibil is sitting at her desk, but she is no longer holding a pen.",
+          "Yes, let's for a woman who made an entire legendary career out of objective facts, rigid laws, and clean judicial opinions, writing letters was the only place C"
+        ]
+      },
+      {
+        "name": "Civil",
+        "asSubject": 2,
+        "total": 7,
+        "samples": [
+          "Civil is frustrated with the website, so she starts off by writing this incredibly rude, entitled email.",
+          "right now. Civil has actually taken Diddian's famous memoir about grief, Blue Knights, and hidden it in a box in her linen because she physically, viscerally ca"
+        ]
+      },
+      {
+        "name": "Club",
+        "asSubject": 2,
+        "total": 4,
+        "samples": [
+          "The Garden Club is the absolute last place on Earth where she can wield absolute tyrannical authority and have it respected.",
+          "Wow. Okay. So, the Garden Club is where she makes her final stand for order in a chaotic universe."
+        ]
+      },
+      {
+        "name": "Felix",
+        "asSubject": 2,
+        "total": 3,
+        "samples": [
+          "Like when Felix goes through that Exactly.",
+          "When Felix goes through a totally devastating breakup with his long-term partner, Stuart, they don't have to navigate the awkwardness of hearing each other cry "
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "manuscript",
+        "mentions": 24,
+        "samples": [
+          "Oh, absolutely. This is a woman who has spent her entire life writing things down.",
+          "Right. I mean, we usually think of writing as an act of Yeah."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 5,
+        "samples": [
+          "She can't stop the blindness from creeping in, but she can absolutely stop Debbie Banks's son from turning her sanctuary into a real estate seminar.",
+          "First, we have a retrospective Baltimore Sun column written by a journalist named Alex Tulle."
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 2,
+        "samples": [
+          "Picture Syibble in her quiet, drafty house, and in the absolute dead of winter, the river is freezing over.",
+          "Sibil was sitting on the beach by the lake, intensely irritated and distracted by a dense legal file she had brought with her about a robbery."
+        ]
+      },
+      {
+        "set": "court",
+        "mentions": 1,
+        "samples": [
+          "She is literally arguing her case like she's back in the courtroom, aggressively cross-examining a hostile witness over a purely recreational class."
+        ]
+      },
+      {
+        "set": "shipDeck",
+        "mentions": 1,
+        "samples": [
+          "The anonymity of the screen and the distance of the ocean gives her permission to actually care about people without the immediate threat of them bein"
+        ]
+      },
+      {
+        "set": "kitchen",
+        "mentions": 1,
+        "samples": [
+          "He remembers exactly where the cereal boxes sat beside the The specific mugs hanging over the stove."
+        ]
+      },
+      {
+        "set": "cave",
+        "mentions": 1,
+        "samples": [
+          "The darkness she feared has finally arrived."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "notes",
+        "mentions": 64,
+        "sample": "Yeah. She is 73 years old, a retired lawyer living in Maryland, and she's just staring out the window at the Seven River preparing to write."
+      },
+      {
+        "concept": "family",
+        "mentions": 26,
+        "sample": "Yeah, she is a divorced mother, a grandmother, but she's deeply, deeply isolated."
+      },
+      {
+        "concept": "law",
+        "mentions": 21,
+        "sample": "We are talking about decades of dense legal briefs, perfectly cited judicial opinions, right?"
+      },
+      {
+        "concept": "phone",
+        "mentions": 20,
+        "sample": "Yeah. Every single letter she writes, every email she sends is a highly calculated decision about how much of herself to reveal."
+      },
+      {
+        "concept": "water",
+        "mentions": 9,
+        "sample": "Yeah. She is 73 years old, a retired lawyer living in Maryland, and she's just staring out the window at the Seven River preparing to write."
+      },
+      {
+        "concept": "shield",
+        "mentions": 9,
+        "sample": "Truly terrifying for someone whose entire world, whose entire defense mechanism revolves around reading and Yeah, absolutely."
+      },
+      {
+        "concept": "heart",
+        "mentions": 9,
+        "sample": "She is grappling with her legacy, with the very literal ghosts of her past, and she finds herself suddenly caught in the crosshairs of a lat"
+      },
+      {
+        "concept": "tree",
+        "mentions": 9,
+        "sample": "Which brings us to the utter absurdity of the Sever Garden Oh, the Garden Club politics."
+      },
+      {
+        "concept": "home",
+        "mentions": 8,
+        "sample": "It is 2012, Cybil lives entirely alone in this beautiful but notably unupdated waterfront house on a point in Annapolis, Maryland."
+      },
+      {
+        "concept": "grave",
+        "mentions": 6,
+        "sample": "The stakes in these garden club emails are genuinely life or death for Civil's ego."
+      },
+      {
+        "concept": "work",
+        "mentions": 5,
+        "sample": "A whole career of it."
+      },
+      {
+        "concept": "dollarExchange",
+        "mentions": 5,
+        "sample": "modern technology, the DNA websites, her emails to the customer service rep, Bassam Mansour, her young neighbor Harry coding and soothing on"
+      }
+    ],
+    "openingLines": [
+      "She's sitting at her desk.",
+      "It's a Monday morning.",
+      "Um somewhere around 10 or maybe half past, She has her mug of Irish breakfast tea with milk.",
+      "The bed is made.",
+      "The dishes are drying beside the sink.",
+      "The shelves are perfectly dusted."
+    ],
+    "closingLines": [
+      "It trusts you to see the massive, aching gap between the perfectly crafted letters Civil sends out into the world and the messy, agonized ones she hoards in her desk drawer, addressed to a son who can never read Which leaves us with this final thought.",
+      "Think about your own digital and paper trails.",
+      "Your emails, your text threads, uh your old letters, your entire documented life.",
+      "If someone were to read only your sent messages, the things you actually chose to transmit to the world, what essential defining truth about your life would they be completely missing?"
+    ]
+  }
+}
