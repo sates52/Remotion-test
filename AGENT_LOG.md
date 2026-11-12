@@ -7493,3 +7493,8 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Operator confirmed the YouTube upload is live and ordered cleanup. Render: 10 segments, cloud assembly run 42661760861, 87,011/87,011 frames, decode clean, 974 MB. Redispatch was needed for segments 1–4 after the background dispatch stopped.
 - Cleanup: `render-github-cleanup.js` (14 artifacts, 12 runs), `purge-render-branches.js --force` (11 refs, `render/` only), `render-purge.js` (film + thumbnails). Raw mp3, mastered audio, raw VTT and split state removed; `clean.vtt` kept.
 - Open: join dropouts 219 (DEFECT_REPORTED). Engine note: readcheck judge step in the generated PROMPTS.md had no Judges section, so judges were run by hand with a fresh agent.
+
+### ✅ 2026-11-12 — free-to-focus — PUBLISHED & CLEANED (Antidote)
+- Operator confirmed the YouTube upload is live and ordered cleanup. Film verified in the cloud (77,273/77,273 frames, decode clean, 42.9 min). Mute test FAIL on both holdouts; quality debt accepted by the operator, fix round 2 not run.
+- Cleanup: `render-github-cleanup.js` (14 artifacts, 14 runs), `purge-render-branches.js` (12 refs), `render-purge.js` (film + thumbnails). Local mp3, mastered audio, raw VTT and split state removed; `clean.vtt` kept.
+- Open: `books/free-to-focus/` source is untracked in the book worktree (not committed). Book worktree at `wt-book-free-to-focus` is locked; its removal is the operator's cleanup after `preview-state.js unlink`.

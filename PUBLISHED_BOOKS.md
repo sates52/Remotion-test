@@ -1486,3 +1486,13 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnail A/B/C generated (hook ONE MONOPOLY).
 - **Cleanup:** operator-ordered post-upload cleanup 2026-11-11: render-github-cleanup.js (14 artifacts, 12 runs, ~1984 MB), purge-render-branches.js --force (11 refs), render-purge.js (film + thumbnails, ~975 MB). Local mp3, mastered audio, raw VTT and split state removed.
 - **Kept:** committed source under `books/zero-to-one/`, and `public/captions/zero-to-one.clean.vtt`.
+
+## Free to Focus — Michael Hyatt (`free-to-focus`, Antidote)
+
+- **Status:** Published on YouTube (operator-confirmed live, 2026-11-12).
+- **Length:** 77,273 frames (42.9 min), 785 MB. Cloud assembly verified, full decode clean, audio present, A/V sync PASS, -14.2 LUFS, peak -0.8 dBFS. Join dropouts 0.
+- **Render:** 10-worker GitHub split render, operator-authorised, quality debt accepted.
+- **Quality provenance:** mute test FAIL twice. Final: WRONG 0/30, DEAD 8/30, ADDS 15/30, EXPLAINS 3/30. Run2 holdout: WRONG 1/30, DEAD 7/30, ADDS 14/30, EXPLAINS 2/30. Fix round 2 was not run; the film was rendered as-is.
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnails A/B/C, hook BUSY ISN'T WORK.
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-12: render-github-cleanup.js (14 artifacts, 14 runs, ~1549 MB), purge-render-branches.js (12 refs: seg1–10, assemble, thumbs), render-purge.js (film + thumbnails, ~785 MB). Local mp3, mastered audio, raw VTT and split state removed.
+- **Kept:** `public/captions/free-to-focus.clean.vtt`. The source folder `books/free-to-focus/` is untracked in the book worktree and was NOT committed.
