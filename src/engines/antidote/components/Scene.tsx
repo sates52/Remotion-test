@@ -26,6 +26,7 @@ import { actionCueFrame, facesEachOther, handOffFrame, sameObject, SETTLED_FRAME
 import { composeRest } from "../endState";
 import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 import { FlowContext } from "../flow";
+import { ToldStage, type ToldSpec } from "./ToldStage";
 import { voiceAt } from "../speech";
 
 // An arc the object already completed in the previous scene is drawn at its end state
@@ -372,6 +373,7 @@ const slotOrdered = (bodies: CharacterSpec[], plan: ScenePlan): CharacterSpec[] 
 export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; singleRelation?: boolean }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, singleRelation = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const sceneFlow = React.useContext(FlowContext); // a hook: before any early return
   const local = Math.max(0, frame - transIn); // frames since the narration for this scene starts
   // Runtime defaults, not schema defaults: Remotion passes `defaultProps` to the
   // renderer without parsing them, so a config written before the shot grammar
@@ -384,6 +386,20 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const accent = transition.color || bg.accent || "#E23B57";
   const ink = bg.accent || "#1E1E22";
   const bodies = preset.dropsCast ? [] : scene.characters ?? [];
+
+  // FILM FLOW level 2 — THE PICTURE SHOWS WHAT IS SAID (ToldStage.tsx): a scene that carries `told` draws the things
+  // the narration names and what happens to them, instead of a figure and a text. Only when the film asks for it.
+  const told = sceneFlow.level >= 2 ? (scene as { told?: ToldSpec }).told : undefined;
+  if (told) {
+    return (
+      <AbsoluteFill style={t.style}>
+        <Sequence from={transIn} layout="none" name="told">
+          <ToldStage spec={told} />
+        </Sequence>
+        {t.overlay}
+      </AbsoluteFill>
+    );
+  }
 
   if (scene.shot === "chapterCard" || scene.chapterCard) {
     const cardSpec = scene.chapterCard ?? {
