@@ -1,5 +1,8 @@
 import { interpolate, spring, Easing } from "remotion";
 import type { EnterAnim, CharAction } from "./schema";
+import type { Voice } from "./speech";
+// (type-only import: the test scripts load this file with Node directly, which resolves no extension-less runtime import)
+const SILENT: Voice = { speaking: 0, mouth: 0, nod: 0, brow: 0, stroke: 0, strokeIndex: 0 };
 
 /**
  * movements.ts — the reusable motion vocabulary of the Antidote engine.
@@ -262,9 +265,107 @@ function blinkAt(frame: number): number {
  * and `embrace` read it). Every value is a pure function of (frame, cue): a frame rendered on its own, on any
  * worker, draws the same body as inside the clip.
  */
-export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN, role: "lead" | "partner" = "lead"): Pose {
+// ── FILM FLOW slice 1 (2026-11-12) — a body that is alive because of what happens, not because of a loop ───────────
+// Only when the film asks for it (config.meta.flow ≥ 1 → Scene passes `live`): every older config renders as before.
+
+/** What the scene knows on this frame that the pose clock does not: the narration, and who this figure is. */
+export type Live = {
+  /** the narration on this film frame (speech.ts voiceAt) */
+  voice?: Voice;
+  /** stable per character, so two figures never move in step */
+  seed?: number;
+};
+
+/** A gesture's weight: a small move the other way first (anticipation), a fast action, a little too far, then home.
+ *  `travelDeg` = how far the limb goes; a longer way takes longer (150°/s, never under 0.4 s). Adapted from
+ *  AI-Video-Factory motion.ts (MIT, Copyright (c) 2026 Ersin KOÇ): rise = inOut(back(1.4)). */
+export const GESTURE_SPEED = 150;
+export const FOREARM_LAG_SEC = 0.08;
+export function gestureRise(frame: number, fps: number, travelDeg = 100, delayFrames = 0): number {
+  const dur = Math.max(0.4, travelDeg / GESTURE_SPEED) * fps;
+  const t = Math.max(0, Math.min(1, (frame - delayFrames) / dur));
+  const c = 1.4 * 1.525;
+  return t < 0.5 ? (Math.pow(2 * t, 2) * ((c + 1) * 2 * t - c)) / 2 : (Math.pow(2 * t - 2, 2) * ((c + 1) * (t * 2 - 2) + c) + 2) / 2;
+}
+const hash01 = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+/** A value that HOLDS, then moves to the next one in `moveFrames` — a glance, a shift of weight. Never a wave. */
+function stepped(frame: number, everyFrames: number, moveFrames: number, seed: number, pick: (r: number, bucket: number) => number): number {
+  const b = Math.floor(frame / everyFrames), into = frame - b * everyFrames;
+  const now = pick(hash01(seed * 7.3 + b), b), before = b > 0 ? pick(hash01(seed * 7.3 + b - 1), b - 1) : now;
+  return before + (now - before) * easeInOut(into / moveFrames);
+}
+
+/** `talk`, `idle`, `think`, `point` performed live; null = this action has no live form yet (the caller keeps the old pose). */
+function livePose(action: CharAction, frame: number, fps: number, blink: number, live: Live): Pose | null {
+  const v = live.voice ?? SILENT;
+  const seed = live.seed ?? 0;
+  // a glance now and then (eyes hold, then jump), and the weight on one leg, changed every few seconds
+  const glance = stepped(frame, Math.round(fps * (2.3 + hash01(seed) * 0.9)), 4, seed + 1, (r) => (r - 0.5) * 0.5);
+  const weight = stepped(frame, Math.round(fps * (5 + hash01(seed + 2) * 3)), Math.round(fps * 0.7), seed + 3, (_r, b) => ((b + Math.round(seed)) % 2 ? 1 : -1));
+  const stance = { legL: weight * 2.2, legR: weight * 1.1, hipY: Math.abs(weight) * 1.2, lean: weight * 0.9 };
+  switch (action) {
+    case "talk": {
+      // the mouth says the words; the head and brows mark each phrase; one hand comes out and is fully out ON the
+      // stressed word, the other hand the next time. Between phrases the hands are at rest: nothing moves in a pause.
+      const right = v.strokeIndex % 2 === 0;
+      const s = v.stroke, sLag = Math.max(0, s - 0.12) / 0.88; // the forearm follows the upper arm
+      return {
+        ...BASE, ...stance, blink,
+        mouth: v.mouth, headY: v.nod * 3.2, browY: -v.brow * 3,
+        gazeX: glance * 0.7, gazeY: v.nod * 0.12,
+        armR: -10 - (right ? s * 16 : 0), elbowR: 22 + (right ? sLag * 58 : 0),
+        armL: 10 + (right ? 0 : s * 16), elbowL: -12 - (right ? 0 : sLag * 58),
+        lean: stance.lean + v.nod * 0.8,
+      };
+    }
+    case "think": {
+      // the hand goes up to the chin once, then the figure is still: the eyes do the thinking (up, away, back)
+      const w = gestureRise(frame, fps, 70), wLag = gestureRise(frame, fps, 70, FOREARM_LAG_SEC * fps);
+      const away = stepped(frame, Math.round(fps * 2.8), 5, seed + 5, (r) => -0.15 - r * 0.4);
+      return { ...BASE, ...stance, blink, armR: lerp(-8, -70, w), elbowR: lerp(0, 16, wLag), lean: 3 * w + stance.lean, headY: 1.5 * w, browY: -1.5 * w, gazeX: away, gazeY: -0.45 * w };
+    }
+    case "point": {
+      // eyes first, then the arm: wind-up, out fast, a touch past, settle; the forearm straightens a beat later
+      const w = gestureRise(frame, fps, 100), wLag = gestureRise(frame, fps, 100, FOREARM_LAG_SEC * fps);
+      const look = easeInOut(frame / (0.2 * fps));
+      return { ...BASE, ...stance, blink, armR: lerp(-8, -105, w), elbowR: lerp(34, 0, wLag) * Math.min(1, w * 3), lean: 6 * w + stance.lean, gazeX: 0.7 * look, mouth: v.mouth * 0.8, headY: v.nod * 2 };
+    }
+    case "idle": {
+      // a listener: still, shifts weight now and then, glances, and nods a little where the speaker lands a phrase
+      return { ...BASE, ...stance, blink, gazeX: glance, headY: v.nod * 1.4, browY: -v.brow * 1.2 };
+    }
+    case "offer": {
+      // the hand goes out to someone: the body leans first, the arm follows, the forearm opens last — and it stays out
+      const w = gestureRise(frame, fps, 90), wLag = gestureRise(frame, fps, 90, FOREARM_LAG_SEC * fps);
+      const lean = easeInOut(frame / (0.3 * fps));
+      return { ...BASE, blink, armR: lerp(-8, -94, w), elbowR: lerp(40, 12, wLag) * Math.min(1, w * 3), lean: 10 * lean, headY: 3 * lean, gazeX: 0.7 * easeInOut(frame / (0.2 * fps)), gazeY: 0.35 * lean, mouth: v.mouth * 0.6 };
+    }
+    case "reach": {
+      // same end pose as the old reach (take / place build on it), reached with a wind-up and a settle
+      const w = gestureRise(frame, fps, 110), wLag = gestureRise(frame, fps, 110, FOREARM_LAG_SEC * fps);
+      return { ...BASE, blink, armR: lerp(-8, TAKE_REST_ARM, w), elbowR: lerp(0, TAKE_REST_ELBOW, wLag), lean: 9 * w, legL: -7 * w, legR: 9 * w, headY: 2, gazeX: 0.75 * easeInOut(frame / (0.2 * fps)), gazeY: -0.15 };
+    }
+    case "celebrate": {
+      // both arms go up with a little too much, then two more pumps that die away — a cheer ends; it does not loop
+      const up = gestureRise(frame, fps, 150);
+      const sec = frame / fps - 1;
+      const pump = sec > 0 && sec < 1.6 ? Math.sin(sec * Math.PI * 2.5) * (1 - sec / 1.6) : 0;
+      return { ...BASE, blink, armL: lerp(8, 150, up) + pump * 12, armR: lerp(-8, -150, up) - pump * 12, elbowL: -pump * 14, elbowR: pump * 14, headY: -4 * up - Math.abs(pump) * 5, hipY: -Math.abs(pump) * 4, mouth: Math.max(0.45 * Math.min(1, up), v.mouth), browY: -3 * Math.min(1, up), gazeX: 0 };
+    }
+    case "slump": {
+      // the weight goes out of the body: shoulders first, the head a moment after, and it stays down
+      const d = easeInOut(frame / (0.9 * fps)), head = easeInOut((frame - 0.15 * fps) / (0.9 * fps));
+      return { ...BASE, blink, lean: 10 * d, headY: 12 * head, armL: 4, armR: -4, elbowL: 6 * d, elbowR: -6 * d, hipY: 3 * d, browY: 3 * head, gazeX: -0.4 * head, gazeY: 0.5 * head };
+    }
+    default:
+      return null;
+  }
+}
+
+export function pose(action: CharAction, frame: number, fps: number, cue = ACTION_CUE_MIN, role: "lead" | "partner" = "lead", live?: Live): Pose {
   const t = frame / fps;
   const blink = blinkAt(frame);
+  if (live) { const p = livePose(action, frame, fps, blink, live); if (p) return p; }
   switch (action) {
     case "leave":
     case "flee": {
