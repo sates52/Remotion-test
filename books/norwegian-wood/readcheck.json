@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-10T18:57:21.048Z",
+  "n": 278,
+  "total": 278,
+  "sources": [
+    "readcheck"
+  ],
+  "binding": "BOUND",
+  "tallied": {
+    "baseRun": "norwegian-wood-prep-cbe5d5e8343f",
+    "folders": {
+      "readcheck": {
+        "run": "norwegian-wood-prep-cbe5d5e8343f",
+        "evidenceSha256": "6c051b21ad42d532c95b1c0b58f99e764a243f9a04f01f585581f4de57d9f22f"
+      }
+    }
+  },
+  "totals": {
+    "CORRECT": 274,
+    "NEUTRAL": 0,
+    "WRONG": 4
+  },
+  "wrongRate": 0.014,
+  "blame": {
+    "words": 3,
+    "people": 1
+  },
+  "iconBlame": {},
+  "beats": [
+    {
+      "i": 41,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The on-screen words PERMANENTLY FROZEN IN TIME led the viewer to believe Kizuki remains frozen in time rather than the survivor.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "PERMANENTLY FROZEN IN TIME"
+    },
+    {
+      "i": 84,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The on-screen words CRUSH IT TO BITS led the viewer to believe grief is crushing his vitality rather than students crushing the university.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "CRUSH IT TO BITS"
+    },
+    {
+      "i": 188,
+      "verdict": "WRONG",
+      "blame": "people",
+      "why": "Staging the young man bowing his head in a hospital makes the viewer believe he has a severe drinking problem rather than a staff nurse.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "A TERRIBLE DRINKING PROBLEM"
+    },
+    {
+      "i": 274,
+      "verdict": "WRONG",
+      "blame": "words",
+      "why": "The callout omitted 'forgetting', leading the viewer to guess that remembrance rather than forgetting is the ultimate act of survival.",
+      "from": "readcheck",
+      "concept": null,
+      "callout": "ULTIMATE ACT OF SURVIVAL"
+    }
+  ],
+  "reviewRequired": {
+    "flagged": 6,
+    "wrong": [],
+    "neutral": [],
+    "cleared": 6,
+    "unread": []
+  }
+}

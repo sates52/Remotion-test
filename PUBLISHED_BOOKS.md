@@ -80,9 +80,20 @@ This log preserves full publishing packs, SEO metadata, chapters, and production
 | 66 | `the-first-90-days` | **The First 90 Days** — Michael D. Watkins | 2026-11-03 | 34:36 | *The First 90 Days Summary by Michael D. Watkins* | `THE FAST START TRAP` |
 | 67 | `the-creative-curve` | **The Creative Curve: How to Develop the Right Idea at the Right Time** — Allen Gannett | 2026-11-05 | 43:12 | *The Creative Curve Summary (Allen Gannett) — The Myth of Solitary Genius* | TIMING TRUMPS GENIUS |
 | 68 | `gardens-of-the-moon` | **Gardens of the Moon** — Steven Erikson | 2026-11-07 | 31:46 | *Gardens of the Moon Summary by Steven Erikson: Why the Confusion Is the Point* | `SOLDIERS ARE THE STORY` |
+| 69 | `norwegian-wood` | **Norwegian Wood** — Haruki Murakami | 2026-11-13 | 40:49 | *Norwegian Wood Summary & Analysis (Haruki Murakami) — Why Grief Isn't a Memory* | `NORWEGIAN` |
 ---
 
 ## 📖 Detailed Book Records
+
+### 69. Norwegian Wood — Haruki Murakami
+- **Slug:** `norwegian-wood`
+- **Published Date:** November 13, 2026 (operator confirmed live on YouTube).
+- **Engine / Video:** Antidote; 73,493 frames, 40:49 at 30 fps, 977 MB; 10-way GitHub worker split; cloud assembly run 42967614415 verified 73493/73493 frames, decode clean, audio present; A/V sync PASS. 0 join dropouts.
+- **Quality provenance:** Production firewall 454 REVIEW, accepted by operator as quality debt for render input 5296f2961db88aa0. Sealed holdout mute test final PASS (WRONG 0/30, dead 1/30, ADDS 24/30).
+- **Publishing kit:** `books/norwegian-wood/youtube.md` and `youtube-meta.json` (English; lint-titles READY).
+- **Subtitles:** `public/captions/norwegian-wood.clean.vtt` (1186 cues).
+- **Thumbnails:** A/B/C rendered via render-thumbnails --cloud (A = scene-still, right, red).
+- **Cleanup:** operator-ordered post-upload: render-github-cleanup.js (13 artifacts, 12 runs, ~1932 MB), purge-render-branches.js (12 refs incl. assemble and thumbs), local mp4, thumbnails and raw audio removed.
 
 ### 68. Gardens of the Moon — Steven Erikson
 - **Slug:** `gardens-of-the-moon`

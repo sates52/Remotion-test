@@ -1,0 +1,49 @@
+{
+  "slug": "norwegian-wood",
+  "title": "Norwegian Wood",
+  "author": "Haruki Murakami",
+  "genre": "fiction",
+  "engine": "antidote",
+  "engineRationale": "Book profile (strong): contemporary/period fiction with an interpersonal cast → staged characters in Antidote. Suicide, grief and emotional trauma are central to key scenes → Antidote draws them symbolically without photorealistic content filter issues.",
+  "engineDecidedBy": "book-profile",
+  "engineProfile": {
+    "kind": "fiction",
+    "world": "period",
+    "era": 1968,
+    "realPeople": false,
+    "format": "story",
+    "violence": "some",
+    "minorHarm": false,
+    "mustSee": [
+      "Toru Watanabe in late 1960s Tokyo college campus",
+      "Naoko at the sanatorium in the Kyoto mountains",
+      "Midori Kobayashi in Tokyo",
+      "Reiko Ishida playing guitar"
+    ]
+  },
+  "bgTint": true,
+  "engineCheck": {
+    "at": "2026-11-10",
+    "fit": "antidote",
+    "confidence": "moderate",
+    "voxScore": 1.4,
+    "antidoteScore": 10.9,
+    "signals": {
+      "year": 0,
+      "history": 0.6,
+      "second": 11.7,
+      "abstract": 3.6,
+      "sensitive": 8.6,
+      "era": 1969,
+      "words": 6899
+    },
+    "reasons": [
+      "no dominant signal — the story itself decides; contemporary fiction with a cast works in Antidote (WWL), period or documentary worlds in Vox"
+    ],
+    "risks": [
+      "violence/death 8.6/1k (> 6) → Flux will refuse many Vox images of the key scenes (CONTENT_FILTERED); Antidote draws them symbolically"
+    ],
+    "confirmed": false
+  },
+  "audioSource": "public/audio/norwegian-wood.mp3"
+}

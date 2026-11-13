@@ -1,0 +1,2809 @@
+{
+  "book": {
+    "slug": "norwegian-wood",
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "genre": "fiction"
+  },
+  "instructions": [
+    "Rewrite `callout.text` per beat: 2-4 words, concrete and loaded, in the viewer's second person where it fits.",
+    "NEVER an abstract noun (ORGANIZATION / MANAGEMENT / INFORMATION). Prefer what a person can see, feel or do.",
+    "Set callout to null when the beat has no hook worth stamping — silence is a valid, good choice.",
+    "`style`: reveal (3-4 words) | highlight (2 words) | strike (a negation) | outline (a real stat) | box | stack.",
+    "`concept`: the beat's LITERAL subject → a scene icon that gets shown instead of talking heads.",
+    "  Allowed: alarmClock, butterfly, subway, car, coffee, codeWindow, rocketLaunch, funnelMetrics, dollarExchange, laptopMockup, crash, ledge, water, grave, medical, notes, phone, school, home, family, road, storm, star, heart, fire, tree, mask, mirror, key, law, photo, war, game, work, city, food, coin, door, lightbulb, shadowSelf, puppeteer, chains, compass, dominoCascade, icebergDepth, funnelTrap, thirtyTyrants, ringOfGyges, caveAllegory, shipOfState, tripartiteSoul, kallipolis, fiveRegimes, mythOfEr, boulder, summit, ladder, crack, clock, balance, book, shield, trophy, hourglass, sword, target, magnifier, wallet, gift, inheritance, zap. Set a string when the beat is really ABOUT that thing",
+    "  (a crash, a home, a lake, a wall of notes); null or omitted = no icon (there is no lexicon",
+    "  fallback). Use only when it's the true subject — a wrong icon is worse than none. The icon must",
+    "  be in the book's story-bible visualProvenance.allowedMotifs or it is dropped with a warning.",
+    "`set` (optional): the location, one of the renderer's sets — honoured as written.",
+    "`shotOverride` (optional): force a framing. `shot` above is only the director's first guess.",
+    "The director stages the body itself from the concept — a beat whose subject is a",
+    "  letter/phone/key/photo/book/coin/mirror/mask/idea/compass/meal/love/job/court puts that",
+    "  object IN THE LEAD'S HAND, an outdoor beat can make them walk across the set, an indoor",
+    "  one can sit them down. You do not author that here; naming the right `concept` is what",
+    "  turns it on. A wrong concept costs more now than it used to.",
+    "`diagram`: an EXPLANATORY self-drawing graphic that BECOMES the whole beat (cast dropped,",
+    "  no callout). Author one ONLY on a genuinely conceptual beat; leave null otherwise — a weak",
+    "  or generic diagram is worse than none. Use at most a handful across the whole book. Shape:",
+    "  { type, title?, labels[], values[] }, where type is one of:",
+    "    sorter   — a taxonomy sorting into buckets. labels = the 2-4 category names; values = optional per-bucket counts.",
+    "    matchWave— two rhythms drifting then locking into sync. labels[0] = the payoff word (e.g. IN SYNC).",
+    "    flow     — a cause→effect chain. labels = 2-3 ordered node names.",
+    "    spectrum — a marker on a continuum. labels = [leftPole, rightPole]; values = [0..1 marker position].",
+    "  Keep labels 1-2 words. Best on the beat that first NAMES a framework, a sync, a process or a scale.",
+    "`concept: null` means NO icon on this beat (not even a decorative one); omitting the key is ALSO no icon — there is no lexicon fallback (Faz 0). Every beat needs an entry; an unauthored beat fails gate-authorship.",
+    "Do not leave a beat silent when its narration names concrete things (a list of objects, an anecdote, a person doing something) — give it the narrator's phrase or the object.",
+    "Prefer the narrator's concrete phrase over an abstract metaphor label (\"PAUSE THE IMPULSE\", not \"A LOGIC FILTER\").",
+    "A diagram title must not promise a shape its type cannot draw (no \"LOOP\"/\"PYRAMID\" on a straight flow).",
+    "Keep the array order and length. Then re-run plan-antidote with --callouts=<this file>.",
+    "After re-running: node scripts/audit-antidote.js --slug=<slug> — it FAILS the plan if any",
+    "  window runs longer than 8s with nothing happening on screen."
+  ],
+  "beats": [
+    {
+      "i": 0,
+      "shot": "lowAngle",
+      "beat": "title",
+      "concept": null,
+      "diagram": null,
+      "narration": "So the moment the uh the soft sweet orchestral cover of Norwegian wood plays over the cabin speakers, Toru Watanabe is just he's not reminiscing.",
+      "callout": {
+        "text": "NORWEGIAN WOOD",
+        "style": "plain"
+      }
+    },
+    {
+      "i": 1,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "No, not at all. He is strapped into a 747 and this plane is plunging through these dense, gloomy November clouds over Hamburg, Germany, and he is like physically crushed. Yeah, it's a completely visceral right?",
+      "callout": {
+        "text": "747",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 2,
+      "shot": "closeUp",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is 37 years old, bending forward in his seat, and he's pressing his face so hard into his hands that he actually feels like his skull is going to split open, which just immediately shatters any expectation you might have about, you know, the",
+      "callout": null
+    },
+    {
+      "i": 3,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "warmth of nostalgia. Because in this context, remembering someone isn't a comfort, it's an ambush.",
+      "callout": {
+        "text": "AMBUSH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 4,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Memory acts as this violent intrusion. It's this physical weight that threatens to",
+      "callout": null
+    },
+    {
+      "i": 5,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "literally crack his head apart. Yeah. It's the realization that merely remembering the people he loved is in a way a betrayal of their real agonizing It is it's a permanent absence and that physical weight, that",
+      "callout": {
+        "text": "THEIR REAL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 6,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "absolute suffocation. Well, that's the reality of grief we're unpacking today.",
+      "callout": null
+    },
+    {
+      "i": 7,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, welcome to the deep dive. Glad to be here. We are looking at a massive stack of notes, critiques, and all this source material on Harukqi Murakami's Norwegian Wood. And you",
+      "callout": null
+    },
+    {
+      "i": 8,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "know, if you, the listener, have only ever heard this book described as this wisful coming of age romance, uh, we need to reset those expectations right now. Oh, absolutely. Prepare for a shock",
+      "callout": null
+    },
+    {
+      "i": 9,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "because today we are conducting a full existential autopsy on survivors guilt. We are looking at how trauma",
+      "callout": null
+    },
+    {
+      "i": 10,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "violently traps youth between two impossible poles. like on one hand the quiet alluring paralysis of the dead and on the other the chaotic",
+      "callout": null
+    },
+    {
+      "i": 11,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "exhausting demand to actually live. It is such a phenomenal psychological study and it's set against this backdrop of late 1960s Tokyo",
+      "callout": null
+    },
+    {
+      "i": 12,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "which you know is a period of intense social upheaval right the student protests. Exactly. But the true upheaval here is entirely internal",
+      "callout": null
+    },
+    {
+      "i": 13,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "to realizes as he's sitting on that plane that the scenery of his past is like crystal clear. He can perfectly recall the smell of the grass in a Kyoto Meadow or the exact line of the hills. But the people, the",
+      "callout": null
+    },
+    {
+      "i": 14,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "people have just vanished. Okay, let's unpack this. The lens we really have to look through today is melancholic psychological realism.",
+      "callout": null
+    },
+    {
+      "i": 15,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it all hinges on one core argument, like one thesis that fundamentally shifts how you have to view the entire concept of Yeah.",
+      "callout": null
+    },
+    {
+      "i": 16,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "And it's a heavy one. It is. Death in this story is not the opposite of life. It's not a finish line or some past event that you just jump over and leave behind. Right. Death is an active parasitic",
+      "callout": {
+        "text": "DEATH IN THIS STORY",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 17,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "co-presence. I love that phrasing. It's a roommate. it is an infection that lives right alongside the survivor.",
+      "callout": null
+    },
+    {
+      "i": 18,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "If we connect this to the bigger picture, this parasite forces the people left behind to make this agonizing impossible choice every single day.",
+      "callout": null
+    },
+    {
+      "i": 19,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like, do you pledge allegiance to sanctified, perfect ghosts? or do you commit to the messy, imperfect, difficult people who are still breathing right in front of you, which is such a brutal choice.",
+      "callout": {
+        "text": "BRUTAL CHOICE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 20,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And if you've ever dealt with a sudden, devastating loss, you know exactly what Toru is feeling here.",
+      "callout": null
+    },
+    {
+      "i": 21,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It just changes the geometry of your entire world. It really does. And this active parasitic presence of death, it dictates every single action Toru",
+      "callout": null
+    },
+    {
+      "i": 22,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "takes in the novel. I mean, it colors his entire worldview starting when he's just a So, let's set up that dilemma.",
+      "callout": null
+    },
+    {
+      "i": 23,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We meet Toru in late 1960s Tokyo, but his internal compass is completely shattered by an event that happened back in his hometown of Coobe, He is deeply haunted by the sudden suicide of his",
+      "callout": {
+        "text": "TORU IN LATE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 24,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "best friend, this boy named Kizuki, who took his own life at the age of 17. And because of that loss, Toru finds himself caught in this brutal psychological tugof-war.",
+      "callout": {
+        "text": "BEST FRIEND",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 25,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like on one side, you have Naoko. She was Kizuki's girlfriend. She's this fragile, deeply wounded survivor who eventually just retreats completely from society.",
+      "callout": null
+    },
+    {
+      "i": 26,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She goes to that mountain sanatorium. Yeah. In the cedar forests of Kyoto. She basically represents the pole of the quiet dead.",
+      "callout": {
+        "text": "QUIET DEAD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 27,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then pulling on his other arm is Midori Kobayashi. Oh, Midori. Right. She is a classmate of Taurus at his university in Tokyo. And she is exuberantly almost",
+      "callout": null
+    },
+    {
+      "i": 28,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "aggressively alive. She offers Toru this vibrant, chaotic, highly imperfect escape right into the present moment.",
+      "callout": null
+    },
+    {
+      "i": 29,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "So you have the quiet dead and the screaming living. But to understand why Toru is so paralyzed between these two poles.",
+      "callout": null
+    },
+    {
+      "i": 30,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, we really have to start at the epicenter of the trauma, we have to look at the exact nature of Kizuki's exit.",
+      "callout": {
+        "text": "START",
+        "style": "box"
+      }
+    },
+    {
+      "i": 31,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's drop right into that day in May because it's crucial to see how normal it starts.",
+      "callout": null
+    },
+    {
+      "i": 32,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So normal. Toru and Kizuki skip class. They walk down the hill in Coobe to play pool by the harbor.",
+      "callout": null
+    },
+    {
+      "i": 33,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Kizuki is just dead serious. He wins three games straight, refusing to make a single joke the entire time they play. Just completely focused. Yeah.",
+      "callout": {
+        "text": "ENTIRE TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 34,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then they step outside, smoke a cigarette, and Kizuki smiles this like satisfied, quiet smile about winning. And they part ways.",
+      "callout": null
+    },
+    {
+      "i": 35,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that night, Kizuki goes into his family's garage. Just 17 years old, right? Just 17. He gets inside a red N360 car. He takes a rubber hose,",
+      "callout": {
+        "text": "17 YEARS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 36,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "connects it to the exhaust pipe, and feeds it through a taped up window. He turns on the engine. The radio is playing. The radio is playing.",
+      "callout": null
+    },
+    {
+      "i": 37,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He takes a petrol station receipt and tucks it neatly under the windshield wiper and there is no note. Absolutely nothing. The next thing Toru knows, there's a white flower marking Kazuki's",
+      "callout": null
+    },
+    {
+      "i": 38,
+      "shot": "insert",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "WELL",
+          "JUST AN UNFATHOMABLE WHIPLASH"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "empty school desk. And it is just an unfathomable whiplash because well, think about what this does to the human mind.",
+      "callout": null
+    },
+    {
+      "i": 39,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "We are so conditioned by literature, by movies to expect trauma to have some kind of narrative logic.",
+      "callout": null
+    },
+    {
+      "i": 40,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "We always expect a why. Exactly. A grand monologue, a letter, a reason.",
+      "callout": null
+    },
+    {
+      "i": 41,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "But when someone vanishes into the dark without a single word of explanation, you are just left holding the bag. You are permanently frozen in time because there is no conclusion for your brain",
+      "callout": {
+        "text": "FROZEN IN TIME",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 42,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "to process. The narrative just stops mid-sentence. It shatters Toru's fundamental understanding of reality.",
+      "callout": null
+    },
+    {
+      "i": 43,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, he reflects later that he always used to think life was on one side of the room and death was over there on the other",
+      "callout": {
+        "text": "ROOM AND DEATH",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 44,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Like they were separate things, right? Independent, separate. But that night in the garage, he realizes death is already here.",
+      "callout": null
+    },
+    {
+      "i": 45,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's woven into the fabric of being. Wow. It's in the heavy paper weight on a police desk where he has to get a statement. It's in the red and white balls on a pool table. You don't just meet death at the end of the road.",
+      "callout": {
+        "text": "POOL TABLE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 46,
+      "shot": "overShoulder",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You go on living and breathing it into your lungs like fine invisible dust. Okay, but I have to say looking at the mechanics of how Kizuki did it, the premeditation of the tape, the hose, the absolute silence, I",
+      "callout": null
+    },
+    {
+      "i": 47,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "can't help but see Kizuki's suicide as an act of profound cruelty. Yes. He essentially abandons Toru.",
+      "callout": null
+    },
+    {
+      "i": 48,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "He leads this 17-year-old kid to face the police entirely alone, to sit in an interrogation room and bear the crushing burden of being the last person on earth to see him alive.",
+      "callout": {
+        "text": "KID TO FACE",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 49,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a heavy burden for sure. He doesn't give Toru or Nco for that matter a single word of comfort to hold on to.",
+      "callout": null
+    },
+    {
+      "i": 50,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It just feels incredibly selfish to me. I mean, I see where you're coming from because the collateral damage is immense. But I really have to push back on the idea that it was an act of deliberate cruelty",
+      "callout": null
+    },
+    {
+      "i": 51,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "KAZUKI",
+          "HOW ELSE DO YOU READ"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "directed at them. Really? How else do you read it? Because for Kazuki, it was a desperate escape from a toll he felt he simply couldn't pay.",
+      "callout": null
+    },
+    {
+      "i": 52,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "If we look closely at Naoko's later explanation, she says she and Kazuki grew up like kids on a deserted island. They were entirely fused together emotionally and Right. So they were little kids.",
+      "callout": {
+        "text": "LITTLE KIDS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 53,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. But to enter society, to grow up and individuate, it requires paying a toll. What she literally calls the pain of growing up.",
+      "callout": null
+    },
+    {
+      "i": 54,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "The friction of the real world. Yes. the friction and Kazuki just couldn't handle that friction. He was, you know, charismatic on the surface, but underneath he was constantly struggling to hide his profound weaknesses. He was always feeling His",
+      "callout": null
+    },
+    {
+      "i": 55,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "suicide wasn't about punishing Toru. It was a panicked exit from a biological and societal system he felt he couldn't survive.",
+      "callout": null
+    },
+    {
+      "i": 56,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So Toru and Naoko were the tragic collateral damage. Yes, but they definitely weren't the targets. Okay, that collateral damage though, that is exactly how the parasite gets transmitted because",
+      "callout": null
+    },
+    {
+      "i": 57,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Kizuki's death isn't the end of his influence. It's the exact moment his active parasitic co-presence infects Toru and Naoko.",
+      "callout": null
+    },
+    {
+      "i": 58,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Toru really tries to outrun it. He does. He leaves his hometown of Coobe, leaves his whole past behind and moves to a university dormatory in Tokyo just to escape the",
+      "callout": {
+        "text": "BEHIND AND MOVES",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 59,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "geography of his grief. But the geography doesn't matter. He brings the ghost with him. He absolutely does. And this brings us to one of the most fascinating contrasts in the entire story.",
+      "callout": null
+    },
+    {
+      "i": 60,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Touries this intimate, silent, agonizing personal tragedy right into the incredibly loud,",
+      "callout": null
+    },
+    {
+      "i": 61,
+      "shot": "insert",
+      "beat": "question",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "ERA OF THE ZENYOTO",
+          "BACKDROP HERE IS SO CRUCIAL"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "performative chaos of late 1960s Tokyo. The backdrop here is so crucial because this is the era of the Zenyoto, right?",
+      "callout": null
+    },
+    {
+      "i": 62,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The massive student protest movements across Japan. Oh, yeah. It was intense. Students were barricading campuses, clashing with the riot police, protesting the Vietnam War, and demanding the dismantling of the entire university system.",
+      "callout": null
+    },
+    {
+      "i": 63,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, picture this scene. Toru is sitting in a university lecture hall, and the professor is teaching Uripides Greek tragedy, Electra,",
+      "callout": null
+    },
+    {
+      "i": 64,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "which is brilliant, right? A play literally about being trapped by grief and the ghosts of the past, which is just a",
+      "callout": null
+    },
+    {
+      "i": 65,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "gorgeous subtle mirror for Torah. It's a perfect thematic mirror. And suddenly the lecture hall doors bang open.",
+      "callout": null
+    },
+    {
+      "i": 66,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Helmeted students barge in. They demand to hijack the class for political debate. They start passing out these like badly mimigraphed handb bills screaming to smash the imperial educational industrial",
+      "callout": null
+    },
+    {
+      "i": 67,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "complex. And the professor the professor doesn't even argue. He just sigh picks up his metal cane and limps out of the room leaving the students to shout their generic unimaginative slogans.",
+      "callout": null
+    },
+    {
+      "i": 68,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And if we look at Toru's reaction in that moment, it offers a profound lesson in perspective.",
+      "callout": null
+    },
+    {
+      "i": 69,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because when you are carrying a soulc crushing intimate tragedy, when your best friend has just esphixxiated himself and you are breathing in the fine dust of death every single day, well, mass politics",
+      "callout": {
+        "text": "YOUR BEST FRIEND",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 70,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and grand societal outrage suddenly look incredibly They look like a game of dress up. Exactly. The grand sweeping statements about",
+      "callout": null
+    },
+    {
+      "i": 71,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "dismantling society feel completely hollow when your own personal universe has already collapsed.",
+      "callout": null
+    },
+    {
+      "i": 72,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toaroo sits there and watches them and he feels absolutely nothing but this deep alienating detachment. And the hypocrisy he observes",
+      "callout": null
+    },
+    {
+      "i": 73,
+      "shot": "diorama",
+      "beat": "time",
+      "concept": null,
+      "diagram": null,
+      "narration": "just reinforces that detachment because eventually the student strike gets crushed by the riot police, the ketoai. The barricades come down",
+      "callout": null
+    },
+    {
+      "i": 74,
+      "shot": "wide",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and what It's so ironic. the exact same students, the guys who were wearing helmets, holding kangaroo courts, and screaming about destroying the system.",
+      "callout": null
+    },
+    {
+      "i": 75,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are the very first ones back in their seats taking notes when classes resume. It's staggering. And why do they come back?",
+      "callout": null
+    },
+    {
+      "i": 76,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Because they are terrified of losing marks for They don't want to jeopardize their future corporate jobs at Mitsubishi or Fuji Bank.",
+      "callout": null
+    },
+    {
+      "i": 77,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's the ultimate betrayal of their own supposed radical ideals. And while they sit there frantically taking notes to save their GPA, Toru is sitting in the front row totally apathetic.",
+      "callout": null
+    },
+    {
+      "i": 78,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "Doesn't he ignore the roll call? Yeah. When the professor calls the register, Toru refuses to even answer. He just sits there reading The Great Gatsby, completely ignoring the entire Now, a",
+      "callout": null
+    },
+    {
+      "i": 79,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "lot of literary critics look at that specific moment and argue that Toru's apathy is actually a profound political stance of its own.",
+      "callout": null
+    },
+    {
+      "i": 80,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. By refusing to answer the register, by isolating himself and reading Fitzgerald, he is actively rejecting the systemic hypocrisy. He is making a silent",
+      "callout": null
+    },
+    {
+      "i": 81,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "individualistic protest against the fraudulence of the world around him. Wait, I don't know if I buy that though. no. If you look at how entirely numb he is in that classroom, I don't see a political protest at all.",
+      "callout": null
+    },
+    {
+      "i": 82,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I just see a guy who is totally dead inside. That's fair. He isn't sitting there thinking, you know, I am protesting your bajgeois hypocrisy.",
+      "callout": null
+    },
+    {
+      "i": 83,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's sitting there thinking, \"I have a knot of cold air in my chest.\" He views this student revolution as a fake stage set because his internal world has already been obliterated by Kizuki's death.",
+      "callout": null
+    },
+    {
+      "i": 84,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He's just empty. Exactly. He literally says to himself at one point, \"Go ahead, dismantle the university. Crush it to bits.",
+      "callout": null
+    },
+    {
+      "i": 85,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I don't give a damn.\" It's not a political stance. It's profound grief masquerading his detachment. He just wants to feel something real.",
+      "callout": {
+        "text": "FEEL SOMETHING REAL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 86,
+      "shot": "split",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's a very fair read. It's a survival mechanism, not a manifesto. And it connects perfectly back to the mechanics of that parasitic co-presence. When death is standing right next to you whispering in your ear, the",
+      "callout": {
+        "text": "MANIFESTO",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 87,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "performative outrage of your peers is just white noise. You can't engage with the living world because the living world feels like a farce.",
+      "callout": {
+        "text": "WHITE NOISE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 88,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And because the student revolutionaries feel so incredibly fake to him, Toru goes looking for someone who is brutally",
+      "callout": null
+    },
+    {
+      "i": 89,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "real. He swings the pendulum in the complete opposite direction, which leads him straight into the orbit of Oh, Nagasawa. We shift from the bright, hypocritical university campus to",
+      "callout": null
+    },
+    {
+      "i": 90,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the noisy, smoke-filled subterranean bars of this is where we find Nagasawa.",
+      "callout": null
+    },
+    {
+      "i": 91,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is a senior at Toru's dorm, a brilliant law student at the prestigious Tokyo University, and he is destined for the foreign ministry.",
+      "callout": null
+    },
+    {
+      "i": 92,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is a total elitist who strictly reads dead authors. Balszac, Conrad, Fitzgerald.",
+      "callout": {
+        "text": "READS DEAD",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 93,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "The baptism of time, he calls it, right? He tells Toru he refuses to read anyone who hasn't had the baptism of time, meaning they have to be dead for at least 30 years before he'll trust their words.",
+      "callout": null
+    },
+    {
+      "i": 94,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Nakasawa is just a fascinating, terrifying figure. I mean, he is casually seducing random women night after night, treating it like a mechanical bodily",
+      "callout": null
+    },
+    {
+      "i": 95,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "function. And he has this immense almost intimidating like the slug story. Oh my god, the slug story.",
+      "callout": {
+        "text": "SLUG STORY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 96,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He boasts to Toru about a time he swallowed three giant cold live slugs whole and kept them down by drinking a bucket of salt water just to assert dominance over",
+      "callout": null
+    },
+    {
+      "i": 97,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "a group of right-wing students in his dorm. He literally swallowed live slugs just to prove that his mind could completely override his biological disgust.",
+      "callout": null
+    },
+    {
+      "i": 98,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that detail about the slugs, it isn't just some gross anecdote. It perfectly illustrates the danger Nagasawa represents. For someone like Toru,",
+      "callout": null
+    },
+    {
+      "i": 99,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Nagasawa represents the ultimate temptation, the temptation to entirely extinguish your own feelings",
+      "callout": null
+    },
+    {
+      "i": 100,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "just to avoid suffering. All right, turn yourself off. Nagasawa operates on a very strict self-imposed code. He tells Toru his standard of action is to be a gentleman. But his definition of a gentleman",
+      "callout": {
+        "text": "TURN YOURSELF",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 101,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is chilling. He says it is someone who does what he should do, not what he wants to",
+      "callout": null
+    },
+    {
+      "i": 102,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "He turns life into a mechanical game to avoid the vulnerability of actually caring because if you don't care, you can't be hurt.",
+      "callout": {
+        "text": "YOU CAN'T BE HURT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 103,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. He has surgically removed his own empathy. And we see the devastating collateral cost of that game during a dinner with his long-term girlfriend, Hatsumi.",
+      "callout": null
+    },
+    {
+      "i": 104,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Such a heartbreaking scene. It really is. It's this incredibly elegant French restaurant in Azabu. Hatsumi is a sophisticated, deeply kind woman. And she's wearing this beautiful midlife",
+      "callout": null
+    },
+    {
+      "i": 105,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "blue dress, gold earrings. They are eating roast duck and sea bass. And right in front of her, over a glass of wine, Nagasawa casually admits to Toru that he sleeps with dozens of women.",
+      "callout": null
+    },
+    {
+      "i": 106,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He calls it a hunger. A hunger he refuses to deny. He says he doesn't remember their names. He doesn't remember their faces. He just meets them, sleeps with them, and leaves.",
+      "callout": null
+    },
+    {
+      "i": 107,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And Hatsumi is just sitting right there. Sitting there absorbing this immense public emotional blow. She softly asks him,",
+      "callout": null
+    },
+    {
+      "i": 108,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "you know, why am I not enough for you? And Nagasava's response is just ice cold.",
+      "callout": {
+        "text": "NOT ENOUGH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 109,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He says it's not about whether she is enough. It's about his system, his rules. Yeah. He refuses to compromise his internal system for anyone's feelings, even hers.",
+      "callout": null
+    },
+    {
+      "i": 110,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now, Nagasawa's cruelty here is But we have to look at the paradoxical appeal of that cruelty. I would argue that in a strange way, Nagasawa is the most honest character in the",
+      "callout": null
+    },
+    {
+      "i": 111,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "entire I mean, he's a sociopath.",
+      "callout": null
+    },
+    {
+      "i": 112,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is a sociopath. But think about it from Toru's traumatized perspective. Nagasawa refuses to pretend.",
+      "callout": null
+    },
+    {
+      "i": 113,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "He knows the world is a bottomless pit of scum and hypocrisy. I mean, he explicitly says most people are garbage.",
+      "callout": null
+    },
+    {
+      "i": 114,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He acknowledges his own emptiness, his own dark paradoxes. Okay, I guess he doesn't hide it,",
+      "callout": {
+        "text": "GUESS HE DOESN'T HIDE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 115,
+      "shot": "split",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "right? He never lies to Hatsumi about who he is or what he intends to do. He tells Toru, \"I'm a selfish bastard, but I'm incredibly cool about it.\" In a world full of fake revolutionaries and people hiding their trauma behind",
+      "callout": {
+        "text": "INCREDIBLY COOL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 116,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "polite smiles, Nagasawa's brutal surgical transparency is almost refreshing to Toru.",
+      "callout": null
+    },
+    {
+      "i": 117,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He refuses to be a hypocrite. He is exactly what he appears to be. Okay, I see the logic, but honestly, I look at that restaurant scene and I just feel sick.",
+      "callout": null
+    },
+    {
+      "i": 118,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, he's honest, but it's the honesty of a void. Well, yeah, it means Nagasavo has allowed the parasitic co-presence of emptiness to completely hollow him out. He has chosen to be a",
+      "callout": {
+        "text": "HE'S HONEST",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 119,
+      "shot": "wide",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "ghost while still breathing. That's a good way to put it. Yeah. He doesn't suffer because he has cut out the organ that feels pain, but in doing so, he destroys everyone who dares to love him.",
+      "callout": null
+    },
+    {
+      "i": 120,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, Hatsumi eventually takes her own life years later, and it's impossible not to",
+      "callout": {
+        "text": "OWN LIFE YEARS",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 121,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "trace that despair back to the starvation diet of love Nagasawa put her on. You're right. Nagasawa's method of survival is essentially spiritual suicide. He survives by becoming a And Toru",
+      "callout": null
+    },
+    {
+      "i": 122,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "realizes that the noise of Tokyo, combined with Nagasawa's mechanical void, is just hollowing him out, too.",
+      "callout": null
+    },
+    {
+      "i": 123,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "So, he swings the pendulum again. He physically leaves the noise of the city for the absolute terrifying silence of Kyoto.",
+      "callout": {
+        "text": "LEAVES THE NOISE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 124,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toru takes a bus deep deep into the chilling ancient cedar forest to visit Naoko.",
+      "callout": null
+    },
+    {
+      "i": 125,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She has retreated to a place called the Ammy Hostel. And the scene when he arrives is",
+      "callout": null
+    },
+    {
+      "i": 126,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "deeply unsettling. It's so weird. It's a perfectly symmetrical row of cubic houses set against the wildness of the mountains.",
+      "callout": null
+    },
+    {
+      "i": 127,
+      "shot": "illustration",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toru describes it as looking like a Walt Disney animated version of an eerie Edvard Monk The architecture itself just feels wrong.",
+      "callout": {
+        "text": "FEELS WRONG",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 128,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's too perfect. And the concept of this place is basically a hospice for the soul.",
+      "callout": null
+    },
+    {
+      "i": 129,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "Imagine a commune where society's friction is completely surgically removed. There are no bars on the windows.",
+      "callout": null
+    },
+    {
+      "i": 130,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The gates are open. They grow their own vegetables in a greenhouse. There is no television, no radio, no news from the outside world. total But this total absence of friction comes at a terrifying cost.",
+      "callout": null
+    },
+    {
+      "i": 131,
+      "shot": "insert",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "The total sessation of growth. You're safe from the storm, but you are",
+      "callout": {
+        "text": "YOU'RE SAFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 132,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "And you feel that stagnation in the bizarre sensory details of the place. When Toru goes to the dining hall, everyone is speaking at the exact same modulated uniform volume.",
+      "callout": null
+    },
+    {
+      "i": 133,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "theory. There are no outbursts, no arguments. Toru compares the hum of the room to a",
+      "callout": null
+    },
+    {
+      "i": 134,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "machine tool trade fair. It's entirely unnatural. But the most unsettling detail, the one that really gets under your skin,",
+      "callout": null
+    },
+    {
+      "i": 135,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is the tennis game, Toru observes. Oh, the tennis game. Two men, right? One middle-aged, one young and heavy set. They are drenched in sweat on the court.",
+      "callout": {
+        "text": "TENNIS GAME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 136,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are slamming the ball back and forth with this intense, strange concentration,",
+      "callout": null
+    },
+    {
+      "i": 137,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "but they are completely ignoring the actual rules of tennis. They're not keeping score at all. Not at all. They aren't trying to win.",
+      "callout": {
+        "text": "NOT KEEPING SCORE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 138,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are just endlessly, repetitively studying the bounce of the ball.",
+      "callout": null
+    },
+    {
+      "i": 139,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's action devoid of purpose, devoid of progress. It is a closed loop,",
+      "callout": null
+    },
+    {
+      "i": 140,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "a physical manifestation of rumination, just like the environment itself. But look, playing devil's advocate for a moment here,",
+      "callout": null
+    },
+    {
+      "i": 141,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "part of me thinks the Ammy Hostel sounds like a deeply necessary Yeah, they are growing their own food, listening to classical records, reading books, living quietly away from the taxmen and the",
+      "callout": null
+    },
+    {
+      "i": 142,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "riot police and the hypocrisy of Tokyo. When Toro sees Nao there, she actually seems healthier. She does seem a bit better.",
+      "callout": null
+    },
+    {
+      "i": 143,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's smiling more easily. She's putting on a little weight. They take long, peaceful walks in the meadow.",
+      "callout": null
+    },
+    {
+      "i": 144,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Isn't this exactly what a profoundly wounded soul needs? A place to finally rest.",
+      "callout": null
+    },
+    {
+      "i": 145,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's incredibly tempting to view it that way, but I have to sharply disagree with that romanticized view. It is a velvet A prison?",
+      "callout": null
+    },
+    {
+      "i": 146,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. Nao's older roommate, Reiko, who acts as a sort of guide, explicitly tells Toru the philosophy of the place. She says, \"What makes us most normal is knowing that we're not normal.",
+      "callout": null
+    },
+    {
+      "i": 147,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's an isolation chamber that keeps them sick. They are completely cut off from reality.\" Reiko says that once you leave the hostel, you burn your bridges. You can't come back because the reality of the outside world is toxic to them.",
+      "callout": null
+    },
+    {
+      "i": 148,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now, the hostel doesn't cure the infection of grief. It just freezes the patients in a state of delicate stasis so they don't It's cryogenics",
+      "callout": null
+    },
+    {
+      "i": 149,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "for the soul. Exactly. It ties right back to the unbearable weight of Kazuki's death. The gravity of that ghost is so",
+      "callout": null
+    },
+    {
+      "i": 150,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "unbelievably heavy that Naoko literally has to exit the friction of life entirely just to draw a breath. She cannot exist in a world that asks her to move forward to keep score in",
+      "callout": {
+        "text": "KEEP SCORE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 151,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "the tennis game of life. And if Naoko is the pull of the quiet dead pulling Toru into the silent frozen woods,",
+      "callout": {
+        "text": "GAME OF LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 152,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "then we have to look at the counterforce. Midori Kobayashi is the chaotic screaming demand of the living, yanking him back to the noisy city. Midori is the absolute antithesis of",
+      "callout": null
+    },
+    {
+      "i": 153,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Nooko completely. Let's drop into the moment she truly forces her way into Toru's life. She sits down next to him in that exact same Uripides lecture where the students protested.",
+      "callout": {
+        "text": "TORU'S LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 154,
+      "shot": "illustration",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She's wearing dark sunglasses and this short pixie cut, right? Toru asks about the hair and she casually explains that she had a terrible summer perm that made her look like a corpse with seaweed on her head. So, she just took scissors and",
+      "callout": null
+    },
+    {
+      "i": 155,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "chopped it all off herself. Typical Midori. Next thing Toru knows, she is dragging him to a restaurant, devouring an anchovi pizza, drinking beer, and talking loudly about everything from her favorite foods to her views on sex.",
+      "callout": null
+    },
+    {
+      "i": 156,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And then the tone violently shifts. She drags him to a crowded disinfectant smelling university hospital. That's And this is where we see what Mudori really represents, Her father",
+      "callout": null
+    },
+    {
+      "i": 157,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "is there and she's there to nurse her father. You know, his brain tumor is slowly killing him, right? And his her mother recently died of exactly the same thing. And this is a crucial mechanism to understand for you the learner.",
+      "callout": {
+        "text": "KNOW HIS BRAIN",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 158,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Midori proves that true vitality isn't about being just happy or positive.",
+      "callout": null
+    },
+    {
+      "i": 159,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Right? Vitality is about accepting survival as a messy, stubborn, crude, and really sometimes exhausting, you know, biological imperative. She doesn't hide the ugliness",
+      "callout": null
+    },
+    {
+      "i": 160,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "of death the way the Omi hostile hides the ugliness of the world. No, she embraces the gross physical reality of it. She's aggressively, unapologetically real.",
+      "callout": null
+    },
+    {
+      "i": 161,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about the story she tells Toru about the Marxist student meeting she attended. Oh, the rice balls. Yes. The male students demand that the girls go make midnight snacks for the revolution.",
+      "callout": null
+    },
+    {
+      "i": 162,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "So Madori, furious at the blatant sexism and the performative politics, brings 20 rice balls wrapped in seaweed, but she only fills them with",
+      "callout": null
+    },
+    {
+      "i": 163,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "which is incredibly sour plum paste. Exactly. The revolutionaries take a bite and they mock her for not bringing fancy fillings like salmon or codro. A very bou complaint for a Marxist revolutionary, by the way.",
+      "callout": null
+    },
+    {
+      "i": 164,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. And she loses it. She thinks, \"You're screaming about the working class, but you complain about plump paste.\" She walks out abandoning them and declares that love is the only thing she actually believes in.",
+      "callout": {
+        "text": "COMPLAIN ABOUT PLUMP PASTE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 165,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She sees right through it. She sees right through the performance of the world, just like Toru does. But instead of going numb, she gets angry and demands tangible reality. She demands it.",
+      "callout": null
+    },
+    {
+      "i": 166,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes. But we have to look critically at Midori's actions toward Toru because while she is vibrant, she is also incredibly demanding and volatile.",
+      "callout": null
+    },
+    {
+      "i": 167,
+      "shot": "closeUp",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "I mean, true. I would suggest that Madori is on some level selfishly using Toru.",
+      "callout": {
+        "text": "MEAN TRUE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 168,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is using him as a life raft to escape the immense crushing grief of having watched her mother die and now watching her father wither away into a skeletal figure with bloodshot eyes.",
+      "callout": null
+    },
+    {
+      "i": 169,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "You think she's just using him? Think about it. She drags Tora to the hospital. She brings him into her messy life, not because she truly sees him and his own trauma, but because she desperately needs an anchor to keep from",
+      "callout": {
+        "text": "MESSY LIFE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 170,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "drowning in her own. Wait, I see the life raft analogy, but I enthusiastically counter that Let's hear it.",
+      "callout": {
+        "text": "SEE THE LIFE",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 171,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Midori isn't escaping grief. She is confronting it headon with pure unfiltered life force. She doesn't hide her dying father from Toru. She makes Toru sit by his bed.",
+      "callout": null
+    },
+    {
+      "i": 172,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She makes Toru feed him cucumber slices. That is true. It's very hands-on. It's physical. It's gross. It's intimate. She demands Toru choose her in the present moment over his ghosts.",
+      "callout": {
+        "text": "CHOOSE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 173,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She certainly demands total presence. She tells him she wants a love where if she says she wants a piece of strawberry shortcake, he drops everything to buy it, brings it to her, and then she throws it out the window",
+      "callout": null
+    },
+    {
+      "i": 174,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "just to know he would do it for her. It sounds totally crazy. It sounds crazy, but she is testing him.",
+      "callout": {
+        "text": "TESTING",
+        "style": "box"
+      }
+    },
+    {
+      "i": 175,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is saying, \"Are you actually here in the physical world with me or are you still in the past with the dead?\" She is violently pulling Toru out of the swamp.",
+      "callout": null
+    },
+    {
+      "i": 176,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is her function in his life. Yes. She offers a messy, imperfect, breathing alternative to the parasitic co-presence of death.",
+      "callout": null
+    },
+    {
+      "i": 177,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is the blood pumping in the veins, forcing him to engage with the physical world, even when that physical world is a hospital room smelling of sickness. But to really understand why",
+      "callout": null
+    },
+    {
+      "i": 178,
+      "shot": "split",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "the boundary between the living and the dead is so blurred in this story, why Toru struggles so hard to choose Midori's living world, we have to look closer at the adults.",
+      "callout": null
+    },
+    {
+      "i": 179,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "We do. We have to look at the ultimate guide of the ammy hostel in Kyoto. Reiko Reiko is a deeply fascinating figure. She is the one who meets Toru at the gates of the hostel.",
+      "callout": null
+    },
+    {
+      "i": 180,
+      "shot": "insert",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Let's set the scene here. She is 39 years old with deep wrinkles at the corners of her eyes, wearing men's clothes, and she is constantly chain smoking seven stars Always smoking. Always. She can pick out",
+      "callout": {
+        "text": "39 YEARS",
+        "style": "outline"
+      }
+    },
+    {
+      "i": 181,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "complex Bach fugues flawlessly on her guitar. She functions as the music teacher at the hostel.",
+      "callout": null
+    },
+    {
+      "i": 182,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She gives Toru the tour. She explains the rules. She seems incredibly grounded, wise, and authoritative. She really feels like the one sane adult in the room until she casually confesses to Toru",
+      "callout": null
+    },
+    {
+      "i": 183,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "that she isn't an employee. She has been a patient there for seven going on eight which is just a terrifying realization for Toru. And honestly, for anyone crossing the threshold into adulthood, it proves that aging offers",
+      "callout": null
+    },
+    {
+      "i": 184,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "SOMEONE LOOKS LIKE THE GUIDE",
+          "JUST"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "absolutely zero immunity to psychological collapse. None at all. Just because someone looks like the guide, just because they are older and seem to have it together, doesn't mean they aren't completely",
+      "callout": null
+    },
+    {
+      "i": 185,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "lost in the woods themselves. Reiko had a husband, a young daughter, a life as a piano prodigy, a seemingly perfect suburban existence, and it all shattered.",
+      "callout": null
+    },
+    {
+      "i": 186,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She had a complete break. She had a complete psychological break and had to abandon her family just to survive. Reiko's presence provides a chilling insight into the",
+      "callout": {
+        "text": "BREAK",
+        "style": "box"
+      }
+    },
+    {
+      "i": 187,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "ecosystem of the Ammy hostel. She points out to Toru that the staff and the patients are virtually interchangeable. Right. The gatekeeper who is supposedly staffed does wild",
+      "callout": null
+    },
+    {
+      "i": 188,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "screaming calesthetics every single morning. A female staff member in the business office recently tried to kill herself. A male nurse was fired for a terrible violent drinking problem. The line between the healers and the",
+      "callout": {
+        "text": "TRIED TO KILL",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 189,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "sick is entirely porous. The infection of grief doesn't respect professional boundaries. Which makes me ask a really tough practical question about her role in Naoko's life.",
+      "callout": null
+    },
+    {
+      "i": 190,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "Is Reiko actually helping What do you mean? Or is her presence keeping Naoko sick?",
+      "callout": null
+    },
+    {
+      "i": 191,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "By being this comforting, wise roommate who plays guitar and listens to her fears, is Reiko enabling Naoko to stay in this isolated commune life",
+      "callout": null
+    },
+    {
+      "i": 192,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "That's a dark thought. They live together in that little cabin like a cozy, sexless married couple, completely sheltered from the real world. Isn't Reiko just helping Naoko hide from the It's a valid concern, but I argue",
+      "callout": {
+        "text": "NAOKO HIDE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 193,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "that Reiko is doing the only thing humanly possible in that situation. She is providing compassionate witnessing in the dark.",
+      "callout": null
+    },
+    {
+      "i": 194,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yes, Reiko knows she can't cure Naoko. She knows Naoko is fundamentally structurally broken by Kazuki's death and by the earlier suicide of Naoko's older sister.",
+      "callout": null
+    },
+    {
+      "i": 195,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Reiko isn't enabling her. She is simply choosing to sit with her in the waiting room of death.",
+      "callout": {
+        "text": "ROOM OF DEATH",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 196,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She provides a small fire in a freezing room. That's not enabling. That's deep radical compassion in a situation where medical science has entirely failed.",
+      "callout": {
+        "text": "SMALL FIRE",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 197,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "That compassion is incredibly heavy though. And it ties back to the parasite.",
+      "callout": null
+    },
+    {
+      "i": 198,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Death is such an active heavy co-presence here that even the adults, the supposed authority figures who've lived full lives, are helplessly trapped by its gravity.",
+      "callout": null
+    },
+    {
+      "i": 199,
+      "shot": "overShoulder",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Reiko can't fight the ghost of Kizuki. She can only sit beside Naoko and play the guitar while the ghost hovers in the room.",
+      "callout": {
+        "text": "REIKO CAN'T FIGHT",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 200,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And despite that sanctuary, despite Reiko's constant companionship, the quiet walks in the meadow,",
+      "callout": null
+    },
+    {
+      "i": 201,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and Toru's long letters from Tokyo, the gravity of the dead ultimately proves too strong. It does. This brings us to the tragic climax of the narrative. Now it goes death.",
+      "callout": {
+        "text": "PROVES TOO STRONG",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 202,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's late August, the height of summer. Deep in the dark, silent woods outside the sanatorium,",
+      "callout": null
+    },
+    {
+      "i": 203,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "now go hangs herself. It's so sudden. It is. She packs her things neatly.",
+      "callout": null
+    },
+    {
+      "i": 204,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She burns Toro's letters in a small fire. She seems completely healthy and resolved to the staff. And then she walks deep into the woods and ends her And Toru's reaction.",
+      "callout": null
+    },
+    {
+      "i": 205,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "When Toro gets the news, we immediately cut to him completely breaking down. He abandons Tokyo. He buys a rucks sack and his sleeping bag and he just starts walking.",
+      "callout": null
+    },
+    {
+      "i": 206,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He wanders aimlessly through coastal Japan, Kanazawa, the Noto Peninsula, these bleak, windy coastal towns, totally unmed.",
+      "callout": null
+    },
+    {
+      "i": 207,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah, he's sleeping on beaches unwashed, his beard growing out. He feels like he is literally walking on the bottom of the sea.",
+      "callout": null
+    },
+    {
+      "i": 208,
+      "shot": "wide",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He hits the raw limits of grief for you, the learner. This is what it looks like when the parasite fully takes over the host.",
+      "callout": null
+    },
+    {
+      "i": 209,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "The world literally becomes what Toru describes as a neverending swamp. Just a swamp.",
+      "callout": null
+    },
+    {
+      "i": 210,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "All you can do is put one foot in front of the other. Completely detached from human language.",
+      "callout": null
+    },
+    {
+      "i": 211,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "During this coastal exile, Toru doesn't speak. He can barely hear what people say to him when he buys food.",
+      "callout": null
+    },
+    {
+      "i": 212,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He feels enveloped in a thick invisible membrane. This is the physical biological manifestation of total existential collapse.",
+      "callout": null
+    },
+    {
+      "i": 213,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "And the terrifying precedent for NO's end is her older sister. Now told Toro this story earlier in the meadow.",
+      "callout": {
+        "text": "TORO THIS STORY",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 214,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Her sister who's beautiful, talented, perfect in every way. The pride of the family also committed suicide at 17. 17 again. Exactly.",
+      "callout": null
+    },
+    {
+      "i": 215,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Now came home from school one day and found her in her bedroom standing by a window, but her neck was bent at a sharp unnatural angle.",
+      "callout": null
+    },
+    {
+      "i": 216,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "No note, just gone. It shows this inescapable, almost genetic gravity of grief that now was fighting against her whole life. The deck was stacked against her from the",
+      "callout": {
+        "text": "WHOLE LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 217,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "very beginning. But we still have to ask why Nao lost that fight exactly when she did.",
+      "callout": null
+    },
+    {
+      "i": 218,
+      "shot": "medium",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "And this is a painful point to argue, but I suggest that Toru failed. Now, really, you think it's his fault?",
+      "callout": null
+    },
+    {
+      "i": 219,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "By starting to pull away toward the living world by developing a deep romantic connection with Midori",
+      "callout": null
+    },
+    {
+      "i": 220,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "and feeling guilty about his own physical desires, he broke the delicate ecosystem Nao relied on.",
+      "callout": null
+    },
+    {
+      "i": 221,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "She was incredibly She was. She sensed that he was tethering himself to the living, that he couldn't stay in the quiet dark with her forever. His failure to fully commit to her isolation is what pushed her over the",
+      "callout": null
+    },
+    {
+      "i": 222,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "edge. Wait, I see the timing, but honestly, I fiercely disagree with the idea that he failed her.",
+      "callout": null
+    },
+    {
+      "i": 223,
+      "shot": "closeUp",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toru didn't fail her because he never had a chance to save her in the first place. Toru couldn't save Naoko because she never truly belonged to him. As Toru realizes in his grief",
+      "callout": {
+        "text": "TORU DIDN'T FAIL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 224,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "walking that freezing coastline, Nao belonged to Kizuki all along. I mean, she did say they shared everything.",
+      "callout": null
+    },
+    {
+      "i": 225,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She explicitly told Toru that she and Kizuki shared everything. That their egos were fused together before they even knew what egos were.",
+      "callout": null
+    },
+    {
+      "i": 226,
+      "shot": "medium",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "She never loved Toru the way she loved Kizuki. Toru was just a temporary link to the outside world, a ghost of her past.",
+      "callout": null
+    },
+    {
+      "i": 227,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "When the time came, she chose the dead. She chose to go back to Kizuki.",
+      "callout": {
+        "text": "CHOSE THE DEAD",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 228,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toru's actions with Midori didn't kill her. Naoko's own internal gravity did.",
+      "callout": {
+        "text": "MIDORI DIDN'T KILL",
+        "style": "strike"
+      }
+    },
+    {
+      "i": 229,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "That is a harsh but necessary realization. The parasitic co-presence of death finally wins,",
+      "callout": null
+    },
+    {
+      "i": 230,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "dragging Nao completely into its domain. She chooses the perfection of the ghosts over the messy friction of the living, which leaves Toru",
+      "callout": null
+    },
+    {
+      "i": 231,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "completely trapped in that coastal swamp. He is suffocating under the weight of two ghosts. Now he needs a ritual to sever the parasite before it pulls him under completely.",
+      "callout": null
+    },
+    {
+      "i": 232,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "And that brings us to the catharsis, the memorial. Right. We shift from the bleak coast back to Tokyo Station in autumn.",
+      "callout": null
+    },
+    {
+      "i": 233,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Reiko arrives, stepping back into the real noisy, polluted world for the first time in 8 That's a huge step for her.",
+      "callout": {
+        "text": "FIRST TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 234,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "It is. She is wearing a tweet jacket, carrying a brown suitcase and her guitar.",
+      "callout": null
+    },
+    {
+      "i": 235,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She goes to Toru's small, messy flat. They sit on his ver, open a bottle of cheap wine, and she takes out a large box of kitchen matches.",
+      "callout": {
+        "text": "TORU'S SMALL",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 236,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She lines them up on the table, and she strikes one match for every single song she plays.",
+      "callout": null
+    },
+    {
+      "i": 237,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a deeply physical analog ritual and it shows how vital",
+      "callout": null
+    },
+    {
+      "i": 238,
+      "shot": "silhouette",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "structured mourning is. When logic fails, when words completely fail to capture the horror of a sudden loss, you need a physical",
+      "callout": {
+        "text": "SUDDEN LOSS",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 239,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "auditory ritual to draw a boundary line. You need art and music to finally release the dead. Look at the specific song she chooses to play. She starts with Henry Mancini's Dear",
+      "callout": null
+    },
+    {
+      "i": 240,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Heart, the very song Toru gifted Nco on a record for Christmas.",
+      "callout": null
+    },
+    {
+      "i": 241,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Then she moves through a massive catalog of the Beatles, Bosanova, Bach, and Norwegian Wood, of course.",
+      "callout": null
+    },
+    {
+      "i": 242,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She plays Norwegian Wood, the song that always triggered Nelco's deep sorrow, but also her deepest reflections.",
+      "callout": null
+    },
+    {
+      "i": 243,
+      "shot": "medium",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Reiko plays 50 songs in total, striking a match for each one, creating a personal intimate funeral that she explicitly says isn't so sad.",
+      "callout": null
+    },
+    {
+      "i": 244,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "For a long time reading that scene, I always assumed Draiko's visit was purely an act of charity.",
+      "callout": {
+        "text": "LONG TIME",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 245,
+      "shot": "medium",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "I thought she recognized that Toru was drowning on that coast. And as an older, wiser figure, she came down from the mountain specifically to save him from his grief. To give him closure.",
+      "callout": null
+    },
+    {
+      "i": 246,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Yeah. To give him the closure he needed so he could finally move on and be with Madori. But if we look closer at Reiko's dialogue, this ritual is actually Reiko's own desperate resurrection.",
+      "callout": {
+        "text": "MOVE",
+        "style": "box"
+      }
+    },
+    {
+      "i": 247,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is forcing herself out of the asylum. She says it herself on the veranda. If she stays at the Ammy hostel any longer, she'll rot. She's absorbed too much death.",
+      "callout": null
+    },
+    {
+      "i": 248,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "Exactly. By playing those 50 songs, by sleeping with Toru that night in a moment of pure",
+      "callout": null
+    },
+    {
+      "i": 249,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "shared human warmth, by leaving her sanctuary and stepping onto a crowded bullet train, she is saving herself just as much as she is saving Toru.",
+      "callout": null
+    },
+    {
+      "i": 250,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "She is violently shedding the skin of the patient and re-entering the friction of the world. It is a mutual exorcism.",
+      "callout": null
+    },
+    {
+      "i": 251,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They are finally together burning out the parasitic co-presence of the dead, allowing the living to remain in the world. They weep.",
+      "callout": null
+    },
+    {
+      "i": 252,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "They share that physical connection and the next morning she leaves on a train to start a completely new life in Asahikiawa.",
+      "callout": null
+    },
+    {
+      "i": 253,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "It's a beautiful release. But before we reach the final payoff of Toru's journey, we need to address a major counterpoint",
+      "callout": null
+    },
+    {
+      "i": 254,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "regarding our protagonist. A lot of readers get extremely frustrated with Oh, absolutely. The big debate is whether Turu Watanab actually has any personal agency in this entire story.",
+      "callout": {
+        "text": "ENTIRE STORY",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 255,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Think about it. He just floats. He sleeps with random girls only when Nagasawa tells him to. He wanders aimlessly across the country when Noo dies. He lets Noo dictate his entire",
+      "callout": null
+    },
+    {
+      "i": 256,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "emotional state for years. He lets Madori drag him to hospitals to watch fires from a roof to porn theaters.",
+      "callout": {
+        "text": "STATE FOR YEARS",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 257,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is completely utterly passive. He's like a leaf blowing in the wind of other people's drama. It's a common critique.",
+      "callout": null
+    },
+    {
+      "i": 258,
+      "shot": "lowAngle",
+      "beat": "positive",
+      "concept": null,
+      "diagram": null,
+      "narration": "We often equate pacivity with weakness. But what's fascinating here is in a world where your best friend vanishes without a note, where the political world is a hypocritical stage set of helmeted",
+      "callout": null
+    },
+    {
+      "i": 259,
+      "shot": "crowd",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "students pretending to care, and where everyone around you is wearing masks. Well, passive observation isn't",
+      "callout": null
+    },
+    {
+      "i": 260,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You think it's a strength. It is the only honest stance. Toru's apathy is actually profound resilience.",
+      "callout": {
+        "text": "ONLY HONEST",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 261,
+      "shot": "diorama",
+      "beat": "crowd",
+      "concept": null,
+      "diagram": null,
+      "narration": "He survives the shock waves of suicide simply by bearing witness and refusing to be fake. He is the anchor that everyone else, Naoko, Midori,",
+      "callout": null
+    },
+    {
+      "i": 262,
+      "shot": "twoShot",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Reiko, even Nagasawa, ties themselves to because he doesn't judge. He just observes. Exactly. His passivity is his survival mechanism against the parasite. But does that survival mechanism actually get",
+      "callout": null
+    },
+    {
+      "i": 263,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "him where he needs to go? Let's look at the payoff, the final unforgettable image of the novel. Reiko is gone.",
+      "callout": null
+    },
+    {
+      "i": 264,
+      "shot": "overShoulder",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Toru is alone in Tokyo. He goes to a public phone booth. He puts in his coins and he finally calls Madori. the big moment.",
+      "callout": {
+        "text": "PUBLIC PHONE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 265,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "He is ready to choose her, to choose life, the messy breathing present.",
+      "callout": {
+        "text": "CHOOSE LIFE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 266,
+      "shot": "closeUp",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "Madori answers the phone and she asks him one simple, devastating question. Where are you now? And Toru looks out through the glass of the phone booth at the crowded station and",
+      "callout": null
+    },
+    {
+      "i": 267,
+      "shot": "diorama",
+      "beat": "story",
+      "concept": null,
+      "diagram": null,
+      "narration": "he realizes he has absolutely no He literally says he is in the dead center of a place that is no place.",
+      "callout": null
+    },
+    {
+      "i": 268,
+      "shot": "insert",
+      "beat": "story",
+      "concept": null,
+      "diagram": {
+        "type": "flow",
+        "title": null,
+        "labels": [
+          "SYNTHESIZES THE ENTIRE JOURNEY",
+          "BREATHTAKING ENDING"
+        ],
+        "values": [],
+        "at": 4,
+        "scale": 1
+      },
+      "narration": "All he can see are the shapes of people walking by to nowhere. It's a breathtaking ending because it synthesizes the entire journey. Choosing life doesn't mean you get a neat, cinematic, happy ending. It doesn't mean the clouds part",
+      "callout": null
+    },
+    {
+      "i": 269,
+      "shot": "medium",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "and the music swells and the grief vanishes. Definitely not. Choosing life leaves you stranded, disoriented in the noisy center of nowhere.",
+      "callout": null
+    },
+    {
+      "i": 270,
+      "shot": "diorama",
+      "beat": "negative",
+      "concept": null,
+      "diagram": null,
+      "narration": "You have lost the comforting quiet certainty of the dead, the beautiful paralysis of the ammy hostel.",
+      "callout": {
+        "text": "YOU HAVE LOST",
+        "style": "reveal"
+      }
+    },
+    {
+      "i": 271,
+      "shot": "closeUp",
+      "beat": "contrast",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are thrust into the chaotic terrifying unpredictability of the living. But at least you are alive.",
+      "callout": null
+    },
+    {
+      "i": 272,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "You are alive in the dead center of nowhere. And that leaves us with one final provocative thought for you to mull over long after this deep dive ends. We started by looking at Toru on",
+      "callout": null
+    },
+    {
+      "i": 273,
+      "shot": "diorama",
+      "beat": "stat",
+      "concept": null,
+      "diagram": null,
+      "narration": "that 747. Realizing that memory is an ambush, a betrayal of absence.",
+      "callout": null
+    },
+    {
+      "i": 274,
+      "shot": "closeUp",
+      "beat": "question",
+      "concept": null,
+      "diagram": null,
+      "narration": "If that's true, if remembering splits the skull and invites the parasite back in, then is forgetting the ultimate act of survival?",
+      "callout": {
+        "text": "THAT'S TRUE",
+        "style": "highlight"
+      }
+    },
+    {
+      "i": 275,
+      "shot": "twoShot",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "How much of your own past are you holding on to that is secretly holding you back from the present If memory is a weight that drags you under the swamp, perhaps letting go, perhaps",
+      "callout": null
+    },
+    {
+      "i": 276,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "allowing yourself to forget is the only way to really heal the mind. Thank you for joining us for this deep dive into the profound existential weight of Norwegian wood.",
+      "callout": null
+    },
+    {
+      "i": 277,
+      "shot": "diorama",
+      "beat": "neutral",
+      "concept": null,
+      "diagram": null,
+      "narration": "Until next time, keep exploring the depths.",
+      "callout": null
+    }
+  ]
+}

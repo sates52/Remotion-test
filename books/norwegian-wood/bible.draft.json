@@ -1,0 +1,567 @@
+{
+  "slug": "norwegian-wood",
+  "instructions": [
+    "Rewrite `bible` against `evidence`. The counts are a starting point, not the answer.",
+    "ENGLISH ONLY (US market invariant).",
+    "cast: keep only real characters, key them by a lowercase slug, and give every one a `look`:",
+    "  ONE Flux-ready sentence naming age, build, hair, clothing and period.",
+    "  This is the field that makes a character the same person in beat 12 and beat 204.",
+    "  `variant` carries Antidote costume hints (garment, headwear, hair, height, build, headScale).",
+    "places: `set` MUST be one of horizon office street room stage sky abstract kitchen bedroom classroom library cafe hospital court forest shore highway workstation startupGarage serverRoom pitchStage.",
+    "objects: the book's OWN recurring subjects. `concept` may name an icon we do not have yet;",
+    "  say so in `why` and Phase 4 will draw it.",
+    "world.forbid: icons this period cannot contain. An anachronism is the loudest mistake we can make.",
+    "spine: one entry per act; `claim` is the argument that act makes, in one sentence.",
+    "The draft's era, cast keys, ages and places are a HEURISTIC and are often wrong (Trust Fall: one metaphor gave a",
+    "  sci-fi era; The Art of Strategy: 'lean', 'fred', 'end' as characters). Correcting them from the narration is",
+    "  routine authoring — never a question for the operator. Ages, roles and relations come from what the narration says.",
+    "Then: node scripts/plan-bible.js --slug=norwegian-wood --bible=<this file>"
+  ],
+  "validSets": [
+    "horizon",
+    "office",
+    "street",
+    "room",
+    "stage",
+    "sky",
+    "abstract",
+    "kitchen",
+    "bedroom",
+    "classroom",
+    "library",
+    "cafe",
+    "hospital",
+    "court",
+    "forest",
+    "shore",
+    "highway",
+    "workstation",
+    "startupGarage",
+    "serverRoom",
+    "pitchStage"
+  ],
+  "knownConcepts": [
+    "alarmClock",
+    "butterfly",
+    "subway",
+    "car",
+    "coffee",
+    "codeWindow",
+    "rocketLaunch",
+    "funnelMetrics",
+    "dollarExchange",
+    "laptopMockup",
+    "crash",
+    "ledge",
+    "water",
+    "grave",
+    "medical",
+    "notes",
+    "phone",
+    "school",
+    "home",
+    "family",
+    "road",
+    "storm",
+    "star",
+    "heart",
+    "fire",
+    "tree",
+    "mask",
+    "mirror",
+    "key",
+    "law",
+    "photo",
+    "war",
+    "game",
+    "work",
+    "city",
+    "food",
+    "coin",
+    "door",
+    "lightbulb",
+    "shadowSelf",
+    "puppeteer",
+    "chains",
+    "compass",
+    "dominoCascade",
+    "icebergDepth",
+    "funnelTrap",
+    "thirtyTyrants",
+    "ringOfGyges",
+    "caveAllegory",
+    "shipOfState",
+    "tripartiteSoul",
+    "kallipolis",
+    "fiveRegimes",
+    "mythOfEr",
+    "boulder",
+    "summit",
+    "ladder",
+    "crack",
+    "clock",
+    "balance",
+    "book",
+    "shield",
+    "trophy",
+    "hourglass",
+    "sword",
+    "target",
+    "magnifier",
+    "wallet",
+    "gift",
+    "inheritance",
+    "zap"
+  ],
+  "bible": {
+    "slug": "norwegian-wood",
+    "world": {
+      "era": "unspecified",
+      "eraEvidence": "none — author it from the narration",
+      "worldId": "",
+      "approxYear": null,
+      "setting": "",
+      "register": "",
+      "forbid": []
+    },
+    "visualProvenance": {
+      "bookId": "norwegian-wood",
+      "worldId": "",
+      "allowedMotifs": [],
+      "forbiddenMotifs": [],
+      "allowedCharacters": [],
+      "allowedLocations": [],
+      "allowedProps": []
+    },
+    "cast": {
+      "toru": {
+        "name": "Toru",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 19
+      },
+      "reiko": {
+        "name": "Reiko",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 6
+      },
+      "naoko": {
+        "name": "Naoko",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "kizuki": {
+        "name": "Kizuki",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 3
+      },
+      "nagasawa": {
+        "name": "Nagasawa",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "hatsumi": {
+        "name": "Hatsumi",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      },
+      "death": {
+        "name": "Death",
+        "role": "",
+        "look": "",
+        "variant": {},
+        "mentions": 2
+      }
+    },
+    "places": {
+      "shipDeck": {
+        "set": "shipDeck",
+        "look": "",
+        "mentions": 4
+      },
+      "classroom": {
+        "set": "classroom",
+        "look": "",
+        "mentions": 3
+      },
+      "cafe": {
+        "set": "cafe",
+        "look": "",
+        "mentions": 3
+      },
+      "forest": {
+        "set": "forest",
+        "look": "",
+        "mentions": 3
+      },
+      "hospital": {
+        "set": "hospital",
+        "look": "",
+        "mentions": 3
+      },
+      "colonnade": {
+        "set": "colonnade",
+        "look": "",
+        "mentions": 2
+      },
+      "shore": {
+        "set": "shore",
+        "look": "",
+        "mentions": 1
+      },
+      "court": {
+        "set": "court",
+        "look": "",
+        "mentions": 1
+      },
+      "bedroom": {
+        "set": "bedroom",
+        "look": "",
+        "mentions": 1
+      },
+      "kitchen": {
+        "set": "kitchen",
+        "look": "",
+        "mentions": 1
+      },
+      "manuscript": {
+        "set": "manuscript",
+        "look": "",
+        "mentions": 1
+      }
+    },
+    "objects": [
+      {
+        "concept": "grave",
+        "mentions": 23,
+        "why": ""
+      },
+      {
+        "concept": "school",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "family",
+        "mentions": 11,
+        "why": ""
+      },
+      {
+        "concept": "phone",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "game",
+        "mentions": 10,
+        "why": ""
+      },
+      {
+        "concept": "gift",
+        "mentions": 9,
+        "why": ""
+      },
+      {
+        "concept": "law",
+        "mentions": 8,
+        "why": ""
+      },
+      {
+        "concept": "notes",
+        "mentions": 7,
+        "why": ""
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 6,
+        "why": ""
+      },
+      {
+        "concept": "war",
+        "mentions": 5,
+        "why": ""
+      },
+      {
+        "concept": "chains",
+        "mentions": 5,
+        "why": ""
+      }
+    ],
+    "spine": [
+      {
+        "act": "setup",
+        "fromFrame": 2,
+        "claim": ""
+      },
+      {
+        "act": "development",
+        "fromFrame": 15046,
+        "claim": ""
+      },
+      {
+        "act": "turn",
+        "fromFrame": 30756,
+        "claim": ""
+      },
+      {
+        "act": "consequence",
+        "fromFrame": 45250,
+        "claim": ""
+      },
+      {
+        "act": "close",
+        "fromFrame": 59011,
+        "claim": ""
+      }
+    ]
+  },
+  "evidence": {
+    "sentences": 526,
+    "cast": [
+      {
+        "name": "Toru",
+        "asSubject": 19,
+        "total": 68,
+        "samples": [
+          "And if you've ever dealt with a sudden, devastating loss, you know exactly what Toru is feeling here.",
+          "And this active parasitic presence of death, it dictates every single action Toru takes in the novel.",
+          "And because of that loss, Toru finds himself caught in this brutal psychological tugof-war."
+        ]
+      },
+      {
+        "name": "Reiko",
+        "asSubject": 6,
+        "total": 16,
+        "samples": [
+          "They are completely cut off from reality.\" Reiko says that once you leave the hostel, you burn your bridges.",
+          "Reiko Reiko is a deeply fascinating figure.",
+          "Reiko had a husband, a young daughter, a life as a piano prodigy, a seemingly perfect suburban existence, and it all shattered."
+        ]
+      },
+      {
+        "name": "Naoko",
+        "asSubject": 3,
+        "total": 14,
+        "samples": [
+          "So Toru and Naoko were the tragic collateral damage.",
+          "And if Naoko is the pull of the quiet dead pulling Toru into the silent frozen woods, then we have to look at the counterforce.",
+          "She knows Naoko is fundamentally structurally broken by Kazuki's death and by the earlier suicide of Naoko's older sister."
+        ]
+      },
+      {
+        "name": "Kizuki",
+        "asSubject": 3,
+        "total": 11,
+        "samples": [
+          "And Kizuki is just dead serious.",
+          "And that night, Kizuki goes into his family's garage.",
+          "Okay, but I have to say looking at the mechanics of how Kizuki did it, the premeditation of the tape, the hose, the absolute silence, I can't help but see Kizuk"
+        ]
+      },
+      {
+        "name": "Nagasawa",
+        "asSubject": 2,
+        "total": 11,
+        "samples": [
+          "I would argue that in a strange way, Nagasawa is the most honest character in the entire I mean, he's a sociopath.",
+          "He sleeps with random girls only when Nagasawa tells him to."
+        ]
+      },
+      {
+        "name": "Hatsumi",
+        "asSubject": 2,
+        "total": 5,
+        "samples": [
+          "Hatsumi is a sophisticated, deeply kind woman.",
+          "And Hatsumi is just sitting right there."
+        ]
+      },
+      {
+        "name": "Death",
+        "asSubject": 2,
+        "total": 3,
+        "samples": [
+          "Right. Death is an active parasitic co-presence.",
+          "Death is such an active heavy co-presence here that even the adults, the supposed authority figures who've lived full lives, are helplessly trapped by its gravi"
+        ]
+      }
+    ],
+    "places": [
+      {
+        "set": "shipDeck",
+        "mentions": 4,
+        "samples": [
+          "They are eating roast duck and sea bass.",
+          "He feels like he is literally walking on the bottom of the sea."
+        ]
+      },
+      {
+        "set": "classroom",
+        "mentions": 3,
+        "samples": [
+          "Toru is sitting in a university lecture hall, and the professor is teaching Uripides Greek tragedy, Electra, which is brilliant, right?",
+          "And suddenly the lecture hall doors bang open."
+        ]
+      },
+      {
+        "set": "cafe",
+        "mentions": 3,
+        "samples": [
+          "It's this incredibly elegant French restaurant in Azabu.",
+          "Okay, I see the logic, but honestly, I look at that restaurant scene and I just feel sick."
+        ]
+      },
+      {
+        "set": "forest",
+        "mentions": 3,
+        "samples": [
+          "Toru takes a bus deep deep into the chilling ancient cedar forest to visit Naoko.",
+          "Just because someone looks like the guide, just because they are older and seem to have it together, doesn't mean they aren't completely lost in the w"
+        ]
+      },
+      {
+        "set": "hospital",
+        "mentions": 3,
+        "samples": [
+          "She drags him to a crowded disinfectant smelling university hospital.",
+          "She drags Tora to the hospital."
+        ]
+      },
+      {
+        "set": "colonnade",
+        "mentions": 2,
+        "samples": [
+          "And despite that sanctuary, despite Reiko's constant companionship, the quiet walks in the meadow, and Toru's long letters from Tokyo, the gravity of ",
+          "Exactly. By playing those 50 songs, by sleeping with Toru that night in a moment of pure shared human warmth, by leaving her sanctuary and stepping on"
+        ]
+      },
+      {
+        "set": "shore",
+        "mentions": 1,
+        "samples": [
+          "They walk down the hill in Coobe to play pool by the harbor."
+        ]
+      },
+      {
+        "set": "court",
+        "mentions": 1,
+        "samples": [
+          "They are drenched in sweat on the court."
+        ]
+      },
+      {
+        "set": "bedroom",
+        "mentions": 1,
+        "samples": [
+          "Now came home from school one day and found her in her bedroom standing by a window, but her neck was bent at a sharp unnatural angle."
+        ]
+      },
+      {
+        "set": "kitchen",
+        "mentions": 1,
+        "samples": [
+          "They sit on his ver, open a bottle of cheap wine, and she takes out a large box of kitchen matches."
+        ]
+      },
+      {
+        "set": "manuscript",
+        "mentions": 1,
+        "samples": [
+          "But if we look closer at Reiko's dialogue, this ritual is actually Reiko's own desperate resurrection."
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "concept": "grave",
+        "mentions": 23,
+        "sample": "It is. Death in this story is not the opposite of life."
+      },
+      {
+        "concept": "school",
+        "mentions": 11,
+        "sample": "It is such a phenomenal psychological study and it's set against this backdrop of late 1960s Tokyo which you know is a period of intense soc"
+      },
+      {
+        "concept": "family",
+        "mentions": 11,
+        "sample": "And that night, Kizuki goes into his family's garage."
+      },
+      {
+        "concept": "phone",
+        "mentions": 10,
+        "sample": "What she literally calls the pain of growing up."
+      },
+      {
+        "concept": "game",
+        "mentions": 10,
+        "sample": "Because when you are carrying a soulc crushing intimate tragedy, when your best friend has just esphixxiated himself and you are breathing i"
+      },
+      {
+        "concept": "gift",
+        "mentions": 9,
+        "sample": "She offers Toru this vibrant, chaotic, highly imperfect escape right into the present moment."
+      },
+      {
+        "concept": "law",
+        "mentions": 8,
+        "sample": "Wow. It's in the heavy paper weight on a police desk where he has to get a statement."
+      },
+      {
+        "concept": "notes",
+        "mentions": 7,
+        "sample": "We are looking at a massive stack of notes, critiques, and all this source material on Harukqi Murakami's Norwegian Wood."
+      },
+      {
+        "concept": "heart",
+        "mentions": 6,
+        "sample": "And you know, if you, the listener, have only ever heard this book described as this wisful coming of age romance, uh, we need to reset thos"
+      },
+      {
+        "concept": "alarmClock",
+        "mentions": 6,
+        "sample": "And right in front of her, over a glass of wine, Nagasawa casually admits to Toru that he sleeps with dozens of women."
+      },
+      {
+        "concept": "war",
+        "mentions": 5,
+        "sample": "And because of that loss, Toru finds himself caught in this brutal psychological tugof-war."
+      },
+      {
+        "concept": "chains",
+        "mentions": 5,
+        "sample": "She offers Toru this vibrant, chaotic, highly imperfect escape right into the present moment."
+      }
+    ],
+    "openingLines": [
+      "So the moment the uh the soft sweet orchestral cover of Norwegian wood plays over the cabin speakers, Toru Watanabe is just he's not reminiscing.",
+      "No, not at all.",
+      "He is strapped into a 747 and this plane is plunging through these dense, gloomy November clouds over Hamburg, Germany, and he is like physically crushed.",
+      "Yeah, it's a completely visceral right?",
+      "He is 37 years old, bending forward in his seat, and he's pressing his face so hard into his hands that he actually feels like his skull is going to split open, which just immediately shatters any expectation you might have about, you know, the warmth of nostalgia.",
+      "Because in this context, remembering someone isn't a comfort, it's an ambush."
+    ],
+    "closingLines": [
+      "If that's true, if remembering splits the skull and invites the parasite back in, then is forgetting the ultimate act of survival?",
+      "How much of your own past are you holding on to that is secretly holding you back from the present If memory is a weight that drags you under the swamp, perhaps letting go, perhaps allowing yourself to forget is the only way to really heal the mind.",
+      "Thank you for joining us for this deep dive into the profound existential weight of Norwegian wood.",
+      "Until next time, keep exploring the depths."
+    ]
+  }
+}

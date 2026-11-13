@@ -1,0 +1,119 @@
+{
+  "note": "Three facts per run: technical (output file), quality (firewall PASS/FAIL), decision (operator). Append-only; FAIL records are never removed.",
+  "runs": [
+    {
+      "at": "2026-11-11T04:45:11.493Z",
+      "kind": "preflight",
+      "mode": "production",
+      "commit": "1313d9b1",
+      "tools": "e8d81137",
+      "pin": "1313d9b1122b",
+      "configHash": "706f347254cca386",
+      "renderInputHash": "5296f2961db88aa0",
+      "quality": {
+        "status": "FAIL",
+        "blocks": 0,
+        "reviews": 454
+      },
+      "preview": {
+        "state": "READY",
+        "covered": false,
+        "mute": {
+          "label": "final",
+          "sample": "fresh",
+          "n": 30,
+          "wrong": 0,
+          "dead": 1,
+          "adds": 24,
+          "pass": true
+        }
+      },
+      "decision": {
+        "kind": "ACCEPTED_DEBT (recorded now)",
+        "ok": true,
+        "accepted": true,
+        "reason": "Render et, birleştir, Youtube a hazırla",
+        "covered": 36,
+        "newFindings": 0,
+        "goneFindings": 0
+      },
+      "authorization": {
+        "at": "2026-11-11T04:44:30.424Z",
+        "recordedNow": true,
+        "kind": "render-authorization"
+      },
+      "technical": "NOT_RUN",
+      "credentials": {
+        "ok": true,
+        "source": "main checkout (read in place, not copied)",
+        "active": 10,
+        "usable": 10,
+        "verified": 10,
+        "refused": 0
+      }
+    },
+    {
+      "at": "2026-11-11T07:18:54.996Z",
+      "kind": "technical",
+      "technical": "VERIFIED",
+      "file": "out\\norwegian-wood.mp4",
+      "frames": 73493,
+      "expectedFrames": 73493,
+      "decodes": true,
+      "problems": [],
+      "media": {
+        "narrationFile": "public\\audio\\norwegian-wood.mastered.m4a",
+        "joinRepair": {
+          "status": "REPAIRED",
+          "joins": 189,
+          "encoderDelaySamples": 2048,
+          "removedSec": 10.756,
+          "audioDiffSamples": -32
+        },
+        "sync": {
+          "verdict": "PASS",
+          "startOffsetSec": 0,
+          "endOffsetSec": -0.0001,
+          "endToleranceSec": 0.076,
+          "audioDiscontinuities": 0,
+          "clock": "ON",
+          "clockToleranceSec": 0.0667,
+          "problems": []
+        },
+        "video": {
+          "packets": 73493,
+          "endSec": 2449.7667,
+          "holds": 0,
+          "chunkHolds": 0,
+          "segmentHolds": 0,
+          "offGridHolds": 0,
+          "stretchSec": 0,
+          "stretchPct": 0
+        },
+        "audio": {
+          "packets": 114834,
+          "endSec": 2449.7666,
+          "excessOverNarrationSec": -0.033
+        },
+        "joinDropouts": {
+          "status": "NONE",
+          "count": 0,
+          "totalSec": 0,
+          "maxSec": 0,
+          "filmZeroRuns": 2,
+          "sourceZeroRuns": 4,
+          "first": []
+        },
+        "loudness": {
+          "integratedLufs": -14.3,
+          "lraLu": 5,
+          "samplePeakDbfs": -0.5,
+          "status": "REPORT_ONLY"
+        }
+      },
+      "checkedBy": "e8d8113734cd8f276b4c72084aeed107fcfc098c",
+      "tools": "e8d81137",
+      "pin": "1313d9b1122b"
+    }
+  ]
+}

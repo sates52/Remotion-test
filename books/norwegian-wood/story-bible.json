@@ -1,0 +1,427 @@
+{
+  "slug": "norwegian-wood",
+  "world": {
+    "era": "late 1960s (1968–1970): Tokyo and Kyoto mountains, Japan",
+    "worldId": "tokyoLate60s",
+    "approxYear": 1969,
+    "setting": "Late 1960s Tokyo college campuses, dorm rooms, noisy bars, record shops, and the secluded Ami Hostel sanatorium in the Kyoto mountains",
+    "register": "melancholic literary fiction, existential coming-of-age, survivor's guilt, student movements, memory and loss",
+    "forbid": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "laptopMockup",
+      "codeWindow",
+      "funnelMetrics"
+    ]
+  },
+  "visualProvenance": {
+    "bookId": "norwegian-wood",
+    "worldId": "tokyoLate60s",
+    "allowedMotifs": [
+      "acousticGuitar",
+      "rotaryPhone",
+      "sleepingBag",
+      "vinylRecord",
+      "grave",
+      "school",
+      "family",
+      "phone",
+      "game",
+      "gift",
+      "law",
+      "notes",
+      "heart",
+      "alarmClock",
+      "war",
+      "chains",
+      "mirror",
+      "book",
+      "fire",
+      "tree",
+      "water",
+      "door",
+      "coffee",
+      "food",
+      "city",
+      "road",
+      "storm",
+      "star",
+      "compass",
+      "car",
+      "clock",
+      "mask",
+      "balance",
+      "home",
+      "medical"
+    ],
+    "forbiddenMotifs": [
+      "thirtyTyrants",
+      "ringOfGyges",
+      "caveAllegory",
+      "shipOfState",
+      "tripartiteSoul",
+      "kallipolis",
+      "fiveRegimes",
+      "mythOfEr",
+      "laptopMockup",
+      "codeWindow",
+      "funnelMetrics"
+    ],
+    "allowedCharacters": [
+      "toru",
+      "naoko",
+      "midori",
+      "reiko",
+      "kizuki",
+      "nagasawa",
+      "hatsumi"
+    ],
+    "allowedLocations": [
+      "room",
+      "bedroom",
+      "classroom",
+      "cafe",
+      "forest",
+      "hospital",
+      "street",
+      "shore",
+      "horizon",
+      "abstract"
+    ],
+    "allowedProps": [
+      "acousticGuitar",
+      "rotaryPhone",
+      "sleepingBag",
+      "vinylRecord",
+      "book",
+      "grave"
+    ]
+  },
+  "cast": {
+    "toru": {
+      "name": "Toru Watanabe",
+      "role": "quiet, introspective Tokyo university student navigating overwhelming survivor's guilt",
+      "look": "a thoughtful nineteen-year-old Japanese young man with dark tousled hair, earnest solemn brown eyes, wearing a simple woolen sweater and dark corduroy trousers",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#2C3E50",
+        "shirt": "#BDC3C7",
+        "skin": "#F0C8A4",
+        "hair": "#1C1C1C",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 195
+    },
+    "naoko": {
+      "name": "Naoko",
+      "role": "Kizuki's traumatized childhood sweetheart slowly succumbing to psychological depression in a mountain retreat",
+      "look": "a delicate and painfully beautiful nineteen-year-old Japanese young woman with straight long dark hair, sorrowful dark eyes, wearing an oversized pale knit cardigan over a soft white blouse",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#7F8C8D",
+        "shirt": "#ECF0F1",
+        "skin": "#F5D4B7",
+        "hair": "#1A1A1A",
+        "hairStyle": "long",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 85
+    },
+    "midori": {
+      "name": "Midori Kobayashi",
+      "role": "Toru's vibrant, outspoken classmate who embodies unfiltered life and defiant survival",
+      "look": "an energetic twenty-year-old Japanese young woman with a sharp short bob haircut, mischievous sparkling eyes, colorful striped turtleneck sweater and denim mini-skirt",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#E67E22",
+        "shirt": "#F39C12",
+        "skin": "#F0C8A4",
+        "hair": "#2C3E50",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 70
+    },
+    "reiko": {
+      "name": "Reiko Ishida",
+      "role": "older resident and mentor at Ami Hostel, former classical pianist who plays guitar to heal",
+      "look": "a weathered, graceful Japanese woman in her late thirties with fine laugh lines around warm knowing eyes, salt-and-pepper hair pinned up loosely, wearing a comfortable rustic cotton work shirt",
+      "variant": {
+        "gender": "f",
+        "age": "adult",
+        "build": "average",
+        "outfit": "casual",
+        "suit": "#34495E",
+        "shirt": "#95A5A6",
+        "skin": "#E8BE96",
+        "hair": "#4A4A4A",
+        "hairStyle": "ponytail",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 40
+    },
+    "kizuki": {
+      "name": "Kizuki",
+      "role": "Toru's charismatic best friend whose sudden suicide at seventeen casts a permanent shadow over all survivors",
+      "look": "a charming seventeen-year-old Japanese youth with a warm easy smile, radiant dark eyes, wearing a vintage high school sports jacket, permanently preserved in memory",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "slight",
+        "outfit": "casual",
+        "suit": "#2980B9",
+        "shirt": "#EBF5FB",
+        "skin": "#F0C8A4",
+        "hair": "#1C1C1C",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 30
+    },
+    "nagasawa": {
+      "name": "Nagasawa",
+      "role": "Toru's brilliant, aristocratic dorm senior whose total cynical detachment serves as a warning against emotional numbness",
+      "look": "a sharp-featured, privileged twenty-one-year-old Japanese elite law student, tailored blazer, immaculate crisp white dress shirt, cold confident smirk",
+      "variant": {
+        "gender": "m",
+        "age": "young",
+        "build": "average",
+        "outfit": "suit",
+        "suit": "#1B2631",
+        "shirt": "#FFFFFF",
+        "skin": "#F5D4B7",
+        "hair": "#17202A",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "tie"
+      },
+      "mentions": 20
+    },
+    "hatsumi": {
+      "name": "Hatsumi",
+      "role": "Nagasawa's devoted, dignified girlfriend whose quiet tragedy embodies the cost of loving someone incapable of emotional warmth",
+      "look": "an elegant twenty-year-old Japanese woman of refined grace, styled dark bob, classic navy wool dress with pearl collar, conveying understated melancholy",
+      "variant": {
+        "gender": "f",
+        "age": "young",
+        "build": "slight",
+        "outfit": "suit",
+        "suit": "#212F3D",
+        "shirt": "#EAEDED",
+        "skin": "#FADBD8",
+        "hair": "#1B2631",
+        "hairStyle": "short",
+        "headwear": "none",
+        "beard": "none",
+        "glasses": false,
+        "accessory": "none"
+      },
+      "mentions": 10
+    }
+  },
+  "places": {
+    "bedroom": {
+      "set": "bedroom",
+      "look": "Toru's spartan dorm room filled with paperbacks, records, and quiet solitary introspection",
+      "mentions": 15
+    },
+    "classroom": {
+      "set": "classroom",
+      "look": "Waseda university lecture halls disrupted by student strike banners and ideological pamphlets",
+      "mentions": 10
+    },
+    "cafe": {
+      "set": "cafe",
+      "look": "smoky Tokyo jazz kissa and coffee shops where jazz plays softly over clinking porcelain",
+      "mentions": 12
+    },
+    "forest": {
+      "set": "forest",
+      "look": "dense, mist-shrouded Kyoto mountain woods surrounding the secluded Ami Hostel sanatorium",
+      "mentions": 20
+    },
+    "hospital": {
+      "set": "hospital",
+      "look": "the quiet rustic sanitarium pavilion where patients garden and seek respite from societal pressure",
+      "mentions": 14
+    },
+    "street": {
+      "set": "street",
+      "look": "bustling late 1960s Shinjuku neon streets, train stations, and rain-swept alleys",
+      "mentions": 18
+    },
+    "shore": {
+      "set": "shore",
+      "look": "desolate, windswept Japanese coastline where Toru wanders alone following Naoko's suicide",
+      "mentions": 10
+    },
+    "horizon": {
+      "set": "horizon",
+      "look": "expansive autumn skies over Tokyo and the rolling Kyoto hills symbolizing passage of time",
+      "mentions": 15
+    },
+    "room": {
+      "set": "room",
+      "look": "Midori's family bookstore apartment and small tatami living quarters",
+      "mentions": 12
+    },
+    "abstract": {
+      "set": "abstract",
+      "look": "the internal realm of memory, grief, and the lingering gravitational pull of the dead",
+      "mentions": 25
+    }
+  },
+  "objects": [
+    {
+      "concept": "grave",
+      "mentions": 23,
+      "why": "the inescapable presence of death and the memory of Kizuki and Naoko holding back the living"
+    },
+    {
+      "concept": "book",
+      "mentions": 15,
+      "why": "The Great Gatsby and classical literature Toru reads alone in his room as emotional refuge"
+    },
+    {
+      "concept": "phone",
+      "mentions": 10,
+      "why": "the public phone booths Toru uses across Tokyo, concluding with the climactic call to Midori"
+    },
+    {
+      "concept": "school",
+      "mentions": 11,
+      "why": "university campuses paralyzed by late 60s political radicalism contrasted with personal grief"
+    },
+    {
+      "concept": "acousticGuitar",
+      "mentions": 12,
+      "why": "Reiko's guitar playing fifty folk and Beatles songs as a sacred memorial rite for Naoko"
+    },
+    {
+      "concept": "sleepingBag",
+      "mentions": 8,
+      "why": "Toru's solitary pilgrimage along the Japanese coastline confronting the absolute limits of grief"
+    },
+    {
+      "concept": "vinylRecord",
+      "mentions": 10,
+      "why": "The Beatles' Norwegian Wood and jazz records awakening deep sensory memories of youth"
+    },
+    {
+      "concept": "heart",
+      "mentions": 6,
+      "why": "the emotional struggle between loving a phantom and embracing living imperfection"
+    },
+    {
+      "concept": "chains",
+      "mentions": 5,
+      "why": "the invisible psychological shackles of survivor's guilt arresting development at age seventeen"
+    }
+  ],
+  "spine": [
+    {
+      "act": "setup",
+      "fromFrame": 2,
+      "claim": "Kizuki's sudden suicide at seventeen traps Toru and Naoko in an emotional arrest between memory and reality."
+    },
+    {
+      "act": "development",
+      "fromFrame": 15046,
+      "claim": "As Naoko retreats to the Kyoto sanatorium, Midori enters Toru's life as a vibrant, chaotic lifeline to the living."
+    },
+    {
+      "act": "turn",
+      "fromFrame": 30756,
+      "claim": "Toru witnesses the contrasting paths of Nagasawa's callous detachment and Reiko's enduring vulnerability."
+    },
+    {
+      "act": "consequence",
+      "fromFrame": 45250,
+      "claim": "Naoko's death shatters Toru into solitary coastal wandering until Reiko's memorial concert allows him to mourn."
+    },
+    {
+      "act": "close",
+      "fromFrame": 59011,
+      "claim": "Choosing life, Toru calls Midori from a crowded station, stranded in the noisy, disorienting heart of nowhere."
+    }
+  ],
+  "signatureObjects": [
+    {
+      "key": "acousticGuitar",
+      "name": "Acoustic Guitar",
+      "why": "Reiko's guitar carrying fifty songs to mourn Naoko and release Toru back to the living"
+    },
+    {
+      "key": "sleepingBag",
+      "name": "Coastal Sleeping Bag",
+      "why": "Toru's aimless seaside exile confronting grief's physical and spiritual exhaustion"
+    },
+    {
+      "key": "vinylRecord",
+      "name": "Norwegian Wood Vinyl",
+      "why": "the auditory trigger of memory and the sensory betrayal of time passing"
+    },
+    {
+      "key": "rotaryPhone",
+      "name": "Public Rotary Phone",
+      "why": "the climactic phone call to Midori searching for coordinates in the living world"
+    }
+  ],
+  "groups": {
+    "survivors": {
+      "label": "The Living Survivors",
+      "role": "youth struggling to establish a foothold in life despite grief",
+      "body": "#2C3E50",
+      "accent": "#E67E22",
+      "evidence": "choosing between sanctified ghosts and imperfect living people"
+    },
+    "ghosts": {
+      "label": "The Frozen Past",
+      "role": "those who could not withstand the friction of the world",
+      "body": "#7F8C8D",
+      "accent": "#BDC3C7",
+      "evidence": "forever arrested at seventeen, trapped in the quiet gravitational pull of the dead"
+    },
+    "cynics": {
+      "label": "The Detached Prodigies",
+      "role": "those who sever emotional vulnerability to conquer society",
+      "body": "#1B2631",
+      "accent": "#F5D4B7",
+      "evidence": "extinguishing feeling to avoid suffering, treating relationships as conquests"
+    }
+  },
+  "authored": true
+}

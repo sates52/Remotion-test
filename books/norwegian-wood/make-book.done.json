@@ -1,0 +1,36 @@
+{
+  "status": "done",
+  "startedAt": "2026-11-10T17:52:32.426Z",
+  "at": "2026-11-10T18:31:12.219Z",
+  "config": "config.antidote.json",
+  "configSha256": "706f347254cca38633cb811d37991b9d78f787010ac508e9494328b9e57a4879",
+  "inputs": {
+    "storyboard": {
+      "path": "books/norwegian-wood/art.json",
+      "sha256": "4e622483e0f1c52e4c7af3892acc7a86791b2697a1fd3461fff4c0e97a39c7aa"
+    },
+    "storyBible": {
+      "path": "books/norwegian-wood/story-bible.json",
+      "sha256": "48b7b42269c13e43cfeac926715fafd9ce129684be7aa8a502d357926a241d45"
+    },
+    "motifs": {
+      "path": "books/norwegian-wood/motifs.json",
+      "sha256": "10002d8751d122d9b464a49235da2e8c9c16751b454063d4aa0bc20a988db53d"
+    },
+    "vtt": {
+      "path": "public/captions/norwegian-wood.vtt",
+      "sha256": "a90b5d17e1036a78964da7ad5470088d9f06e48f02c8eb0b33096ef34bc9babd"
+    },
+    "audio": {
+      "path": "public/audio/norwegian-wood.mp3",
+      "sha256": "1cf49ae3e6c0adc97ac3367a44d86c59b8f7e6966bb1e0e25333fd3604a175fb"
+    },
+    "singleRelation": {
+      "path": "books/norwegian-wood/single-relation/active.json",
+      "sha256": null
+    }
+  },
+  "head": "1313d9b1122b28c59fa739662100862548553595",
+  "previewOnly": true,
+  "skipPack": true
+}
