@@ -1,0 +1,70 @@
+{
+ "schema": "stills/1",
+ "name": "flicker probe",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "c2-half",
+   "config": "configs/cc.json",
+   "frames": [
+    1300
+   ],
+   "clip": {
+    "from": 1240,
+    "to": 1400
+   }
+  },
+  {
+   "id": "c1-half",
+   "config": "configs/cc.json",
+   "frames": [
+    1300
+   ],
+   "clip": {
+    "from": 1240,
+    "to": 1400,
+    "concurrency": 1
+   }
+  },
+  {
+   "id": "c2-full",
+   "config": "configs/cc.json",
+   "frames": [
+    1300
+   ],
+   "clip": {
+    "from": 1240,
+    "to": 1400,
+    "scale": 1
+   }
+  },
+  {
+   "id": "c1-full",
+   "config": "configs/cc.json",
+   "frames": [
+    1300
+   ],
+   "clip": {
+    "from": 1240,
+    "to": 1400,
+    "scale": 1,
+    "concurrency": 1
+   }
+  }
+ ],
+ "inputHash": "796b5eac922a5e6e",
+ "files": {
+  "stills/configs/cc.json": "ed3ab2152e822fa0822a539fcc3dce9d3e308eb8e427fdb2f9efe312530d35ba"
+ },
+ "builtAt": "2026-11-13T15:53:34.279Z"
+}
