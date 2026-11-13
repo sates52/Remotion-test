@@ -1,0 +1,77 @@
+{
+ "schema": "stills/1",
+ "name": "told pilot 2",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 3,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "creative-curve-T-stills",
+   "config": "configs/the-creative-curve-0-90-T.json",
+   "frames": [
+    230,
+    397,
+    567,
+    763,
+    882,
+    1012,
+    1122,
+    1242,
+    1362,
+    1524,
+    1704,
+    1855,
+    1965,
+    2139,
+    2419,
+    2646,
+    2774,
+    2954
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   }
+  },
+  {
+   "id": "the-creative-curve-0-90-T",
+   "config": "configs/the-creative-curve-0-90-T.json",
+   "frames": [
+    1122
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2984
+   }
+  },
+  {
+   "id": "zero-to-one-T-check",
+   "config": "configs/zero-to-one-0-90-T.json",
+   "frames": [
+    270,
+    1016,
+    1708,
+    2012,
+    2546
+   ],
+   "grid": {
+    "cols": 5,
+    "width": 480
+   }
+  }
+ ],
+ "inputHash": "6eff72518f2c7c99",
+ "files": {
+  "stills/configs/the-creative-curve-0-90-T.json": "f9e2b338f97420a8f1ad355d6deb06e7ab872557fc7e22cfe7cb3df9a3145e59",
+  "stills/configs/zero-to-one-0-90-T.json": "8b4baeb8db354a1f95faa11bcbaffd3ba56c6d91334376cd6819fd83546b4aa9"
+ },
+ "builtAt": "2026-11-13T06:27:20.390Z"
+}
