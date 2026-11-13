@@ -63,7 +63,11 @@ function main() {
   // the scenes carry their own sound cues: the runner needs the effect files even for a silent clip
   const sfx = path.join(__dirname, "..", "public", "sfx");
   const extra = fs.existsSync(sfx) ? fs.readdirSync(sfx).filter((f) => f.endsWith(".wav")).map((f) => `public/sfx/${f}`) : [];
-  fs.writeFileSync(path.join(OUT, "manifest.json"), JSON.stringify({ schema: "stills/1", name: `film-flow passages ${ARM}${FLOW ? ` flow ${FLOW}` : ""}`, composition: "Antidote-lab", entry: "src/index.ts", silent: true, shards: jobs.length, extra, jobs }, null, 2));
+  fs.writeFileSync(path.join(OUT, "manifest.json"), JSON.stringify({ schema: "stills/1", name: `film-flow passages ${ARM}${FLOW ? ` flow ${FLOW}` : ""}`, composition: "Antidote-lab", entry: "src/index.ts", silent: true,
+    // drawn the way the FILM is drawn: the production render gives the browser no graphics flag. Under the stills
+    // pipeline's "swangle" a clip showed stale picture tiles on most frames (flicker-check.js: 135 of 161 frames;
+    // 21 with this setting) — the operator saw the pilots tremble.
+    gl: "default", shards: jobs.length, extra, jobs }, null, 2));
   fs.writeFileSync(path.join(OUT, "passages.json"), JSON.stringify(record, null, 2));
   for (const r of record) console.log(`  ${r.id}: ${r.scenes} scenes, ${r.seconds} s (${r.firstScene}…${r.lastScene})`);
   console.log(`→ ${OUT}\n  push: node scripts/stills-cloud.js push --manifest=${path.join(OUT, "manifest.json")} --tag=<name>`);

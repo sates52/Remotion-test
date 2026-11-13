@@ -49,7 +49,10 @@ const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest
   const serveUrl = await bundle({ entryPoint: path.join(ROOT, man.entry || "src/index.ts"), webpackOverride: (c) => c });
   const bundleSec = (Date.now() - t0) / 1000;
   console.log(`bundle ${bundleSec.toFixed(0)} s · shard ${k}/${n}: ${jobs.length} jobs, ${stills} stills`);
-  const browser = await openBrowser("chrome", { chromiumOptions: { gl: "swangle" } });
+  // manifest `gl`: the browser's graphics backend. Default "swangle" (as before); "default" = none given, which is how
+  // the production film render starts its browser (render.js --method=local) — so a clip can be checked the way the
+  // film will be drawn (2026-11-13: full-size clips under swangle showed stale picture tiles the film render may not).
+  const browser = await openBrowser("chrome", man.gl === "default" ? {} : { chromiumOptions: { gl: man.gl || "swangle" } });
   for (const d of ["raw", "strips", "grids", "clips"]) fs.mkdirSync(path.join(OUT, d), { recursive: true });
   const files = {}, failed = [];
   for (const j of jobs) {
@@ -84,7 +87,8 @@ const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest
       if (j.clip) {
         const c = path.join(OUT, "clips", `${j.id}.mp4`);
         await renderMedia({ composition, serveUrl, codec: "h264", outputLocation: c, inputProps, frameRange: [j.clip.from, j.clip.to], muted: true,
-          crf: j.clip.crf || 23, scale: j.clip.scale || 0.5, puppeteerInstance: browser, timeoutInMilliseconds: 240000, concurrency: 2 });
+          // clip.concurrency (default 2): how many browser tabs render the clip's frames in turn
+          crf: j.clip.crf || 23, scale: j.clip.scale || 0.5, puppeteerInstance: browser, timeoutInMilliseconds: 240000, concurrency: Math.max(1, Number(j.clip.concurrency) || 2) });
         files[`clips/${j.id}.mp4`] = sha(c);
       }
       console.log(`  ${j.id}: ${(j.frames || []).join(",")}${j.clip ? ` clip ${j.clip.from}-${j.clip.to}` : ""}`);

@@ -274,6 +274,10 @@ export type Live = {
   voice?: Voice;
   /** stable per character, so two figures never move in step */
   seed?: number;
+  /** a figure that stands for someone the narration NAMES (ToldStage): it does what it is given to do and is otherwise
+   *  still — no glance, no shift of weight, no nod to a narrator it cannot hear. Five figures each doing their small
+   *  things read as a trembling picture (operator, 2026-11-13). */
+  calm?: boolean;
 };
 
 /** A gesture's weight: a small move the other way first (anticipation), a fast action, a little too far, then home.
@@ -300,8 +304,8 @@ function livePose(action: CharAction, frame: number, fps: number, blink: number,
   const v = live.voice ?? SILENT;
   const seed = live.seed ?? 0;
   // a glance now and then (eyes hold, then jump), and the weight on one leg, changed every few seconds
-  const glance = stepped(frame, Math.round(fps * (2.3 + hash01(seed) * 0.9)), 4, seed + 1, (r) => (r - 0.5) * 0.5);
-  const weight = stepped(frame, Math.round(fps * (5 + hash01(seed + 2) * 3)), Math.round(fps * 0.7), seed + 3, (_r, b) => ((b + Math.round(seed)) % 2 ? 1 : -1));
+  const glance = live.calm ? 0 : stepped(frame, Math.round(fps * (2.3 + hash01(seed) * 0.9)), 4, seed + 1, (r) => (r - 0.5) * 0.5);
+  const weight = live.calm ? 0 : stepped(frame, Math.round(fps * (5 + hash01(seed + 2) * 3)), Math.round(fps * 0.7), seed + 3, (_r, b) => ((b + Math.round(seed)) % 2 ? 1 : -1));
   const stance = { legL: weight * 2.2, legR: weight * 1.1, hipY: Math.abs(weight) * 1.2, lean: weight * 0.9 };
   switch (action) {
     case "talk": {
