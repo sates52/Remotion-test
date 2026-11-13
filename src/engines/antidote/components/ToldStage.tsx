@@ -1,6 +1,12 @@
 import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { ANTIDOTE_FONT } from "./KineticText";
+import { Everyman } from "../characters/Everyman";
+import { Motif } from "../motifs";
+import { pose } from "../movements";
+import { voiceAt, type Speech } from "../speech";
+import { DEFAULT_VARIANT } from "../schema";
+import type { VariantSpec, CharAction, HandProp, PropSpec } from "../schema";
 
 /**
  * ToldStage — THE PICTURE SHOWS WHAT IS SAID (Film Flow level 2, pilot 2026-11-12).
@@ -20,7 +26,11 @@ import { ANTIDOTE_FONT } from "./KineticText";
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {
   id: string;
-  kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow";
+  kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow" | "figure" | "icon";
+  /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
+  variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
+  /** icon: a library icon (motifs.tsx propType: an animal, an object), or the book own drawing as paths */
+  icon?: string; paths?: Array<{ d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number }>; viewBox?: string;
   label?: string; sub?: string; glyph?: "monitor" | "search" | "doc" | "browser" | "none";
   color?: string; ink?: string; size?: number; w?: number; h?: number; box?: string;
   x: number; y: number; s?: number; o?: number; r?: number;
@@ -154,28 +164,77 @@ const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
   }
 };
 
-export const ToldStage: React.FC<{ spec: ToldSpec }> = ({ spec }) => {
+/** A name under a person, an animal or a thing: the same plate the emblems carry. */
+const Tag: React.FC<{ label: string; size?: number; above?: number }> = ({ label, size = 40, above }) => {
+  const w = textW(label, size) + 40;
+  // `above` = px from the top of the box to the top of the head: a PERSON's name sits over the head, where the
+  // subtitle band never covers it (under the feet it was hidden: the-creative-curve pilot, QUEEN / ROCHLITZ)
+  const y0 = above != null ? above - (size + 34) : 6;
+  return (
+    <svg width={1} height={1} style={{ overflow: "visible", position: "absolute", left: "50%", top: above != null ? 0 : "100%" }}>
+      <rect x={-w / 2} y={y0} width={w} height={size + 22} rx={10} fill="#1E1E22" />
+      <text x={0} y={y0 + size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="#fff" letterSpacing={1}>{label}</text>
+    </svg>
+  );
+};
+
+/**
+ * The stage. Every item sits in its own box at (x, y), so a drawn emblem, a rigged PERSON (any age, any dress — the
+ * engine's own Everyman), a library ICON (an animal, an object: motifs.tsx) and a book's OWN drawing (customSvg paths)
+ * share one stage, one camera and one clock. `absBase` = the film frame of this stage's frame 0, so a figure that
+ * talks moves its mouth on the narration (speech.ts).
+ */
+export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Speech | null }> = ({ spec, absBase = 0, speech = null }) => {
   const frame = useCurrentFrame();
   const cam = toldState({ x: 960, y: 540, s: 1, o: 1, r: 0 }, spec.cam, frame);
+  const voice = speech ? voiceAt(speech, absBase + frame) : undefined;
   return (
-    <AbsoluteFill style={{ backgroundColor: spec.bg ?? "#F2F0EA" }}>
-      <svg viewBox="0 0 1920 1080" width="100%" height="100%">
-        {spec.grid !== false ? (
-          <g opacity={0.5}>{Array.from({ length: 17 }, (_, i) => <line key={`v${i}`} x1={i * 120} y1={0} x2={i * 120} y2={1080} stroke="#E2DFD6" strokeWidth={2} />)}{Array.from({ length: 10 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 120} x2={1920} y2={i * 120} stroke="#E2DFD6" strokeWidth={2} />)}</g>
-        ) : null}
-        {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
-        <g transform={`translate(960 540) scale(${cam.s}) translate(${-cam.x} ${-cam.y})`}>
-          {spec.items.map((it) => {
-            const st = itemState(it, frame);
-            if (!st || st.o <= 0.001) return null;
+    <AbsoluteFill style={{ backgroundColor: spec.bg ?? "#F2F0EA", overflow: "hidden" }}>
+      {spec.grid !== false ? (
+        <svg viewBox="0 0 1920 1080" width="100%" height="100%" style={{ position: "absolute", opacity: 0.5 }}>
+          {Array.from({ length: 17 }, (_, i) => <line key={`v${i}`} x1={i * 120} y1={0} x2={i * 120} y2={1080} stroke="#E2DFD6" strokeWidth={2} />)}
+          {Array.from({ length: 10 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 120} x2={1920} y2={i * 120} stroke="#E2DFD6" strokeWidth={2} />)}
+        </svg>
+      ) : null}
+      {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
+      <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transformOrigin: "0 0", transform: `translate(960px, 540px) scale(${cam.s}) translate(${-cam.x}px, ${-cam.y}px)` }}>
+        {spec.items.map((it) => {
+          const st = itemState(it, frame);
+          if (!st || st.o <= 0.001) return null;
+          const tf = `rotate(${st.r}deg) scale(${st.s})`;
+          if (it.kind === "figure") {
+            // a PERSON: who the narration names, at the age and in the dress the book gives them
+            const w = it.w ?? 300, full = it.body === "full", h = w * (full ? 2.25 : 1.5);
+            const v = { ...DEFAULT_VARIANT, ...(it.variant || {}) } as VariantSpec;
+            const local = Math.max(0, frame - (it.enter ? it.enter.at - (it.enter.dur ?? 12) : 0));
+            const p = pose((it.action ?? "idle") as CharAction, local, 30, it.cue ?? 24, "lead", { voice, seed: it.id.length * 7 + it.x });
             return (
-              <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
-                <Draw it={it} frame={frame} />
-              </g>
+              <div key={it.id} style={{ position: "absolute", left: st.x - w / 2, top: st.y - h, width: w, height: h, opacity: st.o, transform: tf, transformOrigin: "50% 100%" }}>
+                <div style={it.flip ? { transform: "scaleX(-1)" } : undefined}><Everyman variant={v} pose={p} width={w} body={full ? "full" : "bust"} holds={it.holds as HandProp | undefined} /></div>
+                {it.label ? <Tag label={it.label} size={it.size ?? 38} above={h * (1 - Math.min(1, v.height ?? 1)) * 0.9} /> : null}
+              </div>
             );
-          })}
-        </g>
-      </svg>
+          }
+          if (it.kind === "icon") {
+            // an ANIMAL or an OBJECT from the icon library, or the book's own drawing
+            const box = 520 * (it.w ? it.w / 520 : 0.6);
+            const prop = { type: it.icon ?? "customSvg", x: 960, y: 540, scale: 1, enter: "none", at: 0, arc: "none", color: it.color, color2: it.ink, customSvg: it.paths ? { viewBox: it.viewBox ?? "0 0 520 520", paths: it.paths } : undefined } as unknown as PropSpec;
+            return (
+              <div key={it.id} style={{ position: "absolute", left: st.x - box / 2, top: st.y - box / 2, width: box, height: box, opacity: st.o, transform: tf }}>
+                <div style={{ position: "absolute", left: box / 2 - 960 * (box / 520), top: box / 2 - 540 * (box / 520), width: 1920, height: 1080, transformOrigin: "0 0", transform: `scale(${box / 520})` }}>
+                  <Motif spec={prop} accent={it.color ?? "#D9603C"} ink={it.ink ?? "#1E1E22"} />
+                </div>
+                {it.label ? <Tag label={it.label} size={it.size ?? 38} /> : null}
+              </div>
+            );
+          }
+          return (
+            <div key={it.id} style={{ position: "absolute", left: st.x, top: st.y, opacity: st.o, transform: tf }}>
+              <svg width={1} height={1} style={{ overflow: "visible", position: "absolute" }}><Draw it={it} frame={frame} /></svg>
+            </div>
+          );
+        })}
+      </div>
     </AbsoluteFill>
   );
 };
