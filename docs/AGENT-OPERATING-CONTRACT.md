@@ -39,6 +39,7 @@ the same answer: `preview-state.js` (state, next action, READY), `production-gua
 | `antidote-quality-handoff` | a preview is finished: the standard report + production decision | `.claude/skills/antidote-quality-handoff/SKILL.md` |
 | `render-deliver` | final render → CLOUD assembly → verified film → delivery files (never a local segment join) | `.claude/skills/render-deliver/SKILL.md` (Antigravity: `.agents/skills/render-deliver/SKILL.md`, `.agents/workflows/render-deliver.md`, pointers) |
 | `channel-analytics` | the channel's own YouTube numbers (read-only): refresh, the standing analysis, retention over scenes — before a systemic change and after publishing | `.claude/skills/channel-analytics/SKILL.md` |
+| `vox-image-recovery` | a Vox book's lost authored images (Flux refusal / failed call): diagnose, re-author, capped re-generation without approval (operator standing decision 2026-11-13, `data/vox-image-recovery-policy.json`), text beat past the cap | `.claude/skills/vox-image-recovery/SKILL.md` (Antigravity: `.agents/skills/vox-image-recovery/SKILL.md`, pointer) |
 
 ## 2. Declare yourself before you work
 

@@ -406,6 +406,7 @@ if (args["images-only"]) {
   if (!args["images-dry-run"]) {
     step(3, "Cut-out'lar (rembg)", `python scripts/cutout.py ${CFG}`);
     step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);
+    step(6.1, "Kayıp görsel denetimi (Flux reddi / hata → vox-image-recovery)", `node scripts/vox-image-recovery.js status --slug=${SLUG} --soft`, { optional: true });
   }
   console.log(`\n✓ --images-only: images${args["images-dry-run"] ? " (dry run)" : ", cut-outs, asset check"} done; nothing else ran (no plan, audits, metadata or thumbnails).`);
   process.exit(0);
@@ -499,6 +500,10 @@ step(5.4, "Thumbnail grammar (kanal çeşitliliği)", `node scripts/thumbnail-gr
 
 // 6) verify
 step(6, "Asset doğrulama", `node scripts/verify-assets.js ${CFG}`);
+// 6.1) an authored image Flux refused / failed is dropped from the config silently (gen-vox-images exits 0) — say it
+// loudly, with the recovery each beat needs (skill vox-image-recovery; operator standing decision 2026-11-13: routine,
+// capped). Report only: preview-state.js status routes the agent into the recovery.
+step(6.1, "Kayıp görsel denetimi (Flux reddi / hata → vox-image-recovery)", `node scripts/vox-image-recovery.js status --slug=${SLUG} --soft`, { optional: true });
 
 // 7) register composition
 step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);

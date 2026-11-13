@@ -384,6 +384,25 @@ function bookState(slug, root = ROOT) {
   }
   stage("makeBook", "done", `config ${iso(cfgM)}; finished${legacyOk ? " (legacy: no make-book.done.json, judged on this config)" : ""}`);
 
+  // 10a. Vox: every authored image must have reached the config and the disk (2026-11-13). gen-vox-images.py drops a
+  // refused / failed image and never retries an unchanged prompt, so make-book "finishes" with silent holes. Recovery is
+  // routine under the operator's standing decision (data/vox-image-recovery-policy.json, skill vox-image-recovery):
+  // re-author → merge → capped re-generation, no question; past the cap the beat becomes a text beat.
+  if (engine === "vox") {
+    let VR = null; try { VR = require("./lib/vox-image-recovery"); } catch {}
+    const vr = VR ? VR.diagnose({ root, slug, policy: VR.loadPolicy(path.join(__dirname, "..")) }) : null;
+    if (vr && vr.lost.length) {
+      const n = (a) => vr.lost.filter((x) => x.action === a).map((x) => x.beat);
+      const sum = ["REWRITE", "GENERATE", "TO_TEXT", "CUTOUT", "OPERATOR"].map((a) => (n(a).length ? `${a} ${n(a).length}` : "")).filter(Boolean).join(", ");
+      stage("images", "todo", `${vr.lost.length} authored image(s) lost (${sum}); Flux budget ${vr.spent}/${vr.policy.maxCallsPerBook} spent`);
+      if (vr.state === "operator") { stop("FLUX_ACCOUNT", `Flux refused the call itself (key / quota / credits): ${(vr.lost.find((x) => x.action === "OPERATOR") || {}).lastError}`, n("OPERATOR")); return finish(st); }
+      go("images", "Recover the lost Vox images (skill vox-image-recovery): status names each beat, its class and the authored-K.json to change → re-author (refused) / convert to text (budget used) → merge --write → run (make-book + capped Flux). Routine — the operator's standing decision covers the calls; never edit the config by hand, never touch engine code",
+        `node scripts/vox-image-recovery.js status --slug=${slug}`);
+      return finish(st);
+    }
+    if (vr && vr.state === "clean") stage("images", "done", "every authored image in the config and on disk");
+  }
+
   // 10b. operator-approved single-relation rollout (cycle 17, runbook §2d; data/single-relation-rollout.json) — eligible
   // books only, BEFORE the mute test so the verdict judges the film with its B scenes. Done = B scenes in the config
   // (active.json, re-applied by make-book 1.885) or a recorded "none" decision.

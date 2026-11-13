@@ -93,6 +93,15 @@ with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or cl
   prints NOT_APPLICABLE. Never run it by hand to "produce the quality report" — render.js's preflight runs it.
   Whether quality debt / the production render is already decided: `node scripts/render-decision.js --slug=<slug>`.
 
+## 🖼️ Vox images Flux refused or lost — recover them, don't re-diagnose (every agent, 2026-11-13)
+
+- A Vox beat whose `images` is empty after make-book = Flux refused it (CONTENT_FILTERED) or the call failed;
+  `gen-vox-images.py` dropped the ref and never retries an unchanged prompt. Not a plan-vox / engine bug — never edit the
+  config by hand. Skill **`vox-image-recovery`** (`.claude/skills/vox-image-recovery/SKILL.md`):
+  `node scripts/vox-image-recovery.js status --slug=<slug>` → re-author in `authored-K.json` → merge → `run`.
+- **Operator standing decision:** routine, no approval — ≤ 2 rounds per beat, ≤ 60 Flux calls per book
+  (`data/vox-image-recovery-policy.json`); past the cap the beat becomes a text beat, reported in the hand-off.
+
 ## 📈 Channel analytics — the measure of what works (every agent, 2026-11-11)
 
 - The channel's own numbers decide what to build next; mute tests and gates are proxies. Skill **`channel-analytics`**

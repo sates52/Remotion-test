@@ -222,8 +222,15 @@ def gen(rel_path, prompt):
                 if finish == "CONTENT_FILTERED":
                     filtered_count += 1
                     rec["filtered"] = filtered_count
+                else:
+                    rec["lastError"] = f"HTTP {r.status_code}: {r.text[:140]}"
+            else:
+                # recorded so vox-image-recovery.js can tell a refusal / 422 too-long / quota-or-key / outage apart
+                # (2026-11-13: north-woods lost 4 re-authored images to unrecorded HTTP errors)
+                rec["lastError"] = f"HTTP {r.status_code}: {r.text[:140]}"
             print(f"    [ERR] HTTP {r.status_code}: {r.text[:140]}")
         except Exception as e:
+            rec["lastError"] = f"EXC: {str(e)[:140]}"
             print(f"    [ERR] {e}")
         time.sleep(0 if os.environ.get("FLUX_INVOKE_URL_FOR_TESTS") else 8 * attempt)
     return False
