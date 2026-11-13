@@ -1,0 +1,61 @@
+{
+ "schema": "stills/1",
+ "name": "told pilot 2",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "creative-curve-T-stills",
+   "config": "configs/the-creative-curve-0-90-T.json",
+   "frames": [
+    230,
+    397,
+    567,
+    763,
+    882,
+    1012,
+    1122,
+    1242,
+    1362,
+    1524,
+    1704,
+    1855,
+    1965,
+    2139,
+    2419,
+    2646,
+    2774,
+    2954
+   ],
+   "grid": {
+    "cols": 6,
+    "width": 480
+   }
+  },
+  {
+   "id": "the-creative-curve-0-90-T",
+   "config": "configs/the-creative-curve-0-90-T.json",
+   "frames": [
+    1122
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2984
+   }
+  }
+ ],
+ "inputHash": "68945ab77b38c62a",
+ "files": {
+  "stills/configs/the-creative-curve-0-90-T.json": "ed3ab2152e822fa0822a539fcc3dce9d3e308eb8e427fdb2f9efe312530d35ba"
+ },
+ "builtAt": "2026-11-13T07:03:02.057Z"
+}
