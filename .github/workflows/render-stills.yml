@@ -1,0 +1,90 @@
+# Still renders in the cloud (2026-11-04; operator: "makineyi kasacak işlemlerden kaçınalım" — heavy work runs here, not
+# on the PC; scripts/lib/local-load-guard.js refuses it locally). Triggered ONLY by a push to an isolated ci/stills/**
+# bundle branch (scripts/stills-cloud.js push builds it: code + stills/manifest.json + the configs it names, no history,
+# no big media). Every input's sha256 is in the manifest; the shards render in parallel and upload their PNGs with a
+# sha256 list; scripts/stills-cloud.js fetch verifies and brings them back. No model call, no secret, no write anywhere.
+name: Render stills (cloud)
+
+on:
+  push:
+    branches: ["ci/stills/**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stills-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      shards: ${{ steps.p.outputs.shards }}
+    steps:
+      - name: Checkout the manifest
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          sparse-checkout: stills
+          persist-credentials: false
+      - id: p
+        name: Shards
+        run: echo "shards=$(node -e 'const m=require("./stills/manifest.json");const n=Math.max(1,Math.min(20,m.shards||1));console.log(JSON.stringify([...Array(n).keys()]))')" >> "$GITHUB_OUTPUT"
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.shards) }}
+    steps:
+      - name: Checkout the bundle
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      # apt on a runner hangs now and then (cycle 16/17: three runs stuck here for 10+ min until cancelled by hand) —
+      # bounded attempts instead of an unbounded wait
+      - name: System dependencies
+        timeout-minutes: 8
+        run: |
+          command -v ffmpeg >/dev/null && { ffmpeg -version | head -1; exit 0; }
+          for i in 1 2; do
+            if timeout 120 sudo apt-get update -qq && timeout 150 sudo apt-get install -y -qq ffmpeg; then exit 0; fi
+            echo "apt attempt $i failed or hung - retrying"; sleep 5
+          done
+          # apt mirrors unreachable on this runner (cycle 18: one shard failed apt twice in a row) — a static ffmpeg
+          # from npm instead; render-stills only uses it to join frames into strips / clips
+          echo "apt unavailable - static ffmpeg from npm"
+          mkdir -p "$RUNNER_TEMP/ffm" && cd "$RUNNER_TEMP/ffm" && npm init -y >/dev/null && npm install --no-audit --no-fund ffmpeg-static@5.2.0 >/dev/null
+          FF=$(node -e 'console.log(require("ffmpeg-static"))') && mkdir -p "$RUNNER_TEMP/bin" && ln -sf "$FF" "$RUNNER_TEMP/bin/ffmpeg"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/bin/ffmpeg" -version | head -1
+      - name: Verify inputs against the manifest (sha256)
+        run: |
+          node -e '
+            const fs=require("fs"),c=require("crypto"),m=require("./stills/manifest.json");
+            const bad=Object.entries(m.files).filter(([f,h])=>!fs.existsSync(f)||c.createHash("sha256").update(fs.readFileSync(f)).digest("hex")!==h);
+            if(bad.length){console.error("inputs do not match: "+bad.map(x=>x[0]).join(", "));process.exit(1)}
+            console.log(Object.keys(m.files).length+" inputs match (inputHash "+m.inputHash+")")'
+      - name: Install npm dependencies (exactly the lockfile — the same tree as the PC)
+        # npm install with the lockfile present tries to add @remotion/three's missing peer @react-three/fiber, whose newest
+        # version pulls react-native and wants react ^19.3 (ERESOLVE, selftest 2026-11-04). ci + legacy peers = the lock as is.
+        run: npm ci --no-audit --no-fund --legacy-peer-deps
+      - name: Books registry
+        run: node scripts/gen-books-registry.js
+      - name: Render shard ${{ matrix.shard }}
+        run: node scripts/render-stills.js --manifest=stills/manifest.json --out=out-stills --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+      - name: Upload shard
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: stills-${{ matrix.shard }}
+          path: out-stills/
+          retention-days: 14
