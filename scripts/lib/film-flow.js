@@ -10,6 +10,7 @@
  *   - whether the camera does the same thing everywhere, and whether anything is carried across a cut.
  * Report-only: no gate, no threshold. Pure functions; tested by test-film-flow.js.
  */
+const { mentionCoverage } = require("./told-entities");
 const PASSIVE = new Set(["talk", "idle", "think"]);
 
 const quant = (xs, q) => { const a = [...xs].sort((x, y) => x - y); return a.length ? a[Math.min(a.length - 1, Math.floor(q * a.length))] : null; };
@@ -26,8 +27,8 @@ function windowed(list, fps, win) {
 }
 
 const castOf = (s) => (s.characters || []).map((c) => c.identity || c.id || "?").sort().join("+");
-const hasObject = (s) => (s.props || []).length > 0 || !!s.diagram || !!s.concept || (s.characters || []).some((c) => c.holds) || !!s.semantic || (s.shots || []).length > 0;
-const acts = (s) => (s.characters || []).some((c) => (c.action && !PASSIVE.has(c.action)) || c.travel) || (s.shots || []).length > 0 || !!s.semantic;
+const hasObject = (s) => (s.props || []).length > 0 || !!s.diagram || !!s.concept || (s.characters || []).some((c) => c.holds) || !!s.semantic || !!s.told || (s.shots || []).length > 0;
+const acts = (s) => (s.characters || []).some((c) => (c.action && !PASSIVE.has(c.action)) || c.travel) || (s.shots || []).length > 0 || !!s.semantic || !!s.told;
 const camClass = (c) => {
   if (!c) return "none";
   const z = c.zoom ? Math.sign(Math.round((c.zoom[1] - c.zoom[0]) * 1000)) : 0;
@@ -54,7 +55,11 @@ function antidoteFlow(config, { window: win = null } = {}) {
   const cams = scenes.map((s) => camClass(s.camera));
   const camCounts = count(cams);
   const designed = pairs.filter(([, b]) => b.transition && b.transition.type && b.transition.type !== "cut");
+  // of the scenes that name a person / company / product / place, how many put that name on screen (told-entities.js).
+  // On a short passage every name counts; on a whole film only the ones said in two or more scenes.
+  const said = mentionCoverage({ scenes }, { min: win ? 1 : 2 });
   return {
+    said: { entities: said.entities, mentions: said.mentions, shown: said.shown, share: said.share },
     engine: "antidote", scenes: n, minutes: len.reduce((s, x) => s + x, 0) / 60,
     scenesPerMin: n ? n / (len.reduce((s, x) => s + x, 0) / 60) : null,
     length: { median: quant(len, 0.5), p10: quant(len, 0.1), p90: quant(len, 0.9), cv: cv(len), alikeRun: longestRun(len, (a, b) => Math.abs(a - b) <= 0.15 * Math.max(a, b)) },
@@ -122,6 +127,7 @@ function flowTable(named) {
   };
   if (anti.length) table(anti, [
     ["scenes / minutes", (f) => `${f.scenes} / ${num(f.minutes)}`],
+    ["what the narration names is on screen ↑", (f) => (f.said.mentions ? `${pct(f.said.share)} (${f.said.shown} of ${f.said.mentions} scenes)` : "–")],
     ["figure + text only", (f) => pct(f.picture.figureAndTextOnly)],
     ["nobody does anything", (f) => pct(f.picture.nobodyActs)],
     ["cast only talks or idles", (f) => pct(f.picture.castOnlyTalksOrIdles)],
