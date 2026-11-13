@@ -2589,6 +2589,12 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-13 — Unwind published and cleaned (operator order)
+- Operator confirmed the YouTube upload. Cleanup run in order: render-github-cleanup.js (13 artifacts, 12 runs, ~1509 MB), purge-render-branches.js --force (12 refs), render-purge.js.
+- Defect for review: render-purge.js resolved paths from wt-production-base and reported "(yok)" while the film sat in wt-book-unwind/out. The film, thumbnails and mastered audio were removed by hand. Fix: honour --book-root in render-purge.js.
+- Defect for review: post-render.js deleted the raw public/captions/unwind.vtt before cleanup was ordered (same as the-witch). Add the guard.
+- Recorded in PUBLISHED_BOOKS.md.
+
 ### 2026-11-11 — Step 0: per-book opening grammar (nothing static), length follows the book, the book is asked in NotebookLM
 
 - **Operator, same day:** (1) nothing added may be a static template — YPP "inauthentic / repetitive content"; every
