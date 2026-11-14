@@ -2591,6 +2591,24 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-14 — stills-cloud push: 240 s → 34 s, never hangs, verified on origin (every harness)
+
+- **Symptom (american-psycho A/B, preview-hazirla §2c):** `stills-cloud.js push` "succeeded" but no `ci/stills/<tag>` ref
+  and no run; the retry timed out (exit 124). The agent proposed skipping the single-relation step with `--none`.
+- **Cause, measured:** the bundle ran one `git hash-object` process per file — 637 files = **217 s** on this Windows PC,
+  silent the whole time — before the 20 s push; agents' 2-min command timeouts killed it before it pushed. The push also
+  had no timeout and allowed an interactive Credential-Manager prompt, and nothing checked that origin got the ref.
+- **Fix (`scripts/stills-cloud.js`):** one `hash-object --stdin-paths` per batch (4 s); push non-interactive
+  (`GIT_TERMINAL_PROMPT=0`, `GCM_INTERACTIVE=never`), time-boxed (`--push-timeout-min`, default 10), retried with the
+  `gh` credential; a push counts only when `git ls-remote` shows origin holding the commit, else exit 1
+  `✗ … NOT on origin`. Stage timings printed. `fetch` with no run now says whether the ref is missing (push again) or
+  the workflow did not start. Verified: the real american-psycho A/B push in 34 s, run 43580346018.
+- Docs: AGENTS.md, CLAUDE.md, `antidote-visual-authoring/single-relation.md` — push done only at `✓ pushed … — run <id>`;
+  `✗` = push again, never fetch; fetch in the background; a push problem is never a reason for `--none`.
+- Book worktrees pinned before this commit keep the slow script. New `--root`: run the current one against them,
+  `git show origin/god-mode:scripts/stills-cloud.js | node - push --root=. --manifest=… --tag=…` (the worktree's own
+  code is what gets bundled). american-psycho's A/B was pushed this way: tag `ar-psycho-sr3`, run 43580346018 success.
+
 ### 2026-11-14 — Film Flow 2: the picture shows what the narration names (told stages) — production for new Antidote books
 
 - **Operator's finding (2026-11-12, on side-by-side clips):** the narration says "Microsoft … Google … Windows versus

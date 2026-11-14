@@ -88,6 +88,10 @@ node scripts/single-relation-scan.js validate --slug=<s> [--book-root=<wt>]   # 
 node scripts/single-relation-preview.js build --slug=<s> [--book-root=<wt>] --out=<dir>  # isolated A/B configs + stills manifest
 node scripts/stills-cloud.js push --manifest=<dir>/manifest.json --tag=<t>  &&  … fetch --tag=<t> --out=<dir>/stills
 ```
+`push` takes ~30 s and is done only at `✓ pushed … — run <id>` (origin is checked for the ref); `✗ … NOT on origin` =
+the same push again, never a fetch. `fetch` waits for the runners (up to 90 min) — run it in the background. A push
+problem is never a reason to skip this step with `--none`. A book worktree pinned before 2026-11-14 has the old, slow
+push (~4 min of silent hashing): `git show origin/god-mode:scripts/stills-cloud.js | node - push --root=. …` instead.
 A/B rating (when asked): the blind describer / judge procedure of the mute test — fresh agents, sonnet, strips under
 random names, the two versions of a beat never to the same describer, judges given a narration-only answer key written
 BEFORE the renders. No describer or judge is told which version is which or that anything changed.

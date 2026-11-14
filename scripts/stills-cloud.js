@@ -9,6 +9,10 @@
  *       manifest names, byte-exact, with their sha256 in the manifest) pushed to origin ci/stills/<tag>. The push starts
  *       .github/workflows/render-stills.yml: N parallel runners (default: one per ~30 stills, at most 20). No branch,
  *       index, HEAD or working tree changes; the push record goes next to the manifest (cloud-push.json).
+ *       ~30 s: files are hashed in one git process; the push is non-interactive and time-boxed (--push-timeout-min=10),
+ *       retried with the gh credential, and counts only when `git ls-remote` shows origin holding the commit (exit 1 if not).
+ *       A book worktree pinned before 2026-11-14 has the old, slow push: run the current one against it with
+ *       `git show origin/god-mode:scripts/stills-cloud.js | node - push --root=. --manifest=… --tag=…` (its code is bundled).
  *   node scripts/stills-cloud.js fetch --tag=<name> --out=<dir> [--wait-min=90]
  *       waits for that run, downloads every stills-<k> artifact, checks each file against the shard's sha256 list and
  *       copies raw/ and strips/ into <out>. Exit 1 when a shard failed, is missing, or a file does not match.
@@ -21,16 +25,33 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const crypto = require("crypto");
-const { execFileSync } = require("child_process");
+const { execFileSync, spawnSync } = require("child_process");
 
-const ROOT = path.join(__dirname, "..");
+const args = Object.fromEntries(process.argv.slice(3).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
+const cmd = process.argv[2];
+// --root=<checkout>: run the CURRENT script from origin against an older pinned book worktree, whose code is bundled:
+//   git show origin/god-mode:scripts/stills-cloud.js | node - push --root=. --manifest=… --tag=…
+const ROOT = args.root ? path.resolve(String(args.root))
+  : fs.existsSync(path.join(__dirname, "render-stills.js")) ? path.join(__dirname, "..") : process.cwd();
+if (!fs.existsSync(path.join(ROOT, "scripts", "render-stills.js"))) { console.error(`✗ ${ROOT} is not a repo checkout — pass --root=<checkout> (needed when the script comes from stdin)`); process.exit(1); }
+// git never waits on a human here: no terminal prompt, no Credential-Manager window (a hidden GUI prompt hung pushes).
+const NOPROMPT = { GIT_TERMINAL_PROMPT: "0", GCM_INTERACTIVE: "never" };
+// fallback when the machine's credential manager serves the wrong GitHub account (memory: git-push-credential)
+const GH_HELPER = ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential",
+  "-c", "credential.https://github.com.helper=", "-c", "credential.https://github.com.helper=!gh auth git-credential"];
+const T0 = Date.now();
+const lap = (m) => console.log(`  [${((Date.now() - T0) / 1000).toFixed(0)}s] ${m}`);
+// the sha origin holds for a ref ("" = no such ref; null = could not ask)
+function remoteSha(ref) {
+  const r = spawnSync("git", ["ls-remote", "origin", ref], { cwd: ROOT, env: { ...process.env, ...NOPROMPT }, encoding: "utf8", timeout: 90000 });
+  if (r.status !== 0) return null;
+  return (r.stdout.split(/\r?\n/).find((l) => l.endsWith(`\t${ref}`)) || "").split("\t")[0];
+}
 const REPO = "sates52/Remotion-test";
 const WORKFLOW = ".github/workflows/render-stills.yml";
 const CODE_PATHS = ["src", "scripts", "data", "package.json", "package-lock.json", "tsconfig.json", "remotion.config.ts", ".gitignore", WORKFLOW];
 const GITHUB_FILE_LIMIT = 95 * 1024 * 1024;
 const STILLS_PER_SHARD = 30;
-const args = Object.fromEntries(process.argv.slice(3).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
-const cmd = process.argv[2];
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex");
 const sleep = (ms) => execFileSync(process.execPath, ["-e", `setTimeout(()=>{},${ms})`]);
 const gh = (a, enc = "utf8") => execFileSync("gh", a, { encoding: enc, maxBuffer: 512 * 1024 * 1024 });
@@ -77,10 +98,23 @@ if (cmd === "push") {
   const manPath = path.join(tmp, "manifest.json");
   fs.writeFileSync(manPath, JSON.stringify(bundled, null, 1));
   git(["read-tree", "--empty"], env);
+  // ONE git process per batch (--stdin-paths), never one per file: 640 spawns took 217 s on Windows and agents' 2-min
+  // command timeouts killed the push before it started (2026-11-14, american-psycho A/B).
+  const hashAll = (paths, noFilters) => {
+    if (!paths.length) return [];
+    const out = execFileSync("git", ["hash-object", "-w", ...(noFilters ? ["--no-filters"] : []), "--stdin-paths"],
+      { cwd: ROOT, env, input: paths.join("\n") + "\n", encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    const ids = out.trim().split(/\r?\n/);
+    if (ids.length !== paths.length || ids.some((h) => !/^[0-9a-f]{40,64}$/.test(h))) { console.error(`✗ hash-object returned ${ids.length} ids for ${paths.length} files`); process.exit(1); }
+    return ids;
+  };
+  lap(`hashing ${code.length + Object.keys(inputs).length + 1} files`);
+  const codeIds = hashAll(code, false);
+  const inputIds = hashAll([...Object.values(inputs), manPath], true);
   const entries = [
-    ...code.map((f) => [f, git(["hash-object", "-w", "--", f], env).trim()]),
-    ...Object.entries(inputs).map(([dst, src]) => [dst, git(["hash-object", "-w", "--no-filters", "--", src], env).trim()]),
-    ["stills/manifest.json", git(["hash-object", "-w", "--no-filters", "--", manPath], env).trim()],
+    ...code.map((f, i) => [f, codeIds[i]]),
+    ...Object.keys(inputs).map((dst, i) => [dst, inputIds[i]]),
+    ["stills/manifest.json", inputIds[inputIds.length - 1]],
   ];
   for (let i = 0; i < entries.length; i += 200) {
     execFileSync("git", ["update-index", "--add", "--index-info"], { cwd: ROOT, env, input: entries.slice(i, i + 200).map(([f, b]) => `100644 ${b}\t${f}`).join("\n") + "\n" });
@@ -88,8 +122,26 @@ if (cmd === "push") {
   const tree = git(["write-tree"], env).trim();
   const commit = git(["commit-tree", tree, "-m", `stills ${man.name || ""} · inputHash ${inputHash}`], env).trim();
   const pushedAt = Date.now();
-  execFileSync("git", ["push", "-q", "origin", `${commit}:refs/heads/ci/stills/${args.tag}`, "--force"], { cwd: ROOT, stdio: "inherit" });
+  const REF = `refs/heads/ci/stills/${args.tag}`;
+  const pushMin = Number(args["push-timeout-min"] || 10);
+  // a push counts only when origin holds the commit: exit codes and "success" lines were not enough (2026-11-14: a
+  // reported push left no ci/stills ref and no run). Non-interactive, time-boxed, then the gh credential as fallback.
+  let landed = null;
+  for (const [label, pre] of [["git credential", []], ["gh credential", GH_HELPER]]) {
+    lap(`pushing ${commit.slice(0, 8)} → ci/stills/${args.tag} (${label})`);
+    const r = spawnSync("git", [...pre, "push", "--force", "origin", `${commit}:${REF}`],
+      { cwd: ROOT, env: { ...process.env, ...NOPROMPT }, encoding: "utf8", timeout: pushMin * 60000, maxBuffer: 64 * 1024 * 1024 });
+    const at = remoteSha(REF);
+    if (at === commit) { landed = label; break; }
+    const why = r.error ? `${r.error.code || r.error.message}${r.error.code === "ETIMEDOUT" ? ` after ${pushMin} min` : ""}` : `exit ${r.status}`;
+    console.error(`  ✗ push via ${label} did not land (${why}; origin has ${at === null ? "?" : at ? at.slice(0, 8) : "no such ref"}): ${String(r.stderr || "").trim().split(/\r?\n/).slice(-3).join(" | ")}`);
+  }
   fs.rmSync(tmp, { recursive: true, force: true });
+  if (!landed) {
+    console.error(`✗ ci/stills/${args.tag} is NOT on origin — nothing will render. Check: gh auth status (must be the repo owner), network; then push again (same command). Do not fetch.`);
+    process.exit(1);
+  }
+  lap(`origin holds ${commit.slice(0, 8)} — waiting for the run to be listed`);
   let run = null;
   for (let i = 0; i < 18 && !run; i++) { try { run = runsFor(args.tag).find((r) => Date.parse(r.created_at) >= pushedAt - 60000) || null; } catch {} if (!run) sleep(5000); }
   fs.writeFileSync(path.join(BASE, "cloud-push.json"), JSON.stringify({ tag: args.tag, commit, tree, inputHash, shards, stills, pushedAt: new Date(pushedAt).toISOString(), run: run && run.id }, null, 1));
@@ -103,7 +155,12 @@ if (cmd === "push") {
     if (cmd === "status" || (run && run.status === "completed") || i * 0.5 >= waitMin) break;
     sleep(30000);
   }
-  if (!run) { console.error(`✗ no run for ci/stills/${args.tag}`); process.exit(2); }
+  if (!run) {
+    const at = remoteSha(`refs/heads/ci/stills/${args.tag}`);
+    console.error(at === "" ? `✗ ci/stills/${args.tag} does not exist on origin — the push never landed; run stills-cloud.js push again`
+      : `✗ no run for ci/stills/${args.tag}${at ? ` (origin has ${at.slice(0, 8)}; the workflow did not start — check Actions)` : ""}`);
+    process.exit(2);
+  }
   console.log(`run ${run.id} · ${run.status}${run.conclusion ? ` · ${run.conclusion}` : ""} · ${run.html_url}`);
   if (cmd === "status") process.exit(0);
   if (run.status !== "completed") { console.error("✗ still running — fetch again later"); process.exit(2); }

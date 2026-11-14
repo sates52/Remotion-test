@@ -80,7 +80,9 @@ Do not re-derive these from prose — run the command and follow what it prints.
 - **Machine load (operator, 2026-11-04):** heavy work never runs on the operator's PC. Still renders beyond a quick look
   (> 12 stills: A/B strips, contact sheets, framecheck sweeps) go to GitHub Actions: `node scripts/stills-cloud.js push
   --manifest=<stills/1 manifest> --tag=<name>` → `fetch --tag=<name> --out=<dir>` (`.github/workflows/render-stills.yml`,
-  parallel runners). `scripts/lib/local-load-guard.js` refuses more locally (exit 2) and allows one local still render at a
+  parallel runners). `push` takes ~30 s and is done only when it prints `✓ pushed … — run <id>` (it checks that
+  origin holds the ref); `✗ … NOT on origin` = run the same push again, never fetch. `fetch` waits up to 90 min: run it in
+  the background. `scripts/lib/local-load-guard.js` refuses more locally (exit 2) and allows one local still render at a
   time; an exception only with `--operator-local="<the operator's own words>"`. Never start several local render
   processes in parallel. Films: the GitHub pool (above).
 - **One long job at a time:** a second `mute-test.js prep` of the same label, or a second `render.js` of the same book,

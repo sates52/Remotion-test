@@ -211,7 +211,8 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   `ci-run-tests.js` locally. **Type checking** (`tsc --noEmit`, > 5 min here): cloud only. **Batch ffmpeg, bundling,
   parallel Chrome:** cloud only.
 - **Stills** (A/B strips, experiment renders, contact sheets): `node scripts/stills-cloud.js push --manifest=<stills/1
-  manifest> --tag=<name>`, then `fetch --tag=<name> --out=<dir>` — parallel runners, sha256-checked results
+  manifest> --tag=<name>`, then `fetch --tag=<name> --out=<dir>` (push ~30 s, done only at `✓ pushed … — run <id>`;
+  `✗ … NOT on origin` = push again, never fetch; run fetch in the background, it waits up to 90 min) — parallel runners, sha256-checked results
   (`.github/workflows/render-stills.yml`, engine `scripts/render-stills.js`). `scripts/lib/local-load-guard.js` refuses
   more than 12 local stills (exit 2) and a second local still render at the same time; an exception only with
   `--operator-local="<the operator's own words>"`. The same manifest also renders **dense-frame grids** (`grid`) and
