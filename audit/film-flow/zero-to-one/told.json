@@ -1,0 +1,78 @@
+{
+  "intro": { "events": [
+    { "at": 0, "do": "raw", "item": { "id": "book", "kind": "word", "label": "ZERO TO ONE", "x": 960, "y": 440, "size": 130, "exit": { "at": 104 } } },
+    { "at": 0, "do": "raw", "item": { "id": "curtL", "kind": "panel", "color": "#7A1F2B", "x": 480, "y": 540, "w": 980, "keys": [{ "at": 44, "x": -560, "dur": 44, "ease": "inout" }], "exit": { "at": 60 } } },
+    { "at": 0, "do": "raw", "item": { "id": "curtR", "kind": "panel", "color": "#7A1F2B", "x": 1440, "y": 540, "w": 980, "keys": [{ "at": 44, "x": 2480, "dur": 44, "ease": "inout" }], "exit": { "at": 60 } } },
+    { "on": "Shakespearean", "do": "title", "text": "A Shakespearean tragedy" },
+    { "on": "Microsoft", "do": "arrange", "layout": "versus", "who": ["microsoft", "google"] },
+    { "on": "Google", "do": "raw", "item": { "id": "vs", "kind": "word", "label": "VS", "size": 110, "box": "#D9603C", "x": 960, "y": 500 } }
+  ] },
+  "scene-01": { "events": [
+    { "at": 20, "do": "clear" },
+    { "on": "competition", "do": "title", "text": "Competition is for losers", "box": "accent" },
+    { "on": "losers", "do": "dim", "who": ["microsoft", "google"] },
+    { "on": "healthy", "do": "cross", "who": ["microsoft", "google"] },
+    { "on": "value", "do": "coins", "n": 3 },
+    { "on": "completely", "do": "clear" },
+    { "on": "completely", "do": "restore", "who": ["microsoft", "google"] },
+    { "on": "blinds", "do": "cover", "who": ["microsoft", "google"] },
+    { "on": "these", "do": "uncover", "who": ["microsoft", "google"] },
+    { "on": "behemoths", "do": "grow", "who": ["microsoft", "google"] },
+    { "on": "two tech", "do": "title", "text": "Two tech giants" }
+  ] },
+  "scene-02": { "events": [
+    { "on": "entirely", "do": "world", "who": ["microsoft", "google"] },
+    { "on": "universes", "do": "apart", "who": ["microsoft", "google"] },
+    { "on": "different", "do": "title", "text": "Different universes" },
+    { "on": "Microsoft", "do": "focus", "who": "microsoft" },
+    { "on": "undisputed", "do": "crown", "who": "microsoft" }
+  ] },
+  "scene-03": { "events": [
+    { "on": "operating", "do": "label", "who": "microsoft", "text": "Operating systems" },
+    { "on": "desktop", "do": "label", "who": "microsoft", "text": "Desktop office" },
+    { "on": "Google", "do": "clear", "what": "labels" },
+    { "on": "Google", "do": "focus", "who": "google" },
+    { "on": "search", "do": "label", "who": "google", "text": "Search engine" },
+    { "on": "internet", "do": "label", "who": "google", "text": "The internet" }
+  ] },
+  "scene-04": { "events": [
+    { "at": 6, "do": "wide" },
+    { "at": 10, "do": "clear", "what": "labels" },
+    { "at": 10, "do": "uncrown", "who": "microsoft" },
+    { "on": "zero", "do": "title", "text": "Zero reason to collide" },
+    { "on": "paths", "do": "cross", "who": ["microsoft", "google"] },
+    { "on": "grew", "do": "clear" },
+    { "on": "grew", "do": "grow", "who": ["microsoft", "google"], "to": 1.3 }
+  ] },
+  "scene-05": { "events": [
+    { "on": "each other", "do": "together", "who": ["microsoft", "google"] },
+    { "on": "massive", "do": "burst", "who": ["microsoft", "google"] },
+    { "on": "expensive", "do": "coins", "n": 6 },
+    { "on": "street", "do": "title", "text": "Street fight", "box": "ink" }
+  ] },
+  "scene-06": { "events": [
+    { "on": "Windows", "do": "pair", "left": "Windows", "right": "Chrome OS", "onRight": "Chrome" },
+    { "on": "Bing", "do": "pair", "left": "Bing", "right": "Google Search", "onRight": "Google" },
+    { "on": "Internet", "do": "pair", "left": "Internet Explorer", "right": "Chrome", "onRight": "Chrome" }
+  ] },
+  "scene-07": { "events": [
+    { "on": "Microsoft", "do": "pair", "left": "Microsoft Office", "right": "Google Docs", "onRight": "Google" },
+    { "on": "perfect", "do": "clear", "what": "rows" },
+    { "on": "enactment", "do": "arrange", "layout": "versus", "who": ["microsoft", "google"] },
+    { "on": "Romeo", "do": "title", "text": "Romeo & Juliet" }
+  ] },
+  "scene-08": { "events": [
+    { "on": "Two", "do": "raw", "item": { "id": "hl", "kind": "house", "color": "#2563EB", "x": 560, "y": 840, "w": 420, "h": 330, "_role": "world", "enter": { "at": 49, "from": "bottom", "dur": 14 } } },
+    { "on": "households", "do": "raw", "item": { "id": "hr", "kind": "house", "color": "#E0503A", "x": 1360, "y": 840, "w": 420, "h": 330, "_role": "world", "enter": { "at": 57, "from": "bottom", "dur": 14 } } },
+    { "on": "Two", "do": "arrange", "layout": "versus", "who": ["microsoft", "google"] },
+    { "on": "households", "do": "title", "text": "Two households" },
+    { "on": "alike", "do": "raw", "item": { "id": "eq", "kind": "word", "label": "=", "size": 170, "x": 960, "y": 620 } },
+    { "on": "fighting", "do": "burst", "who": ["microsoft", "google"] }
+  ] },
+  "scene-09": { "events": [
+    { "at": 20, "do": "clear" },
+    { "on": "same", "do": "title", "text": "The exact same family", "box": "ink" },
+    { "on": "family", "do": "together", "who": ["microsoft", "google"] },
+    { "on": "similar", "do": "title", "text": "Rivals grow alike" }
+  ] }
+}
