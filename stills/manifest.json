@@ -1,0 +1,60 @@
+{
+ "schema": "stills/1",
+ "name": "told compiled zero-to-one",
+ "gl": "default",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "zero-C-stills",
+   "config": "configs/zero-C.json",
+   "frames": [
+    300,
+    470,
+    570,
+    660,
+    705,
+    888,
+    1026,
+    1221,
+    1349,
+    1529,
+    1713,
+    1926,
+    2022,
+    2197,
+    2361,
+    2726
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 640
+   }
+  },
+  {
+   "id": "zero-C",
+   "config": "configs/zero-C.json",
+   "frames": [
+    100
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2750
+   }
+  }
+ ],
+ "inputHash": "b9bf077419616ca3",
+ "files": {
+  "stills/configs/zero-C.json": "6162f62ab9f4de64e3acebcc77d435e6642b7067ef6ae1d3c461dd3840c811ca"
+ },
+ "builtAt": "2026-11-14T06:46:53.118Z"
+}
