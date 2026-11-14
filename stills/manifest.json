@@ -1,0 +1,50 @@
+{
+ "schema": "stills/1",
+ "name": "told pilots, full HD",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "the-creative-curve-0-90-T",
+   "config": "configs/the-creative-curve-0-90-T.json",
+   "frames": [
+    900
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2984,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "zero-to-one-0-90-T",
+   "config": "configs/zero-to-one-0-90-T.json",
+   "frames": [
+    1700
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2750,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "gl": "default",
+ "inputHash": "9ba52c3d81d733b3",
+ "files": {
+  "stills/configs/the-creative-curve-0-90-T.json": "ed3ab2152e822fa0822a539fcc3dce9d3e308eb8e427fdb2f9efe312530d35ba",
+  "stills/configs/zero-to-one-0-90-T.json": "8b4baeb8db354a1f95faa11bcbaffd3ba56c6d91334376cd6819fd83546b4aa9"
+ },
+ "builtAt": "2026-11-14T06:15:34.179Z"
+}
