@@ -1,0 +1,109 @@
+{
+ "schema": "stills/1",
+ "name": "single-relation A/B american-psycho",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "s24-A",
+   "config": "configs/s24-A.json",
+   "frames": [
+    309,
+    386,
+    463
+   ],
+   "strip": true
+  },
+  {
+   "id": "s24-B",
+   "config": "configs/s24-B.json",
+   "frames": [
+    309,
+    386,
+    463
+   ],
+   "strip": true
+  },
+  {
+   "id": "s36-A",
+   "config": "configs/s36-A.json",
+   "frames": [
+    304,
+    376,
+    449
+   ],
+   "strip": true
+  },
+  {
+   "id": "s36-B",
+   "config": "configs/s36-B.json",
+   "frames": [
+    304,
+    376,
+    449
+   ],
+   "strip": true
+  },
+  {
+   "id": "s65-A",
+   "config": "configs/s65-A.json",
+   "frames": [
+    334,
+    402,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "s65-B",
+   "config": "configs/s65-B.json",
+   "frames": [
+    334,
+    402,
+    469
+   ],
+   "strip": true
+  },
+  {
+   "id": "s172-A",
+   "config": "configs/s172-A.json",
+   "frames": [
+    468,
+    548,
+    628
+   ],
+   "strip": true
+  },
+  {
+   "id": "s172-B",
+   "config": "configs/s172-B.json",
+   "frames": [
+    468,
+    548,
+    628
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "839749f1fc5f34dd",
+ "files": {
+  "stills/configs/s24-A.json": "ebf33a97d327636aa9e0f7a460ef30e0261ce21ef10911ba2550471018dd2c5e",
+  "stills/configs/s24-B.json": "83394bd90b5460417e3f92f74587891a86a13f442a2f000c8edfa7124fded74c",
+  "stills/configs/s36-A.json": "5e1888f600b064928098cea972177ea7bdc6b59f7d9da093f8aff452950610d5",
+  "stills/configs/s36-B.json": "b7ff1e15ad8ae003767fd7e6cb662d1a63910b0f8e4589c02f20eec503599862",
+  "stills/configs/s65-A.json": "8768453bf79a53a43fd01c6da2d6abf00e3cedbef6e2dfd19813232ad5ac3fe3",
+  "stills/configs/s65-B.json": "6d6127fa062ff43f376587036e8336b55b0eb1f853051e42889ca8ee47f30efe",
+  "stills/configs/s172-A.json": "5738fe5e25ccb670ecb3cefcf9f725f4716cdc2bdacc3f11ab6c629ceb5ba4eb",
+  "stills/configs/s172-B.json": "01a9d5f7624081cbe5667ea37fecd0c7b6f66b5d7e5d2a0c27c9663cbd6898eb"
+ },
+ "builtAt": "2026-11-14T09:23:18.823Z"
+}
