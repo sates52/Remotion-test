@@ -110,6 +110,17 @@ with `--book-root=<that checkout>`. Never fast-forward, reset, pull, stash or cl
 - Before a systemic change (prompt, engine, titles, thumbnails, length) name the row it should move and its value today;
   after it shipped on 5+ published films, report the same row. Read-only: it never edits a video or a published book.
 
+## 🎞️ Film Flow 2 — the picture shows what the narration names (production for new books, 2026-11-14)
+
+- When the narration names a company, a product, a person, a place, a year or an object, the scene shows THAT thing
+  (an emblem — never a copied logo —, a dressed figure, the book's own drawing) and what happens to it lands on the
+  narrator's word. Authors write `told` beats; the named things are listed once in `storyboard/entities.json`.
+- Procedure and craft, every harness: `.claude/skills/antidote-visual-authoring/told.md` (runbook §2f). Tools:
+  `scripts/told.js entities | check | apply | status | revert`; make-book applies it (step 1.886). Versions and how to
+  change it: `docs/FILM-FLOW.md`.
+- A clip shown to the operator is rendered like the film (`flow-passage.js`, manifest `gl: "default"`), full size, and
+  checked with `scripts/flicker-check.js` first.
+
 ## 🎬 "Dosyalar hazır, preview hazırla" (STANDARD REQUEST)
 
 - The operator opens ONE session per book. When they say **"dosyalar hazır" / "preview hazırla"** in that

@@ -239,6 +239,11 @@ function collectScreenStrings(scene, meta = {}) {
   (scene.props || []).forEach((p, i) => {
     if (p && typeof p.label === "string" && p.label) out.push({ kind: "label", text: p.label, path: `props[${i}].label`, authored: false });
   });
+  // FILM FLOW 2 (told stage): titles, tiles and name plates are authored words on screen
+  ((scene.told && scene.told.items) || []).forEach((it, i) => {
+    if (!it || typeof it.label !== "string" || !it.label.trim() || /^(VS|=|&|[♪♫])$/.test(it.label.trim())) return;
+    out.push({ kind: it.kind === "word" ? "text" : "label", text: it.label, path: `told.items[${i}].label`, authored: true });
+  });
   return out;
 }
 

@@ -83,6 +83,13 @@ try {
   };
   prep();
   s = state(R);
+  // FILM FLOW 2 (2026-11-14): the things the narration names are written once, after the first prep, before the authors
+  t("first prep done -> the named things are written before the authors (told.js entities)", s.next.stage === "entities" && /told\.js entities/.test(s.next.command) && /told\.md/.test(s.next.action));
+  Wt(path.join(SB, "entities.json"), { acme: { label: "ACME", kind: "company" } });
+  s = state(R);
+  t("entities written -> prep again (rules.md must list them for the authors)", s.next.stage === "prep" && /entities\.json written after prep/.test(s.stages.find((x) => x.key === "prep").detail));
+  Wt(path.join(SB, "rules.md"), "## The picture shows what is said — `told` beats\n");
+  s = state(R);
   t("authors missing -> names exactly the missing chunks", s.next.stage === "authors" && /Author 1, Author 2/.test(s.next.action));
   Wt(path.join(SB, "authored-1.json"), [{ i: 0 }, { i: 1 }]);
   Wt(path.join(SB, "authored-2.json"), [{ i: 2 }]);

@@ -282,6 +282,20 @@ node scripts/c19.js apply --slug=<s> --write              # atomic per sequence,
   sample does not include a changed beat, the C19 short clip and its blind check are the evidence for that beat.
 - Regression: `scripts/test-c19.js`.
 
+### 2f. Told stages — the picture shows what the narration names (Antidote; Film Flow 2, production 2026-11-14)
+Every new Antidote book. Measured: a scene that names a company, product, person or place showed it in 13–31 % of
+cases; the operator chose the told form on side-by-side passages. Guide (every harness):
+`.claude/skills/antidote-visual-authoring/told.md`; versions: `docs/FILM-FLOW.md`.
+1. Before prep (lead agent): `node scripts/told.js entities --slug=<slug>` → write `storyboard/entities.json`
+   (label, kind, glyph / look / paths) → `storyboard.js prep` (rules.md opens with the told section).
+2. Authors write `told` on the beats that name something; `merge` checks them (ids, the word, the event).
+3. make-book step 1.886 (`told.js apply --write --pipeline`) compiles the stages against the planned word timings,
+   puts them on their scenes and seals them as the authored decision — before hard-gate, the lock restore and every
+   gate. A told beat that does not compile stops the build: fix the beat, merge, run again (routine, no approval).
+4. Hand-off: `node scripts/told.js status --slug=<slug>` (told scenes; share of naming scenes that show the name).
+Clips for a look: `flow-passage.js` (drawn with the film's browser settings) + `flicker-check.js`. Reversible:
+`told.js revert --write`. Not for published books.
+
 ## 3. Plan with every gate
 ```bash
 node scripts/make-book.js --slug=<slug> --title="<title>" --author="<author>" --genre=<genre> --skip-pack

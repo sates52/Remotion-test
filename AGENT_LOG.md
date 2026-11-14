@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| _(done)_ Film Flow 2 — told stages (operator: production for new Antidote books) | `src/engines/antidote/{told.ts,flow.ts,speech.ts,components/ToldStage.tsx,components/Scene.tsx,index.tsx,movements.ts}`, `scripts/{told,film-flow,flow-passage,flicker-check,storyboard,make-book,preview-state,readcheck,mute-test,framecheck,audit-antidote,render-stills}.js`, `scripts/lib/{told-compile,told-apply,told-rules,told-entities,film-flow,antidote-stagnation-engine,antidote-novelty-budget,composition-integrity,screen-text}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, skills (`antidote-visual-authoring/told.md`, preview-hazirla row), AGENTS.md / CLAUDE.md | _(done)_ 2026-11-14: merged to god-mode | New books only (`meta.flow`); no published / pinned book, threshold, render, upload or cleanup. First real book = the first started on this commit or later. |
 | _(done)_ render-norwegian-wood | books/norwegian-wood/, public/captions/norwegian-wood.clean.vtt | ✅ PUBLISHED & CLEANED 2026-11-13 | Antidote; 40.8 min (73,493 frames), 10-way split, cloud assembled; YouTube live; 12 GitHub runs/artifacts + 12 remote refs purged; local out/ mp4 (~977 MB), thumbnails, bundle dir, and audio cleaned. Kept: books/norwegian-wood/, clean.vtt. |
 | _(done)_ dev/vox-image-recovery | `scripts/vox-image-recovery.js` (new), `scripts/lib/vox-image-recovery.js` (new), `data/vox-image-recovery-policy.json` (new), `scripts/{preview-state,make-book}.js`, `scripts/gen-vox-images.py` (lastError record), skill `vox-image-recovery`, CLAUDE.md / AGENTS.md / contract / preview-hazirla, tests | _(done)_ 2026-11-13: pushed to god-mode from `../wt-flux-refusals` | Operator standing decision: lost Vox images routine, ≤ 2 rounds/beat, ≤ 60 calls/book. No book, gate, threshold, render or Flux call. |
 | _(done)_ C19 sequences (operator: default on) | `src/engines/antidote/{index.tsx,schema.ts,movements.ts,handprops.tsx,motifs.tsx,conceptMotion.ts,continuity.ts,characters/Everyman.tsx,components/Scene.tsx}`, `src/Root.tsx`, `scripts/{c19,single-relation-rollout}.js`, `scripts/lib/{c19-sequence,shot-plan}.js`, tests, runbook §2e, skills, `data/icon-readings.json` | _(done)_ 2026-11-07: merged to god-mode | No published / pinned book, gate, threshold, render, upload or cleanup. |
@@ -2590,6 +2591,49 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 
 ## Changelog (newest first)
 
+### 2026-11-14 — Film Flow 2: the picture shows what the narration names (told stages) — production for new Antidote books
+
+- **Operator's finding (2026-11-12, on side-by-side clips):** the narration says "Microsoft … Google … Windows versus
+  Chrome OS" and the screen shows a street and two unrelated people; "A TINY FOUR-YEAR-OLD" over two adults. Measured
+  (`scripts/lib/told-entities.js`): a scene that names a company / product / person / place shows it in **13–31 %** of
+  cases (zero-to-one 23 %, the-creative-curve 13 %, farsighted 31 %, the-new-one-minute-manager 17 %).
+- **What ships:** a TOLD STAGE — the named things as emblems (name in its colour + a plain glyph, never a copied logo),
+  people (the rig, any age / dress, a name plate over the head) and the book's own drawings, on one stage kept from
+  beat to beat, with what the narration says happens to them landing on the narrator's word. Engine:
+  `src/engines/antidote/told.ts` (pure maths), `components/ToldStage.tsx` (one SVG), drawn only when
+  `config.meta.flow >= 2` and the scene carries `told` — every older config renders as before.
+- **Authoring:** `storyboard/entities.json` (the named things, once, by the lead agent: `told.js entities`) and `told`
+  on beats (`{ stage?, events: [{ on: "<word>", do, who, … }] }`; 5 layouts, 28 events). `storyboard.js`: rules.md
+  opens with a generated told section (`lib/told-rules.js`), merge checks a told beat (ids, the word, the event) and
+  carries it to art.json. Compiler `lib/told-compile.js`: places things, carries the stage, moves what belongs to a
+  thing with it, refuses an unknown name / a word the narrator does not say.
+- **Pipeline:** make-book step **1.886** `told.js apply --write --pipeline` after every plan, before hard-gate and
+  every gate: compiles against the planned word timings, writes `scene.told`, keeps the replaced picture in
+  `_beforeTold`, reseals the authorship lock (`src: "told"`, `previousLock`) and rebinds the VisualContract's staging
+  side (as single-relation's sealAuthored). A told beat that does not compile stops the build. Reversible
+  (`told.js revert`). `preview-state.js`: new stage `entities` (after the first prep; routine).
+- **Gates taught about `scene.told`:** stagnation fingerprint (what happens on the stage), novelty budget, composition
+  integrity (`hasContent`), dead-air audit (events), screen-text (told words are checked), readcheck (a told beat is
+  read as its stage and events), mute-test / framecheck (words at a frame). No threshold changed.
+- **End to end on a throwaway copy of a real 320-scene book** (10 told beats): authorship restore kept the stages,
+  gate-authorship PASS, firewall 1 BLOCK / 501 REVIEW with told vs 1 BLOCK / 513 REVIEW without (the BLOCK is the
+  copy's own), hard-gate identical with and without told (the stored config's own Gate 3 / 8 result) and its auto-fix
+  left every stage intact. Name coverage on the two pilot passages: 33 % → 100 % and 33 % → 67 %.
+- **The "trembling" in the pilots** was the stills pipeline's `gl: "swangle"` (stale picture tiles on 131–145 of 161
+  frames), not the stage: with no graphics flag — how the production render starts its browser — 21 (real motion).
+  `render-stills.js` takes manifest `gl` and `clip.concurrency`; `flow-passage.js` writes `gl: "default"`;
+  `scripts/flicker-check.js` counts there-and-back frames in a clip. Clips for the operator are full size.
+- **Also in this merge (Film Flow 1, built, not switched on by any pipeline step):** `speech.ts` (the narration's
+  words drive mouth, head, brows, hand strokes), `movements.ts` `livePose`, `flow.ts`; `film-flow.js` (flow numbers
+  from a config), `flow-passage.js` (isolated passage clips). Measured effect of level 1 alone: small.
+- **Every harness:** `.claude/skills/antidote-visual-authoring/told.md` (procedure + craft), pointer in
+  `.agents/skills/…`, AGENTS.md, CLAUDE.md, preview-hazirla stage row, runbook §2f. Versions and how to change it:
+  `docs/FILM-FLOW.md`. Third-party notice: `THIRD_PARTY_NOTICES.md` (AI-Video-Factory, MIT).
+- **Not done / open:** no real book has gone through it end to end yet (first = the first started on this commit);
+  how author agents hold the quality over ~300 beats and the extra authoring time are unmeasured; library icons do not
+  nest on a told stage (own drawings only); Vox has no told stage; Film Flow slices 2–6 (camera, rhythm, sound) open.
+- **Not touched:** no published / pinned book, threshold, render, upload, cleanup. Tests: `test-told-compile.js` (12),
+  `test-told-entities.js` (5), `test-film-flow.js` (6), `test-speech.js` (8), `test-preview-state.js` (+2).
 ### 2026-11-13 — Unwind published and cleaned (operator order)
 - Operator confirmed the YouTube upload. Cleanup run in order: render-github-cleanup.js (13 artifacts, 12 runs, ~1509 MB), purge-render-branches.js --force (12 refs), render-purge.js.
 - Defect for review: render-purge.js resolved paths from wt-production-base and reported "(yok)" while the film sat in wt-book-unwind/out. The film, thumbnails and mastered audio were removed by hand. Fix: honour --book-root in render-purge.js.

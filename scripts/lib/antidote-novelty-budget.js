@@ -41,6 +41,16 @@ function classifySceneNovelty(scene) {
     fulfilled.add(NOVELTY_TYPES.HERO_METAPHOR);
   }
 
+  // FILM FLOW 2 (told stage): a named thing arriving is the hero image; two things facing each other are the contrast;
+  // rows, labels, a timeline are the data picture.
+  const toldItems = scene.told && Array.isArray(scene.told.items) ? scene.told.items : null;
+  if (toldItems) {
+    const things = toldItems.filter((x) => ["emblem", "figure", "icon"].includes(x.kind));
+    if (toldItems.some((x) => x.enter && ["emblem", "figure", "icon", "house", "planet", "crown", "burst"].includes(x.kind))) fulfilled.add(NOVELTY_TYPES.HERO_METAPHOR);
+    if (things.length >= 2) fulfilled.add(NOVELTY_TYPES.SPLIT_CONTRAST);
+    if (toldItems.some((x) => x.kind === "tile" || x.kind === "dash")) fulfilled.add(NOVELTY_TYPES.DATA_DIAGRAM);
+  }
+
   // 2. Split / Contrast
   const hasSplitShot = ["split", "beforeAfter", "twoShot"].includes(shot);
   const hasSplitBg = Array.isArray(scene.bg?.split) && scene.bg.split.length >= 2;

@@ -183,7 +183,7 @@ ${prompts}`);
 function screenWordsAt(f) {
   const u = (cfg.scenes || []).find((x) => f >= x.fromFrame && f < x.fromFrame + x.durationFrames);
   if (!u) return null;
-  const strs = [...(u.texts || []).map((t) => t.text), ...((u.diagram && u.diagram.labels) || [])].filter(Boolean).join(" ").toUpperCase();
+  const strs = [...(u.texts || []).map((t) => t.text), ...((u.diagram && u.diagram.labels) || []), ...(((u.told && u.told.items) || []).map((it) => it.label))].filter(Boolean).join(" ").toUpperCase();
   const w = strs.match(/[A-Z]{4,}/g);
   return w && w.length ? new Set(w) : null;
 }

@@ -89,6 +89,14 @@ What the kept stage must be (P1 blind sequence strips, 2026-10-23, `framecheck.j
 - Invent events, numbers or objects the narration does not have (`docs/PROVENANCE-PRINCIPLE.md`).
 - Edit a published book (`PUBLISHED_BOOKS.md` Summary Table) — authoring changes apply to new books only.
 
+## Told stages — when the narration NAMES something (Film Flow 2, every new book)
+
+A beat that names a company, a product, a person, a place, a year or an object shows THAT THING, and what the
+narration says happens to it happens on the word: write `told` for it instead of concept / cast / callout. The named
+things are listed once in `storyboard/entities.json` by the lead agent before you start, and `rules.md` opens with
+this book's told vocabulary. Craft guide and the lead agent's procedure:
+`.claude/skills/antidote-visual-authoring/told.md` — read it before your chunk.
+
 ## Single-relation contracts (only when the preview agent asks you)
 
 A beat whose narration STATES a cause → effect but whose scene shows only people and words may get a `single-relation/1`

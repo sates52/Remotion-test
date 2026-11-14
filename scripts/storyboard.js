@@ -50,6 +50,9 @@ if (book.engine !== "vox" && book.engine !== "antidote") {
   process.exit(1);
 }
 const ENGINE = book.engine;
+// FILM FLOW 2: the things the narration names (storyboard/entities.json), written before the authors start
+const { toldSection, checkToldBeat } = require("./lib/told-rules");
+const TOLD_ENTITIES = (() => { try { return JSON.parse(fs.readFileSync(path.join(SB, "entities.json"), "utf8")); } catch { return {}; } })();
 const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
 const vp = bible.visualProvenance || {};
 const FICTION = !/non-?fiction|self.?help|business|finance|psycholog|productiv|science|history|philosoph|memoir|biograph/i.test(String(book.genre || ""));
@@ -454,8 +457,10 @@ Reference (approved, We Were Liars): \`books/we-were-liars/art.json\` — read 1
   "storyboard": { "claim": "...", "concreteVisual": "the picture as DRAWN: who, what, where", "onScreenText": "the words on screen, or \"none\"",
                   "relationToPrevious": "...", "addedInformation": "... (write 'weak: ...' if honest)" } }
 // all five storyboard fields are REQUIRED on every beat, written from the narration — never a copy of another field
+// (a \`told\` beat needs only i, told, explainedBy and noVisual)
 \`\`\`
 
+${toldSection(TOLD_ENTITIES)}
 ## The question for every beat (answer it BEFORE choosing anything)
 "Which EVENT, COMPARISON or RELATIONSHIP makes this sentence's meaning visible?" — who does what to
 whom; before vs after; this vs that; cause → effect; one side pressuring or controlling another.
@@ -988,7 +993,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1232,8 +1237,10 @@ function merge() {
         if (vv.length) P(i, `callout "${a.callout.text}": ${vv.map((x) => x.code).join(",")}`);
       }
       const sb = a.storyboard || {};
-      sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
-      if (!a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
+      if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
+      if (!a.told) sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
+      if (!a.told && !a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
       // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it
       // (stageRelationship: true), writes the source-grounded relationship record, and removes
       // everything that would compete with it. Nothing is fixed silently: each conflict is
@@ -1259,6 +1266,7 @@ function merge() {
         ...(typeof a.says === "string" && a.says.trim() ? { says: a.says.trim() } : {}),
         ...(typeof a.partnerSays === "string" && a.partnerSays.trim() ? { partnerSays: a.partnerSays.trim() } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
+        ...(a.told ? { told: a.told, ...(a.explainedBy ? { explainedBy: a.explainedBy } : {}) } : {}),
         storyboard: sb,
       });
     }
