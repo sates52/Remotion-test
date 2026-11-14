@@ -271,6 +271,24 @@ function bookState(slug, root = ROOT) {
     go("prep", "Storyboard prep (after the bible, own icons and variants are final)", `node scripts/storyboard.js prep --slug=${slug}${CE}`);
     return finish(st);
   }
+  // 5b. FILM FLOW 2 (runbook §2f): the things the narration NAMES are listed once — after the first prep (its beats
+  // are what told.js reads), before the authors. Writing entities.json makes prep stale (its rules.md has no told
+  // section yet), so prep runs again and the authors get the told vocabulary. A book whose authors already ran
+  // without it is not sent back; an empty {} is a valid answer (nothing named: no told stage).
+  if (engine === "antidote") {
+    const ents = readJSON(path.join(SB, "entities.json"));
+    const authoredAlready = exists(SB) && fs.readdirSync(SB).some((f) => /^authored-\d+\.json$/.test(f));
+    if (ents === null && authoredAlready) stage("entities", "n/a", "authored before Film Flow 2 (no told stages)");
+    else if (ents === null) {
+      stage("entities", "todo", "storyboard/entities.json not written");
+      go("entities", "Film Flow 2, routine (no approval): list what the narration names, then WRITE storyboard/entities.json (emblems, people with their looks, the book's own drawings) per .claude/skills/antidote-visual-authoring/told.md — prep runs again after it", `node scripts/told.js entities --slug=${slug}`);
+      return finish(st);
+    } else if (Object.keys(ents).length && !(exists(path.join(SB, "rules.md")) && fs.readFileSync(path.join(SB, "rules.md"), "utf8").includes("## The picture shows what is said"))) {
+      stage("prep", "todo", "stale: storyboard/entities.json written after prep (rules.md has no told section)");
+      go("prep", "Storyboard prep again: rules.md must list the named things for the authors", `node scripts/storyboard.js prep --slug=${slug}${CE}`);
+      return finish(st);
+    } else stage("entities", "done", `${Object.keys(ents).length} named thing(s)`);
+  }
   stage("prep", "done", `${nChunks} chunks`);
 
   // 6. authors

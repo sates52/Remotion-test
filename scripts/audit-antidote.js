@@ -91,6 +91,14 @@ function auditConfig(config, label) {
     let own = 0;
     (sc.props || []).forEach((p) => { push(from + (p.at || 0), `motif:${p.type}`, sc.id); own += 1; });
     (sc.texts || []).forEach((t) => { push(from + (t.at || 0), "callout", sc.id); own += 1; });
+    // FILM FLOW 2 (told stage): each thing that enters, each move that lands and each camera move is an event
+    if (sc.told && Array.isArray(sc.told.items)) {
+      for (const it of sc.told.items) {
+        if (it.enter) { push(from + (it.enter.at || 0), `told:${it.kind}`, sc.id); own += 1; }
+        for (const k of it.keys || []) { push(from + (k.at || 0), "told:move", sc.id); own += 1; }
+      }
+      for (const k of (sc.told.cam || []).filter((c) => (c.at || 0) > 1)) { push(from + k.at, "told:camera", sc.id); own += 1; }
+    }
     if (sc.camera && sc.camera.punch) push(from + (sc.camera.punch.at || 0), "punch", sc.id);
     // LATE PULSES — the camera push-ins that fill a long scene's tail. They are
     // real on-screen changes, so they count; a scene that already runs events to

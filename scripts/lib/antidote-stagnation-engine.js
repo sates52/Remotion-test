@@ -75,7 +75,14 @@ function extractVisualState(scene) {
   const holds = c0?.holds || "none";
 
   // 3. Motif & Diagram
-  const motif = scene.props?.[0]?.type || "none";
+  // FILM FLOW 2 (told stage): the picture of a told scene is what HAPPENS on its stage. Two told scenes are the same
+  // picture only when nothing enters, moves or leaves in either — a stage where a crown lands is not the stage where
+  // two things collide, although shot, set and cast (none) are equal.
+  const toldItems = scene.told && Array.isArray(scene.told.items) ? scene.told.items : null;
+  const toldChange = toldItems
+    ? toldItems.filter((x) => x.enter || x.exit || (x.keys && x.keys.length) || x.shake).map((x) => `${x.id}${x.enter ? "+" : ""}${x.exit ? "-" : ""}${(x.keys || []).length || ""}`).join(",") + ((scene.told.cam || []).length > 1 ? ":cam" : "")
+    : "";
+  const motif = toldItems ? `told:${toldChange || "still"}` : scene.props?.[0]?.type || "none";
   const diagram = scene.diagram?.type || "none";
 
   // 4. Environment (set + texture)

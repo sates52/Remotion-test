@@ -221,6 +221,13 @@ if (ENGINE === "antidote") {
   // judge the film that renders. No record = nothing to do.
   step(1.885, "Single-relation rollout (recorded B scenes re-applied before the gates)",
     `node scripts/single-relation-rollout.js reapply --slug=${SLUG} --write --pipeline`);
+  // 1.886) FILM FLOW 2 — the picture shows what the narration names (2026-11-14). The told beats the authors wrote
+  // (art.json `told`, things from storyboard/entities.json) are compiled against the freshly planned config's word
+  // timings and put on their scenes, sealed as the authored decision — BEFORE hard-gate, the authored-lock restore
+  // and every gate, so they judge the film that renders. A told beat that does not compile stops the build (a film
+  // is never half-told by accident). No told beat = nothing to do.
+  step(1.886, "Film Flow 2: told stages (what the narration names is on screen)",
+    `node scripts/told.js apply --slug=${SLUG} --write --pipeline`);
   // 1.89) GOD MODE PRE-RENDER HARD GATES (Phase 10)
   step(1.89, "God Mode 8 Altın Kural Kapısı (Pre-Render Hard Gate)",
     `node scripts/hard-gate.js --slug=${SLUG} --auto-fix`);

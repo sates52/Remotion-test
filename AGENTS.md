@@ -102,6 +102,12 @@ Do not re-derive these from prose — run the command and follow what it prints.
   the result is timed to the narrator's words (no cap), reversible (runbook §2d,
   `single-relation-rollout.js`); every other book: report only (runbook §2c; authors:
   `.claude/skills/antidote-visual-authoring/single-relation.md`).
+- **Film Flow 2 — told stages (production for new Antidote books, operator 2026-11-14):** when the narration names a
+  company, product, person, place, year or object, the scene shows THAT thing and what happens to it lands on the
+  narrator's word. Lead agent: `node scripts/told.js entities --slug=<slug>` → write `storyboard/entities.json` →
+  `storyboard.js prep`; authors write `told` beats (rules.md); make-book step 1.886 compiles and applies them
+  (`scripts/told.js apply`); hand-off line: `node scripts/told.js status --slug=<slug>`. Guide for every harness:
+  `.claude/skills/antidote-visual-authoring/told.md`; versions: `docs/FILM-FLOW.md`; runbook §2f.
 - C19 sequences (action + result across shots, `scene.shots`): same eligible books, same A/B and veto, one contract =
   one atomic unit (runbook §2e; authors: `.claude/skills/antidote-visual-authoring/c19-sequence.md`; `scripts/c19.js`).
 - Sealed holdout and the blind mute test: runbook §4, contract §6. Render decisions: runbook §5b, contract §7.

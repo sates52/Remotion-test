@@ -304,6 +304,7 @@ function screenWordsAt(f) {
   const strs = [
     ...(u.texts || []).map((t) => t.text),
     ...((u.diagram && u.diagram.labels) || []),
+    ...(((u.told && u.told.items) || []).map((it) => it.label)),
     ...[].concat(p.emphasis || [], p.kicker || [], p.items || [], p.title || [], p.compareLabels || []),
   ].filter(Boolean).join(" ").toUpperCase();
   const w = strs.match(/[A-Z]{4,}/g);

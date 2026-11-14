@@ -28,10 +28,13 @@ function sceneShape(scene) {
     characters: (scene.characters || []).length,
     concept: scene.concept || null,
     set: (scene.bg && scene.bg.set) || null,
+    told: scene.told && Array.isArray(scene.told.items) ? scene.told.items.length : 0,
   };
 }
 
-const hasContent = (sh) => sh.props.length > 0 || sh.texts > 0 || !!sh.diagram || sh.characters > 0 || !!sh.concept;
+// FILM FLOW 2: a told stage (scene.told) is the scene's content — a scene whose figures and callout were replaced by a
+// stage is not "emptied"
+const hasContent = (sh) => sh.props.length > 0 || sh.texts > 0 || !!sh.diagram || sh.characters > 0 || !!sh.concept || sh.told > 0;
 
 /** @returns manifest object (caller writes it) */
 function snapshot(config, { reason = "pipeline", previous = null } = {}) {

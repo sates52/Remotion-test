@@ -140,6 +140,15 @@ const bodyOf = (a) => BODY_DRAWN[a] || a;
 
 function visible(b, bible, own, mech, causal) {
   const v = {};
+  // FILM FLOW 2 (told beat): the reader is given what the stage shows — the named things on it and what happens to
+  // them, in the order of the events — exactly what the author wrote, never the narration
+  if (b.told) {
+    const who = (x) => (Array.isArray(x) ? x : x != null ? [x] : []).join(" and ");
+    if (b.told.stage && Array.isArray(b.told.stage.who)) v.stage = `${b.told.stage.layout || "row"}: ${b.told.stage.who.join(", ")}`;
+    const ev = (b.told.events || []).filter((e) => e && e.do !== "raw").map((e) => [e.do, who(e.who), e.text ? `"${e.text}"` : "", e.left ? `"${e.left}" vs "${e.right}"` : ""].filter(Boolean).join(" "));
+    if (ev.length) v.happens = ev;
+    return v;
+  }
   const cast = Array.isArray(b.cast) ? b.cast : [];
   const framed = !(typeof b.shotOverride === "string" && DROPS_CAST.has(b.shotOverride));
   if (cast.length && framed) {

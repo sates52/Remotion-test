@@ -28,6 +28,37 @@ function sceneWords(config, scene) {
   return out;
 }
 
+const crypto = require("crypto");
+const stageHash = (stage) => crypto.createHash("sha256").update(JSON.stringify(stage)).digest("hex").slice(0, 16);
+
+/**
+ * The told stage IS the beat's authored decision (as lib/single-relation.js sealAuthored does for its contracts):
+ * the authorship lock is rewritten to what is on screen now — nobody from the cast, no icon prop, no callout — so
+ * make-book's restoreAuthoredStaging keeps the stage instead of putting the old figures back, and gate-authorship
+ * checks the scene against it. The planner's lock stays as `previousLock`. The VisualContract's staging side (which
+ * figures must be on screen, which lever represents the idea) described the picture that was replaced: it is rebound;
+ * its narration side is untouched.
+ */
+function sealTold(scene) {
+  const a = scene._authorship;
+  const provenance = { v: scene.told.v || 1, hash: stageHash(scene.told), items: scene.told.items.length };
+  const out = { ...scene };
+  if (a) {
+    const old = a.src === "told" ? a.previousLock || null : a.lock || null;
+    const lock = { planShot: scene.shot, shot: scene.shot, cast: [], concept: scene.concept ?? null, propTypes: [], artTexts: [], told: provenance };
+    if (scene.bg && scene.bg.set) lock.set = scene.bg.set;
+    out._authorship = { ...a, src: "told", lock, previousLock: old };
+  }
+  if (scene.visualContract) {
+    const vc = JSON.parse(JSON.stringify(scene.visualContract));
+    if (Array.isArray(vc.characterIntent)) { if (vc.characterIntent.length && !vc.previousCharacterIntent) vc.previousCharacterIntent = vc.characterIntent; vc.characterIntent = []; }
+    if (vc.visualEvidence && vc.visualEvidence.representation != null) { vc.visualEvidence.previousRepresentation = vc.visualEvidence.representation; delete vc.visualEvidence.representation; }
+    vc.told = provenance;
+    out.visualContract = vc;
+  }
+  return out;
+}
+
 function applyTold(config, toldByScene, entities = {}) {
   const scenes = config.scenes || [];
   const beats = scenes.map((s) => ({ id: s.id, frames: s.durationFrames, words: sceneWords(config, s), told: toldByScene[s.id] }));
@@ -46,7 +77,7 @@ function applyTold(config, toldByScene, entities = {}) {
     delete out.diagram; delete out.shots;
     // the same stage carried over the cut: no wipe between two beats of it
     if (prevTold) out.transition = { ...(s.transition || {}), type: "cut", frames: 0 };
-    return out;
+    return sealTold(out);
   });
   const meta = applied ? { ...(config.meta || {}), flow: Math.max(2, Number((config.meta || {}).flow) || 0) } : config.meta;
   return {
@@ -55,4 +86,24 @@ function applyTold(config, toldByScene, entities = {}) {
   };
 }
 
-module.exports = { applyTold, sceneWords };
+/** Undo: every told scene gets its figure-and-text picture and its planner lock back. */
+function revertTold(config) {
+  let n = 0;
+  const scenes = (config.scenes || []).map((s) => {
+    if (!s.told) return s;
+    n++;
+    const b = s._beforeTold || {}, out = { ...s, ...Object.fromEntries(Object.entries(b).filter(([, v]) => v !== undefined)) };
+    delete out.told; delete out._beforeTold;
+    if (out._authorship && out._authorship.src === "told") { const a = { ...out._authorship, lock: out._authorship.previousLock, src: "art" }; delete a.previousLock; out._authorship = a; }
+    if (out.visualContract && out.visualContract.told) {
+      const vc = JSON.parse(JSON.stringify(out.visualContract));
+      if (vc.previousCharacterIntent) { vc.characterIntent = vc.previousCharacterIntent; delete vc.previousCharacterIntent; }
+      if (vc.visualEvidence && vc.visualEvidence.previousRepresentation != null) { vc.visualEvidence.representation = vc.visualEvidence.previousRepresentation; delete vc.visualEvidence.previousRepresentation; }
+      delete vc.told; out.visualContract = vc;
+    }
+    return out;
+  });
+  return { config: { ...config, scenes }, reverted: n };
+}
+
+module.exports = { applyTold, revertTold, sealTold, sceneWords, stageHash };
