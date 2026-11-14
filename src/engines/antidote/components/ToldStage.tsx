@@ -6,6 +6,7 @@ import { pose } from "../movements";
 import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
+import { toldState, itemState, type ToldItem, type ToldSpec } from "../told";
 
 /**
  * ToldStage — THE PICTURE SHOWS WHAT IS SAID (Film Flow level 2, pilot 2026-11-12).
@@ -22,86 +23,39 @@ import type { VariantSpec, CharAction, HandProp } from "../schema";
  * frame (the frame of the word), `exit`. No loops: nothing moves unless the narration gives it a reason.
  */
 
-export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
-export type ToldItem = {
-  id: string;
-  kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow" | "figure" | "icon";
-  /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
-  variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
-  /** icon: an animal or an object DRAWN FOR THIS BOOK, as paths in its own viewBox (the same data as motifs.json) */
-  paths?: Array<{ d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number }>; viewBox?: string;
-  label?: string; sub?: string; glyph?: "monitor" | "search" | "doc" | "browser" | "none";
-  color?: string; ink?: string; size?: number; w?: number; h?: number; box?: string;
-  x: number; y: number; s?: number; o?: number; r?: number;
-  /** dash: where the line ends; it draws itself from `drawFrom` to `drawTo` */
-  x2?: number; y2?: number; drawFrom?: number; drawTo?: number;
-  enter?: { at: number; from?: "left" | "right" | "top" | "bottom" | "pop" | "fade"; dur?: number };
-  keys?: ToldKey[];
-  exit?: { at: number; dur?: number };
-  shake?: { at: number; dur?: number; amp?: number };
-};
-export type ToldSpec = { bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[] };
-
-const clamp = (x: number) => Math.max(0, Math.min(1, x));
-const EASE = {
-  out: (t: number) => 1 - Math.pow(1 - t, 3),
-  inout: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
-  // a small overshoot (≈ 3 %): enough to land, not enough to wobble when ten things arrive one after another
-  back: (t: number) => { const c = 0.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
-};
-type State = { x: number; y: number; s: number; o: number; r: number };
-
-/** The state of something on `frame`: its start, then each key in order — a key LANDS on its `at`. */
-export function toldState(base: State, keys: ToldKey[] | undefined, frame: number): State {
-  let cur = { ...base };
-  for (const k of [...(keys || [])].sort((a, b) => a.at - b.at)) {
-    const dur = Math.max(1, k.dur ?? 14), start = k.at - dur;
-    if (frame <= start) break;
-    const e = EASE[k.ease ?? "out"](clamp((frame - start) / dur));
-    const to = { x: k.x ?? cur.x, y: k.y ?? cur.y, s: k.s ?? cur.s, o: k.o ?? cur.o, r: k.r ?? cur.r };
-    cur = { x: cur.x + (to.x - cur.x) * e, y: cur.y + (to.y - cur.y) * e, s: cur.s + (to.s - cur.s) * e, o: cur.o + (to.o - cur.o) * e, r: cur.r + (to.r - cur.r) * e };
-    if (frame < k.at) break;
-  }
-  return cur;
-}
-
-function itemState(it: ToldItem, frame: number): State | null {
-  let st = toldState({ x: it.x, y: it.y, s: it.s ?? 1, o: it.o ?? 1, r: it.r ?? 0 }, it.keys, frame);
-  if (it.enter) {
-    const dur = it.enter.dur ?? 12, k = (frame - (it.enter.at - dur)) / dur;
-    if (k <= 0) return null;
-    const e = EASE.back(clamp(k)), from = it.enter.from ?? "pop", far = 1 - e;
-    if (from === "left") st = { ...st, x: st.x - 700 * far };
-    else if (from === "right") st = { ...st, x: st.x + 700 * far };
-    else if (from === "top") st = { ...st, y: st.y - 500 * far };
-    else if (from === "bottom") st = { ...st, y: st.y + 500 * far };
-    else if (from === "pop") st = { ...st, s: st.s * Math.max(0, e) };
-    st = { ...st, o: st.o * clamp(k * 2.5) };
-  }
-  if (it.exit) {
-    const dur = it.exit.dur ?? 10, k = clamp((frame - (it.exit.at - dur)) / dur);
-    if (k >= 1) return null;
-    st = { ...st, o: st.o * (1 - k) };
-  }
-  if (it.shake) {
-    const dur = it.shake.dur ?? 16, d = frame - it.shake.at;
-    // ONE knock and a settle (a swing and a half, dying away) — not a vibration: at 9 swings a second it read as the
-    // picture trembling (operator, 2026-11-13)
-    if (d >= 0 && d < dur) { const k = d / dur; st = { ...st, x: st.x + Math.sin(k * Math.PI * 3) * (it.shake.amp ?? 12) * (1 - k) * (1 - k) }; }
-  }
-  return st;
-}
+export type { ToldKey, ToldItem, ToldSpec } from "../told";
 
 const FONT = ANTIDOTE_FONT; // the film's own typeface (loaded once by KineticText)
 const textW = (s: string, size: number) => s.length * size * 0.62;
 
+const clamp = (x: number) => Math.max(0, Math.min(1, x));
+
+/** Plain glyphs for WHAT a named thing is — a screen, a lens, a page — never a company's own mark. Exported so the
+ *  compiler and the authoring rules offer exactly the glyphs that can be drawn (scripts/lib/told-compile.js GLYPHS). */
+export const TOLD_GLYPHS = ["monitor", "search", "doc", "browser", "building", "book", "coin", "globe", "gear", "phone", "chart", "star", "heart", "flag", "cart", "people", "bolt", "leaf"] as const;
+
 const Glyph: React.FC<{ kind: ToldItem["glyph"] }> = ({ kind }) => {
   const w = "#FFFFFF";
+  const line = { fill: "none", stroke: w, strokeWidth: 12, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (kind) {
     case "monitor": return (<g><rect x={-62} y={-52} width={124} height={84} rx={8} fill="none" stroke={w} strokeWidth={12} /><rect x={-10} y={36} width={20} height={20} fill={w} /><rect x={-40} y={54} width={80} height={12} rx={6} fill={w} /></g>);
     case "search": return (<g><circle cx={-12} cy={-12} r={40} fill="none" stroke={w} strokeWidth={13} /><line x1={18} y1={18} x2={56} y2={56} stroke={w} strokeWidth={16} strokeLinecap="round" /></g>);
     case "doc": return (<g><rect x={-44} y={-58} width={88} height={116} rx={8} fill="none" stroke={w} strokeWidth={11} />{[-28, -4, 20].map((y) => <line key={y} x1={-24} y1={y} x2={24} y2={y} stroke={w} strokeWidth={9} strokeLinecap="round" />)}</g>);
     case "browser": return (<g><rect x={-64} y={-50} width={128} height={100} rx={10} fill="none" stroke={w} strokeWidth={11} /><line x1={-64} y1={-22} x2={64} y2={-22} stroke={w} strokeWidth={9} /><circle cx={-44} cy={-36} r={5} fill={w} /><circle cx={-28} cy={-36} r={5} fill={w} /></g>);
+    case "building": return (<g><rect x={-46} y={-60} width={92} height={120} rx={6} {...line} />{[-36, -8, 20].map((y) => [-20, 20].map((x) => <rect key={`${x}${y}`} x={x - 9} y={y} width={18} height={16} fill={w} />))}</g>);
+    case "book": return (<g><path d="M0 -44 C-24 -58 -52 -58 -66 -48 V48 C-52 38 -24 38 0 52 C24 38 52 38 66 48 V-48 C52 -58 24 -58 0 -44 Z" {...line} /><line x1={0} y1={-44} x2={0} y2={52} {...line} /></g>);
+    case "coin": return (<g><circle r={56} {...line} /><text x={0} y={24} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={70} fill={w}>$</text></g>);
+    case "globe": return (<g><circle r={58} {...line} /><ellipse rx={26} ry={58} {...line} /><line x1={-58} y1={0} x2={58} y2={0} {...line} /></g>);
+    case "gear": return (<g><circle r={30} {...line} />{Array.from({ length: 8 }, (_, i) => { const a = (i / 8) * Math.PI * 2; return <line key={i} x1={Math.cos(a) * 40} y1={Math.sin(a) * 40} x2={Math.cos(a) * 60} y2={Math.sin(a) * 60} {...line} strokeWidth={16} />; })}</g>);
+    case "phone": return (<g><rect x={-34} y={-62} width={68} height={124} rx={12} {...line} /><circle cx={0} cy={42} r={6} fill={w} /></g>);
+    case "chart": return (<g><polyline points="-60,44 -22,6 8,26 58,-40" {...line} /><polyline points="30,-42 58,-40 56,-12" {...line} /><line x1={-64} y1={60} x2={64} y2={60} {...line} /></g>);
+    case "star": return <polygon points={Array.from({ length: 10 }, (_, i) => { const a = -Math.PI / 2 + (i / 10) * Math.PI * 2, r = i % 2 ? 26 : 62; return `${Math.cos(a) * r},${Math.sin(a) * r}`; }).join(" ")} fill={w} />;
+    case "heart": return <path d="M0 52 C-70 6 -62 -52 -28 -52 C-12 -52 -2 -42 0 -30 C2 -42 12 -52 28 -52 C62 -52 70 6 0 52 Z" fill={w} />;
+    case "flag": return (<g><line x1={-40} y1={-62} x2={-40} y2={62} {...line} /><path d="M-40 -56 H48 L28 -30 L48 -4 H-40 Z" fill={w} /></g>);
+    case "cart": return (<g><polyline points="-66,-46 -44,-46 -28,22 44,22 58,-22 -38,-22" {...line} /><circle cx={-18} cy={46} r={10} fill={w} /><circle cx={36} cy={46} r={10} fill={w} /></g>);
+    case "people": return (<g><circle cx={-30} cy={-26} r={20} fill={w} /><circle cx={30} cy={-26} r={20} fill={w} /><path d="M-64 54 C-64 14 4 14 4 54 Z" fill={w} /><path d="M-4 54 C-4 14 64 14 64 54 Z" fill={w} /></g>);
+    case "bolt": return <polygon points="10,-64 -40,8 -6,8 -14,64 40,-10 4,-10" fill={w} />;
+    case "leaf": return (<g><path d="M-50 50 C-50 -30 10 -60 56 -56 C60 -8 30 50 -50 50 Z" {...line} /><line x1={-50} y1={50} x2={20} y2={-20} {...line} /></g>);
     default: return null;
   }
 };
@@ -115,7 +69,8 @@ const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
         <rect x={-112} y={-136} width={240} height={240} rx={40} fill={ink} opacity={0.18} />
         <rect x={-120} y={-150} width={240} height={240} rx={40} fill={color} />
         <g transform="translate(0,-30)"><Glyph kind={it.glyph ?? "none"} /></g>
-        {it.glyph === "none" || !it.glyph ? <text x={0} y={-8} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={96} fill="#fff">{(it.label ?? "?")[0]}</text> : null}
+        {/* no glyph, or one this engine cannot draw: the first letter of the name */}
+        {!it.glyph || !(TOLD_GLYPHS as readonly string[]).includes(it.glyph) ? <text x={0} y={-8} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={96} fill="#fff">{(it.label ?? "?")[0]}</text> : null}
         <rect x={-lw / 2 - 22} y={112} width={lw + 44} height={size + 26} rx={12} fill={ink} />
         <text x={0} y={112 + size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="#fff" letterSpacing={1}>{it.label}</text>
         {it.sub ? <text x={0} y={112 + size + 62} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={30} fill={ink}>{it.sub}</text> : null}
@@ -202,7 +157,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
         ) : null}
         {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
         <g transform={`translate(960 540) scale(${cam.s}) translate(${-cam.x} ${-cam.y})`}>
-          {spec.items.map((it) => {
+          {spec.items.filter((it) => !it.screen).map((it) => {
             const st = itemState(it, frame);
             if (!st || st.o <= 0.001) return null;
             if (it.kind === "figure") {
@@ -248,6 +203,16 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             );
           })}
         </g>
+        {/* ON THE SCREEN, not in the scene: a title stays where it is while the camera goes to something */}
+        {spec.items.filter((it) => it.screen).map((it) => {
+          const st = itemState(it, frame);
+          if (!st || st.o <= 0.001) return null;
+          return (
+            <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
+              <Draw it={it} frame={frame} />
+            </g>
+          );
+        })}
       </svg>
     </AbsoluteFill>
   );
