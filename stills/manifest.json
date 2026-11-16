@@ -1,0 +1,50 @@
+{
+ "schema": "stills/1",
+ "name": "film-flow passages v12",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "dracula-mid-v12",
+   "config": "configs/dracula-mid-v12.json",
+   "frames": [
+    1408
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2814,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-600-690-v12",
+   "config": "configs/dracula-600-690-v12.json",
+   "frames": [
+    1371
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2740,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "0f273a6709df73b2",
+ "files": {
+  "stills/configs/dracula-mid-v12.json": "3b522d93869979a6caa05401626493c8e45540cc3119c404fb80a00d07f93863",
+  "stills/configs/dracula-600-690-v12.json": "cb4aecf64beae189322a220639a670163c8808cea2b23a7254710251a511609b"
+ },
+ "builtAt": "2026-11-16T10:55:51.898Z"
+}
