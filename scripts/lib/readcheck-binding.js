@@ -25,7 +25,7 @@ const { duplicates } = require("./mute-ids");
 
 const CORRECTNESS = new Set(["CORRECT", "NEUTRAL", "WRONG"]);
 const sha = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
-const rj = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+const rj = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return null; } }; // a leading BOM (files written from PowerShell / other harnesses) is not content
 const rb = (p) => { try { return fs.readFileSync(p); } catch { return null; } };
 
 /** a verdict file: the legacy array, or { run, items } (token runs) → { items: [] | null, run, shape } */
@@ -53,7 +53,7 @@ function readFolder(dir) {
   const ks = files.map((f) => (f.match(/^visible-(\d+)\.json$/) || [])[1]).filter(Boolean).sort((a, b) => a - b);
   const chunks = ks.map((k) => {
     const g = rb(path.join(dir, `guess-${k}.json`)), j = rb(path.join(dir, `judge-${k}.json`));
-    const parse = (b) => { try { return b == null ? null : JSON.parse(b.toString("utf8")); } catch { return undefined; } };
+    const parse = (b) => { try { return b == null ? null : JSON.parse(b.toString("utf8").replace(/^\uFEFF/, "")); } catch { return undefined; } };
     return { k, visible: rj(path.join(dir, `visible-${k}.json`)), guess: parse(g), judge: parse(j), verdict: fs.existsSync(path.join(dir, `verdict-${k}.json`)) ? parse(rb(path.join(dir, `verdict-${k}.json`))) : null,
       guessSha: g ? sha(g) : null, judgeSha: j ? sha(j) : null };
   });

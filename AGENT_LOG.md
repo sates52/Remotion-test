@@ -7629,3 +7629,36 @@ Both were system faults, not the book's:
 - Tests: `test-told-compile.js` 12 → 18, `test-maintenance-upgrade.js` +4, `test-screen-text.js` 49 unchanged.
 - Not done: a rendered clip of dracula on 1.1 (the book's owner renders after the upgrade); library icons on a told
   stage; Vox.
+
+### 2026-11-16 — Told 1.2: stage layout after dracula's first clips; BOM-tolerant blind-test readers; cloud fetch retries
+
+dracula went through on told 1.1 (prep → merge → make-book → sealed mute test → `told-clip.js`), run by an Antigravity
+agent. Result: 147 of 277 scenes told; name coverage 6 % → 54 %; mute test FAIL (WRONG 2/30, dead 2, ADDS 9/30) — on
+the 15 told frames ADDS 6, on the 15 ordinary frames ADDS 3. The clips showed layout faults in the told stages; all were
+the compiler's (`scripts/lib/told-compile.js`), none the authors':
+
+- a tall / grown person's name plate was cut by the top of the frame, a title printed over it, the crown sat on it →
+  a person is one column (feet, body, plate, crown) that starts below the title band; drawn smaller, never cropped;
+- labels ran off the frame or lay across the neighbouring thing → beside on the free side, or UNDER the thing in a row
+  (people step up); a label neither follows a thing that walks away nor grows with it;
+- `enter` put a newcomer into "the next slot" of a layout the others were not standing in (four things on each other)
+  → everyone makes room; `arrange` is exact;
+- date tiles were printed across the things → a timeline lifts them into a row of heads;
+- a stamp / cross on a person sat at the feet, under the subtitles → chest; cover → eyes; `focus` keeps the foot of
+  the thing above the subtitle band.
+
+Measured on dracula's authored beats, unchanged (rest frame of each of the 147 stages): stages with any overlap or a
+label off the frame 85 → 2; thing over thing 30 → 0; label over another thing 129 → 2; label off frame 13 → 0.
+Seen: two passages re-rendered in the cloud (mid, 600–690 s) — names in frame, no pile-ups. `TOLD_VERSION` stays 1.
+
+Also from that run:
+- **BOM:** the agent's judge wrote `verdict-1.json` with a UTF-8 BOM; `readcheck tally` reported it missing and the
+  agent had to debug the reader. `readJSON` in `mute-test.js`, `readcheck.js`, `lib/mute-manifest.js`,
+  `lib/mute-verdict.js`, `lib/readcheck-binding.js` now ignore a leading BOM (hashes are over the bytes, unchanged).
+- **`stills-cloud.js`:** `gh` calls retry transient transport errors (one "TLS handshake timeout" killed a fetch while
+  the run was still rendering).
+- Not fixed, known: a told stage for FICTION is still text-and-emblem heavy (a ship is a red tile with a globe); the
+  mute test says so (TEXT_ONLY 19/30). The next lever is drawn things (own icons on the stage) and people DOING the
+  verb, not layout. dracula itself is the owner's: fix round 1 is open in its worktree (pin 7980f07f — it does not have
+  told 1.2; a second `--before-preview` upgrade is refused now that a mute test exists, by design).
+- Tests: `test-told-compile.js` 18 → 24.

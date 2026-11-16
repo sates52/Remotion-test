@@ -96,7 +96,7 @@ t("a person is a figure, an object the book's own drawing; `change` swaps the pe
   const figs = r.stages[0].items.filter((x) => x.kind === "figure");
   assert.strictEqual(figs.length, 2);
   assert.ok(figs[0].exit && figs[1].enter.at === 50 && figs[1].variant.overlay && figs[1].variant.age === "child");
-  assert.deepStrictEqual([figs[1].id, figs[1].y], ["mozart", 790]);
+  assert.deepStrictEqual([figs[1].id, figs[1].y], ["mozart", 850]);
   const piano = item(r.stages[0], "piano");
   assert.deepStrictEqual([piano.kind, piano.x, piano.y, piano.paths.length], ["icon", 1215, 650, 1]);
 });
@@ -215,6 +215,78 @@ t("the screen-text gate reads a word where it is printed: a kept label is not a 
   assert.deepStrictEqual(r.stages.map((s, k) => ST.collectScreenStrings({ id: `s${k}`, told: s }, {}).map((x) => x.text)), [[], [], [], [], []], "MICROSOFT on five kept stages is its name plate");
   const withLabel = C.compileTold([beat("b1", "Microsoft made operating systems", { stage: { layout: "solo", who: ["microsoft"] }, events: [{ on: "operating", do: "label", who: "microsoft", text: "Operating systems" }] }), beat("b2", "and it grew", { events: [{ on: "grew", do: "grow", who: "microsoft" }] })], ENT);
   assert.deepStrictEqual(withLabel.stages.map((s, k) => ST.collectScreenStrings({ id: `s${k}`, told: s }, {}).map((x) => x.text)), [["OPERATING SYSTEMS"], []]);
+});
+
+// ── told 1.2: layout faults seen in dracula's first clips ────────────────────────────────────────────────────────────
+const PEOPLE = { ...ENT, count: { label: "COUNT DRACULA", kind: "person", look: { height: 1.05 }, w: 300 }, mina: { label: "MINA HARKER", kind: "person", look: { height: 0.92 } } };
+const topOf = (it, st) => st.y - (C.figH(it) + 78) * st.s; // body + name plate
+
+t("a person fits under the title band: a tall one is drawn smaller, never cropped; growing stops at the frame", () => {
+  const r = C.compileTold([
+    beat("b1", "Count Dracula stood alone and grew stronger", { stage: { layout: "solo", who: ["count"] }, events: [{ on: "grew", do: "grow", who: "count", to: 1.6 }] }),
+  ], PEOPLE);
+  assert.deepStrictEqual(r.errors, []);
+  const c = item(r.stages[0], "count");
+  assert.ok(c.s < 1 && topOf(c, { y: c.y, s: c.s }) >= C.FIG_TOP - 1, `rests below the title band (top ${topOf(c, c)})`);
+  const end = T.itemState(c, 299);
+  assert.ok(topOf(c, end) >= C.FIG_TOP_HARD - 1, `grown, the name is still in the frame (top ${topOf(c, end)})`);
+  assert.deepStrictEqual(r.warnings.filter((w) => /above the frame/.test(w.message)), []);
+});
+
+t("a person's crown sits above the name plate, inside the frame", () => {
+  const r = C.compileTold([beat("b1", "Mina Harker was the real winner here", { stage: { layout: "solo", who: ["mina"] }, events: [{ on: "winner", do: "crown", who: "mina" }] })], PEOPLE);
+  assert.deepStrictEqual(r.errors, []);
+  const m = item(r.stages[0], "mina"), crown = item(r.stages[0], "mina.crown"), end = T.itemState(m, 299);
+  assert.ok(crown.y + 36 * crown.s <= topOf(m, end) + 1, `crown bottom ${crown.y + 36 * crown.s} is above the plate top ${topOf(m, end)}`);
+  assert.ok(crown.y - 58 * crown.s >= C.FIG_TOP_HARD - 60, `crown top ${crown.y - 58 * crown.s} is in the frame`);
+});
+
+t("a label never leaves the frame: it takes the side with room, or is pulled in; beside a person it is at shoulder height", () => {
+  const r = C.compileTold([beat("b1", "Mina and Microsoft and Google worked with demanding physical labor every day", { stage: { layout: "row", who: ["mina", "microsoft", "google"] }, events: [
+    { on: "demanding", do: "label", who: "google", text: "Demanding physical labor" }, { on: "labor", do: "label", who: "mina", text: "A very efficient modern mind" }] })], PEOPLE);
+  assert.deepStrictEqual(r.errors, []);
+  const ls = labelsOf(r.stages[0]);
+  assert.strictEqual(ls.length, 2);
+  for (const l of ls) { const w = C.tileW(l.label, l.size); assert.ok(l.x - w / 2 >= 39 && l.x + w / 2 <= 1881, `${l.label}: ${l.x - w / 2} … ${l.x + w / 2}`); }
+  const mina = item(r.stages[0], "mina"), ml = ls.find((l) => /MODERN MIND/.test(l.label));
+  const mEnd = T.itemState(mina, 299), lEnd = T.itemState(ml, 299);
+  assert.ok((lEnd.y < mEnd.y - 150 && lEnd.y > mEnd.y - C.figH(mina) * mEnd.s) || (lEnd.y > mEnd.y && lEnd.y <= 860), `at her shoulders, or under her feet above the subtitles (label ${lEnd.y}, feet ${mEnd.y})`);
+});
+
+t("no room beside (a row of people): the label goes under its person, people step up, nothing reaches the subtitles", () => {
+  const R4 = { ...PEOPLE, a: { label: "JONATHAN HARKER", kind: "person" }, b: { label: "DR. SEWARD", kind: "person" } };
+  const r = C.compileTold([beat("b1", "Jonathan kept a journal and Seward recorded wax cylinders while Mina typed", { stage: { layout: "row", who: ["a", "b", "mina", "count"] }, events: [
+    { on: "journal", do: "label", who: "a", text: "Shorthand journal" }, { on: "wax", do: "label", who: "b", text: "Wax phonograph cylinders" }] })], R4);
+  assert.deepStrictEqual(r.errors, []); assert.deepStrictEqual(r.warnings, []);
+  const st = r.stages[0], ls = labelsOf(st).map((l) => ({ l, e: T.itemState(l, 299) }));
+  assert.strictEqual(ls.length, 2);
+  for (const id of ["a", "b", "mina", "count"]) assert.ok(T.itemState(item(st, id), 299).y <= 701, `${id} stands on the raised line`);
+  for (const { l, e } of ls) { const w = C.tileW(l.label, l.size); assert.ok(e.y > 700 && e.y <= 860 && e.x - w / 2 >= 39 && e.x + w / 2 <= 1881, `${l.label} @ ${e.x},${e.y}`); }
+  assert.notStrictEqual(ls[0].e.y, ls[1].e.y, "neighbours' labels are on alternate lines");
+});
+
+t("someone joins: everyone makes room; an arrangement is exact; a label does not follow its thing across the stage or grow with it", () => {
+  const r = C.compileTold([
+    beat("b1", "Microsoft made systems and then Google arrived and then Mozart", { stage: { layout: "solo", who: ["microsoft"] }, events: [
+      { on: "systems", do: "label", who: "microsoft", text: "Operating systems" }, { on: "Google", do: "enter", who: "google" }, { on: "Mozart", do: "enter", who: "mozart" }] }),
+    beat("b2", "only Google and Mozart remained and Google grew", { events: [{ on: "only", do: "arrange", layout: "versus", who: ["google", "mozart"] }, { at: 30, do: "label", who: "google", text: "Search" }, { on: "grew", do: "grow", who: "google", to: 1.5 }] }),
+  ], ENT);
+  assert.deepStrictEqual(r.errors, []);
+  const xs = ["microsoft", "google", "mozart"].map((id) => T.itemState(item(r.stages[0], id), 299).x);
+  assert.ok(xs[0] < xs[1] && xs[1] < xs[2] && xs[1] - xs[0] > 300 && xs[2] - xs[1] > 300, `three in a row, apart: ${xs}`);
+  assert.ok(labelsOf(r.stages[0])[0].exit, "the label left when its thing walked to its new place");
+  assert.ok(item(r.stages[1], "microsoft").exit, "the arrangement did not name it: it leaves");
+  const lab = labelsOf(r.stages[1]).find((l) => l.label === "SEARCH");
+  assert.strictEqual(T.itemState(lab, 299).s, 1, "the thing grew, its label did not");
+});
+
+t("a timeline needs the middle: the things step up into a row of heads; a newcomer joins the heads", () => {
+  const r = C.compileTold([beat("b1", "on the seventeenth of July the ship sailed and then Google came", { stage: { layout: "versus", who: ["microsoft", "mozart"] }, events: [
+    { on: "seventeenth", do: "date", text: "17 July" }, { on: "Google", do: "enter", who: "google" }] })], ENT);
+  assert.deepStrictEqual(r.errors, []); assert.deepStrictEqual(r.warnings, []);
+  const end = (id) => T.itemState(item(r.stages[0], id), 299);
+  for (const id of ["microsoft", "google"]) assert.ok(end(id).y < 300 && end(id).s <= 0.5, `${id} is a head (${end(id).y}, ${end(id).s})`);
+  assert.ok(end("mozart").y < 450 && end("mozart").y - C.figH(item(r.stages[0], "mozart")) * end("mozart").s > 0, "a person among the heads stands inside the frame");
 });
 
 t("merge holds a told beat's words to the screen-text rules", () => {

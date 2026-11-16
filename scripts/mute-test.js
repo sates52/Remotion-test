@@ -75,7 +75,7 @@ const V2 = METHOD === "v2";
 const MUTE_ROOT = (method) => path.join(ROOT, "audit", method === "v2" ? "mute-v2" : "mute", SLUG);
 const DIR = (label) => path.join(MUTE_ROOT(METHOD), label);
 const OUT = DIR(LABEL);
-const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
+const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return d; } }; // a leading BOM (files written from PowerShell / other harnesses) is not content
 const cfgPath = fs.existsSync(path.join(BOOK, "config.antidote.json")) ? path.join(BOOK, "config.antidote.json") : path.join(BOOK, "config.vox.json");
 const cfg = readJSON(cfgPath);
 if (!cfg) { console.error(`❌ no config for ${SLUG}`); process.exit(1); }

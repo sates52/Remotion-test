@@ -16,7 +16,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex");
-const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
+const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return d; } }; // a leading BOM (files written from PowerShell / other harnesses) is not content
 const canon = (o) => JSON.stringify(o, Object.keys(o).sort());
 const words = (t) => String(t || "").toLowerCase().replace(/[^a-z0-9' ]/g, " ").split(/\s+/).filter(Boolean);
 function shingles(text, k = 8) { const w = words(text), out = new Set(); for (let i = 0; i + k <= w.length; i++) out.add(w.slice(i, i + k).join(" ")); return out; }

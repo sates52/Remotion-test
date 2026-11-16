@@ -20,7 +20,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const RETIRED = new Set(["SUPERSEDED", "STALE", "VOID"]);
-const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
+const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return d; } }; // a leading BOM (files written from PowerShell / other harnesses) is not content
 const mtime = (p) => { try { return fs.statSync(p).mtimeMs; } catch { return 0; } };
 const sha = (buf) => crypto.createHash("sha256").update(buf).digest("hex");
 // Same hash the sealer writes: lib/mute-ids.js (sorted ids, so the file's order never decides it).

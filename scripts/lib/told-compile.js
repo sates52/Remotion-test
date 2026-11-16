@@ -28,7 +28,22 @@ const GLYPHS = ["monitor", "search", "doc", "browser", "building", "book", "coin
 const KINDS = { company: "emblem", product: "emblem", place: "emblem", idea: "emblem", person: "figure", object: "icon", animal: "icon" };
 const LAYOUTS = ["solo", "versus", "row", "court", "pairs"];
 const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw"];
-const Y = { emblem: 470, figure: 790, icon: 600 };
+const Y = { emblem: 470, figure: 850, icon: 600 };
+// A PERSON FITS UNDER THE TITLE BAND (dracula's first clips: "COUNT DRACULA" cut by the top of the frame, a title
+// printed over "MINA HARKER", the crown sitting on the name). A person is feet-to-name-plate: the body (taller for a
+// look.height above 1), the plate above the head, and a crown above the plate when they wear one. That whole column
+// starts below the title band; a person who would not fit is drawn smaller, never cropped.
+const FIG_TOP = 250, FIG_TOP_HARD = 140, TAG_H = 78, CROWN_H = 104;
+const figH = (it) => (it.w || 260) * (it.body === "bust" ? 1.5 : 2.25) * Math.max(1, (it.variant && it.variant.height) || 1);
+const fitS = (it, y, { crown = false, top = FIG_TOP } = {}) => Math.max(0.35, (y - top) / (figH(it) + TAG_H + (crown ? CROWN_H : 0)));
+// a label is a tile centred on x: this wide (ToldStage textW ≈ 0.62 em per capital + the dot and padding)
+const tileW = (text, size = 38) => String(text).length * size * 0.7 + 118;
+const EDGE = 40;
+const UNDER_FEET = 700; // where people stand when labels go under them
+// where a mark ON a thing goes: a thing's own point is its middle, a person's is their FEET — a stamp, a cross or a
+// burst belongs on the chest, a blindfold bar on the eyes (dracula: a stamp at a person's feet, under the subtitles)
+const midOf = (it, p) => (it && it.kind === "figure" ? { ...p, y: p.y - figH(it) * 0.5 * p.s } : p);
+const eyesOf = (it, p) => (it && it.kind === "figure" ? p.y - figH(it) * 0.86 * p.s : p.y - 30 * p.s);
 const SAFE = { top: 130, bottom: 860 }; // the HUD above, the subtitle band below
 // EXTRAS EXPIRE, THINGS STAY (dracula, the first real told book: 123 label events and no `clear` — one scene carried
 // 16 labels and two crosses). How many beats AFTER the one it lands in an extra stays: a label is the fact of this
@@ -56,7 +71,7 @@ function wordFrame(words, on, from = 0) {
 function slots(layout, n) {
   if (layout === "solo") return [{ x: 960, s: 1 }];
   if (layout === "versus") return [{ x: 560, s: 1 }, { x: 1360, s: 1 }];
-  if (layout === "pairs") return [{ x: 560, y: 230, s: 0.5 }, { x: 1360, y: 230, s: 0.5 }];
+  if (layout === "pairs") return [{ x: 560, y: 230, s: 0.5, head: true }, { x: 1360, y: 230, s: 0.5, head: true }];
   if (layout === "court") { // the first is in the middle, the others stand around: left, right, left, right
     const side = [330, 1590, 580, 1340, 130, 1790];
     return Array.from({ length: n }, (_, i) => (i === 0 ? { x: 960, s: 1 } : { x: side[(i - 1) % side.length], s: 1 }));
@@ -117,6 +132,10 @@ function compileTold(beats, entities = {}) {
       const from = stateAt(it, at - dur), ns = to.s ?? from.s, nx = to.x ?? from.x, ny = to.y ?? from.y;
       key(it, { at, dur, ease, x: nx, y: ny, s: ns, ...(to.o != null ? { o: to.o } : {}), ...(to.r != null ? { r: to.r } : {}) });
       for (const b of bound(ent)) {
+        // a LABEL was placed for where its thing stood and at reading size: when the thing walks somewhere else the
+        // label leaves (it would land on a neighbour or outside the frame), and when the thing grows the label does
+        // not (dracula: a label at 1.8× across the stage, another at x −30)
+        if (b._role === "label") { if (Math.abs(nx - from.x) > 40 || Math.abs(ny - from.y) > 40) leave(b, Math.max(10, at - dur)); continue; }
         const bs = stateAt(b, at - dur), ratio = ns / (from.s || 1);
         key(b, { at, dur, ease, x: nx + (bs.x - from.x) * ratio, y: ny + (bs.y - from.y) * ratio, s: bs.s * ratio });
       }
@@ -127,7 +146,13 @@ function compileTold(beats, entities = {}) {
       const e = entities[ent];
       if (!e) { err(`"${ent}" is not in entities.json`); return null; }
       let it = find(ent);
-      const kind = KINDS[e.kind], y = slot.y ?? Y[kind];
+      // the two column heads of a comparison: a thing is centred at the slot, a person STANDS there (feet lower)
+      // while labels stand under the people, people keep the raised line (a re-arrangement must not push the labels
+      // down into the subtitles)
+      const lineup = KINDS[e.kind] === "figure" && slot.y == null && items.some((x) => x._under && !x._gone);
+      if (lineup) slot = { ...slot, s: slot.s * 0.86 };
+      const kind = KINDS[e.kind], y = slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
+      if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.head ? 60 : FIG_TOP })) }; }
       if (it) { const st = stateAt(it, at); if (Math.abs(st.x - slot.x) > 1 || Math.abs(st.y - y) > 1 || Math.abs(st.s - slot.s) > 0.01) move(ent, Math.max(at, 20), { x: slot.x, y, s: slot.s }); return it; }
       it = add({ ...entityItem(ent, e, colorOf), x: slot.x, y, s: slot.s });
       if (kind === "figure" && slot.x > 960 && it.flip == null) it.flip = true; // faces the middle
@@ -137,9 +162,14 @@ function compileTold(beats, entities = {}) {
     const arrange = (layout, who, at) => {
       if (!LAYOUTS.includes(layout)) return err(`layout "${layout}" — one of ${LAYOUTS.join(", ")}`);
       const sl = slots(layout, who.length);
+      // an arrangement is exact, like `stage`: a thing it does not name leaves (dracula scene-108: eight things from
+      // three arrangements standing in each other)
+      for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
       who.forEach((ent, i) => ensure(ent, at + (at > 0 ? i * 8 : 0), sl[Math.min(i, sl.length - 1)]));
       st8.layout = layout; st8.who = who.slice();
     };
+    /** the things as a small row of heads along the top: the middle of the stage is free for a timeline */
+    const heads = (who, t0) => { const n = who.length; who.forEach((w, i) => ensure(w, t0, { x: n === 1 ? 960 : 420 + (1080 * i) / (n - 1), y: 230, s: n > 3 ? 0.4 : 0.5, head: true })); };
     // titles sit in a band at the top of what the camera sees; a new one replaces the old
     const title = (text, at, box) => {
       for (const t of items.filter((x) => x._role === "title" && !x._gone)) leave(t, at - 2);
@@ -179,26 +209,57 @@ function compileTold(beats, entities = {}) {
       const posOf = (ent) => stateAt(find(ent), at);
       switch (ev.do) {
         case "arrange": arrange(ev.layout || "row", who, at); break;
-        case "enter": { const n = (st8.who.length || 0), sl = ev.x != null ? { x: ev.x, y: ev.y, s: ev.s ?? 1 } : slots(st8.layout || "row", Math.max(n + 1, 1))[n] || { x: 960, s: 1 }; for (const w of who) { ensure(w, at, sl, ev.from); if (!st8.who.includes(w)) st8.who.push(w); } break; }
+        case "enter": {
+          if (ev.x != null) { for (const w of who) { ensure(w, at, { x: ev.x, y: ev.y, s: ev.s ?? 1 }, ev.from); if (!st8.who.includes(w)) st8.who.push(w); } break; }
+          // someone joins: EVERYONE makes room (dracula: a newcomer was put in "the next slot" of a layout the others
+          // were not standing in — a ship, a box, a port and a man on top of each other). A stage for one becomes a
+          // stage for two, a stage for two becomes a row.
+          const all = [...st8.who, ...who.filter((w) => !st8.who.includes(w))];
+          if (st8.layout === "heads") { heads(all, at); st8.who = all; break; } // a timeline is up: the newcomer joins the row of heads
+          const lay = st8.layout === "court" ? "court" : all.length === 1 ? "solo" : all.length === 2 ? "versus" : "row";
+          arrange(lay, all, at); break; }
         case "exit": if (need(1)) for (const w of who) { leave(find(w), at); for (const b of bound(w)) leave(b, at); st8.who = st8.who.filter((x) => x !== w); } break;
         case "title": if (!ev.text) err("title: needs text"); else title(ev.text, at, ev.box); break;
         case "label": if (need(1) && ev.text) {
-          // at most two labels beside a thing: a third replaces the oldest, in its place
-          const p = posOf(who[0]), live = bound(who[0]).filter((b) => b._role === "label"), side = p.x < 960 ? 1 : -1;
-          while (live.length >= LABELS_PER_THING) leave(live.shift(), Math.max(10, at - 2));
-          const slot = [0, 1].find((k) => !live.some((b) => b._slot === k)) ?? 0;
-          add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: find(who[0]).color || INK, size: 38, x: p.x + side * 440 * p.s, y: p.y - 70 * p.s + slot * 110, enter: { at: Math.max(12, at), from: side > 0 ? "right" : "left", dur: 12 }, _bind: who[0], _role: "label", _slot: slot });
+          const p = posOf(who[0]), live = bound(who[0]).filter((b) => b._role === "label"), ent0 = find(who[0]), fig = ent0.kind === "figure";
+          const others = items.filter((x) => x._role === "entity" && !x._gone && x.id !== who[0]).map((x) => stateAt(x, at));
+          const text = String(ev.text).toUpperCase();
+          // BESIDE the thing (a person: at shoulder height, p.y is their feet) — on a side where it stays inside the
+          // frame and does not lie across a neighbour (dracula: "EFFICIE…" cut by the edge, a label printed over VARNA)
+          const tw = tileW(text), reach = (fig ? (ent0.w || 260) * 0.5 + 60 : 440) * p.s + (fig ? tw / 2 : 0);
+          const free = (sd) => { const cx = p.x + sd * reach; return cx - tw / 2 >= EDGE && cx + tw / 2 <= 1920 - EDGE && !others.some((q) => Math.abs(q.x - cx) < tw / 2 + 130 * q.s); };
+          const pref = p.x < 960 ? 1 : -1, side = free(pref) ? pref : free(-pref) ? -pref : 0;
+          if (side) {
+            // at most two labels beside a thing: a third replaces the oldest, in its place
+            while (live.length >= LABELS_PER_THING) leave(live.shift(), Math.max(10, at - 2));
+            const slot = [0, 1].find((k) => !live.some((b) => b._slot === k)) ?? 0;
+            add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: text, color: ent0.color || INK, size: 38, x: p.x + side * reach, y: (fig ? p.y - figH(ent0) * 0.62 * p.s : p.y - 70 * p.s) + slot * 110, enter: { at: Math.max(12, at), from: side > 0 ? "right" : "left", dur: 12 }, _bind: who[0], _role: "label", _slot: slot });
+            break;
+          }
+          // NO ROOM BESIDE (a row of things): the label goes UNDER its thing, one per thing, neighbours on alternate
+          // lines. People step up and back first so there is a band under their feet above the subtitles.
+          for (const b of live) leave(b, Math.max(10, at - 2));
+          if (fig) for (const g of items.filter((x) => x._role === "entity" && !x._gone && x.kind === "figure")) { const q = stateAt(g, at); if (q.y > UNDER_FEET + 1) move(g._ent, Math.max(16, at - 6), { y: UNDER_FEET, s: q.s * 0.86 }, 16); }
+          const q = fig ? { ...p, y: Math.min(p.y, UNDER_FEET) } : p, tw2 = tileW(text, 32), par = Math.max(0, st8.who.indexOf(who[0])) % 2;
+          const base = fig ? q.y + 52 : q.y + (ent0.kind === "emblem" ? 180 : (ent0.w || 312) / 2 + 66) * q.s + 56;
+          add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: text, color: ent0.color || INK, size: 32, x: Math.max(EDGE + tw2 / 2, Math.min(1920 - EDGE - tw2 / 2, q.x)), y: Math.min(SAFE.bottom - 40, base + par * (fig ? 70 : 84)), enter: { at: Math.max(12, at), from: "bottom", dur: 12 }, _bind: who[0], _role: "label", _slot: 0, _under: fig || undefined });
         } break;
-        case "crown": if (need(1)) { const p = posOf(who[0]), k = find(who[0]).kind; add({ id: `${who[0]}.crown`, kind: "crown", x: p.x, y: p.y - (k === "figure" ? (find(who[0]).w || 260) * 2.25 + 30 : 202) * p.s, s: p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: who[0], _role: "deco" }); } break;
+        case "crown": if (need(1)) {
+          const ent0 = find(who[0]), k = ent0.kind; let p = posOf(who[0]);
+          // a person's crown goes ABOVE the name plate; if that column would leave the frame, the person steps down a size
+          if (k === "figure") { const room = fitS(ent0, p.y, { crown: true, top: FIG_TOP_HARD }); if (p.s > room + 0.005) { move(who[0], Math.max(14, at - 4), { s: room }, 14); p = { ...p, s: room }; } }
+          add({ id: `${who[0]}.crown`, kind: "crown", x: p.x, y: p.y - (k === "figure" ? figH(ent0) + TAG_H + 46 : 202) * p.s, s: p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: who[0], _role: "deco" }); } break;
         case "uncrown": if (need(1)) for (const b of bound(who[0]).filter((x) => x.kind === "crown")) leave(b, at); break;
         case "world": if (need(1)) for (const w of who) { const p = posOf(w); items.unshift({ id: `${w}.world`, kind: "planet", color: find(w).color || colorOf(w), size: 290, x: p.x, y: p.y, s: p.s, enter: { at: Math.max(14, at), from: "pop", dur: 14 }, _bind: w, _role: "world" }); } break;
-        case "cross": { let p; if (who.length >= 2 && need(2)) { const a = posOf(who[0]), b = posOf(who[1]); p = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; add({ id: `dash${++seq}`, kind: "dash", x: a.x + 180, y: a.y, x2: b.x - 180, y2: b.y, drawFrom: Math.max(0, at - 30), drawTo: at, enter: { at: Math.max(2, at - 30), from: "fade", dur: 2 }, _role: "fx" }); } else if (need(1)) p = posOf(who[0]); if (p) add({ id: `cross${++seq}`, kind: "cross", color: ACCENT, x: p.x, y: p.y, enter: { at: Math.max(10, at), from: "pop", dur: 8 }, _role: "fx", ...(who.length === 1 ? { _bind: who[0] } : {}) }); break; }
-        case "stamp": if (need(1) && ev.text) { const p = posOf(who[0]); add({ id: `${who[0]}.stamp`, kind: "word", label: String(ev.text).toUpperCase(), size: 104 * p.s, box: RED, r: -12, x: p.x, y: p.y, enter: { at: Math.max(8, at), from: "pop", dur: 7 }, _bind: who[0], _role: "deco", _ttl: TTL_DECO }); find(who[0]).shake = { at, dur: 18 }; } break;
-        case "cover": if (need(1)) for (const w of who) { const p = posOf(w); add({ id: `${w}.cover`, kind: "bar", w: 280 * p.s, h: 64 * p.s, x: p.x, y: p.y - 30 * p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: w, _role: "deco", _ttl: TTL_DECO }); } break;
+        case "cross": { let p; if (who.length >= 2 && need(2)) { const a = midOf(find(who[0]), posOf(who[0])), b = midOf(find(who[1]), posOf(who[1])); p = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; add({ id: `dash${++seq}`, kind: "dash", x: a.x + 180, y: a.y, x2: b.x - 180, y2: b.y, drawFrom: Math.max(0, at - 30), drawTo: at, enter: { at: Math.max(2, at - 30), from: "fade", dur: 2 }, _role: "fx" }); } else if (need(1)) p = midOf(find(who[0]), posOf(who[0])); if (p) add({ id: `cross${++seq}`, kind: "cross", color: ACCENT, x: p.x, y: p.y, enter: { at: Math.max(10, at), from: "pop", dur: 8 }, _role: "fx", ...(who.length === 1 ? { _bind: who[0] } : {}) }); break; }
+        case "stamp": if (need(1) && ev.text) { const p = midOf(find(who[0]), posOf(who[0])); add({ id: `${who[0]}.stamp`, kind: "word", label: String(ev.text).toUpperCase(), size: 104 * p.s, box: RED, r: -12, x: p.x, y: p.y, enter: { at: Math.max(8, at), from: "pop", dur: 7 }, _bind: who[0], _role: "deco", _ttl: TTL_DECO }); find(who[0]).shake = { at, dur: 18 }; } break;
+        case "cover": if (need(1)) for (const w of who) { const p = posOf(w); add({ id: `${w}.cover`, kind: "bar", w: (find(w).kind === "figure" ? 170 : 280) * p.s, h: (find(w).kind === "figure" ? 44 : 64) * p.s, x: p.x, y: eyesOf(find(w), p), enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: w, _role: "deco", _ttl: TTL_DECO }); } break;
         case "uncover": if (need(1)) for (const w of who) for (const b of bound(w).filter((x) => x.kind === "bar")) leave(b, at); break;
         case "dim": if (need(1)) for (const w of who) { const p = posOf(w); key(find(w), { at, dur: 14, o: 0.5, r: p.x < 960 ? -9 : 9, y: p.y + 35 }); } break;
         case "restore": if (need(1)) for (const w of who) { const e = entities[w], p = posOf(w); key(find(w), { at, dur: 14, o: 1, r: 0, y: p.y - (p.o < 0.99 ? 35 : 0) }); void e; } break;
-        case "grow": if (need(1)) for (const w of who) move(w, at, { s: posOf(w).s * (ev.to || 1.25) }, 14, "back"); break;
+        case "grow": if (need(1)) for (const w of who) { const g = find(w), p = posOf(w), to = p.s * (ev.to || 1.25);
+          // a person grows only as far as the frame lets them (their name must stay readable)
+          move(w, at, { s: g.kind === "figure" ? Math.min(to, Math.max(p.s, fitS(g, p.y, { crown: bound(w).some((b) => b.kind === "crown"), top: FIG_TOP_HARD }))) : to }, 14, "back"); } break;
         case "shake": if (need(1)) for (const w of who) find(w).shake = { at, dur: 20, amp: 14 }; break;
         case "apart": if (need(2)) { const a = posOf(who[0]), b = posOf(who[1]), l = a.x <= b.x ? 0 : 1; move(who[l], at, { x: 440 }); move(who[1 - l], at, { x: 1480 }); } break;
         case "together": case "collide": if (need(2)) {
@@ -208,7 +269,7 @@ function compileTold(beats, entities = {}) {
           if (ev.do === "together") break;
         } else break;
         // falls through: a collision is a meeting and a burst
-        case "burst": { let p = { x: 960, y: 450 }; if (who.length >= 2 && find(who[0]) && find(who[1])) { const a = posOf(who[0]), b = posOf(who[1]); p = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 - 20 }; for (const w of who) find(w).shake = { at, dur: 22, amp: 16 }; } add({ id: `burst${++seq}`, kind: "burst", color: "#F2C84B", x: p.x, y: p.y, s: 1.2, enter: { at: Math.max(8, at), from: "pop", dur: 8 }, _role: "fx" }); break; }
+        case "burst": { let p = { x: 960, y: 450 }; if (who.length >= 2 && find(who[0]) && find(who[1])) { const a = midOf(find(who[0]), posOf(who[0])), b = midOf(find(who[1]), posOf(who[1])); p = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 - 20 }; for (const w of who) find(w).shake = { at, dur: 22, amp: 16 }; } add({ id: `burst${++seq}`, kind: "burst", color: "#F2C84B", x: p.x, y: p.y, s: 1.2, enter: { at: Math.max(8, at), from: "pop", dur: 8 }, _role: "fx" }); break; }
         case "coins": { const p = who.length && find(who[0]) ? posOf(who[0]) : { x: 960, y: 450 }, n = Math.max(1, Math.min(8, ev.n || 6)); for (let i = 0; i < n; i++) { const dx = ((i + 0.5) / n - 0.5) * 900, dy = 320 + ((i * 37) % 60); add({ id: `coin${++seq}`, kind: "coin", x: p.x, y: p.y, s: 1.4, enter: { at: Math.max(6, at + i * 2), from: "pop", dur: 6 }, keys: [{ at: at + 28 + i * 3, dur: 24, x: p.x + dx, y: Math.min(SAFE.bottom - 40, p.y + dy) }], _role: "fx" }); } break; }
         case "pair": {
           if (st8.who.length < 2) { err("pair: needs two things on stage (stage.who) — they become the two columns"); break; }
@@ -223,11 +284,23 @@ function compileTold(beats, entities = {}) {
           row(`row${seq}b`, ev.right, 1360, find(b).color || INK, "right", rf);
           break; }
         case "date": { if (!ev.text) { err("date: needs text"); break; }
+          // a timeline needs the middle of the stage: the things step up into a small row of heads, as for `pair`
+          // (dracula: date tiles printed across the ship and the port)
+          if (st8.layout !== "heads" && st8.layout !== "pairs" && st8.who.length) {
+            heads(st8.who, Math.max(22, at - 16));
+            for (const w of st8.who) for (const b of bound(w).filter((x) => x._role === "label")) leave(b, Math.max(10, at - 20));
+            for (const f of items.filter((x) => x._role === "fx" && !x._gone)) leave(f, Math.max(10, at - 20));
+            st8.layout = "heads";
+          }
           if (!items.some((x) => x.id === "timeline" && !x._gone)) add({ id: "timeline", kind: "dash", x: 280, y: 640, x2: 1640, y2: 640, drawFrom: Math.max(0, at - 40), drawTo: Math.max(4, at - 4), enter: { at: Math.max(2, at - 40), from: "fade", dur: 2 }, _role: "row" });
           const x = ev.side === "left" ? 500 : ev.side === "right" ? 1340 : [960, 500, 1340][st8.dates % 3]; st8.dates++;
           for (const r0 of items.filter((x) => x._role === "row" && !x._gone)) r0._born = beatNo;
           add({ id: `date${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: ev.color === "red" ? RED : INK, size: 44, x, y: 540, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _role: "row" }); break; }
-        case "focus": if (need(1)) { const p = posOf(who[0]), s = ev.zoom || 1.3; Object.assign(curCam, { x: p.x + (p.x < 960 ? 200 : -200), y: Math.min(p.y, 520), s }); camKeys.push({ at: Math.max(22, at), dur: 22, ease: "inout", ...curCam }); } break;
+        case "focus": if (need(1)) { const p = posOf(who[0]), s = ev.zoom || 1.3; 
+          // the push-in keeps the thing's foot (a person's feet, a thing's name plate) above the subtitle band
+          // (dracula: "PORTABLE TYPEWRITER" pushed under the captions by the zoom)
+          const g = find(who[0]), foot = g.kind === "figure" ? p.y : g.kind === "icon" ? p.y + ((g.w || 312) / 2 + 66) * p.s : p.y + 180 * p.s;
+          Object.assign(curCam, { x: p.x + (p.x < 960 ? 200 : -200), y: Math.max(Math.min(p.y, 520), foot - (SAFE.bottom - 540) / s), s }); camKeys.push({ at: Math.max(22, at), dur: 22, ease: "inout", ...curCam }); } break;
         case "wide": Object.assign(curCam, { x: 960, y: 540, s: 1 }); camKeys.push({ at: Math.max(24, at), dur: 24, ease: "inout", ...curCam }); break;
         case "clear": { const what = ev.what || "extras", roles = what === "titles" ? ["title"] : what === "labels" ? ["label"] : what === "rows" ? ["row"] : ["title", "label", "row", "fx", "deco"]; for (const it of items.filter((x) => roles.includes(x._role) && !x._gone)) leave(it, at); if (roles.includes("row")) { st8.rows = 0; st8.dates = 0; } break; }
         case "change": if (need(1)) { // the same person, differently: another action, a blindfold, something in the hand
@@ -244,7 +317,7 @@ function compileTold(beats, entities = {}) {
     // nothing may sit under the subtitles or over the HUD when it comes to rest
     for (const it of items) {
       const end = T.itemState(it, D - 1); if (!end || it._role === "world" || it.kind === "panel" || it.kind === "dash") continue;
-      const top = it.kind === "figure" ? end.y - (it.w || 260) * (it.body === "bust" ? 1.5 : 2.25) * end.s : end.y - 150 * end.s;
+      const top = it.kind === "figure" ? end.y - (figH(it) + TAG_H) * end.s : end.y - 150 * end.s;
       if (it.kind !== "figure" && end.y > SAFE.bottom) warnings.push({ beat: beat.id, message: `${it.id} rests at y ${Math.round(end.y)} — under the subtitle band` });
       if (it._role !== "title" && top < 0) warnings.push({ beat: beat.id, message: `${it.id} rests above the frame (top ${Math.round(top)})` });
     }
@@ -270,4 +343,4 @@ function compileTold(beats, entities = {}) {
   return { stages, errors, warnings };
 }
 
-module.exports = { compileTold, validateEntities, wordFrame, slots, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE, TTL, TTL_DECO, LABELS_PER_THING };
+module.exports = { compileTold, validateEntities, wordFrame, slots, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE, TTL, TTL_DECO, LABELS_PER_THING, FIG_TOP, FIG_TOP_HARD, figH, fitS, tileW };

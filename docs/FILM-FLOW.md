@@ -37,6 +37,23 @@ Authoring-side only: the drawn format is unchanged (`TOLD_VERSION` stays 1).
 Dracula's authored beats, unchanged, through 1.1: screen-text findings 159 → 12 (all real wording problems), at most
 6 labels on a stage (was 16).
 
+## Told 1.2 — stage layout (2026-11-16, dracula's first clips)
+
+Seen in the clips of the first real told book, all authoring-side (`TOLD_VERSION` stays 1):
+- **A person fits under the title band**: feet → body → name plate → crown is one column; a tall or grown person is
+  drawn smaller, never cropped; the crown sits above the name plate.
+- **A label never leaves the frame or lies across a neighbour**: beside its thing on the free side (a person: at
+  shoulder height); in a row with no free side it goes UNDER its thing, one per thing, neighbours on alternate lines,
+  and people step up to leave a band above the subtitles. A label does not follow a thing that walks elsewhere and
+  does not grow with it.
+- **`enter`: everyone makes room; `arrange` is exact** (what it does not name leaves).
+- **A timeline (`date`) lifts the things into a row of heads**; a newcomer joins the heads.
+- **Marks on a person** (stamp, cross, burst) sit on the chest, a cover on the eyes; a push-in (`focus`) keeps the
+  thing's foot above the subtitle band.
+- Measured on dracula's 147 told stages (rest frame of each): stages with any overlap or a label off the frame
+  85 → 2; thing over thing 30 → 0; label over another thing 129 → 2; label off frame 13 → 0.
+- Also: blind-test readers accept a JSON file with a BOM; `stills-cloud.js` retries a network blip.
+
 ## Changing it
 
 - A new event, layout or item kind: `told-compile.js` (+ `told.ts` / `ToldStage.tsx` when it must be drawn), the row in

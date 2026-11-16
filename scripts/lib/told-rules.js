@@ -11,8 +11,8 @@ const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING } = require("./
 const { checkString } = require("./screen-text");
 
 const EVENT_HELP = [
-  ["arrange", "layout, who[]", "put these on stage in a layout (they enter from their side; those already there move)"],
-  ["enter / exit", "who", "one thing comes on / leaves"],
+  ["arrange", "layout, who[]", "EXACTLY these on stage in a layout (they enter from their side; those already there move; anything not named leaves)"],
+  ["enter / exit", "who", "one thing comes on (everyone makes room) / leaves"],
   ["title", "text, box? (accent | ink | red)", "2-5 words at the top of the screen; one at a time"],
   ["label", "who, text", "a property / product / fact of that thing, beside it (two at most; it leaves by itself after the next beat)"],
   ["crown / uncrown", "who", "the leader, the winner, the biggest"],
@@ -71,6 +71,9 @@ ${rows}
 - **Extras expire by themselves:** a label stays for this beat and the next, an effect (burst, cross, coins) for its
   own beat, a stamp / cover and a set of rows a little longer. A thing has at most ${LABELS_PER_THING} labels (a third replaces
   the oldest). A crown and a world stay until you take them off. You never need to tidy up.
+- **Keep a stage small: two or three things, four at most.** The compiler finds room (a person is drawn to fit under
+  the title, a label goes beside its thing or — in a row — under it, a timeline lifts the things into a row of heads),
+  but six people in a row are six small people.
 - A **label** is a short noun phrase for a fact the narration states about that thing ("Operating systems") — not a
   sentence, not three keywords. Most beats need ONE event that shows the verb; a label is the exception, not the default.
 - Titles are 2-5 words from the narration's own claim, never a label for the picture. At most 5 events in a beat.

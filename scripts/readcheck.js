@@ -56,7 +56,7 @@ function outDir() {
   return BASE;
 }
 const OUT = outDir();
-const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
+const readJSON = (p, d = null) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return d; } }; // a leading BOM (files written from PowerShell / other harnesses) is not content
 const RB = require("./lib/readcheck-binding");
 const runOf = (dir) => ((readJSON(path.join(dir, "run.json")) || {}).run || null);
 const folderName = (dir) => (dir === BASE ? "readcheck" : path.basename(dir));

@@ -54,7 +54,20 @@ const GITHUB_FILE_LIMIT = 95 * 1024 * 1024;
 const STILLS_PER_SHARD = 30;
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex");
 const sleep = (ms) => execFileSync(process.execPath, ["-e", `setTimeout(()=>{},${ms})`]);
-const gh = (a, enc = "utf8") => execFileSync("gh", a, { encoding: enc, maxBuffer: 512 * 1024 * 1024 });
+// A network blip is not a failed run: the first fetch of dracula's clips died on one "TLS handshake timeout" while the
+// run was still rendering (2026-11-16). Transient transport errors are retried; anything else is thrown at once.
+const TRANSIENT = /TLS handshake timeout|connection reset|i\/o timeout|timeout awaiting|unexpected EOF|EOF$|ECONNRESET|ETIMEDOUT|temporary failure|HTTP 50[234]|could not resolve host|dial tcp/i;
+const gh = (a, enc = "utf8") => {
+  for (let k = 0; ; k++) {
+    try { return execFileSync("gh", a, { encoding: enc, maxBuffer: 512 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"] }); }
+    catch (e) {
+      const msg = String((e && e.stderr) || (e && e.message) || "");
+      if (k >= 5 || !TRANSIENT.test(msg)) throw e;
+      console.error(`  (network: ${msg.trim().split("\n").pop().slice(0, 120)} — retry ${k + 1}/5)`);
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 5000 * (k + 1));
+    }
+  }
+};
 const tagOk = (t) => /^[a-z0-9][a-z0-9._-]{0,80}$/i.test(String(t || ""));
 
 function runsFor(tag) {
