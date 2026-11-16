@@ -1,0 +1,64 @@
+{
+ "schema": "stills/1",
+ "name": "film-flow passages film",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 3,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "dracula-0-90-film",
+   "config": "configs/dracula-0-90-film.json",
+   "frames": [
+    1429
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2857,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-mid-film",
+   "config": "configs/dracula-mid-film.json",
+   "frames": [
+    1408
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2814,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-600-690-film",
+   "config": "configs/dracula-600-690-film.json",
+   "frames": [
+    1371
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2740,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "96086ae4b579ca26",
+ "files": {
+  "stills/configs/dracula-0-90-film.json": "32428a364ca5763b2791eace856d703cbb6f9d4df34128e537b0d813c761ae99",
+  "stills/configs/dracula-mid-film.json": "e3d3b2e6460fc866057e581db328b262111b5b8f7b5bb581fee99c1e5772a8ba",
+  "stills/configs/dracula-600-690-film.json": "364a5370f8b0633ed5ea68cf5921532f7c0e2e9b6739b5f6bcfebdc625b8caf7"
+ },
+ "builtAt": "2026-11-16T13:44:48.600Z"
+}
