@@ -14,9 +14,16 @@ Published books are frozen.
 
 - **Version:** `TOLD_VERSION` 2. What v2 adds is carried by fields a v1 stage does not have (`backdrops`, an icon's
   `state`, `*.held` items) and `ToldStage` reads `backdrops` only on `v >= 2`: a stored `v: 1` stage is drawn as it was.
-  The compiler gives the same items for a v1-vocabulary beat (`test-own-drawings.js` golden; dracula's 147 authored
-  stages: 131 identical, 16 differ only in that a drawing that GROWS now rises to keep its name plate above the
-  subtitles; zero-to-one's 10: identical).
+  **A told-v1 book compiles to exactly the told 1.2 stages**: the v2 layout rules below apply only to a book whose
+  entities carry a v2 drawing (`reads` / `states` / `backdrop` / `motif`). Measured: the golden fixture
+  (`test-own-drawings.js`), dracula as authored 147 of 147 stages, zero-to-one 10 of 10 — identical.
+- **v2 layout (round 2, 2026-11-17, from the operator's list on the first clips):** a label under a drawn thing never
+  lies on its name plate (the thing rises; the label follows a `grow`; a drawing grows only as far as the stage lets
+  it); a name plate is as wide as its name (`plateW`, stage `plate: "fit"`) and stays in the frame; a timeline keeps
+  the things in the middle at reading size with the line under them; a change of stage is one thing at a time (who
+  leaves is gone, then the others move, who stays comes back from a `dim`); a stamp / cover leaves before its thing
+  moves; a held drawing sits in the hand of the rig's `hold` pose; a state change is a knock and a 12-frame change
+  landing on the word; a person who changes while walking arrives.
 - **Entities:** `paths` (or `motif`: an own icon of `motifs.json` — one source) on any kind; `reads`; `states`;
   `backdrop` on a place. Colour tokens are the book's palette. Lint numbers: `RULES` in `own-drawings.js`.
 - **Gate:** prep refuses a drawing that is not one; merge refuses a told beat that uses a drawing without a passing
@@ -25,7 +32,8 @@ Published books are frozen.
 - **Measured (dracula, scratch copy, authored beats unchanged except 9 re-authored in the clip passages):** things on
   told stages shown as the book's own drawing 41 % → 79 %; drawings named blind as intended 12 of 12 (10 of 12 on the
   first pass); stages with a thing on a thing / under the subtitle line 15 → 4.
-- **Not in v2:** the engine's library icons on a told stage; fingers closing on a held drawing; an animated state change.
+- **Not in v2:** the engine's library icons on a told stage; fingers closing on a held drawing; a state change drawn
+  as its own animation (it is a knock and a cross-fade).
 
 ## Told v1 — the contract
 
