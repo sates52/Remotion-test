@@ -25,6 +25,7 @@ const path = require("path");
 const { applyTold, revertTold } = require("./lib/told-apply");
 const { entitiesOf, mentionCoverage } = require("./lib/told-entities");
 const { validateEntities, KINDS, GLYPHS } = require("./lib/told-compile");
+const OD = require("./lib/own-drawings");
 
 const cmd = process.argv[2];
 const args = Object.fromEntries(process.argv.slice(3).map((a) => { const m = a.match(/^--([^=]+)=(.*)$/); return m ? [m[1], m[2]] : [a.replace(/^--/, ""), true]; }));
@@ -67,7 +68,11 @@ if (cmd === "entities") {
   const ents = entitiesOf(beats.map((b) => ({ _narration: b.narration })), { min: 2 });
   const out = { note: "CANDIDATES from the narration (proper names said in 2+ beats, and years). Write storyboard/entities.json from them: keep what a viewer should SEE, fix ASR spellings, add what is missing, give each a kind.",
     kinds: Object.keys(KINDS), glyphs: GLYPHS,
-    example: { microsoft: { label: "MICROSOFT", kind: "company", glyph: "monitor" }, mozart: { label: "MOZART", kind: "person", look: { age: "child", height: 0.72, headScale: 1.18, outfit: "coat", hairStyle: "curly" } }, piano: { label: "", kind: "object", paths: [{ d: "M40 150 H480 V200 H40 Z", fill: "#3A322B" }], w: 330 } },
+    // told v2: how the lead agent DRAWS the things (generated from the lint's own numbers and this book's palette)
+    drawing: OD.drawingGuide(OD.readBook(BOOK).palette),
+    example: { microsoft: { label: "MICROSOFT", kind: "company", glyph: "monitor" }, mozart: { label: "MOZART", kind: "person", look: { age: "child", height: 0.72, headScale: 1.18, outfit: "coat", hairStyle: "curly" } },
+      piano: { label: "PIANO", kind: "object", w: 330, reads: ["piano", "grand piano"], paths: [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }, { d: "…at least five paths: body, lid, keys, legs, the accent detail…", fill: "accent" }], states: { closed: { reads: ["piano", "closed piano"], paths: [{ d: "…", fill: "ink" }] } } },
+      vienna: { label: "VIENNA", kind: "place", glyph: "building", reads: ["city", "cathedral"], paths: [{ d: "…", fill: "ink" }], backdrop: { reads: ["city skyline", "skyline"], paths: [{ d: "…", fill: "ink" }] } } },
     candidates: ents.map((e) => ({ name: e.name, kind: e.kind, saidInBeats: e.count, beats: e.scenes.slice(0, 12) })) };
   fs.mkdirSync(SB, { recursive: true });
   fs.writeFileSync(F.candidates, JSON.stringify(out, null, 2));
@@ -82,6 +87,9 @@ if (cmd === "status") {
   const told = config.scenes.filter((s) => s.told).length, cov = mentionCoverage(config), before = mentionCoverage(revertTold(config).config);
   console.log(`${SLUG}: ${told} of ${config.scenes.length} scenes told · flow level ${config.meta.flow || 0}`);
   console.log(`what the narration names is on screen: ${pct(cov.share)} (${cov.shown} of ${cov.mentions} scenes)${told ? ` — without told ${pct(before.share)}` : ""}`);
+  const share = OD.drawnShare(config), own = OD.readBook(BOOK), named = Object.values((own.verdict && own.verdict.drawings) || {});
+  if (told) console.log(`things on told stages shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem}; the rest are emblems)`);
+  if (own.drawings.length) console.log(`own drawings: ${own.drawings.length} · named blind as intended: ${named.filter((r) => r.ok).length} of ${own.drawings.length}${OD.gate(own.drawings, own.verdict).length ? " — NOT all named: node scripts/own-icons-sheet.js --slug=" + SLUG : ""}`);
   process.exit(0);
 }
 
@@ -101,14 +109,20 @@ if (cmd === "check" || cmd === "apply") {
   const entErrors = validateEntities(entities);
   // a re-apply starts from the picture the planner made: apply is idempotent on a config that is already told
   const base = revertTold(config).config;
-  const r = applyTold(base, map, entities);
+  // told v2: the book's own drawings — motifs.json icons an entity points at, and the book's colours for the tokens
+  const own = OD.readBook(BOOK);
+  const r = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette });
+  const gateMsgs = OD.gate(own.drawings, own.verdict, new Set(Object.values(map).flatMap((t) => [...OD.usedBy(t)])));
   const errors = [...problems.map((m) => ({ beat: null, message: m })), ...r.report.errors];
   const before = mentionCoverage(base), after = mentionCoverage(r.config);
   console.log(`told ${cmd}: ${SLUG} — ${n} told beat(s), ${Object.keys(entities).length} named thing(s)`);
   for (const e of errors) console.log(`  ✗ ${e.beat ? `${e.beat}: ` : ""}${e.message}`);
   for (const w of r.report.warnings) console.log(`  ⚠ ${w.beat}: ${w.message}`);
-  if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes)`);
-  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
+  // the blind-naming gate is merge's (storyboard.js); here it is said again so a hand-edited art.json does not hide it
+  for (const m of gateMsgs) console.log(`  ⚠ ${m}`);
+  const share = OD.drawnShare(r.config);
+  if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);
+  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
   if (errors.length) {
     if (cmd === "apply" && args.write) fs.writeFileSync(F.report, JSON.stringify(report, null, 2));
     console.log(`TOLD NOT APPLIED — ${errors.length} error(s). Nothing was written. Fix the beats in storyboard/authored-N.json (the messages name them), merge --write, and run again.`);

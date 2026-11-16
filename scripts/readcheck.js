@@ -144,8 +144,9 @@ function visible(b, bible, own, mech, causal) {
   // them, in the order of the events — exactly what the author wrote, never the narration
   if (b.told) {
     const who = (x) => (Array.isArray(x) ? x : x != null ? [x] : []).join(" and ");
-    if (b.told.stage && Array.isArray(b.told.stage.who)) v.stage = `${b.told.stage.layout || "row"}: ${b.told.stage.who.join(", ")}`;
-    const ev = (b.told.events || []).filter((e) => e && e.do !== "raw").map((e) => [e.do, who(e.who), e.text ? `"${e.text}"` : "", e.left ? `"${e.left}" vs "${e.right}"` : ""].filter(Boolean).join(" "));
+    if (b.told.stage && Array.isArray(b.told.stage.who)) v.stage = `${b.told.stage.layout || "row"}: ${b.told.stage.who.join(", ")}${b.told.stage.at ? ` — at ${b.told.stage.at} (drawn behind them)` : ""}`;
+    // told v2: what a drawing becomes, what goes from hand to hand, what a person holds — as the author wrote it
+    const ev = (b.told.events || []).filter((e) => e && e.do !== "raw").map((e) => [e.do, who(e.who), e.state ? `→ ${e.state}` : "", e.what ? `the ${e.what}` : "", typeof e.holds === "string" ? `holds ${e.holds}` : "", e.text ? `"${e.text}"` : "", e.left ? `"${e.left}" vs "${e.right}"` : ""].filter(Boolean).join(" "));
     if (ev.length) v.happens = ev;
     return v;
   }

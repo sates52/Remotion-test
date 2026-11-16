@@ -7,7 +7,13 @@
  * a start state, an `enter`, `keys` that LAND on a frame (the frame of the narrator's word), an `exit`.
  */
 
-export const TOLD_VERSION = 1;
+/**
+ * 1 — emblems, people, an object's / animal's own drawing (2026-11-14).
+ * 2 — THE BOOK'S OWN DRAWINGS (Film Flow 3, 2026-11-16): a thing of any kind as its drawing, a drawing's states, a
+ *     drawing in a person's hand, the place behind the stage (`backdrops`). What v2 adds is carried by fields a v1
+ *     stage does not have, and the renderer reads them only when `v >= 2`: a v1 stage is drawn exactly as it was.
+ */
+export const TOLD_VERSION = 2;
 
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {
@@ -16,7 +22,9 @@ export type ToldItem = {
   /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
   variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
   /** icon: an animal or an object DRAWN FOR THIS BOOK, as paths in its own viewBox (the same data as motifs.json) */
-  paths?: Array<{ d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number }>; viewBox?: string;
+  paths?: ToldPath[]; viewBox?: string;
+  /** icon (v2): which of the drawing's states this is (the ship "wrecked") — told to the gates that read a stage */
+  state?: string;
   label?: string; sub?: string; glyph?: string;
   color?: string; ink?: string; size?: number; w?: number; h?: number; box?: string;
   x: number; y: number; s?: number; o?: number; r?: number;
@@ -29,10 +37,30 @@ export type ToldItem = {
   exit?: { at: number; dur?: number };
   shake?: { at: number; dur?: number; amp?: number };
 };
-export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[] };
+export type ToldPath = { d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number };
+/** v2 — the PLACE the stage is at: that place's drawing, pale, behind everything. `wide` = drawn for the whole width
+ *  (a "backdrop" drawing); otherwise the place's own icon, large and centred. It fades in / out, nothing else. */
+export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number } };
+export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[]; backdrops?: ToldBackdrop[] };
 export type ToldState = { x: number; y: number; s: number; o: number; r: number };
 
 const clamp = (x: number) => Math.max(0, Math.min(1, x));
+
+/** How much of a backdrop is there on `frame` (0 … 1): a plain fade in that ENDS on `enter.at`, a fade out that ends on `exit.at`. */
+export function backdropOpacity(b: { enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number } }, frame: number): number {
+  let o = 1;
+  if (b.enter) { const dur = Math.max(1, b.enter.dur ?? 12); o *= clamp((frame - (b.enter.at - dur)) / dur); }
+  if (b.exit) { const dur = Math.max(1, b.exit.dur ?? 12); o *= 1 - clamp((frame - (b.exit.at - dur)) / dur); }
+  return o;
+}
+
+/** Where a backdrop is drawn in the 1920 × 1080 frame: under the title band, above the subtitle band. → translate + scale */
+export function backdropFit(b: { viewBox?: string; wide?: boolean }): { x: number; y: number; k: number } {
+  const [vx, vy, vw, vh] = (b.viewBox ?? (b.wide ? "0 0 1920 760" : "0 0 520 520")).split(/[\s,]+/).map(Number);
+  const top = 110, bottom = 870, k = b.wide ? Math.min(1920 / vw, (bottom - top) / vh) : (bottom - top - 40) / Math.max(vw, vh);
+  // centred across the frame, standing on the bottom of the band (a skyline has its ground there)
+  return { x: 960 - (vw * k) / 2 - vx * k, y: bottom - vh * k - vy * k, k };
+}
 export const EASE = {
   out: (t: number) => 1 - Math.pow(1 - t, 3),
   inout: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),

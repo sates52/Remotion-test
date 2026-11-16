@@ -6,7 +6,10 @@ import { pose } from "../movements";
 import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
-import { toldState, itemState, type ToldItem, type ToldSpec } from "../told";
+import { toldState, itemState, backdropOpacity, backdropFit, type ToldItem, type ToldSpec } from "../told";
+
+/** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
+const BACKDROP_OPACITY = 0.26;
 
 /**
  * ToldStage — THE PICTURE SHOWS WHAT IS SAID (Film Flow level 2, pilot 2026-11-12).
@@ -146,17 +149,30 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
   const frame = useCurrentFrame();
   const cam = toldState({ x: 960, y: 540, s: 1, o: 1, r: 0 }, spec.cam, frame);
   const voice = speech ? voiceAt(speech, absBase + frame) : undefined;
+  // told v2 — THE PLACE BEHIND THE STAGE: the book's drawing of where this happens, pale (the things, their names, the
+  // title and the subtitles are read over it), inside the title band and the subtitle band, in the same SVG and under
+  // the same camera as the things. Where a place stands the plain grid steps back. A v1 stage has no backdrop.
+  const places = (spec.v ?? 1) >= 2 ? (spec.backdrops ?? []).map((b) => ({ b, o: backdropOpacity(b, frame) })).filter((p) => p.o > 0.001) : [];
+  const placed = places.reduce((m, p) => Math.max(m, p.o), 0);
   return (
     <AbsoluteFill style={{ backgroundColor: spec.bg ?? "#F2F0EA" }}>
       <svg viewBox="0 0 1920 1080" width="100%" height="100%">
         {spec.grid !== false ? (
-          <g opacity={0.5}>
+          <g opacity={0.5 * (1 - placed)}>
             {Array.from({ length: 17 }, (_, i) => <line key={`v${i}`} x1={i * 120} y1={0} x2={i * 120} y2={1080} stroke="#E2DFD6" strokeWidth={2} />)}
             {Array.from({ length: 10 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 120} x2={1920} y2={i * 120} stroke="#E2DFD6" strokeWidth={2} />)}
           </g>
         ) : null}
         {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
         <g transform={`translate(960 540) scale(${cam.s}) translate(${-cam.x} ${-cam.y})`}>
+          {places.map(({ b, o }) => {
+            const fit = backdropFit(b);
+            return (
+              <g key={`at-${b.id}`} opacity={BACKDROP_OPACITY * o} transform={`translate(${fit.x} ${fit.y}) scale(${fit.k})`}>
+                {b.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
+              </g>
+            );
+          })}
           {spec.items.filter((it) => !it.screen).map((it) => {
             const st = itemState(it, frame);
             if (!st || st.o <= 0.001) return null;

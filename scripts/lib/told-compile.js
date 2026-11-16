@@ -19,16 +19,31 @@
  * (a thing stays where the last beat left it; nothing re-enters at a cut), moves what belongs to a thing with it (its
  * crown, its world, its labels), and refuses what it cannot honour (an unknown name, a word the narrator does not say).
  * Pure: (beats, entities) → stages. No clock, no randomness, no model call. Tested by test-told-compile.js.
+ *
+ * TOLD v2 — THE BOOK'S OWN DRAWINGS (Film Flow 3, 2026-11-16; lib/own-drawings.js):
+ *   - a thing of ANY kind that carries a drawing (`paths`, or `motif`: an own icon of motifs.json) is drawn as that
+ *     drawing with its name under it; the emblem (a tile + a glyph) is only the fallback for a thing nobody drew;
+ *   - a drawing has STATES (`states: { wrecked: { paths } }`): `change` + `state` swaps it on the word and the thing
+ *     stays that way for the rest of the film (until changed again);
+ *   - a person HOLDS a drawing (`change` + `holds: <id>`), GIVES it (`give`, who: [from, to], what) or TAKES one that
+ *     stands on stage (`take`) — the thing travels from hand to hand and lands on the word;
+ *   - the stage is AT a place (`stage.at`, or the event `at`): that place's drawing, pale, behind everything.
  */
 const T = require("../../src/engines/antidote/told.ts");
+const OD = require("./own-drawings");
 
 const INK = "#1E1E22", ACCENT = "#D9603C", RED = "#C2362B", GOLD = "#E8B93C";
 const PALETTE = ["#2563EB", "#E0503A", "#2F8F5B", "#8A4FC7", "#D08A1E", "#0E8C96", "#B5372F", "#5A6B7A"];
 const GLYPHS = ["monitor", "search", "doc", "browser", "building", "book", "coin", "globe", "gear", "phone", "chart", "star", "heart", "flag", "cart", "people", "bolt", "leaf"];
 const KINDS = { company: "emblem", product: "emblem", place: "emblem", idea: "emblem", person: "figure", object: "icon", animal: "icon" };
 const LAYOUTS = ["solo", "versus", "row", "court", "pairs"];
-const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw"];
+const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw", "give", "take", "at"];
+/** how a named thing is DRAWN: a person is the rig; anything with a drawing is that drawing; the rest is an emblem */
+const drawnAs = (e) => (!e ? null : e.kind === "person" ? "figure" : (Array.isArray(e.paths) && e.paths.length) || e.motif ? "icon" : KINDS[e.kind] || null);
 const Y = { emblem: 470, figure: 850, icon: 600 };
+// IN THE HAND: a held drawing is this share of the person's width, at the hand of the arm that faces the middle
+const HELD = { box: 0.62, dx: 0.36, dy: 0.56 };
+const handOf = (fig, p) => ({ x: p.x + (fig.flip ? -1 : 1) * (fig.w || 260) * HELD.dx * p.s, y: p.y - (fig.w || 260) * (fig.body === "bust" ? 1.5 : 2.25) * HELD.dy * Math.min(1, (fig.variant && fig.variant.height) || 1) * p.s, s: p.s });
 // A PERSON FITS UNDER THE TITLE BAND (dracula's first clips: "COUNT DRACULA" cut by the top of the frame, a title
 // printed over "MINA HARKER", the crown sitting on the name). A person is feet-to-name-plate: the body (taller for a
 // look.height above 1), the plate above the head, and a crown above the plate when they wear one. That whole column
@@ -83,11 +98,17 @@ function slots(layout, n) {
 const titleSize = (text) => (text.length <= 14 ? 104 : text.length <= 22 ? 84 : text.length <= 30 ? 68 : 56);
 
 /** The entity as a stage item (no position yet). */
-function entityItem(id, e, colorOf) {
-  const kind = KINDS[e.kind];
+function entityItem(id, e, colorOf, state) {
+  const kind = drawnAs(e);
+  if (kind === "icon") {
+    // the book's own drawing (in the state the film has left it in); a drawn company / product / place / idea keeps
+    // its emblem colour for its labels
+    const st = (state && e.states && e.states[state]) || null;
+    return { id, kind: "icon", label: e.label, paths: (st || e).paths || [], viewBox: (st || e).viewBox, w: e.w || 312, ...(KINDS[e.kind] === "emblem" ? { color: e.color || colorOf(id) } : {}), ...(st ? { state } : {}), _role: "entity", _ent: id };
+  }
   if (kind === "emblem") return { id, kind: "emblem", label: e.label, sub: e.sub, glyph: e.glyph, color: e.color || colorOf(id), _role: "entity", _ent: id };
   if (kind === "figure") return { id, kind: "figure", label: e.label, variant: e.look || {}, w: e.w || 260, body: e.body || "full", action: e.action || "idle", holds: e.holds, flip: e.flip, _role: "entity", _ent: id };
-  return { id, kind: "icon", label: e.label, paths: e.paths || [], viewBox: e.viewBox, w: e.w || 312, _role: "entity", _ent: id };
+  return null;
 }
 
 function validateEntities(entities) {
@@ -96,7 +117,7 @@ function validateEntities(entities) {
     if (!/^[a-z][a-z0-9-]*$/.test(id)) errors.push(`entity "${id}": the id is lower-case letters, digits and "-"`);
     if (!KINDS[e.kind]) errors.push(`entity "${id}": kind is one of ${Object.keys(KINDS).join(" | ")}`);
     if (KINDS[e.kind] !== "icon" && !String(e.label || "").trim()) errors.push(`entity "${id}": a ${e.kind} needs a label (the name the narration uses)`);
-    if (KINDS[e.kind] === "icon" && !(Array.isArray(e.paths) && e.paths.length)) errors.push(`entity "${id}": an ${e.kind} is the book's own drawing — give its paths`);
+    if (KINDS[e.kind] === "icon" && !(Array.isArray(e.paths) && e.paths.length) && !e.motif) errors.push(`entity "${id}": an ${e.kind} is the book's own drawing — give its paths (or "motif": an own icon of motifs.json)`);
     if (e.glyph && !GLYPHS.includes(e.glyph)) errors.push(`entity "${id}": glyph "${e.glyph}" cannot be drawn — one of ${GLYPHS.join(", ")} (or none: the first letter is shown)`);
   }
   return errors;
@@ -106,15 +127,22 @@ function validateEntities(entities) {
  * compileTold(beats, entities) → { stages: [ToldSpec | null], errors: [{beat, message}], warnings: [...] }
  *   beats: [{ id, frames, words: [{w, f}], told? }] in film order; a beat without `told` ends the carried stage.
  */
-function compileTold(beats, entities = {}) {
-  const errors = validateEntities(entities).map((message) => ({ beat: null, message })), warnings = [];
+function compileTold(beats, written = {}, opts = {}) {
+  // one source for a drawing (own-drawings.js): `motif` → the own icon's paths, colour tokens → the book's colours
+  const resolved = OD.resolveEntities(written, { motifs: opts.motifs || {}, palette: opts.palette || OD.DEFAULT_PALETTE });
+  const entities = resolved.entities;
+  const errors = [...validateEntities(written), ...resolved.errors].map((message) => ({ beat: null, message })), warnings = [];
   const ids = Object.keys(entities);
   const colorOf = (id) => PALETTE[ids.filter((k) => KINDS[entities[k].kind] === "emblem").indexOf(id) % PALETTE.length] || PALETTE[0];
   let carried = [], cam = { x: 960, y: 540, s: 1 }, seq = 0, beatNo = 0;
   const stages = [];
+  // A CHANGED THING STAYS CHANGED: the state a drawing was last given, for the rest of the film (the ship that was
+  // wrecked in act two is not whole again in act three because a new stage was set)
+  const stateOf = {};
+  let place = null; // the place the told run is AT (its drawing is the stage's backdrop); a run's end clears it
 
   for (const beat of beats) {
-    if (!beat.told) { stages.push(null); carried = []; cam = { x: 960, y: 540, s: 1 }; continue; }
+    if (!beat.told) { stages.push(null); carried = []; cam = { x: 960, y: 540, s: 1 }; place = null; continue; }
     const err = (message) => errors.push({ beat: beat.id, message });
     const told = beat.told, words = beat.words || [], D = beat.frames;
     beatNo++;
@@ -149,12 +177,12 @@ function compileTold(beats, entities = {}) {
       // the two column heads of a comparison: a thing is centred at the slot, a person STANDS there (feet lower)
       // while labels stand under the people, people keep the raised line (a re-arrangement must not push the labels
       // down into the subtitles)
-      const lineup = KINDS[e.kind] === "figure" && slot.y == null && items.some((x) => x._under && !x._gone);
+      const lineup = drawnAs(e) === "figure" && slot.y == null && items.some((x) => x._under && !x._gone);
       if (lineup) slot = { ...slot, s: slot.s * 0.86 };
-      const kind = KINDS[e.kind], y = slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
-      if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.head ? 60 : FIG_TOP })) }; }
+      const kind = drawnAs(e), y = slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
+      if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf, stateOf[ent]); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.head ? 60 : FIG_TOP })) }; }
       if (it) { const st = stateAt(it, at); if (Math.abs(st.x - slot.x) > 1 || Math.abs(st.y - y) > 1 || Math.abs(st.s - slot.s) > 0.01) move(ent, Math.max(at, 20), { x: slot.x, y, s: slot.s }); return it; }
-      it = add({ ...entityItem(ent, e, colorOf), x: slot.x, y, s: slot.s });
+      it = add({ ...entityItem(ent, e, colorOf, stateOf[ent]), x: slot.x, y, s: slot.s });
       if (kind === "figure" && slot.x > 960 && it.flip == null) it.flip = true; // faces the middle
       if (at > 0 || from) it.enter = { at: Math.max(14, at), from: from || (slot.x < 900 ? "left" : slot.x > 1020 ? "right" : kind === "figure" ? "bottom" : "pop"), dur: 14 };
       return it;
@@ -177,6 +205,48 @@ function compileTold(beats, entities = {}) {
       add({ id: `title${++seq}`, kind: "word", label: String(text).toUpperCase(), size, box: box === "accent" ? ACCENT : box === "red" ? RED : box === "ink" ? INK : undefined,
         screen: true, x: 960, y: 160, enter: { at: Math.max(12, at), from: box ? "pop" : "top", dur: 12 }, _role: "title" });
     };
+    /** the same thing, differently, from `at`: the old one fades out as the new one fades in, in the same place */
+    const swap = (ent, at, patch, fade = 3) => {
+      const old = find(ent), p = stateAt(old, at), next = clone(old); delete next.keys; delete next.exit; delete next.shake;
+      Object.assign(next, { id: ent, x: p.x, y: p.y, s: p.s, o: 1, r: 0, enter: { at: Math.max(fade, at), from: "fade", dur: fade } });
+      patch(next);
+      old.id = `${ent}~${++seq}`; leave(old, at + (fade > 3 ? 2 : 1), fade > 3 ? fade - 2 : fade); items.splice(items.indexOf(old) + 1, 0, next);
+      return next;
+    };
+    // THE PLACE BEHIND THE STAGE (told v2): one backdrop at a time; a new one fades in as the old one fades out
+    const backdrops = [];
+    const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
+    if (place && backdropOf(place)) backdrops.push(backdropOf(place));
+    const setPlace = (id, at) => {
+      if ((id || null) === place) return;
+      if (id) { if (!entities[id]) return err(`at: "${id}" is not in entities.json`); if (!backdropOf(id)) return err(`at: "${id}" is not a place with a drawing (kind "place" + paths, or a "backdrop")`); }
+      const cur = backdrops.find((b) => !b.exit); if (cur) cur.exit = { at: Math.max(12, at), dur: 12 };
+      // a stage that starts at a place is there from its first frame (as its things are); a change of place fades
+      if (id) backdrops.push({ ...backdropOf(id), ...(at > 0 || cur ? { enter: { at: Math.max(12, at), dur: 12 } } : {}) });
+      place = id || null;
+    };
+    /** a drawn thing in a person's hand; it belongs to the person (moves, shrinks and leaves with them) */
+    const heldOf = (who) => bound(who).filter((b) => b._role === "held");
+    const drawing = (ent) => { const e = entities[ent]; if (!e || drawnAs(e) !== "icon" || !(e.paths || []).length) return null; const st = (stateOf[ent] && e.states && e.states[stateOf[ent]]) || e; return { paths: st.paths, viewBox: st.viewBox }; };
+    const inHand = (ent, holder, p) => { const h = handOf(holder, p); return { id: `${holder._ent}.held`, kind: "icon", ...drawing(ent), w: Math.round((holder.w || 260) * HELD.box), x: h.x, y: h.y, s: h.s, _bind: holder._ent, _role: "held", _ent: ent }; };
+    /** the thing on its way to a hand: out of another hand, from where it stands on stage, or (a gift nobody held yet) from the giver */
+    const toHand = (ent, to, at, from) => {
+      const receiver = find(to), pt = stateAt(receiver, at), ht = handOf(receiver, pt), w = Math.round((receiver.w || 260) * HELD.box);
+      for (const b of heldOf(to)) leave(b, Math.max(8, at - 4), 6);
+      let h = from ? heldOf(from).find((b) => b._ent === ent) : null;
+      if (!h) {
+        const thing = find(ent);
+        if (thing && thing._role === "entity") {
+          // it stands on stage: the standing thing goes, the same drawing (no name plate) travels to the hand
+          const p = stateAt(thing, at); for (const b of bound(ent)) leave(b, Math.max(8, at - 20), 6); leave(thing, Math.max(8, at - 14), 6); st8.who = st8.who.filter((x) => x !== ent);
+          h = add({ id: `${to}.held`, kind: "icon", ...drawing(ent), w, x: p.x, y: p.y, s: (p.s * (thing.w || 312)) / w, enter: { at: Math.max(6, at - 16), from: "fade", dur: 6 }, _bind: to, _role: "held", _ent: ent });
+        } else if (from) { const giver = find(from); h = add({ ...inHand(ent, giver, stateAt(giver, at)), enter: { at: Math.max(8, at - 26), from: "pop", dur: 8 } }); }
+        else return null;
+      }
+      h.id = `${to}.held~${++seq}`; h._bind = to;
+      key(h, { at, dur: 16, ease: "inout", x: ht.x, y: ht.y, s: ht.s });
+      return h;
+    };
     const st8 = { layout: (carried._layout) || null, who: (carried._who) || [], rows: carried._rows || 0, dates: carried._dates || 0 };
 
     // a title the last beat left is cleared early in this one: every beat starts with a clean band
@@ -192,6 +262,8 @@ function compileTold(beats, entities = {}) {
       if (leaving.length || st8.who.some((w) => !keep.has(w))) { for (const it of items.filter((x) => x._role === "row" && !x._gone)) leave(it, 14); st8.rows = 0; st8.dates = 0; }
       const wasOn = items.some((x) => x._role === "entity");
       arrange(told.stage.layout || "row", who, wasOn ? 14 : 0);
+      // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
+      setPlace(told.stage.at || null, wasOn || place ? 14 : 0);
     }
 
     let cursor = 0;
@@ -303,12 +375,44 @@ function compileTold(beats, entities = {}) {
           Object.assign(curCam, { x: p.x + (p.x < 960 ? 200 : -200), y: Math.max(Math.min(p.y, 520), foot - (SAFE.bottom - 540) / s), s }); camKeys.push({ at: Math.max(22, at), dur: 22, ease: "inout", ...curCam }); } break;
         case "wide": Object.assign(curCam, { x: 960, y: 540, s: 1 }); camKeys.push({ at: Math.max(24, at), dur: 24, ease: "inout", ...curCam }); break;
         case "clear": { const what = ev.what || "extras", roles = what === "titles" ? ["title"] : what === "labels" ? ["label"] : what === "rows" ? ["row"] : ["title", "label", "row", "fx", "deco"]; for (const it of items.filter((x) => roles.includes(x._role) && !x._gone)) leave(it, at); if (roles.includes("row")) { st8.rows = 0; st8.dates = 0; } break; }
-        case "change": if (need(1)) { // the same person, differently: another action, a blindfold, something in the hand
-          const old = find(who[0]), p = posOf(who[0]), next = clone(old); delete next.keys; delete next.exit; delete next.shake;
-          Object.assign(next, { id: who[0], x: p.x, y: p.y, s: p.s, o: 1, r: 0, enter: { at: Math.max(3, at), from: "fade", dur: 3 } });
-          if (ev.action) next.action = ev.action; if (ev.holds) next.holds = ev.holds; if (ev.label) next.label = String(ev.label).toUpperCase();
-          if (ev.look) next.variant = { ...(next.variant || {}), ...ev.look };
-          old.id = `${who[0]}~${++seq}`; leave(old, at + 1, 3); items.splice(items.indexOf(old) + 1, 0, next); } break;
+        case "change": if (need(1)) {
+          const w0 = who[0], cur = find(w0), e0 = entities[w0];
+          if (cur.kind !== "figure") {
+            // A DRAWING CHANGES BY STATE (told v2): the same thing in the same place, drawn as what it has become
+            const st = ev.state === "base" ? e0 : ev.state && e0.states && e0.states[ev.state];
+            if (cur.kind !== "icon" || !st) { err(`change: "${w0}" ${cur.kind !== "icon" ? "is an emblem — only a drawn thing has states" : `has no state "${ev.state}" — ${Object.keys(e0.states || {}).length ? `one of ${["base", ...Object.keys(e0.states)].join(", ")}` : "none is drawn (entities.json states)"}`}`); break; }
+            if (ev.state === "base") delete stateOf[w0]; else stateOf[w0] = ev.state;
+            swap(w0, Math.max(8, at), (next) => { next.paths = st.paths; next.viewBox = st.viewBox; if (ev.state === "base") delete next.state; else next.state = ev.state; if (ev.label) next.label = String(ev.label).toUpperCase(); }, 8);
+            break;
+          }
+          // the same person, differently: another action, a blindfold, something in the hand
+          const own = typeof ev.holds === "string" && drawing(ev.holds), empty = ev.holds === null || ev.holds === "none";
+          if (typeof ev.holds === "string" && entities[ev.holds] && !own) { err(`change: "${ev.holds}" has no drawing to hold (entities.json paths) — or name one of the engine's hand props`); break; }
+          const next = swap(w0, at, (n) => {
+            if (ev.action) n.action = ev.action; if (ev.label) n.label = String(ev.label).toUpperCase();
+            if (ev.look) n.variant = { ...(n.variant || {}), ...ev.look };
+            if (own || empty) { delete n.holds; if (own && !ev.action) n.action = "hold"; } else if (ev.holds) n.holds = ev.holds;
+          });
+          if (own || empty) for (const b of heldOf(w0)) leave(b, Math.max(8, at), 6);
+          if (own) add({ ...inHand(ev.holds, next, posOf(w0)), enter: { at: Math.max(8, at), from: "pop", dur: 8 } });
+        } break;
+        // HAND TO HAND (told v2): the thing leaves the giver's hand — or the place where it stands — and lands in the
+        // other's hand ON THE WORD; the giver reaches out before it, the receiver holds it from then on
+        case "give": if (need(2)) {
+          const [a, b] = who;
+          if (find(a).kind !== "figure" || find(b).kind !== "figure") { err("give: who is [the person who gives, the person who gets]"); break; }
+          if (!drawing(ev.what)) { err(`give: "what" is a DRAWN thing of entities.json${ev.what ? ` ("${ev.what}" is not)` : ""}`); break; }
+          if (at > 22) swap(a, at - 16, (n) => { n.action = "offer"; delete n.holds; });
+          toHand(ev.what, b, at, a);
+          swap(b, at, (n) => { n.action = "hold"; delete n.holds; });
+        } break;
+        case "take": if (need(1)) {
+          if (find(who[0]).kind !== "figure") { err("take: who is the person who takes it"); break; }
+          if (!drawing(ev.what) || !find(ev.what)) { err(`take: "what" is a drawn thing that stands on stage${ev.what ? ` ("${ev.what}" does not)` : ""}`); break; }
+          toHand(ev.what, who[0], at, null);
+          swap(who[0], at, (n) => { n.action = "hold"; delete n.holds; });
+        } break;
+        case "at": setPlace(who[0] || null, at); break;
         case "raw": if (!ev.item || !ev.item.kind) err("raw: needs item {kind, x, y, …}"); else { const it = clone(ev.item); it.id = it.id || `raw${++seq}`; it._role = it._role || "fx"; if (!it.enter && at > 0) it.enter = { at: Math.max(10, at), from: "pop", dur: 10 }; add(it); } break;
         default: break;
       }
@@ -323,10 +427,10 @@ function compileTold(beats, entities = {}) {
     }
 
     // draw order: worlds behind, the things, what belongs to them, rows and effects, titles on top
-    const order = { world: 0, entity: 1, deco: 2, label: 3, row: 3, fx: 4, title: 5 };
+    const order = { world: 0, entity: 1, held: 2, deco: 2, label: 3, row: 3, fx: 4, title: 5 };
     const drawn = items.map((it, i) => [it, i]).sort((a, b) => (order[a[0]._role] ?? 3) - (order[b[0]._role] ?? 3) || a[1] - b[1]).map(([it]) => it);
     const strip = (it) => { const c = {}; for (const [k, v] of Object.entries(it)) if (!k.startsWith("_") && v !== undefined) c[k] = v; return c; };
-    stages.push({ v: T.TOLD_VERSION, items: drawn.map(strip), ...(camKeys.length ? { cam: camKeys } : {}) });
+    stages.push({ v: T.TOLD_VERSION, items: drawn.map(strip), ...(camKeys.length ? { cam: camKeys } : {}), ...(backdrops.length ? { backdrops } : {}) });
 
     // what stays for the next beat: everything still on stage at this beat's last frame, where it stands then
     carried = [];
@@ -343,4 +447,4 @@ function compileTold(beats, entities = {}) {
   return { stages, errors, warnings };
 }
 
-module.exports = { compileTold, validateEntities, wordFrame, slots, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE, TTL, TTL_DECO, LABELS_PER_THING, FIG_TOP, FIG_TOP_HARD, figH, fitS, tileW };
+module.exports = { compileTold, validateEntities, wordFrame, slots, drawnAs, handOf, HELD, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE, TTL, TTL_DECO, LABELS_PER_THING, FIG_TOP, FIG_TOP_HARD, figH, fitS, tileW };

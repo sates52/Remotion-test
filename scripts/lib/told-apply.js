@@ -59,11 +59,12 @@ function sealTold(scene) {
   return out;
 }
 
-function applyTold(config, toldByScene, entities = {}) {
+/** `drawings` (told v2): { motifs, palette } — the book's own icons and colours (lib/own-drawings.js readBook) */
+function applyTold(config, toldByScene, entities = {}, drawings = {}) {
   const scenes = config.scenes || [];
   const beats = scenes.map((s) => ({ id: s.id, frames: s.durationFrames, words: sceneWords(config, s), told: toldByScene[s.id] }));
   const unknown = Object.keys(toldByScene).filter((id) => !scenes.some((s) => s.id === id));
-  const { stages, errors, warnings } = compileTold(beats, entities);
+  const { stages, errors, warnings } = compileTold(beats, entities, drawings);
   const bad = new Set(errors.filter((e) => e.beat).map((e) => e.beat));
   const global = errors.filter((e) => !e.beat);
   let applied = 0;

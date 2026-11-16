@@ -7,7 +7,11 @@
  * named once, before the authors start (preview-hazirla; `node scripts/told.js entities --slug=<slug>` lists the
  * candidates the narration gives).
  */
-const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING } = require("./told-compile");
+const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING, drawnAs } = require("./told-compile");
+/** told v2: what an entity brings to the stage as DRAWINGS (as written: paths or a motif pointer) */
+const drawn = (e) => !!e && e.kind !== "person" && drawnAs(e) === "icon";
+const statesOf = (e) => (drawn(e) ? Object.keys(e.states || {}) : []);
+const isPlaceDrawn = (e) => !!e && e.kind === "place" && (drawn(e) || !!e.backdrop);
 const { checkString } = require("./screen-text");
 
 const EVENT_HELP = [
@@ -30,7 +34,11 @@ const EVENT_HELP = [
   ["pair", "left, right, onRight?", "one comparison row under the two things on stage: LEFT vs RIGHT (up to four rows)"],
   ["date", "text, side? (left | right)", "a point on a timeline: \"1791 · MOZART DIES\""],
   ["focus / wide", "who / —", "the camera goes to one thing / comes back to the whole stage"],
-  ["change", "who, look? action? holds? label?", "the same PERSON differently: another action, something in the hand, a changed look"],
+  ["change", "who, look? action? holds? label?", "the same PERSON differently: another action, a changed look, something in the hand — `holds` is the id of a DRAWN thing of this book (it is drawn in their hand) or one of the engine's hand props; `holds: \"none\"` empties the hand"],
+  ["change", "who, state", "the same DRAWN THING as what it has become (its states are listed with it above; `base` = as it was). It stays that way for the rest of the film"],
+  ["give", "who[from, to], what", "a person hands a drawn thing to another: it travels from hand to hand and lands on the word (it need not be on stage first)"],
+  ["take", "who, what", "a person picks up a drawn thing that stands on stage: it goes into their hand"],
+  ["at", "who (a place) | —", "the stage is now AT that place: its drawing fades in behind everything (no `who`: the plain ground again)"],
   ["clear", "what? (titles | labels | rows)", "take the extras off the stage (default: all of them)"],
   ["raw", "item", "one bespoke drawn thing nothing else can show — rarely"],
 ];
@@ -38,7 +46,27 @@ const EVENT_HELP = [
 function toldSection(entities) {
   const ids = Object.keys(entities || {});
   if (!ids.length) return "";
-  const rows = ids.map((id) => { const e = entities[id]; return `- \`${id}\` — ${e.label || "(drawing)"} · ${e.kind}${KINDS[e.kind] === "emblem" ? ` · emblem${e.glyph ? ` (${e.glyph})` : ""}` : KINDS[e.kind] === "figure" ? " · person" : " · the book's own drawing"}${e.note ? ` — ${e.note}` : ""}`; }).join("\n");
+  const rows = ids.map((id) => {
+    const e = entities[id], st = statesOf(e);
+    const how = KINDS[e.kind] === "figure" ? " · person" : drawn(e) ? ` · the book's own drawing${st.length ? ` — states: ${st.map((s) => `\`${s}\``).join(", ")}` : ""}` : ` · emblem${e.glyph ? ` (${e.glyph})` : ""}`;
+    return `- \`${id}\` — ${e.label || "(drawing)"} · ${e.kind}${how}${isPlaceDrawn(e) ? " · can be the stage's place (`at`)" : ""}${e.note ? ` — ${e.note}` : ""}`;
+  }).join("\n");
+  const anyDrawn = ids.some((id) => drawn(entities[id])), anyState = ids.some((id) => statesOf(entities[id]).length), places = ids.filter((id) => isPlaceDrawn(entities[id]));
+  // told v2 — said only for what THIS book has drawn (a rule about states in a book without one is noise)
+  const drawnRules = !anyDrawn && !places.length ? "" : `
+**This book's own drawings — use them; they are why a muted viewer understands the stage**
+- A drawn thing is SEEN as itself (a ship is a ship, not a tile with a name). Prefer a stage of drawn things and
+  people DOING something with them over a stage of emblems and labels.${anyState ? `
+- **A thing the narration changes, changes on screen**: \`{ "on": "<the word>", "do": "change", "who": "<id>", "state": "<state>" }\` —
+  only the states listed above exist. Once changed it stays changed in every later beat (write \`"state": "base"\` to
+  show it as it was — a flashback).` : ""}${anyDrawn ? `
+- **People handle the things**: \`{ "do": "change", "who": "<person>", "holds": "<thing id>" }\` puts it in their hand;
+  \`{ "do": "give", "who": ["<from>", "<to>"], "what": "<thing id>" }\` hands it over on the word; \`take\` picks up a
+  thing that stands on stage. The narration's verb decides — never put a thing in a hand the narration does not.` : ""}${places.length ? `
+- **Where it happens**: \`"stage": { "layout": …, "who": […], "at": "<place id>" }\` draws that place, pale, behind the
+  stage (${places.map((p) => `\`${p}\``).join(", ")}). A new \`stage\` without \`at\` is nowhere in particular; the event
+  \`at\` changes the place while the things stay. Name the place only when the narration is there.` : ""}
+`;
   return `## The picture shows what is said — \`told\` beats (read this before anything else)
 Measured on our films: when the narration names a company, a product, a person or a place, that thing was on screen
 in 13–31 % of the scenes — the rest showed a figure and a text. So: **when the narration NAMES something, the viewer
@@ -56,7 +84,7 @@ SEES that thing, and what the narration says happens to it happens on screen, on
 **This book's named things** (\`storyboard/entities.json\` — use these ids; you cannot add one: if the narration names
 something that is missing, write the beat without it and say so in \`noVisual\`):
 ${rows}
-
+${drawnRules}
 **How it works**
 - \`on\` is a word (or the first words of a phrase) of THIS beat's narration, spelled as in the chunk: the event LANDS
   on that word. Events are in the order the words are said. An event with no word uses \`"at": 0\` (the beat's start).
@@ -103,6 +131,7 @@ function checkToldBeat(told, narration, entities) {
     if (!LAYOUTS.includes(told.stage.layout)) out.push(`told.stage.layout "${told.stage.layout}" — one of ${LAYOUTS.join(", ")}`);
     if (!Array.isArray(told.stage.who) || !told.stage.who.length) out.push("told.stage.who: the ids on stage");
     for (const w of names(told.stage.who)) if (!ids.has(w)) out.push(`told.stage.who "${w}" is not in entities.json`);
+    if (told.stage.at != null && !isPlaceDrawn(entities[told.stage.at])) out.push(`told.stage.at "${told.stage.at}" — a place of entities.json that has a drawing (${[...ids].filter((k) => isPlaceDrawn(entities[k])).join(", ") || "this book has none"})`);
   }
   if (told.events != null && !Array.isArray(told.events)) out.push("told.events must be an array");
   const events = Array.isArray(told.events) ? told.events : [];
@@ -127,6 +156,17 @@ function checkToldBeat(told, narration, entities) {
       for (const v of checkString(String(text), { kind, narration, authored: true })) out.push(`${tag} "${text}": ${v.code} — ${v.message}`);
     }
     if (ev.do === "pair" && !(ev.left && ev.right)) out.push(`${tag} (pair): needs left and right`);
+    // told v2: the book's drawings — a state that is drawn, a thing that can be held, a place that can stand behind
+    const w0 = names(ev.who)[0], e0 = entities[w0];
+    if (ev.do === "change" && ev.state != null && e0 && ev.state !== "base" && !statesOf(e0).includes(ev.state)) out.push(`${tag} (change): "${w0}" has no state "${ev.state}" — ${statesOf(e0).length ? `one of base, ${statesOf(e0).join(", ")}` : drawn(e0) ? "no state is drawn for it" : "only a drawn thing has states"}`);
+    if (ev.do === "change" && e0 && e0.kind !== "person" && ev.state == null) out.push(`${tag} (change): "${w0}" is a thing — it changes by "state"; look / action / holds are a person's`);
+    if (ev.do === "change" && typeof ev.holds === "string" && ids.has(ev.holds) && !drawn(entities[ev.holds])) out.push(`${tag} (change): holds "${ev.holds}" — it has no drawing to hold`);
+    if (ev.do === "give" || ev.do === "take") {
+      const n = ev.do === "give" ? 2 : 1;
+      if (names(ev.who).length !== n || names(ev.who).some((w) => entities[w] && entities[w].kind !== "person")) out.push(`${tag} (${ev.do}): who is ${n === 2 ? "[the person who gives, the person who gets]" : "the person who takes it"}`);
+      if (!drawn(entities[ev.what])) out.push(`${tag} (${ev.do}): "what" is a drawn thing of entities.json${ev.what != null ? ` ("${ev.what}" is not)` : ""}`);
+    }
+    if (ev.do === "at" && w0 != null && !isPlaceDrawn(e0)) out.push(`${tag} (at): "${w0}" is not a place with a drawing`);
     if (ev.do === "raw" && !(ev.item && ev.item.kind)) out.push(`${tag} (raw): needs item { kind, x, y, … }`);
   });
   return out;

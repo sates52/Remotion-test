@@ -53,6 +53,9 @@ const ENGINE = book.engine;
 // FILM FLOW 2: the things the narration names (storyboard/entities.json), written before the authors start
 const { toldSection, checkToldBeat } = require("./lib/told-rules");
 const TOLD_ENTITIES = (() => { try { return JSON.parse(fs.readFileSync(path.join(SB, "entities.json"), "utf8")); } catch { return {}; } })();
+// FILM FLOW 3 (told v2): the book's own drawings of those things — linted at prep, named blind before merge
+const OD = require("./lib/own-drawings");
+const OWN_DRAWINGS = OD.readBook(BOOK);
 const bible = readJSON(path.join(BOOK, "story-bible.json"), {});
 const vp = bible.visualProvenance || {};
 const FICTION = !/non-?fiction|self.?help|business|finance|psycholog|productiv|science|history|philosoph|memoir|biograph/i.test(String(book.genre || ""));
@@ -853,6 +856,17 @@ function prep() {
       console.error(`   Draw each as data (STORYBOARD_RUNBOOK.md §1b), or pass --skip-own-icons="<why>" to author without them.`);
       process.exit(1);
     }
+    // told v2: a drawing in entities.json must BE a drawing (dracula's first objects were three polygons each) and
+    // must have been seen — the authors cannot fix a drawing, so it is settled here, before they start
+    const drawProblems = [...OWN_DRAWINGS.errors, ...OD.drawingProblems(OWN_DRAWINGS.drawings)];
+    if (drawProblems.length && !args["skip-own-drawings"]) {
+      drawProblems.forEach((m) => console.error(`  ✗ ${m}`));
+      console.error(`❌ ${drawProblems.length} problem(s) in the drawings of books/${SLUG}/storyboard/entities.json.`);
+      console.error(`   Fix them (how to draw one: storyboard/entities.candidates.json "drawing"; STORYBOARD_RUNBOOK.md §1b), remove a drawing's paths to fall back to its emblem, or pass --skip-own-drawings="<why>".`);
+      process.exit(1);
+    }
+    const unnamed = OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict);
+    if (unnamed.length) console.warn(`⚠ ${unnamed.length} of ${OWN_DRAWINGS.drawings.length} own drawing(s) not named blind as intended yet — node scripts/own-icons-sheet.js --slug=${SLUG} (merge refuses a told beat that uses one):\n${unnamed.map((m) => `    ${m}`).join("\n")}`);
   }
   if (ENGINE === "antidote") {
     const castIssues = checkCastVariants();
@@ -985,6 +999,7 @@ function merge() {
     arr.forEach((b) => { authored.set(b.i, b); owner.set(b.i, f); });
   }
   const problems = [], warnings = [];
+  const toldUses = new Map(); // entity id → the first told beat that uses it (told v2: the own-drawing gate)
   const P = (i, m) => problems.push(`${i}: ${m}`);
   const sbFields = ["claim", "concreteVisual", "onScreenText", "relationToPrevious", "addedInformation"];
   const out = [];
@@ -1239,6 +1254,7 @@ function merge() {
       const sb = a.storyboard || {};
       // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
+      if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
       if (!a.told) sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
       if (!a.told && !a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
       // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it
@@ -1269,6 +1285,12 @@ function merge() {
         ...(a.told ? { told: a.told, ...(a.explainedBy ? { explainedBy: a.explainedBy } : {}) } : {}),
         storyboard: sb,
       });
+    }
+    // told v2 — A DRAWING NOBODY COULD NAME IS NOT PUT ON STAGE: every own drawing a told beat uses has a passing
+    // blind-naming verdict for the drawing as it is now (own-icons-sheet.js --judge); said once per drawing
+    for (const m of OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict, new Set(toldUses.keys()))) {
+      const ent = (m.match(/^drawing "([^"#@]+)/) || [])[1];
+      problems.push(`OWN DRAWING (first used by beat ${toldUses.get(ent)}): ${m}`);
     }
     const hist = {}; out.forEach((b) => b.concept && (hist[b.concept] = (hist[b.concept] || 0) + 1));
     const top = Object.entries(hist).sort((x, y) => y[1] - x[1]);
