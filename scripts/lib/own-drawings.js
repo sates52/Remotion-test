@@ -204,11 +204,14 @@ function drawingProblems(drawings) {
   return out;
 }
 
-/** Did the blind name say what the drawing is? An accepted reading appears in the answer as whole words (plural-blind). */
+/**
+ * Did the blind name say what the drawing is? Every word of an accepted reading is in the answer as a whole word
+ * (plural-blind, any order: "sinking sailing ship" is a "sinking ship"; a "shipping label" is not a "ship").
+ */
 function readsAs(answer, accepted) {
   const words = (s) => norm(s).split(" ").filter(Boolean).map((w) => (w.length > 3 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w));
-  const a = ` ${words(answer).join(" ")} `;
-  return (accepted || []).some((r) => { const w = words(r).join(" "); return w && a.includes(` ${w} `); });
+  const a = new Set(words(answer));
+  return (accepted || []).some((r) => { const w = words(r); return w.length > 0 && w.every((x) => a.has(x)); });
 }
 
 /**

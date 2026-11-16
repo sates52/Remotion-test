@@ -331,7 +331,10 @@ function compileTold(beats, written = {}, opts = {}) {
         case "restore": if (need(1)) for (const w of who) { const e = entities[w], p = posOf(w); key(find(w), { at, dur: 14, o: 1, r: 0, y: p.y - (p.o < 0.99 ? 35 : 0) }); void e; } break;
         case "grow": if (need(1)) for (const w of who) { const g = find(w), p = posOf(w), to = p.s * (ev.to || 1.25);
           // a person grows only as far as the frame lets them (their name must stay readable)
-          move(w, at, { s: g.kind === "figure" ? Math.min(to, Math.max(p.s, fitS(g, p.y, { crown: bound(w).some((b) => b.kind === "crown"), top: FIG_TOP_HARD }))) : to }, 14, "back"); } break;
+          // a DRAWING that grows keeps its name plate above the subtitle band: it rises as it grows (a drawn ship is
+          // larger than the tile it replaces — measured on dracula: things under the subtitle line 10 → 22 without this)
+          const foot = g.kind === "icon" ? ((g.w || 312) / 2 + (g.label ? 66 : 0)) * to : 0, lift = g.kind === "icon" && p.y + foot > SAFE.bottom ? { y: Math.max(p.y - 160, SAFE.bottom - foot) } : {};
+          move(w, at, { ...lift, s: g.kind === "figure" ? Math.min(to, Math.max(p.s, fitS(g, p.y, { crown: bound(w).some((b) => b.kind === "crown"), top: FIG_TOP_HARD }))) : to }, 14, "back"); } break;
         case "shake": if (need(1)) for (const w of who) find(w).shake = { at, dur: 20, amp: 14 }; break;
         case "apart": if (need(2)) { const a = posOf(who[0]), b = posOf(who[1]), l = a.x <= b.x ? 0 : 1; move(who[l], at, { x: 440 }); move(who[1 - l], at, { x: 1480 }); } break;
         case "together": case "collide": if (need(2)) {
@@ -377,7 +380,10 @@ function compileTold(beats, written = {}, opts = {}) {
         case "clear": { const what = ev.what || "extras", roles = what === "titles" ? ["title"] : what === "labels" ? ["label"] : what === "rows" ? ["row"] : ["title", "label", "row", "fx", "deco"]; for (const it of items.filter((x) => roles.includes(x._role) && !x._gone)) leave(it, at); if (roles.includes("row")) { st8.rows = 0; st8.dates = 0; } break; }
         case "change": if (need(1)) {
           const w0 = who[0], cur = find(w0), e0 = entities[w0];
-          if (cur.kind !== "figure") {
+          // (told v1 let an author write a person's `change` on a thing — dracula has three: "the ship reads" — and
+          // drew the thing again unchanged. That still compiles, as it did, with a warning; merge asks for a state.)
+          if (cur.kind !== "figure" && ev.state == null) warnings.push({ beat: beat.id, message: `change: "${w0}" is a thing — action / look / holds are a person's and do nothing here; a drawn thing changes by "state"` });
+          if (cur.kind !== "figure" && ev.state != null) {
             // A DRAWING CHANGES BY STATE (told v2): the same thing in the same place, drawn as what it has become
             const st = ev.state === "base" ? e0 : ev.state && e0.states && e0.states[ev.state];
             if (cur.kind !== "icon" || !st) { err(`change: "${w0}" ${cur.kind !== "icon" ? "is an emblem — only a drawn thing has states" : `has no state "${ev.state}" — ${Object.keys(e0.states || {}).length ? `one of ${["base", ...Object.keys(e0.states)].join(", ")}` : "none is drawn (entities.json states)"}`}`); break; }
