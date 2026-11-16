@@ -6,7 +6,7 @@ import { pose } from "../movements";
 import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
-import { toldState, itemState, backdropOpacity, backdropFit, type ToldItem, type ToldSpec } from "../told";
+import { toldState, itemState, backdropOpacity, backdropFit, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
 const BACKDROP_OPACITY = 0.26;
@@ -125,8 +125,9 @@ const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
 };
 
 /** A name plate: over a person's head, under a thing. Drawn in the stage's own SVG. */
-const Tag: React.FC<{ label: string; size?: number; y: number }> = ({ label, size = 38, y }) => {
-  const w = textW(label, size) + 40;
+const Tag: React.FC<{ label: string; size?: number; y: number; fit?: boolean }> = ({ label, size = 38, y, fit = false }) => {
+  // `fit` (a v2 stage): the plate is as wide as its name really is (told.ts plateW); a v1 stage keeps its plate
+  const w = fit ? plateW(label, size) : textW(label, size) + 40;
   return (
     <g transform={`translate(0 ${y})`}>
       <rect x={-w / 2} y={0} width={w} height={size + 22} rx={10} fill="#1E1E22" />
@@ -152,6 +153,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
   // told v2 — THE PLACE BEHIND THE STAGE: the book's drawing of where this happens, pale (the things, their names, the
   // title and the subtitles are read over it), inside the title band and the subtitle band, in the same SVG and under
   // the same camera as the things. Where a place stands the plain grid steps back. A v1 stage has no backdrop.
+  const fit = (spec.v ?? 1) >= 2 && spec.plate === "fit"; // name plates as wide as their names (a told-v2 book)
   const places = (spec.v ?? 1) >= 2 ? (spec.backdrops ?? []).map((b) => ({ b, o: backdropOpacity(b, frame) })).filter((p) => p.o > 0.001) : [];
   const placed = places.reduce((m, p) => Math.max(m, p.o), 0);
   return (
@@ -195,7 +197,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                   <g transform={`translate(${it.flip ? w / 2 : -w / 2} ${-h}) scale(${it.flip ? -1 : 1} 1)`}>
                     <Everyman variant={v} pose={p} width={w} body={full ? "full" : "bust"} holds={it.holds as HandProp | undefined} />
                   </g>
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={-h + headTop - (it.size ?? 38) - 34} /> : null}
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={-h + headTop - (it.size ?? 38) - 34} fit={fit} /> : null}
                 </g>
               );
             }
@@ -208,7 +210,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                   <g transform={`translate(${-box / 2} ${-box / 2}) scale(${box / vw} ${box / vh}) translate(${-vx} ${-vy})`}>
                     {(it.paths || []).map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : it.ink ?? "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
                   </g>
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={box / 2 + 6} /> : null}
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={box / 2 + 6} fit={fit} /> : null}
                 </g>
               );
             }

@@ -142,9 +142,15 @@ t("a drawing changes state on the word, in place — and stays changed for the r
   assert.strictEqual(now.state, "wrecked");
   assert.strictEqual(now.paths[1].d, other()[1].d);
   assert.strictEqual(was.paths[1].d, good()[1].d);
-  assert.ok(T.itemState(now, at - 9) === null && T.itemState(now, at).o === 1, "the new state is there on the word");
-  assert.ok(T.itemState(was, at - 9).o === 1 && T.itemState(was, at + 3) === null, "the old one is gone just after");
-  assert.deepStrictEqual([T.itemState(now, at).x, T.itemState(now, at).y], [T.itemState(was, at - 9).x, T.itemState(was, at - 9).y]);
+  assert.ok(T.itemState(now, at - 13) === null && T.itemState(now, at).o === 1, "the new state is there on the word");
+  assert.ok(T.itemState(was, at - 13).o === 1 && T.itemState(was, at + 3) === null, "the old one is gone just after");
+  // a change is an EVENT: a knock that begins before the word and dies away after it — both drawings move as one,
+  // the two are on screen together for a few frames (a cross-fade, not a cut), and it comes to rest (no loop)
+  assert.ok(T.itemState(now, at - 6).o > 0 && T.itemState(was, at - 6).o > 0, "what it was gives way to what it has become");
+  assert.strictEqual(T.itemState(now, at - 6).x, T.itemState(was, at - 6).x);
+  assert.ok(Math.abs(T.itemState(was, at - 8).x - T.itemState(was, at - 13).x) > 3, "it is knocked");
+  assert.deepStrictEqual([T.itemState(now, at + 20).x, T.itemState(now, at + 20).y], [T.itemState(was, at - 13).x, T.itemState(was, at - 13).y], "and rests where it stood");
+  assert.strictEqual(T.itemState(now, at + 17).x, T.itemState(now, at + 40).x);
   assert.strictEqual(item(r.stages[2], "demeter").state, "wrecked", "a new stage shows it as the film left it");
   assert.ok(!("state" in item(r.stages[3], "demeter")), "back to the base state when the author says so");
   const bad = compile([beat("b1", "the Demeter burned and Whitby too", { stage: { layout: "versus", who: ["demeter", "whitby"] }, events: [{ on: "burned", do: "change", who: "demeter", state: "burnt" }, { on: "Whitby", do: "change", who: "whitby", state: "burnt" }] })]);
@@ -163,8 +169,11 @@ t("a drawing that grows keeps its name plate above the subtitle band (it rises a
   const r = compile([beat("b1", "the Demeter was a massive creaking ship", { stage: { layout: "solo", who: ["demeter"] }, events: [{ on: "massive", do: "grow", who: "demeter", to: 1.3 }] })]);
   assert.deepStrictEqual(r.errors, []); assert.deepStrictEqual(r.warnings, []);
   const d = item(r.stages[0], "demeter"), end = T.itemState(d, 299);
-  assert.strictEqual(end.s, 1.3);
-  assert.ok(end.y + (d.w / 2 + 66) * end.s <= 860.5 && end.y < 600, `the plate ends at ${end.y + (d.w / 2 + 66) * end.s}`);
+  assert.ok(end.s > 1.1 && end.s < 1.3, `it grows as far as the stage lets it (${end.s})`);
+  assert.ok(end.y + (d.w / 2 + 66) * end.s <= 764.5 && end.y < 600, `the plate ends at ${end.y + (d.w / 2 + 66) * end.s}: room for a label under it`);
+  // growing twice does not make it twice as big
+  const twice = compile([beat("b1", "the Demeter was massive and then truly massive", { stage: { layout: "solo", who: ["demeter"] }, events: [{ on: "massive", do: "grow", who: "demeter" }, { on: "truly", do: "grow", who: "demeter" }] })]);
+  assert.strictEqual(T.itemState(item(twice.stages[0], "demeter"), 299).s, end.s);
   assert.ok(end.y - (d.w / 2) * end.s > 130, "and the drawing stays under the title band");
 });
 
@@ -287,6 +296,79 @@ t("applied to a film: the drawings reach the scene, the stage is sealed, and rev
   assert.strictEqual(r.config.scenes[1].told.items.find((x) => x.id === "demeter").state, "wrecked");
   assert.strictEqual(r.config.scenes[1].told.backdrops[0].id, "london");
   assert.deepStrictEqual(A.revertTold(r.config).config.scenes.map((s) => [!!s.told, s.characters.length]), [[false, 1], [false, 1]]);
+});
+
+// ── round 2 (operator's list, 2026-11-17) ────────────────────────────────────────────────────────────────────────────
+const boxOf = (it, st) => ({ top: st.y - (it.w / 2) * st.s, foot: st.y + (it.w / 2 + 66) * st.s });
+
+t("round 2 · a label under a drawn thing never lies on its name plate — the thing rises, the label follows a grow", () => {
+  const BIG = { ...ENT, typewriter: { label: "PORTABLE TYPEWRITER", kind: "object", w: 380, reads: ["typewriter"], paths: good() } };
+  const text = "she types and types again and the pressure transfers the ink and it grows";
+  const r = compile([beat("b1", text, { stage: { layout: "versus", who: ["mina", "typewriter"] }, events: [{ on: "types", do: "grow", who: "typewriter" }, { on: "again", do: "grow", who: "typewriter" }, { on: "pressure", do: "label", who: "typewriter", text: "Carbon paper transfer" }] })], BIG);
+  assert.deepStrictEqual(r.errors, []);
+  const tw = item(r.stages[0], "typewriter"), lab = r.stages[0].items.find((x) => /typewriter\.label/.test(x.id));
+  const end = T.itemState(tw, 299), le = T.itemState(lab, 299);
+  assert.ok(le.y - 38 >= boxOf(tw, end).foot - 0.5, `the label (top ${le.y - 38}) is under the plate (foot ${boxOf(tw, end).foot})`);
+  assert.ok(le.y + 38 <= 860 && boxOf(tw, end).top >= 130, "between the title band and the subtitles");
+  // a thing that stands too low for a label rises when the label comes; a later grow takes the label along
+  const low = compile([beat("b1", "the Demeter drifted in fog and then it grew", { stage: { layout: "row", who: ["demeter", "varna", "london"] }, events: [{ on: "fog", do: "label", who: "demeter", text: "Drifting in sea fog" }, { on: "grew", do: "grow", who: "demeter" }] })]);
+  assert.deepStrictEqual(low.errors, []);
+  const d = item(low.stages[0], "demeter"), dl = low.stages[0].items.find((x) => /demeter\.label/.test(x.id));
+  for (const f of [120, 299]) assert.ok(T.itemState(dl, f).y - 38 >= boxOf(d, T.itemState(d, f)).foot - 0.5, `frame ${f}: label under the plate`);
+});
+
+t("round 2 · a name plate is as wide as its name and stays in the frame", () => {
+  assert.ok(T.plateW("WAX PHONOGRAPH", 38) > 14 * 38 * 0.62 + 40 + 40, "wide letters are counted wide");
+  assert.ok(T.plateW("III", 38) < T.plateW("MMM", 38));
+  const WIDE = { ...ENT, a: { label: "A", kind: "idea" }, b: { label: "B", kind: "idea" }, phono: { label: "THE WAX CYLINDER PHONOGRAPH MACHINE", kind: "object", reads: ["phonograph"], paths: good() } };
+  const r = compile([beat("b1", "three things stand in a row", { stage: { layout: "row", who: ["a", "b", "phono"] } })], WIDE);
+  assert.deepStrictEqual(r.errors, []);
+  const p = item(r.stages[0], "phono"), st = T.itemState(p, 299), half = (T.plateW(p.label, 38) / 2) * st.s;
+  assert.ok(st.x + half <= 1880.5 && st.x - half >= 39.5, `the plate ends at ${st.x + half}`);
+  assert.strictEqual(r.stages[0].plate, "fit");
+  assert.ok(!("plate" in C.compileTold(V1.BEATS, V1.ENT).stages[0]), "a told-v1 book keeps the v1 plate");
+  const stage = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/components/ToldStage.tsx"), "utf8");
+  assert.ok(/const fit = \(spec\.v \?\? 1\) >= 2 && spec\.plate === "fit"/.test(stage));
+});
+
+t("round 2 · a timeline keeps the things in the middle at reading size, the line under them, above the subtitles", () => {
+  const r = compile([beat("b1", "on the seventeenth of July the Demeter left Varna with Mina", { stage: { layout: "row", who: ["demeter", "varna", "mina"] }, events: [{ on: "seventeenth", do: "date", text: "17 July" }] })]);
+  assert.deepStrictEqual(r.errors, []); assert.deepStrictEqual(r.warnings, []);
+  const s = r.stages[0], end = (id) => T.itemState(item(s, id), 299);
+  for (const id of ["demeter", "varna"]) assert.ok(end(id).s >= 0.7 && end(id).y > 330 && end(id).y < 460, `${id} is readable, in the middle (${end(id).s}, ${end(id).y})`);
+  assert.ok(end("mina").s >= 0.5 && end("mina").y - (C.figH(item(s, "mina")) + 78) * end("mina").s >= 180, "a person among them stands under the title band");
+  const line = item(s, "timeline"), date = s.items.find((x) => /^date/.test(x.id));
+  assert.ok(line.y > 780 && line.y < 850 && date.y > boxOf(item(s, "demeter"), end("demeter")).foot && date.y + 44 < line.y + 10, "dates and line under the things");
+  // told v1 books keep the row of heads (golden); here the same kind of beat, no v2 drawing
+  const old = C.compileTold([beat("b1", "on the seventeenth of July it sailed", { stage: { layout: "versus", who: ["microsoft", "google"] }, events: [{ on: "seventeenth", do: "date", text: "17 July" }] })], V1.ENT);
+  assert.ok(T.itemState(item(old.stages[0], "microsoft"), 299).y < 300 && item(old.stages[0], "timeline").y === 640);
+});
+
+t("round 2 · a change of stage is one thing at a time; a stamp does not ride along or stay behind as a ghost", () => {
+  const r = compile([
+    beat("b1", "Jonathan broke down while Mina took over", { stage: { layout: "versus", who: ["jonathan", "mina"] }, events: [{ on: "broke", do: "dim", who: "jonathan" }] }),
+    beat("b2", "Jonathan and the box and Varna were all that was left", { stage: { layout: "row", who: ["jonathan", "box", "varna"] } }),
+  ]);
+  assert.deepStrictEqual(r.errors, []);
+  const s = r.stages[1], mina = item(s, "mina"), jon = item(s, "jonathan"), box = item(s, "box");
+  assert.ok(T.itemState(mina, 8) === null, "who leaves is gone by frame 8");
+  assert.ok(T.itemState(box, 9) === null && T.itemState(box, 60), "who comes, comes after that");
+  assert.ok(T.itemState(jon, 0).o < 0.6 && T.itemState(jon, 30).o === 1 && Math.abs(T.itemState(jon, 30).r) < 0.01, "who stays comes back from the dim");
+  const st = compile([beat("b1", "it was a massacre on the seventeenth of July", { stage: { layout: "versus", who: ["demeter", "varna"] }, events: [{ on: "massacre", do: "stamp", who: "demeter", text: "Massacre" }, { on: "seventeenth", do: "date", text: "17 July" }] })]);
+  assert.deepStrictEqual(st.errors, []);
+  const stamp = item(st.stages[0], "demeter.stamp"), dem = item(st.stages[0], "demeter");
+  const moveStart = dem.keys[0].at - dem.keys[0].dur;
+  assert.ok(stamp.exit && stamp.exit.at <= moveStart + 0.5 && !(stamp.keys || []).length, `the stamp is gone (${stamp.exit && stamp.exit.at}) before the thing sets off (${moveStart}) and never moves`);
+});
+
+t("round 2 · a held drawing sits IN the hand of the rig's hold pose, not beside the person", () => {
+  const r = compile([beat("b1", "Mina kept the box close", { stage: { layout: "solo", who: ["mina"] }, events: [{ on: "box", do: "change", who: "mina", holds: "box" }] })]);
+  const s = r.stages[0], mina = item(s, "mina"), held = item(s, "mina.held"), pm = T.itemState(mina, 200), ph = T.itemState(held, 200);
+  const k = (mina.w / 400) * pm.s, hand = { x: pm.x + (228 - 200) * k, y: pm.y - (900 - 431) * k };
+  assert.ok(Math.abs(ph.x - hand.x) < 1, "over the hand (movements.ts hold: 228, 431 of the 400 × 900 rig)");
+  assert.ok(hand.y > ph.y && hand.y < ph.y + (held.w / 2) * ph.s + 1, "the hand is under the lower half of the drawing: the fingers show");
+  assert.ok(Math.abs(ph.x - pm.x) < mina.w * 0.25 * pm.s, "in front of the body");
+  assert.ok(held.w <= mina.w * 0.5);
 });
 
 console.log(`\n${n} checks passed`);

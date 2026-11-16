@@ -42,8 +42,22 @@ const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "
 const drawnAs = (e) => (!e ? null : e.kind === "person" ? "figure" : (Array.isArray(e.paths) && e.paths.length) || e.motif ? "icon" : KINDS[e.kind] || null);
 const Y = { emblem: 470, figure: 850, icon: 600 };
 // IN THE HAND: a held drawing is this share of the person's width, at the hand of the arm that faces the middle
-const HELD = { box: 0.62, dx: 0.36, dy: 0.56 };
-const handOf = (fig, p) => ({ x: p.x + (fig.flip ? -1 : 1) * (fig.w || 260) * HELD.dx * p.s, y: p.y - (fig.w || 260) * (fig.body === "bust" ? 1.5 : 2.25) * HELD.dy * Math.min(1, (fig.variant && fig.variant.height) || 1) * p.s, s: p.s });
+// (round 2: the first version put it BESIDE the hand — the operator saw a journal floating next to Mina.) The rig's
+// `hold` pose brings the forearm across the body: the hand rests in front of the chest at (228, 431) of the rig's
+// 400 × 900 box (movements.ts "hold"). The drawing is raised a little above that point, so the fingers show under its
+// lower edge — how the rig's own hand props sit (Everyman.tsx heldArmEl).
+const HELD = { box: 0.44, rigX: 228, rigY: 431, rigW: 400, rigH: 900, raise: 0.3 };
+const handOf = (fig, p) => {
+  const w = fig.w || 260, k = (w / HELD.rigW) * p.s * Math.min(1, (fig.variant && fig.variant.height) || 1), box = Math.round(w * HELD.box);
+  const feet = fig.body === "bust" ? 600 : HELD.rigH;
+  return { x: p.x + (fig.flip ? -1 : 1) * (HELD.rigX - HELD.rigW / 2) * k, y: p.y - (feet - HELD.rigY) * k - box * HELD.raise * p.s, s: p.s };
+};
+// A NAME PLATE'S WIDTH (told.ts plateW: per-letter widths — 0.62 em per letter hid the ends of "WAX PHONOGRAPH")
+/** from a thing's point down to the lower edge of its name plate (at scale 1) */
+const footOff = (it) => (it.kind === "emblem" ? 180 : (it.w || 312) / 2 + 66);
+const plateHalf = (it, s) => (it && it.label ? (T.plateW(it.label, it.kind === "emblem" ? 56 : it.size || 38) / 2) * s : 0);
+// TOLD v2 LAYOUT — where a drawn thing leaves room for what is written about it
+const V2L = { foot: 764, midIcon: 390, midEmblem: 360, midFeet: 600, midTop: 190, lineY: 812, dateY: 742, maxTall: 520 };
 // A PERSON FITS UNDER THE TITLE BAND (dracula's first clips: "COUNT DRACULA" cut by the top of the frame, a title
 // printed over "MINA HARKER", the crown sitting on the name). A person is feet-to-name-plate: the body (taller for a
 // look.height above 1), the plate above the head, and a crown above the plate when they wear one. That whole column
@@ -139,6 +153,10 @@ function compileTold(beats, written = {}, opts = {}) {
   // A CHANGED THING STAYS CHANGED: the state a drawing was last given, for the rest of the film (the ship that was
   // wrecked in act two is not whole again in act three because a new stage was set)
   const stateOf = {};
+  // THE v2 LAYOUT RULES (round 2, 2026-11-17) apply to a book that carries told-v2 drawings — an entity with `reads`,
+  // `states`, a `backdrop` or a `motif` pointer. A book written for told v1 (dracula as authored, zero-to-one, the
+  // golden fixture) is placed exactly as told 1.2 placed it.
+  const V2 = Object.values(written || {}).some((e) => e && (e.reads != null || e.states || e.backdrop || e.motif));
   let place = null; // the place the told run is AT (its drawing is the stage's backdrop); a run's end clears it
 
   for (const beat of beats) {
@@ -163,7 +181,13 @@ function compileTold(beats, written = {}, opts = {}) {
         // a LABEL was placed for where its thing stood and at reading size: when the thing walks somewhere else the
         // label leaves (it would land on a neighbour or outside the frame), and when the thing grows the label does
         // not (dracula: a label at 1.8× across the stage, another at x −30)
+        // v2: a label that stands UNDER a thing's name plate keeps standing under it when the thing grows or rises
+        if (b._role === "label" && b._below != null && Math.abs(nx - from.x) <= 40) { key(b, { at, dur, ease, y: Math.min(SAFE.bottom - 40, ny + footOff(it) * ns + 56 + b._below) }); continue; }
         if (b._role === "label") { if (Math.abs(nx - from.x) > 40 || Math.abs(ny - from.y) > 40) leave(b, Math.max(10, at - dur)); continue; }
+        // v2: a verdict stamped on a thing (or a bar across it) was made for where it stood, at that size — when the
+        // layout sends the thing elsewhere it is gone BEFORE the thing sets off (it was left fading in the old place,
+        // or rode along as a ghost onto the timeline: dracula "MASSACRE")
+        if (V2 && b._role === "deco" && b._ttl != null && (Math.abs(nx - from.x) > 40 || Math.abs(ny - from.y) > 40)) { leave(b, Math.max(6, at - dur), 6); continue; }
         const bs = stateAt(b, at - dur), ratio = ns / (from.s || 1);
         key(b, { at, dur, ease, x: nx + (bs.x - from.x) * ratio, y: ny + (bs.y - from.y) * ratio, s: bs.s * ratio });
       }
@@ -179,8 +203,11 @@ function compileTold(beats, written = {}, opts = {}) {
       // down into the subtitles)
       const lineup = drawnAs(e) === "figure" && slot.y == null && items.some((x) => x._under && !x._gone);
       if (lineup) slot = { ...slot, s: slot.s * 0.86 };
-      const kind = drawnAs(e), y = slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
-      if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf, stateOf[ent]); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.head ? 60 : FIG_TOP })) }; }
+      // v2 timeline (`mid`): the things stay in the middle of the stage at reading size, each kind on its own line
+      const kind = drawnAs(e), y = slot.mid ? (kind === "figure" ? V2L.midFeet : kind === "emblem" ? V2L.midEmblem : V2L.midIcon) : slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
+      if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf, stateOf[ent]); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.mid ? V2L.midTop : slot.head ? 60 : FIG_TOP })) }; }
+      // v2: a NAME PLATE stays in the frame, as a label does — the thing stands far enough from the edge for its name
+      if (V2) { const half = plateHalf({ label: e.label, kind }, slot.s); if (half) slot = { ...slot, x: Math.max(EDGE + half, Math.min(1920 - EDGE - half, slot.x)) }; }
       if (it) { const st = stateAt(it, at); if (Math.abs(st.x - slot.x) > 1 || Math.abs(st.y - y) > 1 || Math.abs(st.s - slot.s) > 0.01) move(ent, Math.max(at, 20), { x: slot.x, y, s: slot.s }); return it; }
       it = add({ ...entityItem(ent, e, colorOf, stateOf[ent]), x: slot.x, y, s: slot.s });
       if (kind === "figure" && slot.x > 960 && it.flip == null) it.flip = true; // faces the middle
@@ -197,7 +224,11 @@ function compileTold(beats, written = {}, opts = {}) {
       st8.layout = layout; st8.who = who.slice();
     };
     /** the things as a small row of heads along the top: the middle of the stage is free for a timeline */
-    const heads = (who, t0) => { const n = who.length; who.forEach((w, i) => ensure(w, t0, { x: n === 1 ? 960 : 420 + (1080 * i) / (n - 1), y: 230, s: n > 3 ? 0.4 : 0.5, head: true })); };
+    // v2 (round 2): at 0.4–0.5 along the top a drawing was a smudge and the middle of the stage stood empty — the
+    // things keep the MIDDLE at reading size and the timeline runs under them, above the subtitles
+    const heads = (who, t0) => { const n = who.length;
+      if (V2) { const s = n <= 2 ? 0.85 : n === 3 ? 0.75 : n === 4 ? 0.62 : 0.5; return who.forEach((w, i) => ensure(w, t0, { x: n === 1 ? 960 : 360 + (1200 * i) / (n - 1), s, mid: true })); }
+      who.forEach((w, i) => ensure(w, t0, { x: n === 1 ? 960 : 420 + (1080 * i) / (n - 1), y: 230, s: n > 3 ? 0.4 : 0.5, head: true })); };
     // titles sit in a band at the top of what the camera sees; a new one replaces the old
     const title = (text, at, box) => {
       for (const t of items.filter((x) => x._role === "title" && !x._gone)) leave(t, at - 2);
@@ -208,6 +239,9 @@ function compileTold(beats, written = {}, opts = {}) {
     /** the same thing, differently, from `at`: the old one fades out as the new one fades in, in the same place */
     const swap = (ent, at, patch, fade = 3) => {
       const old = find(ent), p = stateAt(old, at), next = clone(old); delete next.keys; delete next.exit; delete next.shake;
+      // v2: a thing that is still on its way somewhere when it changes ARRIVES — the walk it had not finished goes on
+      // (told 1.2 froze it mid-stage: dracula 141, Mina stopped between her old place and her new one)
+      if (V2) { const rest = (old.keys || []).filter((k) => k.at > at).map((k) => ({ ...k })); if (rest.length) next.keys = rest; }
       Object.assign(next, { id: ent, x: p.x, y: p.y, s: p.s, o: 1, r: 0, enter: { at: Math.max(fade, at), from: "fade", dur: fade } });
       patch(next);
       old.id = `${ent}~${++seq}`; leave(old, at + (fade > 3 ? 2 : 1), fade > 3 ? fade - 2 : fade); items.splice(items.indexOf(old) + 1, 0, next);
@@ -258,10 +292,16 @@ function compileTold(beats, written = {}, opts = {}) {
       // the stage that is replaced go too (dracula scene-42: four things and all their labels from three stages)
       const who = told.stage.who || [], keep = new Set(who);
       const leaving = items.filter((x) => x._role === "entity" && !x._gone && !keep.has(x._ent));
-      for (const it of leaving) { for (const b of bound(it._ent)) leave(b, 14); leave(it, 14); }
-      if (leaving.length || st8.who.some((w) => !keep.has(w))) { for (const it of items.filter((x) => x._role === "row" && !x._gone)) leave(it, 14); st8.rows = 0; st8.dates = 0; }
+      // v2 (round 2): ONE THING AT A TIME at a change of stage. In told 1.2 those who leave fade, those who stay
+      // walk and those who come rise in the same 14 frames — dracula 1289 s: a faded Mina, a dimmed Jonathan and a
+      // rising Seward on top of each other. Now: who leaves is gone by frame 8, then the others take their places,
+      // and whoever stays comes back from a `dim` (a new stage shows its things as themselves).
+      const out = V2 && leaving.length ? 8 : 14;
+      for (const it of leaving) { for (const b of bound(it._ent)) leave(b, out, V2 ? 8 : 10); leave(it, out, V2 ? 8 : 10); }
+      if (leaving.length || st8.who.some((w) => !keep.has(w))) { for (const it of items.filter((x) => x._role === "row" && !x._gone)) leave(it, out, V2 ? 8 : 10); st8.rows = 0; st8.dates = 0; }
+      if (V2) for (const it of items.filter((x) => x._role === "entity" && !x._gone)) { const st = stateAt(it, 0); if (st.o < 0.99 || Math.abs(st.r) > 0.5) key(it, { at: 12, dur: 10, o: 1, r: 0, y: st.y - (st.o < 0.99 ? 35 : 0) }); }
       const wasOn = items.some((x) => x._role === "entity");
-      arrange(told.stage.layout || "row", who, wasOn ? 14 : 0);
+      arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
       // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
       setPlace(told.stage.at || null, wasOn || place ? 14 : 0);
     }
@@ -312,9 +352,12 @@ function compileTold(beats, written = {}, opts = {}) {
           // lines. People step up and back first so there is a band under their feet above the subtitles.
           for (const b of live) leave(b, Math.max(10, at - 2));
           if (fig) for (const g of items.filter((x) => x._role === "entity" && !x._gone && x.kind === "figure")) { const q = stateAt(g, at); if (q.y > UNDER_FEET + 1) move(g._ent, Math.max(16, at - 6), { y: UNDER_FEET, s: q.s * 0.86 }, 16); }
-          const q = fig ? { ...p, y: Math.min(p.y, UNDER_FEET) } : p, tw2 = tileW(text, 32), par = Math.max(0, st8.who.indexOf(who[0])) % 2;
+          let q = fig ? { ...p, y: Math.min(p.y, UNDER_FEET) } : p; const tw2 = tileW(text, 32), par = Math.max(0, st8.who.indexOf(who[0])) % 2;
+          // v2 (round 2): a THING too low or too large for a label under its name plate rises first — the label was
+          // clamped up ONTO the plate ("CARBON PAPER TRANSFER" across "PORTABLE TYPEWRITER")
+          if (V2 && !fig && q.y + footOff(ent0) * q.s > V2L.foot + 1) { const y = V2L.foot - footOff(ent0) * q.s; move(who[0], Math.max(16, at - 6), { y }, 16); q = { ...q, y }; }
           const base = fig ? q.y + 52 : q.y + (ent0.kind === "emblem" ? 180 : (ent0.w || 312) / 2 + 66) * q.s + 56;
-          add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: text, color: ent0.color || INK, size: 32, x: Math.max(EDGE + tw2 / 2, Math.min(1920 - EDGE - tw2 / 2, q.x)), y: Math.min(SAFE.bottom - 40, base + par * (fig ? 70 : 84)), enter: { at: Math.max(12, at), from: "bottom", dur: 12 }, _bind: who[0], _role: "label", _slot: 0, _under: fig || undefined });
+          add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: text, color: ent0.color || INK, size: 32, x: Math.max(EDGE + tw2 / 2, Math.min(1920 - EDGE - tw2 / 2, q.x)), y: Math.min(SAFE.bottom - 40, base + par * (fig ? 70 : 84)), enter: { at: Math.max(12, at), from: "bottom", dur: 12 }, _bind: who[0], _role: "label", _slot: 0, _under: fig || undefined, ...(V2 && !fig ? { _below: par * 84 } : {}) });
         } break;
         case "crown": if (need(1)) {
           const ent0 = find(who[0]), k = ent0.kind; let p = posOf(who[0]);
@@ -329,11 +372,13 @@ function compileTold(beats, written = {}, opts = {}) {
         case "uncover": if (need(1)) for (const w of who) for (const b of bound(w).filter((x) => x.kind === "bar")) leave(b, at); break;
         case "dim": if (need(1)) for (const w of who) { const p = posOf(w); key(find(w), { at, dur: 14, o: 0.5, r: p.x < 960 ? -9 : 9, y: p.y + 35 }); } break;
         case "restore": if (need(1)) for (const w of who) { const e = entities[w], p = posOf(w); key(find(w), { at, dur: 14, o: 1, r: 0, y: p.y - (p.o < 0.99 ? 35 : 0) }); void e; } break;
-        case "grow": if (need(1)) for (const w of who) { const g = find(w), p = posOf(w), to = p.s * (ev.to || 1.25);
+        case "grow": if (need(1)) for (const w of who) { const g = find(w), p = posOf(w); let to = p.s * (ev.to || 1.25);
           // a person grows only as far as the frame lets them (their name must stay readable)
-          // a DRAWING that grows keeps its name plate above the subtitle band: it rises as it grows (a drawn ship is
-          // larger than the tile it replaces — measured on dracula: things under the subtitle line 10 → 22 without this)
-          const foot = g.kind === "icon" ? ((g.w || 312) / 2 + (g.label ? 66 : 0)) * to : 0, lift = g.kind === "icon" && p.y + foot > SAFE.bottom ? { y: Math.max(p.y - 160, SAFE.bottom - foot) } : {};
+          // v2: a DRAWING grows only as far as the stage lets it (two `grow`s made a typewriter 1.56× — under the title,
+          // over the subtitles, no room for a label), and it rises as it grows so that its name plate — and a label
+          // under the plate — stay above the subtitle band (dracula: things under the subtitle line 10 → 22 without this)
+          let lift = {};
+          if (V2 && g.kind === "icon") { to = Math.min(to, Math.max(p.s, V2L.maxTall / ((g.w || 312) + 66))); if (p.y + footOff(g) * to > V2L.foot) lift = { y: V2L.foot - footOff(g) * to }; }
           move(w, at, { ...lift, s: g.kind === "figure" ? Math.min(to, Math.max(p.s, fitS(g, p.y, { crown: bound(w).some((b) => b.kind === "crown"), top: FIG_TOP_HARD }))) : to }, 14, "back"); } break;
         case "shake": if (need(1)) for (const w of who) find(w).shake = { at, dur: 20, amp: 14 }; break;
         case "apart": if (need(2)) { const a = posOf(who[0]), b = posOf(who[1]), l = a.x <= b.x ? 0 : 1; move(who[l], at, { x: 440 }); move(who[1 - l], at, { x: 1480 }); } break;
@@ -367,10 +412,10 @@ function compileTold(beats, written = {}, opts = {}) {
             for (const f of items.filter((x) => x._role === "fx" && !x._gone)) leave(f, Math.max(10, at - 20));
             st8.layout = "heads";
           }
-          if (!items.some((x) => x.id === "timeline" && !x._gone)) add({ id: "timeline", kind: "dash", x: 280, y: 640, x2: 1640, y2: 640, drawFrom: Math.max(0, at - 40), drawTo: Math.max(4, at - 4), enter: { at: Math.max(2, at - 40), from: "fade", dur: 2 }, _role: "row" });
+          if (!items.some((x) => x.id === "timeline" && !x._gone)) add({ id: "timeline", kind: "dash", x: 280, y: V2 ? V2L.lineY : 640, x2: 1640, y2: V2 ? V2L.lineY : 640, drawFrom: Math.max(0, at - 40), drawTo: Math.max(4, at - 4), enter: { at: Math.max(2, at - 40), from: "fade", dur: 2 }, _role: "row" });
           const x = ev.side === "left" ? 500 : ev.side === "right" ? 1340 : [960, 500, 1340][st8.dates % 3]; st8.dates++;
           for (const r0 of items.filter((x) => x._role === "row" && !x._gone)) r0._born = beatNo;
-          add({ id: `date${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: ev.color === "red" ? RED : INK, size: 44, x, y: 540, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _role: "row" }); break; }
+          add({ id: `date${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: ev.color === "red" ? RED : INK, size: 44, x, y: V2 ? V2L.dateY : 540, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _role: "row" }); break; }
         case "focus": if (need(1)) { const p = posOf(who[0]), s = ev.zoom || 1.3; 
           // the push-in keeps the thing's foot (a person's feet, a thing's name plate) above the subtitle band
           // (dracula: "PORTABLE TYPEWRITER" pushed under the captions by the zoom)
@@ -388,7 +433,11 @@ function compileTold(beats, written = {}, opts = {}) {
             const st = ev.state === "base" ? e0 : ev.state && e0.states && e0.states[ev.state];
             if (cur.kind !== "icon" || !st) { err(`change: "${w0}" ${cur.kind !== "icon" ? "is an emblem — only a drawn thing has states" : `has no state "${ev.state}" — ${Object.keys(e0.states || {}).length ? `one of ${["base", ...Object.keys(e0.states)].join(", ")}` : "none is drawn (entities.json states)"}`}`); break; }
             if (ev.state === "base") delete stateOf[w0]; else stateOf[w0] = ev.state;
-            swap(w0, Math.max(8, at), (next) => { next.paths = st.paths; next.viewBox = st.viewBox; if (ev.state === "base") delete next.state; else next.state = ev.state; if (ev.label) next.label = String(ev.label).toUpperCase(); }, 8);
+            // round 2: the change is an EVENT, not a cut — the thing is knocked (one knock that dies away, told.ts
+            // `shake`: no loop) and what it was gives way to what it has become over 12 frames, landing on the word
+            const when = Math.max(14, at), knock = { at: when - 12, dur: 28, amp: 14 };
+            const becomes = swap(w0, when, (next) => { next.paths = st.paths; next.viewBox = st.viewBox; if (ev.state === "base") delete next.state; else next.state = ev.state; if (ev.label) next.label = String(ev.label).toUpperCase(); }, 12);
+            cur.shake = { ...knock }; becomes.shake = { ...knock };
             break;
           }
           // the same person, differently: another action, a blindfold, something in the hand
@@ -436,7 +485,7 @@ function compileTold(beats, written = {}, opts = {}) {
     const order = { world: 0, entity: 1, held: 2, deco: 2, label: 3, row: 3, fx: 4, title: 5 };
     const drawn = items.map((it, i) => [it, i]).sort((a, b) => (order[a[0]._role] ?? 3) - (order[b[0]._role] ?? 3) || a[1] - b[1]).map(([it]) => it);
     const strip = (it) => { const c = {}; for (const [k, v] of Object.entries(it)) if (!k.startsWith("_") && v !== undefined) c[k] = v; return c; };
-    stages.push({ v: T.TOLD_VERSION, items: drawn.map(strip), ...(camKeys.length ? { cam: camKeys } : {}), ...(backdrops.length ? { backdrops } : {}) });
+    stages.push({ v: T.TOLD_VERSION, items: drawn.map(strip), ...(camKeys.length ? { cam: camKeys } : {}), ...(backdrops.length ? { backdrops } : {}), ...(V2 ? { plate: "fit" } : {}) });
 
     // what stays for the next beat: everything still on stage at this beat's last frame, where it stands then
     carried = [];

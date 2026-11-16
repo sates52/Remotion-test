@@ -41,10 +41,23 @@ export type ToldPath = { d: string; fill?: string; stroke?: string; strokeWidth?
 /** v2 — the PLACE the stage is at: that place's drawing, pale, behind everything. `wide` = drawn for the whole width
  *  (a "backdrop" drawing); otherwise the place's own icon, large and centred. It fades in / out, nothing else. */
 export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number } };
-export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[]; backdrops?: ToldBackdrop[] };
+export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[]; backdrops?: ToldBackdrop[];
+  /** v2: "fit" = a name plate is as wide as its name (plateW); absent = the v1 plate */
+  plate?: "fit" };
 export type ToldState = { x: number; y: number; s: number; o: number; r: number };
 
 const clamp = (x: number) => Math.max(0, Math.min(1, x));
+
+/**
+ * v2 — how wide a NAME PLATE must be for its name (the film's heavy caps). The v1 plate counted 0.62 em for every
+ * letter: wide letters ran out of it and — white on a light stage — vanished ("WAX PHONOGRAPH" read "AX PHONOGRAP").
+ * Per-letter widths, a little generous; the compiler uses the same number to keep a plate inside the frame.
+ */
+export function plateW(label: string, size: number): number {
+  let em = 0;
+  for (const ch of String(label)) em += ch === " " ? 0.32 : "IJ1.,:;'!-".includes(ch) ? 0.4 : "MW".includes(ch) ? 1.02 : "ACDGHKNOQUVXY&04689".includes(ch) ? 0.78 : 0.7;
+  return em * size + String(label).length * 1 + 44;
+}
 
 /** How much of a backdrop is there on `frame` (0 … 1): a plain fade in that ENDS on `enter.at`, a fade out that ends on `exit.at`. */
 export function backdropOpacity(b: { enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number } }, frame: number): number {
