@@ -1,0 +1,190 @@
+{
+ "schema": "stills/1",
+ "name": "own-drawings round 2 ESKI/YENI",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 12,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "dracula-1325-1355-ESKI",
+   "config": "configs/dracula-1325-1355-ESKI.json",
+   "frames": [
+    562
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1122,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1352-1380-ESKI",
+   "config": "configs/dracula-1352-1380-ESKI.json",
+   "frames": [
+    509
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1016,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-658-692-ESKI",
+   "config": "configs/dracula-658-692-ESKI.json",
+   "frames": [
+    527
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1052,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1288-1312-ESKI",
+   "config": "configs/dracula-1288-1312-ESKI.json",
+   "frames": [
+    414
+   ],
+   "clip": {
+    "from": 0,
+    "to": 827,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1316-1342-ESKI",
+   "config": "configs/dracula-1316-1342-ESKI.json",
+   "frames": [
+    378
+   ],
+   "clip": {
+    "from": 0,
+    "to": 755,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-625-651-ESKI",
+   "config": "configs/dracula-625-651-ESKI.json",
+   "frames": [
+    495
+   ],
+   "clip": {
+    "from": 0,
+    "to": 988,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1325-1355-YENI",
+   "config": "configs/dracula-1325-1355-YENI.json",
+   "frames": [
+    562
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1122,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1352-1380-YENI",
+   "config": "configs/dracula-1352-1380-YENI.json",
+   "frames": [
+    509
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1016,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-658-692-YENI",
+   "config": "configs/dracula-658-692-YENI.json",
+   "frames": [
+    527
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1052,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1288-1312-YENI",
+   "config": "configs/dracula-1288-1312-YENI.json",
+   "frames": [
+    414
+   ],
+   "clip": {
+    "from": 0,
+    "to": 827,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-1316-1342-YENI",
+   "config": "configs/dracula-1316-1342-YENI.json",
+   "frames": [
+    378
+   ],
+   "clip": {
+    "from": 0,
+    "to": 755,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "dracula-625-651-YENI",
+   "config": "configs/dracula-625-651-YENI.json",
+   "frames": [
+    495
+   ],
+   "clip": {
+    "from": 0,
+    "to": 988,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "aa3156dcd43b31cd",
+ "files": {
+  "stills/configs/dracula-1325-1355-ESKI.json": "a828c0c84e54be513ca432f1a9c843b4f35b24162739d5f5e7cde2d28891a855",
+  "stills/configs/dracula-1352-1380-ESKI.json": "ebdb3ae04402463f4dbaa1f71e0adea923f877e8fb9f57b1d6ba66a7aa0f1806",
+  "stills/configs/dracula-658-692-ESKI.json": "04b0afed03a3cad7d148aafb7cd58802dcb78a2a8bac3d0cb2a3e5da76297b92",
+  "stills/configs/dracula-1288-1312-ESKI.json": "494a3a39578eea3a2a729d6cfa8b96f54c1e20621e6be20ac5b406bce97e9e31",
+  "stills/configs/dracula-1316-1342-ESKI.json": "9b190758b82c42b51864b450faeeb1dd4e6bcadc6d9be6901c86ea4b795fae45",
+  "stills/configs/dracula-625-651-ESKI.json": "91cb27ad07d3e8e6bd6beb02e6f53d75a196b2d15740f4d7d71b5d69e6ad1851",
+  "stills/configs/dracula-1325-1355-YENI.json": "f22a0300de110395eece781c56a75e27174d904fcb3dc40ca683fa8f7cbe6eba",
+  "stills/configs/dracula-1352-1380-YENI.json": "b8aa58cde770205c7f2b43343e8352f87c2e01522762e83e787d27cf8a6b6861",
+  "stills/configs/dracula-658-692-YENI.json": "7bdcffb4f577e14c28611faa1aa6475d285b6e470c8d1064fed01e95fb507c43",
+  "stills/configs/dracula-1288-1312-YENI.json": "a31b66aad11d079907410877b91a281937289657412f1c52465d263bcdba3d6d",
+  "stills/configs/dracula-1316-1342-YENI.json": "9b6cafede6af2692603b2ffce276f1654bf69aa0cc7f26ea96052d8fd7b1b892",
+  "stills/configs/dracula-625-651-YENI.json": "c566098776901aefcee7d871d3b4e2e7f2243dec0a27b438dbeef7b16759b9c1"
+ },
+ "builtAt": "2026-11-16T16:04:00.722Z"
+}
