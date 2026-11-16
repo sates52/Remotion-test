@@ -84,8 +84,10 @@ try {
   t("a second run with the old --from → refused (the pin moved; exact old SHA required)", r.status === 2 && /is not the book's pin/.test(r.stderr));
   // --before-preview (dracula, 2026-11-16): engine / planner code for a book whose picture was never judged
   r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--before-preview", "--operator-approved=x"]);
-  t("--before-preview on a book that HAS a preview verdict → refused; HEAD stays", r.status === 2 && /already has preview-ready\.json/.test(r.stderr) && g(WT, "rev-parse", "HEAD") === MAINT, r.stderr);
-  fs.rmSync(path.join(WT, "books", SLUG, "preview-ready.json"));
+  t("--before-preview on a book that HAS a preview verdict → refused; HEAD stays", r.status === 2 && /already has a PASSED preview-ready\.json/.test(r.stderr) && g(WT, "rev-parse", "HEAD") === MAINT, r.stderr);
+  // a FAILED verdict accepted nothing: it does not hold the book on its pin
+  W(path.join(WT, "books", SLUG, "preview-ready.json"), { ready: false, failed: ["blind mute test"] });
+  W(path.join(WT, "books", SLUG, "mute-test.json"), { runs: [{ label: "final", pass: false }] });
   r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--operator-approved=x"]);
   t("…without the flag the same upgrade is still a refused FEATURE", r.status === 2 && /FEATURE upgrade/.test(r.stderr), r.stderr);
   r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--before-preview"]);

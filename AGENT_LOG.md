@@ -7659,6 +7659,8 @@ Also from that run:
   the run was still rendering).
 - Not fixed, known: a told stage for FICTION is still text-and-emblem heavy (a ship is a red tile with a globe); the
   mute test says so (TEXT_ONLY 19/30). The next lever is drawn things (own icons on the stage) and people DOING the
-  verb, not layout. dracula itself is the owner's: fix round 1 is open in its worktree (pin 7980f07f — it does not have
-  told 1.2; a second `--before-preview` upgrade is refused now that a mute test exists, by design).
+  verb, not layout. dracula itself is the owner's: fix round 1 is open in its worktree (pin 7980f07f — it does not have told 1.2).
+- **`maintenance-upgrade.js --before-preview`** now reads the verdict: a FAILED preview-ready / mute test accepted
+  nothing and does not hold a book on its pin (the fix round judges a fresh holdout anyway); a PASSED one, a film or
+  a render state still does. So dracula can take told 1.2 — on the operator's word.
 - Tests: `test-told-compile.js` 18 → 24.

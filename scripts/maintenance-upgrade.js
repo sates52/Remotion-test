@@ -95,7 +95,12 @@ const reason = typeof args["operator-approved"] === "string" ? args["operator-ap
 const problems = [];
 // a picture that was never judged: no preview verdict, no mute test, no film, no render state
 const BEFORE_PREVIEW = !!args["before-preview"];
-const judged = [["preview-ready.json", path.join(B, "preview-ready.json")], ["mute-test.json", path.join(B, "mute-test.json")], [`out/${SLUG}.mp4`, path.join(WT, "out", `${SLUG}.mp4`)], ["a GitHub render state", path.join(WT, `.render-github-split.${SLUG}.json`)]].filter(([, f]) => fs.existsSync(f)).map(([n]) => n);
+// A verdict that FAILED accepted nothing: the book goes into a fix round and is judged again on a fresh holdout
+// (dracula: mute test FAIL on told 1.1, the layout fix is told 1.2). Only a PASS — preview-ready.json ready: true, or
+// a passing last mute run — is a judged picture the pin protects.
+const rjson = (f) => { try { return JSON.parse(fs.readFileSync(f, "utf8").replace(/^\uFEFF/, "")); } catch { return null; } };
+const passed = { "preview-ready.json": (j) => !j || j.ready !== false, "mute-test.json": (j) => { const r = j && Array.isArray(j.runs) ? j.runs[j.runs.length - 1] : j; return !r || r.pass !== false; } };
+const judged = [["preview-ready.json", path.join(B, "preview-ready.json")], ["mute-test.json", path.join(B, "mute-test.json")]].filter(([n, f]) => fs.existsSync(f) && passed[n](rjson(f))).map(([n]) => `a PASSED ${n}`).concat([[`out/${SLUG}.mp4`, path.join(WT, "out", `${SLUG}.mp4`)], ["a GitHub render state", path.join(WT, `.render-github-split.${SLUG}.json`)]].filter(([, f]) => fs.existsSync(f)).map(([n]) => n));
 if (BEFORE_PREVIEW && judged.length) problems.push(`--before-preview: ${SLUG} already has ${judged.join(", ")} — its picture was judged or rendered on the pin; the book keeps its engine commit`);
 if (feature.length && !BEFORE_PREVIEW) problems.push(`FEATURE upgrade, not maintenance — ${feature.length} file(s) can change what renders or what was authored: ${feature.slice(0, 8).join(", ")}${feature.length > 8 ? ", …" : ""}. The book keeps its pin (render it with current tools: render.js --book-root), or its owner and the operator decide a re-pin / adopt.`);
 if (dirty.length) problems.push(`${dirty.length} tracked change(s) in ${WT}: ${dirty.slice(0, 4).join("; ")} — the checkout is not the pin`);
@@ -105,7 +110,7 @@ if (!reason && !CHECK) problems.push(`--operator-approved="<the operator's reaso
 console.log(`maintenance-upgrade ${SLUG}: ${FROM.slice(0, 8)} → ${TO.slice(0, 8)} in ${WT}`);
 console.log(`  diff: ${files.length} file(s) — ${files.length - feature.length} maintenance${feature.length ? `, ${feature.length} FEATURE` : ""}`);
 for (const f of files.slice(0, 30)) console.log(`    ${feature.includes(f) ? (BEFORE_PREVIEW ? "! feature    " : "✗ feature    ") : "· maintenance"} ${f}`);
-if (BEFORE_PREVIEW && feature.length && !judged.length) console.log(`  --before-preview: ${feature.length} feature file(s) accepted — ${SLUG} has no preview verdict, mute test, film or render yet`);
+if (BEFORE_PREVIEW && feature.length && !judged.length) console.log(`  --before-preview: ${feature.length} feature file(s) accepted — ${SLUG} has no PASSED preview verdict or mute test, no film and no render`);
 if (problems.length) { for (const p of problems) console.error(`❌ ${p}`); process.exit(2); }
 if (CHECK) { console.log((BEFORE_PREVIEW && feature.length ? "✓ CHECK: a before-preview feature upgrade" : "✓ CHECK: a maintenance upgrade") + " — nothing changed (run again with --operator-approved=\"<reason>\" and without --check)"); process.exit(0); }
 
