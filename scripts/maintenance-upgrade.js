@@ -74,7 +74,10 @@ if (git(WT, ["merge-base", "--is-ancestor", TO, "refs/remotes/origin/god-mode"])
 const files = (git(WT, ["diff", "--name-only", FROM, TO]) || "").split(/\r?\n/).filter(Boolean);
 const feature = files.filter((f) => f !== GENERATED && !MAINTENANCE_FILES.some((re) => re.test(f)));
 // 3. the worktree is exactly the pin (tracked code), and no render is running for the book
-const dirty = (git(WT, ["status", "--porcelain", "--untracked-files=no"]) || "").split(/\r?\n/).filter(Boolean).filter((l) => ![GENERATED, ...LEDGERS].some((x) => l.trim().endsWith(" " + x)));
+const dirty = (git(WT, ["status", "--porcelain", "--untracked-files=no"]) || "").split(/\r?\n/).filter(Boolean).filter((l) => ![GENERATED, ...LEDGERS].some((x) => l.trim().endsWith(" " + x)))
+  // a tracked legacy media file that is merely ABSENT under public/ (book worktrees drop public/captions/captions.vtt
+  // and old sample audio) is not a code change: nothing there can alter what the tools do (dracula, 2026-11-16)
+  .filter((l) => !/^\s?D\s+"?public\//.test(l));
 const inflight = (() => { try { const rl = require("./lib/run-lock"); const lock = path.join(WT, `.render-lock.${SLUG}.json`); const lk = fs.existsSync(lock) ? JSON.parse(fs.readFileSync(lock, "utf8")) : null; return (lk && rl.pidAlive(lk.pid)) || rl.renderInFlight(path.join(WT, `.render-github-split.${SLUG}.json`)); } catch { return null; } })();
 // 4. the book's inputs, hashed (untracked: a checkout must not touch them)
 const inputFiles = () => {
