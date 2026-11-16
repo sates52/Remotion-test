@@ -8,6 +8,24 @@ Published books are frozen.
 |---|---|---|---|
 | Film Flow 1.0 — living characters | ≥ 1 | The narration's word timings drive mouth, head, brows and hand strokes (`speech.ts`); glances and weight shifts instead of sine loops; gestures with anticipation and overshoot (`movements.ts` `livePose`). | Built, dev. Measured effect small (SSIM 0.97–0.98 against today's film). Not switched on by any pipeline step. |
 | **Film Flow 2.0 — told stages (told v1)** | ≥ 2 | The picture shows what the narration names: emblems, people and the book's own drawings on one kept stage, with what happens to them landing on the narrator's words (`told.ts`, `components/ToldStage.tsx`; authored as `told` beats, compiled by `scripts/lib/told-compile.js`, applied by `scripts/told.js`, make-book step 1.886). | **Production for new Antidote books** (operator, 2026-11-14). |
+| **Film Flow 3.0 — the book's own drawings (told v2)** | ≥ 2, stage `v: 2` | A named thing of any kind is shown as a drawing made for this book (emblem = fallback); a drawing has states (`change` + `state`, sticky); a person holds / gives / takes a drawing; the stage is AT a place (`stage.at`, backdrop). Drawings are linted, printed one per file and named blind before merge (`scripts/lib/own-drawings.js`, `own-icons-sheet.js --judge`). | Built on `dev/own-drawings` (2026-11-16); waits for the operator's eye on the clips. |
+
+## Told v2 — the book's own drawings (2026-11-16)
+
+- **Version:** `TOLD_VERSION` 2. What v2 adds is carried by fields a v1 stage does not have (`backdrops`, an icon's
+  `state`, `*.held` items) and `ToldStage` reads `backdrops` only on `v >= 2`: a stored `v: 1` stage is drawn as it was.
+  The compiler gives the same items for a v1-vocabulary beat (`test-own-drawings.js` golden; dracula's 147 authored
+  stages: 131 identical, 16 differ only in that a drawing that GROWS now rises to keep its name plate above the
+  subtitles; zero-to-one's 10: identical).
+- **Entities:** `paths` (or `motif`: an own icon of `motifs.json` — one source) on any kind; `reads`; `states`;
+  `backdrop` on a place. Colour tokens are the book's palette. Lint numbers: `RULES` in `own-drawings.js`.
+- **Gate:** prep refuses a drawing that is not one; merge refuses a told beat that uses a drawing without a passing
+  blind-naming verdict for the drawing as it is now (`storyboard/own-drawings.verdict.json`, bound to hash + readings).
+- **Events:** `change` + `state`; `change` + `holds: <drawn thing>`; `give` (who: [from, to], what); `take`; `at`.
+- **Measured (dracula, scratch copy, authored beats unchanged except 9 re-authored in the clip passages):** things on
+  told stages shown as the book's own drawing 41 % → 79 %; drawings named blind as intended 12 of 12 (10 of 12 on the
+  first pass); stages with a thing on a thing / under the subtitle line 15 → 4.
+- **Not in v2:** the engine's library icons on a told stage; fingers closing on a held drawing; an animated state change.
 
 ## Told v1 — the contract
 

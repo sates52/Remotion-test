@@ -80,6 +80,14 @@ sheet in seconds (headless Chrome, no bundle) and writes `storyboard/OWN-ICONS-P
 agent (sonnet) names each number in 1-3 words without knowing the intent. Redraw every icon it names
 as something else, until the names match. Drawn blind, SBC's casserole read "toaster", and Unhinged's
 dopamineHook read as a noose and its tattooNeedle as a syringe.
+**The named things of a told book are drawn the same way (told v2, 2026-11-16):** `storyboard/entities.json` carries a
+drawing (`paths`, or `"motif": "<key>"` for an object already drawn above — never the same object in both files) for
+every thing that carries the book, of any kind, with its `states` and a place's `backdrop` (brief:
+`entities.candidates.json` → `"drawing"`, told.md). The same script prints them ONE PICTURE PER FILE
+(`storyboard/own-drawings/NN.png`, `OWN-DRAWINGS-PROMPT.md`); a fresh sonnet agent names one picture at a time;
+`own-icons-sheet.js --slug=<slug> --judge=<answers.json>` writes the verdict. This one is a gate: prep stops on a
+drawing that is not one (`--skip-own-drawings="<why>"` only with a reason) and merge refuses a told beat that uses a
+drawing nobody could name.
 
 ### 1c. Dress the cast (Antidote)
 The `look` text never reaches the drawing — `cast[k].variant` does. Without one, every character
@@ -287,12 +295,15 @@ Every new Antidote book. Measured: a scene that names a company, product, person
 cases; the operator chose the told form on side-by-side passages. Guide (every harness):
 `.claude/skills/antidote-visual-authoring/told.md`; versions: `docs/FILM-FLOW.md`.
 1. Before prep (lead agent): `node scripts/told.js entities --slug=<slug>` → write `storyboard/entities.json`
-   (label, kind, glyph / look / paths) → `storyboard.js prep` (rules.md opens with the told section).
-2. Authors write `told` on the beats that name something; `merge` checks them (ids, the word, the event).
+   (label, kind, glyph / look / paths) → DRAW the things that carry the book and have them named blind (§1b,
+   told v2) → `storyboard.js prep` (rules.md opens with the told section).
+2. Authors write `told` on the beats that name something; `merge` checks them (ids, the word, the event, a drawing's
+   state, the blind-naming verdict of every drawing a beat uses).
 3. make-book step 1.886 (`told.js apply --write --pipeline`) compiles the stages against the planned word timings,
    puts them on their scenes and seals them as the authored decision — before hard-gate, the lock restore and every
    gate. A told beat that does not compile stops the build: fix the beat, merge, run again (routine, no approval).
-4. Hand-off: `node scripts/told.js status --slug=<slug>` (told scenes; share of naming scenes that show the name).
+4. Hand-off: `node scripts/told.js status --slug=<slug>` (told scenes; share of naming scenes that show the name;
+   share of things shown as the book's own drawing; drawings named blind).
 Clips for a look: `flow-passage.js` (drawn with the film's browser settings) + `flicker-check.js`. Reversible:
 `told.js revert --write`. Not for published books.
 

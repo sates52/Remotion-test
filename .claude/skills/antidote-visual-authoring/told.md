@@ -40,8 +40,36 @@ book's **own drawings** (an animal, an object), plus what happens to them. The s
      Two people must differ at a glance, exactly as in the cast.
    - `color`: only when a thing has a colour the book gives it; otherwise each emblem gets its own from the palette.
    - Aim for the things that carry the book: usually 8–25. A name said once is rarely worth an entity.
-3. Re-run `node scripts/storyboard.js prep --slug=<slug>`: `rules.md` now opens with the told section and lists
-   these ids. (A book without `entities.json` gets no told section and merge refuses a told beat.)
+3. **Draw the things that carry the book (told v2, 2026-11-16)** — the ship, the chest, the machine, the animal, the
+   city: `paths` on the entity, for ANY kind (a product, a place, an idea too). A thing nobody drew is shown as a
+   coloured tile with a stock glyph — the fallback, and what the first told book's mute test called TEXT_ONLY (19/30).
+   The exact brief (box, layers, path and colour counts, this book's palette tokens) is generated into
+   `storyboard/entities.candidates.json` → `"drawing"`; in short:
+
+   ```json
+   { "demeter": { "label": "DEMETER", "kind": "product", "w": 400, "reads": ["ship", "sailing ship"],
+                  "paths": [ { "d": "M48 352 H438 L496 330 L452 424 Q270 452 104 424 Z", "fill": "ink" }, … ],
+                  "states": { "wrecked": { "reads": ["shipwreck", "sinking ship"], "paths": [ … ] } } },
+     "london":  { "label": "LONDON", "kind": "place", "glyph": "building", "reads": ["clock tower", "city"], "paths": [ … ],
+                  "backdrop": { "reads": ["city skyline"], "paths": [ … ] } },
+     "earthbox": { "label": "EARTH BOX", "kind": "object", "motif": "earthBox" } }
+   ```
+   - Silhouette first, then the parts that make it THIS kind of thing, then one or two accent details; colours by
+     palette token (`ink`, `accent`, …) or hex. Original flat vector — never a logo, a brand mark or a known character.
+   - `reads`: the 1-3 word names a stranger may give it, written BEFORE the blind test. Never add a misreading later
+     (the verdict is bound to the drawing and its readings).
+   - `states`: what the narration CHANGES gets a drawing per state it shows (2-3 at most), same box, same base
+     silhouette. `backdrop` (a place): a wide, simple skyline / landscape in `0 0 1920 760`, standing on the bottom edge.
+   - **One source:** an object that is already an own icon in `motifs.json` is not drawn twice — `"motif": "<key>"`.
+   - **See them, blind:** `node scripts/own-icons-sheet.js --slug=<slug>` prints every drawing, state and backdrop as
+     one picture per file; a FRESH agent (sonnet) is given ONE picture and says what it is in 1-3 words; then
+     `node scripts/own-icons-sheet.js --slug=<slug> --judge=<answers.json>` writes `own-drawings.verdict.json`.
+     Redraw what was read as something else (dracula's open earth box took three drawings: "wooden crate",
+     "treasure chest", then "crate of soil"). **Merge refuses a told beat that uses a drawing without a passing
+     verdict**; prep refuses a drawing that is not one (three polygons, one colour, a corner of its box).
+4. Re-run `node scripts/storyboard.js prep --slug=<slug>`: `rules.md` now opens with the told section and lists
+   these ids, each drawn thing with its states, each place that can stand behind the stage. (A book without
+   `entities.json` gets no told section and merge refuses a told beat.)
 
 ## Storyboard authors — when a beat names something
 
@@ -71,6 +99,13 @@ What made the approved passages work — follow it:
 - **Name what is named.** If the narration says four product pairs, the viewer sees four rows (`pair`), each landing
   as it is said. If it gives two dates, they stand on a timeline (`date`).
 - **Titles are the narration's claim in 2–5 words**, never a caption for the picture. One at a time.
+- **Use the book's drawings, and let people handle them (told v2).** A drawn thing is seen as itself; what the
+  narration changes, changes on screen — `{ "do": "change", "who": "demeter", "state": "wrecked" }` (it then stays
+  wrecked for the rest of the film); what the narration hands over travels from hand to hand on the word —
+  `{ "do": "give", "who": ["jonathan", "mina"], "what": "journal" }`; `change` + `holds: "<thing>"` puts it in a hand,
+  `take` picks up a thing that stands on stage. Where the narration IS somewhere, the stage is there:
+  `"stage": { …, "at": "transylvania" }` draws the place, pale, behind everything (a new `stage` without `at` is
+  nowhere in particular). Only what `rules.md` lists as drawn / with states / as a place exists.
 - **People stand for the people the narration names** — at their age, in their dress. They stand still unless given
   something to do (`change` with an `action`). Never a host or a stand-in figure "to have someone there".
 - **The camera goes where the sentence goes** (`focus`), and comes back (`wide`) before the stage is used whole again.
@@ -109,9 +144,12 @@ the PC). Run it from the book's worktree, after make-book.
 - Do not edit `src/` or `scripts/` while it pushes (the bundle is the working tree).
 - `node scripts/film-flow.js --slug=<slug>` for the flow table (name coverage, figure-and-text share).
 
-## Limits (told v1)
+## Limits (told v2)
 
-- The engine's library icons are not available on a told stage — an animal or an object is the book's own drawing.
+- The engine's library icons are not available on a told stage — a thing is the book's own drawing or an emblem.
+- A held drawing sits AT the hand (the rig's own fingers do not close on it); a person holds one thing; a state
+  change is a cross-fade in place, not an animation of the change.
+- A backdrop is one flat drawing: it fades, it does not move.
 - Up to four `pair` rows on one stage; a thing that would rest under the subtitle band is reported by the compiler.
 - A film without `meta.flow ≥ 2` draws no told stage; `told.js revert --write` gives a book its figure-and-text
   picture back. Published books are never changed.
