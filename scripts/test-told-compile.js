@@ -152,4 +152,77 @@ t("the approved pilot compiles from its authored form with no error (audit/film-
   }
 });
 
+// ── told v1.1: what the first real told book (dracula) showed ────────────────────────────────────────────────────────
+const labelsOf = (stage) => stage.items.filter((x) => x.kind === "tile" && /\.label\d+$/.test(x.id));
+const staying = (stage) => stage.items.filter((x) => !x.exit);
+
+t("extras expire: a label stays for its beat and the next, then leaves by itself; the thing stays", () => {
+  const r = C.compileTold([
+    beat("b1", "Microsoft made operating systems for years", { stage: { layout: "solo", who: ["microsoft"] }, events: [{ on: "operating", do: "label", who: "microsoft", text: "Operating systems" }] }),
+    beat("b2", "and it grew every single year", { events: [{ on: "grew", do: "grow", who: "microsoft" }] }),
+    beat("b3", "until the day it stopped", { events: [{ on: "stopped", do: "shake", who: "microsoft" }] }),
+    beat("b4", "nothing else was said", { events: [{ on: "nothing", do: "dim", who: "microsoft" }] }),
+  ], ENT);
+  assert.deepStrictEqual(r.errors, []);
+  assert.strictEqual(labelsOf(r.stages[0]).length, 1);
+  assert.strictEqual(staying(r.stages[1]).filter((x) => /\.label/.test(x.id)).length, 1, "still there in the next beat");
+  assert.ok(labelsOf(r.stages[2])[0].exit, "leaves as the third beat starts");
+  assert.strictEqual(labelsOf(r.stages[3]).length, 0);
+  assert.ok(item(r.stages[3], "microsoft") && !item(r.stages[3], "microsoft").exit);
+});
+
+t("a thing has at most two labels: the third replaces the oldest, in its place", () => {
+  const r = C.compileTold([beat("b1", "Microsoft sold Windows then Office then Xbox to everyone", { stage: { layout: "solo", who: ["microsoft"] }, events: [
+    { on: "Windows", do: "label", who: "microsoft", text: "Windows" }, { on: "Office", do: "label", who: "microsoft", text: "Office" }, { on: "Xbox", do: "label", who: "microsoft", text: "Xbox" }] })], ENT);
+  assert.deepStrictEqual(r.errors, []);
+  const ls = labelsOf(r.stages[0]);
+  assert.strictEqual(ls.length, 3);
+  assert.deepStrictEqual(staying(r.stages[0]).filter((x) => /\.label/.test(x.id)).map((x) => x.label), ["OFFICE", "XBOX"]);
+  assert.strictEqual(ls[2].y, ls[0].y, "the third takes the place of the one that left");
+  assert.strictEqual(C.LABELS_PER_THING, 2);
+});
+
+t("the stage lists exactly who is on it: whoever is not named leaves with what belongs to them", () => {
+  const r = C.compileTold([
+    beat("b1", "Microsoft the king met Google", { stage: { layout: "versus", who: ["microsoft", "google"] }, events: [{ on: "king", do: "label", who: "microsoft", text: "The king" }] }),
+    beat("b2", "then young Mozart sat at the piano", { stage: { layout: "versus", who: ["mozart", "piano"] }, events: [] }),
+    beat("b3", "and he played all night", { events: [{ on: "played", do: "shake", who: "piano" }] }),
+  ], ENT);
+  assert.deepStrictEqual(r.errors, []);
+  for (const id of ["microsoft", "google"]) assert.ok(item(r.stages[1], id).exit, `${id} leaves`);
+  assert.ok(labelsOf(r.stages[1]).every((x) => x.exit));
+  assert.deepStrictEqual(r.stages[2].items.filter((x) => ["microsoft", "google"].includes(x.id)), []);
+  assert.ok(item(r.stages[2], "mozart") && item(r.stages[2], "piano"));
+});
+
+t("an effect belongs to its own beat: a cross is gone in the next one; a crown stays", () => {
+  const r = C.compileTold([
+    beat("b1", "Microsoft the king never reached Google", { stage: { layout: "versus", who: ["microsoft", "google"] }, events: [{ on: "king", do: "crown", who: "microsoft" }, { on: "never", do: "cross", who: ["microsoft", "google"] }] }),
+    beat("b2", "and so it went on", { events: [{ on: "went", do: "grow", who: "google" }] }),
+    beat("b3", "for a long time", { events: [{ on: "long", do: "shake", who: "google" }] }),
+  ], ENT);
+  assert.deepStrictEqual(r.errors, []);
+  assert.ok(r.stages[0].items.some((x) => x.kind === "cross"));
+  assert.ok(r.stages[1].items.filter((x) => x.kind === "cross").every((x) => x.exit));
+  assert.strictEqual(r.stages[2].items.filter((x) => x.kind === "cross").length, 0);
+  assert.ok(item(r.stages[2], "microsoft.crown") && !item(r.stages[2], "microsoft.crown").exit);
+});
+
+t("the screen-text gate reads a word where it is printed: a kept label is not a repetition, a name plate is not a text", () => {
+  const ST = require("./lib/screen-text");
+  const r = C.compileTold([1, 2, 3, 4, 5].map((k) => beat(`b${k}`, "Microsoft the king of operating systems stood", k === 1
+    ? { stage: { layout: "solo", who: ["microsoft"] }, events: [{ on: "king", do: "crown", who: "microsoft" }] } : { events: [{ on: "stood", do: "shake", who: "microsoft" }] })), ENT);
+  assert.deepStrictEqual(r.stages.map((s, k) => ST.collectScreenStrings({ id: `s${k}`, told: s }, {}).map((x) => x.text)), [[], [], [], [], []], "MICROSOFT on five kept stages is its name plate");
+  const withLabel = C.compileTold([beat("b1", "Microsoft made operating systems", { stage: { layout: "solo", who: ["microsoft"] }, events: [{ on: "operating", do: "label", who: "microsoft", text: "Operating systems" }] }), beat("b2", "and it grew", { events: [{ on: "grew", do: "grow", who: "microsoft" }] })], ENT);
+  assert.deepStrictEqual(withLabel.stages.map((s, k) => ST.collectScreenStrings({ id: `s${k}`, told: s }, {}).map((x) => x.text)), [["OPERATING SYSTEMS"], []]);
+});
+
+t("merge holds a told beat's words to the screen-text rules", () => {
+  const R = require("./lib/told-rules");
+  const bad = R.checkToldBeat({ events: [{ on: "men", do: "label", who: "microsoft", text: "Four men pool blood" }] }, "four men pool their blood", ENT);
+  assert.ok(bad.some((m) => /TELEGRAPHIC/.test(m)), bad.join(" | "));
+  assert.deepStrictEqual(R.checkToldBeat({ events: [{ on: "operating", do: "label", who: "microsoft", text: "Operating systems" }] }, "it made operating systems", ENT), []);
+  assert.ok(/EXACTLY who is on stage/.test(R.toldSection(ENT)) && /Extras expire/.test(R.toldSection(ENT)));
+});
+
 console.log(`\n${n} checks passed`);

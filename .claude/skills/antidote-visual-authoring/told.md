@@ -60,6 +60,14 @@ What made the approved passages work — follow it:
   fight" → `burst`; "that letter was a forgery" → `stamp`. `on` is the word that carries it.
 - **A run of beats is one stage.** Put the things on stage once; each next beat makes ONE or TWO things happen to
   them. Do not rebuild the stage every beat, and do not let a beat pass where nothing changes.
+- **`stage` lists EXACTLY who is on stage** (told 1.1): whoever is left out walks off with their labels. Restating
+  the same `stage` every beat is noise; writing a new one is how the film turns to other things.
+- **Show the verb, do not caption it.** A beat whose only events are `title` / `label` is a slide, not a stage
+  (dracula's first pass: 34 such beats, 123 labels in 147 beats). A label is the exception — one short noun phrase
+  for a fact the narration states about that thing; a thing carries two at most and they leave by themselves after
+  the next beat. Effects (burst, cross, coins) last their own beat. You never tidy up.
+- **Every printed word passes the screen-text rules at merge**: no keyword soup ("FOUR MEN POOL BLOOD" → "Four men
+  give their blood"), no fragment, a pair's two sides are two ideas, nothing printed on more than three beats.
 - **Name what is named.** If the narration says four product pairs, the viewer sees four rows (`pair`), each landing
   as it is said. If it gives two dates, they stand on a timeline (`date`).
 - **Titles are the narration's claim in 2–5 words**, never a caption for the picture. One at a time.
@@ -84,10 +92,22 @@ What made the approved passages work — follow it:
 
 ## Looking at it
 
-- `node scripts/flow-passage.js --slug=<slug> --out=<dir>` + `stills-cloud.js push / fetch`: passages as clips, drawn
-  with the film's own browser settings. For the operator render them full size (`clip.scale: 1`).
-- `node scripts/flicker-check.js <clip.mp4>` before showing a clip; `node scripts/film-flow.js --slug=<slug>` for the
-  flow table (name coverage, figure-and-text share).
+**One command, and no other way:**
+
+```
+node scripts/told-clip.js --slug=<slug>                      # first 90 s + 90 s from the middle
+node scripts/told-clip.js --slug=<slug> --windows=600-690    # any passage, in seconds
+```
+
+It cuts the passages out of the planned config, renders them on GitHub Actions in FULL HD with the film's own
+browser settings, waits, downloads, runs the flicker check and prints the clip paths (10–25 min; nothing renders on
+the PC). Run it from the book's worktree, after make-book.
+
+- **Never `npx remotion render` / `remotion still` / a local ffmpeg batch.** Besides loading the PC
+  (LOCAL_RENDER_RULES.md), a hand-made `--props` call draws the lab reel instead of the book (dracula, 2026-11-15:
+  the clips shown were not the book's film).
+- Do not edit `src/` or `scripts/` while it pushes (the bundle is the working tree).
+- `node scripts/film-flow.js --slug=<slug>` for the flow table (name coverage, figure-and-text share).
 
 ## Limits (told v1)
 

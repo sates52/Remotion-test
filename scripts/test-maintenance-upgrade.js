@@ -82,6 +82,17 @@ try {
   t("…the new code is in place (preview-ready v2)", /v2/.test(fs.readFileSync(path.join(WT, "scripts", "preview-ready.js"), "utf8")));
   r = run([`--from=${PIN}`, `--to=${MAINT}`, "--operator-approved=again"]);
   t("a second run with the old --from → refused (the pin moved; exact old SHA required)", r.status === 2 && /is not the book's pin/.test(r.stderr));
+  // --before-preview (dracula, 2026-11-16): engine / planner code for a book whose picture was never judged
+  r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--before-preview", "--operator-approved=x"]);
+  t("--before-preview on a book that HAS a preview verdict → refused; HEAD stays", r.status === 2 && /already has preview-ready\.json/.test(r.stderr) && g(WT, "rev-parse", "HEAD") === MAINT, r.stderr);
+  fs.rmSync(path.join(WT, "books", SLUG, "preview-ready.json"));
+  r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--operator-approved=x"]);
+  t("…without the flag the same upgrade is still a refused FEATURE", r.status === 2 && /FEATURE upgrade/.test(r.stderr), r.stderr);
+  r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--before-preview"]);
+  t("…--before-preview still needs the operator's reason", r.status === 2 && /--operator-approved/.test(r.stderr), r.stderr);
+  r = run([`--from=${MAINT}`, `--to=${FEAT}`, "--before-preview", "--operator-approved=Operator: told 1.1 fix, no preview yet"]);
+  const p2 = pinNow();
+  t("--before-preview, no verdict / film / render: the engine moves, kind before-preview recorded, inputs identical", r.status === 0 && g(WT, "rev-parse", "HEAD") === FEAT && p2.productionBase === FEAT && p2.repin.kind === "before-preview" && /told 1\.1/.test(p2.repin.reason) && /re-plan/i.test(r.stdout), r.stdout + r.stderr);
 } finally {
   try { execFileSync("git", ["worktree", "prune"], { cwd: path.join(tmp, "main"), stdio: "ignore" }); } catch {}
   fs.rmSync(tmp, { recursive: true, force: true });

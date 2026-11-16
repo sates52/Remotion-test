@@ -7595,3 +7595,37 @@ Book-side changes (not a gate change): icons/expressions set on scenes 40,52,76,
 - Preview READY (run2 mute PASS, render input cb8014c2ab6d6809), operator-accepted quality debt for 368 REVIEW findings, GitHub split render 10/10 segments, cloud-verified MP4 (67525 frames).
 - Operator ordered upload and cleanup; ran render-github-cleanup, purge-render-branches --force, render-purge --force (worktree wt-book-the-correspondent).
 - Recorded in PUBLISHED_BOOKS.md. Book source committed under books/the-correspondent/ (no raw audio/VTT, no render outputs).
+
+### 2026-11-16 — Told 1.1: what the first real told book (dracula) showed — expiry, exact stage, gate fix, one clip command
+
+dracula (Antidote, 277 beats, 147 told, 19 named things; run by an Antigravity agent in `../wt-book-dracula`, pin
+1ce54b4e) stopped at the screen-text gate with 159 findings and showed the operator clips that were not the book's film.
+Both were system faults, not the book's:
+
+- **Gate fault (mine, 2026-11-14 patch):** `lib/screen-text.js` `collectScreenStrings` counted EVERY told item label in
+  every scene — kept labels and entity name plates — so a stage kept for five beats was five "repetitions"
+  (103 `BOOK_REPETITION`). Now only a title / tile that ENTERS in the scene is read; name plates are names. No bar and
+  no rule changed: `REPEAT_LIMIT`, `TELEGRAPHIC`, `FRAGMENT`, `PAIR_OVERLAP` are as they were.
+- **Compiler (`lib/told-compile.js`):** authors wrote 123 `label` events and zero `clear`; one scene carried 16 labels
+  and two crosses. Now **extras expire, things stay** (`TTL`: label = its beat + the next, effect = its own beat,
+  stamp / cover / rows = two more; two labels per thing, a third replaces the oldest) and **`stage` lists exactly who
+  is on stage** (whoever is left out leaves with their labels; the old stage's rows go). `TOLD_VERSION` stays 1: the
+  drawn format is unchanged.
+- **Merge (`lib/told-rules.js`):** a told beat's title / label / stamp / date / pair words pass `checkString` at merge,
+  so authors fix wording there, not at make-book. The generated rules.md section says all of the above, and that a
+  title/label-only beat is a slide, not a stage.
+- **Clips (`scripts/told-clip.js`, new):** one command — passages (`flow-passage.js --full --keep-flow`: full HD, the
+  book's own flow level) → cloud render → fetch → flicker check → paths. The agent had run `npx remotion render … --props`
+  locally: wrong props (the lab reel) and heavy local work. told.md now names this as the only way. Note:
+  `flow-passage.js` without `--keep-flow` / `--flow` strips `meta.flow` (arm A of an A/B) — a told book cut that way
+  would have been drawn without its stages.
+- **`maintenance-upgrade.js --before-preview`:** a pinned book whose picture was never judged (no preview-ready.json,
+  no mute-test.json, no film, no render state) may take engine / planner code on the operator's reason; everything else
+  is as before (exact SHAs, clean tracked code, inputs byte-identical, audit line). Without the flag a feature diff is
+  still refused. This is how the fix reaches dracula — on the operator's word only.
+- **Measured (dracula's authored beats, unchanged, read-only dry run):** 147 stages compile, 0 errors; screen-text
+  findings 159 → 12 (8 TELEGRAPHIC, 2 FRAGMENT, 2 PAIR_OVERLAP — real wording, the authors fix them at merge); labels
+  on one stage at most 6 (was 16).
+- Tests: `test-told-compile.js` 12 → 18, `test-maintenance-upgrade.js` +4, `test-screen-text.js` 49 unchanged.
+- Not done: a rendered clip of dracula on 1.1 (the book's owner renders after the upgrade); library icons on a told
+  stage; Vox.

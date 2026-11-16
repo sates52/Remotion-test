@@ -30,6 +30,13 @@ const LAYOUTS = ["solo", "versus", "row", "court", "pairs"];
 const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw"];
 const Y = { emblem: 470, figure: 790, icon: 600 };
 const SAFE = { top: 130, bottom: 860 }; // the HUD above, the subtitle band below
+// EXTRAS EXPIRE, THINGS STAY (dracula, the first real told book: 123 label events and no `clear` — one scene carried
+// 16 labels and two crosses). How many beats AFTER the one it lands in an extra stays: a label is the fact of this
+// sentence and the next; an effect (a burst, a cross, coins) belongs to its own beat; a stamp / a cover and a set of
+// rows stay a little longer. A crown and a world are states: they stay until taken off.
+const TTL = { label: 1, fx: 0, row: 2 };
+const TTL_DECO = 2;
+const LABELS_PER_THING = 2;
 
 const norm = (w) => String(w || "").toLowerCase().replace(/[^a-z0-9']/g, "");
 const clone = (o) => JSON.parse(JSON.stringify(o));
@@ -88,13 +95,14 @@ function compileTold(beats, entities = {}) {
   const errors = validateEntities(entities).map((message) => ({ beat: null, message })), warnings = [];
   const ids = Object.keys(entities);
   const colorOf = (id) => PALETTE[ids.filter((k) => KINDS[entities[k].kind] === "emblem").indexOf(id) % PALETTE.length] || PALETTE[0];
-  let carried = [], cam = { x: 960, y: 540, s: 1 }, seq = 0;
+  let carried = [], cam = { x: 960, y: 540, s: 1 }, seq = 0, beatNo = 0;
   const stages = [];
 
   for (const beat of beats) {
     if (!beat.told) { stages.push(null); carried = []; cam = { x: 960, y: 540, s: 1 }; continue; }
     const err = (message) => errors.push({ beat: beat.id, message });
     const told = beat.told, words = beat.words || [], D = beat.frames;
+    beatNo++;
     // what the last beat left on stage: where it was at its last frame, already there (no entrance)
     const items = carried.map((it) => { const c = clone(it); delete c.enter; delete c.keys; delete c.exit; delete c.shake; return c; });
     const camKeys = cam.x !== 960 || cam.y !== 540 || cam.s !== 1 ? [{ at: 0, dur: 1, x: cam.x, y: cam.y, s: cam.s }] : [];
@@ -114,7 +122,7 @@ function compileTold(beats, entities = {}) {
       }
     };
     const leave = (it, at, dur = 10) => { it.exit = { at: Math.max(dur, at), dur }; it._gone = true; };
-    const add = (it) => { items.push(it); return it; };
+    const add = (it) => { if (it._born == null) it._born = beatNo; if (it._ttl === undefined && TTL[it._role] != null) it._ttl = TTL[it._role]; items.push(it); return it; };
     const ensure = (ent, at, slot, from) => {
       const e = entities[ent];
       if (!e) { err(`"${ent}" is not in entities.json`); return null; }
@@ -143,7 +151,18 @@ function compileTold(beats, entities = {}) {
 
     // a title the last beat left is cleared early in this one: every beat starts with a clean band
     for (const t of items.filter((x) => x._role === "title")) leave(t, 24);
-    if (told.stage) arrange(told.stage.layout || "row", told.stage.who || [], 0);
+    // an extra that has had its beats leaves as this one starts
+    for (const it of items.filter((x) => x._ttl != null && !x._gone && beatNo - x._born > x._ttl)) leave(it, 20);
+    if (told.stage) {
+      // THE STAGE LISTS EXACTLY WHO IS ON IT: whoever is not named leaves, with what belongs to them, and the rows of
+      // the stage that is replaced go too (dracula scene-42: four things and all their labels from three stages)
+      const who = told.stage.who || [], keep = new Set(who);
+      const leaving = items.filter((x) => x._role === "entity" && !x._gone && !keep.has(x._ent));
+      for (const it of leaving) { for (const b of bound(it._ent)) leave(b, 14); leave(it, 14); }
+      if (leaving.length || st8.who.some((w) => !keep.has(w))) { for (const it of items.filter((x) => x._role === "row" && !x._gone)) leave(it, 14); st8.rows = 0; st8.dates = 0; }
+      const wasOn = items.some((x) => x._role === "entity");
+      arrange(told.stage.layout || "row", who, wasOn ? 14 : 0);
+    }
 
     let cursor = 0;
     for (const ev of told.events || []) {
@@ -163,13 +182,19 @@ function compileTold(beats, entities = {}) {
         case "enter": { const n = (st8.who.length || 0), sl = ev.x != null ? { x: ev.x, y: ev.y, s: ev.s ?? 1 } : slots(st8.layout || "row", Math.max(n + 1, 1))[n] || { x: 960, s: 1 }; for (const w of who) { ensure(w, at, sl, ev.from); if (!st8.who.includes(w)) st8.who.push(w); } break; }
         case "exit": if (need(1)) for (const w of who) { leave(find(w), at); for (const b of bound(w)) leave(b, at); st8.who = st8.who.filter((x) => x !== w); } break;
         case "title": if (!ev.text) err("title: needs text"); else title(ev.text, at, ev.box); break;
-        case "label": if (need(1) && ev.text) { const p = posOf(who[0]), n = bound(who[0]).filter((b) => b._role === "label").length, side = p.x < 960 ? 1 : -1; add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: find(who[0]).color || INK, size: 38, x: p.x + side * 440 * p.s, y: p.y - 70 * p.s + n * 110, enter: { at: Math.max(12, at), from: side > 0 ? "right" : "left", dur: 12 }, _bind: who[0], _role: "label" }); } break;
+        case "label": if (need(1) && ev.text) {
+          // at most two labels beside a thing: a third replaces the oldest, in its place
+          const p = posOf(who[0]), live = bound(who[0]).filter((b) => b._role === "label"), side = p.x < 960 ? 1 : -1;
+          while (live.length >= LABELS_PER_THING) leave(live.shift(), Math.max(10, at - 2));
+          const slot = [0, 1].find((k) => !live.some((b) => b._slot === k)) ?? 0;
+          add({ id: `${who[0]}.label${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: find(who[0]).color || INK, size: 38, x: p.x + side * 440 * p.s, y: p.y - 70 * p.s + slot * 110, enter: { at: Math.max(12, at), from: side > 0 ? "right" : "left", dur: 12 }, _bind: who[0], _role: "label", _slot: slot });
+        } break;
         case "crown": if (need(1)) { const p = posOf(who[0]), k = find(who[0]).kind; add({ id: `${who[0]}.crown`, kind: "crown", x: p.x, y: p.y - (k === "figure" ? (find(who[0]).w || 260) * 2.25 + 30 : 202) * p.s, s: p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: who[0], _role: "deco" }); } break;
         case "uncrown": if (need(1)) for (const b of bound(who[0]).filter((x) => x.kind === "crown")) leave(b, at); break;
         case "world": if (need(1)) for (const w of who) { const p = posOf(w); items.unshift({ id: `${w}.world`, kind: "planet", color: find(w).color || colorOf(w), size: 290, x: p.x, y: p.y, s: p.s, enter: { at: Math.max(14, at), from: "pop", dur: 14 }, _bind: w, _role: "world" }); } break;
         case "cross": { let p; if (who.length >= 2 && need(2)) { const a = posOf(who[0]), b = posOf(who[1]); p = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; add({ id: `dash${++seq}`, kind: "dash", x: a.x + 180, y: a.y, x2: b.x - 180, y2: b.y, drawFrom: Math.max(0, at - 30), drawTo: at, enter: { at: Math.max(2, at - 30), from: "fade", dur: 2 }, _role: "fx" }); } else if (need(1)) p = posOf(who[0]); if (p) add({ id: `cross${++seq}`, kind: "cross", color: ACCENT, x: p.x, y: p.y, enter: { at: Math.max(10, at), from: "pop", dur: 8 }, _role: "fx", ...(who.length === 1 ? { _bind: who[0] } : {}) }); break; }
-        case "stamp": if (need(1) && ev.text) { const p = posOf(who[0]); add({ id: `${who[0]}.stamp`, kind: "word", label: String(ev.text).toUpperCase(), size: 104 * p.s, box: RED, r: -12, x: p.x, y: p.y, enter: { at: Math.max(8, at), from: "pop", dur: 7 }, _bind: who[0], _role: "deco" }); find(who[0]).shake = { at, dur: 18 }; } break;
-        case "cover": if (need(1)) for (const w of who) { const p = posOf(w); add({ id: `${w}.cover`, kind: "bar", w: 280 * p.s, h: 64 * p.s, x: p.x, y: p.y - 30 * p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: w, _role: "deco" }); } break;
+        case "stamp": if (need(1) && ev.text) { const p = posOf(who[0]); add({ id: `${who[0]}.stamp`, kind: "word", label: String(ev.text).toUpperCase(), size: 104 * p.s, box: RED, r: -12, x: p.x, y: p.y, enter: { at: Math.max(8, at), from: "pop", dur: 7 }, _bind: who[0], _role: "deco", _ttl: TTL_DECO }); find(who[0]).shake = { at, dur: 18 }; } break;
+        case "cover": if (need(1)) for (const w of who) { const p = posOf(w); add({ id: `${w}.cover`, kind: "bar", w: 280 * p.s, h: 64 * p.s, x: p.x, y: p.y - 30 * p.s, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _bind: w, _role: "deco", _ttl: TTL_DECO }); } break;
         case "uncover": if (need(1)) for (const w of who) for (const b of bound(w).filter((x) => x.kind === "bar")) leave(b, at); break;
         case "dim": if (need(1)) for (const w of who) { const p = posOf(w); key(find(w), { at, dur: 14, o: 0.5, r: p.x < 960 ? -9 : 9, y: p.y + 35 }); } break;
         case "restore": if (need(1)) for (const w of who) { const e = entities[w], p = posOf(w); key(find(w), { at, dur: 14, o: 1, r: 0, y: p.y - (p.o < 0.99 ? 35 : 0) }); void e; } break;
@@ -189,6 +214,7 @@ function compileTold(beats, entities = {}) {
           if (st8.who.length < 2) { err("pair: needs two things on stage (stage.who) — they become the two columns"); break; }
           if (st8.layout !== "pairs") { arrange("pairs", st8.who.slice(0, 2), Math.max(22, at - 16)); for (const w of st8.who.slice(0, 2)) for (const b of bound(w)) leave(b, Math.max(10, at - 20)); for (const f of items.filter((x) => x._role === "fx" && !x._gone)) leave(f, Math.max(10, at - 20)); }
           const y = 440 + st8.rows * 112, [a, b] = st8.who; st8.rows++;
+          for (const r0 of items.filter((x) => x._role === "row" && !x._gone)) r0._born = beatNo; // a set of rows lives while it grows
           if (y > SAFE.bottom - 60) { warnings.push({ beat: beat.id, message: `pair "${ev.left}": a fifth row would sit under the subtitles — start a new stage` }); break; }
           const row = (id, text, x, color, from, f) => add({ id, kind: "tile", label: String(text).toUpperCase(), color, size: 46, x, y, enter: { at: Math.max(12, f), from, dur: 12 }, _role: "row" });
           row(`row${++seq}a`, ev.left, 560, find(a).color || INK, "left", at);
@@ -199,6 +225,7 @@ function compileTold(beats, entities = {}) {
         case "date": { if (!ev.text) { err("date: needs text"); break; }
           if (!items.some((x) => x.id === "timeline" && !x._gone)) add({ id: "timeline", kind: "dash", x: 280, y: 640, x2: 1640, y2: 640, drawFrom: Math.max(0, at - 40), drawTo: Math.max(4, at - 4), enter: { at: Math.max(2, at - 40), from: "fade", dur: 2 }, _role: "row" });
           const x = ev.side === "left" ? 500 : ev.side === "right" ? 1340 : [960, 500, 1340][st8.dates % 3]; st8.dates++;
+          for (const r0 of items.filter((x) => x._role === "row" && !x._gone)) r0._born = beatNo;
           add({ id: `date${++seq}`, kind: "tile", label: String(ev.text).toUpperCase(), color: ev.color === "red" ? RED : INK, size: 44, x, y: 540, enter: { at: Math.max(12, at), from: "top", dur: 12 }, _role: "row" }); break; }
         case "focus": if (need(1)) { const p = posOf(who[0]), s = ev.zoom || 1.3; Object.assign(curCam, { x: p.x + (p.x < 960 ? 200 : -200), y: Math.min(p.y, 520), s }); camKeys.push({ at: Math.max(22, at), dur: 22, ease: "inout", ...curCam }); } break;
         case "wide": Object.assign(curCam, { x: 960, y: 540, s: 1 }); camKeys.push({ at: Math.max(24, at), dur: 24, ease: "inout", ...curCam }); break;
@@ -243,4 +270,4 @@ function compileTold(beats, entities = {}) {
   return { stages, errors, warnings };
 }
 
-module.exports = { compileTold, validateEntities, wordFrame, slots, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE };
+module.exports = { compileTold, validateEntities, wordFrame, slots, GLYPHS, KINDS, LAYOUTS, DOS, PALETTE, TTL, TTL_DECO, LABELS_PER_THING };

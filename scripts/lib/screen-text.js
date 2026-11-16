@@ -240,8 +240,12 @@ function collectScreenStrings(scene, meta = {}) {
     if (p && typeof p.label === "string" && p.label) out.push({ kind: "label", text: p.label, path: `props[${i}].label`, authored: false });
   });
   // FILM FLOW 2 (told stage): titles, tiles and name plates are authored words on screen
+  // Only what this scene PRINTS: a title or a tile that enters here. A thing kept from the last beat was checked when
+  // it entered (counting it again made every carried label a "repetition": dracula, 103 findings), and the name plate
+  // of a named thing (an emblem, a person, a drawing) is its name, on screen as long as the thing is — not a text.
   ((scene.told && scene.told.items) || []).forEach((it, i) => {
-    if (!it || typeof it.label !== "string" || !it.label.trim() || /^(VS|=|&|[♪♫])$/.test(it.label.trim())) return;
+    if (!it || !it.enter || (it.kind !== "word" && it.kind !== "tile")) return;
+    if (typeof it.label !== "string" || !it.label.trim() || /^(VS|=|&|[♪♫])$/.test(it.label.trim())) return;
     out.push({ kind: it.kind === "word" ? "text" : "label", text: it.label, path: `told.items[${i}].label`, authored: true });
   });
   return out;

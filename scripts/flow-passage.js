@@ -4,6 +4,8 @@
  * change is shown BEFORE / AFTER on moving picture (2026-11-12). The book's own files are only read.
  *
  *   node scripts/flow-passage.js --slug=<a>,<b> --out=<dir> [--windows=0-90,mid] [--arm=A] [--book-root=<checkout>]
+ *                                [--flow=<n> | --keep-flow] [--full]
+ *   (clips of ONE book for the operator: `node scripts/told-clip.js --slug=<slug>` runs this, the cloud render and the checks)
  *
  * For each book and window: <out>/configs/<slug>-<window>-<arm>.json = the scenes that start inside the window, moved to
  * frame 0, with their captions (the films are watched with captions), no narration (clips are silent), and a
@@ -54,9 +56,10 @@ function main() {
       if (!p) { console.error(`flow-passage: ${slug} ${w}: no scene starts there`); process.exit(1); }
       const id = `${slug}-${w}-${ARM}`;
       // the "after" arm is the same passage with a Film Flow level switched on (src/engines/antidote/flow.ts)
-      if (FLOW) p.config.meta.flow = FLOW; else delete p.config.meta.flow;
+      // --keep-flow: the passage as the BOOK is planned (a told book keeps its level — told-clip.js)
+      if (FLOW) p.config.meta.flow = FLOW; else if (!args["keep-flow"]) delete p.config.meta.flow;
       fs.writeFileSync(path.join(OUT, "configs", `${id}.json`), JSON.stringify(p.config));
-      jobs.push({ id, config: `configs/${id}.json`, frames: [Math.round(p.frames * 0.5)], clip: { from: 0, to: p.frames - 1 } });
+      jobs.push({ id, config: `configs/${id}.json`, frames: [Math.round(p.frames * 0.5)], clip: { from: 0, to: p.frames - 1, ...(args.full ? { scale: 1, crf: 16 } : {}) } }); // --full: 1920×1080 (the operator judges full-size clips; half size read as "broken")
       record.push({ id, slug, window: w, arm: ARM, fromFrame: p.fromFrame, frames: p.frames, seconds: +(p.frames / fps).toFixed(1), scenes: p.scenes, firstScene: p.firstScene, lastScene: p.lastScene });
     }
   }

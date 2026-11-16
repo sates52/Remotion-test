@@ -19,8 +19,23 @@ Published books are frozen.
   the authorship lock (`_authorship.src = "told"`, `previousLock` kept) and raises `meta.flow` to 2. Reversible:
   `told.js revert --write`.
 - **Judged:** name coverage (`told.js status`, `film-flow.js`), before / after clips drawn like the film
-  (`flow-passage.js`, manifest `gl: "default"`), `flicker-check.js`. Gates that know a told scene: stagnation,
+  (`told-clip.js` = `flow-passage.js --full --keep-flow` + cloud render + `flicker-check.js`). Gates that know a told scene: stagnation,
   novelty, composition integrity, dead-air audit, screen text, readcheck, mute test, framecheck.
+
+## Told 1.1 — the first real book's lessons (2026-11-16, dracula)
+
+Authoring-side only: the drawn format is unchanged (`TOLD_VERSION` stays 1).
+- **The stage lists exactly who is on it.** A new `stage` sends off whoever it does not name, with their labels and
+  the old stage's rows.
+- **Extras expire, things stay** (`TTL` in `told-compile.js`): a label lives its beat + the next; an effect its own
+  beat; a stamp / cover / set of rows two more. Two labels per thing (a third replaces the oldest). Crown and world
+  are states.
+- **The screen-text gate reads a word where it is printed**: a tile or title that ENTERS in the scene. Kept items and
+  name plates are not counted (they made 103 false `BOOK_REPETITION` findings).
+- **Merge holds told words to the screen-text rules** (`told-rules.js` `checkToldBeat` → `checkString`).
+- **Clips: `scripts/told-clip.js`** — one command, cloud, full HD, flicker-checked.
+Dracula's authored beats, unchanged, through 1.1: screen-text findings 159 → 12 (all real wording problems), at most
+6 labels on a stage (was 16).
 
 ## Changing it
 
@@ -38,3 +53,4 @@ Published books are frozen.
 - 2026-11-13 — pilots by hand (zero-to-one, the-creative-curve); operator approved. The trembling he saw was the
   preview pipeline's `gl: "swangle"` (stale picture tiles), not the stage: clips now render like the film.
 - 2026-11-14 — authoring language, compiler, pipeline step, gates, skill for every harness: production for new books.
+- 2026-11-16 — told 1.1 after the first real book (dracula, run by an Antigravity agent): see above.

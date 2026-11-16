@@ -7,13 +7,14 @@
  * named once, before the authors start (preview-hazirla; `node scripts/told.js entities --slug=<slug>` lists the
  * candidates the narration gives).
  */
-const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame } = require("./told-compile");
+const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING } = require("./told-compile");
+const { checkString } = require("./screen-text");
 
 const EVENT_HELP = [
   ["arrange", "layout, who[]", "put these on stage in a layout (they enter from their side; those already there move)"],
   ["enter / exit", "who", "one thing comes on / leaves"],
   ["title", "text, box? (accent | ink | red)", "2-5 words at the top of the screen; one at a time"],
-  ["label", "who, text", "a property / product / fact of that thing, beside it (they stack)"],
+  ["label", "who, text", "a property / product / fact of that thing, beside it (two at most; it leaves by itself after the next beat)"],
   ["crown / uncrown", "who", "the leader, the winner, the biggest"],
   ["world", "who[]", "each sits in its own world (a separate market, universe, camp)"],
   ["apart / together", "who[a, b]", "they move away from each other / come to meet"],
@@ -65,7 +66,16 @@ ${rows}
   each beat makes one or two things HAPPEN to them. Never a beat where nothing changes.
 - Layouts: ${LAYOUTS.map((l) => `\`${l}\``).join(", ")} — \`versus\` two things facing each other; \`row\` several side by side;
   \`court\` the first in the middle, the others around; \`solo\` one; \`pairs\` is set by \`pair\` itself.
+- **\`stage\` lists EXACTLY who is on stage**: whoever you leave out walks off with their labels. So change it only
+  when the narration turns to other things — not every beat. Inside a passage use \`enter\` / \`exit\` for one thing.
+- **Extras expire by themselves:** a label stays for this beat and the next, an effect (burst, cross, coins) for its
+  own beat, a stamp / cover and a set of rows a little longer. A thing has at most ${LABELS_PER_THING} labels (a third replaces
+  the oldest). A crown and a world stay until you take them off. You never need to tidy up.
+- A **label** is a short noun phrase for a fact the narration states about that thing ("Operating systems") — not a
+  sentence, not three keywords. Most beats need ONE event that shows the verb; a label is the exception, not the default.
 - Titles are 2-5 words from the narration's own claim, never a label for the picture. At most 5 events in a beat.
+- Every title and label is held to the screen-text rules at merge (no keyword soup, no fragments, nothing repeated
+  across more than three beats).
 - A person on a told stage does one thing at a time and stands still otherwise; say what they do with \`change\`.
 
 **Events**
@@ -107,6 +117,12 @@ function checkToldBeat(told, narration, entities) {
     } else if (!Number.isFinite(ev.at)) out.push(`${tag}: give "on" (a word of this beat) or "at": 0`);
     if (["title", "label", "stamp", "date"].includes(ev.do) && !String(ev.text || "").trim()) out.push(`${tag} (${ev.do}): needs text`);
     if (ev.do === "title" && String(ev.text || "").trim().split(/\s+/).length > 6) out.push(`${tag}: a title is 2-5 words ("${ev.text}")`);
+    // the words a told beat prints pass the same rules as every other word on screen (lib/screen-text.js) — here,
+    // while the author can still fix them, not at make-book
+    for (const [text, kind] of [[ev.do === "title" ? ev.text : null, "text"], [["label", "stamp", "date"].includes(ev.do) ? ev.text : null, "label"], [ev.do === "pair" ? ev.left : null, "label"], [ev.do === "pair" ? ev.right : null, "label"]]) {
+      if (!text) continue;
+      for (const v of checkString(String(text), { kind, narration, authored: true })) out.push(`${tag} "${text}": ${v.code} — ${v.message}`);
+    }
     if (ev.do === "pair" && !(ev.left && ev.right)) out.push(`${tag} (pair): needs left and right`);
     if (ev.do === "raw" && !(ev.item && ev.item.kind)) out.push(`${tag} (raw): needs item { kind, x, y, … }`);
   });

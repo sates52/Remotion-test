@@ -21,6 +21,14 @@
  * (config, storyboard, bible, captions, audio) are hashed before and after and must be identical; the render input
  * hash must not move. production-base.json keeps the previous pin; every upgrade is appended to
  * books/<slug>/pin-history.jsonl. --check prints the verdict and changes nothing.
+ *
+ * --before-preview (2026-11-16): a FEATURE upgrade for a book whose picture has NOT been judged yet. Real case:
+ * dracula, the first told book, was pinned 1ce54b4e and stopped at the screen-text gate on a system fault (kept
+ * labels counted as repetitions; labels never expiring) — the fix is in the compiler and the gate, which this tool
+ * refuses as "feature", and book-start --repin refuses a book with a storyboard. A pin protects a JUDGED picture; a
+ * book with no preview verdict (no preview-ready.json, no mute-test.json), no film and no render has none. With the
+ * operator's reason the checkout moves; everything else above still holds (exact SHAs, clean tracked code, inputs
+ * byte-identical). Afterwards the book is re-planned on the new code: storyboard prep → merge → make-book.
  */
 const fs = require("fs");
 const path = require("path");
@@ -82,16 +90,21 @@ const renderInput = () => { try { return cfgFile ? require("./lib/render-preflig
 
 const reason = typeof args["operator-approved"] === "string" ? args["operator-approved"].trim() : "";
 const problems = [];
-if (feature.length) problems.push(`FEATURE upgrade, not maintenance — ${feature.length} file(s) can change what renders or what was authored: ${feature.slice(0, 8).join(", ")}${feature.length > 8 ? ", …" : ""}. The book keeps its pin (render it with current tools: render.js --book-root), or its owner and the operator decide a re-pin / adopt.`);
+// a picture that was never judged: no preview verdict, no mute test, no film, no render state
+const BEFORE_PREVIEW = !!args["before-preview"];
+const judged = [["preview-ready.json", path.join(B, "preview-ready.json")], ["mute-test.json", path.join(B, "mute-test.json")], [`out/${SLUG}.mp4`, path.join(WT, "out", `${SLUG}.mp4`)], ["a GitHub render state", path.join(WT, `.render-github-split.${SLUG}.json`)]].filter(([, f]) => fs.existsSync(f)).map(([n]) => n);
+if (BEFORE_PREVIEW && judged.length) problems.push(`--before-preview: ${SLUG} already has ${judged.join(", ")} — its picture was judged or rendered on the pin; the book keeps its engine commit`);
+if (feature.length && !BEFORE_PREVIEW) problems.push(`FEATURE upgrade, not maintenance — ${feature.length} file(s) can change what renders or what was authored: ${feature.slice(0, 8).join(", ")}${feature.length > 8 ? ", …" : ""}. The book keeps its pin (render it with current tools: render.js --book-root), or its owner and the operator decide a re-pin / adopt.`);
 if (dirty.length) problems.push(`${dirty.length} tracked change(s) in ${WT}: ${dirty.slice(0, 4).join("; ")} — the checkout is not the pin`);
 if (inflight) problems.push(`a render of ${SLUG} is in flight — never move the code under a running render`);
 if (!reason && !CHECK) problems.push(`--operator-approved="<the operator's reason>" is required (a pin moves only on the operator's word)`);
 
 console.log(`maintenance-upgrade ${SLUG}: ${FROM.slice(0, 8)} → ${TO.slice(0, 8)} in ${WT}`);
 console.log(`  diff: ${files.length} file(s) — ${files.length - feature.length} maintenance${feature.length ? `, ${feature.length} FEATURE` : ""}`);
-for (const f of files.slice(0, 30)) console.log(`    ${feature.includes(f) ? "✗ feature    " : "· maintenance"} ${f}`);
+for (const f of files.slice(0, 30)) console.log(`    ${feature.includes(f) ? (BEFORE_PREVIEW ? "! feature    " : "✗ feature    ") : "· maintenance"} ${f}`);
+if (BEFORE_PREVIEW && feature.length && !judged.length) console.log(`  --before-preview: ${feature.length} feature file(s) accepted — ${SLUG} has no preview verdict, mute test, film or render yet`);
 if (problems.length) { for (const p of problems) console.error(`❌ ${p}`); process.exit(2); }
-if (CHECK) { console.log("✓ CHECK: a maintenance upgrade — nothing changed (run again with --operator-approved=\"<reason>\" and without --check)"); process.exit(0); }
+if (CHECK) { console.log((BEFORE_PREVIEW && feature.length ? "✓ CHECK: a before-preview feature upgrade" : "✓ CHECK: a maintenance upgrade") + " — nothing changed (run again with --operator-approved=\"<reason>\" and without --check)"); process.exit(0); }
 
 const beforeInputs = inputHash(), beforeRender = renderInput();
 if (git(WT, ["checkout", "--detach", "--quiet", TO]) === null) die(1, `❌ git checkout ${TO.slice(0, 8)} failed in ${WT} — the pin is unchanged`);
@@ -101,12 +114,14 @@ if (afterInputs !== beforeInputs || afterRender !== beforeRender) {
   die(1, `❌ the book's inputs changed across the checkout (inputs ${beforeInputs.slice(0, 12)} → ${afterInputs.slice(0, 12)}, render input ${beforeRender} → ${afterRender}) — moved back to ${FROM.slice(0, 8)}; the pin is unchanged`);
 }
 const at = new Date().toISOString();
-const entry = { at, kind: "maintenance", from: FROM, to: TO, reason, files, inputsSha256: beforeInputs, renderInputHash: beforeRender, worktree: path.basename(WT) };
+const KIND = BEFORE_PREVIEW && feature.length ? "before-preview" : "maintenance";
+const entry = { at, kind: KIND, from: FROM, to: TO, reason, files, inputsSha256: beforeInputs, renderInputHash: beforeRender, worktree: path.basename(WT) };
 const next = { ...pin, productionBase: TO, at, previousProductionBase: FROM,
-  repin: { kind: "maintenance", approvedByOperator: true, reason, scope: "technical files only (maintenance-upgrade.js)", files: files.length },
+  repin: { kind: KIND, approvedByOperator: true, reason, scope: KIND === "maintenance" ? "technical files only (maintenance-upgrade.js)" : "engine / planner code, before any preview verdict (maintenance-upgrade.js --before-preview)", files: files.length },
   pinHistory: [...(pin.pinHistory || []), { productionBase: FROM, until: at, ...(pin.repin ? { repin: pin.repin } : {}) }] };
 const tmp = `${PIN}.${process.pid}.tmp`;
 fs.writeFileSync(tmp, JSON.stringify(next, null, 2) + "\n");
 fs.renameSync(tmp, PIN);
 fs.appendFileSync(path.join(B, "pin-history.jsonl"), JSON.stringify(entry) + "\n");
-console.log(`✓ ${SLUG} pinned ${TO.slice(0, 8)} (was ${FROM.slice(0, 8)}): ${files.length} maintenance file(s); book inputs identical (${beforeInputs.slice(0, 12)}), render input ${beforeRender || "n/a"} unchanged; recorded in production-base.json (previous pin kept) and books/${SLUG}/pin-history.jsonl`);
+if (KIND === "before-preview") console.log(`  NEXT — re-plan the book on the new code, in this order: node scripts/storyboard.js prep --slug=${SLUG} → node scripts/storyboard.js merge --slug=${SLUG} --write (fix what it reports in storyboard/authored-N.json) → make-book as preview-state prints it.`);
+console.log(`✓ ${SLUG} pinned ${TO.slice(0, 8)} (was ${FROM.slice(0, 8)}): ${files.length} ${KIND === "maintenance" ? "maintenance " : ""}file(s); book inputs identical (${beforeInputs.slice(0, 12)}), render input ${beforeRender || "n/a"} unchanged; recorded in production-base.json (previous pin kept) and books/${SLUG}/pin-history.jsonl`);
