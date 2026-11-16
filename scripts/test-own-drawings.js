@@ -151,6 +151,23 @@ t("a drawing changes state on the word, in place — and stays changed for the r
   assert.ok(bad.errors.some((e) => /no state "burnt" — one of base, wrecked/.test(e.message)) && bad.errors.some((e) => /is an emblem/.test(e.message)));
 });
 
+t("what told v1 accepted still compiles: a person's change written on a thing is a warning, not an error", () => {
+  // dracula (the first told book) has three: { do: "change", who: "demeter", action: "read" }
+  const r = compile([beat("b1", "the Demeter carried its cargo to Whitby", { stage: { layout: "versus", who: ["demeter", "whitby"] }, events: [{ on: "cargo", do: "change", who: "demeter", action: "read" }, { on: "Whitby", do: "change", who: "whitby", action: "read" }] })]);
+  assert.deepStrictEqual(r.errors, []);
+  assert.strictEqual(r.warnings.filter((w) => /is a thing — action \/ look \/ holds are a person's/.test(w.message)).length, 2);
+  assert.ok(!("state" in item(r.stages[0], "demeter")) && item(r.stages[0], "demeter").paths.length === 5);
+});
+
+t("a drawing that grows keeps its name plate above the subtitle band (it rises as it grows)", () => {
+  const r = compile([beat("b1", "the Demeter was a massive creaking ship", { stage: { layout: "solo", who: ["demeter"] }, events: [{ on: "massive", do: "grow", who: "demeter", to: 1.3 }] })]);
+  assert.deepStrictEqual(r.errors, []); assert.deepStrictEqual(r.warnings, []);
+  const d = item(r.stages[0], "demeter"), end = T.itemState(d, 299);
+  assert.strictEqual(end.s, 1.3);
+  assert.ok(end.y + (d.w / 2 + 66) * end.s <= 860.5 && end.y < 600, `the plate ends at ${end.y + (d.w / 2 + 66) * end.s}`);
+  assert.ok(end.y - (d.w / 2) * end.s > 130, "and the drawing stays under the title band");
+});
+
 t("a person holds a drawing: it sits at the hand that faces the middle, belongs to them, and leaves with them", () => {
   const r = compile([
     beat("b1", "Mina kept the box by her side while Jonathan watched and then she left", { stage: { layout: "versus", who: ["mina", "jonathan"] }, events: [
