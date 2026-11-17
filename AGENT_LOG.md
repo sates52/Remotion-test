@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| Film Flow 4 — people play the verb (told v3) | `src/engines/antidote/{toldActs.ts (new),told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,own-drawings}.js`, `scripts/{cast-sheet (new),storyboard}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, `antidote-visual-authoring/told.md` | ACTIVE 2026-11-17 — branch `dev/act-verbs` in `../wt-own-drawings`, rebased on god-mode e032d8ab (Film Flow 3); NOT on god-mode until the operator has seen the round-2 clips | `TOLD_VERSION` 3; v1 / v2 stages compile and draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, schema enum, render, upload or cleanup. |
+| _(done)_ Film Flow 4 — people play the verb (told v3) | `src/engines/antidote/{toldActs.ts (new),told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,own-drawings}.js`, `scripts/{cast-sheet (new),storyboard}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | `TOLD_VERSION` 3; v1 / v2 stages compile and draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, schema enum, render, upload or cleanup. |
 | _(done)_ Film Flow 3 — the book's own drawings on a told stage (told v2) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,told-apply,own-drawings (new)}.js`, `scripts/{own-icons-sheet,told,storyboard}.js` (entities drawings, blind-naming gate), tests, `docs/FILM-FLOW.md`, runbook §1b / §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | New told version (`TOLD_VERSION` 2; `v: 1` stages drawn as before). dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 2 — told stages (operator: production for new Antidote books) | `src/engines/antidote/{told.ts,flow.ts,speech.ts,components/ToldStage.tsx,components/Scene.tsx,index.tsx,movements.ts}`, `scripts/{told,film-flow,flow-passage,flicker-check,storyboard,make-book,preview-state,readcheck,mute-test,framecheck,audit-antidote,render-stills}.js`, `scripts/lib/{told-compile,told-apply,told-rules,told-entities,film-flow,antidote-stagnation-engine,antidote-novelty-budget,composition-integrity,screen-text}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, skills (`antidote-visual-authoring/told.md`, preview-hazirla row), AGENTS.md / CLAUDE.md | _(done)_ 2026-11-14: merged to god-mode | New books only (`meta.flow`); no published / pinned book, threshold, render, upload or cleanup. First real book = the first started on this commit or later. |
 | _(done)_ render-norwegian-wood | books/norwegian-wood/, public/captions/norwegian-wood.clean.vtt | ✅ PUBLISHED & CLEANED 2026-11-13 | Antidote; 40.8 min (73,493 frames), 10-way split, cloud assembled; YouTube live; 12 GitHub runs/artifacts + 12 remote refs purged; local out/ mp4 (~977 MB), thumbnails, bundle dir, and audio cleaned. Kept: books/norwegian-wood/, clean.vtt. |
@@ -7702,3 +7702,53 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-17 — Film Flow 4: people play the verb (told v3) — production for new Antidote books
+
+On dracula's told stages people stood and a title named the action ("TYPING IN MANIFOLD" over Mina standing beside a
+typewriter). Cause found: its authors wrote `change` + `action: "typing" | "read" | "write"` — not actions of the rig,
+so the figure silently stood (16 such events; a person on stage and nobody doing anything in 102 of 147 told beats).
+Operator approved after two rounds of clips.
+
+- **Authoring:** `{ "on": "<word>", "do": "act", "who": "<person>", "verb": "<verb>", "target": "<id>" }`. 11 verbs: `hit`,
+  `bite`, `chase`, `hide`, `dig`, `type`, `write`, `read`, `come`, `fall`, `point` (`VERBS` in `lib/told-compile.js`).
+  The compiler turns the person to the other, closes the distance the verb needs, lands the gesture on the word, gives
+  the other their reaction (struck, bitten), seats a typist at a desk with the thing under their hands, puts the book
+  in the reader's hands, walks a newcomer in. One verb per person per beat (merge refuses a second). `come` is a
+  physical arrival (merge warns when its target is a place). `look` / `meet` were built and taken out again: a turned
+  head on a rig that faces the viewer was read by nobody.
+- **Engine:** `src/engines/antidote/toldActs.ts` (new, pure): each verb one gesture — preparation, a moment on the
+  narrator's word, a rest — as a function of the frame; counted strokes (ten key taps, three thrusts), nothing loops.
+  `TOLD_VERSION` 3; a figure's `act` and `labelDy` are read only on `v >= 3`. No schema enum was touched (in-flight books'
+  prep stays valid); `RIG_ACTIONS` is held to `schema.ts` by a test.
+- **Rules / merge (`lib/told-rules.js`):** generated verb table with what the viewer sees and HOW OFTEN A MUTED VIEWER
+  READ IT (`VERB_MEASURED` — update with every blind test); `toldWatch` warnings at merge: a person on stage and nobody
+  does anything, `change` with a non-rig action, `come` to a place.
+- **The book's own people:** a person's signature (`look`, `holds`, `carries` = a drawn thing always in hand) and
+  `reads`; `scripts/cast-sheet.js` (new): one picture per person, alone, without the name, as cloud stills → one fresh
+  sonnet agent per picture → `--judge` → `storyboard/own-people.verdict.json`. Prep refuses twins; merge refuses a told
+  beat with a person nobody could tell (only for a book that has taken up the test: some person has `reads`).
+- **Round 2 (the operator's list):** name plates of two people in contact stacked and the one it is done to drawn in
+  front; a seated person as large as the stage allows, desk at lap height, plate and crown down with the head; a
+  seated person who is re-arranged gets up first (the desk slid across their legs — found while attributing the
+  flicker count); pointing puts away what is carried.
+- **Measured (dracula, scratch copy; the book worktree was only read; blind raters = fresh sonnet agents):**
+  five author agents with the generated rules changed 78 of 147 told beats, 55 `act` events, 0 refused at merge or
+  compile; "a person on stage and nobody does anything" 102 → 52 beats (67 after the glance verbs were taken out);
+  "what is this person doing?" on 14 seeded-random act moments 3 → 8 of 14 on the frame where the verb is played
+  (3 → 4 on the frame after it has ended); random 30 frames ADDS 15 → 19, WRONG 0 in both arms; people seen as
+  intended 5 → 8 of 8 (second round; the rig's cloak reads "robe", a cowboy hat "fedora", a veil "nun", messy hair
+  "devil horns" — candidates for `data/icon-readings.json`). The readability numbers are from before the round-2
+  fixes; no blind test was run after them.
+- **Flicker count:** higher on clips with walking / typing (e.g. 88 → 190); attributed frame by frame to the walk gait
+  and the gestures (`flicker-check` counts fast thin limbs as there-and-back); consecutive-frame strips showed no flicker.
+- **Unchanged:** the v1 and v2 golden passages (`fixtures-told-v1.js`, `fixtures-told-v2.js`) and dracula's 147 v2 stages
+  compile to identical items. Tests: `test-told-acts.js` (13, new), `test-own-drawings.js` 23, `test-told-compile.js` 24;
+  CI `ci/regression/act-verbs` c29fbdae: 136 pass, 0 new fail.
+- **Not done / known:** no blind re-test after round 2; `hit`, `chase`, `dig`, `fall` were only seen in the verb-lab clip
+  (the authors never needed them); two titles in consecutive beats still overlap for a few frames at the change (told
+  v1 behaviour, cannot be changed without moving the v2 golden); a person getting up shows two name plates for 3
+  frames; the rig faces the viewer — there is no side view. dracula is its owner's (takes this only through
+  `maintenance-upgrade`).
+- **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
+  in place: `ci/stills/act-verbs-*`, `ci/regression/act-verbs`.
