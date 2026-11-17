@@ -1008,6 +1008,7 @@ function merge() {
     arr.forEach((b) => { authored.set(b.i, b); owner.set(b.i, f); });
   }
   const problems = [], warnings = [];
+  const nowhere = { all: 0, none: 0 }; // Film Flow 6: figure beats, and those that stand at no place of the book
   const toldUses = new Map(); // entity id → the first told beat that uses it (told v2: the own-drawing gate)
   const watchTold = toldWatch(TOLD_ENTITIES); // told v3: a person on stage and nobody doing anything → a warning
   const P = (i, m) => problems.push(`${i}: ${m}`);
@@ -1265,6 +1266,7 @@ function merge() {
       // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
       // FILM FLOW 6: the book's own place behind a figure beat
+      if (!a.told) { nowhere.all++; if (a.place == null) nowhere.none++; }
       if (a.place != null && a.told) P(i, `place: a told beat's place is its stage's "at" ("stage": { …, "at": "${a.place}" })`);
       else if (a.place != null && !isPlaceDrawn(TOLD_ENTITIES[a.place])) P(i, `place "${a.place}" — a place of entities.json that has a drawing (see rules.md, "Where it happens")`);
       if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
@@ -1301,6 +1303,8 @@ function merge() {
         storyboard: sb,
       });
     }
+    // FILM FLOW 6 — said once, never refused: how much of the book stands in a generic set although it drew its places
+    if (Object.values(TOLD_ENTITIES).some(isPlaceDrawn) && nowhere.all && nowhere.none / nowhere.all > 0.5) warnings.push(`places: ${nowhere.none} of ${nowhere.all} beats that are not told stand at no place of the book (the generic set is drawn) — write "place": "<place id>" where the narration is there (rules.md, "Where it happens")`);
     // told v2 — A DRAWING NOBODY COULD NAME IS NOT PUT ON STAGE: every own drawing a told beat uses has a passing
     // blind-naming verdict for the drawing as it is now (own-icons-sheet.js --judge); said once per drawing
     // told v3 — A PERSON NOBODY COULD TELL is not put on stage either (cast-sheet.js --judge)

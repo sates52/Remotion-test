@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| claude (Film Flow 6 — the book's own world, slice 1: places) | `src/engines/antidote/{schema.ts (bg.own),components/Backdrop.tsx}`, `scripts/lib/{told-apply,told-rules}.js`, `scripts/{told,storyboard,test-own-places (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | WIP 2026-11-17 on `dev/own-world` (worktree `wt-own-drawings`); NOT on god-mode — waiting for the operator's clips review | New optional beat field `place` + scene `bg.own`; no told version change, every existing config draws as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
+| _(done)_ Film Flow 6 — the book's own world, slice 1: places | `src/engines/antidote/{schema.ts (bg.own),components/Backdrop.tsx}`, `scripts/lib/{told-apply,told-rules}.js`, `scripts/{told,storyboard,test-own-places (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | New optional beat field `place` + scene `bg.own`; no told version change, every existing config draws as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 5 — the book's own cast (told v4) | `src/engines/antidote/{schema.ts,told.ts,characters/Everyman.tsx,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-apply}.js`, `scripts/{told,test-told-acts,test-own-cast (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | `TOLD_VERSION` 4, `variant.drawn` optional; v1 – v3 stages and every existing config draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 4 — people play the verb (told v3) | `src/engines/antidote/{toldActs.ts (new),told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,own-drawings}.js`, `scripts/{cast-sheet (new),storyboard}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | `TOLD_VERSION` 3; v1 / v2 stages compile and draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, schema enum, render, upload or cleanup. |
 | _(done)_ Film Flow 3 — the book's own drawings on a told stage (told v2) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,told-apply,own-drawings (new)}.js`, `scripts/{own-icons-sheet,told,storyboard}.js` (entities drawings, blind-naming gate), tests, `docs/FILM-FLOW.md`, runbook §1b / §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | New told version (`TOLD_VERSION` 2; `v: 1` stages drawn as before). dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
@@ -7704,6 +7704,23 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-17 — Film Flow 6, slice 1: the book's own PLACES behind the figure scenes — production for new Antidote books
+
+- **Why (dracula, measured):** 46 % of the film's time were figure scenes in 11 shared sets ("office" 33 times); a drawn
+  place stood behind a told stage for 2 % of the film's time.
+- **What:** beat field `place` (not-told beats; `storyboard.js` merge validates it and carries it to art.json) →
+  `told.js apply` → `scene.bg.own` (`told-apply.js` `applyPlaces`; `revert` removes it) → `Backdrop.tsx` draws the book's
+  drawing instead of the shared set, with the told stage's `backdropFit`, one layer, no ambient drift. The authored
+  `set` and its lock are untouched. No told version change; a config without `bg.own` draws as before.
+- **For authors:** rules.md "Where it happens" (generated), the drawing brief (every place gets a backdrop — interiors
+  too; a backdrop holds no entity of its own), a merge WARNING when a book drew its places and more than half of its
+  figure beats use none. Report only: "film time at a place the book drew" in `told.js apply / status`. No threshold.
+- **Measured (dracula, scratch copy):** 2 % → 61 % of film time at a place the book drew; 6 places, 16 of 16 drawings
+  named blind as intended (asylum redrawn once); flicker counts equal to before. New test `test-own-places.js`; CI green.
+- **Open (next slices):** the library props of the figure scenes as own drawings; an own-share report over everything on
+  screen; a cross-book similarity guard; recurring events. No book worktree, published book, threshold, render, upload
+  or cleanup was touched.
 
 ### 2026-11-17 — Film Flow 5: the book's own cast (told v4) — production for new Antidote books
 
