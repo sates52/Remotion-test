@@ -131,8 +131,10 @@ What made the approved passages work — follow it:
   turn to the other, close the distance, the gesture lands on the word, the other reacts; a typist SITS at a desk
   with the typewriter under her hands, a reader has the book in both hands, one who hides shows only head and
   shoulders over the thing, one who comes WALKS in. Verbs: `hit`, `bite`, `chase`, `hide`, `dig`, `type`, `write`,
-  `read`, `look`, `meet` (eye contact), `come`, `fall`, `point` — the table in `rules.md` says what each needs and
-  what the viewer sees. A title that names the action over standing people is not the action. `change` + `action`
+  `read`, `come`, `fall`, `point` — the table in `rules.md` says what each needs, what the viewer sees, and HOW OFTEN
+  A MUTED VIEWER READ IT (measured blind). **One verb per person per beat** (merge refuses a second). **`come` is a
+  physical arrival** at a person or a thing — not "Dracula comes to London" (that is `stage.at` / `enter`; merge warns).
+  **There is no verb for a glance**: `look` and eye contact were tried and read by nobody. A title that names the action over standing people is not the action. `change` + `action`
   takes ONLY the rig's own actions (listed in `rules.md`); "typing", "read", "write" are not among them — the
   person would stand still (dracula's authors wrote 16 of those). Do not invent an action the narration does not
   say: an analytical passage with nobody doing anything stays a stage of things and a claim. Merge WARNS about a
@@ -182,7 +184,8 @@ the PC). Run it from the book's worktree, after make-book.
   a state change is a knock and a cross-fade, not an animation of the change.
 - The rig faces the viewer: a verb is read from the arms, the lean, the head and where the two stand — there is no
   side view. `dig` brings its own earth and spade; other verbs have no tool of their own. `hit` / `bite` put the two
-  bodies in contact and their name plates shrink; `come` stands the newcomer in the next place of the layout.
+  bodies in contact (the one who acts carries their name plate one plate higher); `come` stands the newcomer in the
+  next place of the layout and reads only WHILE they walk; a seated person who is given another place gets up first.
 - A backdrop is one flat drawing: it fades, it does not move.
 - Up to four `pair` rows on one stage; a thing that would rest under the subtitle band is reported by the compiler.
 - A film without `meta.flow ≥ 2` draws no told stage; `told.js revert --write` gives a book its figure-and-text

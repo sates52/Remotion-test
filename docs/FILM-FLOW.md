@@ -17,9 +17,18 @@ Published books are frozen.
   and `ToldStage` reads it only on `v >= 3`. Only an `act` event (or a person's `carries`) produces anything new: the
   v1 and v2 golden passages (`fixtures-told-v1.js`, `fixtures-told-v2.js`) and dracula's 147 v2 stages compile to
   identical items.
-- **Verbs:** `VERBS` in `told-compile.js` (what each needs), `toldActs.ts` (the poses: `hit` / `struck`, `bite` /
-  `bitten`, `hide`, `dig`, `type`, `write`, `read`, `look`; `chase`, `come`, `fall`, `point` use the rig's own run,
-  walk, falling / collapsed, point). Nothing loops: typing is ten key strokes, digging three thrusts, then rest.
+- **Verbs (11):** `VERBS` in `told-compile.js` (what each needs), `toldActs.ts` (the poses: `hit` / `struck`, `bite` /
+  `bitten`, `hide`, `dig`, `type`, `write`, `read`; `chase`, `come`, `fall`, `point` use the rig's own run, walk,
+  falling / collapsed, point). `look` / `meet` were verbs in the first cut and were taken out: read by nobody.
+- **Round 2 (operator's list):** the name plates of two people in contact are stacked (`labelDy`, read on `v >= 3`);
+  the seated person is drawn as large as the stage allows, desk at lap height, plate and crown down with the head; a
+  seated person who is re-arranged gets up first (the desk slid with them); one verb per person per beat (merge);
+  `come` to a place is a merge warning; the verb table in `rules.md` carries the measured readability
+  (`VERB_MEASURED` in `told-rules.js` — update it with every blind test).
+- **Measured (dracula, scratch copy, blind):** "what is this person doing?" on 14 seeded-random act moments: 3 → 8 of
+  14 on the frame where the verb is played (3 → 4 on the frame after it has ended: a walk that is over is a person
+  standing); random 30 frames ADDS 15 → 19, WRONG 0; a person on stage and nobody doing anything: 102 → 52 of 147
+  told beats after the authors' pass (→ 67 once the glance verbs were taken out); people seen as intended 5 → 8 of 8. Nothing loops: typing is ten key strokes, digging three thrusts, then rest.
   Over a cut a person is at rest in their verb; a new `stage` stands them up.
 - **Why:** dracula's told authors wrote `action: "typing" | "read" | "write"` — not actions of the rig, so people
   stood (16 such events; a person on stage and nobody doing anything in 102 of 147 told beats).
