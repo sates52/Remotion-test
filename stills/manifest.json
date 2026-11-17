@@ -1,0 +1,45 @@
+{
+ "schema": "stills/1",
+ "name": "cast sheets old/new",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "jobs": [
+  {
+   "id": "castold",
+   "config": "configs/cast-old.json",
+   "frames": [
+    45,
+    105,
+    165,
+    225,
+    285,
+    345,
+    405,
+    465
+   ]
+  },
+  {
+   "id": "castnew",
+   "config": "configs/cast-new.json",
+   "frames": [
+    45,
+    105,
+    165,
+    225,
+    285,
+    345,
+    405,
+    465
+   ]
+  }
+ ],
+ "inputHash": "1d803b0b7cb64aa2",
+ "files": {
+  "stills/configs/cast-old.json": "89bb0040c52ddad6886c354dce8aa8e202d8c0247bfc2a7cfd50c0ceff6778aa",
+  "stills/configs/cast-new.json": "b57f6743061e826fa3564beb24729fd6431ad34e99691e37a183407ec8a08be6"
+ },
+ "builtAt": "2026-11-17T06:02:52.721Z"
+}
