@@ -28,7 +28,7 @@ t("told v1 and v2 are untouched: both golden passages compile to the stages thei
   assert.deepStrictEqual(b.errors, []);
   assert.strictEqual(sha(b.stages.map((s) => s && { items: s.items, cam: s.cam, backdrops: s.backdrops, plate: s.plate })), V2.GOLDEN, "a told-v2 beat is placed, timed or drawn differently");
   for (const s of [...a.stages, ...b.stages].filter(Boolean)) assert.ok(!s.items.some((it) => "act" in it), "no figure plays a verb nobody wrote");
-  assert.strictEqual(T.TOLD_VERSION, 3);
+  assert.ok(T.TOLD_VERSION >= 3);
 });
 
 t("the engine reads `act` only on a v3 stage; the stage is still ONE svg; the verb module is pure", () => {

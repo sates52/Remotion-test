@@ -70,6 +70,8 @@ if (cmd === "entities") {
     kinds: Object.keys(KINDS), glyphs: GLYPHS,
     // told v2: how the lead agent DRAWS the things (generated from the lint's own numbers and this book's palette)
     drawing: OD.drawingGuide(OD.readBook(BOOK).palette),
+    // Film Flow 5: how the lead agent draws the PEOPLE a head of their own (generated from the rig's own numbers)
+    cast: OD.castGuide(OD.readBook(BOOK).palette),
     example: { microsoft: { label: "MICROSOFT", kind: "company", glyph: "monitor" }, mozart: { label: "MOZART", kind: "person", look: { age: "child", height: 0.72, headScale: 1.18, outfit: "coat", hairStyle: "curly" } },
       piano: { label: "PIANO", kind: "object", w: 330, reads: ["piano", "grand piano"], paths: [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }, { d: "…at least five paths: body, lid, keys, legs, the accent detail…", fill: "accent" }], states: { closed: { reads: ["piano", "closed piano"], paths: [{ d: "…", fill: "ink" }] } } },
       vienna: { label: "VIENNA", kind: "place", glyph: "building", reads: ["city", "cathedral"], paths: [{ d: "…", fill: "ink" }], backdrop: { reads: ["city skyline", "skyline"], paths: [{ d: "…", fill: "ink" }] } } },

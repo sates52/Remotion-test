@@ -11,6 +11,26 @@ Published books are frozen.
 | **Film Flow 3.0 — the book's own drawings (told v2)** | ≥ 2, stage `v: 2` | A named thing of any kind is shown as a drawing made for this book (emblem = fallback); a drawing has states (`change` + `state`, sticky); a person holds / gives / takes a drawing; the stage is AT a place (`stage.at`, backdrop). Drawings are linted, printed one per file and named blind before merge (`scripts/lib/own-drawings.js`, `own-icons-sheet.js --judge`). | **Production for new Antidote books** (operator, 2026-11-17, after two rounds of clips). |
 | **Film Flow 4.0 — people play the verb (told v3)** | ≥ 2, stage `v: 3` | `{ do: "act", who, verb, target? }`: the person does what the narration says, on the word — 13 verbs, each one gesture with a preparation, a moment and a rest (`toldActs.ts`), the other's reaction, the desk and the thing for a seated typist; a person's signature (`look`, `holds`, `carries`) and the blind "who is this?" gate (`cast-sheet.js`); merge warning for a person on stage with nobody doing anything. | **Production for new Antidote books** (operator, 2026-11-17, after two rounds of clips). |
 
+## Told v4 — the book's own cast (Film Flow 5, 2026-11-17 — on `dev/own-cast`, NOT yet production)
+
+- **Why:** the foundry dresses one rig from one wardrobe, so every book's people were the same face in another coat
+  (dracula, blind "who is this?": 5 of 8 as authored; the cloak read "robe", the cowboy hat "fedora").
+- **What:** a person's `look.drawn` in `storyboard/entities.json` — `{ back, face, hair, top, cape, body }`, each a
+  list of paths in the rig's own units (`schema.ts` → `drawnCast`). The rig (`characters/Everyman.tsx`) keeps the
+  eyes, brows, mouth, neck and limbs and animates them; any head layer replaces the wardrobe's hair, beard and
+  headwear. Colours by token (`skin hair suit shirt` = the person's own, plus the book's palette) or hex.
+- **Version:** `TOLD_VERSION` 4. `ToldStage` reads `variant.drawn` only when `v >= 4`; a v1 – v3 stage is drawn as
+  it was (both golden fixtures unchanged — `test-own-cast.js`).
+- **Lint** (`own-drawings.js` `lintCast`, run at prep through `peopleProblems`): layers known, paths inside the head /
+  body box, a filled `top` shape never on the eyes or the mouth, a drawn `face` holds them, ≥ 3 paths / 14 commands.
+  The brief the lead agent draws from is generated from the same numbers (`castGuide` → entities.candidates.json "cast").
+- **One person, one head:** `told.js apply` gives a cast member with the same id the same look in the figure scenes
+  between the stages (`told-apply.js` `castHeads`; the planned cast is kept in `meta._castBeforeTold`, `revert` restores it).
+- **Seen blind:** unchanged gate — `cast-sheet.js`, one fresh agent per picture, `--judge`; the verdict is bound to the drawing.
+- **Measured (dracula, scratch copy):** 7 of 8 read as intended ("pale vampire in high-collared red-lined cape",
+  "mustached man in cowboy hat"); Renfield's straitjacket read "tattered tunic" — a garment over the `rags` outfit is not enough.
+- **Not yet:** side / three-quarter stance; a drawn body silhouette (the torso is still the wardrobe's).
+
 ## Told v3 — people play the verb (2026-11-17)
 
 - **Version:** `TOLD_VERSION` 3. A figure carries `act: { verb, at }` (`at` = the stage frame of the narrator's word)

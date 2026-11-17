@@ -183,6 +183,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               // a PERSON: who the narration names, at the age and in the dress the book gives them; feet at (x, y)
               const w = it.w ?? 300, full = it.body === "full", h = w * (full ? 2.25 : 1.5);
               const v = { ...DEFAULT_VARIANT, ...(it.variant || {}) } as VariantSpec;
+              if ((spec.v ?? 1) < 4) delete (v as { drawn?: unknown }).drawn; // a head drawn for the book: told v4
               const action = (it.action ?? "idle") as CharAction;
               const seed = it.id.length * 7 + Math.round(it.x);
               // THE POSE CLOCK never restarts at a cut. A figure already on stage when the scene starts (no `enter`) has

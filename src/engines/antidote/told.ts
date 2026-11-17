@@ -14,8 +14,10 @@
  *     stage does not have, and the renderer reads them only when `v >= 2`: a v1 stage is drawn exactly as it was.
  * 3 — PEOPLE PLAY THE VERB (Film Flow 4, 2026-11-17): a figure carries `act` { verb, at } and is drawn in that verb's
  *     pose (toldActs.ts) — read only when `v >= 3`. A v1 / v2 stage has no `act` and is drawn exactly as it was.
+ * 4 — THE BOOK'S OWN CAST (Film Flow 5, 2026-11-17): a figure's variant carries `drawn` — a head and a garment drawn
+ *     for this book on the rig (schema.ts drawnCast) — read only when `v >= 4`. A v1 – v3 stage is drawn as it was.
  */
-export const TOLD_VERSION = 3;
+export const TOLD_VERSION = 4;
 
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {

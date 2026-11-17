@@ -12,6 +12,25 @@
  * never half-told by accident. Pure given its inputs; the caller writes the file.
  */
 const { compileTold } = require("./told-compile");
+const { resolveLook } = require("./own-drawings");
+
+/**
+ * ONE PERSON, ONE HEAD (Film Flow 5). A person the lead agent drew a head for (entities.json look.drawn) who is also
+ * in the film's cast under the same id wears that look in EVERY scene — the told stages and the figure scenes between
+ * them — or the film would show two different people under one name. The cast as planned is kept under
+ * meta._castBeforeTold (revertTold puts it back). A book without a drawn head: nothing changes.
+ */
+function castHeads(meta, entities, palette) {
+  const cast = (meta && meta.cast) || null, before = {}, next = { ...(cast || {}) };
+  if (!cast) return { meta, heads: [] };
+  for (const [id, e] of Object.entries(entities || {})) {
+    if (!e || e.kind !== "person" || !e.look || !e.look.drawn || !cast[id]) continue;
+    before[id] = cast[id];
+    next[id] = { ...cast[id], variant: { ...(cast[id].variant || {}), ...resolveLook(e.look, palette) } };
+  }
+  const heads = Object.keys(before);
+  return heads.length ? { meta: { ...meta, cast: next, _castBeforeTold: { ...(meta._castBeforeTold || {}), ...before } }, heads } : { meta, heads };
+}
 
 /** The words said during a scene, as frames from the scene's start. */
 function sceneWords(config, scene) {
@@ -80,10 +99,11 @@ function applyTold(config, toldByScene, entities = {}, drawings = {}) {
     if (prevTold) out.transition = { ...(s.transition || {}), type: "cut", frames: 0 };
     return sealTold(out);
   });
-  const meta = applied ? { ...(config.meta || {}), flow: Math.max(2, Number((config.meta || {}).flow) || 0) } : config.meta;
+  const flowMeta = applied ? { ...(config.meta || {}), flow: Math.max(2, Number((config.meta || {}).flow) || 0) } : config.meta;
+  const { meta, heads } = applied ? castHeads(flowMeta, entities, drawings.palette) : { meta: flowMeta, heads: [] };
   return {
     config: { ...config, meta, scenes: next },
-    report: { told: Object.keys(toldByScene).length, applied, errors: [...global, ...errors.filter((e) => e.beat)], warnings, unknownScenes: unknown },
+    report: { told: Object.keys(toldByScene).length, applied, castHeads: heads, errors: [...global, ...errors.filter((e) => e.beat)], warnings, unknownScenes: unknown },
   };
 }
 
@@ -104,7 +124,9 @@ function revertTold(config) {
     }
     return out;
   });
-  return { config: { ...config, scenes }, reverted: n };
+  let meta = config.meta;
+  if (meta && meta._castBeforeTold) { meta = { ...meta, cast: { ...(meta.cast || {}), ...meta._castBeforeTold } }; delete meta._castBeforeTold; }
+  return { config: { ...config, meta, scenes }, reverted: n };
 }
 
-module.exports = { applyTold, revertTold, sealTold, sceneWords, stageHash };
+module.exports = { castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };

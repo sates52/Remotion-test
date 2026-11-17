@@ -219,6 +219,10 @@ export const Everyman: React.FC<{
   const fit = legs && !full ? (600 - 46) / (896 - 46) : 1;
   const trim = variant.trim || darken(suit, 0.7);
   const overlay = variant.overlay ?? [];
+  // THE BOOK'S OWN CAST (Film Flow 5): layers drawn for this book; any head layer replaces the wardrobe's hair, beard and headwear
+  const drawn = (variant as { drawn?: Record<string, Array<{ d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number }>> }).drawn;
+  const ownHead = !!drawn && ["back", "face", "hair", "top"].some((k) => (drawn[k] || []).length > 0);
+  const layer = (k: string) => (drawn && drawn[k] ? drawn[k].map((o, i) => <path key={`${k}${i}`} d={o.d} fill={o.fill ?? "none"} stroke={o.stroke} strokeWidth={o.stroke ? o.strokeWidth ?? 6 : undefined} strokeLinecap="round" strokeLinejoin="round" opacity={o.opacity ?? 1} />) : null);
   const behind = overlay.filter((o) => o.layer === "behind");
   const front = overlay.filter((o) => o.layer !== "behind");
 
@@ -313,6 +317,7 @@ export const Everyman: React.FC<{
             figure moves together so the legs never detach from the torso. */}
         <g transform={`translate(0 ${hipY}) rotate(${pose.lean} 200 ${legs ? HIP_Y : 560})`}>
           {behind.map((o, i) => <path key={`ob${i}`} d={o.d} fill={o.fill} opacity={o.opacity ?? 1} />)}
+          {layer("cape")}
 
           {/* BODY — build widens everything below the neck and nothing above it */}
           <g transform={`translate(200 0) scale(${buildW} 1) translate(-200 0)`}>
@@ -355,6 +360,7 @@ export const Everyman: React.FC<{
             <g transform={`translate(200 360) scale(1 ${1 + Math.sin((frame / 48) * Math.PI * 2) * 0.008}) translate(-200 -360)`}>
               <Torso outfit={outfit} suit={suit} shirt={shirt} full={legs} />
               <Accessory style={variant.accessory ?? "none"} color={trim} skin={skin} />
+              {layer("body")}
             </g>
 
             {/* Held prop — drawn AFTER the torso so it reads as being in front of
@@ -412,13 +418,13 @@ export const Everyman: React.FC<{
           <g transform={`translate(${pose.headX ?? 0} ${pose.headY}) translate(200 262) scale(${headScale}) translate(-200 -262)`}>
            <g transform={`translate(200 150) scale(${pose.headYaw ?? 1} 1) translate(-200 -150)`}>
             {/* a hood's drape belongs BEHIND the head — in front it is a mask */}
-            <HeadwearBack style={variant.headwear ?? "none"} color={trim} accent={shirt} />
-            <BackHair style={hairStyle} color={hair} />
-            <ellipse cx={112} cy={158} rx={14} ry={20} fill={skin} />
-            <ellipse cx={288} cy={158} rx={14} ry={20} fill={skin} />
-            <ellipse cx={200} cy={150} rx={92} ry={104} fill={skin} />
-            <FrontHair style={hairStyle} color={hair} />
-            <Beard style={beard} color={beardCol} />
+            {ownHead ? layer("back") : (<><HeadwearBack style={variant.headwear ?? "none"} color={trim} accent={shirt} /><BackHair style={hairStyle} color={hair} /></>)}
+            {ownHead && (drawn!.face || []).length ? layer("face") : (<>
+              <ellipse cx={112} cy={158} rx={14} ry={20} fill={skin} />
+              <ellipse cx={288} cy={158} rx={14} ry={20} fill={skin} />
+              <ellipse cx={200} cy={150} rx={92} ry={104} fill={skin} />
+            </>)}
+            {ownHead ? layer("hair") : (<><FrontHair style={hairStyle} color={hair} /><Beard style={beard} color={beardCol} /></>)}
 
             {/* eyebrows */}
             <g transform={`translate(0 ${pose.browY})`} stroke={browCol} strokeWidth={6} strokeLinecap="round">
@@ -503,7 +509,7 @@ export const Everyman: React.FC<{
             <path d={f.mouthPath} fill="none" stroke={lipColor} strokeWidth={gender === "f" ? 7 : 6} strokeLinecap="round" />
 
             {/* headwear sits over hair and face alike — it IS the outline */}
-            <Headwear style={variant.headwear ?? "none"} color={trim} accent={shirt} />
+            {ownHead ? layer("top") : <Headwear style={variant.headwear ?? "none"} color={trim} accent={shirt} />}
 
             {/* Over-the-head reactive emotion micro-animation */}
             <EmotionOverlay emotion={emotion} at={emotionAt} frame={frame} fps={fps} />

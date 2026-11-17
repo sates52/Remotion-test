@@ -154,7 +154,7 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
   const motifKeys = new Map(Object.keys(motifs || {}).map((k) => [norm(k).replace(/ /g, ""), k]));
   for (const [id, e] of Object.entries(entities || {})) {
     const r = { ...e };
-    if (e.kind === "person") { out[id] = r; continue; }
+    if (e.kind === "person") { if (e.look && e.look.drawn) r.look = resolveLook(e.look, palette); out[id] = r; continue; }
     const base = source(e, motifs, errors, `entity "${id}"`);
     // the same object in both files: an entity that draws itself while motifs.json has an icon of that name
     if (base && base.src === "entity") { const twin = motifKeys.get(norm(id).replace(/ /g, "")); if (twin) errors.push(`entity "${id}": motifs.json already draws "${twin}" — write "motif": "${twin}" instead of a second drawing`); }
@@ -295,6 +295,72 @@ function drawnShare(config) {
 // is SEEN, alone and without a name, by a blind rater who is asked who this is. `reads` are the answers accepted
 // BEFORE the test — what a stranger may call them ("man in a cape", "vampire"), never the name.
 
+// ── A HEAD AND A GARMENT DRAWN FOR THE BOOK (Film Flow 5; schema.ts drawnCast, characters/Everyman.tsx) ──────────────
+// The rig keeps eyes, brows, mouth, neck, arms and legs and draws them where it always does; the book draws the rest.
+const CAST = {
+  layers: ["back", "face", "hair", "top", "cape", "body"], head: ["back", "face", "hair", "top"],
+  // where the rig's own features are (rig units): a FILLED shape of the `top` layer may not lie on them
+  eyes: [146, 108, 254, 156], mouth: [172, 198, 228, 236], features: [150, 104, 250, 232],
+  headBox: [20, -140, 380, 310], bodyBox: [-60, 230, 460, 900],
+  minPaths: 3, minCommands: 14, maxPaths: 24,
+  skin: "#F2C79B", hair: "#3A2A22", suit: "#4E6E8E", shirt: "#FFFFFF",
+};
+/** the colours a cast drawing may name: the book's palette + this person's own skin / hair / suit / shirt / trim */
+const castPalette = (look = {}, palette = DEFAULT_PALETTE) => ({ ...palette, skin: look.skin || CAST.skin, hair: look.hair || CAST.hair, suit: look.suit || CAST.suit, shirt: look.shirt || CAST.shirt, ...(look.trim ? { trim: look.trim } : {}) });
+const overlap = (b, z) => b.x0 < z[2] && b.x1 > z[0] && b.y0 < z[3] && b.y1 > z[1];
+
+/** lintCast(drawn, { palette }) → [messages] — is this a head (and a garment) the rig can wear? */
+function lintCast(drawn, { palette = DEFAULT_PALETTE } = {}) {
+  const out = [];
+  if (!drawn || typeof drawn !== "object" || Array.isArray(drawn)) return ["drawn: an object { back?, face?, hair?, top?, cape?, body? } of path lists"];
+  for (const k of Object.keys(drawn)) if (!CAST.layers.includes(k)) out.push(`drawn.${k} — the layers are ${CAST.layers.join(", ")}`);
+  let paths = 0, commands = 0, faceBox = null;
+  for (const k of CAST.layers) {
+    const list = drawn[k]; if (list == null) continue;
+    if (!Array.isArray(list)) { out.push(`drawn.${k}: a list of paths`); continue; }
+    const zone = CAST.head.includes(k) ? CAST.headBox : CAST.bodyBox;
+    list.forEach((p, i) => {
+      const tag = `drawn.${k}[${i}]`;
+      if (!p || typeof p.d !== "string" || !p.d.trim() || /url\(|<|>/.test(p.d)) { out.push(`${tag}: "d" is path data`); return; }
+      const b = pathBox(p.d); if (b.bad) { out.push(`${tag}: ${b.bad}`); return; }
+      if (CAST.head.includes(k)) { paths++; commands += b.commands; }
+      for (const c of ["fill", "stroke"]) if (p[c] != null && p[c] !== "none" && color(p[c], palette) == null) out.push(`${tag}.${c} "${p[c]}" — a hex colour or one of ${Object.keys(palette).join(", ")}`);
+      if (!Number.isFinite(b.x0)) return;
+      if (b.x0 < zone[0] || b.x1 > zone[2] || b.y0 < zone[1] || b.y1 > zone[3]) out.push(`${tag} leaves the ${CAST.head.includes(k) ? "head" : "body"} (${Math.round(b.x0)},${Math.round(b.y0)} – ${Math.round(b.x1)},${Math.round(b.y1)}; it lives in ${zone.join(" ")})`);
+      const filled = p.fill != null && p.fill !== "none";
+      if (k === "top" && filled && (overlap(b, CAST.eyes) || overlap(b, CAST.mouth))) out.push(`${tag} lies on the eyes or the mouth — the \`top\` layer is drawn OVER them (a hat, spectacles as a stroke); hair and beards go in \`hair\`, under the features`);
+      if (k === "face" && filled) faceBox = faceBox ? { x0: Math.min(faceBox.x0, b.x0), y0: Math.min(faceBox.y0, b.y0), x1: Math.max(faceBox.x1, b.x1), y1: Math.max(faceBox.y1, b.y1) } : b;
+    });
+  }
+  const anyHead = CAST.head.some((k) => (drawn[k] || []).length);
+  if (anyHead) {
+    if (paths < CAST.minPaths || commands < CAST.minCommands) out.push(`the head is ${paths} path(s), ${commands} commands — at least ${CAST.minPaths} paths and ${CAST.minCommands} commands: the hair as one shape, what frames the face, the one thing nobody else in the book has`);
+    if (paths > CAST.maxPaths) out.push(`the head is ${paths} paths — at most ${CAST.maxPaths}`);
+    if (faceBox && (faceBox.x0 > CAST.features[0] || faceBox.x1 < CAST.features[2] || faceBox.y0 > CAST.features[1] || faceBox.y1 < CAST.features[3])) out.push(`drawn.face does not hold the eyes and the mouth (they are at ${CAST.features.join(" ")}; the face covers ${Math.round(faceBox.x0)},${Math.round(faceBox.y0)} – ${Math.round(faceBox.x1)},${Math.round(faceBox.y1)})`);
+  }
+  return out;
+}
+
+/** a person's look with its drawn layers in real colours (what the stage is given) */
+function resolveLook(look, palette) {
+  if (!look || !look.drawn || typeof look.drawn !== "object") return look;
+  const pal = castPalette(look, palette), drawn = {};
+  for (const k of CAST.layers) if (Array.isArray(look.drawn[k])) drawn[k] = drawPaths(look.drawn[k], pal);
+  return { ...look, drawn };
+}
+
+/** How to draw one — generated from CAST and the book's palette (told.js entities → entities.candidates.json "cast"). */
+function castGuide(palette = DEFAULT_PALETTE) {
+  return [
+    `GIVE THE PEOPLE WHO CARRY THE BOOK A HEAD OF THEIR OWN — "look": { …, "drawn": { "back": […], "face": […], "hair": […], "top": […], "cape": […], "body": […] } }. Without it every person is the same face in another coat.`,
+    `You draw in the rig's own units (400 wide). The rig keeps the eyes (at 168,132 and 232,132), the brows above them, the mouth (200,216), the neck and the limbs, and animates them; do not draw them. The default face is the ellipse centred 200,150, 92 wide and 104 high (x 108–292, y 46–254); shoulders start at y ≈ 290.`,
+    `Layers, back to front: "back" behind the face (back hair, a hood, the back of a hat) · "face" only if THIS face is not an ellipse (long, square, gaunt — it must hold the eyes and the mouth) · "hair" on the face but UNDER the eyes and mouth (a fringe, sideburns, a moustache below the nose line y ≈ 180–200, a beard) · "top" over everything (a hat above y ≈ 100, spectacles as a STROKE round the eyes) · "cape" behind the body · "body" over the torso (a collar, lapels, a shawl; x 96–304, y 290–620).`,
+    `As soon as one head layer is drawn the wardrobe's hair, beard and headwear are NOT drawn for that person: the head is your drawing. At least ${CAST.minPaths} paths / ${CAST.minCommands} commands, at most ${CAST.maxPaths} paths; head layers stay inside ${CAST.headBox.join(" ")}.`,
+    `Colours by token — "skin", "hair", "suit", "shirt" (this person's own), ${Object.keys(palette).map((k) => `"${k}"`).join(", ")} (the book's) — or hex. One silhouette per person: what a stranger would SAY of them (a widow's peak and a high collar; a bun and a brooch; a broad-brimmed hat). Two people must differ in outline, not in colour.`,
+    `Then SEE them: node scripts/cast-sheet.js --slug=<slug> --cloud → one picture per person, without the name → one fresh agent per picture says who it is → --judge. A person nobody can tell is refused at merge.`,
+  ];
+}
+
 /** the signature a viewer sees: everything that changes how the person is drawn */
 const signature = (e) => ({ look: e.look || {}, holds: e.holds || null, carries: e.carries || null, w: e.w || null, body: e.body || null });
 
@@ -317,12 +383,14 @@ function peopleOf(entities = {}) {
 /** what is wrong with the people AS PEOPLE A VIEWER CAN TELL APART — asked at prep and by the cast sheet */
 function peopleProblems(people, entities = {}) {
   const out = [];
-  if (!people.some((p) => p.accepted.length)) return out; // a book that has not taken up the blind test is not asked
+  // a drawn head is checked whether or not the book has taken up the blind test (a head the rig cannot wear is a bug)
+  if (!people.some((p) => p.accepted.length)) { for (const p of people) { const e = entities[p.entity] || {}; if (e.look && e.look.drawn) for (const m of lintCast(e.look.drawn, { palette: castPalette(e.look, DEFAULT_PALETTE) })) out.push(`person "${p.entity}": ${m}`); } return out; }
   for (const p of people) {
     if (p.twin) out.push(`person "${p.entity}": drawn exactly like "${p.twin}" — two people must differ at a glance (look: outfit, hair, headwear, beard, glasses, height, colours; or what they carry)`);
     if (!p.accepted.length) out.push(`person "${p.entity}": no "reads" — what a stranger would call them ("man in a cape", "old man with glasses"), written BEFORE the blind test; never the name`);
     const e = entities[p.entity] || {};
     if (p.accepted.some((r) => norm(e.label).split(" ").filter((w) => w.length > 2).includes(r))) out.push(`person "${p.entity}": "reads" contains the name — a blind rater cannot know it`);
+    if (e.look && e.look.drawn) for (const m of lintCast(e.look.drawn, { palette: castPalette(e.look, DEFAULT_PALETTE) })) out.push(`person "${p.entity}": ${m}`);
     if (e.carries != null && !(entities[e.carries] && entities[e.carries].kind !== "person" && (Array.isArray(entities[e.carries].paths) || entities[e.carries].motif))) out.push(`person "${p.entity}": carries "${e.carries}" — a DRAWN thing of entities.json`);
   }
   return out;
@@ -357,4 +425,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { readBook, peopleOf, peopleProblems, gatePeople, signature, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };

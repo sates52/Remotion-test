@@ -211,6 +211,24 @@ export const overlayShape = z.object({
 });
 export type OverlayShape = z.infer<typeof overlayShape>;
 
+/**
+ * THE BOOK'S OWN CAST (Film Flow 5, 2026-11-17). The foundry dresses one rig from a wardrobe: eight people of a book
+ * were one face in eight coats (blind test, dracula: the cloak read "robe", a cowboy hat "fedora"). `drawn` is a head —
+ * and a garment — DRAWN FOR THIS BOOK, as paths in the rig's own units (400 wide; the face is the ellipse at 200,150
+ * rx 92 ry 104; eyes at 168,132 and 232,132; mouth at 200,216; shoulders from y ≈ 290). The rig keeps what makes the
+ * figure alive — eyes, brows, mouth, the neck, the arms and legs — and draws them in the same places:
+ *   back   behind the face (back hair, a hood's drape, the back of a hat)         — replaces the wardrobe's back hair
+ *   face   the face itself (a long, a square, a gaunt one; ears)                  — replaces the skin ellipse and ears
+ *   hair   on the face, UNDER the eyes and the mouth (fringe, sideburns, a beard) — replaces front hair and beard
+ *   top    over everything (a hat, spectacles, a veil's edge)                     — replaces the headwear
+ *   cape   behind the body;  body  over the torso (a collar, lapels, a shawl, an apron)
+ * A variant that carries any of the four head layers draws NO wardrobe hair, beard or headwear: the head is that drawing.
+ * Optional and absent by default: every config written before it renders exactly as it did.
+ */
+export const drawnShape = z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() });
+export const drawnCast = z.object({ back: z.array(drawnShape), face: z.array(drawnShape), hair: z.array(drawnShape), top: z.array(drawnShape), cape: z.array(drawnShape), body: z.array(drawnShape) }).partial();
+export type DrawnCast = z.infer<typeof drawnCast>;
+
 export const variantSchema = z.object({
   skin: z.string().default("#F2C79B"),
   hair: z.string().default("#3A2A22"),
@@ -235,6 +253,8 @@ export const variantSchema = z.object({
   /** Headwear / accessory color; defaults to a shade of the garment. */
   trim: z.string().optional(),
   overlay: z.array(overlayShape).default([]),
+  /** a head / garment drawn for this book (Film Flow 5) — see drawnCast */
+  drawn: drawnCast.optional(),
 });
 export type VariantSpec = z.infer<typeof variantSchema>;
 // Runtime default, NOT a schema default: Remotion hands defaultProps to the
