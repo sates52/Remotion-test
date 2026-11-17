@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| claude (Film Flow 6 — the book's own world, slice 2: things / one vocabulary) | `scripts/lib/{own-drawings,antidote-director}.js`, `scripts/{storyboard,told,test-own-things (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | WIP 2026-11-17 on `dev/own-things` (worktree `wt-own-drawings`); NOT on god-mode — waiting for the operator's clips review | No engine or schema change: entity drawings join the own-icon vocabulary (existing `customSvg` path). A book without drawn things plans exactly as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
+| _(done)_ Film Flow 6 — the book's own world, slice 2: things / one vocabulary | `scripts/lib/{own-drawings,antidote-director}.js`, `scripts/{storyboard,told,test-own-things (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | No engine or schema change: entity drawings join the own-icon vocabulary (existing `customSvg` path). A book without drawn things plans exactly as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 1: places | `src/engines/antidote/{schema.ts (bg.own),components/Backdrop.tsx}`, `scripts/lib/{told-apply,told-rules}.js`, `scripts/{told,storyboard,test-own-places (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | New optional beat field `place` + scene `bg.own`; no told version change, every existing config draws as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 5 — the book's own cast (told v4) | `src/engines/antidote/{schema.ts,told.ts,characters/Everyman.tsx,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-apply}.js`, `scripts/{told,test-told-acts,test-own-cast (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | `TOLD_VERSION` 4, `variant.drawn` optional; v1 – v3 stages and every existing config draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 4 — people play the verb (told v3) | `src/engines/antidote/{toldActs.ts (new),told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,own-drawings}.js`, `scripts/{cast-sheet (new),storyboard}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | `TOLD_VERSION` 3; v1 / v2 stages compile and draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, schema enum, render, upload or cleanup. |
@@ -7705,6 +7705,22 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-17 — Film Flow 6, slice 2: the book's own THINGS beside the cast (one vocabulary) — production for new Antidote books
+
+- **Why (dracula, measured):** all 53 concept icons of the scenes that are not told came from the shared library, while
+  the book's own drawings could only stand on a told stage.
+- **What:** `own-drawings.js` `iconsOfEntities` / `ownIcons` (entities.json things + motifs.json; the per-book file wins)
+  feed the storyboard vocabulary (`storyboard.js` `ownMotifs`) and the director (`antidote-director.js`); an authored
+  `"concept": "<entity id>"` is drawn through the existing `customSvg` path. An entity's icon prints no title (it sat
+  on the subtitles). No engine or schema change; a book without drawn things plans as before.
+- **For authors / the lead agent:** the drawing brief (recurring ideas as this book's thing), rules.md lists them under
+  "This book's own icons", `told.js status / apply` print own against shared-library icons, merge warns once when the
+  library carries the figure beats (never refuses). No threshold.
+- **Measured (dracula, scratch copy):** seven things drawn, 7 of 7 named blind as intended; 20 of 53 beats use one →
+  shared-library icons 53 → 33 (the rest are metaphors nobody drew a book's version of). The scratch config was
+  rewritten to what the director emits; the planner path itself has not run end to end on a real book yet.
+- New test `test-own-things.js`; CI green. No book worktree, published book, threshold, render, upload or cleanup.
 
 ### 2026-11-17 — Film Flow 6, slice 1: the book's own PLACES behind the figure scenes — production for new Antidote books
 

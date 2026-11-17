@@ -99,7 +99,7 @@ in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact number
 OUTLINE, not in colour. Then the same blind test as before (`cast-sheet.js --cloud`, one agent per picture, `--judge`).
 `told.js apply` puts the same head on that person in the figure scenes too.
 
-### The things of the book are ONE vocabulary (Film Flow 6 — only once slice 2 is on god-mode)
+### The things of the book are ONE vocabulary (Film Flow 6)
 
 A thing you drew in `entities.json` is also an own icon of the beats that are NOT told: `"concept": "<entity id>"`
 puts the same drawing beside the cast (rules.md lists them under "This book's own icons"). Lead agent: draw the
