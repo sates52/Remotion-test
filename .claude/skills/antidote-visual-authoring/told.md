@@ -91,7 +91,7 @@ book's **own drawings** (an animal, an object), plus what happens to them. The s
    these ids, each drawn thing with its states, each place that can stand behind the stage. (A book without
    `entities.json` gets no told section and merge refuses a told beat.)
 
-### A head of their own (told v4 — only once Film Flow 5 is on god-mode)
+### A head of their own (told v4)
 
 The people who carry the book get `"look": { …, "drawn": { "back", "face", "hair", "top", "cape", "body" } }` — paths
 in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact numbers and tokens are generated into

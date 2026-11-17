@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| claude (Film Flow 5 — the book's own cast, told v4) | `src/engines/antidote/{schema.ts,told.ts,characters/Everyman.tsx,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-apply}.js`, `scripts/{told,test-told-acts,test-own-cast (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | WIP 2026-11-17 on `dev/own-cast` (worktree `wt-own-drawings`); NOT on god-mode — waiting for the operator's clips review | `TOLD_VERSION` 4, `variant.drawn` optional; v1 – v3 stages and every existing config draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
+| _(done)_ Film Flow 5 — the book's own cast (told v4) | `src/engines/antidote/{schema.ts,told.ts,characters/Everyman.tsx,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-apply}.js`, `scripts/{told,test-told-acts,test-own-cast (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | `TOLD_VERSION` 4, `variant.drawn` optional; v1 – v3 stages and every existing config draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 4 — people play the verb (told v3) | `src/engines/antidote/{toldActs.ts (new),told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,own-drawings}.js`, `scripts/{cast-sheet (new),storyboard}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | `TOLD_VERSION` 3; v1 / v2 stages compile and draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, schema enum, render, upload or cleanup. |
 | _(done)_ Film Flow 3 — the book's own drawings on a told stage (told v2) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,told-apply,own-drawings (new)}.js`, `scripts/{own-icons-sheet,told,storyboard}.js` (entities drawings, blind-naming gate), tests, `docs/FILM-FLOW.md`, runbook §1b / §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | New told version (`TOLD_VERSION` 2; `v: 1` stages drawn as before). dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 2 — told stages (operator: production for new Antidote books) | `src/engines/antidote/{told.ts,flow.ts,speech.ts,components/ToldStage.tsx,components/Scene.tsx,index.tsx,movements.ts}`, `scripts/{told,film-flow,flow-passage,flicker-check,storyboard,make-book,preview-state,readcheck,mute-test,framecheck,audit-antidote,render-stills}.js`, `scripts/lib/{told-compile,told-apply,told-rules,told-entities,film-flow,antidote-stagnation-engine,antidote-novelty-budget,composition-integrity,screen-text}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, skills (`antidote-visual-authoring/told.md`, preview-hazirla row), AGENTS.md / CLAUDE.md | _(done)_ 2026-11-14: merged to god-mode | New books only (`meta.flow`); no published / pinned book, threshold, render, upload or cleanup. First real book = the first started on this commit or later. |
@@ -7703,6 +7703,18 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-17 — Film Flow 5: the book's own cast (told v4) — production for new Antidote books
+
+- **Why:** one rig dressed from one wardrobe = every book's people were the same face in another coat (dracula, blind
+  "who is this?": 5 of 8). **What:** `look.drawn` on a person in `storyboard/entities.json` — `back / face / hair / top /
+  cape / body` paths in rig units (`schema.ts` `drawnCast`, `Everyman.tsx`); the rig keeps eyes, brows, mouth and limbs.
+- `TOLD_VERSION` 4: `ToldStage` reads `variant.drawn` only on `v >= 4`; v1 – v3 stages and both goldens unchanged.
+  `lintCast` / `castGuide` (`own-drawings.js`); `told.js apply` gives the cast member of the same id the same look in the
+  figure scenes (`castHeads`, kept in `meta._castBeforeTold`, undone by `revert`). New test `test-own-cast.js`; CI green.
+- **Measured (dracula, scratch copy):** blind 7 of 8 as intended; Renfield's straitjacket read "tattered tunic".
+- **Known limits:** a cape is one rigid shape (it tilts with the body); no side / three-quarter stance; the torso is still
+  the wardrobe's. No book worktree, published book, threshold, render, upload or cleanup was touched.
 
 ### 2026-11-17 — Film Flow 4: people play the verb (told v3) — production for new Antidote books
 
