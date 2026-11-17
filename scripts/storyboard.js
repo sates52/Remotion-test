@@ -51,7 +51,7 @@ if (book.engine !== "vox" && book.engine !== "antidote") {
 }
 const ENGINE = book.engine;
 // FILM FLOW 2: the things the narration names (storyboard/entities.json), written before the authors start
-const { toldSection, checkToldBeat } = require("./lib/told-rules");
+const { toldSection, checkToldBeat, toldWatch } = require("./lib/told-rules");
 const TOLD_ENTITIES = (() => { try { return JSON.parse(fs.readFileSync(path.join(SB, "entities.json"), "utf8")); } catch { return {}; } })();
 // FILM FLOW 3 (told v2): the book's own drawings of those things — linted at prep, named blind before merge
 const OD = require("./lib/own-drawings");
@@ -1000,6 +1000,7 @@ function merge() {
   }
   const problems = [], warnings = [];
   const toldUses = new Map(); // entity id → the first told beat that uses it (told v2: the own-drawing gate)
+  const watchTold = toldWatch(TOLD_ENTITIES); // told v3: a person on stage and nobody doing anything → a warning
   const P = (i, m) => problems.push(`${i}: ${m}`);
   const sbFields = ["claim", "concreteVisual", "onScreenText", "relationToPrevious", "addedInformation"];
   const out = [];
@@ -1255,6 +1256,7 @@ function merge() {
       // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
       if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
+      watchTold(a.told || null).forEach((m) => warnings.push(`${i}: ${m}`));
       if (!a.told) sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
       if (!a.told && !a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
       // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it

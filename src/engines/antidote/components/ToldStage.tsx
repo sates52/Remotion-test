@@ -3,6 +3,7 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { Everyman } from "../characters/Everyman";
 import { pose } from "../movements";
+import { actPose, ACT_POSES, type ToldAct } from "../toldActs";
 import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
@@ -190,7 +191,11 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               // (five people blinking on one frame is a flicker), and stands STILL unless it is given something to do:
               // only one that talks hears the narration (movements.ts Live.calm).
               const local = it.enter ? Math.max(0, frame - (it.enter.at - (it.enter.dur ?? 12))) : (action === "idle" || action === "talk" ? absBase + frame : frame + 100000) + (seed % 89) * 3;
-              const p = pose(action, local, 30, it.cue ?? 24, "lead", { voice: action === "talk" ? voice : undefined, seed, calm: true });
+              const base = pose(action, local, 30, it.cue ?? 24, "lead", { voice: action === "talk" ? voice : undefined, seed, calm: true });
+              // told v3 — THE PERSON PLAYS THE VERB: the verb's pose (a preparation, a moment ON the narrator's word, a
+              // rest; nothing loops) laid over the calm standing figure. Only a v3 stage carries `act`.
+              const acting = (spec.v ?? 1) >= 3 && it.act && (ACT_POSES as readonly string[]).includes(it.act.verb) ? (it.act as ToldAct) : null;
+              const p = acting ? ({ ...base, ...actPose(acting, frame) } as typeof base) : base;
               const headTop = h * (1 - Math.min(1, v.height ?? 1)) * 0.9;
               return (
                 <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>

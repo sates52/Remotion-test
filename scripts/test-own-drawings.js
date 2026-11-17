@@ -39,8 +39,8 @@ t("told v1 is untouched: a passage in the v1 vocabulary compiles to the stages t
   assert.deepStrictEqual(r.errors, []);
   const hash = crypto.createHash("sha256").update(JSON.stringify(r.stages.map((s) => s && { items: s.items, cam: s.cam }))).digest("hex");
   assert.strictEqual(hash, V1.GOLDEN, "an existing told beat is placed, timed or drawn differently");
-  for (const s of r.stages.filter(Boolean)) { assert.strictEqual(s.v, 2); assert.ok(!("backdrops" in s) && !s.items.some((it) => "state" in it)); }
-  assert.strictEqual(T.TOLD_VERSION, 2);
+  for (const s of r.stages.filter(Boolean)) { assert.strictEqual(s.v, T.TOLD_VERSION); assert.ok(!("backdrops" in s) && !s.items.some((it) => "state" in it)); }
+  assert.ok(T.TOLD_VERSION >= 2);
 });
 
 t("the engine reads what v2 adds only on a v2 stage, and told.ts stays loadable by plain Node (no runtime import)", () => {
@@ -125,7 +125,7 @@ t("a thing of ANY kind with a drawing is drawn as that drawing, with its name; w
   assert.strictEqual(item(s, "demeter").w, 380);
   assert.strictEqual(item(s, "whitby").kind, "emblem");
   assert.strictEqual(item(s, "whitby").glyph, "globe");
-  assert.strictEqual(s.v, 2);
+  assert.strictEqual(s.v, T.TOLD_VERSION);
   assert.deepStrictEqual(OD.drawnShare({ scenes: [{ told: s }] }), { drawn: 3, emblem: 1, share: 0.75 });
 });
 

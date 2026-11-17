@@ -7,7 +7,25 @@
  * named once, before the authors start (preview-hazirla; `node scripts/told.js entities --slug=<slug>` lists the
  * candidates the narration gives).
  */
-const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING, drawnAs } = require("./told-compile");
+const { DOS, LAYOUTS, GLYPHS, KINDS, wordFrame, LABELS_PER_THING, drawnAs, VERBS } = require("./told-compile");
+const { RIG_ACTIONS } = require("../../src/engines/antidote/toldActs.ts");
+/** told v3 — what a viewer SEES for each verb (the table an author reads; the compiler's VERBS says what each needs) */
+const VERB_HELP = {
+  hit: "walks up and strikes them — the fist lands on the word; the other is knocked back and stays so",
+  bite: "closes in, takes hold, the head goes down to the neck on the word; the other turns away, eyes shut, and sinks",
+  chase: "the other runs for the far side of the stage, this one runs after them",
+  hide: "goes behind it and down — only the head shows over its edge",
+  dig: "bends and digs: three thrusts, the first on the word (beside the target, if one is named)",
+  type: "SITS at it: a desk, the thing on the desk under the hands, a run of key strokes from the word on",
+  write: "sits at a desk and writes (on the target, if a drawn thing is named)",
+  read: "the thing is in both hands in front of the chest, the head down to it",
+  look: "turns the head and the eyes to it, and keeps looking",
+  meet: "eye contact: both turn to each other",
+  come: "WALKS up to it and stands there on the word — from off the stage when not yet on it",
+  fall: "falls on the word and lies there",
+  point: "the arm goes out at it",
+};
+const ACTIVE = new Set(["act", "give", "take"]); // events in which a person DOES something
 /** told v2: what an entity brings to the stage as DRAWINGS (as written: paths or a motif pointer) */
 const drawn = (e) => !!e && e.kind !== "person" && drawnAs(e) === "icon";
 const statesOf = (e) => (drawn(e) ? Object.keys(e.states || {}) : []);
@@ -38,6 +56,7 @@ const EVENT_HELP = [
   ["change", "who, state", "the same DRAWN THING as what it has become (its states are listed with it above; `base` = as it was). It stays that way for the rest of the film"],
   ["give", "who[from, to], what", "a person hands a drawn thing to another: it travels from hand to hand and lands on the word (it need not be on stage first)"],
   ["take", "who, what", "a person picks up a drawn thing that stands on stage: it goes into their hand"],
+  ["act", "who (a person), verb, target?", "the person DOES it on the word — see **Verbs** below. This is how a person shows what the narration says they do"],
   ["at", "who (a place) | —", "the stage is now AT that place: its drawing fades in behind everything (no `who`: the plain ground again)"],
   ["clear", "what? (titles | labels | rows)", "take the extras off the stage (default: all of them)"],
   ["raw", "item", "one bespoke drawn thing nothing else can show — rarely"],
@@ -51,6 +70,7 @@ function toldSection(entities) {
     const how = KINDS[e.kind] === "figure" ? " · person" : drawn(e) ? ` · the book's own drawing${st.length ? ` — states: ${st.map((s) => `\`${s}\``).join(", ")}` : ""}` : ` · emblem${e.glyph ? ` (${e.glyph})` : ""}`;
     return `- \`${id}\` — ${e.label || "(drawing)"} · ${e.kind}${how}${isPlaceDrawn(e) ? " · can be the stage's place (`at`)" : ""}${e.note ? ` — ${e.note}` : ""}`;
   }).join("\n");
+  const people = ids.filter((id) => entities[id].kind === "person");
   const anyDrawn = ids.some((id) => drawn(entities[id])), anyState = ids.some((id) => statesOf(entities[id]).length), places = ids.filter((id) => isPlaceDrawn(entities[id]));
   // told v2 — said only for what THIS book has drawn (a rule about states in a book without one is noise)
   const drawnRules = !anyDrawn && !places.length ? "" : `
@@ -107,14 +127,27 @@ ${drawnRules}
 - Titles are 2-5 words from the narration's own claim, never a label for the picture. At most 5 events in a beat.
 - Every title and label is held to the screen-text rules at merge (no keyword soup, no fragments, nothing repeated
   across more than three beats).
-- A person on a told stage does one thing at a time and stands still otherwise; say what they do with \`change\`.
+- A person on a told stage does one thing at a time and stands still otherwise.${people.length ? `
+- **PEOPLE PLAY THE VERB.** When the narration says a person DOES something — to someone, with something — write
+  \`{ "on": "<the verb's word>", "do": "act", "who": "<person>", "verb": "<verb>", "target": "<id>" }\`: they turn to the
+  other, close the distance, the gesture lands on the word, the other reacts. A title that NAMES the action over two
+  standing people is not the action ("TYPING IN MANIFOLD" over Mina standing beside a typewriter: write
+  \`"verb": "type", "target": "typewriter"\` and she sits at it and types). Merge warns about a beat that has a person
+  on stage and nobody doing anything.
+- \`change\` + \`action\` takes only the rig's own actions: ${RIG_ACTIONS.map((x) => `\`${x}\``).join(", ")}. Anything else
+  (typing, reading, writing …) is NOT an action — the person would stand still: use \`act\`.` : ""}
 
 **Events**
 | do | fields | what the viewer sees |
 |---|---|---|
 ${EVENT_HELP.map(([d, f, m]) => `| \`${d}\` | ${f} | ${m} |`).join("\n")}
 
-**When not to use it:** a beat about an unnamed person's inner state, or a general idea with nothing named — author
+${people.length ? `**Verbs** (\`act\`)
+| verb | target | what the viewer sees |
+|---|---|---|
+${Object.keys(VERBS).map((v) => `| \`${v}\` | ${VERBS[v].target === "person" ? "a person" : VERBS[v].target === "thing" ? "a drawn thing" : "a person or a thing"}${VERBS[v].need ? "" : " (optional)"} | ${VERB_HELP[v]} |`).join("\n")}
+
+` : ""}**When not to use it:** a beat about an unnamed person's inner state, or a general idea with nothing named — author
 it the usual way below. Never put a host or a stand-in figure on a told stage to "have someone there".
 `;
 }
@@ -167,9 +200,50 @@ function checkToldBeat(told, narration, entities) {
       if (!drawn(entities[ev.what])) out.push(`${tag} (${ev.do}): "what" is a drawn thing of entities.json${ev.what != null ? ` ("${ev.what}" is not)` : ""}`);
     }
     if (ev.do === "at" && w0 != null && !isPlaceDrawn(e0)) out.push(`${tag} (at): "${w0}" is not a place with a drawing`);
+    // told v3: a person plays a verb — the verb exists, a PERSON does it, and it has the other it needs
+    if (ev.do === "act") {
+      const spec = VERBS[ev.verb], t = entities[ev.target];
+      if (!spec) out.push(`${tag} (act): verb "${ev.verb}" — one of ${Object.keys(VERBS).join(", ")}`);
+      else {
+        if (names(ev.who).length !== 1 || !e0 || e0.kind !== "person") out.push(`${tag} (act ${ev.verb}): "who" is the one PERSON who does it`);
+        if (ev.target == null) { if (spec.need) out.push(`${tag} (act ${ev.verb}): needs "target" — ${spec.target === "person" ? "the person it is done to" : spec.target === "thing" ? "the drawn thing it is done with" : "who or what it is turned to"}`); }
+        else if (!t) out.push(`${tag} (act ${ev.verb}): target "${ev.target}" is not in entities.json`);
+        else if (spec.target === "person" && t.kind !== "person") out.push(`${tag} (act ${ev.verb}): target "${ev.target}" is not a person`);
+        else if (spec.target === "thing" && !drawn(t)) out.push(`${tag} (act ${ev.verb}): target "${ev.target}" is not a drawn thing`);
+        else if (ev.target === w0) out.push(`${tag} (act ${ev.verb}): a person does not ${ev.verb} themselves`);
+      }
+    }
     if (ev.do === "raw" && !(ev.item && ev.item.kind)) out.push(`${tag} (raw): needs item { kind, x, y, … }`);
   });
   return out;
 }
 
-module.exports = { toldSection, checkToldBeat, EVENT_HELP, GLYPHS };
+/**
+ * toldWatch(entities) → (told | null) → [warnings] — merge calls it for every beat IN FILM ORDER (null for a beat that
+ * is not told). It follows who is on stage and says, without refusing the beat:
+ *   - a PERSON is on stage and nobody does anything in this beat (no act / give / take, no `change` with an action):
+ *     the verb is being carried by words — the first told book's people stood through the film;
+ *   - `change` + `action` names something the rig cannot do (it would stand still).
+ */
+function toldWatch(entities) {
+  let on = new Set();
+  const names = (who) => (Array.isArray(who) ? who : who != null ? [who] : []);
+  const isPerson = (id) => !!entities[id] && entities[id].kind === "person";
+  return (told) => {
+    if (!told || typeof told !== "object") { on = new Set(); return []; }
+    const out = [], events = Array.isArray(told.events) ? told.events.filter(Boolean) : [];
+    if (told.stage && Array.isArray(told.stage.who)) on = new Set(told.stage.who);
+    for (const ev of events) {
+      if (ev.do === "enter" || ev.do === "arrange") { if (ev.do === "arrange") on = new Set(); names(ev.who).forEach((w) => on.add(w)); }
+      if (ev.do === "exit") names(ev.who).forEach((w) => on.delete(w));
+      if (ev.do === "act" && ev.verb === "come") names(ev.who).forEach((w) => on.add(w));
+      if (ev.do === "change" && ev.action != null && isPerson(names(ev.who)[0]) && !RIG_ACTIONS.includes(ev.action)) out.push(`told: change action "${ev.action}" is not an action of the rig — ${names(ev.who)[0]} would stand still. Use { "do": "act", "verb": … } (${Object.keys(VERBS).join(", ")}) or one of: ${RIG_ACTIONS.join(", ")}`);
+    }
+    const people = [...on].filter(isPerson);
+    const doing = events.some((ev) => ACTIVE.has(ev.do) || (ev.do === "change" && isPerson(names(ev.who)[0]) && (RIG_ACTIONS.includes(ev.action) && !["idle", "talk"].includes(ev.action) || typeof ev.holds === "string")));
+    if (people.length && !doing) out.push(`told: ${people.join(", ")} ${people.length > 1 ? "are" : "is"} on stage and nobody DOES anything in this beat — if the narration says what they do, play it: { "do": "act", "who": …, "verb": …, "target": … }`);
+    return out;
+  };
+}
+
+module.exports = { toldSection, checkToldBeat, toldWatch, EVENT_HELP, VERB_HELP, GLYPHS };

@@ -12,14 +12,18 @@
  * 2 — THE BOOK'S OWN DRAWINGS (Film Flow 3, 2026-11-16): a thing of any kind as its drawing, a drawing's states, a
  *     drawing in a person's hand, the place behind the stage (`backdrops`). What v2 adds is carried by fields a v1
  *     stage does not have, and the renderer reads them only when `v >= 2`: a v1 stage is drawn exactly as it was.
+ * 3 — PEOPLE PLAY THE VERB (Film Flow 4, 2026-11-17): a figure carries `act` { verb, at } and is drawn in that verb's
+ *     pose (toldActs.ts) — read only when `v >= 3`. A v1 / v2 stage has no `act` and is drawn exactly as it was.
  */
-export const TOLD_VERSION = 2;
+export const TOLD_VERSION = 3;
 
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {
   id: string;
   kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow" | "figure" | "icon";
   /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
+  /** figure (v3): the verb this person plays and the stage frame of the narrator's word (toldActs.ts actPose) */
+  act?: { verb: string; at: number };
   variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
   /** icon: an animal or an object DRAWN FOR THIS BOOK, as paths in its own viewBox (the same data as motifs.json) */
   paths?: ToldPath[]; viewBox?: string;
