@@ -212,6 +212,9 @@ function compileTold(beats, written = {}, opts = {}) {
         // a LABEL was placed for where its thing stood and at reading size: when the thing walks somewhere else the
         // label leaves (it would land on a neighbour or outside the frame), and when the thing grows the label does
         // not (dracula: a label at 1.8× across the stage, another at x −30)
+        // v3 (round 2): the crown of a person who sits — or has just got up — is put exactly over their name plate
+        // (which is down with a seated head: labelDy), not carried by proportion from wherever it was a moment ago
+        if (b.kind === "crown" && it.kind === "figure" && (it.labelDy != null || recrownAfter.has(ent))) { key(b, { at, dur, ease, x: nx, y: ny - (figH(it) + TAG_H + 46) * ns + (it.labelDy || 0) * ns, s: ns }); continue; }
         // v2: a label that stands UNDER a thing's name plate keeps standing under it when the thing grows or rises
         if (b._role === "label" && b._below != null && Math.abs(nx - from.x) <= 40) { key(b, { at, dur, ease, y: Math.min(SAFE.bottom - 40, ny + footOff(it) * ns + 56 + b._below) }); continue; }
         if (b._role === "label") { if (Math.abs(nx - from.x) > 40 || Math.abs(ny - from.y) > 40) leave(b, Math.max(10, at - dur)); continue; }
@@ -259,7 +262,7 @@ function compileTold(beats, written = {}, opts = {}) {
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
       who.forEach((ent, i) => ensure(ent, at + (at > 0 ? i * 8 : 0), sl[Math.min(i, sl.length - 1)]));
       // … and in their new place a crown sits exactly over their name plate again (where `crown` puts it)
-      for (const w of stood) { const it = find(w), p = it && T.itemState(it, 1e6); if (p) for (const c of bound(w).filter((x) => x.kind === "crown")) key(c, { at: Math.max(at, 20) + 6, dur: 6, x: p.x, y: p.y - (figH(it) + TAG_H + 46) * p.s, s: p.s }); }
+      for (const w of new Set([...stood, ...who.filter((x) => recrownAfter.has(x))])) { const it = find(w), p = it && T.itemState(it, 1e6); if (p) for (const c of bound(w).filter((x) => x.kind === "crown")) key(c, { at: Math.max(at, 20) + 6, dur: 6, x: p.x, y: p.y - (figH(it) + TAG_H + 46) * p.s, s: p.s }); }
       st8.layout = layout; st8.who = who.slice();
     };
     /** the things as a small row of heads along the top: the middle of the stage is free for a timeline */
@@ -287,6 +290,7 @@ function compileTold(beats, written = {}, opts = {}) {
       return next;
     };
     // THE PLACE BEHIND THE STAGE (told v2): one backdrop at a time; a new one fades in as the old one fades out
+    const recrownAfter = new Set(); // v3: people who got up at a change of stage — their crown is set over the name plate again once they have their place
     const backdrops = [];
     const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
     if (place && backdropOf(place)) backdrops.push(backdropOf(place));
@@ -350,7 +354,7 @@ function compileTold(beats, written = {}, opts = {}) {
       if (V2) for (const it of items.filter((x) => x._role === "entity" && !x._gone)) { const st = stateAt(it, 0); if (st.o < 0.99 || Math.abs(st.r) > 0.5) key(it, { at: 12, dur: 10, o: 1, r: 0, y: st.y - (st.o < 0.99 ? 35 : 0) }); }
       // v3: a new stage shows its people as themselves — whoever stays stands up from the verb they were left in
       // (seated at a desk, bent over a hole), and the desk goes
-      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) { leave(b, 10, 8); if (b._seat) for (const c of bound(it._ent).filter((x) => x.kind === "crown")) key(c, { at: 14, dur: 10, y: stateAt(c, 0).y - b._seat }); } /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); }
+      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) { leave(b, 10, 8); if (b._seat) recrownAfter.add(it._ent); } /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); }
       const wasOn = items.some((x) => x._role === "entity");
       arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
       // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
@@ -550,6 +554,9 @@ function compileTold(beats, written = {}, opts = {}) {
               standUp(tgt, when);
               swap(tgt, when, (n) => { n.act = { verb: verb === "hit" ? "struck" : "bitten", at: when }; n.action = "idle"; delete n.labelDy; facing(n, pt.x, dest); }, 3, true);
               find(tgt).shake = { at: when, dur: 18, amp: verb === "hit" ? 14 : 8 };
+              // the one it is done to is drawn IN FRONT: the head (and hat) that leans over them would otherwise cover
+              // their name plate (round 2, first clips: "LUCY WES▮ENRA" under a top hat)
+              for (const it of items.filter((x) => x._ent === tgt && x._role === "entity")) { items.splice(items.indexOf(it), 1); items.push(it); }
               break; }
             case "chase": {
               // the other runs for the far side, the chaser after them — both RUN while they travel and stand when they arrive
