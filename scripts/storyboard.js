@@ -290,7 +290,7 @@ function ownIconSection(v) {
   if (!Object.keys(own).length) return "";
   return `
 ## This book's own icons (drawn for it — use them whenever the beat is ABOUT that thing)
-${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || k}${m.reads ? ` — ${m.reads}` : ""}`).join("\n")}
+${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || m.name || k}${m.reads ? ` — ${m.reads}` : ""}`).join("\n")}
 `;
 }
 

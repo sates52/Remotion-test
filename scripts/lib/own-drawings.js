@@ -423,7 +423,8 @@ function iconsOfEntities(entities = {}) {
   const out = {};
   for (const [id, e] of Object.entries(entities || {})) {
     if (!e || typeof e !== "object" || e.kind === "person" || e.motif || !Array.isArray(e.paths) || !e.paths.length) continue;
-    out[id] = { title: e.label || id, ...(Array.isArray(e.reads) && e.reads.length ? { reads: e.reads.join(" / ") } : {}), viewBox: e.viewBox || RULES.box, paths: e.paths, fromEntity: true };
+    // no `title`: the renderer prints a title under an own icon, and a figure scene has its own text (it sat on the subtitles)
+    out[id] = { name: e.label || id, ...(Array.isArray(e.reads) && e.reads.length ? { reads: e.reads.join(" / ") } : {}), viewBox: e.viewBox || RULES.box, paths: e.paths, fromEntity: true };
   }
   return out;
 }

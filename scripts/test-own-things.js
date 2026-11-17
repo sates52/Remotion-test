@@ -20,8 +20,9 @@ const ENT = {
 t("a thing the book drew is an own icon under its entity id, in the shape the director and the renderer take", () => {
   const ic = OD.iconsOfEntities(ENT);
   assert.deepStrictEqual(Object.keys(ic), ["ship", "harbour"], "no person, no emblem, no pointer at a motif");
-  assert.deepStrictEqual(ic.ship, { title: "THE DEMETER", reads: "ship / sailing ship", viewBox: OD.RULES.box, paths: P, fromEntity: true });
+  assert.deepStrictEqual(ic.ship, { name: "THE DEMETER", reads: "ship / sailing ship", viewBox: OD.RULES.box, paths: P, fromEntity: true });
   assert.strictEqual(ic.harbour.viewBox, "0 0 400 400");
+  assert.ok(!("title" in ic.ship), "no title: the renderer would print it under the drawing, on the subtitles");
   assert.strictEqual(ic.ship.paths, ENT.ship.paths, "the same drawing, not a copy that can drift");
   assert.deepStrictEqual(OD.iconsOfEntities({}), {}); assert.deepStrictEqual(OD.iconsOfEntities(null), {});
 });
