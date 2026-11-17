@@ -1,0 +1,36 @@
+{
+ "schema": "stills/1",
+ "name": "film-flow passages LAB2",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "dracula-mid-LAB2",
+   "config": "configs/dracula-mid-LAB2.json",
+   "frames": [
+    1408
+   ],
+   "clip": {
+    "from": 0,
+    "to": 2814,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "d64e4eb0cee5f8b1",
+ "files": {
+  "stills/configs/dracula-mid-LAB2.json": "b315b95070032d8a8305ac6ebec0610ce81f9186f2600cb611181e6430e0389b"
+ },
+ "builtAt": "2026-11-17T06:10:20.343Z"
+}
