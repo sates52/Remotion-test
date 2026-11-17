@@ -196,4 +196,43 @@ t("the rules an author reads name every verb and say what the viewer will see; a
   assert.ok(!/PEOPLE PLAY THE VERB/.test(things) && !/\| verb \| target \|/.test(things));
 });
 
+t("the book's own people: a signature, readings written before the blind test, a verdict bound to the look", () => {
+  const OD = require("./lib/own-drawings");
+  const PEOPLE = { ...ENT,
+    dracula: { ...ENT.dracula, reads: ["cape", "top hat"], look: { ...ENT.dracula.look, headwear: "topHat" } },
+    mina: { ...ENT.mina, reads: ["dark dress"] },
+    jonathan: { ...ENT.jonathan, reads: ["suit", "notebook"], carries: "journal" } };
+  const people = OD.peopleOf(PEOPLE);
+  assert.deepStrictEqual(people.map((p) => p.key), ["person:mina", "person:jonathan", "person:dracula"]);
+  assert.deepStrictEqual(OD.peopleProblems(people, PEOPLE), []);
+  // a book that has not taken up the test is not asked; one that has, is asked for everybody
+  assert.deepStrictEqual(OD.peopleProblems(OD.peopleOf(ENT), ENT), []);
+  assert.deepStrictEqual(OD.gatePeople(OD.peopleOf(ENT), null), []);
+  const half = { ...PEOPLE, mina: ENT.mina };
+  assert.ok(OD.peopleProblems(OD.peopleOf(half), half).some((m) => /person "mina": no "reads"/.test(m)));
+  const twins = { a: { label: "A", kind: "person", reads: ["man"], look: { outfit: "suit" } }, b: { label: "B", kind: "person", reads: ["man"], look: { outfit: "suit" } } };
+  assert.ok(OD.peopleProblems(OD.peopleOf(twins), twins).some((m) => /drawn exactly like "a"/.test(m)));
+  const named = { a: { label: "COUNT DRACULA", kind: "person", reads: ["dracula"], look: {} } };
+  assert.ok(OD.peopleProblems(OD.peopleOf(named), named).some((m) => /contains the name/.test(m)));
+  const badCarry = { ...PEOPLE, jonathan: { ...PEOPLE.jonathan, carries: "varna" } };
+  assert.ok(OD.peopleProblems(OD.peopleOf(badCarry), badCarry).some((m) => /carries "varna" — a DRAWN thing/.test(m)));
+  // the verdict
+  const v = OD.judge(people, { 1: "woman in a dark dress with a bun", 2: "man in a suit holding a notebook", 3: "man in black robe, mustache" });
+  assert.strictEqual(v.named, 2);
+  const g = OD.gatePeople(people, v);
+  assert.ok(g.length === 1 && /person "dracula" was read as "man in black robe, mustache"/.test(g[0]));
+  assert.deepStrictEqual(OD.gatePeople(people, v, new Set(["mina", "jonathan", "typewriter"])), [], "only the people a told beat puts on stage are asked");
+  assert.ok(OD.gatePeople(people, null)[0].includes("has not been seen blind"));
+  const changed = OD.peopleOf({ ...PEOPLE, mina: { ...PEOPLE.mina, look: { ...PEOPLE.mina.look, headwear: "bonnet" } } });
+  assert.ok(OD.gatePeople(changed, v, new Set(["mina"]))[0].includes("changed after the blind test"));
+  // the signature on stage: the drawn thing they are never without is in their hand from the moment they enter
+  const r = compile([beat("b1", "Jonathan arrived in the evening", { stage: { layout: "solo", who: ["jonathan"] } })], PEOPLE);
+  assert.deepStrictEqual(r.errors, []);
+  const held = r.stages[0].items.find((x) => /jonathan\.held/.test(x.id));
+  assert.ok(held && held.paths.length === 5 && item(r.stages[0], "jonathan").action === "hold");
+  assert.ok(!compile([beat("b1", "Jonathan arrived", { stage: { layout: "solo", who: ["jonathan"] } })]).stages[0].items.some((x) => /held/.test(x.id)), "nobody carries what the book did not give them");
+  const sheet = fs.readFileSync(path.join(__dirname, "cast-sheet.js"), "utf8");
+  assert.ok(/delete it\.label/.test(sheet) && /hud: \{ enabled: false \}/.test(sheet), "the cast sheet shows the person WITHOUT the name and without the book's title");
+});
+
 console.log(`\n${n} checks passed`);

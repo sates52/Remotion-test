@@ -9,6 +9,23 @@ Published books are frozen.
 | Film Flow 1.0 — living characters | ≥ 1 | The narration's word timings drive mouth, head, brows and hand strokes (`speech.ts`); glances and weight shifts instead of sine loops; gestures with anticipation and overshoot (`movements.ts` `livePose`). | Built, dev. Measured effect small (SSIM 0.97–0.98 against today's film). Not switched on by any pipeline step. |
 | **Film Flow 2.0 — told stages (told v1)** | ≥ 2 | The picture shows what the narration names: emblems, people and the book's own drawings on one kept stage, with what happens to them landing on the narrator's words (`told.ts`, `components/ToldStage.tsx`; authored as `told` beats, compiled by `scripts/lib/told-compile.js`, applied by `scripts/told.js`, make-book step 1.886). | **Production for new Antidote books** (operator, 2026-11-14). |
 | **Film Flow 3.0 — the book's own drawings (told v2)** | ≥ 2, stage `v: 2` | A named thing of any kind is shown as a drawing made for this book (emblem = fallback); a drawing has states (`change` + `state`, sticky); a person holds / gives / takes a drawing; the stage is AT a place (`stage.at`, backdrop). Drawings are linted, printed one per file and named blind before merge (`scripts/lib/own-drawings.js`, `own-icons-sheet.js --judge`). | **Production for new Antidote books** (operator, 2026-11-17, after two rounds of clips). |
+| **Film Flow 4.0 — people play the verb (told v3)** | ≥ 2, stage `v: 3` | `{ do: "act", who, verb, target? }`: the person does what the narration says, on the word — 13 verbs, each one gesture with a preparation, a moment and a rest (`toldActs.ts`), the other's reaction, the desk and the thing for a seated typist; a person's signature (`look`, `holds`, `carries`) and the blind "who is this?" gate (`cast-sheet.js`); merge warning for a person on stage with nobody doing anything. | Built on `dev/act-verbs` (stacked on `dev/own-drawings`, 2026-11-17); waits for the operator's eye on the clips. |
+
+## Told v3 — people play the verb (2026-11-17)
+
+- **Version:** `TOLD_VERSION` 3. A figure carries `act: { verb, at }` (`at` = the stage frame of the narrator's word)
+  and `ToldStage` reads it only on `v >= 3`. Only an `act` event (or a person's `carries`) produces anything new: the
+  v1 and v2 golden passages (`fixtures-told-v1.js`, `fixtures-told-v2.js`) and dracula's 147 v2 stages compile to
+  identical items.
+- **Verbs:** `VERBS` in `told-compile.js` (what each needs), `toldActs.ts` (the poses: `hit` / `struck`, `bite` /
+  `bitten`, `hide`, `dig`, `type`, `write`, `read`, `look`; `chase`, `come`, `fall`, `point` use the rig's own run,
+  walk, falling / collapsed, point). Nothing loops: typing is ten key strokes, digging three thrusts, then rest.
+  Over a cut a person is at rest in their verb; a new `stage` stands them up.
+- **Why:** dracula's told authors wrote `action: "typing" | "read" | "write"` — not actions of the rig, so people
+  stood (16 such events; a person on stage and nobody doing anything in 102 of 147 told beats).
+- **People:** `reads` + `look` / `holds` / `carries` on a person; `cast-sheet.js` (cloud stills, one picture per
+  person, no name) → blind "who is this?" → `own-people.verdict.json`; prep refuses twins, merge refuses a told
+  beat with a person nobody could tell (only for a book that has taken up the test: some person has `reads`).
 
 ## Told v2 — the book's own drawings (2026-11-16)
 

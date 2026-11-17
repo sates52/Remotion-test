@@ -67,7 +67,27 @@ book's **own drawings** (an animal, an object), plus what happens to them. The s
      Redraw what was read as something else (dracula's open earth box took three drawings: "wooden crate",
      "treasure chest", then "crate of soil"). **Merge refuses a told beat that uses a drawing without a passing
      verdict**; prep refuses a drawing that is not one (three polygons, one colour, a corner of its box).
-4. Re-run `node scripts/storyboard.js prep --slug=<slug>`: `rules.md` now opens with the told section and lists
+4. **Give every person a signature and have them told apart blind (told v3, 2026-11-17).** A person is the engine's
+   rig dressed by `look`; eight people in dark suits are told apart only by their name plates. In `entities.json`:
+
+   ```json
+   { "dracula":  { "label": "COUNT DRACULA", "kind": "person", "reads": ["cape", "top hat", "vampire"],
+                   "look": { "outfit": "cloak", "headwear": "topHat", "beard": "mustache", "height": 1.08 } },
+     "jonathan": { "label": "JONATHAN HARKER", "kind": "person", "reads": ["suit", "notebook"],
+                   "look": { "outfit": "suit", "accessory": "tie" }, "carries": "journal" } }
+   ```
+   - `look`: one thing a stranger SEES per person — headwear is the cheapest (`topHat`, `fedora`, `cowboy`, `bonnet`,
+     `veil`, …), then beard / glasses / hair, outfit, height, build, an `accessory`. `holds` = a hand prop of the
+     engine; `carries` = one of the book's own DRAWN things, in their hand whenever they are on stage.
+   - `reads`: what a stranger may call them from the picture ("man in a top hat", "old man", "glasses") — written
+     BEFORE the test, never the name, never a misreading added afterwards.
+   - `node scripts/cast-sheet.js --slug=<slug> --cloud` → one picture per person, alone, WITHOUT the name (stills on
+     GitHub Actions, 5–15 min). ONE picture to ONE fresh sonnet agent: "who is this, in 2-6 words?". Then
+     `node scripts/cast-sheet.js --slug=<slug> --judge=<answers.json>` → `own-people.verdict.json`.
+   - Measured on dracula: as authored 5 of 8 people were seen as intended; signatures alone did not help at first
+     (the cloak reads "robe", a cowboy hat "fedora", a veil made Lucy "a nun", messy hair "devil horns") — after one
+     round of changes 8 of 8. **Merge refuses a told beat that puts on stage a person nobody could tell.**
+5. Re-run `node scripts/storyboard.js prep --slug=<slug>`: `rules.md` now opens with the told section and lists
    these ids, each drawn thing with its states, each place that can stand behind the stage. (A book without
    `entities.json` gets no told section and merge refuses a told beat.)
 
@@ -106,6 +126,17 @@ What made the approved passages work — follow it:
   `take` picks up a thing that stands on stage. Where the narration IS somewhere, the stage is there:
   `"stage": { …, "at": "transylvania" }` draws the place, pale, behind everything (a new `stage` without `at` is
   nowhere in particular). Only what `rules.md` lists as drawn / with states / as a place exists.
+- **PEOPLE PLAY THE VERB (told v3).** When the narration says a person does something — to someone, with something
+  — write `{ "on": "<the verb's word>", "do": "act", "who": "<person>", "verb": "<verb>", "target": "<id>" }`. They
+  turn to the other, close the distance, the gesture lands on the word, the other reacts; a typist SITS at a desk
+  with the typewriter under her hands, a reader has the book in both hands, one who hides shows only head and
+  shoulders over the thing, one who comes WALKS in. Verbs: `hit`, `bite`, `chase`, `hide`, `dig`, `type`, `write`,
+  `read`, `look`, `meet` (eye contact), `come`, `fall`, `point` — the table in `rules.md` says what each needs and
+  what the viewer sees. A title that names the action over standing people is not the action. `change` + `action`
+  takes ONLY the rig's own actions (listed in `rules.md`); "typing", "read", "write" are not among them — the
+  person would stand still (dracula's authors wrote 16 of those). Do not invent an action the narration does not
+  say: an analytical passage with nobody doing anything stays a stage of things and a claim. Merge WARNS about a
+  beat with a person on stage and nobody doing anything.
 - **People stand for the people the narration names** — at their age, in their dress. They stand still unless given
   something to do (`change` with an `action`). Never a host or a stand-in figure "to have someone there".
 - **The camera goes where the sentence goes** (`focus`), and comes back (`wide`) before the stage is used whole again.
@@ -147,8 +178,11 @@ the PC). Run it from the book's worktree, after make-book.
 ## Limits (told v2)
 
 - The engine's library icons are not available on a told stage — a thing is the book's own drawing or an emblem.
-- A held drawing sits AT the hand (the rig's own fingers do not close on it); a person holds one thing; a state
-  change is a cross-fade in place, not an animation of the change.
+- A held drawing sits in the hand of the rig's hold pose (the fingers do not close on it); a person holds one thing;
+  a state change is a knock and a cross-fade, not an animation of the change.
+- The rig faces the viewer: a verb is read from the arms, the lean, the head and where the two stand — there is no
+  side view. `dig` brings its own earth and spade; other verbs have no tool of their own. `hit` / `bite` put the two
+  bodies in contact and their name plates shrink; `come` stands the newcomer in the next place of the layout.
 - A backdrop is one flat drawing: it fades, it does not move.
 - Up to four `pair` rows on one stage; a thing that would rest under the subtitle band is reported by the compiler.
 - A film without `meta.flow ≥ 2` draws no told stage; `told.js revert --write` gives a book its figure-and-text

@@ -297,8 +297,12 @@ cases; the operator chose the told form on side-by-side passages. Guide (every h
 1. Before prep (lead agent): `node scripts/told.js entities --slug=<slug>` → write `storyboard/entities.json`
    (label, kind, glyph / look / paths) → DRAW the things that carry the book and have them named blind (§1b,
    told v2) → `storyboard.js prep` (rules.md opens with the told section).
-2. Authors write `told` on the beats that name something; `merge` checks them (ids, the word, the event, a drawing's
-   state, the blind-naming verdict of every drawing a beat uses).
+   People get a signature and are told apart blind the same way (told v3): `reads` + `look` / `holds` / `carries`,
+   `node scripts/cast-sheet.js --slug=<slug> --cloud`, one picture to one fresh agent, `--judge`.
+2. Authors write `told` on the beats that name something — and `act` (who, verb, target) where the narration says a
+   person DOES something (told v3); `merge` checks them (ids, the word, the event, a drawing's state, the verb and
+   its target, the blind verdict of every drawing and every person a beat uses) and warns about a beat with a person
+   on stage and nobody doing anything.
 3. make-book step 1.886 (`told.js apply --write --pipeline`) compiles the stages against the planned word timings,
    puts them on their scenes and seals them as the authored decision — before hard-gate, the lock restore and every
    gate. A told beat that does not compile stops the build: fix the beat, merge, run again (routine, no approval).
