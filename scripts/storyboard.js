@@ -61,9 +61,9 @@ const vp = bible.visualProvenance || {};
 const FICTION = !/non-?fiction|self.?help|business|finance|psycholog|productiv|science|history|philosoph|memoir|biograph/i.test(String(book.genre || ""));
 
 // books/<slug>/motifs.json — per-book icons drawn as data (customSvg), read by lib/antidote-director.js
+// + the things the book drew in storyboard/entities.json (Film Flow 6: one vocabulary — lib/own-drawings.js ownIcons)
 function ownMotifs() {
-  const m = readJSON(path.join(BOOK, "motifs.json"), {}) || {};
-  return m.motifs || m;
+  return require("./lib/own-drawings").ownIcons(BOOK);
 }
 // signature objects: the book's own things no shared icon depicts (the Mechanical Hound)
 const signatureObjects = () => (Array.isArray(bible.signatureObjects) ? bible.signatureObjects : []);
@@ -1008,6 +1008,7 @@ function merge() {
     arr.forEach((b) => { authored.set(b.i, b); owner.set(b.i, f); });
   }
   const problems = [], warnings = [];
+  const shared = { own: 0, library: 0, by: {} }, OWN_ICON_KEYS = new Set(Object.keys(ownMotifs()).map((k) => k.toLowerCase())); // Film Flow 6: whose icons the figure beats use
   const nowhere = { all: 0, none: 0 }; // Film Flow 6: figure beats, and those that stand at no place of the book
   const toldUses = new Map(); // entity id → the first told beat that uses it (told v2: the own-drawing gate)
   const watchTold = toldWatch(TOLD_ENTITIES); // told v3: a person on stage and nobody doing anything → a warning
@@ -1267,6 +1268,7 @@ function merge() {
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
       // FILM FLOW 6: the book's own place behind a figure beat
       if (!a.told) { nowhere.all++; if (a.place == null) nowhere.none++; }
+      if (!a.told && typeof a.concept === "string" && a.concept.trim() && !/^none$/i.test(a.concept.trim())) { if (OWN_ICON_KEYS.has(a.concept.trim().toLowerCase())) shared.own++; else { shared.library++; shared.by[a.concept.trim()] = (shared.by[a.concept.trim()] || 0) + 1; } }
       if (a.place != null && a.told) P(i, `place: a told beat's place is its stage's "at" ("stage": { …, "at": "${a.place}" })`);
       else if (a.place != null && !isPlaceDrawn(TOLD_ENTITIES[a.place])) P(i, `place "${a.place}" — a place of entities.json that has a drawing (see rules.md, "Where it happens")`);
       if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
@@ -1305,6 +1307,7 @@ function merge() {
     }
     // FILM FLOW 6 — said once, never refused: how much of the book stands in a generic set although it drew its places
     if (Object.values(TOLD_ENTITIES).some(isPlaceDrawn) && nowhere.all && nowhere.none / nowhere.all > 0.5) warnings.push(`places: ${nowhere.none} of ${nowhere.all} beats that are not told stand at no place of the book (the generic set is drawn) — write "place": "<place id>" where the narration is there (rules.md, "Where it happens")`);
+    if (shared.library >= 8 && shared.library > 2 * shared.own) warnings.push(`icons: ${shared.library} of ${shared.library + shared.own} concept icons of the beats that are not told come from the SHARED library (${Object.entries(shared.by).sort((x, y) => y[1] - x[1]).slice(0, 6).map(([k, c]) => `${k} ×${c}`).join(", ")}) — the lead agent draws this book's own thing for an idea that returns (entities.json "paths"; candidates "drawing") and the beats name it as their concept`);
     // told v2 — A DRAWING NOBODY COULD NAME IS NOT PUT ON STAGE: every own drawing a told beat uses has a passing
     // blind-naming verdict for the drawing as it is now (own-icons-sheet.js --judge); said once per drawing
     // told v3 — A PERSON NOBODY COULD TELL is not put on stage either (cast-sheet.js --judge)

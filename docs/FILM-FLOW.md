@@ -13,6 +13,24 @@ Published books are frozen.
 | **Film Flow 5.0 — the book's own cast (told v4)** | ≥ 2, stage `v: 4` | A person's `look.drawn`: a head and a garment drawn for THIS book on the rig (the rig keeps eyes, brows, mouth, limbs); lint + generated brief; the same head in the figure scenes between the stages; the blind "who is this?" gate unchanged. | **Production for new Antidote books** (operator, 2026-11-17, after the ESKI / YENI clips). |
 | **Film Flow 6.0 — the book's own world, slice 1: places** | any (figure scenes: `bg.own`) | A beat that is not told names `place`: the book's own drawing of that place is drawn behind the cast instead of the shared set, where a told stage draws it. Merge warns when a book drew its places and most figure beats use none; `told.js status` reports the film time at a place the book drew. | **Production for new Antidote books** (operator, 2026-11-17, after the ESKI / YENI clips). |
 
+## Film Flow 6 — the book's own world, slice 2: THINGS (2026-11-17 — on `dev/own-things`, NOT yet production)
+
+- **Why (dracula, measured):** 53 of the 130 scenes that are not told show a concept icon, and all 53 came from the
+  shared library (law ×6, shield ×5, balance ×5, medical ×5 …) — while the book's own drawings (the ship, the earth
+  box, the typewriter) could only be used on a told stage. Two vocabularies; the generic one did the figure scenes.
+- **What — one vocabulary:** a thing with `paths` in `storyboard/entities.json` is also an own icon under its entity id
+  (`own-drawings.js` `iconsOfEntities` / `ownIcons` = those + `motifs.json`, the per-book file wins). The storyboard
+  vocabulary (`storyboard.js` `ownMotifs`) and the director (`antidote-director.js`) read that one list, so an author
+  writes `"concept": "<entity id>"` and the same drawing stands beside the cast (a `customSvg` prop: data, no engine
+  code). Nothing is converted on its own: the authored concept decides.
+- **For the lead agent:** the drawing brief now says to draw the book's recurring IDEAS as THIS book's thing (not
+  "law" but the deed; not "medical" but the transfusion flask). **Reported, never refused:** `told.js status / apply`
+  print own against shared-library icons; merge warns once when the library carries the figure beats.
+- **Measured (dracula, scratch copy):** seven things drawn (deed, manifest, transfusion flask, crucifix, pocket watch,
+  kukri knife, telegraph pole), 7 of 7 named blind as intended on the first drawing; 20 of the 53 beats were about
+  one of them → shared-library icons 53 → 33. The other 33 are metaphors (balance, war, mask) nobody drew a book's
+  version of. In that copy the config prop was rewritten to what the director emits for an own icon; no re-plan.
+
 ## Film Flow 6 — the book's own world, slice 1: PLACES (2026-11-17)
 
 - **Why (dracula, measured):** 46 % of the film's time were figure scenes in 11 shared sets (Dracula stood in "office"

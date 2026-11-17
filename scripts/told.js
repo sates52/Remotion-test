@@ -92,6 +92,7 @@ if (cmd === "status") {
   console.log(`${SLUG}: ${told} of ${config.scenes.length} scenes told · flow level ${config.meta.flow || 0}`);
   console.log(`what the narration names is on screen: ${pct(cov.share)} (${cov.shown} of ${cov.mentions} scenes)${told ? ` — without told ${pct(before.share)}` : ""}`);
   const share = OD.drawnShare(config), own = OD.readBook(BOOK), named = Object.values((own.verdict && own.verdict.drawings) || {});
+  { const ic = OD.iconShare(config); if (ic.own + ic.library) console.log(`concept icons of the scenes that are not told: ${ic.own} the book's own, ${ic.library} from the shared library${ic.library ? ` (${ic.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}`); }
   { const p = placeShare(config); if (p.at) console.log(`film time at a place the book drew: ${pct(p.share)}`); }
   if (told) console.log(`things on told stages shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem}; the rest are emblems)`);
   if (own.drawings.length) console.log(`own drawings: ${own.drawings.length} · named blind as intended: ${named.filter((r) => r.ok).length} of ${own.drawings.length}${OD.gate(own.drawings, own.verdict).length ? " — NOT all named: node scripts/own-icons-sheet.js --slug=" + SLUG : ""}`);
@@ -131,7 +132,7 @@ if (cmd === "check" || cmd === "apply") {
   const share = OD.drawnShare(r.config);
   if (!errors.length && (Object.keys(places).length || atPlace.at)) console.log(`  ✓ ${pl.report.applied} figure scene(s) at a place of the book · film time at a place the book drew: ${pct(atPlace.share)}`);
   if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);
-  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share }, ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
+  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share }, ownIcons: OD.iconShare(r.config), ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
   if (errors.length) {
     if (cmd === "apply" && args.write) fs.writeFileSync(F.report, JSON.stringify(report, null, 2));
     console.log(`TOLD NOT APPLIED — ${errors.length} error(s). Nothing was written. Fix the beats in storyboard/authored-N.json (the messages name them), merge --write, and run again.`);

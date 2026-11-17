@@ -266,6 +266,7 @@ function drawingGuide(palette = DEFAULT_PALETTE) {
     `STATES — what the narration CHANGES gets a drawing per state it shows (2-3 at most): "states": { "wrecked": { "reads": ["shipwreck", "wrecked ship"], "paths": [...] } } in the same box with the same base silhouette, only the change drawn differently. Authors then write { "do": "change", "who": "<id>", "state": "wrecked" }.`,
     `A PLACE may also be the stage's background: "backdrop": { "viewBox": "${RULES.backdropBox}", "reads": [...], "paths": [...] } — a wide, simple skyline / landscape standing on the bottom edge (it is drawn pale behind the things; up to ${RULES.maxBackdropPaths} paths). Authors write "stage": { ..., "at": "<place id>" }.`,
     `EVERY place the story stands in gets a backdrop — interiors too (her bedroom, the asylum, the cellar), not only the cities: it is also drawn behind the beats that are not told ("place": "<place id>"). A backdrop holds NO thing that is an entity of its own (no ship in the harbour when the ship is on stage: the viewer sees two) and nobody of the cast.`,
+    `THE SAME DRAWING EVERYWHERE: a thing drawn here is also an own icon of the beats that are NOT told — an author writes "concept": "<entity id>" and the same ship stands beside the cast. So draw the book's recurring IDEAS too, as THIS book's thing (not "law" but the deed of the estate; not "medical" but the transfusion flask): a film whose icons are the shared scales, shield and clock could be any book.`,
     `ONE SOURCE: an object that is already an own icon in books/<slug>/motifs.json is not drawn again — write "motif": "<its key>" on the entity (and on a state).`,
     `Then SEE them: node scripts/own-icons-sheet.js --slug=<slug> → a fresh agent names each numbered drawing blind → node scripts/own-icons-sheet.js --slug=<slug> --judge=<answers.json>. Merge refuses a told beat that uses a drawing nobody could name.`,
   ];
@@ -412,6 +413,39 @@ function gatePeople(people, verdict, used = null) {
 }
 
 /**
+ * ONE VOCABULARY (Film Flow 6, slice 2). A thing the book drew for its told stages (entities.json "paths") is the same
+ * drawing when a beat that is NOT told is about it: it joins the book's own icons (motifs.json) under its entity id, in
+ * the shape the director and the renderer already take ({ title, reads, viewBox, paths } → a customSvg prop). People are
+ * not icons; an entity that points at a motif is that motif already. motifs.json wins on a same key (resolveEntities
+ * refuses the twin anyway).
+ */
+function iconsOfEntities(entities = {}) {
+  const out = {};
+  for (const [id, e] of Object.entries(entities || {})) {
+    if (!e || typeof e !== "object" || e.kind === "person" || e.motif || !Array.isArray(e.paths) || !e.paths.length) continue;
+    out[id] = { title: e.label || id, ...(Array.isArray(e.reads) && e.reads.length ? { reads: e.reads.join(" / ") } : {}), viewBox: e.viewBox || RULES.box, paths: e.paths, fromEntity: true };
+  }
+  return out;
+}
+/** every own icon of a book: motifs.json + the things of entities.json (bookDir = books/<slug>) */
+function ownIcons(bookDir) {
+  const fs = require("fs"), path = require("path");
+  const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "")); } catch { return {}; } };
+  const raw = read(path.join(bookDir, "motifs.json")) || {}, motifs = raw.motifs || raw;
+  return { ...iconsOfEntities(read(path.join(bookDir, "storyboard", "entities.json"))), ...motifs };
+}
+
+/** the concept icons of the scenes that are not told: the book's own (customSvg) against the shared library's */
+function iconShare(config) {
+  let own = 0, library = 0; const byType = {};
+  for (const s of (config && config.scenes) || []) {
+    if (s.told) continue;
+    for (const p of s.props || []) { if (p.type === "customSvg") own++; else { library++; byType[p.type] = (byType[p.type] || 0) + 1; } }
+  }
+  return { own, library, share: own + library ? own / (own + library) : null, libraryTop: Object.entries(byType).sort((a, b) => b[1] - a[1]).slice(0, 8) };
+}
+
+/**
  * The one place that READS a book's drawings from disk (everything above is pure): entities.json, motifs.json, the
  * palette (book.json < story bible) and the blind-naming verdict → what the compiler, the sheet, prep and merge use.
  */
@@ -426,4 +460,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { iconsOfEntities, ownIcons, iconShare, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };

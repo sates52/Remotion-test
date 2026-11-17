@@ -596,8 +596,17 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
       return loaded && typeof loaded === "object" ? (loaded.motifs || loaded) : {};
     } catch { return {}; }
   })();
+  // Film Flow 6 (one vocabulary): the things the book drew in storyboard/entities.json are own icons too
+  const perBookThings = (() => {
+    try {
+      const fsx = require("fs"), ent = require("path").join(__dirname, "..", "..", "books", String(slug || ""), "storyboard", "entities.json");
+      if (!fsx.existsSync(ent)) return {};
+      return require("./own-drawings").iconsOfEntities(JSON.parse(fsx.readFileSync(ent, "utf8").replace(/^\uFEFF/, "")));
+    } catch { return {}; }
+  })();
   const customMotifs = {
     ...((bible && bible.antidote && bible.antidote.activeCustomMotifs) || {}),
+    ...perBookThings,
     ...perBook,   // the per-book file wins
   };
   const seedBase = String(slug || "antidote").split("").reduce((a, c) => a + c.charCodeAt(0), 0);
