@@ -19,11 +19,20 @@ const VERB_HELP = {
   type: "SITS at it: a desk, the thing on the desk under the hands, a run of key strokes from the word on",
   write: "sits at a desk and writes (on the target, if a drawn thing is named)",
   read: "the thing is in both hands in front of the chest, the head down to it",
-  look: "turns the head and the eyes to it, and keeps looking",
-  meet: "eye contact: both turn to each other",
-  come: "WALKS up to it and stands there on the word — from off the stage when not yet on it",
+  come: "WALKS up to them and stands there on the word — from off the stage when not yet on it. A PHYSICAL arrival only",
   fall: "falls on the word and lies there",
   point: "the arm goes out at it",
+};
+/**
+ * HOW OFTEN A MUTED VIEWER READ EACH VERB — measured blind on dracula, 2026-11-17: 14 seeded-random `act` moments, a
+ * fresh rater who does not see the subtitle is asked what each person is doing, on the frame where the verb is played.
+ * Small numbers, said as they are; a verb that was only seen in the verb-lab clip says so. Update with every new test.
+ */
+const VERB_MEASURED = {
+  type: "1 of 1 (\"sitting at a typewriter, typing\")", come: "5 of 6 WHILE WALKING — once arrived the person just stands", hide: "1 of 2", point: "1 of 2",
+  read: "0 of 1 (it shared its beat with a second verb; alone it reads as \"holding an open book\")",
+  bite: "not measured (lab clip: reads as one leaning onto the other)", hit: "not measured (lab clip only)", chase: "not measured (lab clip only)",
+  dig: "not measured (lab clip only)", fall: "not measured (lab clip only)", write: "not measured (lab clip only)",
 };
 const ACTIVE = new Set(["act", "give", "take"]); // events in which a person DOES something
 /** told v2: what an entity brings to the stage as DRAWINGS (as written: paths or a motif pointer) */
@@ -143,9 +152,18 @@ ${drawnRules}
 ${EVENT_HELP.map(([d, f, m]) => `| \`${d}\` | ${f} | ${m} |`).join("\n")}
 
 ${people.length ? `**Verbs** (\`act\`)
-| verb | target | what the viewer sees |
-|---|---|---|
-${Object.keys(VERBS).map((v) => `| \`${v}\` | ${VERBS[v].target === "person" ? "a person" : VERBS[v].target === "thing" ? "a drawn thing" : "a person or a thing"}${VERBS[v].need ? "" : " (optional)"} | ${VERB_HELP[v]} |`).join("\n")}
+| verb | target | what the viewer sees | read by a muted viewer (measured) |
+|---|---|---|---|
+${Object.keys(VERBS).map((v) => `| \`${v}\` | ${VERBS[v].target === "person" ? "a person" : VERBS[v].target === "thing" ? "a drawn thing" : "a person or a thing"}${VERBS[v].need ? "" : " (optional)"} | ${VERB_HELP[v]} | ${VERB_MEASURED[v]} |`).join("\n")}
+
+- **ONE verb per person per beat.** Two \`act\` events for the same person in one beat showed only the second; merge
+  refuses it — give the second verb the next beat (a stage is carried), or choose the one the sentence is about.
+- **\`come\` is a PHYSICAL arrival at a person or a thing on stage** — someone walks in and stands next to them. It is
+  not for a figurative coming ("Dracula comes to London", "the story arrives at …"): that is where the stage IS
+  (\`"stage": { …, "at": "<place>" }\`) or who is on it (\`enter\`). Merge warns about a \`come\` whose target is a place.
+- **There is no verb for a glance.** \`look\` and eye contact were tried and read by nobody (0 of 2): the rig faces the
+  viewer and a turned head is not seen. If the narration only says someone looks, watches or notices, stage what
+  they look AT (a drawn thing, a state change, \`focus\`) — do not invent a verb for it.
 
 ` : ""}**When not to use it:** a beat about an unnamed person's inner state, or a general idea with nothing named — author
 it the usual way below. Never put a host or a stand-in figure on a told stage to "have someone there".
@@ -189,6 +207,8 @@ function checkToldBeat(told, narration, entities) {
       for (const v of checkString(String(text), { kind, narration, authored: true })) out.push(`${tag} "${text}": ${v.code} — ${v.message}`);
     }
     if (ev.do === "pair" && !(ev.left && ev.right)) out.push(`${tag} (pair): needs left and right`);
+    // told v3 (round 2): one verb per person per beat — the second replaced the first on screen
+    if (ev.do === "act" && events.slice(0, k).some((p) => p && p.do === "act" && names(p.who)[0] === names(ev.who)[0])) out.push(`${tag} (act ${ev.verb}): ${names(ev.who)[0]} already plays a verb in this beat — one verb per person per beat (the second showed instead of the first); give this one the next beat or choose`);
     // told v2: the book's drawings — a state that is drawn, a thing that can be held, a place that can stand behind
     const w0 = names(ev.who)[0], e0 = entities[w0];
     if (ev.do === "change" && ev.state != null && e0 && ev.state !== "base" && !statesOf(e0).includes(ev.state)) out.push(`${tag} (change): "${w0}" has no state "${ev.state}" — ${statesOf(e0).length ? `one of base, ${statesOf(e0).join(", ")}` : drawn(e0) ? "no state is drawn for it" : "only a drawn thing has states"}`);
@@ -237,6 +257,7 @@ function toldWatch(entities) {
       if (ev.do === "enter" || ev.do === "arrange") { if (ev.do === "arrange") on = new Set(); names(ev.who).forEach((w) => on.add(w)); }
       if (ev.do === "exit") names(ev.who).forEach((w) => on.delete(w));
       if (ev.do === "act" && ev.verb === "come") names(ev.who).forEach((w) => on.add(w));
+      if (ev.do === "act" && ev.verb === "come" && entities[ev.target] && entities[ev.target].kind === "place") out.push(`told: act come → "${ev.target}" is a PLACE — \`come\` is someone physically walking up to a person or a thing on stage. For "${names(ev.who)[0]} comes to ${entities[ev.target].label || ev.target}" say where the stage is ("stage": { …, "at": "${ev.target}" }) or bring them on with \`enter\``);
       if (ev.do === "change" && ev.action != null && isPerson(names(ev.who)[0]) && !RIG_ACTIONS.includes(ev.action)) out.push(`told: change action "${ev.action}" is not an action of the rig — ${names(ev.who)[0]} would stand still. Use { "do": "act", "verb": … } (${Object.keys(VERBS).join(", ")}) or one of: ${RIG_ACTIONS.join(", ")}`);
     }
     const people = [...on].filter(isPerson);
@@ -246,4 +267,4 @@ function toldWatch(entities) {
   };
 }
 
-module.exports = { toldSection, checkToldBeat, toldWatch, EVENT_HELP, VERB_HELP, GLYPHS };
+module.exports = { toldSection, checkToldBeat, toldWatch, EVENT_HELP, VERB_HELP, VERB_MEASURED, GLYPHS };

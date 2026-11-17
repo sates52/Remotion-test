@@ -48,17 +48,18 @@ const LAYOUTS = ["solo", "versus", "row", "court", "pairs"];
 const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw", "give", "take", "at", "act"];
 /** told v3 — what each verb needs: the other it is done to ("person" | "thing" = a drawn thing | "any"), and whether it must be there */
 const VERBS = {
-  hit: { target: "person", need: true }, bite: { target: "person", need: true }, chase: { target: "person", need: true }, meet: { target: "person", need: true },
+  hit: { target: "person", need: true }, bite: { target: "person", need: true }, chase: { target: "person", need: true },
   hide: { target: "any", need: true }, type: { target: "thing", need: true }, read: { target: "thing", need: true },
-  write: { target: "thing", need: false }, dig: { target: "any", need: false }, look: { target: "any", need: true }, point: { target: "any", need: true },
+  write: { target: "thing", need: false }, dig: { target: "any", need: false }, point: { target: "any", need: true },
   come: { target: "any", need: true }, fall: { target: "any", need: false },
 };
 /** how close two people stand for a verb (px at scale 1, centre to centre) and how early an approach starts */
 // (first lab clip: at 215 / 150 the two bodies and their name plates lay on each other)
 // hit: the fist (≈ 180 px from the body's middle at scale 1) arrives at the other's near shoulder
 const REACH = { hit: 260, bite: 215, come: 340, dig: 380, chase: 330 };
-/** two people in contact: their name plates shrink to this size so that both names stay readable side by side */
-const CLOSE_PLATE = 26;
+/** two people in contact (round 2): the one who acts carries their name plate one plate HIGHER — at 215–260 px apart
+ *  two plates of 300 px lay on each other, and shrinking them (round 1) did not part them */
+const PLATE_UP = -(38 + 22 + 10);
 /** what a digger digs: a mound of earth and the spade standing in it — an engine drawing, at the digger's feet */
 const DIG_PATHS = [
   { d: "M40 470 Q120 330 230 380 Q330 300 480 470 Z", fill: "#4A3527" },
@@ -248,11 +249,17 @@ function compileTold(beats, written = {}, opts = {}) {
     };
     const arrange = (layout, who, at) => {
       if (!LAYOUTS.includes(layout)) return err(`layout "${layout}" — one of ${LAYOUTS.join(", ")}`);
+      // v3 (round 2): someone who sits at a desk and is given another place GETS UP first — the desk slid across their
+      // legs with them and the typewriter went back to its slot without them (dracula 154, an `enter` after a `type`)
+      const stood = [];
+      for (const w of who) { const it = find(w); if (it && it.act && bound(w).some((b) => b._role === "desk")) { stood.push(w); standUp(w, Math.max(8, at - 12)); swap(w, Math.max(3, at - 10), (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); } }
       const sl = slots(layout, who.length);
       // an arrangement is exact, like `stage`: a thing it does not name leaves (dracula scene-108: eight things from
       // three arrangements standing in each other)
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
       who.forEach((ent, i) => ensure(ent, at + (at > 0 ? i * 8 : 0), sl[Math.min(i, sl.length - 1)]));
+      // … and in their new place a crown sits exactly over their name plate again (where `crown` puts it)
+      for (const w of stood) { const it = find(w), p = it && T.itemState(it, 1e6); if (p) for (const c of bound(w).filter((x) => x.kind === "crown")) key(c, { at: Math.max(at, 20) + 6, dur: 6, x: p.x, y: p.y - (figH(it) + TAG_H + 46) * p.s, s: p.s }); }
       st8.layout = layout; st8.who = who.slice();
     };
     /** the things as a small row of heads along the top: the middle of the stage is free for a timeline */
@@ -295,6 +302,8 @@ function compileTold(beats, written = {}, opts = {}) {
     const standUp = (ent, when) => {
       for (const b of bound(ent).filter((x) => x._role === "desk")) {
         leave(b, Math.max(8, when), 8);
+        // the crown that came down with the seated head goes back up
+        if (b._seat) for (const c of bound(ent).filter((x) => x.kind === "crown")) key(c, { at: Math.max(12, when + 8), dur: 10, y: stateAt(c, when).y - b._seat });
         if (b._thing && find(b._thing) && find(b._thing)._role === "entity") move(b._thing, Math.max(20, when + 12), b._home, 16);
       }
     };
@@ -341,7 +350,7 @@ function compileTold(beats, written = {}, opts = {}) {
       if (V2) for (const it of items.filter((x) => x._role === "entity" && !x._gone)) { const st = stateAt(it, 0); if (st.o < 0.99 || Math.abs(st.r) > 0.5) key(it, { at: 12, dur: 10, o: 1, r: 0, y: st.y - (st.o < 0.99 ? 35 : 0) }); }
       // v3: a new stage shows its people as themselves — whoever stays stands up from the verb they were left in
       // (seated at a desk, bent over a hole), and the desk goes
-      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) leave(b, 10, 8); /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; n.action = "idle"; }, 3, true); }
+      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) { leave(b, 10, 8); if (b._seat) for (const c of bound(it._ent).filter((x) => x.kind === "crown")) key(c, { at: 14, dur: 10, y: stateAt(c, 0).y - b._seat }); } /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); }
       const wasOn = items.some((x) => x._role === "entity");
       arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
       // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
@@ -527,7 +536,7 @@ function compileTold(beats, written = {}, opts = {}) {
           if (tgt != null && !find(tgt) && !(verb === "read" && drawing(tgt))) { err(`act (${verb}): ${tgt} is not on stage`); break; }
           const T0 = tgt != null ? find(tgt) : null;
           const facing = (n, selfX, otherX) => { if (otherX < selfX - 1) n.flip = true; else if (otherX > selfX + 1) delete n.flip; };
-          const play = (ent, v, when, patch) => swap(ent, Math.max(3, when - (TA.ACT_LEAD[v] || 0) - 2), (n) => { n.act = { verb: v, at: when }; n.action = "idle"; delete n.holds; if (patch) patch(n); }, 3, true);
+          const play = (ent, v, when, patch) => swap(ent, Math.max(3, when - (TA.ACT_LEAD[v] || 0) - 2), (n) => { n.act = { verb: v, at: when }; n.action = "idle"; delete n.holds; delete n.labelDy; if (patch) patch(n); }, 3, true);
           const emptyHands = (ent, when) => { for (const b of heldOf(ent)) leave(b, Math.max(8, when), 6); };
           const sOf = (ent, f) => stateAt(find(ent), f);
           switch (verb) {
@@ -537,9 +546,9 @@ function compileTold(beats, written = {}, opts = {}) {
               const dest = pt.x - dir * REACH[verb] * Math.max(pa.s, pt.s);
               standUp(a, when - 20); emptyHands(a, when - 20);
               if (Math.abs(pa.x - dest) > 12) move(a, when - TA.ACT_LEAD[verb], { x: dest }, 16);
-              play(a, verb, when, (n) => { facing(n, dest, pt.x); n.size = CLOSE_PLATE; });
+              play(a, verb, when, (n) => { facing(n, dest, pt.x); n.labelDy = PLATE_UP; });
               standUp(tgt, when);
-              swap(tgt, when, (n) => { n.act = { verb: verb === "hit" ? "struck" : "bitten", at: when }; n.action = "idle"; n.size = CLOSE_PLATE; facing(n, pt.x, dest); }, 3, true);
+              swap(tgt, when, (n) => { n.act = { verb: verb === "hit" ? "struck" : "bitten", at: when }; n.action = "idle"; delete n.labelDy; facing(n, pt.x, dest); }, 3, true);
               find(tgt).shake = { at: when, dur: 18, amp: verb === "hit" ? 14 : 8 };
               break; }
             case "chase": {
@@ -555,11 +564,12 @@ function compileTold(beats, written = {}, opts = {}) {
               run(a, destA, 50, pa.x);
               if (at + 58 < D - 2) swap(a, at + 52, (n) => { n.action = "idle"; delete n._stopAfter; n.act = { verb: "look", at: at + 60 }; }, 3, true);
               break; }
-            case "meet": case "look": case "point": {
+            case "point": {
               const pa = sOf(a, at), pt = sOf(tgt, at);
-              if (verb === "point") { swap(a, Math.max(3, at - 10), (n) => { n.action = "point"; delete n.act; facing(n, pa.x, pt.x); }, 3, true); break; }
-              play(a, "look", at, (n) => facing(n, pa.x, pt.x));
-              if (verb === "meet") play(tgt, "look", at, (n) => facing(n, pt.x, pa.x)); // eye contact: both turn
+              // the arm that points is the free one: what the person carries is put away for the gesture (round 1: a
+              // journal at the chest hid the point — "standing, holding an open notebook")
+              emptyHands(a, at - 12);
+              swap(a, Math.max(3, at - 10), (n) => { n.action = "point"; delete n.act; delete n.labelDy; facing(n, pa.x, pt.x); }, 3, true);
               break; }
             case "hide": {
               // behind the thing, a little to the far side, DOWN: the head shows over its edge; drawn behind it
@@ -593,13 +603,21 @@ function compileTold(beats, written = {}, opts = {}) {
             case "type": case "write": {
               // SEATED AT IT: a desk in front of the person, the thing on the desk under their hands — not a person
               // standing beside a typewriter (dracula, "TYPING IN MANIFOLD")
-              const when = Math.max(at, ACT_MIN), A0 = find(a), pa = sOf(a, when), k = ((A0.w || 260) / 400) * pa.s * Math.min(1, (A0.variant && A0.variant.height) || 1);
-              const rigY = (y) => pa.y - (900 - y) * k;
+              const when = Math.max(at, ACT_MIN), A0 = find(a), hgt = Math.min(1, (A0.variant && A0.variant.height) || 1), unit = ((A0.w || 260) / 400) * hgt;
               standUp(a, when - 30); emptyHands(a, when - 20);
-              const lead = play(a, verb, when);
+              // round 2 — THE TYPIST IS THE SUBJECT: as large as the stage lets a seated person be (seated, the column
+              // is shorter by the seat drop), the name plate and a crown come DOWN with the head, the desk is at lap
+              // height and the thing on it leaves head, shoulders and arms free
+              let pa = sOf(a, when);
+              const crowned = bound(a).some((b) => b.kind === "crown"), drop = TA.SEAT_DROP * unit;
+              const sA = Math.min(1.12, (pa.y - FIG_TOP) / (figH(A0) - drop + TAG_H + (crowned ? CROWN_H : 0)));
+              if (sA > pa.s * 1.03) { move(a, Math.max(20, when - TA.ACT_LEAD[verb] - 4), { s: sA }, 14); pa = { ...pa, s: sA }; }
+              const k = unit * pa.s, rigY = (y) => pa.y - (900 - y) * k;
+              const lead = play(a, verb, when, (n) => { n.labelDy = Math.round(drop); });
+              for (const c of bound(a).filter((x) => x.kind === "crown")) key(c, { at: when - 2, dur: 12, y: stateAt(c, when).y + drop * pa.s });
               const dw = (A0.w || 260) * TA.DESK.deskW * pa.s, dh = TA.DESK.deskH * (pa.s * 1.2);
               const home = T0 && T0._role === "entity" ? (({ x, y, s: sc }) => ({ x, y, s: sc }))(sOf(tgt, when)) : null;
-              items.splice(items.indexOf(lead) + 1, 0, { id: `${a}.desk`, kind: "bar", w: dw, h: dh, x: pa.x, y: rigY(TA.DESK.topY) + dh / 2, enter: { at: Math.max(10, when - 12), from: "fade", dur: 8 }, _bind: a, _role: "desk", _born: beatNo, ...(home ? { _thing: tgt, _home: home } : {}) });
+              items.splice(items.indexOf(lead) + 1, 0, { id: `${a}.desk`, kind: "bar", w: dw, h: dh, x: pa.x, y: rigY(TA.DESK.topY) + dh / 2, enter: { at: Math.max(10, when - 12), from: "fade", dur: 8 }, _bind: a, _role: "desk", _born: beatNo, _seat: drop * pa.s, ...(home ? { _thing: tgt, _home: home } : {}) });
               if (T0 && T0._role === "entity") {
                 const sT = ((A0.w || 260) * (verb === "type" ? TA.DESK.thingW : 0.5) * pa.s) / (T0.w || 312);
                 move(tgt, Math.max(20, when - 6), { x: pa.x, y: rigY(TA.DESK.topY) - (T0.w || 312) * 0.36 * sT, s: sT }, 16);

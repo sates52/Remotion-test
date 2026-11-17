@@ -21,7 +21,10 @@
  *  (dracula's authors wrote "typing", "read", "write"). test-told-acts.js holds this list to schema.ts. */
 export const RIG_ACTIONS = ["idle", "talk", "point", "celebrate", "slump", "think", "walk", "sit", "hold", "reach", "offer", "leave", "flee", "drink", "lying", "collapsed", "falling", "fighting", "struggling", "grabbing", "place", "take", "embrace", "lift", "lifted", "run", "stop", "chop", "throw", "sign"] as const;
 
-export const TOLD_VERBS = ["hit", "chase", "hide", "bite", "dig", "type", "write", "read", "look", "meet", "come", "fall", "point"] as const;
+// (round 2: `look` and `meet` were verbs. A turned head on a rig that faces the viewer was read by nobody — 0 of 2 in
+   // the blind "what is this person doing?" test — so they are no longer offered. The `look` POSE stays: the chaser
+   // looks after the one who got away.)
+export const TOLD_VERBS = ["hit", "chase", "hide", "bite", "dig", "type", "write", "read", "come", "fall", "point"] as const;
 export type ToldVerb = (typeof TOLD_VERBS)[number];
 /** what the OTHER person does when the verb is done to them (never authored: the compiler gives it) */
 export const TOLD_REACTIONS = ["struck", "bitten"] as const;
@@ -150,4 +153,8 @@ export function actPose(act: ToldAct, frame: number): P {
  * works at, and the middle of the thing that stands on it. The compiler puts the typewriter THERE — in front of the
  * typist, under the hands — instead of beside a standing person.
  */
-export const DESK = { topY: 640, thingY: 566, feetY: 876, thingW: 0.78, deskW: 1.25, deskH: 20 };
+// (round 2: at 640 / 0.78 the typewriter covered the typist from the neck down — the desk is at lap height and the
+   // thing smaller, so the head, the shoulders and both arms are seen ABOVE it)
+export const DESK = { topY: 692, thingY: 566, feetY: 876, thingW: 0.6, deskW: 1.2, deskH: 20 };
+/** how far the head of a seated person is below where it is when they stand (rig units; movements.ts "sit") */
+export const SEAT_DROP = 109;

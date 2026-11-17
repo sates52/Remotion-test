@@ -24,6 +24,9 @@ export type ToldItem = {
   /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
   /** figure (v3): the verb this person plays and the stage frame of the narrator's word (toldActs.ts actPose) */
   act?: { verb: string; at: number };
+  /** figure (v3): the name plate moved by this much (px of the figure, + = down): down with the head of a seated
+   *  person, up for one of two people in contact so that the two names do not lie on each other */
+  labelDy?: number;
   variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
   /** icon: an animal or an object DRAWN FOR THIS BOOK, as paths in its own viewBox (the same data as motifs.json) */
   paths?: ToldPath[]; viewBox?: string;

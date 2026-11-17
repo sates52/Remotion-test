@@ -90,8 +90,13 @@ t("type: the person SITS at the thing — a desk in front of them, the typewrite
   const [mina, pm] = live(s, "mina", 299), tw = item(s, "typewriter"), pt = T.itemState(tw, 299), desk = item(s, "mina.desk");
   assert.deepStrictEqual(mina.act, { verb: "type", at });
   assert.ok(Math.abs(pt.x - pm.x) < 2, "the typewriter is in front of her, not beside her");
-  assert.ok(pt.y < pm.y - 100 && pt.y > pm.y - C.figH(mina) * pm.s * 0.7, "at the height of her hands");
-  assert.ok(tw.w * pt.s < mina.w * pm.s * 0.9, "at a size a person types on");
+  assert.ok(tw.w * pt.s < mina.w * pm.s * 0.7, "at a size a person types on");
+  // round 2 — she is the subject: larger than she stood, and the thing leaves her head, shoulders and arms free
+  const stood = T.itemState(s.items.find((x) => x.id.startsWith("mina~")) || mina, 2).s;
+  assert.ok(pm.s > stood * 1.03 && pm.s <= 1.12, `seated she is drawn larger (${stood} → ${pm.s})`);
+  const k = (mina.w / 400) * pm.s * Math.min(1, mina.variant.height || 1), shoulders = pm.y - (900 - 330) * k, thingTop = pt.y - (tw.w / 2) * pt.s;
+  assert.ok(thingTop > shoulders + 60 * k, `the top of the thing (${Math.round(thingTop)}) is well under her shoulders (${Math.round(shoulders)})`);
+  assert.ok(mina.labelDy > 40, "her name plate comes down with her head");
   assert.ok(desk && desk.kind === "bar" && T.itemState(desk, 299).y > pt.y, "it stands on a desk");
   const order = ["mina", "mina.desk", "typewriter"].map((id) => s.items.indexOf(item(s, id)));
   assert.ok(order[0] < order[1] && order[1] < order[2], "drawn: the person, the desk, the thing on it");
@@ -101,17 +106,15 @@ t("type: the person SITS at the thing — a desk in front of them, the typewrite
   assert.ok(!live(two.stages[1], "mina", 299)[0].act && item(two.stages[1], "mina.desk").exit, "standing again, no desk");
 });
 
-t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the people where the verb needs them", () => {
+t("bite, point, read, hide, dig, fall, come, chase: each puts the people where the verb needs them", () => {
   const one = (text, events, who = ["dracula", "mina"]) => { const r = compile([beat("b1", text, { stage: { layout: who.length > 2 ? "row" : "versus", who }, events })]); assert.deepStrictEqual(r.errors, [], text); return r.stages[0]; };
   let s = one("he came to her at night and bit her as she slept", [{ on: "bit", do: "act", who: "dracula", verb: "bite", target: "mina" }]);
   let at = wordAt("he came to her at night and bit her as she slept", "bit");
   assert.ok(Math.abs(live(s, "dracula", at)[1].x - live(s, "mina", at + 2)[1].x) < 240, "close enough to bite");
   assert.strictEqual(live(s, "mina", at + 2)[0].act.verb, "bitten");
 
-  s = one("across the room their eyes met", [{ on: "met", do: "act", who: "dracula", verb: "meet", target: "mina" }]);
-  assert.ok(live(s, "dracula", 299)[0].act.verb === "look" && live(s, "mina", 299)[0].act.verb === "look" && !live(s, "dracula", 299)[0].flip && live(s, "mina", 299)[0].flip, "both turn to each other");
-  s = one("he only watched her", [{ on: "watched", do: "act", who: "dracula", verb: "look", target: "mina" }]);
-  assert.ok(live(s, "dracula", 299)[0].act && !live(s, "mina", 299)[0].act, "one looks, the other does not look back");
+  // round 2: a glance is not a verb (read by nobody) — `look` and `meet` are refused with the list of what is
+  for (const verb of ["look", "meet"]) { const r = compile([beat("b1", "he only watched her", { stage: { layout: "versus", who: ["dracula", "mina"] }, events: [{ on: "watched", do: "act", who: "dracula", verb, target: "mina" }] })]); assert.ok(r.errors.some((e) => new RegExp(`verb "${verb}" — one of hit`).test(e.message)), verb); }
   s = one("she pointed straight at him", [{ on: "pointed", do: "act", who: "mina", verb: "point", target: "dracula" }]);
   assert.ok(live(s, "mina", 299)[0].action === "point" && live(s, "mina", 299)[0].flip, "the rig's own point, turned to him");
 
@@ -160,6 +163,7 @@ t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the pe
 });
 
 t("a verb the stage cannot honour is refused with the reason", () => {
+  // (round 2) a second verb for the same person in one beat is merge's to refuse; the compiler still takes the events in order
   const bad = (events, who = ["mina", "typewriter", "varna"]) => compile([beat("b1", "she typed and hit and read and hid and came", { stage: { layout: "row", who }, events })]).errors.map((e) => e.message).join(" | ");
   assert.ok(/verb "sing" — one of hit/.test(bad([{ on: "typed", do: "act", who: "mina", verb: "sing" }])));
   assert.ok(/"who" is the PERSON/.test(bad([{ on: "typed", do: "act", who: "typewriter", verb: "type", target: "typewriter" }])));
@@ -167,14 +171,15 @@ t("a verb the stage cannot honour is refused with the reason", () => {
   assert.ok(/target "typewriter" is not a person/.test(bad([{ on: "hit", do: "act", who: "mina", verb: "hit", target: "typewriter" }])));
   assert.ok(/target "varna" is not a drawn thing/.test(bad([{ on: "typed", do: "act", who: "mina", verb: "type", target: "varna" }])));
   assert.ok(/dracula is not on stage/.test(bad([{ on: "hit", do: "act", who: "mina", verb: "hit", target: "dracula" }])));
+  assert.ok(/verb "look" — one of hit/.test(bad([{ on: "read", do: "act", who: "mina", verb: "look", target: "varna" }])));
   assert.ok(/jonathan is not on stage \(stage \/ enter first — or the verb "come"\)/.test(bad([{ on: "read", do: "act", who: "jonathan", verb: "read", target: "journal" }])));
 });
 
 t("merge: an act is checked like every told event; a person on stage with nobody doing anything is a WARNING", () => {
   const chk = (told, text) => R.checkToldBeat(told, text, ENT);
   assert.deepStrictEqual(chk({ stage: { layout: "versus", who: ["mina", "typewriter"] }, events: [{ on: "typed", do: "act", who: "mina", verb: "type", target: "typewriter" }] }, "she typed it"), []);
-  const bad = chk({ events: [{ on: "typed", do: "act", who: "mina", verb: "sing" }, { on: "hit", do: "act", who: "typewriter", verb: "hit", target: "mina" }, { on: "bit", do: "act", who: "dracula", verb: "bite" }, { on: "read", do: "act", who: "mina", verb: "read", target: "varna" }, { on: "saw", do: "act", who: "mina", verb: "look", target: "mina" }] }, "she typed and hit and bit and read and saw");
-  for (const re of [/verb "sing"/, /"who" is the one PERSON/, /\(act bite\): needs "target"/, /target "varna" is not a drawn thing/, /does not look themselves/]) assert.ok(bad.some((m) => re.test(m)), `${re} in\n  ${bad.join("\n  ")}`);
+  const bad = chk({ events: [{ on: "typed", do: "act", who: "mina", verb: "sing" }, { on: "hit", do: "act", who: "typewriter", verb: "hit", target: "mina" }, { on: "bit", do: "act", who: "dracula", verb: "bite" }, { on: "read", do: "act", who: "mina", verb: "read", target: "varna" }, { on: "saw", do: "act", who: "mina", verb: "point", target: "mina" }] }, "she typed and hit and bit and read and saw");
+  for (const re of [/verb "sing"/, /"who" is the one PERSON/, /\(act bite\): needs "target"/, /target "varna" is not a drawn thing/, /does not point themselves/, /mina already plays a verb in this beat — one verb per person per beat/]) assert.ok(bad.some((m) => re.test(m)), `${re} in\n  ${bad.join("\n  ")}`);
   const watch = R.toldWatch(ENT);
   assert.ok(watch({ stage: { layout: "versus", who: ["mina", "typewriter"] }, events: [{ on: "x", do: "title", text: "Typing in manifold" }] }).some((m) => /mina is on stage and nobody DOES anything/.test(m)));
   assert.ok(watch({ events: [{ on: "x", do: "label", who: "typewriter", text: "Carbon paper" }] }).some((m) => /nobody DOES/.test(m)), "the stage is carried: she is still there in the next beat");
@@ -233,6 +238,56 @@ t("the book's own people: a signature, readings written before the blind test, a
   assert.ok(!compile([beat("b1", "Jonathan arrived", { stage: { layout: "solo", who: ["jonathan"] } })]).stages[0].items.some((x) => /held/.test(x.id)), "nobody carries what the book did not give them");
   const sheet = fs.readFileSync(path.join(__dirname, "cast-sheet.js"), "utf8");
   assert.ok(/delete it\.label/.test(sheet) && /hud: \{ enabled: false \}/.test(sheet), "the cast sheet shows the person WITHOUT the name and without the book's title");
+});
+
+// ── round 2 (operator's list, 2026-11-17) ────────────────────────────────────────────────────────────────────────────
+t("round 2 · two people in contact: the name plates do not lie on each other — the one who acts carries theirs higher", () => {
+  for (const verb of ["bite", "hit"]) {
+    const text = "he came to her at night and then it happened as she slept";
+    const r = compile([beat("b1", text, { stage: { layout: "versus", who: ["dracula", "mina"] }, events: [{ on: "happened", do: "act", who: "dracula", verb, target: "mina" }] })]);
+    assert.deepStrictEqual(r.errors, []);
+    const at = wordAt(text, "happened"), [d, pd] = live(r.stages[0], "dracula", at + 4), [m, pm] = live(r.stages[0], "mina", at + 4);
+    const plate = (it, st) => { const w = it.w, h = w * 2.25, v = Math.min(1, it.variant.height || 1), top = st.y + (-h + h * (1 - v) * 0.9 - 38 - 34 + (it.labelDy || 0)) * st.s, half = (T.plateW(it.label, it.size || 38) / 2) * st.s; return { x0: st.x - half, x1: st.x + half, y0: top, y1: top + 60 * st.s }; };
+    const a = plate(d, pd), b = plate(m, pm), overlapX = Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0), overlapY = Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0);
+    assert.ok(overlapX > 0, "they are close enough for their plates to meet side by side");
+    assert.ok(overlapY <= 0, `${verb}: the two plates are one above the other (vertical overlap ${Math.round(overlapY)})`);
+    assert.ok(!d.size && !m.size, "at full reading size");
+  }
+});
+
+t("round 2 · a crown comes down with a seated head and goes back up when they stand; a seated person who is re-arranged gets up first", () => {
+  const text = "night after night Mina sat down and typed every page in manifold and Jonathan came in later";
+  const r = compile([
+    beat("b0", "Mina took charge of it all", { stage: { layout: "versus", who: ["mina", "typewriter"] }, events: [{ on: "charge", do: "crown", who: "mina" }] }),
+    beat("b1", text, { events: [{ on: "typed", do: "act", who: "mina", verb: "type", target: "typewriter" }, { on: "Jonathan", do: "enter", who: "jonathan" }] }),
+  ]);
+  assert.deepStrictEqual(r.errors, []);
+  const s = r.stages[1], crown = item(s, "mina.crown"), at = wordAt(text, "typed"), atJ = wordAt(text, "Jonathan");
+  assert.ok(T.itemState(crown, at + 2).y > T.itemState(crown, 2).y + 30, "the crown is lower once she sits");
+  const desk = item(s, "mina.desk");
+  assert.ok(desk.exit && desk.exit.at <= atJ && !(desk.keys || []).length, "the desk is gone before she is moved, and never slides with her");
+  const end = live(s, "mina", 299);
+  assert.ok(!end[0].act && !end[0].labelDy, "she stands when the stage makes room for the newcomer");
+  assert.ok(Math.abs(T.itemState(crown, 299).y - (end[1].y - (C.figH(end[0]) + 78 + 46) * end[1].s)) < 30, "and the crown is back over her name plate");
+  const tw = T.itemState(item(s, "typewriter"), 299);
+  assert.ok(Math.abs(tw.x - end[1].x) > 250, "the typewriter stands in its own place again");
+});
+
+t("round 2 · the rules say which verbs a muted viewer reads (measured), that come is a physical arrival, one verb per beat, and no glance", () => {
+  const sec = R.toldSection(ENT);
+  assert.ok(/read by a muted viewer \(measured\)/.test(sec) && /5 of 6 WHILE WALKING/.test(sec) && /1 of 1/.test(sec));
+  assert.deepStrictEqual(Object.keys(R.VERB_MEASURED).sort(), Object.keys(C.VERBS).sort(), "every verb says how it was read, or that it was not measured");
+  assert.ok(/ONE verb per person per beat/.test(sec) && /is a PHYSICAL arrival/.test(sec) && /There is no verb for a glance/.test(sec));
+  assert.ok(!/\| `look` \|/.test(sec) && !/\| `meet` \|/.test(sec));
+  const watch = R.toldWatch(ENT);
+  const w = watch({ stage: { layout: "versus", who: ["dracula", "london"] }, events: [{ on: "x", do: "act", who: "dracula", verb: "come", target: "london" }] });
+  assert.ok(w.some((m) => /act come → "london" is a PLACE/.test(m)), w.join(" | "));
+  assert.deepStrictEqual(watch({ stage: { layout: "solo", who: ["mina"] }, events: [{ on: "x", do: "act", who: "jonathan", verb: "come", target: "mina" }] }), [], "a person walking up to a person is what it is for");
+  // point: what is carried is put away so that the arm is seen
+  const P = { ...ENT, jonathan: { ...ENT.jonathan, carries: "journal" } };
+  const r = compile([beat("b1", "Jonathan pointed straight at him", { stage: { layout: "versus", who: ["jonathan", "dracula"] }, events: [{ on: "pointed", do: "act", who: "jonathan", verb: "point", target: "dracula" }] })], P);
+  assert.deepStrictEqual(r.errors, []);
+  assert.ok(r.stages[0].items.filter((x) => /jonathan\.held/.test(x.id)).every((x) => x.exit), "the journal leaves his hands for the gesture");
 });
 
 console.log(`\n${n} checks passed`);

@@ -202,7 +202,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                   <g transform={`translate(${it.flip ? w / 2 : -w / 2} ${-h}) scale(${it.flip ? -1 : 1} 1)`}>
                     <Everyman variant={v} pose={p} width={w} body={full ? "full" : "bust"} holds={it.holds as HandProp | undefined} />
                   </g>
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={-h + headTop - (it.size ?? 38) - 34} fit={fit} /> : null}
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={-h + headTop - (it.size ?? 38) - 34 + ((spec.v ?? 1) >= 3 ? it.labelDy ?? 0 : 0)} fit={fit} /> : null}
                 </g>
               );
             }
