@@ -72,7 +72,7 @@ t("hit: the person walks up, turns to the other, the fist lands on the word; the
   const [jon, pj] = live(s, "jonathan", at), [dra, pd] = live(s, "dracula", at + 2);
   assert.deepStrictEqual(jon.act, { verb: "hit", at });
   assert.deepStrictEqual(dra.act, { verb: "struck", at });
-  assert.ok(Math.abs(pd.x - pj.x) < 260 && Math.abs(pd.x - pj.x) > 150, `within reach on the word (${Math.abs(pd.x - pj.x)})`);
+  assert.ok(Math.abs(pd.x - pj.x) < 290 && Math.abs(pd.x - pj.x) > 180, `within reach on the word (${Math.abs(pd.x - pj.x)})`);
   assert.ok(!jon.flip && dra.flip, "they face each other (he stands left: no flip; the other is flipped to face him)");
   assert.ok(live(s, "jonathan", 20)[1].x < pj.x - 100, "he had to walk up to him");
   assert.ok(dra.shake && dra.shake.at === at);
@@ -105,7 +105,7 @@ t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the pe
   const one = (text, events, who = ["dracula", "mina"]) => { const r = compile([beat("b1", text, { stage: { layout: who.length > 2 ? "row" : "versus", who }, events })]); assert.deepStrictEqual(r.errors, [], text); return r.stages[0]; };
   let s = one("he came to her at night and bit her as she slept", [{ on: "bit", do: "act", who: "dracula", verb: "bite", target: "mina" }]);
   let at = wordAt("he came to her at night and bit her as she slept", "bit");
-  assert.ok(Math.abs(live(s, "dracula", at)[1].x - live(s, "mina", at + 2)[1].x) < 190, "close enough to bite");
+  assert.ok(Math.abs(live(s, "dracula", at)[1].x - live(s, "mina", at + 2)[1].x) < 240, "close enough to bite");
   assert.strictEqual(live(s, "mina", at + 2)[0].act.verb, "bitten");
 
   s = one("across the room their eyes met", [{ on: "met", do: "act", who: "dracula", verb: "meet", target: "mina" }]);
@@ -126,6 +126,8 @@ t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the pe
 
   s = one("they dug beside the box for an hour", [{ on: "dug", do: "act", who: "jonathan", verb: "dig", target: "box" }], ["jonathan", "box"]);
   assert.ok(live(s, "jonathan", 299)[0].act.verb === "dig" && Math.abs(live(s, "jonathan", 299)[1].x - T.itemState(item(s, "box"), 299).x) > 200, "beside it, not on it");
+  const mound = item(s, "jonathan.dig");
+  assert.ok(mound && mound.kind === "icon" && mound.paths.length >= 4 && !mound.label, "the earth and the spade are there: a bent figure alone read as someone falling");
 
   const fallText = "and Jonathan fell where he stood and that was all there was to it now";
   s = one(fallText, [{ on: "fell", do: "act", who: "jonathan", verb: "fall" }], ["jonathan", "mina"]);
@@ -139,14 +141,16 @@ t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the pe
   const walk = r.stages[0].items.find((x) => x.id.startsWith("jonathan") && x.action === "walk"), pm = T.itemState(item(r.stages[0], "mina"), 299);
   assert.ok(walk && (T.itemState(walk, at - 40).x < 0 || T.itemState(walk, at - 40).x > 1920 || Math.abs(T.itemState(walk, at - 40).x - pm.x) > 600), "he starts far off");
   const end = live(r.stages[0], "jonathan", 299);
-  assert.ok(end[0].action === "idle" && Math.abs(end[1].x - pm.x) < 330 && Math.abs(end[1].x - pm.x) > 150, "he stands beside her");
+  assert.ok(end[0].action === "idle" && Math.abs(end[1].x - pm.x) < 400 && Math.abs(end[1].x - pm.x) > 220, "he stands beside her");
 
   const chaseText = "then Jonathan chased Dracula across the yard and out of sight of the house at last";
   s = one(chaseText, [{ on: "chased", do: "act", who: "jonathan", verb: "chase", target: "dracula" }], ["jonathan", "dracula"]);
   at = wordAt(chaseText, "chased");
   assert.strictEqual(live(s, "dracula", at + 20)[0].action, "run"); assert.strictEqual(live(s, "jonathan", at + 20)[0].action, "run");
-  assert.ok(live(s, "dracula", 299)[1].x > 1500 && live(s, "jonathan", 299)[1].x > 1100 && live(s, "jonathan", 299)[1].x < live(s, "dracula", 299)[1].x, "the one flees to the far side, the other after him");
-  assert.ok(live(s, "dracula", 299)[0].action === "idle" && live(s, "jonathan", 299)[0].action === "idle", "they stop when they arrive: no running on the spot");
+  assert.ok(live(s, "dracula", at + 30)[1].x > live(s, "dracula", at)[1].x + 300, "he runs for the edge");
+  assert.strictEqual(live(s, "dracula", 299), null, "the one who flees runs off the stage and is gone");
+  const chaser = live(s, "jonathan", 299);
+  assert.ok(chaser[1].x > 1100 && chaser[0].action === "idle" && chaser[0].act.verb === "look", "the chaser stops and looks after him: no running on the spot");
 });
 
 t("a verb the stage cannot honour is refused with the reason", () => {

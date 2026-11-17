@@ -288,6 +288,60 @@ function drawnShare(config) {
   return { drawn, emblem, share: drawn + emblem ? drawn / (drawn + emblem) : null };
 }
 
+// ── THE BOOK'S OWN PEOPLE (Film Flow 4 / told v3) ────────────────────────────────────────────────────────────────────
+// A person on a told stage is the engine's rig dressed by the entity's `look` — and nobody had looked at them either:
+// dracula's eight people were eight figures told apart by a name plate. A person now has a SIGNATURE (the look: a
+// silhouette, a dress; what they always carry: `holds`, a hand prop, or `carries`, one of the book's own drawings) and
+// is SEEN, alone and without a name, by a blind rater who is asked who this is. `reads` are the answers accepted
+// BEFORE the test — what a stranger may call them ("man in a cape", "vampire"), never the name.
+
+/** the signature a viewer sees: everything that changes how the person is drawn */
+const signature = (e) => ({ look: e.look || {}, holds: e.holds || null, carries: e.carries || null, w: e.w || null, body: e.body || null });
+
+/**
+ * peopleOf(entities) → [{ key: "person:<id>", entity, intended, accepted[], hash, twin? }] — one per person, in order.
+ * `twin`: another person drawn exactly alike (two people must differ at a glance).
+ */
+function peopleOf(entities = {}) {
+  const out = [], seen = new Map();
+  for (const [id, e] of Object.entries(entities || {})) {
+    if (!e || e.kind !== "person") continue;
+    const sig = signature(e), look = sha({ look: sig.look, holds: sig.holds, carries: sig.carries });
+    const p = { key: `person:${id}`, entity: id, intended: e.label || id, accepted: [...new Set(list(e.reads).map(norm).filter(Boolean))], hash: sha(sig) };
+    if (seen.has(look)) p.twin = seen.get(look); else seen.set(look, id);
+    out.push(p);
+  }
+  return out;
+}
+
+/** what is wrong with the people AS PEOPLE A VIEWER CAN TELL APART — asked at prep and by the cast sheet */
+function peopleProblems(people, entities = {}) {
+  const out = [];
+  if (!people.some((p) => p.accepted.length)) return out; // a book that has not taken up the blind test is not asked
+  for (const p of people) {
+    if (p.twin) out.push(`person "${p.entity}": drawn exactly like "${p.twin}" — two people must differ at a glance (look: outfit, hair, headwear, beard, glasses, height, colours; or what they carry)`);
+    if (!p.accepted.length) out.push(`person "${p.entity}": no "reads" — what a stranger would call them ("man in a cape", "old man with glasses"), written BEFORE the blind test; never the name`);
+    const e = entities[p.entity] || {};
+    if (p.accepted.some((r) => norm(e.label).split(" ").filter((w) => w.length > 2).includes(r))) out.push(`person "${p.entity}": "reads" contains the name — a blind rater cannot know it`);
+    if (e.carries != null && !(entities[e.carries] && entities[e.carries].kind !== "person" && (Array.isArray(entities[e.carries].paths) || entities[e.carries].motif))) out.push(`person "${p.entity}": carries "${e.carries}" — a DRAWN thing of entities.json`);
+  }
+  return out;
+}
+
+/** gatePeople(people, verdict, used?) → [messages] — why a told beat may not put these people on stage yet */
+function gatePeople(people, verdict, used = null) {
+  const out = [], rows = (verdict && verdict.drawings) || {};
+  if (!people.some((p) => p.accepted.length)) return out;
+  for (const p of people) {
+    if (used && !used.has(p.entity)) continue;
+    const r = rows[p.key];
+    if (!r || r.answer == null) out.push(`person "${p.entity}" has not been seen blind — node scripts/cast-sheet.js --slug=<slug> --cloud, a fresh agent says who each picture shows, then --judge`);
+    else if (r.hash !== p.hash || JSON.stringify(r.accepted) !== JSON.stringify(p.accepted)) out.push(`person "${p.entity}" (the look, what they carry, or "reads") changed after the blind test — run the cast sheet and the blind test again`);
+    else if (!r.ok) out.push(`person "${p.entity}" was read as "${r.answer}", not ${p.accepted.map((a) => `"${a}"`).join(" / ")} — give them a signature a stranger sees (look, holds, carries) and test again`);
+  }
+  return out;
+}
+
 /**
  * The one place that READS a book's drawings from disk (everything above is pure): entities.json, motifs.json, the
  * palette (book.json < story bible) and the blind-naming verdict → what the compiler, the sheet, prep and merge use.
@@ -299,8 +353,8 @@ function readBook(bookDir) {
   const entities = read(path.join(sb, "entities.json"), {}) || {};
   const rawMotifs = read(path.join(bookDir, "motifs.json"), {}) || {}, motifs = rawMotifs.motifs || rawMotifs;
   const palette = paletteOf(read(path.join(bookDir, "book.json"), {}) || {}, read(path.join(bookDir, "story-bible.json"), {}) || {});
-  const verdictFile = path.join(sb, "own-drawings.verdict.json");
-  return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
+  const verdictFile = path.join(sb, "own-drawings.verdict.json"), peopleVerdictFile = path.join(sb, "own-people.verdict.json");
+  return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { readBook, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { readBook, peopleOf, peopleProblems, gatePeople, signature, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };

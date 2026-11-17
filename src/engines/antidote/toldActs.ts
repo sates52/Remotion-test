@@ -81,7 +81,8 @@ export function actPose(act: ToldAct, frame: number): P {
     case "hide": {
       // down behind the thing: knees bent, shoulders in, eyes over the edge toward what is hidden from
       const d = ramp(f, -12, 0);
-      return { sit: 0.8 * d, noStool: true, hipY: 86 * d, lean: 5 * d, armL: mix(8, 30, d), elbowL: -70 * d, armR: mix(-8, -30, d), elbowR: 70 * d, headY: 8 * d, gazeX: 0.9 * d, gazeY: -0.2 * d, browY: -3 * d };
+      // (the compiler puts the body behind the thing: only head and shoulders rise over its edge — no seated legs)
+      return { hipY: 26 * d, lean: 4 * d, armL: mix(8, 24, d), elbowL: -60 * d, armR: mix(-8, -24, d), elbowR: 60 * d, headY: 6 * d, gazeX: 0.9 * d, gazeY: -0.2 * d, browY: -3 * d };
     }
     case "bite": {
       // the lean in, the arm that takes hold, the head down to the neck ON the word — held — then it stays close
@@ -107,9 +108,9 @@ export function actPose(act: ToldAct, frame: number): P {
       const bend = ramp(f, -12, -2), k = strokes(f + DIG_LEN / 2, DIG_STROKES, DIG_LEN), done = ramp(f, DIG_STROKES * DIG_LEN - DIG_LEN / 2, DIG_STROKES * DIG_LEN + 12);
       const up = k; // 1 = arms raised (the spade lifted), 0 = driven into the ground
       return {
-        lean: mix(0, mix(22, 12, done), bend) - 6 * up * bend, hipY: mix(0, 16, bend) + 8 * (1 - up) * bend * (1 - done),
+        lean: mix(0, mix(15, 9, done), bend) - 5 * up * bend, hipY: mix(0, 16, bend) + 8 * (1 - up) * bend * (1 - done),
         armR: mix(-8, mix(-26, -70, up), bend), elbowR: mix(0, mix(34, 70, up), bend), armL: mix(8, mix(20, 46, up), bend), elbowL: mix(0, mix(-30, -66, up), bend),
-        legL: -12 * bend, legR: 12 * bend, kneeL: 10 * bend, kneeR: 8 * bend, headY: 8 * bend, gazeY: 0.8 * bend, gazeX: 0.3 * bend, mouth: 0.2 * (1 - up) * bend * (1 - done),
+        legL: -5 * bend, legR: 5 * bend, kneeL: 6 * bend, kneeR: 6 * bend, headY: 8 * bend, gazeY: 0.8 * bend, gazeX: 0.3 * bend, mouth: 0.2 * (1 - up) * bend * (1 - done),
       };
     }
     case "type": {

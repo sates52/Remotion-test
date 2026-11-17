@@ -865,6 +865,15 @@ function prep() {
       console.error(`   Fix them (how to draw one: storyboard/entities.candidates.json "drawing"; STORYBOARD_RUNBOOK.md §1b), remove a drawing's paths to fall back to its emblem, or pass --skip-own-drawings="<why>".`);
       process.exit(1);
     }
+    // told v3: the people — two drawn alike, or (once the book has taken up the blind "who is this?" test) one nobody has seen
+    const peopleProblems = OD.peopleProblems(OWN_DRAWINGS.people, OWN_DRAWINGS.entities);
+    if (peopleProblems.length && !args["skip-own-people"]) {
+      peopleProblems.forEach((m) => console.error(`  ✗ ${m}`));
+      console.error(`❌ ${peopleProblems.length} problem(s) with the people of books/${SLUG}/storyboard/entities.json (told.md "People"; --skip-own-people="<why>" only with a reason).`);
+      process.exit(1);
+    }
+    const unseen = OD.gatePeople(OWN_DRAWINGS.people, OWN_DRAWINGS.peopleVerdict);
+    if (unseen.length) console.warn(`⚠ ${unseen.length} of ${OWN_DRAWINGS.people.length} people not seen blind as intended yet — node scripts/cast-sheet.js --slug=${SLUG} --cloud (merge refuses a told beat that uses one):\n${unseen.map((m) => `    ${m}`).join("\n")}`);
     const unnamed = OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict);
     if (unnamed.length) console.warn(`⚠ ${unnamed.length} of ${OWN_DRAWINGS.drawings.length} own drawing(s) not named blind as intended yet — node scripts/own-icons-sheet.js --slug=${SLUG} (merge refuses a told beat that uses one):\n${unnamed.map((m) => `    ${m}`).join("\n")}`);
   }
@@ -1290,6 +1299,11 @@ function merge() {
     }
     // told v2 — A DRAWING NOBODY COULD NAME IS NOT PUT ON STAGE: every own drawing a told beat uses has a passing
     // blind-naming verdict for the drawing as it is now (own-icons-sheet.js --judge); said once per drawing
+    // told v3 — A PERSON NOBODY COULD TELL is not put on stage either (cast-sheet.js --judge)
+    for (const m of OD.gatePeople(OWN_DRAWINGS.people, OWN_DRAWINGS.peopleVerdict, new Set(toldUses.keys()))) {
+      const ent = (m.match(/^person "([^"]+)/) || [])[1];
+      problems.push(`OWN PEOPLE (first on stage in beat ${toldUses.get(ent)}): ${m}`);
+    }
     for (const m of OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict, new Set(toldUses.keys()))) {
       const ent = (m.match(/^drawing "([^"#@]+)/) || [])[1];
       problems.push(`OWN DRAWING (first used by beat ${toldUses.get(ent)}): ${m}`);

@@ -54,7 +54,19 @@ const VERBS = {
   come: { target: "any", need: true }, fall: { target: "any", need: false },
 };
 /** how close two people stand for a verb (px at scale 1, centre to centre) and how early an approach starts */
-const REACH = { hit: 215, bite: 150, come: 270, dig: 280, chase: 330 };
+// (first lab clip: at 215 / 150 the two bodies and their name plates lay on each other)
+// hit: the fist (≈ 180 px from the body's middle at scale 1) arrives at the other's near shoulder
+const REACH = { hit: 260, bite: 215, come: 340, dig: 380, chase: 330 };
+/** two people in contact: their name plates shrink to this size so that both names stay readable side by side */
+const CLOSE_PLATE = 26;
+/** what a digger digs: a mound of earth and the spade standing in it — an engine drawing, at the digger's feet */
+const DIG_PATHS = [
+  { d: "M40 470 Q120 330 230 380 Q330 300 480 470 Z", fill: "#4A3527" },
+  { d: "M120 470 Q170 410 230 440 Q300 400 360 470 Z", fill: "#33241B" },
+  { d: "M300 150 H322 V372 H300 Z M276 132 H346 V156 H276 Z", fill: "#7A4A21" },
+  { d: "M278 362 H344 V420 Q311 456 278 420 Z", fill: "#5E6B73" },
+  { d: "M70 462 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 Z M420 452 a7 7 0 1 0 14 0 a7 7 0 1 0 -14 0 Z", fill: "#E9E1CF" },
+];
 const ACT_MIN = 36; // an act that needs an approach does not land before this stage frame
 /** how a named thing is DRAWN: a person is the rig; anything with a drawing is that drawing; the rest is an emblem */
 const drawnAs = (e) => (!e ? null : e.kind === "person" ? "figure" : (Array.isArray(e.paths) && e.paths.length) || e.motif ? "icon" : KINDS[e.kind] || null);
@@ -228,6 +240,8 @@ function compileTold(beats, written = {}, opts = {}) {
       if (V2) { const half = plateHalf({ label: e.label, kind }, slot.s); if (half) slot = { ...slot, x: Math.max(EDGE + half, Math.min(1920 - EDGE - half, slot.x)) }; }
       if (it) { const st = stateAt(it, at); if (Math.abs(st.x - slot.x) > 1 || Math.abs(st.y - y) > 1 || Math.abs(st.s - slot.s) > 0.01) move(ent, Math.max(at, 20), { x: slot.x, y, s: slot.s }); return it; }
       it = add({ ...entityItem(ent, e, colorOf, stateOf[ent]), x: slot.x, y, s: slot.s });
+      // v3 — a person's SIGNATURE: the one drawn thing of the book they are never without comes on stage in their hand
+      if (kind === "figure" && e.carries && drawing(e.carries)) { if (it.action === "idle") it.action = "hold"; const h = add({ ...inHand(e.carries, it, { x: slot.x, y, s: slot.s }) }); if (at > 0 || from) h.enter = { at: Math.max(14, at) + 6, from: "fade", dur: 8 }; }
       if (kind === "figure" && slot.x > 960 && it.flip == null) it.flip = true; // faces the middle
       if (at > 0 || from) it.enter = { at: Math.max(14, at), from: from || (slot.x < 900 ? "left" : slot.x > 1020 ? "right" : kind === "figure" ? "bottom" : "pop"), dur: 14 };
       return it;
@@ -516,17 +530,23 @@ function compileTold(beats, written = {}, opts = {}) {
               const dest = pt.x - dir * REACH[verb] * Math.max(pa.s, pt.s);
               standUp(a, when - 20); emptyHands(a, when - 20);
               if (Math.abs(pa.x - dest) > 12) move(a, when - TA.ACT_LEAD[verb], { x: dest }, 16);
-              play(a, verb, when, (n) => facing(n, dest, pt.x));
+              play(a, verb, when, (n) => { facing(n, dest, pt.x); n.size = CLOSE_PLATE; });
               standUp(tgt, when);
-              swap(tgt, when, (n) => { n.act = { verb: verb === "hit" ? "struck" : "bitten", at: when }; n.action = "idle"; facing(n, pt.x, dest); }, 3, true);
+              swap(tgt, when, (n) => { n.act = { verb: verb === "hit" ? "struck" : "bitten", at: when }; n.action = "idle"; n.size = CLOSE_PLATE; facing(n, pt.x, dest); }, 3, true);
               find(tgt).shake = { at: when, dur: 18, amp: verb === "hit" ? 14 : 8 };
               break; }
             case "chase": {
               // the other runs for the far side, the chaser after them — both RUN while they travel and stand when they arrive
               const pa = sOf(a, at), pt = sOf(tgt, at), dir = pt.x >= pa.x ? 1 : -1, destT = dir > 0 ? 1640 : 280, destA = destT - dir * REACH.chase * Math.max(pa.s, pt.s);
               standUp(a, at); standUp(tgt, at); emptyHands(a, at);
-              const run = (ent, to, dur, selfX) => { swap(ent, Math.max(3, at), (n) => { n.action = "run"; delete n.act; n._stopAfter = true; facing(n, selfX, selfX + dir * 100); }, 3, true); move(ent, at + dur, { x: to }, dur - 2); if (at + dur + 6 < D - 2) swap(ent, at + dur + 2, (n) => { n.action = "idle"; delete n._stopAfter; }, 3, true); };
-              run(tgt, destT, 40, pt.x); run(a, destA, 46, pa.x);
+              const run = (ent, to, dur, selfX) => { swap(ent, Math.max(3, at), (n) => { n.action = "run"; delete n.act; n._stopAfter = true; facing(n, selfX, selfX + dir * 100); }, 3, true); move(ent, at + dur, { x: to }, dur - 2); };
+              // (first lab clip: 280 px to the side read as two people shuffling) the one who flees runs OFF the stage
+              // and is gone; the chaser runs most of the way after them and stops, looking where they went
+              run(tgt, dir > 0 ? 2140 : -220, 44, pt.x);
+              for (const b of bound(tgt)) leave(b, at + 30, 8);
+              leave(find(tgt), at + 46, 6); st8.who = st8.who.filter((x) => x !== tgt);
+              run(a, destA, 50, pa.x);
+              if (at + 58 < D - 2) swap(a, at + 52, (n) => { n.action = "idle"; delete n._stopAfter; n.act = { verb: "look", at: at + 60 }; }, 3, true);
               break; }
             case "meet": case "look": case "point": {
               const pa = sOf(a, at), pt = sOf(tgt, at);
@@ -538,7 +558,9 @@ function compileTold(beats, written = {}, opts = {}) {
               // behind the thing, a little to the far side, DOWN: the head shows over its edge; drawn behind it
               const when = Math.max(at, ACT_MIN), pa = sOf(a, when), pt = sOf(tgt, when), side = pa.x >= pt.x ? 1 : -1;
               const wide = T0.kind === "figure" ? (T0.w || 260) * 0.5 : (T0.w || 312) * 0.3;
-              const y = T0.kind === "figure" ? pt.y : pt.y + ((T0.w || 312) / 2) * pt.s + 10;
+              // (first lab clip: standing on the thing's ground the whole upper body showed) only the HEAD AND SHOULDERS
+              // rise over its top edge — the rest of the person is behind it
+              const y = T0.kind === "figure" ? pt.y : pt.y - ((T0.w || 312) / 2) * pt.s * 0.55 + figH(find(a)) * pa.s * 0.36;
               standUp(a, when - 20); emptyHands(a, when - 20);
               move(a, when - TA.ACT_LEAD.hide, { x: pt.x + side * wide * pt.s, y }, 16);
               const n2 = play(a, "hide", when, (n) => facing(n, pt.x + side, pt.x - side * 400)); // looks out past the thing, toward the stage
@@ -549,8 +571,12 @@ function compileTold(beats, written = {}, opts = {}) {
               standUp(a, when - 20); emptyHands(a, when - 20);
               if (verb === "fall") { swap(a, Math.max(3, at - 8), (n) => { n.action = "falling"; delete n.act; }, 3, true); if (at + 20 < D - 2) swap(a, at + 14, (n) => { n.action = "collapsed"; }, 3, true); else find(a)._lands = true; break; }
               let x = pa.x;
-              if (T0) { const pt = sOf(tgt, when), side = pa.x >= pt.x ? 1 : -1; x = pt.x + side * REACH.dig * Math.max(pa.s, pt.s); if (Math.abs(pa.x - x) > 12) move(a, when - TA.ACT_LEAD.dig, { x }, 16); play(a, "dig", when, (n) => facing(n, x, pt.x)); }
+              let toward = 1;
+              if (T0) { const pt = sOf(tgt, when), side = pa.x >= pt.x ? 1 : -1; x = pt.x + side * REACH.dig * Math.max(pa.s, pt.s); toward = -side; if (Math.abs(pa.x - x) > 12) move(a, when - TA.ACT_LEAD.dig, { x }, 16); play(a, "dig", when, (n) => facing(n, x, pt.x)); }
               else play(a, "dig", when);
+              // the earth and the spade: without them a bent figure read as someone falling (first lab clip)
+              const mw = Math.round((find(a).w || 260) * 0.9);
+              add({ id: `${a}.dig`, kind: "icon", paths: DIG_PATHS, w: mw, x: x + toward * mw * 0.62 * pa.s, y: pa.y - mw * 0.36 * pa.s, s: pa.s, enter: { at: Math.max(10, when - 8), from: "fade", dur: 8 }, _bind: a, _role: "desk" });
               break; }
             case "type": case "write": {
               // SEATED AT IT: a desk in front of the person, the thing on the desk under their hands — not a person
