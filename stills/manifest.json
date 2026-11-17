@@ -1,0 +1,64 @@
+{
+ "schema": "stills/1",
+ "name": "film flow 4 — act moments while played",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "filmold0",
+   "config": "configs/film-old.json",
+   "frames": [
+    6135,
+    12253,
+    15801,
+    20768,
+    26120,
+    28919,
+    29024,
+    33528,
+    39819,
+    42980,
+    47293,
+    52467,
+    65130,
+    68168
+   ]
+  },
+  {
+   "id": "filmnew0",
+   "config": "configs/film-new.json",
+   "frames": [
+    6135,
+    12253,
+    15801,
+    20768,
+    26120,
+    28919,
+    29024,
+    33528,
+    39819,
+    42980,
+    47293,
+    52467,
+    65130,
+    68168
+   ]
+  }
+ ],
+ "inputHash": "ef68ce0c72130149",
+ "files": {
+  "stills/configs/film-old.json": "b1453391a1cb87e005cd92c62d327daf648067e6d4b0429003ddde6c0bdc44f9",
+  "stills/configs/film-new.json": "03a3286e8bc7cd4d5adf06ebc14cbf97ba710a5be0248a2f461f3763d65753d8"
+ },
+ "builtAt": "2026-11-17T06:35:23.771Z"
+}
