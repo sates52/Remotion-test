@@ -141,7 +141,13 @@ t("bite, look, meet, point, read, hide, dig, fall, come, chase: each puts the pe
   const walk = r.stages[0].items.find((x) => x.id.startsWith("jonathan") && x.action === "walk"), pm = T.itemState(item(r.stages[0], "mina"), 299);
   assert.ok(walk && (T.itemState(walk, at - 40).x < 0 || T.itemState(walk, at - 40).x > 1920 || Math.abs(T.itemState(walk, at - 40).x - pm.x) > 600), "he starts far off");
   const end = live(r.stages[0], "jonathan", 299);
-  assert.ok(end[0].action === "idle" && Math.abs(end[1].x - pm.x) < 400 && Math.abs(end[1].x - pm.x) > 220, "he stands beside her");
+  assert.ok(end[0].action === "idle" && Math.abs(end[1].x - pm.x) > 220 && end[1].x > 100 && end[1].x < 1820, "he has arrived and stands with her on the stage (the stage made room: nobody is walked onto)");
+  assert.ok(end[0].flip !== !!item(r.stages[0], "mina").flip || end[1].x > pm.x, "turned to her");
+  // a third person already next to the other: the newcomer gets a place of their own
+  const three = compile([beat("b1", "Mina and Dracula stood there for a long while and then Jonathan came to Mina", { stage: { layout: "versus", who: ["mina", "dracula"] }, events: [{ on: "came", do: "act", who: "jonathan", verb: "come", target: "mina" }] })]);
+  assert.deepStrictEqual(three.errors, []);
+  const xs = ["mina", "dracula", "jonathan"].map((id) => live(three.stages[0], id, 299)[1].x).sort((a, b) => a - b);
+  assert.ok(xs[1] - xs[0] > 250 && xs[2] - xs[1] > 250, `three people, three places (${xs.map(Math.round)})`);
 
   const chaseText = "then Jonathan chased Dracula across the yard and out of sight of the house at last";
   s = one(chaseText, [{ on: "chased", do: "act", who: "jonathan", verb: "chase", target: "dracula" }], ["jonathan", "dracula"]);

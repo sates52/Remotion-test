@@ -291,6 +291,13 @@ function compileTold(beats, written = {}, opts = {}) {
       if (id) backdrops.push({ ...backdropOf(id), ...(at > 0 || cur ? { enter: { at: Math.max(12, at), dur: 12 } } : {}) });
       place = id || null;
     };
+    /** v3: a person leaves their desk — the desk goes, and the thing that stood on it returns to its own place */
+    const standUp = (ent, when) => {
+      for (const b of bound(ent).filter((x) => x._role === "desk")) {
+        leave(b, Math.max(8, when), 8);
+        if (b._thing && find(b._thing) && find(b._thing)._role === "entity") move(b._thing, Math.max(20, when + 12), b._home, 16);
+      }
+    };
     /** a drawn thing in a person's hand; it belongs to the person (moves, shrinks and leaves with them) */
     const heldOf = (who) => bound(who).filter((b) => b._role === "held");
     const drawing = (ent) => { const e = entities[ent]; if (!e || drawnAs(e) !== "icon" || !(e.paths || []).length) return null; const st = (stateOf[ent] && e.states && e.states[stateOf[ent]]) || e; return { paths: st.paths, viewBox: st.viewBox }; };
@@ -334,7 +341,7 @@ function compileTold(beats, written = {}, opts = {}) {
       if (V2) for (const it of items.filter((x) => x._role === "entity" && !x._gone)) { const st = stateAt(it, 0); if (st.o < 0.99 || Math.abs(st.r) > 0.5) key(it, { at: 12, dur: 10, o: 1, r: 0, y: st.y - (st.o < 0.99 ? 35 : 0) }); }
       // v3: a new stage shows its people as themselves — whoever stays stands up from the verb they were left in
       // (seated at a desk, bent over a hole), and the desk goes
-      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) leave(b, 10, 8); swap(it._ent, 12, (n) => { delete n.act; n.action = "idle"; }, 3, true); }
+      for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) leave(b, 10, 8); /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; n.action = "idle"; }, 3, true); }
       const wasOn = items.some((x) => x._role === "entity");
       arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
       // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
@@ -478,6 +485,7 @@ function compileTold(beats, written = {}, opts = {}) {
           // the same person, differently: another action, a blindfold, something in the hand
           const own = typeof ev.holds === "string" && drawing(ev.holds), empty = ev.holds === null || ev.holds === "none";
           if (typeof ev.holds === "string" && entities[ev.holds] && !own) { err(`change: "${ev.holds}" has no drawing to hold (entities.json paths) — or name one of the engine's hand props`); break; }
+          if (ev.action && cur.act) standUp(w0, at);
           const next = swap(w0, at, (n) => {
             if (ev.action) { n.action = ev.action; delete n.act; } if (ev.label) n.label = String(ev.label).toUpperCase();
             if (ev.look) n.variant = { ...(n.variant || {}), ...ev.look };
@@ -520,7 +528,6 @@ function compileTold(beats, written = {}, opts = {}) {
           const T0 = tgt != null ? find(tgt) : null;
           const facing = (n, selfX, otherX) => { if (otherX < selfX - 1) n.flip = true; else if (otherX > selfX + 1) delete n.flip; };
           const play = (ent, v, when, patch) => swap(ent, Math.max(3, when - (TA.ACT_LEAD[v] || 0) - 2), (n) => { n.act = { verb: v, at: when }; n.action = "idle"; delete n.holds; if (patch) patch(n); }, 3, true);
-          const standUp = (ent, when) => { for (const b of bound(ent).filter((x) => x._role === "desk")) leave(b, Math.max(8, when), 8); };
           const emptyHands = (ent, when) => { for (const b of heldOf(ent)) leave(b, Math.max(8, when), 6); };
           const sOf = (ent, f) => stateAt(find(ent), f);
           switch (verb) {
@@ -591,7 +598,8 @@ function compileTold(beats, written = {}, opts = {}) {
               standUp(a, when - 30); emptyHands(a, when - 20);
               const lead = play(a, verb, when);
               const dw = (A0.w || 260) * TA.DESK.deskW * pa.s, dh = TA.DESK.deskH * (pa.s * 1.2);
-              items.splice(items.indexOf(lead) + 1, 0, { id: `${a}.desk`, kind: "bar", w: dw, h: dh, x: pa.x, y: rigY(TA.DESK.topY) + dh / 2, enter: { at: Math.max(10, when - 12), from: "fade", dur: 8 }, _bind: a, _role: "desk", _born: beatNo });
+              const home = T0 && T0._role === "entity" ? (({ x, y, s: sc }) => ({ x, y, s: sc }))(sOf(tgt, when)) : null;
+              items.splice(items.indexOf(lead) + 1, 0, { id: `${a}.desk`, kind: "bar", w: dw, h: dh, x: pa.x, y: rigY(TA.DESK.topY) + dh / 2, enter: { at: Math.max(10, when - 12), from: "fade", dur: 8 }, _bind: a, _role: "desk", _born: beatNo, ...(home ? { _thing: tgt, _home: home } : {}) });
               if (T0 && T0._role === "entity") {
                 const sT = ((A0.w || 260) * (verb === "type" ? TA.DESK.thingW : 0.5) * pa.s) / (T0.w || 312);
                 move(tgt, Math.max(20, when - 6), { x: pa.x, y: rigY(TA.DESK.topY) - (T0.w || 312) * 0.36 * sT, s: sT }, 16);
@@ -606,14 +614,22 @@ function compileTold(beats, written = {}, opts = {}) {
               play(a, "read", at);
               break; }
             case "come": {
-              // WALKS up to the other — from off the stage when they are not on it — and stands there on the word
-              const when = Math.max(at, 48), pt = sOf(tgt, when), on = find(a);
-              const side = on ? (sOf(a, when).x >= pt.x ? 1 : -1) : pt.x > 960 ? -1 : 1, s = on ? sOf(a, when).s : Math.min(1, pt.s, fitS(entityItem(a, entities[a], colorOf), Y.figure));
-              const dest = Math.max(140, Math.min(1780, pt.x + side * REACH.come * Math.max(s, pt.s)));
-              if (!on) { const it = add({ ...entityItem(a, entities[a], colorOf), x: side < 0 ? -200 : 2120, y: Y.figure, s, action: "walk", _stopAfter: true }); facing(it, 0, -side); st8.who.push(a); }
-              else { standUp(a, when - 44); swap(a, Math.max(3, when - 44), (n) => { n.action = "walk"; delete n.act; n._stopAfter = true; facing(n, 0, -side); }, 3, true); }
-              move(a, when, { x: dest }, 42);
-              if (when + 6 < D - 2) swap(a, when + 2, (n) => { n.action = "idle"; delete n._stopAfter; }, 3, true);
+              // WALKS up to the other — from off the stage when they are not on it — and stands NEXT TO them on the
+              // word. The stage makes room as it does for `enter` (the first version walked the newcomer onto whoever
+              // already stood beside the other: dracula 107, Van Helsing on Quincey).
+              const when = Math.max(at, 54), on = !!find(a);
+              const others = st8.who.filter((w) => w !== a), k = Math.max(0, others.indexOf(tgt));
+              const fromLeft = on ? sOf(a, when).x < sOf(tgt, when).x : sOf(tgt, when).x > 960; // off stage: from the nearer edge of the far side
+              const all = [...others.slice(0, fromLeft ? k : k + 1), a, ...others.slice(fromLeft ? k : k + 1)];
+              const lay = st8.layout === "court" ? "court" : all.length === 1 ? "solo" : all.length === 2 ? "versus" : "row";
+              if (on) { standUp(a, when - 44); swap(a, Math.max(3, when - 44), (n) => { n.action = "walk"; delete n.act; n._stopAfter = true; facing(n, 0, fromLeft ? 1 : -1); }, 3, true); }
+              arrange(lay, all, Math.max(20, when - 20));
+              const it = find(a);
+              if (!on) { // not a slide-in: a walk from beyond the edge to the place the arrangement gave them
+                const dest = it.x; delete it.enter; it.x = fromLeft ? -200 : 2120; it.action = "walk"; it._stopAfter = true; facing(it, 0, fromLeft ? 1 : -1);
+                key(it, { at: when, dur: 44, ease: "inout", x: dest });
+              }
+              if (when + 6 < D - 2) swap(a, when + 2, (n) => { n.action = "idle"; delete n._stopAfter; facing(n, T.itemState(n, when + 2) ? n.x : 0, sOf(tgt, when).x); }, 3, true);
               break; }
             default: break;
           }
