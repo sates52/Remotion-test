@@ -99,6 +99,13 @@ in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact number
 OUTLINE, not in colour. Then the same blind test as before (`cast-sheet.js --cloud`, one agent per picture, `--judge`).
 `told.js apply` puts the same head on that person in the figure scenes too.
 
+### The places of the book (Film Flow 6 — only once it is on god-mode)
+
+Lead agent: draw EVERY place the story stands in as a `backdrop` (the castle, the harbour, the asylum, her bedroom) —
+interiors too. Authors: a told stage is there with `"stage": { …, "at": "<place>" }`; a beat that is not told is there
+with `"place": "<place>"` next to its `set` — the book's drawing replaces the generic set. `told.js status` prints how much
+of the film stands at a place the book drew; a film that stands in "office" and "room" could be any book.
+
 ## Storyboard authors — when a beat names something
 
 Write `told` instead of concept / cast / callout / diagram (schema, layouts and the event table: `rules.md`).

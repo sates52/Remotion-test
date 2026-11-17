@@ -22,7 +22,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { applyTold, revertTold } = require("./lib/told-apply");
+const { applyTold, revertTold, applyPlaces, placeShare } = require("./lib/told-apply");
 const { entitiesOf, mentionCoverage } = require("./lib/told-entities");
 const { validateEntities, KINDS, GLYPHS } = require("./lib/told-compile");
 const OD = require("./lib/own-drawings");
@@ -41,8 +41,10 @@ const pct = (x) => (x == null ? "–" : `${Math.round(x * 100)} %`);
 
 /** art.json beat i → the scene it became. The planner keeps one scene per beat; a narration that does not match is refused. */
 function toldByScene(config, art) {
-  const out = {}, problems = [];
+  const out = {}, problems = [], places = {};
   for (const b of (art && art.beats) || []) {
+    // Film Flow 6: a figure beat's `place` — the book's own drawing of where it happens, behind the cast
+    if (!b.told && b.place != null && (config.scenes || [])[b.i]) places[config.scenes[b.i].id] = b.place;
     if (!b.told) continue;
     const s = (config.scenes || [])[b.i];
     if (!s) { problems.push(`beat ${b.i}: the config has no scene ${b.i}`); continue; }
@@ -50,7 +52,7 @@ function toldByScene(config, art) {
     if (a && c && !c.startsWith(a.slice(0, 24)) && !a.startsWith(c.slice(0, 24))) { problems.push(`beat ${b.i}: art.json narration "${a}…" is not scene ${s.id}'s "${c}…" — re-run storyboard prep / merge on this plan`); continue; }
     out[s.id] = b.told;
   }
-  return { map: out, problems };
+  return { map: out, problems, places };
 }
 
 function load({ needArt = true } = {}) {
@@ -90,6 +92,7 @@ if (cmd === "status") {
   console.log(`${SLUG}: ${told} of ${config.scenes.length} scenes told · flow level ${config.meta.flow || 0}`);
   console.log(`what the narration names is on screen: ${pct(cov.share)} (${cov.shown} of ${cov.mentions} scenes)${told ? ` — without told ${pct(before.share)}` : ""}`);
   const share = OD.drawnShare(config), own = OD.readBook(BOOK), named = Object.values((own.verdict && own.verdict.drawings) || {});
+  { const p = placeShare(config); if (p.at) console.log(`film time at a place the book drew: ${pct(p.share)}`); }
   if (told) console.log(`things on told stages shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem}; the rest are emblems)`);
   if (own.drawings.length) console.log(`own drawings: ${own.drawings.length} · named blind as intended: ${named.filter((r) => r.ok).length} of ${own.drawings.length}${OD.gate(own.drawings, own.verdict).length ? " — NOT all named: node scripts/own-icons-sheet.js --slug=" + SLUG : ""}`);
   process.exit(0);
@@ -105,15 +108,18 @@ if (cmd === "revert") {
 
 if (cmd === "check" || cmd === "apply") {
   const { config, art, entities } = load();
-  const { map, problems } = toldByScene(config, art);
+  const { map, problems, places } = toldByScene(config, art);
   const n = Object.keys(map).length;
-  if (!n && !problems.length) { console.log(`told ${cmd}: ${SLUG} has no told beat in art.json — nothing to do`); process.exit(0); }
+  if (!n && !problems.length && !Object.keys(places).length) { console.log(`told ${cmd}: ${SLUG} has no told beat in art.json — nothing to do`); process.exit(0); }
   const entErrors = validateEntities(entities);
   // a re-apply starts from the picture the planner made: apply is idempotent on a config that is already told
   const base = revertTold(config).config;
   // told v2: the book's own drawings — motifs.json icons an entity points at, and the book's colours for the tokens
   const own = OD.readBook(BOOK);
-  const r = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette });
+  const r0 = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette });
+  const pl = applyPlaces(r0.config, places, entities, { motifs: own.motifs, palette: own.palette });
+  const r = { config: pl.config, report: { ...r0.report, errors: [...r0.report.errors, ...pl.report.errors], places: pl.report.applied } };
+  const atPlace = placeShare(r.config);
   const gateMsgs = OD.gate(own.drawings, own.verdict, new Set(Object.values(map).flatMap((t) => [...OD.usedBy(t)])));
   const errors = [...problems.map((m) => ({ beat: null, message: m })), ...r.report.errors];
   const before = mentionCoverage(base), after = mentionCoverage(r.config);
@@ -123,8 +129,9 @@ if (cmd === "check" || cmd === "apply") {
   // the blind-naming gate is merge's (storyboard.js); here it is said again so a hand-edited art.json does not hide it
   for (const m of gateMsgs) console.log(`  ⚠ ${m}`);
   const share = OD.drawnShare(r.config);
+  if (!errors.length && (Object.keys(places).length || atPlace.at)) console.log(`  ✓ ${pl.report.applied} figure scene(s) at a place of the book · film time at a place the book drew: ${pct(atPlace.share)}`);
   if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);
-  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
+  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share }, ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
   if (errors.length) {
     if (cmd === "apply" && args.write) fs.writeFileSync(F.report, JSON.stringify(report, null, 2));
     console.log(`TOLD NOT APPLIED — ${errors.length} error(s). Nothing was written. Fix the beats in storyboard/authored-N.json (the messages name them), merge --write, and run again.`);

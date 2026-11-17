@@ -12,6 +12,24 @@ Published books are frozen.
 | **Film Flow 4.0 — people play the verb (told v3)** | ≥ 2, stage `v: 3` | `{ do: "act", who, verb, target? }`: the person does what the narration says, on the word — 13 verbs, each one gesture with a preparation, a moment and a rest (`toldActs.ts`), the other's reaction, the desk and the thing for a seated typist; a person's signature (`look`, `holds`, `carries`) and the blind "who is this?" gate (`cast-sheet.js`); merge warning for a person on stage with nobody doing anything. | **Production for new Antidote books** (operator, 2026-11-17, after two rounds of clips). |
 | **Film Flow 5.0 — the book's own cast (told v4)** | ≥ 2, stage `v: 4` | A person's `look.drawn`: a head and a garment drawn for THIS book on the rig (the rig keeps eyes, brows, mouth, limbs); lint + generated brief; the same head in the figure scenes between the stages; the blind "who is this?" gate unchanged. | **Production for new Antidote books** (operator, 2026-11-17, after the ESKI / YENI clips). |
 
+## Film Flow 6 — the book's own world, slice 1: PLACES (2026-11-17 — on `dev/own-world`, NOT yet production)
+
+- **Why (dracula, measured):** 46 % of the film's time were figure scenes in 11 shared sets (Dracula stood in "office"
+  33 times); the told stages had a drawn place behind them for 2 % of the film's time (4 of 147 beats wrote `at`).
+- **What:** a beat that is NOT told may name `"place": "<place id>"` — a place of `entities.json` with a drawing. `told.js
+  apply` writes that drawing (the place's `backdrop`, or its own paths; the book's colours) to the scene's `bg.own`
+  (`told-apply.js` `applyPlaces`), and `Backdrop.tsx` draws it INSTEAD of the shared set — at the same spot and size as
+  behind a told stage (`backdropFit`), so the place holds across the cut; one layer, no ambient drift. The authored
+  `set` stays in the config and in the lock. Told stages are unchanged (their place is the stage's `at`).
+- **Not a told version:** no told stage is drawn differently; `bg.own` is optional and absent in every earlier config.
+- **Reported:** `told.js apply / status` print "film time at a place the book drew". Report only — no threshold.
+- **Measured (dracula, scratch copy):** four more places drawn (harbour, asylum, bedroom, ruined chapel), all six named
+  blind as intended (the asylum needed one redraw: "large manor" → "hospital building"); film time at a place the book
+  drew 2 % → 61 %. In that copy the place of each beat was assigned from the narration's own words by a script standing
+  in for the storyboard author.
+- **Next slices:** the 53 library props of the figure scenes as the book's own drawings; an own-share report over
+  everything on screen; a cross-book similarity guard; the book's recurring events.
+
 ## Told v4 — the book's own cast (Film Flow 5, 2026-11-17)
 
 - **Why:** the foundry dresses one rig from one wardrobe, so every book's people were the same face in another coat

@@ -78,6 +78,35 @@ function sealTold(scene) {
   return out;
 }
 
+/**
+ * THE BOOK'S OWN PLACE BEHIND A FIGURE SCENE (Film Flow 6). placeByScene: { "<scene id>": "<place id>" } — what the
+ * author wrote as the beat's `place`. The scene's `bg.own` becomes that place's drawing (its backdrop, or its own
+ * paths), in the book's colours; the shared `set` stays in the config (and in the lock) but is not drawn. A told
+ * scene is not touched (its place is the stage's `at`). An unknown or undrawn place is an error; nothing is written.
+ */
+function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
+  const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
+  const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
+  const errors = [], drawingOf = (id) => { const e = ent[id]; if (!e || e.kind !== "place") return null; return e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length ? { id, wide: true, paths: e.backdrop.paths, ...(e.backdrop.viewBox ? { viewBox: e.backdrop.viewBox } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, ...(e.viewBox ? { viewBox: e.viewBox } : {}) } : null; };
+  let applied = 0;
+  const scenes = (config.scenes || []).map((s) => {
+    const id = placeByScene[s.id];
+    if (id == null || s.told) return s;
+    const d = drawingOf(id);
+    if (!d) { errors.push({ beat: s.id, message: `place: "${id}" is not a place of entities.json with a drawing (kind "place" + paths, or a "backdrop")` }); return s; }
+    applied++;
+    return { ...s, bg: { ...(s.bg || {}), own: d } };
+  });
+  return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors } };
+}
+
+/** how much of the film's time stands at a place the book drew (told stages with a backdrop + figure scenes with bg.own) */
+function placeShare(config) {
+  let total = 0, at = 0;
+  for (const s of config.scenes || []) { total += s.durationFrames || 0; if (s.told ? (s.told.backdrops || []).length : s.bg && s.bg.own) at += s.durationFrames || 0; }
+  return { frames: total, at, share: total ? at / total : 0 };
+}
+
 /** `drawings` (told v2): { motifs, palette } — the book's own icons and colours (lib/own-drawings.js readBook) */
 function applyTold(config, toldByScene, entities = {}, drawings = {}) {
   const scenes = config.scenes || [];
@@ -110,7 +139,9 @@ function applyTold(config, toldByScene, entities = {}, drawings = {}) {
 /** Undo: every told scene gets its figure-and-text picture and its planner lock back. */
 function revertTold(config) {
   let n = 0;
-  const scenes = (config.scenes || []).map((s) => {
+  const scenes = (config.scenes || []).map((s0) => {
+    let s = s0;
+    if (!s.told && s.bg && s.bg.own) { const bg = { ...s.bg }; delete bg.own; s = { ...s, bg }; }
     if (!s.told) return s;
     n++;
     const b = s._beforeTold || {}, out = { ...s, ...Object.fromEntries(Object.entries(b).filter(([, v]) => v !== undefined)) };
@@ -129,4 +160,4 @@ function revertTold(config) {
   return { config: { ...config, meta, scenes }, reverted: n };
 }
 
-module.exports = { castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };
+module.exports = { applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };

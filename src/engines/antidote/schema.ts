@@ -679,6 +679,10 @@ export const bgSchema = z.object({
   texture: textureName.default("none"),
   accent: z.string().optional(), // set-furniture ink; defaults to a shade of colors[0]
   split: z.array(z.string()).optional(), // split shot: [leftColor, rightColor]
+  // THE BOOK'S OWN PLACE (Film Flow 6, 2026-11-17): the drawing of where this happens, from the book's entities.json
+  // (a place's `backdrop` or its own paths) — drawn INSTEAD of the shared `set`, at the same spot and size as behind a
+  // told stage, so the place holds across the cut. Written by told.js apply from the beat's `place`; absent by default.
+  own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })) }).optional(),
   // Which act of the director's color script produced this field. Metadata:
   // nothing renders it, but it makes the arc auditable in the config.
   act: z.enum(["setup", "tension", "turn", "resolution"]).optional(),

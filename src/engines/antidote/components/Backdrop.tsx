@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import type { BgSpec } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
+import { backdropFit } from "../told";
 
 /**
  * Backdrop — the world behind the cast.
@@ -1016,6 +1017,9 @@ const Layer: React.FC<{ children: React.ReactNode; dx: number; dy: number; dz: n
   </AbsoluteFill>
 );
 
+/** how strongly the book's own place is drawn behind a figure scene (the cast and the text are read over it) */
+const OWN_PLACE_OPACITY = 0.34;
+
 export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale: number } }> = ({ bg, cam }) => {
   const frame = useCurrentFrame();
   const colors = bg.colors && bg.colors.length ? bg.colors : ["#8FC0E8"];
@@ -1025,7 +1029,10 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
       : colors[0];
   const ink = bg.accent || shade(colors[colors.length - 1], -0.62);
   const accent = bg.accent || shade(colors[0], -0.35);
-  const layers = SETS[bg.set] || null;
+  // the book's own place (Film Flow 6) is drawn instead of the shared set — one layer, no ambient drift
+  const own = bg.own && bg.own.paths && bg.own.paths.length ? bg.own : null;
+  const ownFit = own ? backdropFit(own) : null;
+  const layers = own ? null : SETS[bg.set] || null;
   const tex = textureStyle(bg.texture, ink);
 
   return (
@@ -1070,6 +1077,14 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
             );
           })()}
         </>
+      ) : null}
+
+      {own && ownFit ? (
+        <Layer dx={cam.x * 0.55} dy={cam.y * 0.55} dz={1 + (cam.scale - 1) * 0.6}>
+          <g opacity={OWN_PLACE_OPACITY} transform={`translate(${ownFit.x} ${ownFit.y}) scale(${ownFit.k})`}>
+            {own.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
+          </g>
+        </Layer>
       ) : null}
 
       {tex ? <AbsoluteFill style={tex} /> : null}

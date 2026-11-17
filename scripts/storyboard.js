@@ -51,7 +51,7 @@ if (book.engine !== "vox" && book.engine !== "antidote") {
 }
 const ENGINE = book.engine;
 // FILM FLOW 2: the things the narration names (storyboard/entities.json), written before the authors start
-const { toldSection, checkToldBeat, toldWatch } = require("./lib/told-rules");
+const { toldSection, checkToldBeat, toldWatch, isPlaceDrawn } = require("./lib/told-rules");
 const TOLD_ENTITIES = (() => { try { return JSON.parse(fs.readFileSync(path.join(SB, "entities.json"), "utf8")); } catch { return {}; } })();
 // FILM FLOW 3 (told v2): the book's own drawings of those things — linted at prep, named blind before merge
 const OD = require("./lib/own-drawings");
@@ -1018,7 +1018,7 @@ function merge() {
   {
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told", "place"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1264,6 +1264,9 @@ function merge() {
       const sb = a.storyboard || {};
       // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
+      // FILM FLOW 6: the book's own place behind a figure beat
+      if (a.place != null && a.told) P(i, `place: a told beat's place is its stage's "at" ("stage": { …, "at": "${a.place}" })`);
+      else if (a.place != null && !isPlaceDrawn(TOLD_ENTITIES[a.place])) P(i, `place "${a.place}" — a place of entities.json that has a drawing (see rules.md, "Where it happens")`);
       if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
       watchTold(a.told || null).forEach((m) => warnings.push(`${i}: ${m}`));
       if (!a.told) sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
@@ -1293,6 +1296,7 @@ function merge() {
         ...(typeof a.says === "string" && a.says.trim() ? { says: a.says.trim() } : {}),
         ...(typeof a.partnerSays === "string" && a.partnerSays.trim() ? { partnerSays: a.partnerSays.trim() } : {}),
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
+        ...(a.place != null && !a.told ? { place: a.place } : {}),
         ...(a.told ? { told: a.told, ...(a.explainedBy ? { explainedBy: a.explainedBy } : {}) } : {}),
         storyboard: sb,
       });
