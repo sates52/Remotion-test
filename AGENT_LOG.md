@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| Film Flow 3 — the book's own drawings on a told stage (told v2) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,told-apply,own-drawings (new)}.js`, `scripts/{own-icons-sheet,told,storyboard}.js` (entities drawings, blind-naming gate), tests, `docs/FILM-FLOW.md`, runbook §1b / §2f, `antidote-visual-authoring/told.md` | ACTIVE 2026-11-16 — branch `dev/own-drawings` in `../wt-own-drawings`; NOT on god-mode until the operator has seen the clips | New told version (`TOLD_VERSION` 2; `v: 1` stages drawn as before). dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
+| _(done)_ Film Flow 3 — the book's own drawings on a told stage (told v2) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{told-compile,told-rules,told-apply,own-drawings (new)}.js`, `scripts/{own-icons-sheet,told,storyboard}.js` (entities drawings, blind-naming gate), tests, `docs/FILM-FLOW.md`, runbook §1b / §2f, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after two rounds of clips) | New told version (`TOLD_VERSION` 2; `v: 1` stages drawn as before). dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 2 — told stages (operator: production for new Antidote books) | `src/engines/antidote/{told.ts,flow.ts,speech.ts,components/ToldStage.tsx,components/Scene.tsx,index.tsx,movements.ts}`, `scripts/{told,film-flow,flow-passage,flicker-check,storyboard,make-book,preview-state,readcheck,mute-test,framecheck,audit-antidote,render-stills}.js`, `scripts/lib/{told-compile,told-apply,told-rules,told-entities,film-flow,antidote-stagnation-engine,antidote-novelty-budget,composition-integrity,screen-text}.js`, tests, `docs/FILM-FLOW.md`, runbook §2f, skills (`antidote-visual-authoring/told.md`, preview-hazirla row), AGENTS.md / CLAUDE.md | _(done)_ 2026-11-14: merged to god-mode | New books only (`meta.flow`); no published / pinned book, threshold, render, upload or cleanup. First real book = the first started on this commit or later. |
 | _(done)_ render-norwegian-wood | books/norwegian-wood/, public/captions/norwegian-wood.clean.vtt | ✅ PUBLISHED & CLEANED 2026-11-13 | Antidote; 40.8 min (73,493 frames), 10-way split, cloud assembled; YouTube live; 12 GitHub runs/artifacts + 12 remote refs purged; local out/ mp4 (~977 MB), thumbnails, bundle dir, and audio cleaned. Kept: books/norwegian-wood/, clean.vtt. |
 | _(done)_ dev/vox-image-recovery | `scripts/vox-image-recovery.js` (new), `scripts/lib/vox-image-recovery.js` (new), `data/vox-image-recovery-policy.json` (new), `scripts/{preview-state,make-book}.js`, `scripts/gen-vox-images.py` (lastError record), skill `vox-image-recovery`, CLAUDE.md / AGENTS.md / contract / preview-hazirla, tests | _(done)_ 2026-11-13: pushed to god-mode from `../wt-flux-refusals` | Operator standing decision: lost Vox images routine, ≤ 2 rounds/beat, ≤ 60 calls/book. No book, gate, threshold, render or Flux call. |
@@ -7665,3 +7665,39 @@ Also from that run:
   nothing and does not hold a book on its pin (the fix round judges a fresh holdout anyway); a PASSED one, a film or
   a render state still does. So dracula can take told 1.2 — on the operator's word.
 - Tests: `test-told-compile.js` 18 → 24.
+
+### 2026-11-17 — Film Flow 3: the book's own drawings on a told stage (told v2) — production for new Antidote books
+
+dracula's told stages were text and emblems (the schooner a red tile with a globe; three drawn objects of three polygons
+each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operator approved after two rounds of clips.
+
+- **Any named thing may carry a drawing made for the book** (`paths`, or `"motif": "<key>"` for an own icon of
+  `motifs.json` — one source, never the same object in both files); the emblem is the fallback. Colour tokens are the
+  book's palette. `scripts/lib/own-drawings.js` (new): resolve, lint (`RULES`: paths, commands, colours, how much of its
+  box it fills), the generated drawing brief (`told.js entities` → `entities.candidates.json` "drawing").
+- **Blind naming is a gate:** `own-icons-sheet.js` prints every entity drawing, state and backdrop ONE PICTURE PER FILE;
+  a fresh sonnet agent names one picture; `--judge=<answers.json>` writes `storyboard/own-drawings.verdict.json` (bound to
+  the drawing's hash and its `reads`). `storyboard.js prep` stops on a drawing that is not one
+  (`--skip-own-drawings="<why>"`); `merge` refuses a told beat that uses a drawing without a passing verdict.
+- **States** (`states` + `{ do: "change", state }`, sticky for the rest of the film), **hands** (`change` + `holds: <drawn
+  thing>`, `give`, `take`), **place** (`stage.at` / the event `at`: the place's drawing, pale, behind the stage).
+- **Engine:** `TOLD_VERSION` 2. `ToldStage` stays one SVG; `backdrops` and the fitted name plate (`plate: "fit"`,
+  `told.ts` `plateW`) are read only on `v >= 2`.
+- **v2 layout rules (round 2, the operator's list)** — label under the name plate, plate as wide as its name and in the
+  frame, timeline keeps things readable in the middle, a change of stage is one thing at a time, a stamp leaves before
+  its thing moves, a held drawing sits in the hand of the rig's hold pose, a state change is a knock and a 12-frame
+  change on the word. They apply ONLY to a book whose entities carry a v2 drawing (`reads` / `states` / `backdrop` /
+  `motif`): **a told-v1 book compiles to exactly the told 1.2 stages** (golden `scripts/fixtures-told-v1.js`; dracula as
+  authored 147 of 147; zero-to-one 10 of 10).
+- **Measured (dracula, scratch copy; the book worktree was only read):** things on told stages shown as the book's own
+  drawing 41 % → 79 %; drawings named blind as intended 12 of 12 (10 of 12 on the first pass — the open earth box took
+  three drawings); stages with a thing on a thing / under the subtitle line 15 → 4 (scratch counter).
+- **Also:** `own-icons-sheet.js` ends its own headless browser (it lingered ~2 min per picture on Windows);
+  `told.js status` prints the share of things shown as own drawings and the blind-naming count.
+- Tests: `test-own-drawings.js` (23, new), `test-told-compile.js` 24; CI `ci/regression/own-drawings`: 135 pass, 0 new
+  fail. Docs: `docs/FILM-FLOW.md` (Told v2), told.md, runbook §1b / §2f.
+- **Not done / known:** the engine's library icons on a told stage; fingers closing on a held drawing; an in-flight told
+  book that re-merges gets a merge problem for a person's `change` written on a thing (dracula has three) — the compile
+  itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
+- **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
+  in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
