@@ -560,9 +560,14 @@ function compileTold(beats, written = {}, opts = {}) {
               const wide = T0.kind === "figure" ? (T0.w || 260) * 0.5 : (T0.w || 312) * 0.3;
               // (first lab clip: standing on the thing's ground the whole upper body showed) only the HEAD AND SHOULDERS
               // rise over its top edge — the rest of the person is behind it
-              const y = T0.kind === "figure" ? pt.y : pt.y - ((T0.w || 312) / 2) * pt.s * 0.55 + figH(find(a)) * pa.s * 0.36;
+              // (second lab clip: still the whole chest above the box — a person is taller than a crate) behind a THING
+              // the person is also a size smaller (further away), so small that from the shoulders down they fit
+              // inside its outline: top of the thing + 76 % of their height = their feet, above the thing's foot
+              const boxTop = pt.y - ((T0.w || 312) / 2) * pt.s, boxH = (T0.w || 312) * pt.s, H0 = figH(find(a));
+              const s2 = T0.kind === "figure" ? pa.s : Math.min(pa.s * 0.86, (boxH * 0.92) / (H0 * 0.76));
+              const y = T0.kind === "figure" ? pt.y : boxTop + H0 * s2 * 0.76;
               standUp(a, when - 20); emptyHands(a, when - 20);
-              move(a, when - TA.ACT_LEAD.hide, { x: pt.x + side * wide * pt.s, y }, 16);
+              move(a, when - TA.ACT_LEAD.hide, { x: pt.x + side * wide * pt.s, y, s: s2 }, 16);
               const n2 = play(a, "hide", when, (n) => facing(n, pt.x + side, pt.x - side * 400)); // looks out past the thing, toward the stage
               for (const it of items.filter((x) => x._ent === a && x._role === "entity")) { items.splice(items.indexOf(it), 1); items.splice(items.indexOf(T0), 0, it); } // behind what hides them
               void n2; break; }
