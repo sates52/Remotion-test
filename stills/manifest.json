@@ -1,0 +1,30 @@
+{
+ "schema": "stills/1",
+ "name": "cast sheet dracula",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "jobs": [
+  {
+   "id": "cast",
+   "config": "configs/cast.json",
+   "frames": [
+    45,
+    105,
+    165,
+    225,
+    285,
+    345,
+    405,
+    465
+   ]
+  }
+ ],
+ "inputHash": "632d66bdef214883",
+ "files": {
+  "stills/configs/cast.json": "af56c32530217e14ec33b3f86c9dc1780af1a0b586abbfaf46a7e95db79c675e"
+ },
+ "builtAt": "2026-11-17T11:40:02.834Z"
+}
