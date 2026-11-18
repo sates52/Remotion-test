@@ -1,0 +1,67 @@
+{
+ "schema": "stills/1",
+ "name": "form boards with the book's drawings",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 3,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "art-case",
+   "config": "configs/art-case.json",
+   "frames": [
+    485,
+    644
+   ],
+   "clip": {
+    "from": 339,
+    "to": 549,
+    "scale": 1,
+    "crf": 18
+   }
+  },
+  {
+   "id": "art-journey",
+   "config": "configs/art-journey.json",
+   "frames": [
+    485,
+    644
+   ],
+   "clip": {
+    "from": 339,
+    "to": 549,
+    "scale": 1,
+    "crf": 18
+   }
+  },
+  {
+   "id": "art-portraits",
+   "config": "configs/art-portraits.json",
+   "frames": [
+    485,
+    644
+   ],
+   "clip": {
+    "from": 339,
+    "to": 549,
+    "scale": 1,
+    "crf": 18
+   }
+  }
+ ],
+ "inputHash": "eed544a3b42d48af",
+ "files": {
+  "stills/configs/art-case.json": "4051c5efd73d39593de116ec4979c53370f4c8ed5186c68bd00237b7ca6a580c",
+  "stills/configs/art-journey.json": "8762a3820fcbb041695b6fc0bdca7fce01011c459fc55c9703ed861d09bc6f8a",
+  "stills/configs/art-portraits.json": "e9ab21f9db673801926d8e4e808cabdaa2978164a32a317d46066c32742fb4e7"
+ },
+ "builtAt": "2026-11-18T11:07:50.728Z"
+}
