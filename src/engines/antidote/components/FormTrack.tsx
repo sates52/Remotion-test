@@ -42,12 +42,14 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const within = cur < 0 ? 0 : clamp((frame - parts[cur].from) / Math.max(1, (cur + 1 < N ? parts[cur + 1].from : end) - parts[cur].from));
 
   // the track plate and its N slots
-  const X0 = 620, W = 880, Y = 45, PAD = 44;
-  const sx = (i: number) => X0 + PAD + (N === 1 ? 0 : (i * (W - 2 * PAD)) / (N - 1));
+  const key = form.key;
+  // the question's "?" stands before its attempts; an anatomy's blocks fill the plate edge to edge
+  const X0 = 620, W = 880, Y = 45, PAD = key === "question" ? 96 : 44;
+  const BW = (W - 2 * 34) / N; // anatomy: one block
+  const sx = (i: number) => (key === "anatomy" ? X0 + 34 + BW * (i + 0.5) : X0 + PAD + (N === 1 ? 0 : (i * (W - PAD - 44)) / (N - 1)));
   const done = (i: number) => i < cur, on = (i: number) => i === cur;
   const label = cur < 0 ? form.name : `${form.part} ${String(parts[cur].n).padStart(2, "0")}`;
   const title = cur >= 0 && parts[cur].title ? parts[cur].title!.toUpperCase().slice(0, 34) : "";
-  const key = form.key;
 
   const slots = parts.map((_, i) => {
     const x = sx(i), a = i <= cur ? arrive(i) : 0, k = on(i) ? 1 + 0.22 * a : 1;
@@ -121,7 +123,7 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
       );
     }
     // anatomy: blocks of one machine — the ones explained have joined into one bar, the rest wait apart
-    const bw = (W - 2 * PAD) / Math.max(1, N - 1);
+    const bw = BW;
     const joined = i <= cur;
     return (
       <g key={i} transform={`translate(${x} ${Y})`}>
@@ -149,7 +151,7 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   } else if (key === "trial") {
     link = <path d={`M${sx(0) - 20} ${Y - 21} H${sx(N - 1) + 20} M${sx(0) - 20} ${Y + 21} H${sx(N - 1) + 20}`} stroke={DIM} strokeWidth={2.5} strokeLinecap="round" />;
   } else if (key === "question") {
-    link = <text x={X0 + 22} y={Y + 13} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={38} fill={accent}>?</text>;
+    link = <text x={X0 + 44} y={Y + 13} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={38} fill={accent}>?</text>;
   }
   const leftW = Math.max(250, Math.min(540, 60 + (label.length + (title ? title.length + 3 : 0)) * 14.5));
 
