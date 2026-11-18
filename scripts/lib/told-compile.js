@@ -166,6 +166,9 @@ function entityItem(id, e, colorOf, state) {
 
 function validateEntities(entities) {
   const errors = [];
+  const homes = Object.entries(entities || {}).filter(([, e]) => e && e.home === true);
+  if (homes.length > 1) errors.push(`"home": true on ${homes.map(([id]) => id).join(", ")} — a book has ONE home (the place behind every scene that names none)`);
+  for (const [id, e] of homes) if (e.kind !== "place" || !((e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length) || (Array.isArray(e.paths) && e.paths.length))) errors.push(`entity "${id}": "home": true needs a place with a drawing (a "backdrop")`);
   for (const [id, e] of Object.entries(entities || {})) {
     if (!/^[a-z][a-z0-9-]*$/.test(id)) errors.push(`entity "${id}": the id is lower-case letters, digits and "-"`);
     if (!KINDS[e.kind]) errors.push(`entity "${id}": kind is one of ${Object.keys(KINDS).join(" | ")}`);
@@ -308,8 +311,13 @@ function compileTold(beats, written = {}, opts = {}) {
     const recrownAfter = new Set(); // v3: people who got up at a change of stage — their crown is set over the name plate again once they have their place
     const backdrops = [];
     const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
+    // THE BOOK'S HOME (2026-11-18): the one place marked "home": true is the ground of this book — a stage that names
+    // no place stands there, not on blank paper (a book of ideas has no castle; it has the room its ideas live in)
+    const HOME = Object.keys(entities).find((id) => entities[id] && entities[id].home === true && backdropOf(id)) || null;
+    if (!place && HOME) place = HOME;
     if (place && backdropOf(place)) backdrops.push(backdropOf(place));
-    const setPlace = (id, at) => {
+    const setPlace = (id0, at) => {
+      const id = id0 || HOME; // "the plain ground again" is the book's home when it has one
       if ((id || null) === place) return;
       if (id) { if (!entities[id]) return err(`at: "${id}" is not in entities.json`); if (!backdropOf(id)) return err(`at: "${id}" is not a place with a drawing (kind "place" + paths, or a "backdrop")`); }
       const cur = backdrops.find((b) => !b.exit); if (cur) cur.exit = { at: Math.max(12, at), dur: 12 };

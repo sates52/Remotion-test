@@ -138,6 +138,7 @@ if (cmd === "check" || cmd === "apply") {
   // the blind-naming gate is merge's (storyboard.js); here it is said again so a hand-edited art.json does not hide it
   for (const m of gateMsgs) console.log(`  ⚠ ${m}`);
   const share = OD.drawnShare(r.config);
+  if (!errors.length && pl.report.home) console.log(`  ✓ the book's home "${pl.report.home}" stands behind ${pl.report.atHome} figure scene(s) that name no place`);
   if (!errors.length && (Object.keys(places).length || atPlace.at)) console.log(`  ✓ ${pl.report.applied} figure scene(s) at a place of the book · film time at a place the book drew: ${pct(atPlace.share)}`);
   if (!errors.length && fa.parts) console.log(`  ✓ form boards: ${fa.matched} of ${fa.parts} parts carry a drawing of the book (a part's title names a person, thing or place of entities.json)`);
   if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);

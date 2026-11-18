@@ -84,20 +84,28 @@ function sealTold(scene) {
  * paths), in the book's colours; the shared `set` stays in the config (and in the lock) but is not drawn. A told
  * scene is not touched (its place is the stage's `at`). An unknown or undrawn place is an error; nothing is written.
  */
+/** the shared sets that mean "nowhere in particular": only these give way to the book's home */
+const NOWHERE = new Set(["none", "abstract", "office", "room"]);
 function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
   const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
   const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
   const errors = [], drawingOf = (id) => { const e = ent[id]; if (!e || e.kind !== "place") return null; return e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length ? { id, wide: true, paths: e.backdrop.paths, ...(e.backdrop.viewBox ? { viewBox: e.backdrop.viewBox } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, ...(e.viewBox ? { viewBox: e.viewBox } : {}) } : null; };
-  let applied = 0;
+  // the book's HOME stands behind a figure scene whose beat names no place AND whose authored set is nowhere in
+  // particular (told-compile.js does the same for a stage). A set that says where the beat is — a forest, a shore, a
+  // street — is the author's decision and stays.
+  const home = Object.keys(ent).find((k) => ent[k] && ent[k].home === true && drawingOf(k)) || null;
+  let applied = 0, atHome = 0;
   const scenes = (config.scenes || []).map((s) => {
-    const id = placeByScene[s.id];
+    const named = placeByScene[s.id];
+    const id = named != null ? named : NOWHERE.has((s.bg && s.bg.set) || "none") ? home : null;
+    if (named == null && id != null && !s.told) atHome++;
     if (id == null || s.told) return s;
     const d = drawingOf(id);
     if (!d) { errors.push({ beat: s.id, message: `place: "${id}" is not a place of entities.json with a drawing (kind "place" + paths, or a "backdrop")` }); return s; }
     applied++;
     return { ...s, bg: { ...(s.bg || {}), own: d } };
   });
-  return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors } };
+  return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors, ...(home ? { home, atHome } : {}) } };
 }
 
 /**
@@ -207,4 +215,4 @@ function revertTold(config) {
   return { config: { ...config, meta, scenes }, reverted: n };
 }
 
-module.exports = { formArt, applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };
+module.exports = { NOWHERE, formArt, applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };
