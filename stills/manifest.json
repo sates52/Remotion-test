@@ -1,0 +1,38 @@
+{
+ "schema": "stills/1",
+ "name": "form track — one passage, eight forms",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "form-question",
+   "config": "configs/form-question.json",
+   "frames": [
+    559
+   ]
+  },
+  {
+   "id": "form-anatomy",
+   "config": "configs/form-anatomy.json",
+   "frames": [
+    559
+   ]
+  }
+ ],
+ "inputHash": "88b692e8e66b25f5",
+ "files": {
+  "stills/configs/form-question.json": "19da352d29e46282bcddf8d27a5fa10286fb2939fe73b285a0c95c01855ec808",
+  "stills/configs/form-anatomy.json": "7959679611adc66a849da136345fc473a3d0852b0ec0516532a1d20bd7ae4931"
+ },
+ "builtAt": "2026-11-18T07:02:03.999Z"
+}
