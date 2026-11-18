@@ -7707,6 +7707,19 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — originality-report.js: one page per book, and its line in every preview hand-off
+
+- `node scripts/originality-report.js --slug=<slug> [--book-root=…] [--json]` — TOLD (form, parts announced, story share),
+  PEOPLE (cast with a head drawn for the book, seen blind), PLACES (time at the book's places / in shared sets, home),
+  THINGS (own drawings on told stages, own against library icons), CHANNEL (the film of the shelf it is most alike).
+  Reports, never refuses; no threshold. ~40 s (it reads every Antidote config of the checkout for the comparison).
+- `preview-hazirla`: the entities step now says what a book must draw (heads, every place incl. interiors and ONE home,
+  things and terms with states); §5 runs the report and the hand-off template carries its last line ("Özgünlük: …").
+- Measured: the-new-one-minute-manager (old film) cast 0/5, own place 0 %, icons 0 / 66, most alike 0.95; dracula
+  scratch with everything: cast 8/8, own place 61 %, icons 20 / 33, most alike 0.33.
+- Everything from Film Flow 5 on was proven on scratch copies. **The first real book made on this code is the proof —
+  its agent pastes the report line; log here what it showed.** Test: `test-originality-report.js`.
+
 ### 2026-11-18 — The first full recording of a formed prompt, measured; the prompt changed from it
 
 - **Recording (the operator, NotebookLM, Dracula as a case file; captions kept in
