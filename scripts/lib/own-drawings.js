@@ -437,14 +437,20 @@ function ownIcons(bookDir) {
   return { ...iconsOfEntities(read(path.join(bookDir, "storyboard", "entities.json"))), ...motifs };
 }
 
+/** the shared icons in at least half of the channel's films (data/channel-staples.json, build-channel-staples.js) */
+function channelStaples() {
+  try { return new Set((JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "..", "..", "data", "channel-staples.json"), "utf8")).staples || []).map((s) => s.icon)); } catch { return new Set(); }
+}
+
 /** the concept icons of the scenes that are not told: the book's own (customSvg) against the shared library's */
-function iconShare(config) {
+function iconShare(config, staples = channelStaples()) {
   let own = 0, library = 0; const byType = {};
   for (const s of (config && config.scenes) || []) {
     if (s.told) continue;
     for (const p of s.props || []) { if (p.type === "customSvg") own++; else { library++; byType[p.type] = (byType[p.type] || 0) + 1; } }
   }
-  return { own, library, share: own + library ? own / (own + library) : null, libraryTop: Object.entries(byType).sort((a, b) => b[1] - a[1]).slice(0, 8) };
+  const st = Object.entries(byType).filter(([k]) => staples.has(k)).sort((a, b) => b[1] - a[1]);
+  return { own, library, share: own + library ? own / (own + library) : null, libraryTop: Object.entries(byType).sort((a, b) => b[1] - a[1]).slice(0, 8), staples: st.reduce((s, [, n]) => s + n, 0), staplesTop: st.slice(0, 8) };
 }
 
 /**
@@ -462,4 +468,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { iconsOfEntities, ownIcons, iconShare, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { iconsOfEntities, ownIcons, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };

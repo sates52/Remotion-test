@@ -285,13 +285,26 @@ function stagingReadingLines() {
   const S = (readJSON(path.join(ROOT, "data/icon-readings.json"), {}) || {}).staging || {};
   return Object.entries(S).map(([k, r]) => `- ${k}: ${r}`).join("\n");
 }
+/** the shared icons most of the channel's films already show (data/channel-staples.json), among those this book offers */
+function stapleSection(v) {
+  const st = [...require("./lib/own-drawings").channelStaples()].filter((k) => (v.icons || []).includes(k));
+  if (!st.length) return "";
+  return `
+## The channel's worn icons — ask for THIS book's version
+${st.join(", ")}
+More than half of the channel's films show these same drawings. When a beat needs one, first ask what it IS in this
+book — not "a door" but this book's door, not "a book" but the ledger the story turns on — and use the book's own
+icon for it (the list above). If the book has none and the thing returns (3 beats or more), say so in your notes:
+the lead agent draws it (entities.json "paths") and the beats name it. A worn icon is fine once or twice for a
+passing figure of speech; it must not be what this film looks like.
+`;
+}
 function ownIconSection(v) {
   const own = ownMotifs();
-  if (!Object.keys(own).length) return "";
-  return `
+  return `${Object.keys(own).length ? `
 ## This book's own icons (drawn for it — use them whenever the beat is ABOUT that thing)
 ${Object.entries(own).map(([k, m]) => `- ${k}: ${m.title || m.name || k}${m.reads ? ` — ${m.reads}` : ""}`).join("\n")}
-`;
+` : ""}${stapleSection(v)}`;
 }
 
 // ── authoring policy (explicit, reproducible A/B) ───────────────────────────
@@ -1307,6 +1320,8 @@ function merge() {
     }
     // FILM FLOW 6 — said once, never refused: how much of the book stands in a generic set although it drew its places
     if (Object.values(TOLD_ENTITIES).some(isPlaceDrawn) && nowhere.all && nowhere.none / nowhere.all > 0.5) warnings.push(`places: ${nowhere.none} of ${nowhere.all} beats that are not told stand at no place of the book (the generic set is drawn) — write "place": "<place id>" where the narration is there (rules.md, "Where it happens")`);
+    { const ST = require("./lib/own-drawings").channelStaples(), worn = Object.entries(shared.by).filter(([k, c]) => ST.has(k) && c >= 3).sort((x, y) => y[1] - x[1]);
+      if (worn.length) warnings.push(`worn icons: ${worn.map(([k, c]) => `${k} ×${c}`).join(", ")} — each is in more than half of the channel's films and returns here 3 times or more: the lead agent draws THIS book's version (entities.json "paths") and those beats name it as their concept (rules.md, "The channel's worn icons")`); }
     if (shared.library >= 8 && shared.library > 2 * shared.own) warnings.push(`icons: ${shared.library} of ${shared.library + shared.own} concept icons of the beats that are not told come from the SHARED library (${Object.entries(shared.by).sort((x, y) => y[1] - x[1]).slice(0, 6).map(([k, c]) => `${k} ×${c}`).join(", ")}) — the lead agent draws this book's own thing for an idea that returns (entities.json "paths"; candidates "drawing") and the beats name it as their concept`);
     // told v2 — A DRAWING NOBODY COULD NAME IS NOT PUT ON STAGE: every own drawing a told beat uses has a passing
     // blind-naming verdict for the drawing as it is now (own-icons-sheet.js --judge); said once per drawing

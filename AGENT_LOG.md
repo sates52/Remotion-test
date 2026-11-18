@@ -7707,6 +7707,18 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — The channel's worn icons: measured, named to the authors, counted in the report
+
+- Measured on the shelf (61 Antidote films): 18 shared icons — book, shield, chains, mask, clock, notes, target, door,
+  balance, fire, home, lightbulb, mirror, coin, phone, heart, food, road — are each in at least half of the films and
+  carry 54 % of all icon uses beside the cast. `node scripts/build-channel-staples.js [--root=…] [--write]` →
+  `data/channel-staples.json` (re-run after a batch of new films).
+- rules.md gets "The channel's worn icons — ask for THIS book's version" (only those the book's vocabulary offers);
+  merge warns `worn icons: door ×6 …` when one returns 3 times or more; `originality-report.js` counts them (THINGS
+  and the hand-off line). No engine change, no icon removed, nothing refuses; no threshold in quality-policy touched.
+- Not measured: whether authors then ask for own drawings — the first real book's report line shows it.
+  Test: `test-channel-staples.js` (4).
+
 ### 2026-11-18 — Book skin: the subtitles, the name plates and the typeface are chosen per book
 
 - The frame every film shared for every second — rounded dark subtitle box, dark name plate, Poppins — is now one of

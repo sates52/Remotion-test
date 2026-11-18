@@ -49,7 +49,7 @@ function report({ config, book = {}, entities = {}, peopleVerdict = null, drawin
   const places = { own: ps.share, shared: prof.shared, told: prof.told, home, drawnPlaces: Object.values(entities).filter((e) => e && e.kind === "place" && ((e.backdrop && e.backdrop.paths) || e.paths)).length };
   // THINGS
   const ds = OD.drawnShare(config), ic = OD.iconShare(config), named = drawingsVerdict && drawingsVerdict.drawings ? Object.values(drawingsVerdict.drawings) : [];
-  const things = { toldOwn: ds.share, toldDrawn: ds.drawn, toldEmblem: ds.emblem, iconsOwn: ic.own, iconsLibrary: ic.library, libraryTop: ic.libraryTop.slice(0, 4), namedBlind: named.filter((r) => r.ok).length, drawings: named.length };
+  const things = { toldOwn: ds.share, toldDrawn: ds.drawn, toldEmblem: ds.emblem, iconsOwn: ic.own, iconsLibrary: ic.library, iconsWorn: ic.staples, wornTop: ic.staplesTop.slice(0, 4), libraryTop: ic.libraryTop.slice(0, 4), namedBlind: named.filter((r) => r.ok).length, drawings: named.length };
   // CHANNEL
   const pairs = shelf.map((o) => ({ slug: o.slug, alike: alike(prof, o) })).sort((a, b) => b.alike - a.alike);
   const channel = { films: shelf.length, most: pairs[0] || null, median: pairs.length ? pairs[Math.floor(pairs.length / 2)].alike : null };
@@ -59,7 +59,7 @@ function report({ config, book = {}, entities = {}, peopleVerdict = null, drawin
 /** The one line a hand-off report carries (Turkish: the operator reads it). */
 function line(r) {
   const t = r.told, p = r.people, pl = r.places, th = r.things, ch = r.channel;
-  return `Özgünlük: biçim ${t.form ? `${t.form}${t.parts >= 3 ? ` (${t.parts} bölüm sayıldı)` : " (bölümler sayılmadı)"}` : "yok"} · hikâye payı ${pct(t.story)} · kadro ${p.drawn}/${p.onScreen} kendi kafasıyla · kitabın yerinde ${pct(pl.own)} (ortak sette ${pct(pl.shared)}) · ikon ${th.iconsOwn} kendi / ${th.iconsLibrary} kütüphane${ch.most ? ` · en benzer film ${ch.most.slug} ${ch.most.alike.toFixed(2)}` : ""}`;
+  return `Özgünlük: biçim ${t.form ? `${t.form}${t.parts >= 3 ? ` (${t.parts} bölüm sayıldı)` : " (bölümler sayılmadı)"}` : "yok"} · hikâye payı ${pct(t.story)} · kadro ${p.drawn}/${p.onScreen} kendi kafasıyla · kitabın yerinde ${pct(pl.own)} (ortak sette ${pct(pl.shared)}) · ikon ${th.iconsOwn} kendi / ${th.iconsLibrary} kütüphane${th.iconsWorn ? ` (${th.iconsWorn} tanesi kanalın her filminde görünen ikon)` : ""}${ch.most ? ` · en benzer film ${ch.most.slug} ${ch.most.alike.toFixed(2)}` : ""}`;
 }
 
 if (require.main === module) {
@@ -78,7 +78,7 @@ if (require.main === module) {
   console.log(`         the narration names someone or something of the book in ${pct(t.story)} of its sentences (Dracula: old film 37 %, first formed recording 22 %) · the producer's own view in the prompt: ${t.take ? "yes" : "no"}`);
   console.log(`PEOPLE   ${p.onScreen} on screen · ${p.drawn} wear a head drawn for this book${p.tested ? ` · seen blind as intended ${p.seenBlind} of ${p.tested}` : " · not seen blind yet (cast-sheet.js)"}`);
   console.log(`PLACES   film time at a place the book drew: ${pct(pl.own)} · on told stages ${pct(pl.told)} · in SHARED sets ${pct(pl.shared)} · places drawn: ${pl.drawnPlaces} · home: ${pl.home || "none"}`);
-  console.log(`THINGS   on told stages ${th.toldDrawn} own drawing(s), ${th.toldEmblem} emblem(s) (${pct(th.toldOwn)} own) · icons beside the cast: ${th.iconsOwn} own, ${th.iconsLibrary} from the shared library${th.iconsLibrary ? ` (${th.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.drawings ? ` · named blind ${th.namedBlind} of ${th.drawings}` : ""}`);
+  console.log(`THINGS   on told stages ${th.toldDrawn} own drawing(s), ${th.toldEmblem} emblem(s) (${pct(th.toldOwn)} own) · icons beside the cast: ${th.iconsOwn} own, ${th.iconsLibrary} from the shared library${th.iconsLibrary ? ` (${th.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.iconsWorn ? ` — ${th.iconsWorn} of them the channel's worn icons (${th.wornTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.drawings ? ` · named blind ${th.namedBlind} of ${th.drawings}` : ""}`);
   console.log(`CHANNEL  ${ch.films} other films · most alike in shared material: ${ch.most ? `${ch.most.slug} ${ch.most.alike.toFixed(2)}` : "–"} · median ${ch.median == null ? "–" : ch.median.toFixed(2)} (0 = nothing shared, 1 = the same pieces for the same time)`);
   console.log(`\n${line(r)}`);
 }
