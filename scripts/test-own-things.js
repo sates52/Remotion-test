@@ -54,7 +54,7 @@ t("the report counts the concept icons of the scenes that are not told: the book
     { props: [{ type: "customSvg" }, { type: "law" }] }, { props: [{ type: "law" }] }, { props: [{ type: "shield" }] }, { props: [] },
     { told: { items: [] }, props: [{ type: "balance" }] },
   ] };
-  assert.deepStrictEqual(OD.iconShare(config), { own: 1, library: 3, share: 0.25, libraryTop: [["law", 2], ["shield", 1]] });
+  assert.deepStrictEqual(OD.iconShare(config, new Set(["shield"])), { own: 1, library: 3, share: 0.25, libraryTop: [["law", 2], ["shield", 1]], staples: 1, staplesTop: [["shield", 1]] });
   assert.strictEqual(OD.iconShare({ scenes: [] }).share, null);
   const told = fs.readFileSync(path.join(__dirname, "told.js"), "utf8");
   assert.ok(told.includes("OD.iconShare(config)") && told.includes("ownIcons: OD.iconShare(r.config)"));
