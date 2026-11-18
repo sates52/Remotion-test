@@ -61,6 +61,59 @@ function entitiesOf(scenes, { min = 2 } = {}) {
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
+// ── THE BOOK'S OWN TERMS (2026-11-18) ───────────────────────────────────────────────────────────────────────────────
+// A proper name starts with a capital, so a book of IDEAS had nothing to show: "Thinking in Systems" gave two
+// candidates (CEO, Meadows) while it says "feedback loop", "stock" and "delay" in scene after scene — and its film
+// stood in the shared office. A TERM is a phrase of content words the narration says in many scenes and the other
+// films of the channel do not (data/narration-background.json). Candidates only: the author keeps the ones that are
+// the book's ideas, draws each (entities.json, kind "idea") and stages it. No model.
+const FUNCTION_WORDS = new Set(`a an the and or but so if then than that this these those there here it its is are was were be been being am do does did done have has had having will would can could should may might must shall not no nor of in on at to for from by with without into onto over under about as up down out off again more most much many very just only even also still really actually literally basically kind sort lot lots thing things something anything everything nothing someone anyone everyone people person way ways time times day days year years moment point part bit one two three four five first second third next last new old good bad big small little great right wrong true real whole same other another every each all both few some any such own what which who whom whose when where why how i you he she we they me him her us them my your his our their mine yours yeah yes okay ok oh uh um well like know think mean say says said saying tell tells told talk talking look looks looking see sees seen get gets got getting go goes going went come comes came make makes made making take takes took want wants need needs let lets put keep kept give gives gave feel feels felt find finds found work works working use uses used try tries tried call calls called start starts started book books author chapter page pages story idea ideas example examples question questions answer answers sense fact facts world life lives mind minds exactly absolutely precisely completely entirely simply suddenly always never often sometimes usually maybe perhaps because though although while until since before after during between against through across around toward towards within upon back away together instead rather quite pretty enough too almost already yet now then today tomorrow yesterday ever once twice`.split(/\s+/));
+const termWord = (w) => /^[a-z][a-z'-]{2,}$/.test(w) && !FUNCTION_WORDS.has(w) && !FUNCTION_WORDS.has(w.replace(/'s$|s$/, ""));
+
+/** phrasesIn(text) → every one-, two- and three-word run of content words in a stretch of narration (lowercase). */
+function phrasesIn(text) {
+  const out = [];
+  for (const sentence of String(text || "").toLowerCase().split(/[.!?;:,()"“”]+/)) {
+    const words = sentence.split(/\s+/).map((w) => w.replace(/^[^a-z]+|[^a-z']+$/g, "").replace(/['’]s$/, "")).filter(Boolean);
+    for (let i = 0; i < words.length; i++) {
+      if (!termWord(words[i])) continue;
+      out.push(words[i]);
+      if (i + 1 < words.length && termWord(words[i + 1])) { out.push(`${words[i]} ${words[i + 1]}`); if (i + 2 < words.length && termWord(words[i + 2])) out.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`); }
+    }
+  }
+  return out;
+}
+
+/**
+ * termsOf(scenes, { background, max }) → [{ term, count, scenes:[index], sharedBy }] — the phrases this film says in many
+ * scenes that few other films say. background = data/narration-background.json ({ books, phrases }); without it every
+ * frequent phrase is a candidate. A word that almost only appears inside a kept longer phrase is folded into it
+ * ("feedback" into "feedback loop"); a plural folds into its singular.
+ */
+function termsOf(scenes, { background = null, max = 24 } = {}) {
+  const N = scenes.length, at = new Map();
+  scenes.forEach((s, i) => { for (const p of new Set(phrasesIn(typeof s === "string" ? s : s._narration || s.text || ""))) at.set(p, [...(at.get(p) || []), i]); });
+  // plural → singular when both are said
+  for (const p of [...at.keys()]) { const sing = p.replace(/s$/, ""); if (sing !== p && at.has(sing)) { at.set(sing, [...new Set([...at.get(sing), ...at.get(p)])].sort((a, b) => a - b)); at.delete(p); } }
+  // a name is not a term: what entitiesOf lists (any capitalised word said in two scenes) is left to it
+  const names = new Set(entitiesOf(scenes, { min: 2 }).flatMap((e) => e.name.toLowerCase().split(" ")));
+  const books = (background && background.books) || 0, shared = (p) => (background && background.phrases && (background.phrases[p] || background.phrases[`${p}s`])) || 0;
+  const need = Math.max(4, Math.ceil(N * 0.012));
+  const cands = [];
+  for (const [p, sc] of at) {
+    const len = p.split(" ").length, df = shared(p);
+    if (sc.length < (len === 1 ? need + 2 : need)) continue;
+    if (books && df / books > (len === 1 ? 0.07 : 0.14)) continue; // the whole channel says it
+    if (len === 1 && p.length < 5) continue;
+    if (p.split(" ").some((w) => names.has(w))) continue;
+    if (books && len > 1 && p.split(" ").some((w) => shared(w) / books > 0.5)) continue; // built on a word every film says ("massive", "entire")
+    cands.push({ term: p, count: sc.length, scenes: sc, sharedBy: df, len });
+  }
+  // a shorter phrase that lives inside a kept longer one is that longer one
+  const keep = cands.filter((c) => !cands.some((l) => l.len > c.len && ` ${l.term} `.includes(` ${c.term} `) && l.count >= c.count * 0.6));
+  return keep.sort((a, b) => b.count * (1 + 0.4 * (b.len - 1)) - a.count * (1 + 0.4 * (a.len - 1)) || a.term.localeCompare(b.term)).slice(0, max).map(({ len, ...c }) => c);
+}
+
 /** Everything a scene puts on screen as words: texts, diagram labels, name tags, and every label of a told stage. */
 function shownText(scene) {
   const parts = [];
@@ -98,4 +151,4 @@ function mentionCoverage(config, opts = {}) {
   return { entities: ents.length, mentions, shown, share: mentions ? shown / mentions : null, missing };
 }
 
-module.exports = { STOP, namesIn, entitiesOf, shownText, showsName, mentionCoverage };
+module.exports = { STOP, namesIn, entitiesOf, phrasesIn, termsOf, shownText, showsName, mentionCoverage };

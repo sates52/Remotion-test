@@ -23,7 +23,7 @@
 const fs = require("fs");
 const path = require("path");
 const { applyTold, revertTold, applyPlaces, placeShare, formArt } = require("./lib/told-apply");
-const { entitiesOf, mentionCoverage } = require("./lib/told-entities");
+const { entitiesOf, termsOf, mentionCoverage } = require("./lib/told-entities");
 const { validateEntities, KINDS, GLYPHS } = require("./lib/told-compile");
 const OD = require("./lib/own-drawings");
 
@@ -68,7 +68,11 @@ if (cmd === "entities") {
   const beats = Array.isArray(raw) ? raw : raw && Array.isArray(raw.beats) ? raw.beats : ((readJSON(F.config) || {}).scenes || []).map((s, i) => ({ i, narration: s._narration }));
   if (!beats.length) { console.error("told entities: no storyboard/beats.json and no planned config — run storyboard prep first"); process.exit(1); }
   const ents = entitiesOf(beats.map((b) => ({ _narration: b.narration })), { min: 2 });
-  const out = { note: "CANDIDATES from the narration (proper names said in 2+ beats, and years). Write storyboard/entities.json from them: keep what a viewer should SEE, fix ASR spellings, add what is missing, give each a kind.",
+  // the book's own TERMS (2026-11-18): a book of ideas names few people and no companies — it says "feedback loop" and "delay" in scene after scene
+  let background = null; try { background = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "narration-background.json"), "utf8")); } catch {}
+  const terms = termsOf(beats.map((b) => ({ _narration: b.narration })), { background });
+  const out = { note: "CANDIDATES from the narration (proper names said in 2+ beats, years, and the book's own TERMS). Write storyboard/entities.json from them: keep what a viewer should SEE, fix ASR spellings, add what is missing, give each a kind.",
+    terms: { note: "phrases this narration says in many beats and the other films of the channel do not — the book's own IDEAS. Keep the ones that are its ideas (not every frequent word), give each ONE drawing a stranger could name (kind \"idea\" or \"object\": a stock is a bathtub, a delay is an hourglass on the pipe — the book's own picture when it gives one), with \"states\" for what the narration changes (full / empty), and stage them in told beats. A book of ideas with no drawn ideas stands in the shared office.", list: terms.map((t) => ({ term: t.term, saidInBeats: t.count, beats: t.scenes.slice(0, 12), ...(t.sharedBy ? { alsoInOtherFilms: t.sharedBy } : {}) })) },
     kinds: Object.keys(KINDS), glyphs: GLYPHS,
     // told v2: how the lead agent DRAWS the things (generated from the lint's own numbers and this book's palette)
     drawing: OD.drawingGuide(OD.readBook(BOOK).palette),
@@ -82,6 +86,8 @@ if (cmd === "entities") {
   fs.writeFileSync(F.candidates, JSON.stringify(out, null, 2));
   console.log(`told entities: ${ents.length} candidates → ${path.relative(ROOT, F.candidates)}`);
   for (const e of ents.slice(0, 20)) console.log(`  ${String(e.count).padStart(3)}×  ${e.name}${e.kind === "year" ? "  (year)" : ""}`);
+  console.log(`the book's own terms (said in many beats, not by the other films): ${terms.length ? terms.slice(0, 16).map((t) => `${t.term} ×${t.count}`).join(" · ") : "none found"}`);
+  if (ents.filter((e) => e.kind === "name").length < 6 && terms.length >= 4) console.log("  → a book of IDEAS: its terms are what the film must show. Draw them (entities.json, kind \"idea\", with states) and stage them in told beats.");
   console.log(fs.existsSync(F.entities) ? `entities.json exists (${Object.keys(readJSON(F.entities) || {}).length} named things)` : `→ write ${path.relative(ROOT, F.entities)} before the authors start, then re-run storyboard prep (rules.md lists them)`);
   process.exit(0);
 }

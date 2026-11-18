@@ -60,4 +60,31 @@ t("a film that names nothing has no coverage number (never a fake 100 %)", () =>
   assert.deepStrictEqual([c.mentions, c.share], [0, null]);
 });
 
+t("a book of ideas: its own TERMS are the phrases it says in many scenes and the other films do not", () => {
+  const fs = require("fs"), path = require("path");
+  assert.deepStrictEqual(E.phrasesIn("The feedback loop is, well, a delay."), ["feedback", "feedback loop", "loop", "delay"]);
+  assert.deepStrictEqual(E.phrasesIn("You know, I think it is really just the thing."), [], "function words are not terms");
+  const scenes = [];
+  const filler = ["and nobody noticed for a while", "which is why the plan failed", "so the managers tried again", "but the numbers kept moving", "until someone drew a diagram"];
+  for (let i = 0; i < 60; i++) {
+    const tail = filler[i % filler.length];
+    scenes.push(i % 4 === 0 ? `the reinforcing loop keeps turning, ${tail}; Meadows saw it` : i % 4 === 1 ? `${tail}, because a delay hides the stock${i % 8 === 1 ? "s" : ""}` : i % 4 === 2 ? `a massive entire human system, ${tail}` : `${tail}`);
+  }
+  const bg = { books: 30, phrases: { massive: 30, entire: 30, human: 27, system: 9, behaviour: 8 } };
+  const terms = E.termsOf(scenes, { background: bg });
+  const names = terms.map((x) => x.term);
+  assert.ok(names.includes("reinforcing loop") && names.some((x) => x.split(" ").includes("delay")) && names.includes("stock"), names.join(", "));
+  assert.ok(!names.includes("loop") && !names.includes("reinforcing"), "a word that lives inside a kept phrase is that phrase");
+  assert.ok(!names.includes("stocks"), "a plural folds into its singular");
+  assert.ok(!names.includes("massive") && !names.includes("human") && !names.includes("system"), "what the whole channel says is not this book's term");
+  assert.ok(!names.includes("meadows") && !names.some((x) => x.includes("meadows")), "a name is not a term (entitiesOf lists it)");
+  assert.strictEqual(terms.find((x) => x.term === "stock").count, 15);
+  assert.deepStrictEqual(E.termsOf(["one scene only"], { background: bg }), []);
+  // the shelf it is judged against, and where an agent sees it
+  const data = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "narration-background.json"), "utf8"));
+  assert.ok(data.books >= 20 && Object.keys(data.phrases).length > 300 && data.phrases.massive >= data.books * 0.8);
+  const told = fs.readFileSync(path.join(__dirname, "told.js"), "utf8");
+  assert.ok(told.includes("termsOf(beats.map(") && told.includes("the book's own terms (said in many beats") && told.includes("a book of IDEAS: its terms are what the film must show"));
+});
+
 console.log(`\n${n} checks passed`);
