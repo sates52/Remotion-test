@@ -79,7 +79,7 @@ make-book → sealed mute test → preview-ready → hand-off. What you do witho
 | code | New book from the shared checkout: `preview-state.js worktree --slug=<s>` creates `../wt-book-<s>` (detached at `origin/god-mode`, inputs copied, engine commit pinned) — continue THERE, never produce in the shared checkout. The book start is enforced in code (`production-guard`): the first production step of a new book refuses (exit 2) on engine code that differs from `origin/god-mode`, when origin cannot be fetched, or in the shared main checkout — follow the printed command, never set `PRODUCTION_ALLOW_BEHIND` / `PRODUCTION_ALLOW_MAIN` yourself (operator-only, recorded). A book already under way in the main checkout keeps going there: `preview-state.js pin`. Minimum commit given by the operator: `--min=<sha>`. Add your WIP row (contract §2: role production, worktree, base) to the **main checkout's** `AGENT_LOG.md` — the shared one other agents read, not your worktree's copy; edit only your own lines. |
 | bible (§1, §1c) | `fix-vtt-names`, `plan-bible --emit`, rewrite the draft against the evidence (cast with looks and distinct `variant`s, allowedMotifs/Locations, spine, signatureObjects), `plan-bible --bible`. Never re-run `--emit` over your rewrite. The draft's era, cast keys, ages and places are a heuristic and often wrong (one metaphor gave Trust Fall a sci-fi era): correcting them from the narration is routine, never a question. `--bible` prints a source-grounding review (a cast member the narration never names, a name it uses often that no cast member carries) — fix what is real and rerun; it never blocks. |
 | ownIcons (§1b) | Draw `motifs.json` (an object the narration CHANGES gets one icon per state it shows, §1b), `own-icons-sheet.js`, a FRESH sonnet agent names each number, write its answers to `storyboard/own-icons.naming.json` as `{"names":{"<n>":{"said","intended","match":true|false}}}`; redraw every misread until all match. |
-| entities (§2f) | Antidote, before prep: `node scripts/told.js entities --slug=<s>` → write `storyboard/entities.json` (the things the narration names: emblems, people with their looks, the book's own drawings) per `antidote-visual-authoring/told.md`. Routine, no approval. |
+| entities (§2f) | Antidote, before prep: `node scripts/told.js entities --slug=<s>` → write `storyboard/entities.json` (the things the narration names: emblems, people with their looks, the book's own drawings) per `antidote-visual-authoring/told.md`. **This is where the film becomes this book's own (YPP: generic or repetitive content) — draw ALL of it:** every person who carries the book gets a head of their own (`look.drawn`); every place the story stands in gets a backdrop, interiors too, and ONE is the book's `"home": true`; the things and the book's own TERMS (the candidates file lists them) get a drawing with states; then authors write `place` / `at` / `concept: <entity id>` and `"layout": "flow"` for a mechanism. Routine, no approval. |
 | prep (§2) | `storyboard.js prep` after the bible, icons, variants and entities are final, and again at the start of every fix round. |
 | authors (§2) | One fresh agent per `### Author K` in `PROMPTS.md`, all in ONE message, in the background (Claude: Agent tool; Antigravity: Agent Manager). Authors follow `antidote-visual-authoring`. |
 | gateB | `gate-b-relationship.js` when a beat stages a relationship (needs `GOOGLE_API_KEY`, never print it). FALLBACK = author that beat normally. |
@@ -183,6 +183,11 @@ the NOT READY preview, nothing else). A changed config or a new finding is never
 ## 5. Finish (READY, or an OPERATOR stop)
 
 - `node scripts/gen-books-registry.js`; Antidote: collect the facts with `antidote-quality-handoff`.
+- Antidote: `node scripts/originality-report.js --slug=<slug>` — how much of the film is this book's own (the form it is
+  told in, the cast's own heads, the time at the book's places against shared sets, own icons against the library, the
+  film of the shelf it is most alike). It reports, it never refuses; paste its last line into the report below. When
+  the cast has no drawn head, the time in shared sets is over half, or no form is recorded, say so in
+  "Gözden geçirilecekler" — the operator decides, you do not hide it.
 - The book stays in its production worktree — Studio, the YouTube pack and any later render run there. Do not copy
   it into the shared checkout, and commit or push its files only if the operator asks — except the routine commits this
   procedure itself requires (e.g. a new `data/icon-readings.json` row, §2 readcheck), which you make without asking.
@@ -202,6 +207,7 @@ the NOT READY preview, nothing else). A changed config or a new finding is never
 Önizleme: http://localhost:3001/<Antidote|Vox>-<slug>   (çalışma alanı: <worktree yolu> — Studio orada açılır: npx remotion studio)
 Sessiz izleme testi (30 sahne): <doğru>/<nötr>/<yanlış>, ölü kare <n>/30, görsel katkı <n>/30 (%<p>, hedef %60), açıklayan <n>/30 → PASS/FAIL
 Gate'ler: authorship ✓ · firewall ✓ (<n> REVIEW) · screen-text ✓ · dead-air <en uzun boşluk>
+Özgünlük: <originality-report.js'in son satırı, aynen>
 Gözden geçirilecekler: <for-review maddeleri, yoksa "yok">
 Durma nedeni: <yalnızca HAZIR DEĞİL ise: preview-state kodu + kanıt>
 Sıradaki adım: <HAZIR ise YouTube paketi (metin/meta/thumbnail, yükleme yok) hazırlanıyor/hazır; render ve yükleme — operatör kararı>
