@@ -143,9 +143,12 @@ const { pickOpening, parseOpening, validOpening, openingBlock } = require("./lib
 const { FORMS, SPEECH, pickForm, validForm, formBlock, menu: formMenu } = require("./lib/narrative-form");
 function lengthTier(pages) {
   const n = Number(pages) || 0;
-  if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 12, perBeat: "6-7" };
-  if (n > 300) return { name: "long", pages: n, target: "60-75", min: 55, beats: 10, perBeat: "5-7" };
-  return { name: "standard", pages: n || null, target: "45-60", min: 45, beats: 8, perBeat: "4-6" };
+  // parts by the book's length. Measured 2026-11-18 (Dracula, 10 parts): 3.3 minutes per part → 33 minutes. The
+  // operator's floor is 30 minutes for every book and an hour or more for a long one, so a standard book has 10 parts
+  // (was 8: about 26 minutes at the measured rate), and each part now runs on two scenes (lib/narrative-form.js).
+  if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 14, perBeat: "6-7" };
+  if (n > 300) return { name: "long", pages: n, target: "60-75", min: 55, beats: 12, perBeat: "5-7" };
+  return { name: "standard", pages: n || null, target: "45-60", min: 45, beats: 10, perBeat: "4-6" };
 }
 /** The openings of the books made before this one, newest first — from every place a book record lives. */
 function recentOpenings(slug) {
@@ -180,11 +183,11 @@ const PICTURE_FIRST = {
 // recording came back at 17 minutes for a 60-75 target. It is the measured lever with the number of parts and the
 // five-step development (a stated target alone gave 17 minutes once before), so it is said first, in full, and a
 // prompt cut off by the Customize box cannot lose it.
-const lengthBlock = (tier, form) => `LENGTH (target ${tier.target} minutes, minimum ${tier.min} — a recording under ${tier.min} minutes has FAILED): this is a LONG-FORM episode. ${tier.beats} ${FORMS[form].part.toLowerCase()}s, ${tier.perBeat} real minutes EACH — stay inside one until it has had its minutes. Earn them by going DEEPER, never by repeating: another scene from the book told in full, a second example or number, a sharper objection, a genuine disagreement between the two hosts that takes several exchanges to settle. Sound like two sharp people who can't stop talking about this book, not a summary. Do NOT signal an ending ("to wrap up", "in short") before the ending this form names.`;
+const lengthBlock = (tier, form) => `LENGTH (target ${tier.target} minutes, minimum ${tier.min} — a recording under ${tier.min} minutes has FAILED): this is a LONG-FORM episode. ${tier.beats} ${FORMS[form].part.toLowerCase()}s, ${tier.perBeat} real minutes EACH — stay inside one until it has had its minutes. Earn them by going DEEPER, never by repeating: another scene from the book told in full, a second example or number, a sharper objection, a genuine disagreement between the two hosts that takes several exchanges to settle. Do NOT signal an ending ("to wrap up", "in short") before the ending this form names.`;
 const spineFor = (engine, opening, tier, form) => `
 ${formBlock(form, tier)}
 
-${openingBlock(opening)}
+${SPEECH}
 
 HARD RULES:
 - English only (US audience). Two hosts in real conversation, in the roles this form gives them.
@@ -192,9 +195,9 @@ HARD RULES:
 - NEVER mention "sources", "notebook", "documents" or AI; never break character.
 - No generic praise, no plot recap for its own sake: names, concrete scenes, numbers.
 
-${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
+${openingBlock(opening)}
 
-${SPEECH}
+${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
 `.trim();
 
 async function llmAngle() {

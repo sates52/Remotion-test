@@ -42,7 +42,9 @@ t("the block a prompt carries: the form, the hosts, the parts by the book's leng
     const b = F.formBlock(k, { beats: 10 });
     for (const must of ["THE FORM OF THIS FILM", "- THE TWO HOSTS:", "- THE PARTS: 10 ", "ONE HONEST CRITICISM", `HOW EACH ${F.FORMS[k].part} IS DEVELOPED`]) assert.ok(b.includes(must), `${k}: ${must}`);
     assert.strictEqual((b.match(/^[a-e]\) /gm) || []).length, 5);
-    assert.ok(b.length < 1800, `${k}: ${b.length} chars — NotebookLM's Customize box is small`);
+    assert.ok(b.includes("TWICE: before step e") && b.includes("directions, never lines"), `${k}: two scenes per part; a step is never said aloud`);
+    assert.ok(!/what is now established|still open|who took the round/.test(b), `${k}: a step whose words were parroted at the end of every part`);
+    assert.ok(b.length < 2000, `${k}: ${b.length} chars — NotebookLM's Customize box is small`);
     for (const old of ["DEPTH ENGINE", "COUNTERPOINT:", "PAYOFF", "THESIS:"]) assert.ok(!b.includes(old), `${k} still carries the one spine's ${old}`);
   }
   for (const tic of ['"Exactly."', '"Right."', '"Absolutely."', '"deep dive"', "No sign-off"]) assert.ok(F.SPEECH.includes(tic));

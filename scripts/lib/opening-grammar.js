@@ -85,7 +85,7 @@ function parseOpening(s) {
 function openingBlock(o) {
   if (!validOpening(o)) throw new Error(`unknown opening ${JSON.stringify(o)}`);
   return [
-    "FIRST MINUTE (half the audience decides before 0:50 — this opening belongs to this book; do not fall back to a standard intro):",
+    "FIRST MINUTE (this book's own opening — never a standard intro):",
     `- OPEN: ${HOOKS[o.hook].say}.`,
     `- NAME IT: ${NAMINGS[o.naming]}; say plainly that this is an analysis of the whole book, its ending included.`,
     `- PROMISE (by 0:50): ${PROMISES[o.promise]}, then start at once.`,

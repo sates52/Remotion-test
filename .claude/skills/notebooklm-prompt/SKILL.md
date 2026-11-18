@@ -150,13 +150,13 @@ book-specific; `--check` refuses a prompt without them:**
   "main themes"). If the chosen hook truly cannot be honest for this book, choose another yourself:
   `--opening=<hook>/<naming>/<promise>` (recorded as the agent's) — never the same as the previous book's.
 - **PICTURE FIRST.** The narration is drawn afterwards, and a sentence with nothing to draw becomes a dead or
-  text-carried scene. For each of the 8 beats add its picture in a few words, taken from the book itself (Antidote:
+  text-carried scene. For each part add its picture in a few words, taken from the book itself (Antidote:
   a physical demonstration — two sizes, a threshold that flips, one thing changed, a before and after; Vox: a named
   person in a named place doing one thing). Write it into the beat line: `claim — picture: <what is seen>`.
 - **Write from the source brief** (§0) when there is one: every beat's example, picture, number and the opening
   come from the answer NotebookLM gave, not from memory. Never quote more than a sentence of the book.
 - **The length follows the book — never shorten (operator, 2026-11-11).** Pass `--pages=<n>` (from the brief):
-  up to 300 pages → 45-60 min, 8 beats; 301-500 → 60-75 min, 10 beats; over 500 → 75-90 min, 12 beats. NotebookLM
+  up to 300 pages → 45-60 min, 10 parts; 301-500 → 60-75 min, 12 parts; over 500 → 75-90 min, 14 parts (measured 2026-11-18: a part runs about 3.3 minutes, so 10 parts is the floor for a 30-minute film). NotebookLM
   decides the real length; the floor in the prompt and the beat count are what move it.
 - Never write "audiobook" in the prompt, titles or tags: people who search for the audiobook leave within seconds.
 

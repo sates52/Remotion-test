@@ -13,6 +13,13 @@
  * kind and is farthest from the last 8 books — never the newest one again. Recorded in book.json (`form`), written
  * into the NotebookLM prompt, read by the planner for the on-screen part label.
  *
+ * MEASURED on the first full recording (Dracula as a case file, 2026-11-18, audit/ypp-recovery/recordings/): 32.9
+ * minutes for a 60-75 target; all ten exhibits announced in order (the film's labels and boards can follow them); the
+ * answer-words per 1000 words fell from the channel's 5.3 "right" / 3.3 "exactly" to 1.4 / 0.4; no forbidden phrase,
+ * no sign-off, the verdict last. Two faults, both the prompt's: a part ran 3.3 minutes, not 5-7 — so a part now gets
+ * TWO scenes and a book gets more parts (make-prompt lengthTier) — and the fifth step's words were said aloud at the
+ * end of nine exhibits ("Established … Open …"): a step is a direction, never a line, and says so.
+ *
  * Every form keeps what makes the recording long enough (a five-step development of each part — the 30-minute floor
  * was measured to need it) and what the engine needs (PICTURE FIRST and FIRST MINUTE stay in the prompt, outside this).
  * Pure and deterministic: no LLM, no clock. Tested by test-narrative-form.js.
@@ -26,7 +33,7 @@ const FORMS = {
     is: "This is a CASE FILE. Something in this book does not add up; the film works it like investigators, exhibit by exhibit, until a verdict can be given.",
     hosts: "One host has worked this case and lays the evidence on the table. The other accepts NO conclusion until the evidence for it has been shown, and says what else it could mean.",
     parts: (n) => `${n} EXHIBITS — each ONE piece of evidence from the book (an object, a line, a date, a decision). One of them must point the other way.`,
-    develop: ["put the exhibit in front of us as a scene: who holds it, where, when", "say what it seems to prove", "the second host gives the other way to read it", "bring a second piece from the book that settles it or makes it worse", "file it: one sentence on what is now established, and what is still open"],
+    develop: ["put the exhibit in front of us as a scene: who holds it, where, when", "say what it seems to prove", "the second host gives the other way to read it", "bring a second piece from the book that settles it or makes it worse", "close it in your own words: what the two of you now agree happened, and the doubt that leads to the next one"],
     ending: "THE VERDICT: say flatly what happened and who or what was responsible. A statement, not a question.",
   },
   trial: {
@@ -35,7 +42,7 @@ const FORMS = {
     is: "This is a TRIAL. The book's central claim is the accused: it is charged with being wrong, oversold or dangerous, and it is defended only with what the book itself contains.",
     hosts: "One host PROSECUTES the claim for the whole film. The other DEFENDS it with the book's own cases. They are opponents; neither changes sides to be polite.",
     parts: (n) => `${n} ROUNDS — each ONE charge against the claim, answered from the book.`,
-    develop: ["the prosecutor states the charge in one plain sentence", "the defender answers with the book's strongest case, told as a scene", "cross-examination: what that case leaves out, with a number or a name", "one side concedes something specific", "say who took the round and why"],
+    develop: ["the prosecutor states the charge in one plain sentence", "the defender answers with the book's strongest case, told as a scene", "cross-examination: what that case leaves out, with a number or a name", "one side concedes something specific", "one host admits what this round cost their side"],
     ending: "CLOSING STATEMENTS: each host says in two sentences where they ended up. They may still disagree — do not reconcile them.",
   },
   journey: {
@@ -53,7 +60,7 @@ const FORMS = {
     is: "This is a DUEL between two readings of the same book. Each host holds ONE reading from the first minute to the last and tries to win.",
     hosts: "Host A holds the first reading, host B the opposite one (the angle names both). They interrupt each other with evidence, not with agreement.",
     parts: (n) => `${n} CLASHES — each ONE scene or passage both readings claim.`,
-    develop: ["A tells the scene as proof of their reading", "B tells the same scene and shows what A skipped", "each brings one more line or fact from the book", "one of them gives ground on something specific", "say what is still disputed going into the next clash"],
+    develop: ["A tells the scene as proof of their reading", "B tells the same scene and shows what A skipped", "each brings one more line or fact from the book", "one of them gives ground on something specific", "leave it where it stands: the point each still refuses"],
     ending: "THE STANDOFF: name the one point neither could move the other on, and leave it standing.",
   },
   practice: {
@@ -134,11 +141,13 @@ function formBlock(key, tier = { beats: 8 }) {
     f.is,
     `- THE TWO HOSTS: ${f.hosts}`,
     `- THE PARTS: ${f.parts(tier.beats)} Say each one's number and name aloud as it starts ("${f.part.charAt(0) + f.part.slice(1).toLowerCase()} three: …"); finish one before the next.`,
-    `- ONE HONEST CRITICISM of the book is argued inside this form, not as a separate section.`,
+    `- ONE HONEST CRITICISM of the book is argued inside this form.`,
     `- ${f.ending}`,
     "",
     `HOW EACH ${f.part} IS DEVELOPED (all five steps, every time — each is minutes of talk: tell the scene in present tense, voice the people, let the other host push back):`,
     ...f.develop.map((d, i) => `${"abcde"[i]}) ${d};`.replace(/;$/, i === f.develop.length - 1 ? "." : ";")),
+    `TWICE: before step e, run b-d again on a SECOND scene from the book.`,
+    `The steps are directions, never lines: do not say their words, and never end two ${f.part.toLowerCase()}s alike.`,
   ].join("\n");
 }
 

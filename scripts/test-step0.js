@@ -38,7 +38,7 @@ try {
   r = run("--check", `--slug=${SLUG}`);
   t("language: a paste block that is not English is NOT READY", r.status === 1 && /not English/.test(r.stdout), r.stdout);
   // 2026-11-11: the first minute and one drawable picture per beat are part of the spine, written for the engine
-  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50/.test(md) && /- OPEN: /.test(md) && /- NAME IT: /.test(md) && /- PROMISE \(by 0:50\): /.test(md) && /PICTURE FIRST \(this becomes animation/.test(md));
+  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(this book's own opening/.test(md) && /- OPEN: /.test(md) && /- NAME IT: /.test(md) && /- PROMISE \(by 0:50\): /.test(md) && /PICTURE FIRST \(this becomes animation/.test(md));
   // 2026-11-18: the body is the book's own narrative form (lib/narrative-form.js), never the one spine
   const NF = require("./lib/narrative-form"), form1 = book().form;
   t("form: chosen for the book, recorded in book.json, written into the prompt (no fixed spine, no Depth Engine)", form1 && NF.FORMS[form1.key] && NF.candidates("fiction").includes(form1.key) && form1.part === NF.FORMS[form1.key].part && form1.by === "narrative-form" && md.includes(`**Form:** ${form1.key}`) && /THE FORM OF THIS FILM/.test(md) && new RegExp(`HOW EACH ${form1.part} IS DEVELOPED`).test(md) && /SPEECH \(/.test(md) && !/DEPTH ENGINE|STRUCTURE \(follow strictly\)/.test(md), JSON.stringify(form1));
@@ -74,14 +74,14 @@ try {
   t("opening: an unknown opening is refused", r.status === 1 && /--opening=/.test(r.stderr), r.stderr);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=420");
   let long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
-  t("length: a 420-page book targets 60-75 minutes with 10 beats, recorded", r.status === 0 && /LENGTH \(target 60-75 minutes, minimum 55/.test(long) && /- THE PARTS: 10 /.test(long) && /\*\*Target:\*\* 60-75 min/.test(long) && book().pages === 420, r.stderr);
+  t("length: a 420-page book targets 60-75 minutes with 12 parts, recorded", r.status === 0 && /LENGTH \(target 60-75 minutes, minimum 55/.test(long) && /- THE PARTS: 12 /.test(long) && /\*\*Target:\*\* 60-75 min/.test(long) && book().pages === 420, r.stderr);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=640");
   long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
-  t("length: a 640-page book targets 75-90 minutes with 12 beats", /LENGTH \(target 75-90 minutes, minimum 70/.test(long) && /- THE PARTS: 12 /.test(long));
+  t("length: a 640-page book targets 75-90 minutes with 14 parts", /LENGTH \(target 75-90 minutes, minimum 70/.test(long) && /- THE PARTS: 14 /.test(long));
   r = run("--check", `--slug=${SLUG}`);
   t("length: a long-form scaffold is still NOT READY (its beats line is generic at any tier)", r.status === 1 && /still generic|scaffold sentence/.test(r.stdout), r.stdout);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=200");
-  t("length: a short book stays at 45-60 minutes, 8 beats — never shorter", /LENGTH \(target 45-60 minutes, minimum 45/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")));
+  t("length: a short book stays at 45-60 minutes, 10 parts — never shorter", /LENGTH \(target 45-60 minutes, minimum 45/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")));
   r = run("--brief", "--title=Zz Portal Probe", "--author=A. Writer", `--slug=${SLUG}`);
   const briefMd = fs.existsSync(path.join(DIR, "notebooklm-brief.md")) ? fs.readFileSync(path.join(DIR, "notebooklm-brief.md"), "utf8") : "";
   t("brief: the question for the NotebookLM chat is written; the book is never asked from the operator", r.status === 0 && /Answer only from the uploaded source of "Zz Portal Probe"/.test(briefMd) && /source-brief\.md/.test(r.stdout), r.stderr || r.stdout);

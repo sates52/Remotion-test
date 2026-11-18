@@ -7707,6 +7707,23 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — The first full recording of a formed prompt, measured; the prompt changed from it
+
+- **Recording (the operator, NotebookLM, Dracula as a case file; captions kept in
+  `audit/ypp-recovery/recordings/dracula-case-file-2026-11-18.vtt`; `node scripts/narration-form-check.js --vtt=… --form=case`):**
+  **32.9 minutes** (the first attempt was 17; the target was 60-75), 5 693 words. All **10 exhibits announced in order**
+  (1:01 … 30:19) — the form track and boards can follow a real recording. Answer-words per 1000 words: right 1.4
+  (channel 5.3), exactly 0.4 (3.3), yeah 0.4 (1.7), absolutely 0.4 (1.0). No forbidden phrase, no sign-off, the verdict
+  last; the two hosts kept their roles to the end. The block was 5 128 characters and its LAST lines were obeyed.
+- **Two faults, both the prompt's:** (1) a part ran 3.3 minutes (3.8 → 2.5 as the film went on), not 5-7; (2) the fifth
+  step's words were said aloud at the end of nine exhibits — "Established … Open …" — a new formula in place of the old ones.
+- **Changed:** parts by length 8 / 10 / 12 → **10 / 12 / 14** (10 parts ≈ 33 minutes is the 30-minute floor); every part
+  runs b-d on a SECOND scene before it closes; the steps say they are directions, never lines, and the three steps that
+  could be parroted were reworded; the block is ordered LENGTH · the book's parts · the form · SPEECH · HARD RULES ·
+  FIRST MINUTE · PICTURE FIRST (what a cut would take is the least needed).
+- **Still not proven:** that two scenes per part lengthen it, and a recording over 45 minutes. A producing agent runs
+  `narration-form-check.js` on every new recording and reports its minutes and parts to the operator.
+
 ### 2026-11-18 — The book's HOME: one drawn place behind every scene that names none
 
 - **What:** a place of `entities.json` marked `"home": true` (one per book, must be drawn) stands behind every told stage
