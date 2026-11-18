@@ -1,0 +1,50 @@
+{
+ "schema": "stills/1",
+ "name": "film flow 4 ESKI/YENI",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "thinking-in-systems-488-553-ESKI",
+   "config": "configs/thinking-in-systems-488-553-ESKI.json",
+   "frames": [
+    982
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1962,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "thinking-in-systems-488-553-YENI",
+   "config": "configs/thinking-in-systems-488-553-YENI.json",
+   "frames": [
+    982
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1962,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "7b308361136f6d18",
+ "files": {
+  "stills/configs/thinking-in-systems-488-553-ESKI.json": "01e427afbd920a85f953241a067458aa51b4420f6c7c63b580c2c86fd766df9c",
+  "stills/configs/thinking-in-systems-488-553-YENI.json": "fb6084936dbaaaf356403c8d560f2a3823d111c387324efe0416117d90bbb418"
+ },
+ "builtAt": "2026-11-18T11:47:42.536Z"
+}
