@@ -6,6 +6,7 @@ import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
 import { FormTrack, hasFormTrack } from "./components/FormTrack";
+import { FormBoard } from "./components/FormBoard";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
@@ -109,6 +110,8 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
           </Sequence>
         );
       })}
+      {/* when a part of the book's narrative form is announced, its board comes up over the scene for three seconds */}
+      {config.meta.hud?.enabled !== false && hasFormTrack(config) && <FormBoard config={config} />}
       {/* Subtitles sit above every scene, on the absolute timeline, in the reserved bottom band. */}
       <CaptionLayer captions={config.captions} />
       {/* Top safe-zone retention HUD: timeline progress & insight trackers */}
