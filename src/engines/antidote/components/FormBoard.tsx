@@ -16,7 +16,39 @@ import { ANTIDOTE_FONT } from "./KineticText";
  * narration is its caption), then the scene is there again. One SVG, no perpetual motion — things arrive once.
  * Drawn only when meta.form has at least three announced parts; hidden where the top band is hidden.
  */
-type Part = { n: number; from: number; title?: string };
+type Shape = { d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number };
+type Art = { kind: "thing" | "person"; viewBox?: string; paths?: Shape[]; variant?: Record<string, unknown> };
+type Part = { n: number; from: number; title?: string; art?: Art };
+
+const shapes = (list: Shape[] | undefined, pre: string) => (list || []).map((p, i) => <path key={pre + i} d={p.d} fill={p.fill ?? "none"} stroke={p.stroke ?? (p.fill ? "none" : "#1E1E22")} strokeWidth={p.strokeWidth ?? (p.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={p.opacity ?? 1} />);
+
+/**
+ * The book's own drawing of what a part is about, fitted into a w × h box centred on 0,0: a thing's paths as drawn in
+ * entities.json, or a person's HEAD as the rig wears it (their own drawn layers — back, face, hair, top — with the
+ * rig's eyes and mouth where it puts them; rig units: the face is the ellipse at 200,150).
+ */
+const PartArt: React.FC<{ art: Art; w: number; h: number }> = ({ art, w, h }) => {
+  if (art.kind === "thing") {
+    const [vx, vy, vw, vh] = (art.viewBox || "0 0 520 520").split(/[\s,]+/).map(Number);
+    const k = Math.min(w / vw, h / vh);
+    return <g transform={`translate(${-(vx + vw / 2) * k} ${-(vy + vh / 2) * k}) scale(${k})`}>{shapes(art.paths, "t")}</g>;
+  }
+  const v = (art.variant || {}) as { skin?: string; hair?: string; drawn?: Record<string, Shape[]> };
+  const d = v.drawn || {}, skin = v.skin || "#F2C79B", hair = v.hair || "#3A2A22";
+  const own = ["back", "face", "hair", "top"].some((key) => (d[key] || []).length);
+  const k = Math.min(w / 300, h / 330); // the head with its hair and a hat: about 300 × 330 rig units round 200,130
+  return (
+    <g transform={`scale(${k}) translate(-200 -130)`}>
+      {own ? shapes(d.back, "b") : <path d="M108 150 Q104 58 200 50 Q296 58 292 150 Q282 94 200 94 Q118 94 108 150 Z" fill={hair} />}
+      {own && (d.face || []).length ? shapes(d.face, "f") : <g><ellipse cx={112} cy={158} rx={14} ry={20} fill={skin} /><ellipse cx={288} cy={158} rx={14} ry={20} fill={skin} /><ellipse cx={200} cy={150} rx={92} ry={104} fill={skin} /></g>}
+      {own ? shapes(d.hair, "h") : <path d="M110 138 Q106 40 200 38 Q294 40 290 138 Q270 86 200 100 Q130 86 110 138 Z" fill={hair} />}
+      <circle cx={168} cy={132} r={15} fill="#FFFFFF" /><circle cx={232} cy={132} r={15} fill="#FFFFFF" />
+      <circle cx={170} cy={134} r={7} fill="#1E1E22" /><circle cx={234} cy={134} r={7} fill="#1E1E22" />
+      <path d="M176 216 H224" stroke="#7A5A48" strokeWidth={7} strokeLinecap="round" />
+      {own ? shapes(d.top, "p") : null}
+    </g>
+  );
+};
 const HOLD = 84, IN = 9, OUT = 11; // frames on screen, fade in, fade out
 const clamp = (x: number) => Math.max(0, Math.min(1, x));
 const ease = (t: number) => 1 - Math.pow(1 - clamp(t), 3);
@@ -92,6 +124,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
               <rect x={-cw / 2} y={-ch / 2} width={cw} height={ch} rx={6} fill={PAPER} />
               <text x={-cw / 2 + 16} y={-ch / 2 + 38} fontFamily={MONO} fontWeight={800} fontSize={20} fill="#8A2A0C">{`${form.part} ${parts[i].n}`}</text>
               {lines(name(i)).map((l, j) => <text key={j} x={-cw / 2 + 16} y={-ch / 2 + 76 + j * 30} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={25} fill={INK}>{l}</text>)}
+              {parts[i].art ? <g transform={`translate(${cw / 2 - 52} ${ch / 2 - 50})`}><PartArt art={parts[i].art!} w={84} h={84} /></g> : null}
               <circle cx={0} cy={-ch / 2} r={10} fill={accent} stroke="#5C1A0A" strokeWidth={2} />
             </g>
           );
@@ -109,6 +142,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
         {P.map((p, i) => (
           <g key={i}>
             <circle cx={p.x} cy={p.y} r={i <= cur ? 17 : 12} fill={i <= cur ? INK : S.bg} stroke={INK} strokeWidth={4} opacity={i <= cur ? 1 : 0.45} />
+            {i <= cur && parts[i].art ? <g transform={`translate(${p.x} ${p.y - 76})`} opacity={i === cur ? a : 0.9}><PartArt art={parts[i].art!} w={150} h={96} /></g> : null}
             {i <= cur ? lines(name(i), 14).map((l, j) => <text key={j} x={p.x} y={p.y + 54 + j * 25} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={i === cur ? 24 : 19} fill={INK} opacity={i === cur ? a : 0.7}>{l}</text>) : null}
           </g>
         ))}
@@ -125,7 +159,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
             <g key={i} transform={`translate(${p.x} ${p.y - 16}) scale(${k * (N > 6 ? 0.8 : 1)})`}>
               <rect x={-84} y={-104} width={168} height={208} fill="#C9A24B" stroke="#7A5E22" strokeWidth={5} />
               <rect x={-66} y={-86} width={132} height={172} fill={i <= cur ? PAPER : "#2A2530"} />
-              {i <= cur ? <g opacity={isNew ? a : 1}><circle cx={0} cy={-22} r={30} fill={INK} /><path d="M-52 86 Q0 -6 52 86 Z" fill={INK} /></g> : null}
+              {i <= cur ? (parts[i].art ? <g opacity={isNew ? a : 1} transform="translate(0 4)"><PartArt art={parts[i].art!} w={124} h={150} /></g> : <g opacity={isNew ? a : 1}><circle cx={0} cy={-22} r={30} fill={INK} /><path d="M-52 86 Q0 -6 52 86 Z" fill={INK} /></g>) : null}
               {i <= cur ? <g><rect x={-92} y={116} width={184} height={34} rx={4} fill={isNew ? accent : "#1F1B22"} /><text x={0} y={140} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={18} fill={PAPER}>{name(i).slice(0, 15)}</text></g> : null}
             </g>
           );
@@ -204,6 +238,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
             <g key={i} transform={`translate(${x0 + bw * i} ${y + dy})`} opacity={i <= cur ? (isNew ? a : 1) : 0.35}>
               <rect x={4} y={-70} width={bw - 8} height={140} rx={8} fill={i < cur ? PAPER : isNew ? accent : "none"} stroke={PAPER} strokeWidth={4} strokeDasharray={i > cur ? "10 10" : undefined} />
               <text x={bw / 2} y={-90} textAnchor="middle" fontFamily={MONO} fontWeight={800} fontSize={22} fill={PAPER}>{parts[i].n}</text>
+              {i <= cur && parts[i].art ? <g transform={`translate(${bw / 2} -160)`}><PartArt art={parts[i].art!} w={bw - 40} h={100} /></g> : null}
               {i <= cur ? lines(name(i), 11).map((l, j) => <text key={j} x={bw / 2} y={-14 + j * 26} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={19} fill={i < cur ? INK : PAPER}>{l}</text>) : null}
             </g>
           );

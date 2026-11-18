@@ -128,4 +128,34 @@ t("when a part is announced its board comes up: one object per form, over the sc
   assert.ok(index.indexOf("<FormBoard") < index.indexOf("<CaptionLayer"), "the subtitles stay above the board");
 });
 
+t("the boards carry the book's own drawings: a part's title names a person, a thing or a place the book drew — or the author says which", () => {
+  const A = require("./lib/told-apply");
+  const P = [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }];
+  const ENT = {
+    lucy: { label: "LUCY WESTENRA", kind: "person", look: { hair: "#E3C078", drawn: { hair: [{ d: "M110 124 H290 V60 Z", fill: "hair" }] } } },
+    room: { label: "LUCY'S ROOM", kind: "place", backdrop: { viewBox: "0 0 1920 760", paths: P } },
+    demeter: { label: "SCHOONER DEMETER", kind: "object", paths: P },
+    castle: { label: "TRANSYLVANIA", kind: "place", reads: ["castle", "fortress"], paths: P },
+    flask: { label: "THE TRANSFUSION", kind: "object", paths: P, part: 5 },
+    bank: { label: "THE BANK", kind: "company", glyph: "building" },
+  };
+  const film = (key, titles) => ({ meta: { form: { key, part: "X", name: "X", parts: titles.map((title, i) => ({ n: i + 1, from: i * 100, title })) } }, scenes: [] });
+  const got = (key, titles) => A.formArt(film(key, titles), ENT, { palette: { ink: "#101820", accent: "#B5121B", paper: "#F4EFE6" } });
+  const r = got("case", ["The Demeter's log", "Lucy's chart", "Lucy's room", "The castle", "Four men's blood", "The bank", "Nothing drawn"]);
+  assert.deepStrictEqual(r.config.meta.form.parts.map((p) => (p.art ? p.art.entity : null)), ["demeter", "lucy", "room", "castle", "flask", null, null]);
+  assert.strictEqual(r.matched, 5); assert.strictEqual(r.parts, 7);
+  const parts = r.config.meta.form.parts;
+  assert.strictEqual(parts[0].art.kind, "thing"); assert.strictEqual(parts[0].art.paths[0].fill, "#101820", "in the book's colours");
+  assert.strictEqual(parts[2].art.viewBox, "0 0 1920 760", "a place drawn only as a backdrop is shown as that backdrop");
+  assert.strictEqual(parts[1].art.kind, "person"); assert.strictEqual(parts[1].art.variant.drawn.hair[0].fill, "#E3C078", "the person's own drawn head");
+  assert.strictEqual(parts[4].art.entity, "flask", "an entity that says \"part\": 5 IS part five's drawing, whatever the title says");
+  assert.strictEqual(got("portraits", ["Lucy", "The Count"]).config.meta.form.parts[0].art.entity, "lucy");
+  // fresh at every apply; a film without parts, or without a form, is the same object
+  const again = A.formArt(r.config, { demeter: ENT.demeter }, {});
+  assert.deepStrictEqual(again.config.meta.form.parts.map((p) => !!p.art), [true, false, false, false, false, false, false]);
+  const none = { meta: {}, scenes: [] }; assert.strictEqual(A.formArt(none, ENT, {}).config, none);
+  const board = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/components/FormBoard.tsx"), "utf8");
+  assert.ok((board.match(/<PartArt art=\{parts\[i\]\.art!\}/g) || []).length >= 4, "the case card, the station, the gallery frame and the blueprint block draw it");
+});
+
 console.log(`\n${n} checks passed`);

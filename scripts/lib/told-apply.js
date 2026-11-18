@@ -100,6 +100,53 @@ function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
   return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors } };
 }
 
+/**
+ * THE BOOK'S OWN DRAWINGS ON ITS FORM BOARDS (2026-11-18). A part of the film's narrative form (config.meta.form.parts,
+ * scripts/lib/narrative-form.js) whose TITLE names something the book drew — a person, a thing, a place of
+ * entities.json — carries that drawing: the gallery frame shows that person's own head, the exhibit card that thing.
+ * The author's word wins: an entity with `"part": <n>` IS part n's drawing. Otherwise the title is matched by its
+ * words (four letters or more): the entity's id is in the title, or its whole label is, or the whole title is in its
+ * label; a one-word title may also match a reading ("The castle" → the place read as "castle"). A shared first name is
+ * not enough ("Lucy's chart" is not "Lucy's room"). For a form of people a person is preferred, for the others a
+ * thing. A title that names nothing drawn carries no art: the board shows its name only. Fresh at every apply; pure.
+ */
+function formArt(config, entities = {}, drawings = {}) {
+  const form = config && config.meta && config.meta.form;
+  if (!form || !Array.isArray(form.parts) || !form.parts.length) return { config, matched: 0, parts: 0 };
+  const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
+  const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
+  const STOP = new Set(["the", "and", "with", "from", "that", "this", "into", "book", "last", "first"]);
+  const words = (s) => String(s || "").toLowerCase().replace(/'s\b/g, "").replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter((w) => w.length >= 4 && !STOP.has(w));
+  const cands = Object.entries(ent).map(([id, e]) => {
+    const person = e.kind === "person";
+    const art = person ? (e.look ? { kind: "person", variant: e.look } : null)
+      : Array.isArray(e.paths) && e.paths.length ? { kind: "thing", viewBox: e.viewBox || "0 0 520 520", paths: e.paths }
+      : e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length ? { kind: "thing", viewBox: e.backdrop.viewBox || "0 0 1920 760", paths: e.backdrop.paths } : null;
+    return art ? { id, person, art, part: Number.isInteger(e.part) ? e.part : null, idw: words(id), label: words(e.label), reads: new Set((e.reads || []).flatMap(words)) } : null;
+  }).filter(Boolean);
+  const wantPerson = form.key === "portraits" || form.key === "journey" ? form.key === "portraits" : false;
+  let matched = 0;
+  const parts = form.parts.map((p) => {
+    const { art: _old, ...rest } = p;
+    const said = cands.find((c) => c.part === p.n);
+    if (said) { matched++; return { ...rest, art: { ...said.art, entity: said.id } }; }
+    const tw = words(p.title), T = new Set(tw);
+    if (!tw.length) return rest;
+    let best = null;
+    for (const c of cands) {
+      const byId = c.idw.length > 0 && c.idw.every((w) => T.has(w)), labelIn = c.label.length > 0 && c.label.every((w) => T.has(w)), titleIn = tw.every((w) => c.label.includes(w));
+      const byRead = tw.length === 1 && c.reads.has(tw[0]);
+      if (!byId && !labelIn && !titleIn && !byRead) continue;
+      const score = (byId ? 20 : 0) + (labelIn ? 12 : 0) + (titleIn ? 10 : 0) + (byRead ? 3 : 0) + (c.person === wantPerson ? 2 : 0) + (form.key !== "portraits" && !c.person ? 1 : 0);
+      if (!best || score > best.score) best = { score, c };
+    }
+    if (!best) return rest;
+    matched++;
+    return { ...rest, art: { ...best.c.art, entity: best.c.id } };
+  });
+  return { config: { ...config, meta: { ...config.meta, form: { ...form, parts } } }, matched, parts: parts.length };
+}
+
 /** how much of the film's time stands at a place the book drew (told stages with a backdrop + figure scenes with bg.own) */
 function placeShare(config) {
   let total = 0, at = 0;
@@ -160,4 +207,4 @@ function revertTold(config) {
   return { config: { ...config, meta, scenes }, reverted: n };
 }
 
-module.exports = { applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };
+module.exports = { formArt, applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };

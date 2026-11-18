@@ -22,7 +22,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { applyTold, revertTold, applyPlaces, placeShare } = require("./lib/told-apply");
+const { applyTold, revertTold, applyPlaces, placeShare, formArt } = require("./lib/told-apply");
 const { entitiesOf, mentionCoverage } = require("./lib/told-entities");
 const { validateEntities, KINDS, GLYPHS } = require("./lib/told-compile");
 const OD = require("./lib/own-drawings");
@@ -119,7 +119,9 @@ if (cmd === "check" || cmd === "apply") {
   const own = OD.readBook(BOOK);
   const r0 = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette });
   const pl = applyPlaces(r0.config, places, entities, { motifs: own.motifs, palette: own.palette });
-  const r = { config: pl.config, report: { ...r0.report, errors: [...r0.report.errors, ...pl.report.errors], places: pl.report.applied } };
+  // the book's own drawings on the boards of its narrative form (a part whose title names a person / thing / place it drew)
+  const fa = formArt(pl.config, entities, { motifs: own.motifs, palette: own.palette });
+  const r = { config: fa.config, report: { ...r0.report, errors: [...r0.report.errors, ...pl.report.errors], places: pl.report.applied, formArt: { matched: fa.matched, parts: fa.parts } } };
   const atPlace = placeShare(r.config);
   const gateMsgs = OD.gate(own.drawings, own.verdict, new Set(Object.values(map).flatMap((t) => [...OD.usedBy(t)])));
   const errors = [...problems.map((m) => ({ beat: null, message: m })), ...r.report.errors];
@@ -131,6 +133,7 @@ if (cmd === "check" || cmd === "apply") {
   for (const m of gateMsgs) console.log(`  ⚠ ${m}`);
   const share = OD.drawnShare(r.config);
   if (!errors.length && (Object.keys(places).length || atPlace.at)) console.log(`  ✓ ${pl.report.applied} figure scene(s) at a place of the book · film time at a place the book drew: ${pct(atPlace.share)}`);
+  if (!errors.length && fa.parts) console.log(`  ✓ form boards: ${fa.matched} of ${fa.parts} parts carry a drawing of the book (a part's title names a person, thing or place of entities.json)`);
   if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);
   const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share }, ownIcons: OD.iconShare(r.config), ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
   if (errors.length) {

@@ -1061,7 +1061,9 @@ export const antidoteConfigSchema = z.object({
      *  trial, a journey …) and the parts its hosts announced, with the frame each starts on. When at least three parts
      *  are there the top band draws THEM in the form's own shape (components/FormTrack.tsx) instead of the progress
      *  line and the "INSIGHT n / N" pill every earlier film shares. Absent: the film is framed as before. */
-    form: z.object({ key: z.string(), part: z.string(), name: z.string(), parts: z.array(z.object({ n: z.number(), from: z.number(), title: z.string().optional() })) }).optional(),
+    form: z.object({ key: z.string(), part: z.string(), name: z.string(), parts: z.array(z.object({ n: z.number(), from: z.number(), title: z.string().optional(),
+      /** the book's own drawing of what this part is about (told-apply.js formArt): a thing's paths, or a person's look */
+      art: z.object({ kind: z.enum(["thing", "person"]), entity: z.string().optional(), viewBox: z.string().optional(), paths: z.array(drawnShape).optional(), variant: z.record(z.string(), z.any()).optional() }).optional() })) }).optional(),
     /** SINGLE-RELATION capability (cycle 13, default OFF): when true, scenes carrying a compiled `singleRelation`
      *  contract (scripts/lib/single-relation.js) draw it; when absent / false the field is ignored. */
     singleRelation: z.boolean().optional(),
