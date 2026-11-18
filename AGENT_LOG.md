@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| claude (YPP "generic or repetitive content": every book TOLD its own way — narrative form at Step 0) | `scripts/lib/{narrative-form (new),notebooklm-prompt-check}.js`, `scripts/{make-prompt,plan-antidote (HUD badge only),test-step0,test-narrative-form (new)}.js`, `.claude/skills/notebooklm-prompt/SKILL.md` | WIP 2026-11-18 on `dev/own-voice` (worktree `wt-own-drawings`); NOT on god-mode — waiting for the operator's test recording and review | New books only: the prompt body is one of 8 forms (book.json `form`); a book without `form` plans and is checked as before (46 existing prompts: checker verdict unchanged). NotebookLM stays the voice. No book worktree, published book, threshold, render, upload or cleanup. |
+| _(done)_ YPP "generic or repetitive content": every book TOLD its own way — narrative form at Step 0 + the form track | `scripts/lib/{narrative-form (new),notebooklm-prompt-check}.js`, `scripts/{make-prompt,plan-antidote (HUD badge only),test-step0,test-narrative-form (new)}.js`, `.claude/skills/notebooklm-prompt/SKILL.md` | _(done)_ 2026-11-18: merged to god-mode on the operator's order — the LENGTH of a formed recording is NOT yet proven (see changelog) | New books only: the prompt body is one of 8 forms (book.json `form`); a book without `form` plans and is checked as before (46 existing prompts: checker verdict unchanged). NotebookLM stays the voice. No book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 2: things / one vocabulary | `scripts/lib/{own-drawings,antidote-director}.js`, `scripts/{storyboard,told,test-own-things (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | No engine or schema change: entity drawings join the own-icon vocabulary (existing `customSvg` path). A book without drawn things plans exactly as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 1: places | `src/engines/antidote/{schema.ts (bg.own),components/Backdrop.tsx}`, `scripts/lib/{told-apply,told-rules}.js`, `scripts/{told,storyboard,test-own-places (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | New optional beat field `place` + scene `bg.own`; no told version change, every existing config draws as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 5 — the book's own cast (told v4) | `src/engines/antidote/{schema.ts,told.ts,characters/Everyman.tsx,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-apply}.js`, `scripts/{told,test-told-acts,test-own-cast (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | `TOLD_VERSION` 4, `variant.drawn` optional; v1 – v3 stages and every existing config draw as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
@@ -7706,6 +7706,29 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-18 — Every book is TOLD its own way: narrative form at Step 0, the form track, two report tools (YPP "generic or repetitive content")
+
+- **Why (measured, 46 prompts / 13 whole caption files):** one spine in every prompt (cold open → thesis → setup → N beats →
+  counterpoint → payoff + one "Depth Engine"), a median 40 % of a prompt's words shared; per 1000 words every film said
+  "right" 5.3×, "exactly" 3.3×; 28 of 32 films printed "INSIGHT n / N" (a number computed from the film's length); all
+  30 Antidote films spend 100 % of their time in shared sets, business books are 0.85–0.95 alike.
+- **Step 0** (`scripts/lib/narrative-form.js`, `make-prompt.js`): the body of the NotebookLM prompt is one of 8 FORMS —
+  case, trial, journey, duel, practice, portraits, question, anatomy — each with the two hosts' roles, five steps for a
+  part, its own ending and part name. The agent chooses it from the book (`--form=<key> --form-why="…"`); otherwise
+  the fitting form farthest from the last 8 books. `book.json` → `form` ({ key, part, parts[] }). `--take="…"` = the
+  producer's own view, argued with on air. The block is ordered by what must survive a cut: LENGTH first.
+- **Film** (`plan-antidote.js`, `components/FormTrack.tsx`, schema `meta.form`): the corner label and the top band follow
+  the parts the hosts ANNOUNCE ("Exhibit three"), drawn in the form's own shape (8 shapes); fewer than three announced
+  parts → the old band with the form's name, no invented number. A book without `form` plans and draws as before.
+- **Report tools (never refuse):** `narration-form-check.js` (a VTT: length, parts announced, the answer-words against
+  the channel's level, forbidden phrases), `cross-book-similarity.js` (shared share of screen time, most alike pairs).
+- **⚠ NOT PROVEN — the length.** The first recording of a formed prompt (Dracula, case file, target 60-75) came back
+  at **17 minutes**. The length instruction had been shortened and stood last; it now leads the block in full and each
+  step is asked for at length — but no second recording exists yet. **A producing agent whose recording comes back
+  under the floor re-records and says so; if it happens twice, tell the operator and log it here.**
+- Tests: `test-narrative-form.js` (8), `test-step0.js`, `test-cross-book-similarity.js`; the 46 existing prompts get the
+  same checker verdict as before. No book worktree, published book, threshold, render, upload or cleanup.
 
 ### 2026-11-17 — Film Flow 6, slice 2: the book's own THINGS beside the cast (one vocabulary) — production for new Antidote books
 
