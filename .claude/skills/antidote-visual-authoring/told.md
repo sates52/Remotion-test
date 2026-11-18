@@ -99,6 +99,13 @@ in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact number
 OUTLINE, not in colour. Then the same blind test as before (`cast-sheet.js --cloud`, one agent per picture, `--judge`).
 `told.js apply` puts the same head on that person in the figure scenes too.
 
+### The book's home (2026-11-18)
+
+Lead agent: mark ONE drawn place `"home": true`. It stands behind every stage that names no `at` and behind every beat
+that is not told, names no `place` and sits in a generic set (none / abstract / office / room) — so no scene of the
+book stands on blank paper or in the shared office. A story's home is where it mostly happens; a book of ideas draws
+the room its ideas live in. Keep the middle third of the drawing quiet: the things and the people stand there.
+
 ### A book of IDEAS (2026-11-18)
 
 A book of ideas names few people and no companies — its content is its TERMS. `told.js entities` lists them

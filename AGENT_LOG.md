@@ -7707,6 +7707,18 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — The book's HOME: one drawn place behind every scene that names none
+
+- **What:** a place of `entities.json` marked `"home": true` (one per book, must be drawn) stands behind every told stage
+  that names no `at` (`told-compile.js`) and every figure scene whose beat names no `place` AND whose authored set is
+  nowhere in particular — `none / abstract / office / room` (`told-apply.js` `NOWHERE`, `applyPlaces`). A set that says
+  where the beat is (forest, shore, street …) and a named place stay. A book without a home compiles and draws as before.
+- **For the lead agent:** the drawing brief (the home of a story is where it mostly happens; a book of ideas draws the
+  room its ideas live in — never "an office"; keep its middle third quiet: things stand there).
+- **Measured (thinking-in-systems, scratch copy):** a workshop drawn as its home → film time at a place the book drew
+  0 % → 41 % (118 figure scenes + 8 told stages). 59 % still in specific shared sets. Not done: blind naming of that drawing.
+- Tests: `test-own-places.js` (6); goldens unchanged. No book worktree, published book, threshold, render, upload or cleanup.
+
 ### 2026-11-18 — Told for books of IDEAS: the book's own terms as candidates, and the layout "flow"
 
 - **Why (measured):** told found only proper names. "Thinking in Systems" gave two candidates (CEO, Meadows) while it says
