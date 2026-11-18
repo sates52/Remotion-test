@@ -7707,6 +7707,22 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — Form boards: when a part is announced, the board of the book's narrative form comes up, with the book's own drawings
+
+- **What** (`src/engines/antidote/components/FormBoard.tsx`, mounted in `index.tsx` under the subtitles): at the frame a
+  part is announced a board stands over the scene for 84 frames — a cork board with pinned exhibit cards and a string, a
+  route map with a travelling marker, a gallery wall, a notebook page, a court board, a split duel ground, a
+  blackboard, a blueprint — one object per form, its texts the book's own part names. Only with three or more
+  announced parts in `meta.form`; hidden where the top band is hidden; one SVG, nothing sways.
+- **The book's drawings on it** (`told-apply.js` `formArt`, run by `told.js apply`; schema `meta.form.parts[].art`): a part
+  whose title names a person, thing or place of `entities.json` carries that drawing — the person's own drawn head in the
+  gallery frame, the thing on the exhibit card, the place over its station. An entity with `"part": <n>` is that
+  part's drawing whatever the title says. No match: the name only. Report line in `told.js apply`.
+- **Measured (dracula, scratch copy, part times placed by hand — no formed recording of full length exists yet):** art
+  matched for 8 of 8 portraits, 5 of 8 exhibits, 4 of 8 stations. Not measured: the blind mute test with a board over a scene.
+- Tests: `test-narrative-form.js` (10). A film without `meta.form` draws as before. No book worktree, published book,
+  threshold, render, upload or cleanup.
+
 ### 2026-11-18 — Every book is TOLD its own way: narrative form at Step 0, the form track, two report tools (YPP "generic or repetitive content")
 
 - **Why (measured, 46 prompts / 13 whole caption files):** one spine in every prompt (cold open → thesis → setup → N beats →
