@@ -1,0 +1,124 @@
+{
+ "schema": "stills/1",
+ "name": "form track — one passage, eight forms",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 5,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "form-case",
+   "config": "configs/form-case.json",
+   "frames": [
+    20,
+    309,
+    559
+   ],
+   "clip": {
+    "from": 0,
+    "to": 757,
+    "scale": 1,
+    "crf": 18
+   }
+  },
+  {
+   "id": "form-trial",
+   "config": "configs/form-trial.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-journey",
+   "config": "configs/form-journey.json",
+   "frames": [
+    20,
+    309,
+    559
+   ],
+   "clip": {
+    "from": 0,
+    "to": 757,
+    "scale": 1,
+    "crf": 18
+   }
+  },
+  {
+   "id": "form-duel",
+   "config": "configs/form-duel.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-practice",
+   "config": "configs/form-practice.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-portraits",
+   "config": "configs/form-portraits.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-question",
+   "config": "configs/form-question.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-anatomy",
+   "config": "configs/form-anatomy.json",
+   "frames": [
+    20,
+    309,
+    559
+   ]
+  },
+  {
+   "id": "form-none",
+   "config": "configs/form-none.json",
+   "frames": [
+    20,
+    380,
+    640
+   ]
+  }
+ ],
+ "inputHash": "6ce788a07982c88a",
+ "files": {
+  "stills/configs/form-case.json": "feb4cdc40d7d510558c5e1939208cc4813ce7b490f8db1bad5a5b550bc0b5a51",
+  "stills/configs/form-trial.json": "2dde77f39084db6c8ca1a55f81884949fd4fe4b2e7666f7c7a7a9c7fe0167343",
+  "stills/configs/form-journey.json": "7e78064226f9f8a044563d66819bf63630b3599ab6f4bd454080f9598a7ad93e",
+  "stills/configs/form-duel.json": "aa0aa64270f50d46c8dbed791e72c7e2d54b99c87d5e4a54664e1056fcb04f52",
+  "stills/configs/form-practice.json": "5209db1f77b474780c59ee8a3bf2fb8f72d75bc8a68e4b12051332ad534622ac",
+  "stills/configs/form-portraits.json": "1ce34ecc8b2f43e48836867ff368e68f53e27f9faf4dbca22b2b17672b1d672c",
+  "stills/configs/form-question.json": "19da352d29e46282bcddf8d27a5fa10286fb2939fe73b285a0c95c01855ec808",
+  "stills/configs/form-anatomy.json": "7959679611adc66a849da136345fc473a3d0852b0ec0516532a1d20bd7ae4931",
+  "stills/configs/form-none.json": "8c5fcfb65d4a959e6e563023ae9ef691e60e71626baf4f0dce9060454e1df90b"
+ },
+ "builtAt": "2026-11-18T06:46:27.351Z"
+}
