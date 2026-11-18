@@ -140,8 +140,9 @@ function slots(layout, n) {
     return Array.from({ length: n }, (_, i) => (i === 0 ? { x: 960, s: 1 } : { x: side[(i - 1) % side.length], s: 1 }));
   }
   if (layout === "flow") { // at most four links read at this size; the arrows stand between the slots
-    const fs_ = n <= 2 ? 1.5 : n === 3 ? 1.3 : 1, fa = n <= 2 ? 520 : 330, fb = 1920 - fa;
-    return Array.from({ length: n }, (_, i) => ({ x: n === 1 ? 960 : fa + ((fb - fa) * i) / (n - 1), s: fs_, flow: true }));
+    // the things stand in the MIDDLE of the stage (their names under them stay clear of the subtitles at this size)
+    const fs_ = n <= 2 ? 1.4 : n === 3 ? 1.2 : 1, fa = n <= 2 ? 520 : 330, fb = 1920 - fa;
+    return Array.from({ length: n }, (_, i) => ({ x: n === 1 ? 960 : fa + ((fb - fa) * i) / (n - 1), s: fs_, mid: true, flow: true }));
   }
   const s = n <= 3 ? 1 : n === 4 ? 0.8 : 0.65, a = 340, b = 1580;
   return Array.from({ length: n }, (_, i) => ({ x: n === 1 ? 960 : a + ((b - a) * i) / (n - 1), s }));

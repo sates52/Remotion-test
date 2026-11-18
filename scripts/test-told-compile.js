@@ -309,7 +309,7 @@ t("flow: the things of an idea are one mechanism — large, in order, an arrow f
   assert.strictEqual(arrows.length, 2);
   assert.deepStrictEqual(arrows.map((x) => x.x), [645, 1275], "between the slots");
   const things = ["faucet", "tub", "drain"].map((id) => r.stages[0].items.find((x) => x.id === id));
-  assert.ok(things.every((x) => x && x.s === 1.3) && things[0].x < arrows[0].x && arrows[0].x < things[1].x);
+  assert.ok(things.every((x) => x && x.s === 1.2 && x.y === arrows[0].y) && things[0].x < arrows[0].x && arrows[0].x < things[1].x);
   assert.ok(r.stages[1].items.filter((x) => x.kind === "arrow").every((x) => x.exit), "the arrows of an arrangement leave with it");
   assert.ok(C.compileTold([beat("b1", "one two three four five six seven", { stage: { layout: "flow", who: ["faucet", "tub", "drain", "a", "b"] } })], E3).errors.some((e) => /at most four things/.test(e.message)));
   assert.ok(C.LAYOUTS.includes("flow"));
