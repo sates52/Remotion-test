@@ -49,6 +49,8 @@ const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart
 const per1000 = (n) => Math.round((n / words) * 10000) / 10;
 
 console.log(`${path.basename(vtt)} — ${minutes.toFixed(1)} min, ${words} words (${Math.round(words / minutes)} per minute)${form ? ` · form: ${form}` : ""}`);
+// the operator's rule (2026-11-18): any recording over 30 minutes is long enough — nobody chases a longer one
+console.log(minutes >= 30 ? "LENGTH: over 30 minutes — enough (operator's rule; the prompt's higher target is only what keeps it there)" : `LENGTH: ${minutes.toFixed(1)} minutes — UNDER the 30-minute floor: record again (same prompt, "Longer"); twice under → tell the operator`);
 
 if (form && FORMS[form]) {
   const f = FORMS[form];

@@ -7721,7 +7721,13 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   runs b-d on a SECOND scene before it closes; the steps say they are directions, never lines, and the three steps that
   could be parroted were reworded; the block is ordered LENGTH · the book's parts · the form · SPEECH · HARD RULES ·
   FIRST MINUTE · PICTURE FIRST (what a cut would take is the least needed).
-- **Still not proven:** that two scenes per part lengthen it, and a recording over 45 minutes. A producing agent runs
+- **Operator's rule (2026-11-18): any recording over 30 minutes is long enough — nobody chases a longer one.** Under 30:
+  record again; twice under: tell the operator.
+- **Then: STORY FIRST.** The same recording told less than the old film (sentences naming someone of the book 37 % →
+  22 %; thesis words 7.6 → 17.6 per 1000): four of five steps asked for argument. Half of every part is now the book
+  told as scenes; the second pass is a second scene; the thesis is not repeated in its own words; the check reports
+  the story share.
+- **Still not proven:** that the story share rises and the length stays over 30 with the changed steps. A producing agent runs
   `narration-form-check.js` on every new recording and reports its minutes and parts to the operator.
 
 ### 2026-11-18 — The book's HOME: one drawn place behind every scene that names none

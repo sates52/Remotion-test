@@ -416,7 +416,7 @@ ${manifest.take ? `A REAL READER'S VIEW (the producer of this film read the book
 
 **Slug:** \`${SLUG}\` · **Genre:** ${GENRE} · **Engine:** ${ENGINE} · **Target:** ${TIER.target} min · **Opening:** ${OPENING.hook}/${OPENING.naming}/${OPENING.promise} · **Form:** ${FORM} · **Market:** US (English)
 
-**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **${TIER.min} dk'nın altına düşerse** tekrar üret — prompt ${TIER.beats} ${FORMS[FORM].part.toLowerCase()} + beş adımlı geliştirme ile ${TIER.target} dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
+**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **30 dakikayı geçiyorsa yeterlidir** (operatör kararı, 2026-11-18: 30 dk üstü her kayıt kabul; daha uzunu için uğraşılmaz); **30 dk'nın altına düşerse** tekrar üret — prompt ${TIER.beats} ${FORMS[FORM].part.toLowerCase()} + beş adımlı geliştirme ile ${TIER.target} dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
 
 \`\`\`
 ${prompt}

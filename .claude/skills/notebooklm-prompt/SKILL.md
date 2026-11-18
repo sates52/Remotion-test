@@ -155,6 +155,9 @@ book-specific; `--check` refuses a prompt without them:**
   person in a named place doing one thing). Write it into the beat line: `claim — picture: <what is seen>`.
 - **Write from the source brief** (§0) when there is one: every beat's example, picture, number and the opening
   come from the answer NotebookLM gave, not from memory. Never quote more than a sentence of the book.
+- **A recording over 30 minutes is long enough (operator, 2026-11-18) — do not re-record or rework a prompt to get a
+  longer one.** Under 30: record again; twice under: tell the operator. The prompt still states the higher targets
+  below — they are what kept the measured recording at 33 minutes, not a bar to meet.
 - **The length follows the book — never shorten (operator, 2026-11-11).** Pass `--pages=<n>` (from the brief):
   up to 300 pages → 45-60 min, 10 parts; 301-500 → 60-75 min, 12 parts; over 500 → 75-90 min, 14 parts (measured 2026-11-18: a part runs about 3.3 minutes, so 10 parts is the floor for a 30-minute film). NotebookLM
   decides the real length; the floor in the prompt and the beat count are what move it.
