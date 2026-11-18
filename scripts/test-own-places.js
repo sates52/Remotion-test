@@ -70,4 +70,30 @@ t("authors are told about it, and merge knows the field", () => {
   assert.ok(sb.includes('"told", "place"]') && sb.includes("...(a.place != null && !a.told ? { place: a.place } : {}),") && sb.includes("a told beat's place is its stage's"));
 });
 
+t("the book's HOME stands behind every stage and every nowhere-scene that names no place; a set that says where stays", () => {
+  const C = require("./lib/told-compile");
+  const HOME = { ...ENT, lab: { label: "THE WORKSHOP", kind: "place", home: true, backdrop: { viewBox: "0 0 1920 760", paths: [{ d: "M0 760 V600 H1920 V760 Z", fill: "ink" }] } } };
+  const c = { meta: { fps: 30 }, scenes: [
+    { id: "a", fromFrame: 0, durationFrames: 100, bg: { set: "office" } }, { id: "b", fromFrame: 100, durationFrames: 100, bg: { set: "forest" } },
+    { id: "c", fromFrame: 200, durationFrames: 100, bg: { set: "room" } }, { id: "d", fromFrame: 300, durationFrames: 100, bg: { set: "none" }, told: { v: 4, items: [] } },
+  ] };
+  const r = A.applyPlaces(c, { c: "whitby" }, HOME, { palette: PAL });
+  assert.deepStrictEqual(r.config.scenes.map((x) => (x.bg.own ? x.bg.own.id : null)), ["lab", null, "whitby", null], "office → home; forest stays; a named place wins; a told scene is the compiler's");
+  assert.deepStrictEqual([r.report.home, r.report.atHome, r.report.applied], ["lab", 1, 2]);
+  assert.ok(A.NOWHERE.has("office") && A.NOWHERE.has("abstract") && !A.NOWHERE.has("forest") && !A.NOWHERE.has("street"));
+  assert.strictEqual(A.applyPlaces(c, {}, ENT, { palette: PAL }).report.home, undefined, "a book without a home is as before");
+  // a told stage that names no place stands at home; an explicit place replaces it; "no place" is home again
+  const words = (t) => t.split(" ").map((w, i) => ({ w, f: i * 12 }));
+  const E2 = { ...HOME, ship: { label: "THE SHIP", kind: "object", reads: ["ship"], paths: [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }, { d: "M100 200 V400 H140 V200 Z", fill: "accent" }, { d: "M200 200 V400 H240 V200 Z", fill: "ink" }, { d: "M300 200 V400 H340 V200 Z", fill: "ink" }, { d: "M60 400 H460 V430 H60 Z", fill: "ink" }] } };
+  const k = C.compileTold([{ id: "s1", frames: 300, words: words("the ship lay there in the harbour then it left"), told: { stage: { layout: "solo", who: ["ship"] }, events: [{ on: "harbour", do: "at", who: "whitby" }, { on: "left", do: "at" }] } }], E2, { palette: PAL });
+  assert.deepStrictEqual(k.errors, []);
+  assert.deepStrictEqual(k.stages[0].backdrops.map((b) => b.id), ["lab", "whitby", "lab"]);
+  assert.ok(!k.stages[0].backdrops[0].enter, "the home is there from the first frame");
+  const none = C.compileTold([{ id: "s1", frames: 300, words: words("the ship lay there"), told: { stage: { layout: "solo", who: ["ship"] } } }], { ...ENT, ship: E2.ship }, { palette: PAL });
+  assert.ok(!none.stages[0].backdrops, "without a home a stage that names no place is on plain ground, as before");
+  assert.ok(C.validateEntities({ ...E2, x: { label: "X", kind: "place", home: true, backdrop: { paths: [{ d: "M0 0 H9 V9 Z", fill: "ink" }] } } }).some((m) => /a book has ONE home/.test(m)));
+  assert.ok(C.validateEntities({ y: { label: "Y", kind: "place", home: true } }).some((m) => /"home": true needs a place with a drawing/.test(m)));
+  assert.ok(/THE BOOK'S HOME/.test(require("./lib/own-drawings").drawingGuide().join("\n")));
+});
+
 console.log(`\n${n} checks passed`);
