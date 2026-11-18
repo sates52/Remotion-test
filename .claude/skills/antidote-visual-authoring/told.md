@@ -99,6 +99,14 @@ in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact number
 OUTLINE, not in colour. Then the same blind test as before (`cast-sheet.js --cloud`, one agent per picture, `--judge`).
 `told.js apply` puts the same head on that person in the figure scenes too.
 
+### A book of IDEAS (2026-11-18)
+
+A book of ideas names few people and no companies — its content is its TERMS. `told.js entities` lists them
+(`entities.candidates.json` → `terms`: "reinforcing loop", "stock", "delay" …). Lead agent: keep the ones that are the
+book's ideas, give each ONE drawing a stranger could name — the book's own picture when it gives one (a stock is a
+bathtub, the inflow its tap) — with `states` for what the narration changes. Authors: stage two to four of them as a
+mechanism with `"layout": "flow"` (an arrow from each to the next) and change their state on the word that says it.
+
 ### The things of the book are ONE vocabulary (Film Flow 6)
 
 A thing you drew in `entities.json` is also an own icon of the beats that are NOT told: `"concept": "<entity id>"`

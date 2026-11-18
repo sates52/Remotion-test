@@ -7707,6 +7707,24 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — Told for books of IDEAS: the book's own terms as candidates, and the layout "flow"
+
+- **Why (measured):** told found only proper names. "Thinking in Systems" gave two candidates (CEO, Meadows) while it says
+  "feedback loop", "stock" and "delay" in scene after scene; the most alike films of the channel (0.85–0.95) are the
+  books of ideas, standing in the shared office.
+- **Terms** (`scripts/lib/told-entities.js` `termsOf`, `data/narration-background.json` built by
+  `scripts/build-narration-background.js` from the 30 films in the repo): the phrases a narration says in many scenes
+  and the other films do not. `told.js entities` prints them and writes them into `entities.candidates.json` → `terms`.
+  Candidates only — the lead agent keeps the book's ideas, draws each (kind "idea" / "object", with `states`) and the
+  authors stage them. Rebuild the background by hand when the shelf has grown a lot.
+- **Layout `flow`** (`told-compile.js`): two to four things as ONE mechanism — in the middle of the stage, large, an
+  arrow from each to the next; the arrows leave with the arrangement. Existing stages compile exactly as before
+  (both goldens unchanged); no engine change (the arrow item existed).
+- **Measured (thinking-in-systems, scratch copy, the bathtub passage, 65 s):** eight beats staged with three drawn
+  things and their states; flicker events 31 → 10. The picture follows the narration (overflow, the tap closed, the
+  drain plugged) but stands on blank paper — emptier than the old figure scene. Not done: blind naming of those
+  drawings; a place for a book of ideas (next). No book worktree, published book, threshold, render, upload or cleanup.
+
 ### 2026-11-18 — Form boards: when a part is announced, the board of the book's narrative form comes up, with the book's own drawings
 
 - **What** (`src/engines/antidote/components/FormBoard.tsx`, mounted in `index.tsx` under the subtitles): at the frame a
