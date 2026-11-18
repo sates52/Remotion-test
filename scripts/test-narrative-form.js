@@ -40,7 +40,7 @@ t("the bodies of two forms are different texts — not one template with a word 
 t("the block a prompt carries: the form, the hosts, the parts by the book's length, the five steps, the speech rules", () => {
   for (const k of KEYS) {
     const b = F.formBlock(k, { beats: 10 });
-    for (const must of ["THE FORM OF THIS FILM", "- THE TWO HOSTS:", "- THE PARTS: 10 ", "ONE HONEST CRITICISM", `HOW EACH ${F.FORMS[k].part} IS DEVELOPED`, "SPEECH ("]) assert.ok(b.includes(must), `${k}: ${must}`);
+    for (const must of ["THE FORM OF THIS FILM", "- THE TWO HOSTS:", "- THE PARTS: 10 ", "ONE HONEST CRITICISM", `HOW EACH ${F.FORMS[k].part} IS DEVELOPED`]) assert.ok(b.includes(must), `${k}: ${must}`);
     assert.strictEqual((b.match(/^[a-e]\) /gm) || []).length, 5);
     assert.ok(b.length < 1800, `${k}: ${b.length} chars — NotebookLM's Customize box is small`);
     for (const old of ["DEPTH ENGINE", "COUNTERPOINT:", "PAYOFF", "THESIS:"]) assert.ok(!b.includes(old), `${k} still carries the one spine's ${old}`);
@@ -77,9 +77,10 @@ t("the on-screen label is the part the hosts ANNOUNCE — never a number compute
 
 t("Step 0 writes the form into the prompt and the book record; the checker knows a formed prompt and still passes an old one", () => {
   const mp = fs.readFileSync(path.join(__dirname, "make-prompt.js"), "utf8");
+  assert.ok(mp.includes("${SPEECH}") && mp.indexOf("${lengthBlock(TIER, FORM)}") > 0 && mp.indexOf("${lengthBlock(TIER, FORM)}") < mp.indexOf("${spineFor(ENGINE, OPENING, TIER, FORM)}"), "LENGTH leads the paste block (a 17-minute recording came from a prompt that had it last); the speech rule is last");
   assert.ok(mp.includes("${formBlock(form, tier)}") && !mp.includes("STRUCTURE (follow strictly)") && !mp.includes("DEPTH ENGINE (run this on EVERY beat"));
   assert.ok(mp.includes("manifest.form = { key: FORM, part: FORMS[FORM].part") && mp.includes('--form-why="') && mp.includes("manifest.take ="));
-  const formed = (body) => "# x\n\n**Engine:** antidote · **Form:** case ·\n\n```\nYou are two hosts doing a deep, original analysis of \"The Book\".\n\n" + body + "\n\n" + F.formBlock("case") + "\n\nFIRST MINUTE\n- OPEN: x\n- NAME IT: x\n- PROMISE x\n\nPICTURE FIRST (this becomes animation)\n\nLENGTH x\n\nHARD RULES:\n- x\n" + "pad ".repeat(120) + "\n```\n";
+  const formed = (body) => "# x\n\n**Engine:** antidote · **Form:** case ·\n\n```\nYou are two hosts doing a deep, original analysis of \"The Book\".\n\n" + body + "\n\n" + F.formBlock("case") + "\n\n" + F.SPEECH + "\n\nFIRST MINUTE\n- OPEN: x\n- NAME IT: x\n- PROMISE x\n\nPICTURE FIRST (this becomes animation)\n\nLENGTH x\n\nHARD RULES:\n- x\n" + "pad ".repeat(120) + "\n```\n";
   const angle = "THE ANGLE:\n- Thesis to prove: the letter was never sent.\n\nTHE EXHIBITS OF THIS BOOK:\n" + [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `${i}. the thing number ${i} from the book`).join("\n");
   assert.deepStrictEqual(checkNotebookPrompt(formed(angle), { title: "The Book", engine: "antidote", form: "case" }).errors, []);
   assert.ok(checkNotebookPrompt(formed("THE ANGLE:\n- nothing yet"), { title: "The Book", engine: "antidote" }).errors.some((e) => /parts of THIS book are not written/.test(e)));

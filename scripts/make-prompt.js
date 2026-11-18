@@ -140,7 +140,7 @@ const OUT = rel.prompt(SLUG);
 // decides the real length — more beats and a higher floor are what move it.
 const { pickOpening, parseOpening, validOpening, openingBlock } = require("./lib/opening-grammar");
 // 2026-11-18 (YPP "generic or repetitive content"): the BODY is the book's own too — lib/narrative-form.js
-const { FORMS, pickForm, validForm, formBlock, menu: formMenu } = require("./lib/narrative-form");
+const { FORMS, SPEECH, pickForm, validForm, formBlock, menu: formMenu } = require("./lib/narrative-form");
 function lengthTier(pages) {
   const n = Number(pages) || 0;
   if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 12, perBeat: "6-7" };
@@ -168,28 +168,33 @@ function recentForms(slug) {
   return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
 }
 const PICTURE_FIRST = {
-  antidote: `PICTURE FIRST (this becomes animation — give the artist something to draw): build every part on ONE physical thing and say it BEFORE its meaning (two sizes side by side, a threshold that flips, a before and an after): name the object, who does what to it, what changes; return to that picture when the part ends. An idea with no picture is not ready to be said.`,
-  vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every part on ONE scene a camera could photograph — a named person in a named place doing one thing with one object. Say the scene BEFORE its meaning and return to it when the part ends. An idea with no scene is not ready to be said.`,
+  antidote: `PICTURE FIRST (this becomes animation): build every part on ONE physical thing and say it BEFORE its meaning — the object, who does what to it, what changes — and return to it when the part ends.`,
+  vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every part on ONE scene a camera could photograph — a named person in a named place doing one thing — said BEFORE its meaning.`,
 };
 // Until 2026-11-18 every book got ONE spine here (cold open → thesis → setup → N beats → counterpoint → payoff) and one
 // "Depth Engine" a–e: 46 prompts shared a median 40 % of their words and every film sounded built the same way. The
 // body is now the book's own FORM (lib/narrative-form.js): what the film is, who the hosts are to each other, how a
 // part is developed (five steps, so the length holds) and how it ends. FIRST MINUTE, PICTURE FIRST, LENGTH and the
 // HARD RULES are what stays.
+// LENGTH opens the paste block (2026-11-18): the first formed prompt had it last, in a shortened wording, and the
+// recording came back at 17 minutes for a 60-75 target. It is the measured lever with the number of parts and the
+// five-step development (a stated target alone gave 17 minutes once before), so it is said first, in full, and a
+// prompt cut off by the Customize box cannot lose it.
+const lengthBlock = (tier, form) => `LENGTH (target ${tier.target} minutes, minimum ${tier.min} — a recording under ${tier.min} minutes has FAILED): this is a LONG-FORM episode. ${tier.beats} ${FORMS[form].part.toLowerCase()}s, ${tier.perBeat} real minutes EACH — stay inside one until it has had its minutes. Earn them by going DEEPER, never by repeating: another scene from the book told in full, a second example or number, a sharper objection, a genuine disagreement between the two hosts that takes several exchanges to settle. Sound like two sharp people who can't stop talking about this book, not a summary. Do NOT signal an ending ("to wrap up", "in short") before the ending this form names.`;
 const spineFor = (engine, opening, tier, form) => `
 ${formBlock(form, tier)}
 
 ${openingBlock(opening)}
-
-${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
-
-LENGTH (target ${tier.target} minutes, minimum ${tier.min} — never shorter): give each ${FORMS[form].part.toLowerCase()} ${tier.perBeat} real minutes and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a real disagreement. No filler, no "as we said earlier", no "to wrap up" before the ending.
 
 HARD RULES:
 - English only (US audience). Two hosts in real conversation, in the roles this form gives them.
 - ONLY facts from the book and its well-documented cases. NEVER invent quotes, numbers, studies or events; if unsure, stay general.
 - NEVER mention "sources", "notebook", "documents" or AI; never break character.
 - No generic praise, no plot recap for its own sake: names, concrete scenes, numbers.
+
+${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
+
+${SPEECH}
 `.trim();
 
 async function llmAngle() {
@@ -397,6 +402,8 @@ THE ENDING: ${angle.closer}`
 - Build the discussion around one arguable thesis about how "${TITLE}" works as ${GENRE}, not a summary.`;
 
   const prompt = `You are two hosts doing a deep, original analysis of "${TITLE}"${AUTHOR ? ` by ${AUTHOR}` : ""}.
+
+${lengthBlock(TIER, FORM)}
 
 ${body}
 

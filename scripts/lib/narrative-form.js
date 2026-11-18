@@ -96,7 +96,7 @@ const FORMS = {
 
 /** What a listener heard in every film (measured, see the header): the hosts may not answer themselves with these. */
 const SPEECH = [
-  'SPEECH (heard in every film of this channel — keep out): never reply with a bare "Exactly.", "Right.", "Absolutely." or "Yeah." — a reply adds a fact, a doubt or a picture. Never say "deep dive", "unpack" or "fascinating". No sign-off ("thanks for joining", "until next time"): the last sentence is the ending above.',
+  'SPEECH (keep out of this film): never reply with a bare "Exactly.", "Right." or "Absolutely." — add a fact, a doubt or a picture. Never say "deep dive" or "unpack". No sign-off: the last sentence is the ending above.',
 ].join("\n");
 
 const hash = (s) => parseInt(crypto.createHash("sha1").update(String(s)).digest("hex").slice(0, 8), 16);
@@ -137,10 +137,8 @@ function formBlock(key, tier = { beats: 8 }) {
     `- ONE HONEST CRITICISM of the book is argued inside this form, not as a separate section.`,
     `- ${f.ending}`,
     "",
-    `HOW EACH ${f.part} IS DEVELOPED (all five steps, every time):`,
+    `HOW EACH ${f.part} IS DEVELOPED (all five steps, every time — each is minutes of talk: tell the scene in present tense, voice the people, let the other host push back):`,
     ...f.develop.map((d, i) => `${"abcde"[i]}) ${d};`.replace(/;$/, i === f.develop.length - 1 ? "." : ";")),
-    "",
-    SPEECH,
   ].join("\n");
 }
 

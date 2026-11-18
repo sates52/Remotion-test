@@ -30,6 +30,8 @@ function checkNotebookPrompt(md, { title = null, engine = null, form = null } = 
     const fh = text.match(/\*\*Form:\*\*\s*([a-z]+)/i);
     if (form && fh && fh[1].toLowerCase() !== String(form).toLowerCase()) errors.push(`the prompt is written as "${fh[1]}" but book.json says form "${form}" — re-run make-prompt.js (the on-screen part label follows book.json)`);
   }
+  // the length instruction leads the block (a 17-minute recording came from a prompt that had it last and shortened)
+  if (formed && block.includes("LENGTH (") && block.indexOf("LENGTH (") > 400) errors.push("LENGTH is not at the top of the paste block — re-run make-prompt.js on current code (the Customize box can cut a long prompt off, and the length instruction must not be what is lost)");
   const hasAngle = formed || (/Thesis to prove:/i.test(block) && (block.match(/^\s*\d+\.\s+\S/gm) || []).length >= 6 + 6); // angle beats + the spine's 6 steps
   // the beats line is generic at any length tier (8 / 10 / 12 beats)
   const generic = (g) => (g === GENERIC.beats ? /BEATS: (8|10|12) beats, each ONE specific claim from the book\./.test(block) : block.includes(g));
