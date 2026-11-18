@@ -161,4 +161,11 @@ t("the boards carry the book's own drawings: a part's title names a person, a th
   assert.ok((board.match(/<PartArt art=\{parts\[i\]\.art!\}/g) || []).length >= 4, "the case card, the station, the gallery frame and the blueprint block draw it");
 });
 
+t("a part announced across a scene boundary is heard, in the scene where its first word is said", () => {
+  const scenes = ["Let's get into it then. Exhibit one, the deed.", "He signs. Let's look at what he does next. Exhibit", "two, the atlas with three rings.", "That brings us to exhibit 3, the shaving mirror.", "As we saw in exhibit", "one, he signs things.", "That is exhibit 4."];
+  assert.deepStrictEqual(F.partStarts("case", scenes), [0, 1, 3, 6]);
+  assert.strictEqual(F.partBadges("case", scenes)[2], "EXHIBIT 02 / 04");
+  assert.deepStrictEqual(F.partStarts("case", ["Exhibit", "", "one.", "exhibit two", "exhibit", "three"]), [0, 3, 4]);
+});
+
 console.log(`\n${n} checks passed`);

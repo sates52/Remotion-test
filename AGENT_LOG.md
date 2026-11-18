@@ -7707,6 +7707,16 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — Bug fix: parts announced across a scene boundary were not heard (third Dracula recording)
+
+- The v4 prompt's recording (30.8 min, form case) says all 12 exhibits in order, but `partBadges` read each scene / cue
+  alone and missed "… Exhibit" | "two, the atlas …": 0 parts heard → the film would have shown "CASE FILE" without a
+  track or boards. `lib/narrative-form.js` now reads the film as one text; an announcement belongs to the scene where
+  its first word is said. The recording now gives EXHIBIT 01–12 at 1:57 … 28:27. Test added (test-narrative-form, 11).
+- Same recording: "Established … Open …" gone, forbidden phrases 0, bare "exactly" 1.6 / 1000 (channel 3.3). Still
+  parroted from the prompt's steps: "doubt" ~11×, "settling evidence" 2×. Story-share measure stays 21 % although every
+  exhibit opens on a told scene — the measure counts short back-channel sentences; read it with that in mind.
+
 ### 2026-11-18 — The channel's worn icons: measured, named to the authors, counted in the report
 
 - Measured on the shelf (61 Antidote films): 18 shared icons — book, shield, chains, mask, clock, notes, target, door,

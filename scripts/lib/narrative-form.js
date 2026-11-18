@@ -173,7 +173,12 @@ function partBadges(key, sceneTexts = []) {
   const name = f.name;
   const word = f.part.toLowerCase();
   const re = new RegExp(`\\b${word}s?\\s+(?:number\\s+)?(${NUMBER_WORDS.join("|")}|\\d{1,2})\\b`, "g");
-  const said = sceneTexts.map((t) => { let last = null, m; const s = String(t || "").toLowerCase(); re.lastIndex = 0; while ((m = re.exec(s))) { const n = NUMBER_WORDS.indexOf(m[1]) + 1 || Number(m[1]); if (n >= 1 && n <= 12) last = n; } return last; });
+  // read the film as ONE text: the hosts say "… Exhibit" at the end of one scene and "two, the atlas …" at the start of
+  // the next (2026-11-18, the third Dracula recording: 12 exhibits said, none heard). An announcement belongs to the
+  // scene where its first word is said.
+  const said = sceneTexts.map(() => null), offs = []; let all = "";
+  sceneTexts.forEach((t) => { offs.push(all.length); all += String(t || "").toLowerCase().replace(/\s+/g, " ").trim() + " "; });
+  { let m, i = 0; re.lastIndex = 0; while ((m = re.exec(all))) { const n = NUMBER_WORDS.indexOf(m[1]) + 1 || Number(m[1]); while (i + 1 < offs.length && offs[i + 1] <= m.index) i++; if (n >= 1 && n <= 12) said[i] = n; } }
   // keep the announcements that rise by the film's order (a later "as we saw in exhibit two" is not a new part)
   let cur = 0; const at = said.map((n) => { if (n != null && n === cur + 1) cur = n; else if (n != null && cur === 0 && n === 1) cur = 1; return cur; });
   const total = cur;
