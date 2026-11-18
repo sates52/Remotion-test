@@ -186,3 +186,10 @@ Seen in the clips of the first real told book, all authoring-side (`TOLD_VERSION
   preview pipeline's `gl: "swangle"` (stale picture tiles), not the stage: clips now render like the film.
 - 2026-11-14 — authoring language, compiler, pipeline step, gates, skill for every harness: production for new books.
 - 2026-11-16 — told 1.1 after the first real book (dracula, run by an Antigravity agent): see above.
+
+## The book's graphic hand (book skin, 2026-11-18)
+
+How the subtitles are set, how a name plate is cut and which typeface speaks are chosen once per book at Step 0
+(`scripts/lib/book-skin.js`, farthest from the last eight books) and carried in `config.meta.skin`;
+`src/engines/antidote/components/skin.tsx` draws them. A config without a skin has the channel's old look. The skin
+never moves or resizes a word, and an author never sets it per scene.

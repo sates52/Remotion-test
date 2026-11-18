@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import type { AntidoteConfig } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
+import { useSkin, SKIN_FONT } from "./skin";
 
 /**
  * FormBoard — WHEN A PART BEGINS, THE FILM SHOWS WHERE IT STANDS IN ITS OWN FORM (2026-11-18, narrative-form.js).
@@ -76,6 +77,9 @@ const lines = (s: string, max = 15): string[] => {
 
 export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const frame = useCurrentFrame();
+  // THE BOOK'S SKIN (skin.tsx): the board's headings speak in the book's typeface (the channel's when it has none)
+  const { skin: bookSkin } = useSkin();
+  const HEAD = bookSkin.font === "poppins" ? ANTIDOTE_FONT : SKIN_FONT[bookSkin.font];
   const form = config.meta.form;
   if (!form || (form.parts || []).length < 3) return null;
   const parts: Part[] = form.parts, N = parts.length;
@@ -123,7 +127,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
               <rect x={-cw / 2 + 5} y={-ch / 2 + 7} width={cw} height={ch} rx={6} fill="rgba(0,0,0,0.22)" />
               <rect x={-cw / 2} y={-ch / 2} width={cw} height={ch} rx={6} fill={PAPER} />
               <text x={-cw / 2 + 16} y={-ch / 2 + 38} fontFamily={MONO} fontWeight={800} fontSize={20} fill="#8A2A0C">{`${form.part} ${parts[i].n}`}</text>
-              {lines(name(i)).map((l, j) => <text key={j} x={-cw / 2 + 16} y={-ch / 2 + 76 + j * 30} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={25} fill={INK}>{l}</text>)}
+              {lines(name(i)).map((l, j) => <text key={j} x={-cw / 2 + 16} y={-ch / 2 + 76 + j * 30} fontFamily={HEAD} fontWeight={900} fontSize={25} fill={INK}>{l}</text>)}
               {parts[i].art ? <g transform={`translate(${cw / 2 - 52} ${ch / 2 - 50})`}><PartArt art={parts[i].art!} w={84} h={84} /></g> : null}
               <circle cx={0} cy={-ch / 2} r={10} fill={accent} stroke="#5C1A0A" strokeWidth={2} />
             </g>
@@ -143,7 +147,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
           <g key={i}>
             <circle cx={p.x} cy={p.y} r={i <= cur ? 17 : 12} fill={i <= cur ? INK : S.bg} stroke={INK} strokeWidth={4} opacity={i <= cur ? 1 : 0.45} />
             {i <= cur && parts[i].art ? <g transform={`translate(${p.x} ${p.y - 76})`} opacity={i === cur ? a : 0.9}><PartArt art={parts[i].art!} w={150} h={96} /></g> : null}
-            {i <= cur ? lines(name(i), 14).map((l, j) => <text key={j} x={p.x} y={p.y + 54 + j * 25} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={i === cur ? 24 : 19} fill={INK} opacity={i === cur ? a : 0.7}>{l}</text>) : null}
+            {i <= cur ? lines(name(i), 14).map((l, j) => <text key={j} x={p.x} y={p.y + 54 + j * 25} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={i === cur ? 24 : 19} fill={INK} opacity={i === cur ? a : 0.7}>{l}</text>) : null}
           </g>
         ))}
         <path d={`M${mx} ${my - 20} l-20 -40 a20 20 0 1 1 40 0 Z`} fill={accent} stroke={INK} strokeWidth={3} />
@@ -160,7 +164,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
               <rect x={-84} y={-104} width={168} height={208} fill="#C9A24B" stroke="#7A5E22" strokeWidth={5} />
               <rect x={-66} y={-86} width={132} height={172} fill={i <= cur ? PAPER : "#2A2530"} />
               {i <= cur ? (parts[i].art ? <g opacity={isNew ? a : 1} transform="translate(0 4)"><PartArt art={parts[i].art!} w={124} h={150} /></g> : <g opacity={isNew ? a : 1}><circle cx={0} cy={-22} r={30} fill={INK} /><path d="M-52 86 Q0 -6 52 86 Z" fill={INK} /></g>) : null}
-              {i <= cur ? <g><rect x={-92} y={116} width={184} height={34} rx={4} fill={isNew ? accent : "#1F1B22"} /><text x={0} y={140} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={18} fill={PAPER}>{name(i).slice(0, 15)}</text></g> : null}
+              {i <= cur ? <g><rect x={-92} y={116} width={184} height={34} rx={4} fill={isNew ? accent : "#1F1B22"} /><text x={0} y={140} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={18} fill={PAPER}>{name(i).slice(0, 15)}</text></g> : null}
             </g>
           );
         })}
@@ -178,7 +182,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
               <path d={`M${PX + 90} ${y + 22} H${PX + PW - 90}`} stroke="rgba(26,20,18,0.14)" strokeWidth={3} />
               <rect x={x} y={y - 24} width={40} height={40} rx={5} fill={i === cur ? accent : "none"} stroke={INK} strokeWidth={4} opacity={i <= cur ? 1 : 0.35} />
               {i < cur ? <path d={`M${x + 8} ${y - 4} l9 11 l17 -22`} fill="none" stroke={INK} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" /> : null}
-              {i <= cur ? <text x={x + 70} y={y + 8} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={Math.min(34, rowH * 0.5)} fill={INK} opacity={i === cur ? a : 0.6}>{name(i)}</text> : null}
+              {i <= cur ? <text x={x + 70} y={y + 8} fontFamily={HEAD} fontWeight={900} fontSize={Math.min(34, rowH * 0.5)} fill={INK} opacity={i === cur ? a : 0.6}>{name(i)}</text> : null}
             </g>
           );
         })}
@@ -189,9 +193,9 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
     // the court's board: the round called, the rounds fought as tally bars
     body = (
       <g>
-        <text x={PX + PW / 2} y={PY + 330} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={150} fill={PAPER} opacity={a}>{head}</text>
+        <text x={PX + PW / 2} y={PY + 330} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={150} fill={PAPER} opacity={a}>{head}</text>
         <rect x={PX + PW / 2 - 560 * a} y={PY + 370} width={1120 * a} height={8} fill={accent} />
-        {lines(title, 34).slice(0, 2).map((l, j) => <text key={j} x={PX + PW / 2} y={PY + 450 + j * 60} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={52} fill={PAPER} opacity={a}>{l}</text>)}
+        {lines(title, 34).slice(0, 2).map((l, j) => <text key={j} x={PX + PW / 2} y={PY + 450 + j * 60} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={52} fill={PAPER} opacity={a}>{l}</text>)}
         {parts.map((_, i) => <rect key={i} x={PX + PW / 2 + (i - (N - 1) / 2) * 70 - 9} y={PY + PH - 130} width={18} height={62} rx={9} fill={i === cur ? accent : i < cur ? PAPER : "none"} stroke={PAPER} strokeWidth={3} opacity={i <= cur ? 1 : 0.35} />)}
       </g>
     );
@@ -203,7 +207,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
         <path d={`M${PX + PW / 2 - 150 * a} ${PY + 190} L${PX + PW / 2 + 150 * a} ${PY + 470} M${PX + PW / 2 + 150 * a} ${PY + 190} L${PX + PW / 2 - 150 * a} ${PY + 470}`} stroke={INK} strokeWidth={16} strokeLinecap="round" />
         <rect x={PX + PW / 2 - 470} y={PY + 500} width={940} height={150} rx={10} fill={INK} />
         <text x={PX + PW / 2} y={PY + 556} textAnchor="middle" fontFamily={MONO} fontWeight={800} fontSize={30} fill={accent}>{head}</text>
-        <text x={PX + PW / 2} y={PY + 620} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={50} fill={PAPER} opacity={a}>{title.slice(0, 30)}</text>
+        <text x={PX + PW / 2} y={PY + 620} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={50} fill={PAPER} opacity={a}>{title.slice(0, 30)}</text>
         {parts.map((_, i) => <rect key={i} x={PX + PW / 2 + (i - (N - 1) / 2) * 56 - 14} y={PY + 110} width={28} height={28} transform={`rotate(45 ${PX + PW / 2 + (i - (N - 1) / 2) * 56} ${PY + 124})`} fill={i <= cur ? INK : "none"} stroke={INK} strokeWidth={4} />)}
       </g>
     );
@@ -212,13 +216,13 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
     const rowH = Math.min(72, (PH - 200) / N);
     body = (
       <g>
-        <text x={PX + 190} y={PY + 470} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={420} fill={accent}>?</text>
+        <text x={PX + 190} y={PY + 470} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={420} fill={accent}>?</text>
         {parts.map((_, i) => {
           if (i > cur) return null;
           const y = PY + 160 + i * rowH, x = PX + 420, w = Math.min(1050, name(i).length * 21 + 60);
           return (
             <g key={i} opacity={i === cur ? a : 0.75}>
-              <text x={x} y={y} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={Math.min(36, rowH * 0.5)} fill={PAPER}>{`${parts[i].n}.  ${name(i)}`}</text>
+              <text x={x} y={y} fontFamily={HEAD} fontWeight={900} fontSize={Math.min(36, rowH * 0.5)} fill={PAPER}>{`${parts[i].n}.  ${name(i)}`}</text>
               {i < cur ? <path d={`M${x - 10} ${y - 12} H${x + w}`} stroke={accent} strokeWidth={6} strokeLinecap="round" /> : null}
             </g>
           );
@@ -239,7 +243,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
               <rect x={4} y={-70} width={bw - 8} height={140} rx={8} fill={i < cur ? PAPER : isNew ? accent : "none"} stroke={PAPER} strokeWidth={4} strokeDasharray={i > cur ? "10 10" : undefined} />
               <text x={bw / 2} y={-90} textAnchor="middle" fontFamily={MONO} fontWeight={800} fontSize={22} fill={PAPER}>{parts[i].n}</text>
               {i <= cur && parts[i].art ? <g transform={`translate(${bw / 2} -160)`}><PartArt art={parts[i].art!} w={bw - 40} h={100} /></g> : null}
-              {i <= cur ? lines(name(i), 11).map((l, j) => <text key={j} x={bw / 2} y={-14 + j * 26} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={19} fill={i < cur ? INK : PAPER}>{l}</text>) : null}
+              {i <= cur ? lines(name(i), 11).map((l, j) => <text key={j} x={bw / 2} y={-14 + j * 26} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={19} fill={i < cur ? INK : PAPER}>{l}</text>) : null}
             </g>
           );
         })}
@@ -258,7 +262,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
           <g>
             <rect x={PX + 44} y={PY + 38} width={head.length * 23 + 34} height={54} rx={8} fill={INK} />
             <text x={PX + 60} y={PY + 76} fontFamily={MONO} fontWeight={800} fontSize={34} letterSpacing={2} fill={PAPER}>{head}</text>
-            <text x={PX + 60 + head.length * 23 + 44} y={PY + 78} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={40} fill={S.ink} opacity={a}>{title.slice(0, 40)}</text>
+            <text x={PX + 60 + head.length * 23 + 44} y={PY + 78} fontFamily={HEAD} fontWeight={900} fontSize={40} fill={S.ink} opacity={a}>{title.slice(0, 40)}</text>
           </g>
         ) : null}
         {body}

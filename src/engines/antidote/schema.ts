@@ -1057,6 +1057,9 @@ export const antidoteConfigSchema = z.object({
     multiplane: z.boolean().optional(),
     /** RETENTION HUD (4.2). Minimal top safe-zone progress track & insight badges. */
     hud: metaHudSchema.optional(),
+    /** THE BOOK'S GRAPHIC HAND (2026-11-18, components/skin.tsx, scripts/lib/book-skin.js): how the subtitles are set,
+     *  how a name plate is cut, which typeface speaks. Absent: the channel's look, as every earlier film. */
+    skin: z.object({ caption: z.string().optional(), plate: z.string().optional(), font: z.string().optional() }).optional(),
     /** THE FILM'S NARRATIVE FORM (2026-11-18, scripts/lib/narrative-form.js): how this book is told (a case file, a
      *  trial, a journey …) and the parts its hosts announced, with the frame each starts on. When at least three parts
      *  are there the top band draws THEM in the form's own shape (components/FormTrack.tsx) instead of the progress

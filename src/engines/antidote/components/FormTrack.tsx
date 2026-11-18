@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import type { AntidoteConfig } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
+import { useSkin } from "./skin";
 
 /**
  * FormTrack — THE FRAME OF THE FILM IS ITS BOOK'S FORM (2026-11-18, scripts/lib/narrative-form.js).
@@ -26,6 +27,8 @@ export const hasFormTrack = (config?: AntidoteConfig): boolean => !!config && !!
 
 export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const frame = useCurrentFrame();
+  // THE BOOK'S SKIN (skin.tsx): the pills are cut like the book's name plates (round, as before, without a skin)
+  const { skin: bookSkin } = useSkin();
   const form = config.meta.form!;
   const parts: Part[] = form.parts;
   const N = parts.length;
@@ -153,26 +156,27 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   } else if (key === "question") {
     link = <text x={X0 + 44} y={Y + 13} textAnchor="middle" fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={38} fill={accent}>?</text>;
   }
+  const cut = (r: number) => (bookSkin.plate === "sharp" ? 3 : bookSkin.plate === "paper" ? 9 : r);
   const leftW = Math.max(250, Math.min(540, 60 + (label.length + (title ? title.length + 3 : 0)) * 14.5));
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 90 }}>
       <svg viewBox="0 0 1920 90" width="100%" style={{ position: "absolute", top: 0, left: 0 }}>
         {/* the part being told: its number in the form's own word, and the name the book gave it */}
-        <rect x={40} y={18} width={leftW} height={54} rx={27} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
+        <rect x={40} y={18} width={leftW} height={54} rx={cut(27)} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
         <circle cx={68} cy={45} r={6} fill={accent} />
         <text x={86} y={52} fontFamily={MONO} fontWeight={800} fontSize={20} letterSpacing={1.5} fill="#FFFFFF">
           {label}
           {title ? <tspan fill="rgba(255,255,255,0.62)">{`  ·  ${title}`}</tspan> : null}
         </text>
         {/* the track of parts, in the shape of this book's form */}
-        <rect x={X0} y={14} width={W} height={62} rx={31} fill={PLATE} stroke="rgba(255,255,255,0.22)" strokeWidth={1.5} />
+        <rect x={X0} y={14} width={W} height={62} rx={cut(31)} fill={PLATE} stroke="rgba(255,255,255,0.22)" strokeWidth={1.5} />
         {link}
         {slots}
         {/* the book */}
         {bookTitle ? (
           <g>
-            <rect x={1880 - Math.min(330, 40 + bookTitle.length * 12.5)} y={22} width={Math.min(330, 40 + bookTitle.length * 12.5)} height={46} rx={23} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
+            <rect x={1880 - Math.min(330, 40 + bookTitle.length * 12.5)} y={22} width={Math.min(330, 40 + bookTitle.length * 12.5)} height={46} rx={cut(23)} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
             <text x={1880 - Math.min(330, 40 + bookTitle.length * 12.5) / 2} y={52} textAnchor="middle" fontFamily={MONO} fontWeight={800} fontSize={17} letterSpacing={1.5} fill="#FFFFFF">{bookTitle.slice(0, 22)}</text>
           </g>
         ) : null}

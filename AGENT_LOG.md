@@ -7707,6 +7707,20 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-18 — Book skin: the subtitles, the name plates and the typeface are chosen per book
+
+- The frame every film shared for every second — rounded dark subtitle box, dark name plate, Poppins — is now one of
+  64 combinations. `scripts/lib/book-skin.js` picks caption (box / paper / bar / tape) × plate (dark / paper / sharp /
+  accent) × font (poppins / serif / condensed / slab): never the newest book's subtitles or typeface, never a
+  combination of the last 8, deterministic. `make-prompt.js` records it in book.json `skin` (kept on a re-run;
+  `--skin=caption/plate/font` or `--reskin`); `plan-antidote.js` writes `meta.skin`.
+- Engine: `components/skin.tsx` (SkinContext, mounted once in index.tsx) → CaptionLayer (how the subtitles are set + font),
+  ToldStage name plates (cut and colour; size, place and the measuring font unchanged), FormTrack pills (corner),
+  FormBoard headings (font). It dresses words, it never moves them; no clock in it. **A config without meta.skin is
+  drawn exactly as before** — no told version bump: nothing an old config draws changes. Antidote only.
+- Proven on a scratch Dracula passage in five skins (cloud stills, tag book-skin-1). Not measured: the mute test with
+  a non-default skin (the words and positions are the same). Test: `test-book-skin.js` (6).
+
 ### 2026-11-18 — originality-report.js: one page per book, and its line in every preview hand-off
 
 - `node scripts/originality-report.js --slug=<slug> [--book-root=…] [--json]` — TOLD (form, parts announced, story share),

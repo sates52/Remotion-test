@@ -141,6 +141,8 @@ const OUT = rel.prompt(SLUG);
 const { pickOpening, parseOpening, validOpening, openingBlock } = require("./lib/opening-grammar");
 // 2026-11-18 (YPP "generic or repetitive content"): the BODY is the book's own too — lib/narrative-form.js
 const { FORMS, SPEECH, pickForm, validForm, formBlock, menu: formMenu } = require("./lib/narrative-form");
+// … and the film's graphic hand (subtitles, name plates, typeface) — lib/book-skin.js
+const { pickSkin, validSkin, parseSkin, describe: describeSkin } = require("./lib/book-skin");
 function lengthTier(pages) {
   const n = Number(pages) || 0;
   // parts by the book's length. Measured 2026-11-18 (Dracula, 10 parts): 3.3 minutes per part → 33 minutes. The
@@ -154,6 +156,16 @@ function lengthTier(pages) {
 function recentOpenings(slug) {
   const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
   const take = (file) => { try { const b = JSON.parse(fs.readFileSync(file, "utf8")); if (b.slug && b.slug !== slug && validOpening(b.opening) && !seen.has(b.slug)) seen.set(b.slug, b.opening); } catch {} };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
+}
+/** The skins of the books made before this one, newest first (same places as recentOpenings). */
+function recentSkins(slug) {
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => { try { const b = JSON.parse(fs.readFileSync(file, "utf8")); if (b.slug && b.slug !== slug && validSkin(b.skin) && !seen.has(b.slug)) seen.set(b.slug, b.skin); } catch {} };
   const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
   booksIn(root);
   try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
@@ -353,6 +365,11 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   const keptForm = validForm(manifest.form) && !args.reform && !args.form ? manifest.form.key : null;
   const FORM = args.form ? String(args.form) : keptForm || pickForm({ slug: SLUG, kind, recent: recentForms(SLUG) });
   manifest.form = { key: FORM, part: FORMS[FORM].part, at: (keptForm && manifest.form.at) || new Date().toISOString(), by: args.form ? "agent" : (keptForm && manifest.form.by) || "narrative-form", ...(args.form ? { why: String(args["form-why"]).trim() } : keptForm && manifest.form.why ? { why: manifest.form.why } : {}), ...(keptForm && Array.isArray(manifest.form.parts) ? { parts: manifest.form.parts } : {}) };
+  // The film's graphic hand (lib/book-skin.js): chosen once, farthest from the last 8 books, kept on a re-run.
+  const askedSkin = args.skin ? parseSkin(args.skin) : null;
+  if (args.skin && !askedSkin) { console.error(`❌ --skin="${args.skin}" — caption/plate/font from scripts/lib/book-skin.js (e.g. paper/sharp/serif)`); process.exit(1); }
+  const SKIN = askedSkin || (validSkin(manifest.skin) && !args.reskin ? manifest.skin : pickSkin({ slug: SLUG, recent: recentSkins(SLUG) }));
+  manifest.skin = { caption: SKIN.caption, plate: SKIN.plate, font: SKIN.font, at: (manifest.skin && !args.reskin && !askedSkin && manifest.skin.at) || new Date().toISOString(), by: askedSkin ? "agent" : "book-skin" };
   // the producer's own view of the book (operator's words, optional): the hosts argue with a real reader, not only with each other
   if (typeof args.take === "string" && args.take.trim()) manifest.take = { text: args.take.trim(), at: new Date().toISOString() };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
@@ -374,6 +391,7 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   console.log(`🎬 AÇILIŞ → ${OPENING.hook} / ${OPENING.naming} / ${OPENING.promise}  (son 8 kitaptan en uzak; değiştir: --opening=hook/naming/promise veya --reopen)`);
   console.log(`🎭 BİÇİM → ${FORM} (${FORMS[FORM].label}; ekranda "${FORMS[FORM].part} n / N")  ${manifest.form.by === "agent" ? "— ajan kitaptan seçti" : "— kitabın türüne uyan, son 8 kitaptan en uzak biçim"}`);
   if (manifest.form.by !== "agent") console.log(`   Kitaba bak ve uygun olanı SEN seç (--form=<key> --form-why="…"):\n   ${formMenu(kind).join("\n   ")}`);
+  console.log(`🎨 GÖRÜNÜM → ${SKIN.caption}/${SKIN.plate}/${SKIN.font} (${describeSkin(SKIN)}) — son 8 kitaptan en uzak; değiştir: --skin=caption/plate/font veya --reskin`);
   console.log(manifest.take ? `🗣  YAPIMCININ GÖRÜŞÜ prompt'a yazıldı.` : `🗣  Yapımcının kendi görüşü yok (isteğe bağlı): --take="<operatörün kitap hakkında 2-5 cümlesi: nerede katılmıyor, neyi fazla buldu>"`);
   console.log(`⏱  UZUNLUK → ${TIER.target} dk, ${TIER.beats} beat${TIER.pages ? ` (${TIER.pages} sayfa)` : " (sayfa sayısı verilmedi: --pages=<n>; 300+ sayfa 60-75, 500+ sayfa 75-90 dk)"}
 `);

@@ -177,3 +177,8 @@ book.json). NOT READY lists what is missing — fix it and re-check; never hand 
 After `--check` READY, tell the operator (Turkish): the prompt file path, the engine line from step 2, and the next step —
 record the Audio Overview, upload it to YouTube (unlisted) for the word-timed auto-caption VTT, drop `public/audio/<slug>.mp3` (download the **MP3** — a .m4a of a 50-min book can pass GitHub's 100 MB file limit and every render worker refuses it) + `public/captions/<slug>.vtt`, then say
 "dosyalar hazır, preview hazırla" in this session (skill `preview-hazirla`).
+
+## The film's look (automatic)
+
+`make-prompt.js` also picks the book's skin (subtitle style / name-plate cut / typeface — the 🎨 GÖRÜNÜM line) and
+records it in book.json. Nothing to decide: leave it unless the operator asks for another (`--skin=caption/plate/font`).

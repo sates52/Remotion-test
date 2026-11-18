@@ -7,6 +7,7 @@ import { actPose, ACT_POSES, type ToldAct } from "../toldActs";
 import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
+import { useSkin, plateStyle } from "./skin";
 import { toldState, itemState, backdropOpacity, backdropFit, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
@@ -127,12 +128,15 @@ const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
 
 /** A name plate: over a person's head, under a thing. Drawn in the stage's own SVG. */
 const Tag: React.FC<{ label: string; size?: number; y: number; fit?: boolean }> = ({ label, size = 38, y, fit = false }) => {
+  // THE BOOK'S SKIN (skin.tsx): how a name plate is CUT — its size and place are the stage's, never the skin's
+  const { skin, accent } = useSkin();
+  const cut = plateStyle(skin, accent);
   // `fit` (a v2 stage): the plate is as wide as its name really is (told.ts plateW); a v1 stage keeps its plate
   const w = fit ? plateW(label, size) : textW(label, size) + 40;
   return (
     <g transform={`translate(0 ${y})`}>
-      <rect x={-w / 2} y={0} width={w} height={size + 22} rx={10} fill="#1E1E22" />
-      <text x={0} y={size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="#fff" letterSpacing={1}>{label}</text>
+      <rect x={-w / 2} y={0} width={w} height={size + 22} rx={cut.rx} fill={cut.fill} stroke={cut.stroke} strokeWidth={cut.stroke ? 4 : undefined} />
+      <text x={0} y={size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={cut.ink} letterSpacing={1}>{label}</text>
     </g>
   );
 };

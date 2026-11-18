@@ -7,6 +7,7 @@ import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
 import { FormTrack, hasFormTrack } from "./components/FormTrack";
 import { FormBoard } from "./components/FormBoard";
+import { SkinContext, skinOf } from "./components/skin";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
@@ -47,6 +48,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
   const speech = React.useMemo(() => (level >= 1 ? buildSpeech(config.captions as Parameters<typeof buildSpeech>[0], config.meta.fps || 30) : null), [level, config.captions, config.meta.fps]);
   const flowAt = (base: number): Flow => ({ level, speech, base });
   return (
+    <SkinContext.Provider value={{ skin: skinOf(config.meta as { skin?: Record<string, string> }), accent: config.meta.hud?.accent ?? "#F5C544" }}>
     <AbsoluteFill style={{ backgroundColor: "#0b0b0b" }}>
       {config.meta.audio ? <Audio src={staticFile(config.meta.audio)} /> : null}
       {config.scenes.map((scene, i) => {
@@ -120,5 +122,6 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
       {/* Frame-accurate sound design (transitions, ticks, chapter hits) */}
       <AudioEngine config={config} />
     </AbsoluteFill>
+    </SkinContext.Provider>
   );
 };
