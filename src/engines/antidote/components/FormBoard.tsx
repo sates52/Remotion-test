@@ -59,7 +59,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const a = ease((t - 6) / 16); // the new part arriving, once
   const accent = config.meta.hud?.accent ?? "#C2410C";
   const key = form.key;
-  const P = key === "portraits" ? grid(N, PY + 260, PY + PH - 190) : grid(N);
+  const P = key === "portraits" ? grid(N, PY + 240, PY + PH - 150) : key === "case" ? grid(N, PY + 230, PY + PH - 130) : grid(N);
   const name = (i: number) => (parts[i].title || `${form.part} ${parts[i].n}`).toUpperCase();
   const head = `${form.part} ${parts[cur].n}`;
   const title = (parts[cur].title || "").toUpperCase();
@@ -122,7 +122,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
         {P.map((p, i) => {
           const isNew = i === cur, k = isNew ? 1 + 0.12 * a : 1;
           return (
-            <g key={i} transform={`translate(${p.x} ${p.y - 16}) scale(${k})`}>
+            <g key={i} transform={`translate(${p.x} ${p.y - 16}) scale(${k * (N > 6 ? 0.8 : 1)})`}>
               <rect x={-84} y={-104} width={168} height={208} fill="#C9A24B" stroke="#7A5E22" strokeWidth={5} />
               <rect x={-66} y={-86} width={132} height={172} fill={i <= cur ? PAPER : "#2A2530"} />
               {i <= cur ? <g opacity={isNew ? a : 1}><circle cx={0} cy={-22} r={30} fill={INK} /><path d="M-52 86 Q0 -6 52 86 Z" fill={INK} /></g> : null}

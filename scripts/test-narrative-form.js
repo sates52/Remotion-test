@@ -116,4 +116,16 @@ t("the film's frame is the form's: eight shapes for the same information, drawn 
   assert.ok(track.includes("active.hud?.hidden") && track.includes('active.shot === "chapterCard"'), "hidden where the old band was hidden");
 });
 
+t("when a part is announced its board comes up: one object per form, over the scene for three seconds, nothing swaying", () => {
+  const eng = path.join(__dirname, "../src/engines/antidote");
+  const board = fs.readFileSync(path.join(eng, "components/FormBoard.tsx"), "utf8"), index = fs.readFileSync(path.join(eng, "index.tsx"), "utf8");
+  for (const k of KEYS) assert.ok(k === "anatomy" || board.includes(`key === "${k}"`), `${k} has no board of its own`);
+  assert.strictEqual(new Set([...board.matchAll(/^    (\w+): \{ bg: "(#[0-9A-F]{6})"/gm)].map((m) => m[2])).size, KEYS.length, "eight boards, eight grounds");
+  assert.ok(/\(form\.parts \|\| \[\]\)\.length < 3\) return null/.test(board), "fewer than three announced parts: no board");
+  assert.ok(/if \(t >= HOLD\) return null/.test(board) && /const HOLD = 84/.test(board), "it stands for under three seconds, then the scene is there again");
+  assert.ok(board.includes("active.hud?.hidden") && !/Math\.sin|Math\.cos/.test(board));
+  assert.ok(index.includes("hasFormTrack(config) && <FormBoard config={config} />"));
+  assert.ok(index.indexOf("<FormBoard") < index.indexOf("<CaptionLayer"), "the subtitles stay above the board");
+});
+
 console.log(`\n${n} checks passed`);
