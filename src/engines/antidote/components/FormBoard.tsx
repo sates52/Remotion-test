@@ -91,7 +91,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const a = ease((t - 6) / 16); // the new part arriving, once
   const accent = config.meta.hud?.accent ?? "#C2410C";
   const key = form.key;
-  const P = key === "portraits" ? grid(N, PY + 240, PY + PH - 150) : key === "case" ? grid(N, PY + 230, PY + PH - 130) : grid(N);
+  const P = key === "portraits" ? grid(N, PY + 240, PY + PH - 150) : key === "case" ? grid(N, PY + 230, PY + PH - 130) : key === "journey" ? grid(N, PY + 270, PY + PH - 120) : grid(N);
   const name = (i: number) => (parts[i].title || `${form.part} ${parts[i].n}`).toUpperCase();
   const head = `${form.part} ${parts[cur].n}`;
   const title = (parts[cur].title || "").toUpperCase();
