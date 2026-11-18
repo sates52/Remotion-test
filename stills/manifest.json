@@ -1,0 +1,77 @@
+{
+ "schema": "stills/1",
+ "name": "book skin — one passage, five hands",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 5,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "skin-channel",
+   "config": "configs/skin-channel.json",
+   "frames": [
+    594,
+    804,
+    1085,
+    262
+   ]
+  },
+  {
+   "id": "skin-paper-sharp-serif",
+   "config": "configs/skin-paper-sharp-serif.json",
+   "frames": [
+    594,
+    804,
+    1085,
+    262
+   ]
+  },
+  {
+   "id": "skin-bar-accent-condensed",
+   "config": "configs/skin-bar-accent-condensed.json",
+   "frames": [
+    594,
+    804,
+    1085,
+    262
+   ]
+  },
+  {
+   "id": "skin-tape-paper-slab",
+   "config": "configs/skin-tape-paper-slab.json",
+   "frames": [
+    594,
+    804,
+    1085,
+    262
+   ]
+  },
+  {
+   "id": "skin-box-accent-serif",
+   "config": "configs/skin-box-accent-serif.json",
+   "frames": [
+    594,
+    804,
+    1085,
+    262
+   ]
+  }
+ ],
+ "inputHash": "bab95931be1173d4",
+ "files": {
+  "stills/configs/skin-channel.json": "3e3cec7a343a14c1ec7c3a6138cc0c0d0d589d2d7d14b054f1131193676c6015",
+  "stills/configs/skin-paper-sharp-serif.json": "40c1994e4336cd1130862cb1358e1e85aed3d8e09429577906fafe8f40ea9c27",
+  "stills/configs/skin-bar-accent-condensed.json": "f736a99af45e401fa0627e6791910a50e2d8b5063c9af1ffdb3ceedda6f41fb7",
+  "stills/configs/skin-tape-paper-slab.json": "bf7bde35858c6742bc3c871f77c1969c96c0c9e13d46b35c29994e6dbc1a188b",
+  "stills/configs/skin-box-accent-serif.json": "5071df68eecf0addfbed98bcace5667a3eff7a3c38c687457cc0cadd964bc2c6"
+ },
+ "builtAt": "2026-11-18T13:55:45.098Z"
+}
