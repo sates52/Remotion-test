@@ -91,4 +91,28 @@ t("Step 0 writes the form into the prompt and the book record; the checker knows
   for (const d of old) { const b = JSON.parse(fs.readFileSync(path.join(d, "book.json"), "utf8")); const r = checkNotebookPrompt(fs.readFileSync(path.join(d, "prompt.notebooklm.md"), "utf8"), { title: b.title, engine: b.engine }); assert.ok(!r.errors.some((e) => /parts of THIS book|lost its SPEECH|lost its HOW EACH/.test(e)), `${path.basename(d)}: an old prompt is asked for the new blocks`); }
 });
 
+t("the parts reach the film: titles from the prompt, start frames from what the hosts say — fewer than three, and no track", () => {
+  const block = "THE EXHIBITS OF THIS BOOK (in order):\n1. The deed to Carfax — Harker lays it on the table.\n2. The shaving mirror: no Count in it.\n3. The Demeter's log - fifty boxes.\n\nHOW EACH EXHIBIT IS DEVELOPED\n7. not a part";
+  assert.deepStrictEqual(F.partTitles(block), ["The deed to Carfax", "The shaving mirror", "The Demeter's log"]);
+  assert.deepStrictEqual(F.partTitles(""), []);
+  const scenes = [{ text: "the deed slides over", from: 0 }, { text: "exhibit one the deed", from: 300 }, { text: "more", from: 600 }, { text: "Exhibit two", from: 900 }, { text: "exhibit three", from: 1200 }];
+  assert.deepStrictEqual(F.partStarts("case", scenes.map((x) => x.text)), [1, 3, 4]);
+  assert.deepStrictEqual(F.filmForm({ key: "case", parts: ["The deed", "The mirror"] }, scenes), { key: "case", part: "EXHIBIT", name: "CASE FILE", parts: [{ n: 1, from: 300, title: "The deed" }, { n: 2, from: 900, title: "The mirror" }, { n: 3, from: 1200 }] });
+  assert.deepStrictEqual(F.filmForm({ key: "case" }, scenes.slice(0, 3)).parts, [], "one announced part: nothing is invented");
+  assert.strictEqual(F.filmForm(null, scenes), null); assert.strictEqual(F.filmForm({ key: "summary" }, scenes), null);
+  const plan = fs.readFileSync(path.join(__dirname, "plan-antidote.js"), "utf8"), mp = fs.readFileSync(path.join(__dirname, "make-prompt.js"), "utf8");
+  assert.ok(plan.includes('require("./lib/narrative-form").filmForm(man.form,') && mp.includes("book.form = { ...book.form, parts: titles }"));
+});
+
+t("the film's frame is the form's: eight shapes for the same information, drawn only for a film with announced parts", () => {
+  const eng = path.join(__dirname, "../src/engines/antidote");
+  const track = fs.readFileSync(path.join(eng, "components/FormTrack.tsx"), "utf8"), index = fs.readFileSync(path.join(eng, "index.tsx"), "utf8"), schema = fs.readFileSync(path.join(eng, "schema.ts"), "utf8");
+  for (const k of KEYS) assert.ok(k === "anatomy" || track.includes(`key === "${k}"`), `${k} has no shape of its own`);
+  assert.ok(/\(config\.meta\.form\.parts \|\| \[\]\)\.length >= 3/.test(track), "fewer than three parts: the old band");
+  assert.ok(index.includes("hasFormTrack(config) ? <FormTrack config={config} /> : <RetentionHUD config={config} />"));
+  assert.ok(!/Math\.sin|Math\.cos/.test(track), "a part arrives once; nothing sways");
+  assert.ok(/form: z\.object\(\{ key: z\.string\(\)[^\n]*\)\.optional\(\),/.test(schema), "optional: a config without it renders as before");
+  assert.ok(track.includes("active.hud?.hidden") && track.includes('active.shot === "chapterCard"'), "hidden where the old band was hidden");
+});
+
 console.log(`\n${n} checks passed`);

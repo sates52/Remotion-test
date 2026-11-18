@@ -5,6 +5,7 @@ import { RelationshipHold, HOLD_FRAMES } from "./components/RelationshipStage";
 import { CaptionLayer } from "./components/CaptionLayer";
 import { AudioEngine } from "./components/AudioEngine";
 import { RetentionHUD } from "./components/RetentionHUD";
+import { FormTrack, hasFormTrack } from "./components/FormTrack";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
@@ -111,7 +112,8 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
       {/* Subtitles sit above every scene, on the absolute timeline, in the reserved bottom band. */}
       <CaptionLayer captions={config.captions} />
       {/* Top safe-zone retention HUD: timeline progress & insight trackers */}
-      {config.meta.hud?.enabled !== false && <RetentionHUD config={config} />}
+      {/* a book told in a narrative form draws its PARTS in that form's shape instead (components/FormTrack.tsx) */}
+      {config.meta.hud?.enabled !== false && (hasFormTrack(config) ? <FormTrack config={config} /> : <RetentionHUD config={config} />)}
       {/* Frame-accurate sound design (transitions, ticks, chapter hits) */}
       <AudioEngine config={config} />
     </AbsoluteFill>

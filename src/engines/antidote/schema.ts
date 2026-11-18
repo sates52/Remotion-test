@@ -1057,6 +1057,11 @@ export const antidoteConfigSchema = z.object({
     multiplane: z.boolean().optional(),
     /** RETENTION HUD (4.2). Minimal top safe-zone progress track & insight badges. */
     hud: metaHudSchema.optional(),
+    /** THE FILM'S NARRATIVE FORM (2026-11-18, scripts/lib/narrative-form.js): how this book is told (a case file, a
+     *  trial, a journey …) and the parts its hosts announced, with the frame each starts on. When at least three parts
+     *  are there the top band draws THEM in the form's own shape (components/FormTrack.tsx) instead of the progress
+     *  line and the "INSIGHT n / N" pill every earlier film shares. Absent: the film is framed as before. */
+    form: z.object({ key: z.string(), part: z.string(), name: z.string(), parts: z.array(z.object({ n: z.number(), from: z.number(), title: z.string().optional() })) }).optional(),
     /** SINGLE-RELATION capability (cycle 13, default OFF): when true, scenes carrying a compiled `singleRelation`
      *  contract (scripts/lib/single-relation.js) draw it; when absent / false the field is ignored. */
     singleRelation: z.boolean().optional(),

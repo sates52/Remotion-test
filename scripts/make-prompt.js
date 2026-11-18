@@ -94,6 +94,12 @@ if (args.check) {
     const b = require("./lib/source-brief").readBrief(fs.readFileSync(briefPath, "utf8"));
     console.log(`  ${b.ok ? "✓" : "⚠"} source brief: ${b.found}/10 headings${b.missing.length ? ` (missing: ${b.missing.join(", ")})` : ""}${b.pages ? ` · ${b.pages} pages` : ""}${b.pages && !book.pages ? " — pass --pages to make-prompt.js so the length follows the book" : ""}`);
   } else console.log(`  ⚠ no source brief (books/${slug}/source-brief.md): the prompt rests on what the agent remembers of the book — \`make-prompt.js --brief\` asks NotebookLM instead`);
+  // a finished prompt names its parts: they are kept in book.json so the film's frame can print them (lib/narrative-form.js filmForm)
+  if (ok && book.form && book.form.key) {
+    const titles = require("./lib/narrative-form").partTitles((md.match(/```\r?\n([\s\S]*?)\r?\n```/) || [])[1]);
+    if (titles.length >= 3 && JSON.stringify(titles) !== JSON.stringify(book.form.parts || [])) { book.form = { ...book.form, parts: titles }; fs.writeFileSync(abs.manifest(slug), JSON.stringify(book, null, 2) + "\n"); }
+    console.log(`  ✓ form ${book.form.key}: ${titles.length} ${String(book.form.part || "part").toLowerCase()}(s) named — ${titles.slice(0, 3).join(" · ")}${titles.length > 3 ? " · …" : ""}`);
+  }
   if (ok) console.log(`  → hand the operator ${rel.prompt(slug)} (its paste block) + the MP3 / VTT steps at its end`);
   process.exit(ok ? 0 : 1);
 }
@@ -338,7 +344,7 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   if (args.form && String(args["form-why"] || "").trim().length < 30) { console.error(`❌ --form=${args.form} needs --form-why="<what in THIS book makes it a ${FORMS[args.form].label}>" (≥ 30 chars) — the form is chosen from the book, not from a list`); process.exit(1); }
   const keptForm = validForm(manifest.form) && !args.reform && !args.form ? manifest.form.key : null;
   const FORM = args.form ? String(args.form) : keptForm || pickForm({ slug: SLUG, kind, recent: recentForms(SLUG) });
-  manifest.form = { key: FORM, part: FORMS[FORM].part, at: (keptForm && manifest.form.at) || new Date().toISOString(), by: args.form ? "agent" : (keptForm && manifest.form.by) || "narrative-form", ...(args.form ? { why: String(args["form-why"]).trim() } : keptForm && manifest.form.why ? { why: manifest.form.why } : {}) };
+  manifest.form = { key: FORM, part: FORMS[FORM].part, at: (keptForm && manifest.form.at) || new Date().toISOString(), by: args.form ? "agent" : (keptForm && manifest.form.by) || "narrative-form", ...(args.form ? { why: String(args["form-why"]).trim() } : keptForm && manifest.form.why ? { why: manifest.form.why } : {}), ...(keptForm && Array.isArray(manifest.form.parts) ? { parts: manifest.form.parts } : {}) };
   // the producer's own view of the book (operator's words, optional): the hosts argue with a real reader, not only with each other
   if (typeof args.take === "string" && args.take.trim()) manifest.take = { text: args.take.trim(), at: new Date().toISOString() };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");

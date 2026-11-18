@@ -1645,6 +1645,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       },
       thumbnail,
       cast: CAST_BIBLE,
+      // the book's narrative form and the parts its hosts announced (lib/narrative-form.js): the film's frame draws them
+      ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); const ff = require("./lib/narrative-form").filmForm(man.form, scenes.map((x) => ({ text: x.text, from: x.from }))); return ff ? { form: ff } : {}; } catch { return {}; } })(),
     },
     scenes: sceneSpecs,
     captions,

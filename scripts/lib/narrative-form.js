@@ -166,7 +166,42 @@ function partBadges(key, sceneTexts = []) {
   return at.map((n) => (n ? `${f.part} ${String(n).padStart(2, "0")} / ${String(total).padStart(2, "0")}` : name));
 }
 
+/**
+ * partStarts(key, sceneTexts) → [scene index where part 1 starts, part 2, …] ([] when fewer than three were announced
+ * in rising order, or the form is unknown). The same reading as partBadges: what the hosts said, nothing computed.
+ */
+function partStarts(key, sceneTexts = []) {
+  const badges = partBadges(key, sceneTexts);
+  if (!badges) return [];
+  const starts = [];
+  badges.forEach((b, i) => { const m = /(\d+) \/ \d+$/.exec(b); if (m && Number(m[1]) === starts.length + 1) starts.push(i); });
+  return starts;
+}
+
+/** The titles of the parts as the agent wrote them in the prompt block: "3. The Demeter's log — a dead captain …" → "The Demeter's log". */
+function partTitles(block) {
+  const out = [];
+  for (const line of String(block || "").split(/\r?\n/)) {
+    const m = /^\s*(\d{1,2})\.\s+(.+)$/.exec(line);
+    if (!m || Number(m[1]) !== out.length + 1) continue;
+    out.push(m[2].split(/\s+[—–-]\s+|:\s/)[0].replace(/[.;,]+$/, "").trim().slice(0, 44));
+  }
+  return out;
+}
+
+/**
+ * filmForm(form, scenes) → what the film's frame draws (config meta.form), or null. form = book.json form
+ * ({ key, parts? }); scenes = [{ text, from }] (from in frames). The track of parts is drawn only when the recording
+ * announced at least three of them; a part's title is the one the prompt gave it, else none.
+ */
+function filmForm(form, scenes = []) {
+  if (!validForm(form)) return null;
+  const f = FORMS[form.key], starts = partStarts(form.key, scenes.map((s) => s.text));
+  const titles = Array.isArray(form.parts) ? form.parts : [];
+  return { key: form.key, part: f.part, name: f.name, parts: starts.map((si, i) => ({ n: i + 1, from: scenes[si].from, ...(titles[i] ? { title: titles[i] } : {}) })) };
+}
+
 /** One line per form for the agent that chooses (make-prompt prints it; the notebooklm-prompt skill explains it). */
 const menu = (kind) => candidates(kind).map((k) => `${k} — ${FORMS[k].label}: ${FORMS[k].fits}`);
 
-module.exports = { FORMS, SPEECH, candidates, validForm, pickForm, formBlock, menu, partBadges };
+module.exports = { FORMS, SPEECH, candidates, validForm, pickForm, formBlock, menu, partBadges, partStarts, partTitles, filmForm };
