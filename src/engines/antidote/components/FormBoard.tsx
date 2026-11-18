@@ -30,7 +30,7 @@ function grid(n: number, top = PY + 190, bottom = PY + PH - 150): Array<{ x: num
   const rows = n > 6 ? 2 : 1, cols = Math.ceil(n / rows), out = [];
   for (let i = 0; i < n; i++) {
     const r = Math.floor(i / cols), c = i % cols, inRow = r === rows - 1 ? n - cols * (rows - 1) : cols;
-    const x = PX + PW / 2 + (c - (inRow - 1) / 2) * Math.min(250, (PW - 220) / Math.max(1, cols - 1 || 1));
+    const x = PX + PW / 2 + (c - (inRow - 1) / 2) * Math.min(390, (PW - 330) / Math.max(1, cols - 1));
     const y = rows === 1 ? (top + bottom) / 2 : top + (r * (bottom - top)) / (rows - 1);
     out.push({ x, y });
   }
@@ -59,7 +59,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const a = ease((t - 6) / 16); // the new part arriving, once
   const accent = config.meta.hud?.accent ?? "#C2410C";
   const key = form.key;
-  const P = grid(N);
+  const P = key === "portraits" ? grid(N, PY + 260, PY + PH - 190) : grid(N);
   const name = (i: number) => (parts[i].title || `${form.part} ${parts[i].n}`).toUpperCase();
   const head = `${form.part} ${parts[cur].n}`;
   const title = (parts[cur].title || "").toUpperCase();
@@ -79,7 +79,7 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
 
   if (key === "case") {
     // a cork board: every exhibit so far is a pinned card; a string runs from pin to pin; the new one is laid on last
-    const cw = N > 6 ? 200 : 230, ch = 150;
+    const cw = N > 6 ? 250 : 270, ch = 170;
     body = (
       <g>
         {cur >= 1 ? <polyline points={P.slice(0, cur + 1).map((p, i) => (i === cur ? `${P[cur - 1].x + (p.x - P[cur - 1].x) * a},${P[cur - 1].y - ch / 2 + (p.y - P[cur - 1].y) * a}` : `${p.x},${p.y - ch / 2}`)).join(" ")} fill="none" stroke={accent} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" /> : null}
@@ -90,8 +90,8 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
             <g key={i} transform={`translate(${p.x} ${p.y}) rotate(${tilt}) scale(${k})`} opacity={isNew ? a : 1}>
               <rect x={-cw / 2 + 5} y={-ch / 2 + 7} width={cw} height={ch} rx={6} fill="rgba(0,0,0,0.22)" />
               <rect x={-cw / 2} y={-ch / 2} width={cw} height={ch} rx={6} fill={PAPER} />
-              <text x={-cw / 2 + 14} y={-ch / 2 + 34} fontFamily={MONO} fontWeight={800} fontSize={19} fill={accent}>{`${form.part} ${parts[i].n}`}</text>
-              {lines(name(i)).map((l, j) => <text key={j} x={-cw / 2 + 14} y={-ch / 2 + 68 + j * 27} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={22} fill={INK}>{l}</text>)}
+              <text x={-cw / 2 + 16} y={-ch / 2 + 38} fontFamily={MONO} fontWeight={800} fontSize={20} fill="#8A2A0C">{`${form.part} ${parts[i].n}`}</text>
+              {lines(name(i)).map((l, j) => <text key={j} x={-cw / 2 + 16} y={-ch / 2 + 76 + j * 30} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={25} fill={INK}>{l}</text>)}
               <circle cx={0} cy={-ch / 2} r={10} fill={accent} stroke="#5C1A0A" strokeWidth={2} />
             </g>
           );
@@ -221,8 +221,9 @@ export const FormBoard: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
         <rect x={PX} y={PY} width={PW} height={PH} rx={12} fill={S.bg} />
         {showHead ? (
           <g>
-            <text x={PX + 60} y={PY + 76} fontFamily={MONO} fontWeight={800} fontSize={34} letterSpacing={2} fill={accent}>{head}</text>
-            <text x={PX + 60 + head.length * 23 + 30} y={PY + 76} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={40} fill={S.ink} opacity={a}>{title.slice(0, 40)}</text>
+            <rect x={PX + 44} y={PY + 38} width={head.length * 23 + 34} height={54} rx={8} fill={INK} />
+            <text x={PX + 60} y={PY + 76} fontFamily={MONO} fontWeight={800} fontSize={34} letterSpacing={2} fill={PAPER}>{head}</text>
+            <text x={PX + 60 + head.length * 23 + 44} y={PY + 78} fontFamily={ANTIDOTE_FONT} fontWeight={900} fontSize={40} fill={S.ink} opacity={a}>{title.slice(0, 40)}</text>
           </g>
         ) : null}
         {body}
