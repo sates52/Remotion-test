@@ -1,0 +1,78 @@
+{
+ "schema": "stills/1",
+ "name": "film flow 4 ESKI/YENI",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "thinking-in-systems-402-450-ESKI",
+   "config": "configs/thinking-in-systems-402-450-ESKI.json",
+   "frames": [
+    822
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1643,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "thinking-in-systems-488-553-ESKI",
+   "config": "configs/thinking-in-systems-488-553-ESKI.json",
+   "frames": [
+    982
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1962,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "thinking-in-systems-402-450-YENI",
+   "config": "configs/thinking-in-systems-402-450-YENI.json",
+   "frames": [
+    822
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1643,
+    "scale": 1,
+    "crf": 16
+   }
+  },
+  {
+   "id": "thinking-in-systems-488-553-YENI",
+   "config": "configs/thinking-in-systems-488-553-YENI.json",
+   "frames": [
+    982
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1962,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "334291337dd7ab75",
+ "files": {
+  "stills/configs/thinking-in-systems-402-450-ESKI.json": "c0691ba9e9e83c2fc30055042f1c4da55c26afb536035ddfef1c06bbbe5607b8",
+  "stills/configs/thinking-in-systems-488-553-ESKI.json": "01e427afbd920a85f953241a067458aa51b4420f6c7c63b580c2c86fd766df9c",
+  "stills/configs/thinking-in-systems-402-450-YENI.json": "da5b63bfb0bb502e1c31ed59b9df146c6d4a04b84f75f5f30b67c6c928143e6f",
+  "stills/configs/thinking-in-systems-488-553-YENI.json": "a44eed390baa30d019190c68d1016528071842fa49a32c44ea05cd0e334424ab"
+ },
+ "builtAt": "2026-11-18T12:34:38.962Z"
+}
