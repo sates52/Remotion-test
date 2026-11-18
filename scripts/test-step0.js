@@ -26,10 +26,7 @@ try {
   t("scaffold: Step 0 is NOT READY (a scaffold is not done)", r.status === 1 && /STEP 0 NOT READY/.test(r.stdout) && /scaffold sentence/.test(r.stdout), r.stdout);
   // finish it the way an agent does: a book-specific thesis, opening image, setup and beats — English
   const md = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")
-    .replace(/- Build the discussion around one arguable thesis about how "[^"]+" works as [^,\n]*, not a summary\./, '- Thesis: "Zz Portal Probe" is a creation story told as a children\'s adventure, and its real subject is what a person does with power they cannot undo.')
-    .replace("open mid-thought on the single most provocative idea.", "open mid-thought on a boy in a dusty attic holding a yellow ring and a green ring, not knowing where either sends him.")
-    .replace("who/what the book puts in play (concrete names, stakes).", "the two children, the uncle's study, the rings, the dead city and its silent queen.")
-    .replace("BEATS: 8 beats, each ONE specific claim from the book.", "BEATS: 8 beats, each ONE claim tied to a concrete place: the attic, the wood between the worlds, the bell in the dead city, the London street, the dark before creation, the singing lion, the garden and its apple, the return home.");
+    .replace(/- Build the discussion around one arguable thesis about how "[^"]+" works as [^,\n]*, not a summary\./, '- Thesis to prove: "Zz Portal Probe" is a creation story told as a children\'s adventure, and its real subject is what a person does with power they cannot undo.\n\nTHE PARTS OF THIS BOOK (one each, in order):\n' + ["the attic and the two rings", "the wood between the worlds", "the bell in the dead city", "the London street", "the dark before creation", "the singing lion", "the garden and its apple", "the return home"].map((x, i) => `${i + 1}. ${x}`).join("\n"));
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md);
   r = run("--check", `--slug=${SLUG}`);
   t("finished: the book-specific English prompt is STEP 0 READY", r.status === 0 && /STEP 0 READY/.test(r.stdout), r.stdout);
@@ -41,7 +38,22 @@ try {
   r = run("--check", `--slug=${SLUG}`);
   t("language: a paste block that is not English is NOT READY", r.status === 1 && /not English/.test(r.stdout), r.stdout);
   // 2026-11-11: the first minute and one drawable picture per beat are part of the spine, written for the engine
-  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50/.test(md) && /- OPEN: /.test(md) && /- NAME IT: /.test(md) && /- PROMISE \(by 0:50\): /.test(md) && /PICTURE FIRST \(this becomes animation/.test(md) && /Open each beat by asking/.test(md));
+  t("spine: the scaffold carries FIRST MINUTE and the antidote PICTURE FIRST", /FIRST MINUTE \(half the audience decides before 0:50/.test(md) && /- OPEN: /.test(md) && /- NAME IT: /.test(md) && /- PROMISE \(by 0:50\): /.test(md) && /PICTURE FIRST \(this becomes animation/.test(md));
+  // 2026-11-18: the body is the book's own narrative form (lib/narrative-form.js), never the one spine
+  const NF = require("./lib/narrative-form"), form1 = book().form;
+  t("form: chosen for the book, recorded in book.json, written into the prompt (no fixed spine, no Depth Engine)", form1 && NF.FORMS[form1.key] && NF.candidates("fiction").includes(form1.key) && form1.part === NF.FORMS[form1.key].part && form1.by === "narrative-form" && md.includes(`**Form:** ${form1.key}`) && /THE FORM OF THIS FILM/.test(md) && new RegExp(`HOW EACH ${form1.part} IS DEVELOPED`).test(md) && /SPEECH \(/.test(md) && !/DEPTH ENGINE|STRUCTURE \(follow strictly\)/.test(md), JSON.stringify(form1));
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`);
+  t("form: a re-run keeps the book's form (same choice, same date)", JSON.stringify(book().form) === JSON.stringify(form1));
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--form=journey");
+  t("form: an agent's choice needs its reason from the book", r.status === 1 && /--form-why=/.test(r.stderr), r.stderr);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--form=trial", "--form-why=it argues one claim the reader could reject outright");
+  t("form: a form that is not one of the forms… is still a known key, so it is the agent's decision (recorded with its why)", r.status === 0 && book().form.key === "trial" && book().form.by === "agent" && /reject outright/.test(book().form.why) && /This is a TRIAL/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")), r.stderr);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--form=summary", "--form-why=a plain summary of the whole book please");
+  t("form: an unknown form is refused with the list", r.status === 1 && /--form="summary"/.test(r.stderr) && /journey — /.test(r.stderr), r.stderr);
+  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--take=I think the uncle is let off far too lightly.");
+  t("take: the producer's own view is recorded and written into the prompt as a real reader's", r.status === 0 && /let off far too lightly/.test(book().take.text) && /A REAL READER'S VIEW/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")), r.stderr);
+  // back to the book's first form: the checks below edit the prompt that was written in it
+  run(...base, `--profile=${JSON.stringify(PORTAL)}`, `--form=${form1.key}`, "--form-why=the first form again, for the checks that follow this one");
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("FIRST MINUTE", "OPENING"));
   r = run("--check", `--slug=${SLUG}`);
   t("spine: a prompt without the FIRST MINUTE block is NOT READY", r.status === 1 && /no FIRST MINUTE block/.test(r.stdout), r.stdout);
@@ -62,10 +74,10 @@ try {
   t("opening: an unknown opening is refused", r.status === 1 && /--opening=/.test(r.stderr), r.stderr);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=420");
   let long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
-  t("length: a 420-page book targets 60-75 minutes with 10 beats, recorded", r.status === 0 && /LENGTH \(target 60-75 minutes, minimum 55/.test(long) && /BEATS: 10 beats/.test(long) && /\*\*Target:\*\* 60-75 min/.test(long) && book().pages === 420, r.stderr);
+  t("length: a 420-page book targets 60-75 minutes with 10 beats, recorded", r.status === 0 && /LENGTH \(target 60-75 minutes, minimum 55/.test(long) && /- THE PARTS: 10 /.test(long) && /\*\*Target:\*\* 60-75 min/.test(long) && book().pages === 420, r.stderr);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=640");
   long = fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8");
-  t("length: a 640-page book targets 75-90 minutes with 12 beats", /LENGTH \(target 75-90 minutes, minimum 70/.test(long) && /BEATS: 12 beats/.test(long));
+  t("length: a 640-page book targets 75-90 minutes with 12 beats", /LENGTH \(target 75-90 minutes, minimum 70/.test(long) && /- THE PARTS: 12 /.test(long));
   r = run("--check", `--slug=${SLUG}`);
   t("length: a long-form scaffold is still NOT READY (its beats line is generic at any tier)", r.status === 1 && /still generic|scaffold sentence/.test(r.stdout), r.stdout);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--pages=200");

@@ -82,7 +82,7 @@ if (args.check) {
   try { md = fs.readFileSync(abs.prompt(slug), "utf8"); } catch {}
   try { book = JSON.parse(fs.readFileSync(abs.manifest(slug), "utf8")); } catch {}
   if (!md) { console.error(`STEP 0 NOT READY ${slug}: no ${rel.prompt(slug)}`); process.exit(1); }
-  const r = checkNotebookPrompt(md, { title: book.title || null, engine: book.engine || null });
+  const r = checkNotebookPrompt(md, { title: book.title || null, engine: book.engine || null, form: (book.form && book.form.key) || null });
   if (!book.engine) r.errors.push("book.json has no engine (Step 0 decides it)");
   const ok = r.errors.length === 0;
   console.log(`${ok ? "STEP 0 READY" : "STEP 0 NOT READY"} ${slug}: engine ${book.engine || "?"} (${book.engineDecidedBy || "?"})${book.engineOverride ? ` — override ${book.engineOverride.from}→${book.engineOverride.to}: ${book.engineOverride.why}` : ""} · paste block ${r.chars} chars`);
@@ -133,6 +133,8 @@ const OUT = rel.prompt(SLUG);
 // LENGTH follows the book (operator, 2026-11-11: never shorten; a 300+ page book may run past the hour). NotebookLM
 // decides the real length — more beats and a higher floor are what move it.
 const { pickOpening, parseOpening, validOpening, openingBlock } = require("./lib/opening-grammar");
+// 2026-11-18 (YPP "generic or repetitive content"): the BODY is the book's own too — lib/narrative-form.js
+const { FORMS, pickForm, validForm, formBlock, menu: formMenu } = require("./lib/narrative-form");
 function lengthTier(pages) {
   const n = Number(pages) || 0;
   if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 12, perBeat: "6-7" };
@@ -149,37 +151,39 @@ function recentOpenings(slug) {
   booksIn(path.join(parent, "test"));
   return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
 }
+/** The narrative forms of the books made before this one, newest first (same places as recentOpenings). */
+function recentForms(slug) {
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => { try { const b = JSON.parse(fs.readFileSync(file, "utf8")); if (b.slug && b.slug !== slug && validForm(b.form) && !seen.has(b.slug)) seen.set(b.slug, b.form); } catch {} };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
+}
 const PICTURE_FIRST = {
-  antidote: `PICTURE FIRST (this becomes animation — give the artist something to draw): build every beat on ONE physical demonstration and say it out loud BEFORE its meaning: two things of different size side by side, a threshold where something flips, one thing changed while everything else stays fixed, steps that shrink, a before and an after. Name the object, who does what to it, and what changes. Return to the same picture when the beat ends. An idea with no picture is not ready to be said.`,
-  vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every beat on ONE scene a camera could photograph — a named person, in a named place, doing one thing, with one object in their hands. Say the scene out loud BEFORE its meaning, and return to the same scene when the beat ends. An idea with no scene is not ready to be said.`,
+  antidote: `PICTURE FIRST (this becomes animation — give the artist something to draw): build every part on ONE physical thing and say it BEFORE its meaning (two sizes side by side, a threshold that flips, a before and an after): name the object, who does what to it, what changes; return to that picture when the part ends. An idea with no picture is not ready to be said.`,
+  vox: `PICTURE FIRST (this is illustrated with photoreal scenes): build every part on ONE scene a camera could photograph — a named person in a named place doing one thing with one object. Say the scene BEFORE its meaning and return to it when the part ends. An idea with no scene is not ready to be said.`,
 };
-const spineFor = (engine, opening, tier) => `
-STRUCTURE (follow strictly):
-1. COLD OPEN (0:00-0:25): open mid-thought on the single most provocative idea. No greetings, no "welcome back", no "today we're looking at".
-2. THESIS: state the one argument this whole discussion will prove.
-3. SETUP: who/what the book puts in play (concrete names, stakes).
-4. BEATS: ${tier.beats} beats, each ONE specific claim from the book. Open each beat by asking, in one plain sentence, the question it answers. DEVELOP each beat fully before moving on — do NOT list them quickly.
-5. COUNTERPOINT: one honest criticism — where the book strains or a reader pushes back.
-6. PAYOFF: land the thesis on a line that reframes everything said before.
+// Until 2026-11-18 every book got ONE spine here (cold open → thesis → setup → N beats → counterpoint → payoff) and one
+// "Depth Engine" a–e: 46 prompts shared a median 40 % of their words and every film sounded built the same way. The
+// body is now the book's own FORM (lib/narrative-form.js): what the film is, who the hosts are to each other, how a
+// part is developed (five steps, so the length holds) and how it ends. FIRST MINUTE, PICTURE FIRST, LENGTH and the
+// HARD RULES are what stays.
+const spineFor = (engine, opening, tier, form) => `
+${formBlock(form, tier)}
 
 ${openingBlock(opening)}
 
 ${PICTURE_FIRST[engine] || PICTURE_FIRST.antidote}
 
-DEPTH ENGINE (run this on EVERY beat — this is how the episode earns its length):
-a) drop us into a scene in present tense with one vivid sensory detail; voice the people;
-b) land the point ("here's what that means for you");
-c) add a SECOND concrete example, number, or angle from the book;
-d) take one honest "wait - but then..." turn where the two hosts genuinely disagree;
-e) tie it back to the recurring phrase-that-pays before moving to the next beat.
-
-LENGTH (target ${tier.target} minutes, minimum ${tier.min} — never shorter): give each beat ${tier.perBeat} real minutes, and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a genuine disagreement between the two hosts. No filler, no restating the thesis, no "as we said earlier". Out of things to say about a beat? MOVE ON. Sound like two sharp people who can't stop talking about this book, not a summary stretched to fill time. Do NOT signal an ending ("to wrap up", "in short") before the final PAYOFF.
+LENGTH (target ${tier.target} minutes, minimum ${tier.min} — never shorter): give each ${FORMS[form].part.toLowerCase()} ${tier.perBeat} real minutes and earn them by going DEEPER, never by repeating: a fresh example, a sharper objection, a real disagreement. No filler, no "as we said earlier", no "to wrap up" before the ending.
 
 HARD RULES:
-- English only (US audience). Two hosts in real conversation — disagree, interrupt, build on each other.
-- Use ONLY facts from the book and its real, well-documented cases. NEVER invent quotes, numbers, studies, or events; if unsure of a detail, stay general instead of fabricating.
-- NEVER mention "sources", "notebook", "documents", or that this is AI; never break character — you are two people who could not stop thinking about this book.
-- No generic praise, no plot-recap for its own sake. Prefer specific over abstract: names, concrete scenes, numbers.
+- English only (US audience). Two hosts in real conversation, in the roles this form gives them.
+- ONLY facts from the book and its well-documented cases. NEVER invent quotes, numbers, studies or events; if unsure, stay general.
+- NEVER mention "sources", "notebook", "documents" or AI; never break character.
+- No generic praise, no plot recap for its own sake: names, concrete scenes, numbers.
 `.trim();
 
 async function llmAngle() {
@@ -328,6 +332,15 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   const kind = (profile && profile.kind) || (manifest.engineProfile && manifest.engineProfile.kind) || null;
   const OPENING = asked || (validOpening(manifest.opening) && !args.reopen ? manifest.opening : pickOpening({ slug: SLUG, kind, recent: recentOpenings(SLUG) }));
   manifest.opening = { hook: OPENING.hook, naming: OPENING.naming, promise: OPENING.promise, at: (manifest.opening && !args.reopen && !asked && manifest.opening.at) || new Date().toISOString(), by: asked ? "agent" : "opening-grammar" };
+  // The FORM of the body is this book's own too (lib/narrative-form.js): the agent chooses it from the book
+  // (--form=<key> --form-why="…"), else the one that fits the kind and is farthest from the last 8 books; kept on a re-run.
+  if (args.form && !FORMS[String(args.form)]) { console.error(`❌ --form="${args.form}" — one of:\n   ${formMenu(kind).join("\n   ")}`); process.exit(1); }
+  if (args.form && String(args["form-why"] || "").trim().length < 30) { console.error(`❌ --form=${args.form} needs --form-why="<what in THIS book makes it a ${FORMS[args.form].label}>" (≥ 30 chars) — the form is chosen from the book, not from a list`); process.exit(1); }
+  const keptForm = validForm(manifest.form) && !args.reform && !args.form ? manifest.form.key : null;
+  const FORM = args.form ? String(args.form) : keptForm || pickForm({ slug: SLUG, kind, recent: recentForms(SLUG) });
+  manifest.form = { key: FORM, part: FORMS[FORM].part, at: (keptForm && manifest.form.at) || new Date().toISOString(), by: args.form ? "agent" : (keptForm && manifest.form.by) || "narrative-form", ...(args.form ? { why: String(args["form-why"]).trim() } : keptForm && manifest.form.why ? { why: manifest.form.why } : {}) };
+  // the producer's own view of the book (operator's words, optional): the hosts argue with a real reader, not only with each other
+  if (typeof args.take === "string" && args.take.trim()) manifest.take = { text: args.take.trim(), at: new Date().toISOString() };
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
   const source = args.engine ? "Claude, açık" : profileFit ? "kitap profili" : (vttSignal && vttSignal.confidence !== "weak") ? "VTT analizi" : "genre heuristik (GEÇİCİ)";
   if (!args.engine && !profileFit) {
@@ -345,6 +358,9 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     : "soyut/everyman beat'ler (vektör rig gerçek kişi canlandıramaz)"}\n`);
   const ENGINE = picked.engine;
   console.log(`🎬 AÇILIŞ → ${OPENING.hook} / ${OPENING.naming} / ${OPENING.promise}  (son 8 kitaptan en uzak; değiştir: --opening=hook/naming/promise veya --reopen)`);
+  console.log(`🎭 BİÇİM → ${FORM} (${FORMS[FORM].label}; ekranda "${FORMS[FORM].part} n / N")  ${manifest.form.by === "agent" ? "— ajan kitaptan seçti" : "— kitabın türüne uyan, son 8 kitaptan en uzak biçim"}`);
+  if (manifest.form.by !== "agent") console.log(`   Kitaba bak ve uygun olanı SEN seç (--form=<key> --form-why="…"):\n   ${formMenu(kind).join("\n   ")}`);
+  console.log(manifest.take ? `🗣  YAPIMCININ GÖRÜŞÜ prompt'a yazıldı.` : `🗣  Yapımcının kendi görüşü yok (isteğe bağlı): --take="<operatörün kitap hakkında 2-5 cümlesi: nerede katılmıyor, neyi fazla buldu>"`);
   console.log(`⏱  UZUNLUK → ${TIER.target} dk, ${TIER.beats} beat${TIER.pages ? ` (${TIER.pages} sayfa)` : " (sayfa sayısı verilmedi: --pages=<n>; 300+ sayfa 60-75, 500+ sayfa 75-90 dk)"}
 `);
 
@@ -365,12 +381,12 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
 - Thesis to prove: ${angle.thesis}
 - Open on this idea: "${angle.hook}"
 
-BEATS TO ARGUE (one specific claim each, in order):
+THE ${FORMS[FORM].part}S OF THIS BOOK (one each, in order):
 ${(angle.beats || []).map((b, i) => `${i + 1}. ${b}`).join("\n")}
 
-RAISE THIS COUNTERPOINT: ${angle.counterpoint}
+THE HONEST CRITICISM TO ARGUE: ${angle.counterpoint}
 
-END BY REFRAMING: ${angle.closer}`
+THE ENDING: ${angle.closer}`
     : `THE ANGLE:
 - Build the discussion around one arguable thesis about how "${TITLE}" works as ${GENRE}, not a summary.`;
 
@@ -378,13 +394,13 @@ END BY REFRAMING: ${angle.closer}`
 
 ${body}
 
-${spineFor(ENGINE, OPENING, TIER)}`;
+${manifest.take ? `A REAL READER'S VIEW (the producer of this film read the book and thinks this — one host brings it up as "a reader told us", and both argue with it honestly; do not flatter it):\n"${manifest.take.text}"\n\n` : ""}${spineFor(ENGINE, OPENING, TIER, FORM)}`;
 
   const md = `# NotebookLM prompt — ${TITLE}${AUTHOR ? " (" + AUTHOR + ")" : ""}
 
-**Slug:** \`${SLUG}\` · **Genre:** ${GENRE} · **Engine:** ${ENGINE} · **Target:** ${TIER.target} min · **Opening:** ${OPENING.hook}/${OPENING.naming}/${OPENING.promise} · **Market:** US (English)
+**Slug:** \`${SLUG}\` · **Genre:** ${GENRE} · **Engine:** ${ENGINE} · **Target:** ${TIER.target} min · **Opening:** ${OPENING.hook}/${OPENING.naming}/${OPENING.promise} · **Form:** ${FORM} · **Market:** US (English)
 
-**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **${TIER.min} dk'nın altına düşerse** tekrar üret — prompt ${TIER.beats} beat + Depth Engine ile ${TIER.target} dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
+**Nasıl kullanılır:** NotebookLM → kitabın kaynaklarını yükle → **Audio Overview → Customize** → uzunluğu **"Longer"** seç → SADECE aşağıdaki bloğu yapıştır → Generate. (Blok kompakt tutuldu ki karakter limitinde kesilmesin. Ses **${TIER.min} dk'nın altına düşerse** tekrar üret — prompt ${TIER.beats} ${FORMS[FORM].part.toLowerCase()} + beş adımlı geliştirme ile ${TIER.target} dk hedefler. Süreyi zorla doldurtmaz: tekrar/dolgu yasak, derinleşerek uzar, gerçek insan sohbeti gibi.)
 
 \`\`\`
 ${prompt}
@@ -408,10 +424,10 @@ ${prompt}
     console.log(`⚠  AÇI YAZILMADI (scaffold) — CLAUDE ŞİMDİ YAZMALI (tercih edilen, en kaliteli yol):`);
     console.log(`   ${OUT} içindeki bloğu, kitaba özgü açıyla YENİDEN yaz:`);
     console.log(`     • non-obvious lens + tek arguable thesis + mid-thought cold-open`);
-    console.log(`     • ${TIER.beats} argued beat (her biri kitaptan somut örnek/sayı) + honest counterpoint + reframing closer`);
+    console.log(`     • BİÇİM ${FORM} (${FORMS[FORM].label}): "THE ${FORMS[FORM].part}S OF THIS BOOK" altına ${TIER.beats} numaralı ${FORMS[FORM].part.toLowerCase()} yaz (her biri kitaptan somut sahne/kanıt/sayı), dürüst eleştiriyi ve bu biçimin bitişini kitabın kendi içeriğiyle yaz; iki sunucunun bu kitaptaki rollerini adlandır`);
     console.log(`     • FIRST MINUTE bu kitaba özgü seçildi (${OPENING.hook}/${OPENING.naming}/${OPENING.promise}): OPEN / NAME IT / PROMISE satırlarının altına kitabın KENDİ sahnesini, cümlesini ve vaadini yaz`);
     console.log(`     • PICTURE FIRST: her beat'in altına çizilebilir TEK resim yaz (nesne, kim ne yapıyor, ne değişiyor) — kitabın kendi sahnesinden`);
-    console.log(`     • DEPTH ENGINE + LENGTH block korunur (${TIER.min} dk floor, ${TIER.target} hedef; dolgu/tekrar YOK, derinleşerek uzar), tam İngilizce, ~2.5–3.5k char`);
+    console.log(`     • THE FORM / HOW EACH … IS DEVELOPED / SPEECH + LENGTH blokları korunur (${TIER.min} dk floor, ${TIER.target} hedef; dolgu/tekrar YOK, derinleşerek uzar), tam İngilizce, ~2.5–3.5k char`);
     console.log(`     • MOTORA GÖRE (${ENGINE}): ${ENGINE === "vox"
       ? "beat'leri gerçek/isimlendirilebilir figürler + belgesel sahneler üzerine kur (Flux cut-out'a uygun)"
       : "beat'leri soyut/everyman durumlar üzerine kur (vektör rig gerçek kişi canlandıramaz)"}`);

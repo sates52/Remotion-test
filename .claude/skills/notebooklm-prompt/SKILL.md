@@ -114,9 +114,30 @@ Then the engine is final. Tell the operator in one line (a statement, not a ques
 
 ## 3. Author the prompt (Claude-first)
 Rewrite the block in `books/<slug>/prompt.notebooklm.md` exactly as make-prompt instructs:
-non-obvious lens + one arguable thesis + mid-thought cold open, 8 argued beats with concrete
-examples from the book, an honest counterpoint, a reframing closer; keep the DEPTH ENGINE and
-LENGTH blocks (45-60 min, no padding); English only; ~4-5k characters (the fixed spine alone is ~3.1k; `--check` warns above 5000, so keep each beat to one tight sentence).
+non-obvious lens + one arguable thesis, then the numbered PARTS of this book in the form make-prompt
+printed (exhibits / rounds / stations / portraits …), each with the book's own scene, evidence or
+number, the honest criticism and the ending this form asks for; keep THE FORM, HOW EACH … IS
+DEVELOPED, SPEECH and LENGTH blocks (45-60 min, no padding); English only; ~4.5-5k characters
+(the fixed blocks alone are ~3.9k; `--check` warns above 5000, so keep each part to one tight sentence).
+
+**The body is this book's own NARRATIVE FORM (2026-11-18, YPP "generic or repetitive content").** Until then every
+book was told on one spine (cold open → thesis → setup → 8 beats → counterpoint → payoff) with one recipe per beat,
+and it was heard: 46 prompts shared a median 40 % of their words, every film answered itself with "Right" / "Exactly"
+/ "Absolutely", 28 of 32 printed "INSIGHT n / N". `scripts/lib/narrative-form.js` now holds the forms — case file,
+trial, journey, duel, practice run, gallery of portraits, one question, anatomy — each with its own roles for the two
+hosts, its own five steps for a part, its own ending and its own on-screen part label.
+- **YOU choose the form from the book**: `--form=<key> --form-why="<what in THIS book makes it that>"` (≥ 30 chars;
+  make-prompt prints the forms that fit the book's kind with what each is for). A crime nobody can explain is a
+  case file; a claim a reader could reject is a trial; a life is a journey. Without `--form` make-prompt takes the
+  fitting form farthest from the last 8 books — a fallback, not a decision. Never the form of the previous book.
+- Under "THE <PART>S OF THIS BOOK" write the numbered parts; name the two hosts' roles in THIS book's terms (who
+  prosecutes what, whose side each takes); write the ending as this form asks (a verdict, a standoff, a last image —
+  not always a question to the listener).
+- The hosts are asked to SAY each part's number ("Exhibit three: …"): the film's corner label follows what they
+  say (`partBadges`), so do not renumber or rename the parts in the prompt.
+- **The producer's own view** (optional, the operator's words): `--take="<2-5 sentences: where they disagree with
+  the book, what they found too much>"` is written into the prompt as a real reader's view the hosts argue with.
+  Ask the operator for it once per book in one line; never write it for them, and go on without it if they pass.
 
 **Two blocks come from the channel's own analytics (2026-11-11, skill `channel-analytics`) — keep them and make them
 book-specific; `--check` refuses a prompt without them:**
@@ -146,7 +167,7 @@ Shape the beats for the engine:
   dwell on graphic detail.
 
 **Step 0 is done only when `node scripts/make-prompt.js --check --slug=<slug>` prints STEP 0 READY**
-(book-specific thesis / opening / setup / beats, the fixed spine intact, English, written for the engine in
+(book-specific thesis / opening / the numbered parts in the book's form, the form blocks intact, English, written for the engine in
 book.json). NOT READY lists what is missing — fix it and re-check; never hand over a scaffold.
 
 ## 4. Hand-off

@@ -71,6 +71,7 @@ const SHORT_TITLE = cleanShortTitle(TITLE);
 const AUTHOR = args.author || "";
 const GENRE = (args.genre || "psychology").toLowerCase();
 const SLUG = args.slug || slugify(TITLE);
+let FORM_BADGES; // the on-screen part labels of a book told in a narrative form (lib/narrative-form.js); undefined = not read yet
 const VTT = args.vtt || rel.vtt(SLUG);
 const UNTIL = args.until ? parseFloat(args.until) : Infinity;
 // Scene tempo. Was 11s -> ~115 scenes for a 29-min book (~15s of screen time
@@ -1162,6 +1163,10 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     const cam = pulses.length ? { ...d.camera, pulses } : d.camera;
 
     // ── RETENTION HUD PER-SCENE AUTO-TAGGING ──────────────────────────────────
+    if (FORM_BADGES === undefined) {
+      FORM_BADGES = null;
+      try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); if (man.form && man.form.key) FORM_BADGES = require("./lib/narrative-form").partBadges(man.form.key, scenes.map((x) => x.text)); } catch {}
+    }
     const totalScenes = scenes.length;
     const totalInsights = Math.max(3, Math.min(8, Math.ceil(totalScenes / 12)));
     const insightNum = Math.min(totalInsights, Math.floor((i / totalScenes) * totalInsights) + 1);
@@ -1215,7 +1220,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     const hud = isTitle || d.shot === "chapterCard"
       ? { hidden: true }
       : {
-          badge: `INSIGHT ${String(insightNum).padStart(2, "0")} / ${String(totalInsights).padStart(2, "0")}`,
+          // a book written in a narrative form (book.json form, 2026-11-18) is labelled by the part its hosts announce
+          badge: (FORM_BADGES && FORM_BADGES[i]) || `INSIGHT ${String(insightNum).padStart(2, "0")} / ${String(totalInsights).padStart(2, "0")}`,
           topic: hudTopic,
         };
 

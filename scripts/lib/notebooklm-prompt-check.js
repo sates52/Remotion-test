@@ -15,19 +15,27 @@ const GENERIC = {
   beats: "BEATS: 8 beats, each ONE specific claim from the book.",
 };
 
-function checkNotebookPrompt(md, { title = null, engine = null } = {}) {
+function checkNotebookPrompt(md, { title = null, engine = null, form = null } = {}) {
   const errors = [], warnings = [];
   const text = String(md || "");
   const m = text.match(/```\r?\n([\s\S]*?)\r?\n```/);
   const block = m ? m[1] : "";
   if (!block) return { ok: false, errors: ["no paste block (```…```) in the prompt file"], warnings, chars: 0 };
   if (/one arguable thesis about how ".*" works as [^,\n]*, not a summary/i.test(block)) errors.push('the angle is still the scaffold sentence ("one arguable thesis about how … works as …") — write the book-specific thesis');
-  const hasAngle = /Thesis to prove:/i.test(block) && (block.match(/^\s*\d+\.\s+\S/gm) || []).length >= 6 + 6; // angle beats + the spine's 6 steps
+  // 2026-11-18: a prompt written in the book's own narrative FORM (lib/narrative-form.js) has no fixed spine to compare with
+  const formed = block.includes("THE FORM OF THIS FILM");
+  if (formed) {
+    for (const k of ["HOW EACH", "SPEECH (", "LENGTH", "HARD RULES"]) if (!block.includes(k)) errors.push(`the prompt lost its ${k.replace(" (", "")} block — re-run make-prompt.js and keep it`);
+    if (!/Thesis to prove:/i.test(block) || (block.match(/^\s*\d+\.\s+\S/gm) || []).length < 6) errors.push("the parts of THIS book are not written — a thesis and the numbered parts (exhibits / rounds / stations …), each with the book's own scene or evidence");
+    const fh = text.match(/\*\*Form:\*\*\s*([a-z]+)/i);
+    if (form && fh && fh[1].toLowerCase() !== String(form).toLowerCase()) errors.push(`the prompt is written as "${fh[1]}" but book.json says form "${form}" — re-run make-prompt.js (the on-screen part label follows book.json)`);
+  }
+  const hasAngle = formed || (/Thesis to prove:/i.test(block) && (block.match(/^\s*\d+\.\s+\S/gm) || []).length >= 6 + 6); // angle beats + the spine's 6 steps
   // the beats line is generic at any length tier (8 / 10 / 12 beats)
   const generic = (g) => (g === GENERIC.beats ? /BEATS: (8|10|12) beats, each ONE specific claim from the book\./.test(block) : block.includes(g));
   const rewritten = Object.values(GENERIC).filter((g) => !generic(g)).length;
   if (!hasAngle && rewritten < 2) errors.push(`the structure is still generic (${3 - rewritten} of COLD OPEN / SETUP / BEATS unchanged) — name the book's opening image, its people and stakes, and its 8 concrete beats`);
-  for (const k of ["DEPTH ENGINE", "LENGTH", "HARD RULES"]) if (!block.includes(k)) errors.push(`the fixed spine lost its ${k} block`);
+  for (const k of formed ? [] : ["DEPTH ENGINE", "LENGTH", "HARD RULES"]) if (!block.includes(k)) errors.push(`the fixed spine lost its ${k} block`);
   // 2026-11-11 (channel analytics: half the viewers leave before 0:50; narration without a picture cannot be staged)
   for (const k of ["FIRST MINUTE", "PICTURE FIRST"]) if (!block.includes(k)) errors.push(`the spine has no ${k} block — re-run make-prompt.js on current code and keep it`);
   const want = engine && { vox: /photoreal scenes/, antidote: /becomes animation/ }[String(engine).toLowerCase()];
