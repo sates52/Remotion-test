@@ -89,6 +89,9 @@ function toldSection(entities) {
 - **A thing the narration changes, changes on screen**: \`{ "on": "<the word>", "do": "change", "who": "<id>", "state": "<state>" }\` —
   only the states listed above exist. Once changed it stays changed in every later beat (write \`"state": "base"\` to
   show it as it was — a flashback).` : ""}${anyDrawn ? `
+- **A mechanism** (\`"layout": "flow"\`, two to four things): the things are ONE machine — large, in the order you
+  give them, an arrow from each to the next (inflow → stock → outflow; cause → effect → cost). Use it when the
+  narration explains how things act on each other; change their \`state\` on the words that say what happens.
 - **People handle the things**: \`{ "do": "change", "who": "<person>", "holds": "<thing id>" }\` puts it in their hand;
   \`{ "do": "give", "who": ["<from>", "<to>"], "what": "<thing id>" }\` hands it over on the word; \`take\` picks up a
   thing that stands on stage. The narration's verb decides — never put a thing in a hand the narration does not.` : ""}${places.length ? `

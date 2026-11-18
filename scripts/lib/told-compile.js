@@ -44,7 +44,10 @@ const INK = "#1E1E22", ACCENT = "#D9603C", RED = "#C2362B", GOLD = "#E8B93C";
 const PALETTE = ["#2563EB", "#E0503A", "#2F8F5B", "#8A4FC7", "#D08A1E", "#0E8C96", "#B5372F", "#5A6B7A"];
 const GLYPHS = ["monitor", "search", "doc", "browser", "building", "book", "coin", "globe", "gear", "phone", "chart", "star", "heart", "flag", "cart", "people", "bolt", "leaf"];
 const KINDS = { company: "emblem", product: "emblem", place: "emblem", idea: "emblem", person: "figure", object: "icon", animal: "icon" };
-const LAYOUTS = ["solo", "versus", "row", "court", "pairs"];
+// "flow" (2026-11-18, a book of ideas): the things are ONE mechanism — large, in the order the narration gives them,
+// an arrow from each to the next (inflow → stock → outflow; cause → effect). A row put three small things side by side
+// with nothing between them ("Thinking in Systems", the bathtub: the faucet did not pour into anything).
+const LAYOUTS = ["solo", "versus", "row", "court", "pairs", "flow"];
 const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw", "give", "take", "at", "act"];
 /** told v3 — what each verb needs: the other it is done to ("person" | "thing" = a drawn thing | "any"), and whether it must be there */
 const VERBS = {
@@ -135,6 +138,10 @@ function slots(layout, n) {
   if (layout === "court") { // the first is in the middle, the others stand around: left, right, left, right
     const side = [330, 1590, 580, 1340, 130, 1790];
     return Array.from({ length: n }, (_, i) => (i === 0 ? { x: 960, s: 1 } : { x: side[(i - 1) % side.length], s: 1 }));
+  }
+  if (layout === "flow") { // at most four links read at this size; the arrows stand between the slots
+    const fs_ = n <= 2 ? 1.5 : n === 3 ? 1.3 : 1, fa = n <= 2 ? 520 : 330, fb = 1920 - fa;
+    return Array.from({ length: n }, (_, i) => ({ x: n === 1 ? 960 : fa + ((fb - fa) * i) / (n - 1), s: fs_, flow: true }));
   }
   const s = n <= 3 ? 1 : n === 4 ? 0.8 : 0.65, a = 340, b = 1580;
   return Array.from({ length: n }, (_, i) => ({ x: n === 1 ? 960 : a + ((b - a) * i) / (n - 1), s }));
@@ -261,6 +268,13 @@ function compileTold(beats, written = {}, opts = {}) {
       // three arrangements standing in each other)
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
       who.forEach((ent, i) => ensure(ent, at + (at > 0 ? i * 8 : 0), sl[Math.min(i, sl.length - 1)]));
+      // flow: the arrows of this arrangement (the ones of an earlier arrangement leave with it)
+      for (const old of items.filter((x) => x._role === "flowArrow" && !x._gone)) leave(old, Math.max(12, at));
+      if (layout === "flow" && who.length > 4) err(`layout "flow" holds at most four things (${who.length} given) — a mechanism a viewer can follow`);
+      if (layout === "flow") for (let i = 0; i + 1 < Math.min(who.length, 4); i++) {
+        const xa = sl[i].x, xb = sl[i + 1].x, when = Math.max(10, at + 14 + i * 8);
+        add({ id: `flow${++seq}`, kind: "arrow", x: (xa + xb) / 2, y: V2L.midIcon, s: 1, o: 1, r: 0, enter: { at: when, from: "fade", dur: 10 }, _role: "flowArrow", _ttl: null });
+      }
       // … and in their new place a crown sits exactly over their name plate again (where `crown` puts it)
       for (const w of new Set([...stood, ...who.filter((x) => recrownAfter.has(x))])) { const it = find(w), p = it && T.itemState(it, 1e6); if (p) for (const c of bound(w).filter((x) => x.kind === "crown")) key(c, { at: Math.max(at, 20) + 6, dur: 6, x: p.x, y: p.y - (figH(it) + TAG_H + 46) * p.s, s: p.s }); }
       st8.layout = layout; st8.who = who.slice();

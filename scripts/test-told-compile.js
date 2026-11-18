@@ -297,4 +297,22 @@ t("merge holds a told beat's words to the screen-text rules", () => {
   assert.ok(/EXACTLY who is on stage/.test(R.toldSection(ENT)) && /Extras expire/.test(R.toldSection(ENT)));
 });
 
+t("flow: the things of an idea are one mechanism — large, in order, an arrow from each to the next; a new arrangement takes the arrows away", () => {
+  const P = [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }, { d: "M100 200 V400 H140 V200 Z", fill: "accent" }, { d: "M200 200 V400 H240 V200 Z", fill: "ink" }, { d: "M300 200 V400 H340 V200 Z", fill: "ink" }, { d: "M60 400 H460 V430 H60 Z", fill: "ink" }];
+  const E3 = { faucet: { label: "INFLOW", kind: "object", reads: ["faucet"], paths: P }, tub: { label: "THE STOCK", kind: "object", reads: ["bathtub"], paths: P }, drain: { label: "OUTFLOW", kind: "object", reads: ["drain"], paths: P }, a: { label: "A", kind: "object", reads: ["a"], paths: P }, b: { label: "B", kind: "object", reads: ["b"], paths: P } };
+  assert.deepStrictEqual(C.slots("flow", 3).map((x) => x.x), [330, 960, 1590]);
+  assert.ok(C.slots("flow", 3)[0].s > C.slots("row", 3)[0].s && C.slots("flow", 2)[0].s > C.slots("flow", 4)[0].s, "a mechanism is read large");
+  const r = C.compileTold([beat("b1", "the water rises in the tub and then it drains away slowly", { stage: { layout: "flow", who: ["faucet", "tub", "drain"] } }),
+    beat("b2", "now look at only the tub by itself here", { events: [{ on: "only", do: "arrange", layout: "solo", who: ["tub"] }] })], E3);
+  assert.deepStrictEqual(r.errors, []);
+  const arrows = r.stages[0].items.filter((x) => x.kind === "arrow");
+  assert.strictEqual(arrows.length, 2);
+  assert.deepStrictEqual(arrows.map((x) => x.x), [645, 1275], "between the slots");
+  const things = ["faucet", "tub", "drain"].map((id) => r.stages[0].items.find((x) => x.id === id));
+  assert.ok(things.every((x) => x && x.s === 1.3) && things[0].x < arrows[0].x && arrows[0].x < things[1].x);
+  assert.ok(r.stages[1].items.filter((x) => x.kind === "arrow").every((x) => x.exit), "the arrows of an arrangement leave with it");
+  assert.ok(C.compileTold([beat("b1", "one two three four five six seven", { stage: { layout: "flow", who: ["faucet", "tub", "drain", "a", "b"] } })], E3).errors.some((e) => /at most four things/.test(e.message)));
+  assert.ok(C.LAYOUTS.includes("flow"));
+});
+
 console.log(`\n${n} checks passed`);
