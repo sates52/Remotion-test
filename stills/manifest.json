@@ -1,0 +1,36 @@
+{
+ "schema": "stills/1",
+ "name": "film-flow passages YENI",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "thinking-in-systems-488-553-YENI",
+   "config": "configs/thinking-in-systems-488-553-YENI.json",
+   "frames": [
+    982
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1962,
+    "scale": 1,
+    "crf": 16
+   }
+  }
+ ],
+ "inputHash": "33d4b747d3fecb10",
+ "files": {
+  "stills/configs/thinking-in-systems-488-553-YENI.json": "f4c91d70dc1f90c3c634360e5b854bd0726ac056877fc010b1ade74ebf702454"
+ },
+ "builtAt": "2026-11-18T12:12:01.207Z"
+}
