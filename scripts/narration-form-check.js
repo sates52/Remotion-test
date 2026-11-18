@@ -63,6 +63,16 @@ if (form && FORMS[form]) {
 console.log(`\nWORDS the channel's films answered themselves with — per 1000 words (channel before the forms):`);
 for (const [w, base] of Object.entries(BASELINE)) { const n = (text.match(new RegExp(`\\b${w}\\b`, "g")) || []).length; const v = per1000(n); console.log(`  ${w.padEnd(12)} ${String(n).padStart(4)}×  ${String(v).padStart(5)}  (${base})  ${v <= base * 0.5 ? "much lower" : v < base * 0.85 ? "lower" : v <= base * 1.15 ? "the same" : "higher"}`); }
 
+// STORY: how much of it TELLS. A sentence that names someone or something of the book (a proper name inside the
+// sentence — lib/told-entities.js namesIn) is counted as told; the rest is talk about it. Measured 2026-11-18 on
+// Dracula: the old film 37 %, the first formed recording 22 % — it argued its thesis more than it told the book.
+{
+  const { namesIn } = require("./lib/told-entities");
+  const sentences = cues.map((c) => c.text).join(" ").split(/(?<=[.?!])\s+/).filter((x) => x.split(" ").length >= 4);
+  const told = sentences.filter((x) => namesIn(x).some((nm) => !/^\d{4}$/.test(nm))).length;
+  console.log(`\nSTORY: ${told} of ${sentences.length} sentences name someone or something of the book (${Math.round((100 * told) / Math.max(1, sentences.length))} %) — the old Dracula film: 37 %, the first formed recording: 22 %`);
+}
+
 const hits = [];
 for (const ph of FORBIDDEN) { const re = new RegExp(`\\b${ph}\\b`, "g"); cues.forEach((c, i) => { if (re.test(c.text.toLowerCase())) hits.push({ ph, t: c.t, said: [cues[i - 1], c, cues[i + 1]].filter(Boolean).map((x) => x.text).join(" ").slice(0, 150) }); re.lastIndex = 0; }); }
 console.log(`\nPHRASES the prompt forbids: ${hits.length ? "" : "none said"}`);

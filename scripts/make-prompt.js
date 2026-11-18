@@ -183,7 +183,7 @@ const PICTURE_FIRST = {
 // recording came back at 17 minutes for a 60-75 target. It is the measured lever with the number of parts and the
 // five-step development (a stated target alone gave 17 minutes once before), so it is said first, in full, and a
 // prompt cut off by the Customize box cannot lose it.
-const lengthBlock = (tier, form) => `LENGTH (target ${tier.target} minutes, minimum ${tier.min} — a recording under ${tier.min} minutes has FAILED): this is a LONG-FORM episode. ${tier.beats} ${FORMS[form].part.toLowerCase()}s, ${tier.perBeat} real minutes EACH — stay inside one until it has had its minutes. Earn them by going DEEPER, never by repeating: another scene from the book told in full, a second example or number, a sharper objection, a genuine disagreement between the two hosts that takes several exchanges to settle. Do NOT signal an ending ("to wrap up", "in short") before the ending this form names.`;
+const lengthBlock = (tier, form) => `LENGTH (target ${tier.target} minutes, minimum ${tier.min} — a recording under ${tier.min} minutes has FAILED): this is a LONG-FORM episode. ${tier.beats} ${FORMS[form].part.toLowerCase()}s, ${tier.perBeat} real minutes EACH — stay inside one until it has had its minutes. Earn them by TELLING MORE of the book, never by repeating: another scene told in full, a second example or number, a sharper objection. Do NOT signal an ending ("to wrap up", "in short") before the ending this form names.`;
 const spineFor = (engine, opening, tier, form) => `
 ${formBlock(form, tier)}
 
@@ -193,7 +193,7 @@ HARD RULES:
 - English only (US audience). Two hosts in real conversation, in the roles this form gives them.
 - ONLY facts from the book and its well-documented cases. NEVER invent quotes, numbers, studies or events; if unsure, stay general.
 - NEVER mention "sources", "notebook", "documents" or AI; never break character.
-- No generic praise, no plot recap for its own sake: names, concrete scenes, numbers.
+- No generic praise: names, concrete scenes, numbers.
 
 ${openingBlock(opening)}
 

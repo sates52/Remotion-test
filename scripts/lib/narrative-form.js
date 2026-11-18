@@ -20,6 +20,12 @@
  * TWO scenes and a book gets more parts (make-prompt lengthTier) — and the fifth step's words were said aloud at the
  * end of nine exhibits ("Established … Open …"): a step is a direction, never a line, and says so.
  *
+ * And the same recording ARGUED more than it TOLD (the operator asked: "are we still storytelling?"): sentences that
+ * name a person of the book and carry no thesis word were 24 % of the old Dracula film and 13 % of this one; the
+ * thesis' own words ("data", "audit", "paperwork" …) rose from 7.6 to 17.6 per 1000. Four of the five steps asked for
+ * argument. So STORY FIRST is written into every form: half of a part is the book's events told as scenes, the second
+ * pass of a part is a second scene told in full, and the thesis is not repeated in its own words.
+ *
  * Every form keeps what makes the recording long enough (a five-step development of each part — the 30-minute floor
  * was measured to need it) and what the engine needs (PICTURE FIRST and FIRST MINUTE stay in the prompt, outside this).
  * Pure and deterministic: no LLM, no clock. Tested by test-narrative-form.js.
@@ -144,9 +150,11 @@ function formBlock(key, tier = { beats: 8 }) {
     `- ONE HONEST CRITICISM of the book is argued inside this form.`,
     `- ${f.ending}`,
     "",
-    `HOW EACH ${f.part} IS DEVELOPED (all five steps, every time — each is minutes of talk: tell the scene in present tense, voice the people, let the other host push back):`,
+    `STORY FIRST: at least half of every ${f.part.toLowerCase()} is the book's own events TOLD as scenes — present tense, what is seen and heard, the people voiced, in the book's order — so that someone who has not read it follows what happens. The argument rides on the story. Do not repeat the thesis in its own key words in every part; at most two comparisons to today's world in the whole film.`,
+    "",
+    `HOW EACH ${f.part} IS DEVELOPED (all five, every time):`,
     ...f.develop.map((d, i) => `${"abcde"[i]}) ${d};`.replace(/;$/, i === f.develop.length - 1 ? "." : ";")),
-    `TWICE: before step e, run b-d again on a SECOND scene from the book.`,
+    `TWICE: before step e, tell a SECOND scene from the book in full, then b-d on it.`,
     `The steps are directions, never lines: do not say their words, and never end two ${f.part.toLowerCase()}s alike.`,
   ].join("\n");
 }
