@@ -33,9 +33,11 @@ function report({ config, book = {}, entities = {}, peopleVerdict = null, drawin
   const total = scenes.reduce((n, s) => n + (s.durationFrames || 0), 0) || 1, fps = (config.meta && config.meta.fps) || 30;
   // TOLD
   const form = (config.meta && config.meta.form) || null, narration = scenes.map((s) => s._narration || "").join(" ");
+  // the narration as it was SAID (captions), against the lines most of the channel's films share
+  const said = (config.captions || []).map((c) => c.text).join(" "), CP = require("./lib/channel-phrases"), cpData = CP.load(), lines = cpData ? CP.rate(said || narration, cpData) : null;
   const sentences = narration.split(/(?<=[.?!])\s+/).filter((x) => x.split(" ").length >= 4);
   const told = { form: form ? form.key : (book.form && book.form.key) || null, formName: form ? form.name : null, parts: form ? form.parts.length : 0, minutes: total / fps / 60,
-    story: sentences.length ? sentences.filter((x) => namesIn(x).some((nm) => !/^\d{4}$/.test(nm))).length / sentences.length : null, take: !!(book.take && book.take.text) };
+    story: sentences.length ? sentences.filter((x) => namesIn(x).some((nm) => !/^\d{4}$/.test(nm))).length / sentences.length : null, take: !!(book.take && book.take.text), lines: lines ? lines.per1000 : null, linesMedian: cpData ? cpData.median : null, linesTop: lines ? lines.said.slice(0, 3) : [] };
   // PEOPLE: who is on screen (told stages by id, figure scenes by role) and who of them wears a drawn head
   const onScreen = new Set();
   for (const s of scenes) { if (s.told) for (const it of s.told.items || []) { if (it.kind === "figure") onScreen.add(String(it.id).split("~")[0]); } else for (const c of s.characters || []) if (c.role) onScreen.add(c.role); }
@@ -59,7 +61,7 @@ function report({ config, book = {}, entities = {}, peopleVerdict = null, drawin
 /** The one line a hand-off report carries (Turkish: the operator reads it). */
 function line(r) {
   const t = r.told, p = r.people, pl = r.places, th = r.things, ch = r.channel;
-  return `Özgünlük: biçim ${t.form ? `${t.form}${t.parts >= 3 ? ` (${t.parts} bölüm sayıldı)` : " (bölümler sayılmadı)"}` : "yok"} · hikâye payı ${pct(t.story)} · kadro ${p.drawn}/${p.onScreen} kendi kafasıyla · kitabın yerinde ${pct(pl.own)} (ortak sette ${pct(pl.shared)}) · ikon ${th.iconsOwn} kendi / ${th.iconsLibrary} kütüphane${th.iconsWorn ? ` (${th.iconsWorn} tanesi kanalın her filminde görünen ikon)` : ""}${ch.most ? ` · en benzer film ${ch.most.slug} ${ch.most.alike.toFixed(2)}` : ""}`;
+  return `Özgünlük: biçim ${t.form ? `${t.form}${t.parts >= 3 ? ` (${t.parts} bölüm sayıldı)` : " (bölümler sayılmadı)"}` : "yok"} · hikâye payı ${pct(t.story)}${t.lines != null ? ` · kanal kalıbı ${t.lines}/1000 kelime (kanal ortancası ${t.linesMedian})` : ""} · kadro ${p.drawn}/${p.onScreen} kendi kafasıyla · kitabın yerinde ${pct(pl.own)} (ortak sette ${pct(pl.shared)}) · ikon ${th.iconsOwn} kendi / ${th.iconsLibrary} kütüphane${th.iconsWorn ? ` (${th.iconsWorn} tanesi kanalın her filminde görünen ikon)` : ""}${ch.most ? ` · en benzer film ${ch.most.slug} ${ch.most.alike.toFixed(2)}` : ""}`;
 }
 
 if (require.main === module) {
@@ -76,6 +78,7 @@ if (require.main === module) {
   console.log(`ORIGINALITY — ${args.slug}  (${t.minutes.toFixed(1)} min, ${config.scenes.length} scenes)\n`);
   console.log(`TOLD     form: ${t.form ? `${t.form}${t.formName ? ` — ${t.formName}` : ""}` : "none recorded (the one old spine)"} · parts announced by the hosts: ${t.parts >= 3 ? t.parts : `${t.parts} (the form track and boards need 3)`}`);
   console.log(`         the narration names someone or something of the book in ${pct(t.story)} of its sentences (Dracula: old film 37 %, first formed recording 22 %) · the producer's own view in the prompt: ${t.take ? "yes" : "no"}`);
+  if (t.lines != null) console.log(`         lines most of the channel's narrations share: ${t.lines} per 1000 words (channel median ${t.linesMedian})${t.linesTop.length ? ` — ${t.linesTop.map(([g, n]) => `"${g}" ×${n}`).join(", ")}` : ""}`);
   console.log(`PEOPLE   ${p.onScreen} on screen · ${p.drawn} wear a head drawn for this book${p.tested ? ` · seen blind as intended ${p.seenBlind} of ${p.tested}` : " · not seen blind yet (cast-sheet.js)"}`);
   console.log(`PLACES   film time at a place the book drew: ${pct(pl.own)} · on told stages ${pct(pl.told)} · in SHARED sets ${pct(pl.shared)} · places drawn: ${pl.drawnPlaces} · home: ${pl.home || "none"}`);
   console.log(`THINGS   on told stages ${th.toldDrawn} own drawing(s), ${th.toldEmblem} emblem(s) (${pct(th.toldOwn)} own) · icons beside the cast: ${th.iconsOwn} own, ${th.iconsLibrary} from the shared library${th.iconsLibrary ? ` (${th.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.iconsWorn ? ` — ${th.iconsWorn} of them the channel's worn icons (${th.wornTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.drawings ? ` · named blind ${th.namedBlind} of ${th.drawings}` : ""}`);

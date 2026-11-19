@@ -29,7 +29,7 @@ if (!vtt || !fs.existsSync(vtt)) { console.error("usage: node scripts/narration-
 
 /** The channel's level before the forms (per 1000 words; 13 whole caption files, 178 000 words). */
 const BASELINE = { right: 5.3, exactly: 3.3, yeah: 1.7, absolutely: 1.0, precisely: 0.3, fascinating: 0.2 };
-const FORBIDDEN = ["deep dive", "unpack", "thanks for joining", "thank you for joining", "until next time", "see you next time", "catch you next time", "keep questioning", "keep diving"];
+const FORBIDDEN = ["deep dive", "unpack", "which brings us to", "we have to look at", "i have to push back", "a great way to put it", "i want to leave you with", "thanks for joining", "thank you for joining", "until next time", "see you next time", "catch you next time", "keep questioning", "keep diving"];
 
 // captions → cues [{ t (seconds), text }] with the word-timing tags and the rolling duplicates of auto-captions removed
 const raw = fs.readFileSync(vtt, "utf8").replace(/^﻿/, "").split(/\r?\n\r?\n/);
@@ -77,6 +77,10 @@ for (const [w, base] of Object.entries(BASELINE)) { const n = (text.match(new Re
 
 const hits = [];
 for (const ph of FORBIDDEN) { const re = new RegExp(`\\b${ph}\\b`, "g"); cues.forEach((c, i) => { if (re.test(c.text.toLowerCase())) hits.push({ ph, t: c.t, said: [cues[i - 1], c, cues[i + 1]].filter(Boolean).map((x) => x.text).join(" ").slice(0, 150) }); re.lastIndex = 0; }); }
+{ // the sentences most of the channel's narrations share (lib/channel-phrases.js)
+  const CP = require("./lib/channel-phrases"), data = CP.load(), r = data && CP.rate(cues.map((c) => c.text).join(" "), data);
+  if (r) console.log(`\nCHANNEL LINES: ${r.per1000} per 1000 words are five-word runs that at least 15 % of the channel's ${data.films} narrations say (channel median ${data.median})${r.said.length ? ` — ${r.said.slice(0, 5).map(([g, n]) => `"${g}" ×${n}`).join(", ")}` : ""}`);
+}
 console.log(`\nPHRASES the prompt forbids: ${hits.length ? "" : "none said"}`);
 for (const h of hits.slice(0, 20)) console.log(`  ${mmss(h.t).padStart(6)}  "${h.ph}" — ${h.said}`);
 const tail = cues.slice(-4).map((c) => c.text).join(" ");

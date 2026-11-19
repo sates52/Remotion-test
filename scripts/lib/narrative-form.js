@@ -39,7 +39,7 @@ const FORMS = {
     is: "This is a CASE FILE. Something in this book does not add up; the film works it like investigators, exhibit by exhibit, until a verdict can be given.",
     hosts: "One host has worked this case and lays the evidence on the table. The other accepts NO conclusion until the evidence for it has been shown, and says what else it could mean.",
     parts: (n) => `${n} EXHIBITS — each ONE piece of evidence from the book (an object, a line, a date, a decision). One of them must point the other way.`,
-    develop: ["put the exhibit in front of us as a scene: who holds it, where, when", "say what it seems to prove", "the second host gives the other way to read it", "bring a second piece from the book that settles it or makes it worse", "close it in your own words: what the two of you now agree happened, and the doubt that leads to the next one"],
+    develop: ["put the exhibit in front of us as a scene: who holds it, where, when", "say what it seems to prove", "the second host gives the other way to read it", "bring a second piece from the book that settles it or makes it worse", "close it in your own words: what the two of you now agree happened, and what it still cannot explain"],
     ending: "THE VERDICT: say flatly what happened and who or what was responsible. A statement, not a question.",
   },
   trial: {
@@ -109,7 +109,7 @@ const FORMS = {
 
 /** What a listener heard in every film (measured, see the header): the hosts may not answer themselves with these. */
 const SPEECH = [
-  'SPEECH (keep out of this film): never reply with a bare "Exactly.", "Right." or "Absolutely." — add a fact, a doubt or a picture. Never say "deep dive" or "unpack". No sign-off: the last sentence is the ending above.',
+  'SPEECH (keep out of this film): never reply with a bare "Exactly.", "Right." or "Absolutely." — add a fact, an objection or a picture. Never say "deep dive", "unpack", "which brings us to", "we have to look at", "I have to push back", "a great way to put it" or "I want to leave you with": move on by naming the next thing itself. No sign-off: the last sentence is the ending above.',
 ].join("\n");
 
 const hash = (s) => parseInt(crypto.createHash("sha1").update(String(s)).digest("hex").slice(0, 8), 16);

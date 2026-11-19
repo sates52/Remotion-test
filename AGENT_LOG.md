@@ -7707,6 +7707,19 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-19 — Channel lines: the sentences most narrations share, measured and kept out of new prompts
+
+- Why: a Google paper on synthetic-slop detection (S-CTS, 2026) classifies at CHANNEL level from transcript embeddings
+  ("repetitive, templated narratives"), title/description terms, upload pace and visual embeddings. Not the YPP review,
+  but it names the signals. Measured here: of 85 narrations, "which brings us to the" is in 67, "we have to look at" 45,
+  "I have to push back" 27; descriptions are clean (3 % shared lines).
+- `node scripts/build-channel-phrases.js [--root=…] [--write]` → `data/channel-phrases.json` (25 five-word runs in
+  ≥ 15 % of the films, median 1.2 per 1000 words); `lib/channel-phrases.js` census / rate. `narration-form-check.js`
+  prints CHANNEL LINES; `originality-report.js` carries it (TOLD and the hand-off line: "kanal kalıbı x/1000").
+- Prompt (SPEECH): the five commonest linking lines are forbidden by name; the word "doubt" is out of the case steps
+  and the SPEECH line (the v4 recording said it 11 times). The v4 Dracula recording: 0 channel lines per 1000 words.
+- Reports only; no bar. Test: `test-channel-phrases.js` (3).
+
 ### 2026-11-19 — The first real book on the new code (Dracula, case-file recording): what it showed, what changed
 
 - Worked as built: form case with 12 parts and their art in the film, skin tape/dark/serif, 13 own drawings named
