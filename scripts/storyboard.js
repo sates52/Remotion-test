@@ -802,6 +802,24 @@ function artBeats() {
 }
 
 function prep() {
+  // THE BOOK'S OWN PEOPLE AND PLACES come before the authors (2026-11-19). A book whose Step 0 ran on the current code
+  // (book.json has a skin) is authored only when every person has a head of their own and one drawn place is home (a place
+  // still without a drawing is named, not refused) — the first real book drew its 13 things and skipped both, and its film had the channel's faces in the
+  // channel's rooms. Not a quality bar: it is the entities step, finished. A real reason is recorded, never implied.
+  if (ENGINE === "antidote" && book.skin && typeof book.skin === "object") {
+    const gaps = require("./lib/own-drawings").ownGaps(TOLD_ENTITIES), why = typeof args["own-incomplete"] === "string" ? args["own-incomplete"].trim() : "";
+    if (gaps.any && why.length < 30) {
+      console.error(`❌ books/${SLUG}/storyboard/entities.json is not finished — the film would wear the channel's faces and stand in the channel's rooms:`);
+      if (gaps.none) console.error("   · no entities at all: run  node scripts/told.js entities --slug=" + SLUG + "  and write the file (preview-hazirla, entities step)");
+      if (gaps.heads.length) console.error(`   · ${gaps.heads.length} of ${gaps.people} people have no head of their own (look.drawn): ${gaps.heads.join(", ")} — told.md "The cast"; then cast-sheet.js --judge`);
+      if (gaps.bare.length) console.error(`   · ${gaps.bare.length} of ${gaps.places} places have no drawing (backdrop): ${gaps.bare.join(", ")} — interiors too`);
+      if (!gaps.none && !gaps.home) console.error('   · no place is the book\'s home ("home": true on ONE drawn place: where a beat stands when the narration names no place)');
+      console.error('   Draw them, then prep again. A real reason not to (≥ 30 characters) is recorded: --own-incomplete="<reason>"');
+      process.exit(1);
+    }
+    if (!gaps.any && gaps.bare.length) console.warn(`⚠ places without a drawing (a beat there stands at home or in a shared set): ${gaps.bare.join(", ")} — draw the ones the story stands in`);
+    if (gaps.any) { fs.mkdirSync(SB, { recursive: true }); fs.writeFileSync(path.join(SB, "own-incomplete.json"), JSON.stringify({ at: new Date().toISOString(), reason: why, heads: gaps.heads, places: gaps.bare, home: gaps.home }, null, 1) + "\n"); console.warn(`⚠ own drawings incomplete, recorded reason: ${why}`); }
+  }
   // The Step 0 decision the whole storyboard is authored FROM: make-prompt refuses
   // without a book profile, and prep must too — `minorHarm` gates the physical-harm
   // vocabulary (a minorHarm book is never offered lying/collapsed/fighting…) and

@@ -7707,6 +7707,21 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-19 — The first real book on the new code (Dracula, case-file recording): what it showed, what changed
+
+- Worked as built: form case with 12 parts and their art in the film, skin tape/dark/serif, 13 own drawings named
+  blind 13/13, 179 of 205 scenes told, most-alike film 0.26 (old films ~0.95). Mute run4: WRONG 1/24, dead 0, adds 75 %.
+- **Not done by the producing agent: no head for any of 8 people, no drawing for any of 6 places, no home** — the skill
+  said so and nothing asked for it. → `storyboard.js prep` now REFUSES an Antidote book of the current Step 0
+  (book.json has `skin`) until every person has `look.drawn` and one drawn place is `"home": true`
+  (`own-drawings.js ownGaps`); bare places are named, not refused; `--own-incomplete="<reason ≥ 30 chars>"` is
+  recorded in storyboard/own-incomplete.json. Not a quality bar: the entities step, finished. Older books untouched.
+- **Engine-side bug (mine, FF6 slice 2):** the firewall read motifs.json only, so an entity's drawing beside the cast
+  was an anonymous customSvg → MOTIF_NOT_ALLOWED BLOCK; the agent turned 4 such beats into told stages (icons beside
+  the cast: 0 own). `narrative-visual-firewall.js loadBook` now uses `ownIcons` (the director's list) and a drawing
+  matched by geometry to an entity needs no second listing in the bible. Scratch dracula: 20 blocks → 0; the real
+  book's report unchanged. Test: `test-own-gaps.js` (5).
+
 ### 2026-11-18 — Bug fix: parts announced across a scene boundary were not heard (third Dracula recording)
 
 - The v4 prompt's recording (30.8 min, form case) says all 12 exhibits in order, but `partBadges` read each scene / cue

@@ -249,7 +249,10 @@ function validateScene(scene, index, bible, slug, motifs = {}) {
     // (show-your-work), every prop failed and deleting all props was the only
     // way to PASS. A prop is allowed when the book's vocabulary names it in
     // either list; FOREIGN_WORLD / registry checks still apply independently.
-    if (!allowedMotifs.has(prop.type) && !allowedProps.has(prop.type)) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' is not allowed by this scene contract`, { sceneId: scene.id, index, motif: prop.type }));
+    // A thing the book drew in its own storyboard/entities.json (matched by its geometry, above) carries its
+    // provenance with it: it exists only in this book. It needs no second listing in the bible (2026-11-19).
+    const ownEntity = registeredMotifs.has(prop.type) && !!(motifs[prop.type] && motifs[prop.type].fromEntity);
+    if (!ownEntity && !allowedMotifs.has(prop.type) && !allowedProps.has(prop.type)) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' is not allowed by this scene contract`, { sceneId: scene.id, index, motif: prop.type }));
     if (forbiddenMotifs.has(prop.type)) errors.push(code("FOREIGN_WORLD", `motif '${prop.type}' is forbidden in this book world`, { sceneId: scene.id, index, motif: prop.type }));
   }
   if (scene.bg?.set && !allowedLocations.has(scene.bg.set)) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' is not allowed by this scene contract`, { sceneId: scene.id, index, location: scene.bg.set }));
@@ -377,7 +380,10 @@ function validateConfig({ config, bible, slug, motifs = {} }) {
 function loadBook(root, slug) {
   const dir = path.join(root, "books", slug);
   return {
-    motifs: fs.existsSync(path.join(dir, "motifs.json")) ? JSON.parse(fs.readFileSync(path.join(dir, "motifs.json"), "utf8")) : {},
+    // the book's own icons = motifs.json + the things drawn in storyboard/entities.json (Film Flow 6, one vocabulary —
+    // the same list the director draws from). Until 2026-11-19 only motifs.json was read: an entity's drawing beside
+    // the cast stayed an anonymous "customSvg" and was a BLOCK (Dracula: 4 beats, all turned into told stages).
+    motifs: require("./own-drawings").ownIcons(dir),
     config: JSON.parse(fs.readFileSync(path.join(dir, "config.antidote.json"), "utf8")),
     bible: JSON.parse(fs.readFileSync(path.join(dir, "story-bible.json"), "utf8")),
   };

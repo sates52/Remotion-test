@@ -437,6 +437,22 @@ function ownIcons(bookDir) {
   return { ...iconsOfEntities(read(path.join(bookDir, "storyboard", "entities.json"))), ...motifs };
 }
 
+/**
+ * ownGaps(entities) → what a book has NOT drawn of its own (2026-11-19; the first real book drew 13 things, no head and
+ * no place): { heads: [person ids without look.drawn], places: [place ids without a drawing], home: bool, any: bool }.
+ * No entities at all counts as everything missing. Pure.
+ */
+function ownGaps(entities = {}) {
+  const es = Object.entries(entities || {}).filter(([, e]) => e && typeof e === "object");
+  const drawnPlace = (e) => !!e.backdrop || (Array.isArray(e.paths) && e.paths.length > 0);
+  const people = es.filter(([, e]) => e.kind === "person"), places = es.filter(([, e]) => e.kind === "place");
+  const heads = people.filter(([, e]) => !(e.look && e.look.drawn && Object.keys(e.look.drawn).length)).map(([id]) => id);
+  const bare = places.filter(([, e]) => !drawnPlace(e)).map(([id]) => id);
+  const home = places.some(([, e]) => e.home === true && drawnPlace(e));
+  const none = !es.length;
+  return { none, people: people.length, places: places.length, heads, bare, home, any: none || heads.length > 0 || !home };
+}
+
 /** the shared icons in at least half of the channel's films (data/channel-staples.json, build-channel-staples.js) */
 function channelStaples() {
   try { return new Set((JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "..", "..", "data", "channel-staples.json"), "utf8")).staples || []).map((s) => s.icon)); } catch { return new Set(); }
@@ -468,4 +484,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { iconsOfEntities, ownIcons, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { iconsOfEntities, ownIcons, ownGaps, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
