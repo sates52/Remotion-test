@@ -1,0 +1,70 @@
+{
+ "schema": "stills/1",
+ "name": "vox — the book's skin and announced parts",
+ "composition": "Vox-lab",
+ "entry": "src/index.ts",
+ "silent": false,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "vox-channel",
+   "config": "configs/vox-channel.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-paper-serif",
+   "config": "configs/vox-paper-serif.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-bar-condensed",
+   "config": "configs/vox-bar-condensed.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-tape-slab",
+   "config": "configs/vox-tape-slab.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  }
+ ],
+ "inputHash": "5070ec7793ea2378",
+ "files": {
+  "stills/configs/vox-channel.json": "8b022af981366cff00c6439e60dfee4b5b3c161ea74df98c60df966fd8045a35",
+  "stills/configs/vox-paper-serif.json": "a2be3769172a7573c441d095e17aca1ad445ce2669a3568f5e4fcbeaa5cf0d7c",
+  "stills/configs/vox-bar-condensed.json": "92b2f98f4c2a638eab6d606452581601039e17e25b07e828464552125771ea7c",
+  "stills/configs/vox-tape-slab.json": "362e6b271b30161971a4f06f13dc0248df03fc18a1591e66ba47d68b5cc1cd1c"
+ },
+ "builtAt": "2026-11-20T07:02:14.047Z"
+}
