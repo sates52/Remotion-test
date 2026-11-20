@@ -9,6 +9,7 @@ import { CaptionLayer } from "./captions";
 import { ChapterOverlay, ProgressRail, formChapters } from "./overlays";
 import { SfxLayer } from "./sfx";
 import { ForegroundOcclusion } from "./desk";
+import { CardHandContext, cardHandOf } from "./cardHand";
 
 export { voxBookSchema } from "./schema";
 export { VoxThumbnail, thumbnailSchema } from "./thumbnail";
@@ -31,6 +32,7 @@ export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
     "--vox-caption-highlight": captionHighlight,
   } as React.CSSProperties;
   return (
+  <CardHandContext.Provider value={cardHandOf(config.meta.skin)}>
   <AbsoluteFill style={{ ...paletteVars, backgroundColor: PAPER }}>
     <Audio src={staticFile(config.meta.audio)} />
     <SfxLayer beats={config.beats} enabled={config.meta.sfx === true} />
@@ -53,5 +55,6 @@ export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
     <Vignette />
     <Grain />
   </AbsoluteFill>
+  </CardHandContext.Provider>
   );
 };

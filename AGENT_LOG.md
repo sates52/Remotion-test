@@ -7707,6 +7707,17 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — Vox card hand: the three marks of every text card are drawn per book
+
+- The 47 % (text cards' share of a Vox film) carried the same three marks in every film: a ring with a dotted disc
+  behind the words (AccentBurst), a red tag with a hard shadow above them (KickerChip), a rounded marker under them
+  (MarkerUnderline). `src/engines/vox/cardHand.tsx`: the book's `meta.skin.plate` picks how they are drawn -
+  dark (the channel's, exactly as before; every film without a skin) · paper (tilted ruled sheet, outlined label, two
+  thin rules) · sharp (corner brackets, square ink tag with a red edge, straight bar) · accent (slanted colour band,
+  gold tag, gold marker). Words, sizes, places and timings untouched; the new marks do not move on their own.
+- Seen: the-crucible's text beats in the four hands (cloud stills, tag vox-card-hand-1). Not done: the cards'
+  headline typeface, card layouts. No real Vox book made on it yet. Test: test-vox-own-frame.js (5).
+
 ### 2026-11-20 — Vox: the book's skin, the announced parts as chapter cards, the originality report
 
 - Everything built since 2026-11-18 (skin, form track, originality report) was Antidote-only; 28+ Vox films are on

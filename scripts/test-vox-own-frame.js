@@ -48,4 +48,18 @@ t("the report reads a Vox film: told like any film, picture = own images against
   assert.ok(R.voxLine(R.voxReport({ config: { beats: [beat("statement", 300)], captions: [] } })).includes("kanal görünümü"));
 });
 
+t("the text cards are dressed by the book's card hand; without a skin every mark is the channel's, as before", () => {
+  const hand = src("engines/vox/cardHand.tsx"), bg = src("engines/vox/backgrounds.tsx"), sh = src("engines/vox/shared.tsx"), idx = src("engines/vox/index.tsx");
+  assert.ok(hand.includes('React.createContext<CardHand>("dark")') && hand.includes(': "dark");'), "no skin, an unknown plate → dark");
+  assert.ok(idx.includes("<CardHandContext.Provider value={cardHandOf(config.meta.skin)}>"));
+  for (const h of ["paper", "sharp", "accent"]) { assert.ok(bg.includes(`hand === "${h}"`), `what stands behind the words: ${h}`); assert.ok(sh.split(`hand === "${h}"`).length >= 3, `tag and underline: ${h}`); }
+  // the channel's marks are still in the file, unchanged: the ring, the red tag with its hard shadow, the rounded marker
+  assert.ok(bg.includes('borderRadius: "50%", border: `18px solid ${color}`, opacity: 0.18'));
+  assert.ok(sh.includes("background: RED, color: PAPER, fontFamily: HEADLINE, fontWeight: 900, fontSize: 26") && sh.includes("boxShadow: `6px 6px 0 ${INK}`"));
+  assert.ok(sh.includes("borderRadius: height, transform: `rotate(${rotate}deg)`, transformOrigin: \"left center\", opacity: 0.92"));
+  // the new marks do not move on their own: no frame-driven rotation in their branches
+  const branches = bg.slice(bg.indexOf('if (hand === "paper")'), bg.lastIndexOf("  return ("));
+  assert.ok(!/rotate\(\$\{rot\}/.test(branches) && !/frame \*/.test(branches), "paper / sharp / accent marks stand still");
+});
+
 console.log(`\nall vox-own-frame checks passed (${n})`);

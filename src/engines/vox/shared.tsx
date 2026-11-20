@@ -10,7 +10,8 @@ import {
   useVideoConfig,
 } from "remotion";
 import type { Beat } from "./schema";
-import { PAPER, INK, RED, HEADLINE, CAPTION_BAND, hash } from "./palette";
+import { PAPER, INK, RED, GOLD, HEADLINE, CAPTION_BAND, hash } from "./palette";
+import { useCardHand } from "./cardHand";
 import { AccentBurst } from "./backgrounds";
 import { SourceFootnote } from "./documents";
 import { EmphasisTokens, fitTokenSize } from "./emphasis";
@@ -63,7 +64,12 @@ export const KineticWords: React.FC<{
 export const MarkerUnderline: React.FC<{ startFrame: number; width: number; height?: number; color?: string; rotate?: number }> = ({ startFrame, width, height = 14, color = RED, rotate = -1.2 }) => {
   const frame = useCurrentFrame();
   const p = interpolate(frame, [startFrame, startFrame + 13], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
-  return <div style={{ width: Math.max(0, width * p), height, backgroundColor: color, borderRadius: height, transform: `rotate(${rotate}deg)`, transformOrigin: "left center", opacity: 0.92 }} />;
+  // THE BOOK'S CARD HAND (cardHand.tsx): the line under the words. Same width, same moment; another stroke.
+  const hand = useCardHand(), w = Math.max(0, width * p);
+  if (hand === "paper") return <div style={{ width: w, height, display: "flex", flexDirection: "column", justifyContent: "space-between" }}><div style={{ height: Math.max(3, height * 0.28), backgroundColor: INK, opacity: 0.85 }} /><div style={{ height: Math.max(2, height * 0.2), backgroundColor: color, opacity: 0.9 }} /></div>;
+  if (hand === "sharp") return <div style={{ width: w, height, backgroundColor: color, opacity: 0.95 }} />;
+  if (hand === "accent") return <div style={{ width: w, height, backgroundColor: color === RED ? GOLD : color, borderRadius: height, transform: `rotate(${-rotate}deg)`, transformOrigin: "left center", opacity: 0.95 }} />;
+  return <div style={{ width: w, height, backgroundColor: color, borderRadius: height, transform: `rotate(${rotate}deg)`, transformOrigin: "left center", opacity: 0.92 }} />;
 };
 
 export const KickerChip: React.FC<{ text: string; startFrame: number; align?: "left" | "center" }> = ({ text, startFrame, align = "left" }) => {
@@ -72,6 +78,14 @@ export const KickerChip: React.FC<{ text: string; startFrame: number; align?: "l
   if (!text) return null;
   const s = spring({ frame: frame - startFrame, fps, config: { damping: 16, mass: 0.6, stiffness: 130 }, durationInFrames: 16 });
   const op = interpolate(frame, [startFrame, startFrame + 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  // THE BOOK'S CARD HAND (cardHand.tsx): the tag above the words. Same text, size and place; another cut.
+  const hand = useCardHand();
+  const cut: React.CSSProperties | null = hand === "paper" ? { background: "transparent", color: INK, border: `4px solid ${INK}`, boxShadow: "none", padding: "5px 14px" }
+    : hand === "sharp" ? { background: INK, color: PAPER, boxShadow: "none", borderLeft: `12px solid ${RED}` }
+    : hand === "accent" ? { background: GOLD, color: INK, boxShadow: `6px 6px 0 ${RED}` } : null;
+  if (cut) return (
+    <div style={{ alignSelf: align === "center" ? "center" : "flex-start", transform: `translateX(${interpolate(s, [0, 1], [-30, 0])}px)`, opacity: op, fontFamily: HEADLINE, fontWeight: 900, fontSize: 26, letterSpacing: 3, padding: "8px 16px", textTransform: "uppercase", ...cut }}>{text}</div>
+  );
   return (
     <div style={{ alignSelf: align === "center" ? "center" : "flex-start", transform: `translateX(${interpolate(s, [0, 1], [-30, 0])}px)`, opacity: op, background: RED, color: PAPER, fontFamily: HEADLINE, fontWeight: 900, fontSize: 26, letterSpacing: 3, padding: "8px 16px", textTransform: "uppercase", boxShadow: `6px 6px 0 ${INK}` }}>{text}</div>
   );
