@@ -42,7 +42,8 @@ t("the block a prompt carries: the form, the hosts, the parts by the book's leng
     const b = F.formBlock(k, { beats: 10 });
     for (const must of ["THE FORM OF THIS FILM", "- THE TWO HOSTS:", "- THE PARTS: 10 ", "ONE HONEST CRITICISM", `HOW EACH ${F.FORMS[k].part} IS DEVELOPED`]) assert.ok(b.includes(must), `${k}: ${must}`);
     assert.strictEqual((b.match(/^[a-e]\) /gm) || []).length, 5);
-    assert.ok(b.includes("STORY FIRST: at least half of every") && b.includes("tell a SECOND scene from the book in full"), `${k}: the book is told, not only argued`);
+    assert.ok(b.includes("TELL THE WHOLE BOOK:") && b.includes("TWO THIRDS of every") && b.includes("ACCURATE: only what the sources say") && b.includes("tell a SECOND scene from the book in full"), `${k}: the whole book is told, accurately, as a story`);
+    assert.ok(b.length < 2300, `${k}: the block stays short enough for NotebookLM's box (${b.length})`);
     assert.ok(b.includes("TWICE: before step e") && b.includes("directions, never lines"), `${k}: two scenes per part; a step is never said aloud`);
     assert.ok(!/what is now established|still open|who took the round/.test(b), `${k}: a step whose words were parroted at the end of every part`);
     assert.ok(b.length < 2300, `${k}: ${b.length} chars — NotebookLM's Customize box is small`);

@@ -23,7 +23,9 @@
  * And the same recording ARGUED more than it TOLD (the operator asked: "are we still storytelling?"): sentences that
  * name a person of the book and carry no thesis word were 24 % of the old Dracula film and 13 % of this one; the
  * thesis' own words ("data", "audit", "paperwork" …) rose from 7.6 to 17.6 per 1000. Four of the five steps asked for
- * argument. So STORY FIRST is written into every form: half of a part is the book's events told as scenes, the second
+ * argument. (2026-11-20, operator: "original, a very good and accurate summary, in storytelling form" - measured on
+ * three Dracula recordings the formed ones told 65-68 % against the plain summary's 81 %: the block now says TELL THE
+ * WHOLE BOOK, two thirds of a part is telling, an objection takes two lines, ACCURATE.) So STORY FIRST was written into every form: half of a part is the book's events told as scenes, the second
  * pass of a part is a second scene told in full, and the thesis is not repeated in its own words.
  *
  * Every form keeps what makes the recording long enough (a five-step development of each part — the 30-minute floor
@@ -143,18 +145,21 @@ function formBlock(key, tier = { beats: 8 }) {
   const f = FORMS[key];
   if (!f) throw new Error(`unknown narrative form "${key}" — one of ${Object.keys(FORMS).join(", ")}`);
   return [
-    `THE FORM OF THIS FILM — never a standard summary or a list of insights:`,
+    `THE FORM OF THIS FILM — the whole book, told as a story, arranged like this (never a list of insights):`,
     f.is,
     `- THE TWO HOSTS: ${f.hosts}`,
     `- THE PARTS: ${f.parts(tier.beats)} Say each one's number and name aloud as it starts ("${f.part.charAt(0) + f.part.slice(1).toLowerCase()} three: …"); finish one before the next.`,
     `- ONE HONEST CRITICISM of the book is argued inside this form.`,
     `- ${f.ending}`,
     "",
-    `STORY FIRST: at least half of every ${f.part.toLowerCase()} is the book's own events TOLD as scenes — present tense, what is seen and heard, the people voiced, in the book's order — so that someone who has not read it follows what happens. The argument rides on the story. Do not repeat the thesis in its own key words in every part; at most two comparisons to today's world in the whole film.`,
+    `TELL THE WHOLE BOOK: someone who never read it must finish knowing what happens from its first page to its last — who, what, in the book's order, how it ends. The ${f.part.toLowerCase()}s together cover all of it; bridge each gap in one sentence.`,
+    `- TWO THIRDS of every ${f.part.toLowerCase()} is telling: the book's events (in a book of ideas: its cases) as scenes — present tense, what is seen, said and done. Argument is the last third: an objection takes two lines, then the story goes on.`,
+    `- ACCURATE: only what the sources say — names, order, numbers, outcomes. No invented quotation; when unsure, say less.`,
+    `- Never repeat the thesis in its key words; at most two comparisons to today.`,
     "",
     `HOW EACH ${f.part} IS DEVELOPED (all five, every time):`,
     ...f.develop.map((d, i) => `${"abcde"[i]}) ${d};`.replace(/;$/, i === f.develop.length - 1 ? "." : ";")),
-    `TWICE: before step e, tell a SECOND scene from the book in full, then b-d on it.`,
+    `Step a is the longest. TWICE: before step e, tell a SECOND scene from the book in full, then b-d on it.`,
     `The steps are directions, never lines: do not say their words, and never end two ${f.part.toLowerCase()}s alike.`,
   ].join("\n");
 }

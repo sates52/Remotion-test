@@ -182,3 +182,10 @@ record the Audio Overview, upload it to YouTube (unlisted) for the word-timed au
 
 `make-prompt.js` also picks the book's skin (subtitle style / name-plate cut / typeface — the 🎨 GÖRÜNÜM line) and
 records it in book.json. Nothing to decide: leave it unless the operator asks for another (`--skin=caption/plate/font`).
+
+## What every prompt asks for (2026-11-20)
+
+The form decides how the film is ARRANGED; the film itself is the whole book, told: first page to last, in the book's
+order, how it ends - two thirds of every part is telling (scenes, present tense), the argument is the last third, and
+only what the sources say is said. Do not weaken these lines when you fill the block. After the recording arrives,
+`narration-form-check.js` prints the STORY share; report it to the operator with the length.

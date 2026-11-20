@@ -7707,6 +7707,19 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — Prompt v5: TELL THE WHOLE BOOK (original form, accurate summary, storytelling)
+
+- Operator: "daha özgün, çok iyi ve doğru özetlemek, ayrıca hikâye anlatımı formatında olması gerekiyor." Measured
+  (lib/story-share.js): the formed Dracula recordings told 65-68 % of their words against the plain summary's 81 %.
+- `narrative-form.js formBlock` (every form): the film is "the whole book, told as a story, arranged like this";
+  STORY FIRST (half) is replaced by TELL THE WHOLE BOOK (first page to last, in order, how it ends; the parts cover all
+  of it, each gap bridged in a sentence) · TWO THIRDS of every part is telling, an objection takes two lines · ACCURATE
+  (only what the sources say, no invented quotation) · step a is the longest. The form, the parts said aloud, the one
+  honest criticism and the SPEECH rules stay.
+- The form block is ~335 characters longer (case: 2103); the whole paste block is about 5,850 against the 5,512 that
+  recorded in full - **not yet recorded with: if NotebookLM cuts the box, the tail (PICTURE FIRST) goes first.** The
+  next recording is the proof: `narration-form-check.js` STORY line (aim: above the channel's fiction 60 % by names).
+
 ### 2026-11-20 — Thing events: a drawn thing is THROWN or DROPPED on the word (told stages)
 
 - Why: the first real book's weak mute frames were events drawn as standing symbols ("he throws the mirror out of the
