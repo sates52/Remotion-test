@@ -69,10 +69,12 @@ for (const [w, base] of Object.entries(BASELINE)) { const n = (text.match(new Re
 // sentence — lib/told-entities.js namesIn) is counted as told; the rest is talk about it. Measured 2026-11-18 on
 // Dracula: the old film 37 %, the first formed recording 22 % — it argued its thesis more than it told the book.
 {
-  const { namesIn } = require("./lib/told-entities");
-  const sentences = cues.map((c) => c.text).join(" ").split(/(?<=[.?!])\s+/).filter((x) => x.split(" ").length >= 4);
-  const told = sentences.filter((x) => namesIn(x).some((nm) => !/^\d{4}$/.test(nm))).length;
-  console.log(`\nSTORY: ${told} of ${sentences.length} sentences name someone or something of the book (${Math.round((100 * told) / Math.max(1, sentences.length))} %) — the old Dracula film: 37 %, the first formed recording: 22 %`);
+  // 2026-11-20: words in STRETCHES that name the book (lib/story-share.js); with --slug and an entities.json also by the
+  // book's own things. The sentence count above undercounted scenes and things; the order of the recordings stayed.
+  const SS = require("./lib/story-share"), all = cues.map((c) => c.text).join(" ");
+  let ent = null; try { if (typeof args.slug === "string") ent = JSON.parse(fs.readFileSync(path.join(ROOT, "books", args.slug, "storyboard", "entities.json"), "utf8")); } catch {}
+  const a = SS.storyShare(all), b = ent ? SS.storyShare(all, { vocab: SS.vocabOf(ent) }) : null, p = (x) => Math.round(x * 100) + " %";
+  console.log(`\nSTORY: ${p(a.share)} of the words stand in stretches that name the book by a proper name${b ? `; ${p(b.share)} when its own things count too` : ""} — channel: fiction ${p(SS.CHANNEL.fiction)}, nonfiction ${p(SS.CHANNEL.nonfiction)}; Dracula old film 71 %, v4 recording 43 % · longest stretch naming nothing: ${(b || a).longestTalkWords} words`);
 }
 
 const hits = [];

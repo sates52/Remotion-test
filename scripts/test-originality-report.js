@@ -22,7 +22,8 @@ t("the page: how it is told, who wears their own head, where it stands, whose th
     shelf: [{ slug: "other", shared: 1, vec: { "set:office": 1, "shot:medium": 0.5 } }, { slug: "far", shared: 1, vec: { "set:forest": 1 } }] });
   assert.deepStrictEqual([r.told.form, r.told.parts, r.told.take], ["case", 3, true]);
   assert.strictEqual(r.told.minutes, 2);
-  assert.ok(Math.abs(r.told.story - 2 / 4) < 1e-9, "two of four sentences name someone of the book");
+  assert.strictEqual(r.told.story, 1, "every sentence stands beside one that names the book: all of it is a told stretch");
+  assert.strictEqual(r.told.storyWithThings, true);
   assert.deepStrictEqual(r.people, { onScreen: 3, drawn: 2, seenBlind: 1, tested: 2 }, "mina has no drawn head; lucy (cast) and dracula (entity) have");
   assert.strictEqual(r.places.own, 0.75); assert.strictEqual(r.places.shared, 0.25); assert.strictEqual(r.places.home, "whitby");
   assert.deepStrictEqual([r.things.iconsOwn, r.things.iconsLibrary, r.things.toldDrawn, r.things.toldEmblem], [1, 1, 1, 1]);

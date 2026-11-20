@@ -7707,6 +7707,20 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — Dracula preview READY on the new code; story share re-measured; cast verdict read
+
+- **Dracula (first real book), second round after the prep gate:** preview-ready PASS — mute run5 fresh: WRONG 0/24,
+  dead 1, ADDS 19/24; cast 8/8 own heads (named blind 8/8), 7 places drawn, home carfax, 100 % of film time at the
+  book's places (was 0 %), 5 own icons beside the cast (was 0: the firewall fix), most-alike film 0.00, 0 fix rounds.
+- **Story share was measured wrongly, and my reading of it was wrong too.** The sentence count ignored scenes
+  (sentences without a name) and the book's things ("the count", "the log"). `lib/story-share.js`: words standing in
+  stretches that name the book, by proper names and - with entities - by the book's own words. Dracula, names only /
+  names + things: old 41-min film 71 % / 81 %, second formed recording 53 % / 68 %, v4 recording 43 % / 65 %; channel
+  (names only) fiction 60 %, nonfiction 41 %. **The formed recordings argue more and retell less than the old plain
+  summary, by every measure** - the prompt's STORY FIRST did not close that. Open: decide whether that is wanted.
+- `originality-report.js`: PEOPLE read the verdict's `drawings` key (8 of 8 named was printed "not seen blind yet").
+  Tests: `test-story-share.js` (3), test-originality-report updated.
+
 ### 2026-11-19 — Channel lines: the sentences most narrations share, measured and kept out of new prompts
 
 - Why: a Google paper on synthetic-slop detection (S-CTS, 2026) classifies at CHANNEL level from transcript embeddings
