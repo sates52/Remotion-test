@@ -1103,6 +1103,7 @@ function imagePrompt(subject, style) {
     try {
       const man = JSON.parse(fs.readFileSync(require("./lib/paths").abs.manifest(SLUG), "utf8")), out = {};
       if (require("./lib/book-skin").validSkin(man.skin)) out.skin = { caption: man.skin.caption, plate: man.skin.plate, font: man.skin.font };
+      if (man.take && man.take.by === "operator" && man.take.note) out.take = { note: String(man.take.note).slice(0, 200) };
       const NF = require("./lib/narrative-form");
       if (NF.validForm(man.form)) {
         const said = (b) => captions.filter((c) => c.endFrame > b.fromFrame && c.startFrame < b.fromFrame + b.durationFrames).map((c) => c.text).join(" ");

@@ -1645,6 +1645,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       },
       thumbnail,
       cast: CAST_BIBLE,
+      // the producer's note (book.json take, the operator's approved sentence): a card in the film's first half-minute
+      ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); return man.take && man.take.by === "operator" && man.take.note ? { take: { note: String(man.take.note).slice(0, 200) } } : {}; } catch { return {}; } })(),
       // the book's graphic hand (book.json skin, lib/book-skin.js): subtitles, name plates, typeface
       ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); return require("./lib/book-skin").validSkin(man.skin) ? { skin: { caption: man.skin.caption, plate: man.skin.plate, font: man.skin.font } } : {}; } catch { return {}; } })(),
       // the book's narrative form and the parts its hosts announced (lib/narrative-form.js): the film's frame draws them

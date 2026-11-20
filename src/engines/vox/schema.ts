@@ -89,4 +89,4 @@ export type Chapter = { index: number; fromFrame: number; label: string; teaser?
 export type VoxSkin = { caption?: string; plate?: string; font?: string };
 /** The narrative form and the parts the hosts announced (scripts/lib/narrative-form.js filmForm): the chapter cards follow them. */
 export type VoxForm = { key: string; part: string; name: string; parts: { n: number; from: number; title?: string }[] };
-export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean; skin?: VoxSkin; form?: VoxForm }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };
+export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean; skin?: VoxSkin; form?: VoxForm; /** the producer's note (src/components/ProducerNote.tsx) */ take?: { note: string } }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };

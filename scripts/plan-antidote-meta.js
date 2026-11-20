@@ -218,7 +218,9 @@ ${(meta.tags || []).join(", ")}
 
   const chapterBlock = chapters.map((c) => `${fmtTime(c.t * fps)} ${c.label}`).join("\n");
   const hashtags = (m.hashtags || []).join(" ");
+  const producerNote = (() => { try { const b = JSON.parse(fs.readFileSync(require("./lib/paths").abs.manifest(SLUG), "utf8")); return b.take && b.take.by === "operator" && b.take.note ? String(b.take.note) : null; } catch { return null; } })();
   const description = [
+    ...(producerNote ? [`Producer's note: "${producerNote}"`, ""] : []),
     m.hook, "", m.summary, "",
     "⏱️ Chapters:", chapterBlock, "",
     "🔔 Subscribe for more book breakdowns.", "",
@@ -230,6 +232,7 @@ ${(meta.tags || []).join(", ")}
     primaryKeyword: m.primaryKeyword,
     titles: m.titles,
     titleAngles: m.titleAngles || [],
+    ...(producerNote ? { producerNote } : {}),
     description,
     tags: m.tags,
     hashtags: m.hashtags,

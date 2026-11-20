@@ -266,7 +266,9 @@ ${(meta.tags || []).join(", ")}
   const chapterBlock = chapters.map((c) => `${fmtTime(c.t * fps)} ${c.label}`).join("\n");
   const hashtags = (m.hashtags || []).join(" ");
   const clean = (s) => String(s || "").replace(/\s*\.\s*,\s*/g, ".\n\n").replace(/\s{2,}/g, " ").trim();
+  const producerNote = (() => { try { const b = JSON.parse(fs.readFileSync(require("./lib/paths").abs.manifest(slug), "utf8")); return b.take && b.take.by === "operator" && b.take.note ? String(b.take.note) : null; } catch { return null; } })();
   const description = [
+    ...(producerNote ? [`Producer's note: "${producerNote}"`, ""] : []),
     clean(m.hook),
     "",
     clean(m.summary),

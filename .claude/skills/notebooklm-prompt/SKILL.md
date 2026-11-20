@@ -135,9 +135,16 @@ hosts, its own five steps for a part, its own ending and its own on-screen part 
   not always a question to the listener).
 - The hosts are asked to SAY each part's number ("Exhibit three: …"): the film's corner label follows what they
   say (`partBadges`), so do not renumber or rename the parts in the prompt.
-- **The producer's own view** (optional, the operator's words): `--take="<2-5 sentences: where they disagree with
-  the book, what they found too much>"` is written into the prompt as a real reader's view the hosts argue with.
-  Ask the operator for it once per book in one line; never write it for them, and go on without it if they pass.
+- **Yapımcının notu (the producer's note) — every book, one short exchange with the operator.** Before you hand
+  over the prompt, write the operator THREE alternatives IN TURKISH: one or two sentences each, in the first person,
+  three different angles that come from THIS book (where a reader may disagree with it, what it overdoes, what it gets
+  right that people miss). Not praise, not a summary, never a line that would fit another book. He approves one,
+  rewrites one, or writes his own; if he passes, go on without it. Then:
+  `--take="<its English, 1-3 sentences>" --take-tr="<his Turkish words, verbatim>" [--take-note="<one first-person
+  line ≤ 180 chars for the card>"]`. make-prompt refuses `--take` without `--take-tr`: the view is his decision,
+  an agent never records one of its own. It goes into the prompt (the hosts argue with a real reader's view), onto a
+  card in the film's first half-minute ("PRODUCER'S NOTE") and into the first line of the description - keep that
+  line when you hand-refine the YouTube pack.
 
 **Two blocks come from the channel's own analytics (2026-11-11, skill `channel-analytics`) — keep them and make them
 book-specific; `--check` refuses a prompt without them:**

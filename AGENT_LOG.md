@@ -7707,6 +7707,19 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — The producer's note: the operator's own sentence, in the prompt, on a card, in the description
+
+- Operator's decision: the Step 0 agent writes him THREE alternatives in Turkish; he approves or rewrites one; the
+  agent turns it into English. (He will not narrate: accent, and a voice at the start costs retention. A fully
+  AI-written "producer's note" was rejected - it would be a label that is not true.)
+- `make-prompt.js`: `--take` now REQUIRES `--take-tr="<his Turkish words>"` (refused otherwise, with the flow);
+  book.json `take { text, note, tr, by: "operator", at }`; optional `--take-note` (default: the first sentence).
+- Film: `src/components/ProducerNote.tsx` (both engines) - a card "PRODUCER'S NOTE" from 0:14 for 6.5 s, one fade in
+  and out; `plan-antidote.js` / `plan-vox.js` write `meta.take.note` only when `by === "operator"`. No note: nothing
+  is drawn. Pack: `plan-antidote-meta.js` / `plan-meta.js` open the description with it (+ `producerNote`).
+- Skill `notebooklm-prompt`: "Yapımcının notu". Test: test-step0 (take refused without his words; recorded with them),
+  `test-producer-note.js`.
+
 ### 2026-11-20 — Vox card hand: the three marks of every text card are drawn per book
 
 - The 47 % (text cards' share of a Vox film) carried the same three marks in every film: a ring with a dotted disc
