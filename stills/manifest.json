@@ -1,0 +1,47 @@
+{
+ "schema": "stills/1",
+ "name": "thing events — thrown, broken, dropped",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "events",
+   "config": "configs/events.json",
+   "frames": [
+    161,
+    169,
+    183,
+    416,
+    424,
+    438,
+    827,
+    835,
+    849,
+    1134,
+    1142,
+    1156
+   ],
+   "clip": {
+    "from": 0,
+    "to": 1370,
+    "scale": 1,
+    "crf": 18
+   }
+  }
+ ],
+ "inputHash": "24a46b12f15df767",
+ "files": {
+  "stills/configs/events.json": "e153d2b01e8bd09ed4be89357a0f182c38d31809f0d790bffcc15648a3304fc9"
+ },
+ "builtAt": "2026-11-20T05:32:16.258Z"
+}
