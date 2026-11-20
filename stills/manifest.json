@@ -1,0 +1,30 @@
+{
+ "schema": "stills/1",
+ "name": "producer's note — antidote",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "note-antidote",
+   "config": "configs/note.json",
+   "frames": [
+    480
+   ]
+  }
+ ],
+ "inputHash": "4641c8ac2de0d39c",
+ "files": {
+  "stills/configs/note.json": "dcc21e015cfa470d86cfb97405a6be695491268b7ac89d0f1bfc4a6249ee9d77"
+ },
+ "builtAt": "2026-11-20T10:04:37.251Z"
+}
