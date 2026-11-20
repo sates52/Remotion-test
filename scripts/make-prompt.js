@@ -370,22 +370,10 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   if (args.skin && !askedSkin) { console.error(`❌ --skin="${args.skin}" — caption/plate/font from scripts/lib/book-skin.js (e.g. paper/sharp/serif)`); process.exit(1); }
   const SKIN = askedSkin || (validSkin(manifest.skin) && !args.reskin ? manifest.skin : pickSkin({ slug: SLUG, recent: recentSkins(SLUG) }));
   manifest.skin = { caption: SKIN.caption, plate: SKIN.plate, font: SKIN.font, at: (manifest.skin && !args.reskin && !askedSkin && manifest.skin.at) || new Date().toISOString(), by: askedSkin ? "agent" : "book-skin" };
-  // the producer's own view of the book (operator's words, optional): the hosts argue with a real reader, not only with each other
-  // 2026-11-20: it is the OPERATOR's view or it is nothing. The Step 0 agent writes him three alternatives in Turkish;
-  // he approves or rewrites one; --take-tr carries HIS words (recorded), --take the English the film uses, --take-note
-  // the one line shown on the film's note card (default: the first sentence). An agent never records a view of its own.
-  if (typeof args.take === "string" && args.take.trim()) {
-    const tr = typeof args["take-tr"] === "string" ? args["take-tr"].trim() : "";
-    if (tr.length < 15) {
-      console.error('❌ --take needs --take-tr="<the operator\'s own Turkish words>" — the producer\'s view is the operator\'s decision:');
-      console.error("   write him THREE alternatives in Turkish (different angles from the book), wait for the one he approves or rewrites,");
-      console.error('   then: --take="<its English>" --take-tr="<his Turkish, verbatim>" [--take-note="<one first-person line, ≤ 180 chars, for the card>"]');
-      process.exit(1);
-    }
-    const text = args.take.trim(), first = (text.match(/^[^.!?]*[.!?]/) || [text])[0].trim();
-    const note = (typeof args["take-note"] === "string" && args["take-note"].trim() ? args["take-note"].trim() : first).slice(0, 180);
-    manifest.take = { text, note, tr, by: "operator", at: new Date().toISOString() };
-  }
+  // THE PRODUCER'S NOTE is not part of the audio prompt (operator 2026-11-20: the hosts do not discuss it). He asks
+  // NotebookLM's chat for three candidates, chooses, and scripts/producer-note.js records his sentence (book.json take,
+  // kept across re-runs of this script). It reaches the film as a card and the description - never the narration.
+  if (args.take != null || args["take-tr"] != null) { console.error('❌ --take is gone: the producer\'s note is not written into the audio prompt. Use  node scripts/producer-note.js --slug=' + SLUG + ' --question  (give the operator the question), then  --tr="<his Turkish>" --note="<English>"'); process.exit(1); }
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
   const source = args.engine ? "Claude, açık" : profileFit ? "kitap profili" : (vttSignal && vttSignal.confidence !== "weak") ? "VTT analizi" : "genre heuristik (GEÇİCİ)";
   if (!args.engine && !profileFit) {
@@ -406,7 +394,7 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   console.log(`🎭 BİÇİM → ${FORM} (${FORMS[FORM].label}; ekranda "${FORMS[FORM].part} n / N")  ${manifest.form.by === "agent" ? "— ajan kitaptan seçti" : "— kitabın türüne uyan, son 8 kitaptan en uzak biçim"}`);
   if (manifest.form.by !== "agent") console.log(`   Kitaba bak ve uygun olanı SEN seç (--form=<key> --form-why="…"):\n   ${formMenu(kind).join("\n   ")}`);
   console.log(`🎨 GÖRÜNÜM → ${SKIN.caption}/${SKIN.plate}/${SKIN.font} (${describeSkin(SKIN)}) — son 8 kitaptan en uzak; değiştir: --skin=caption/plate/font veya --reskin`);
-  console.log(manifest.take ? `🗣  YAPIMCININ GÖRÜŞÜ prompt'a yazıldı.` : `🗣  Yapımcının görüşü yok — operatöre TÜRKÇE üç alternatif sun (kitaptan farklı açılar), onayladığını ya da değiştirdiğini kaydet: --take="<İngilizcesi>" --take-tr="<operatörün Türkçe sözü>" (notebooklm-prompt skill, "Yapımcının notu")`);
+  console.log(manifest.take && manifest.take.by === "operator" ? `🗣  YAPIMCI NOTU kayıtlı: "${manifest.take.note}"` : `🗣  Yapımcı notu yok — operatöre NotebookLM sohbet sorusunu ver: node scripts/producer-note.js --slug=${SLUG} --question  (notebooklm-prompt skill, "Yapımcının notu")`);
   console.log(`⏱  UZUNLUK → ${TIER.target} dk, ${TIER.beats} beat${TIER.pages ? ` (${TIER.pages} sayfa)` : " (sayfa sayısı verilmedi: --pages=<n>; 300+ sayfa 60-75, 500+ sayfa 75-90 dk)"}
 `);
 
@@ -442,7 +430,7 @@ ${lengthBlock(TIER, FORM)}
 
 ${body}
 
-${manifest.take ? `A REAL READER'S VIEW (the producer of this film read the book and thinks this — one host brings it up as "a reader told us", and both argue with it honestly; do not flatter it):\n"${manifest.take.text}"\n\n` : ""}${spineFor(ENGINE, OPENING, TIER, FORM)}`;
+${spineFor(ENGINE, OPENING, TIER, FORM)}`;
 
   const md = `# NotebookLM prompt — ${TITLE}${AUTHOR ? " (" + AUTHOR + ")" : ""}
 

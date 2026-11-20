@@ -135,16 +135,17 @@ hosts, its own five steps for a part, its own ending and its own on-screen part 
   not always a question to the listener).
 - The hosts are asked to SAY each part's number ("Exhibit three: …"): the film's corner label follows what they
   say (`partBadges`), so do not renumber or rename the parts in the prompt.
-- **Yapımcının notu (the producer's note) — every book, one short exchange with the operator.** Before you hand
-  over the prompt, write the operator THREE alternatives IN TURKISH: one or two sentences each, in the first person,
-  three different angles that come from THIS book (where a reader may disagree with it, what it overdoes, what it gets
-  right that people miss). Not praise, not a summary, never a line that would fit another book. He approves one,
-  rewrites one, or writes his own; if he passes, go on without it. Then:
-  `--take="<its English, 1-3 sentences>" --take-tr="<his Turkish words, verbatim>" [--take-note="<one first-person
-  line ≤ 180 chars for the card>"]`. make-prompt refuses `--take` without `--take-tr`: the view is his decision,
-  an agent never records one of its own. It goes into the prompt (the hosts argue with a real reader's view), onto a
-  card in the film's first half-minute ("PRODUCER'S NOTE") and into the first line of the description - keep that
-  line when you hand-refine the YouTube pack.
+- **Yapımcının notu (the producer's note) — every book.** It is NOT in the audio prompt: the hosts never discuss it.
+  With the paste block, give the operator a second, short block: `node scripts/producer-note.js --slug=<slug>
+  --question` prints two (and writes books/<slug>/prompt.producer-note.md): **A) the research one** for NotebookLM's
+  Deep Research - how readers and critics received the book (praise, complaints, the common misreading), then three
+  opinions that take a position on it - and **B) the quick one** for the notebook's CHAT box (text, not the Audio
+  Overview). Give him both; he uses one, gets three candidate opinions, and sends you the one he chose,
+  changed, or his own sentence - in Turkish. Then: `node scripts/producer-note.js --slug=<slug> --tr="<his Turkish
+  words, verbatim>" --note="<its English, first person, ≤ 180 characters>"`. Never write the note yourself and never
+  record one without his words (the tool refuses). If he passes, go on without it. Record it BEFORE make-book: it
+  becomes a card in the film's first half-minute ("PRODUCER'S NOTE") and the first line of the description - keep that
+  line when you hand-refine the YouTube pack. It does not need a new recording.
 
 **Two blocks come from the channel's own analytics (2026-11-11, skill `channel-analytics`) — keep them and make them
 book-specific; `--check` refuses a prompt without them:**

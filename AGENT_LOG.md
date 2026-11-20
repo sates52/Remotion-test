@@ -7707,18 +7707,24 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
-### 2026-11-20 — The producer's note: the operator's own sentence, in the prompt, on a card, in the description
+### 2026-11-20 — The producer's note: the operator's own sentence, on a card and in the description (NOT in the narration)
 
-- Operator's decision: the Step 0 agent writes him THREE alternatives in Turkish; he approves or rewrites one; the
-  agent turns it into English. (He will not narrate: accent, and a voice at the start costs retention. A fully
-  AI-written "producer's note" was rejected - it would be a label that is not true.)
-- `make-prompt.js`: `--take` now REQUIRES `--take-tr="<his Turkish words>"` (refused otherwise, with the flow);
-  book.json `take { text, note, tr, by: "operator", at }`; optional `--take-note` (default: the first sentence).
-- Film: `src/components/ProducerNote.tsx` (both engines) - a card "PRODUCER'S NOTE" from 0:14 for 6.5 s, one fade in
-  and out; `plan-antidote.js` / `plan-vox.js` write `meta.take.note` only when `by === "operator"`. No note: nothing
-  is drawn. Pack: `plan-antidote-meta.js` / `plan-meta.js` open the description with it (+ `producerNote`).
-- Skill `notebooklm-prompt`: "Yapımcının notu". Test: test-step0 (take refused without his words; recorded with them),
-  `test-producer-note.js`.
+- Operator's decisions: he will not narrate (accent; a voice at the start costs retention); a fully AI-written
+  "producer's note" was rejected (a label that is not true); and the hosts do NOT discuss it ("sunucular bunu niye
+  tartışıyor") - so it is not in the audio prompt. He asks NotebookLM's CHAT (it has the book) for three candidates,
+  comments, and sends his sentence in Turkish; the agent turns it into English.
+- `scripts/producer-note.js`: `--question` prints the chat question (→ books/<slug>/prompt.producer-note.md);
+  `--tr="<his Turkish>" --note="<English ≤ 180>"` records book.json `take { note, tr, by: "operator", at }`; refuses
+  without his words; `--clear`. `make-prompt.js`: `--take` is gone (refused with the pointer) and the
+  "A REAL READER'S VIEW" block is out of every prompt; an existing take is kept in book.json across re-runs.
+- Film: `src/components/ProducerNote.tsx` (both engines) - "PRODUCER'S NOTE" from 0:14 for 6.5 s, two lines at most,
+  one fade in and out; `plan-antidote.js` / `plan-vox.js` write `meta.take.note` only when `by === "operator"`.
+  Pack: `plan-antidote-meta.js` / `plan-meta.js` open the description with it (+ `producerNote`).
+- `--question` hands over two blocks: A) for NotebookLM Deep Research (how readers and critics received the book -
+  patterns only, no review copied, nobody named - then three opinions that take a position on it), B) the quick one
+  for the notebook's chat. The operator's idea; the research block's wording is untested against the real feature.
+- Record it before make-book: a note added after a sealed preview changes the film. Dracula was previewed without one.
+  Skill `notebooklm-prompt`: "Yapımcının notu". Tests: test-step0, `test-producer-note.js`.
 
 ### 2026-11-20 — Vox card hand: the three marks of every text card are drawn per book
 

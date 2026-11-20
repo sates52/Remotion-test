@@ -51,9 +51,7 @@ try {
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--form=summary", "--form-why=a plain summary of the whole book please");
   t("form: an unknown form is refused with the list", r.status === 1 && /--form="summary"/.test(r.stderr) && /journey — /.test(r.stderr), r.stderr);
   r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--take=I think the uncle is let off far too lightly.");
-  t("take: a view without the operator's own words is refused (an agent never records a view of its own)", r.status === 1 && /--take-tr/.test(r.stderr) && /THREE alternatives in Turkish/.test(r.stderr) && !book().take, r.stderr);
-  r = run(...base, `--profile=${JSON.stringify(PORTAL)}`, "--take=I think the uncle is let off far too lightly. The book forgives him in one page.", "--take-tr=Bence amca çok kolay affediliyor; kitap onu tek sayfada aklıyor.");
-  t("take: the operator's approved sentence is recorded (his Turkish, the film's English, the card's line) and written into the prompt as a real reader's", r.status === 0 && /let off far too lightly/.test(book().take.text) && book().take.by === "operator" && /çok kolay affediliyor/.test(book().take.tr) && book().take.note === "I think the uncle is let off far too lightly." && /A REAL READER'S VIEW/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")), r.stderr);
+  t("take: make-prompt no longer writes a producer's view into the audio prompt (producer-note.js records the operator's note)", r.status === 1 && /producer-note\.js/.test(r.stderr) && !book().take && !/READER'S VIEW/.test(fs.readFileSync(path.join(DIR, "prompt.notebooklm.md"), "utf8")), r.stderr);
   // back to the book's first form: the checks below edit the prompt that was written in it
   run(...base, `--profile=${JSON.stringify(PORTAL)}`, `--form=${form1.key}`, "--form-why=the first form again, for the checks that follow this one");
   fs.writeFileSync(path.join(DIR, "prompt.notebooklm.md"), md.replace("FIRST MINUTE", "OPENING"));

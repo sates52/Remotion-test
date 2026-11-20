@@ -83,7 +83,7 @@ t("Step 0 writes the form into the prompt and the book record; the checker knows
   const mp = fs.readFileSync(path.join(__dirname, "make-prompt.js"), "utf8");
   assert.ok(mp.includes("${SPEECH}") && mp.indexOf("${lengthBlock(TIER, FORM)}") > 0 && mp.indexOf("${lengthBlock(TIER, FORM)}") < mp.indexOf("${spineFor(ENGINE, OPENING, TIER, FORM)}"), "LENGTH leads the paste block (a 17-minute recording came from a prompt that had it last); the speech rule is last");
   assert.ok(mp.includes("${formBlock(form, tier)}") && !mp.includes("STRUCTURE (follow strictly)") && !mp.includes("DEPTH ENGINE (run this on EVERY beat"));
-  assert.ok(mp.includes("manifest.form = { key: FORM, part: FORMS[FORM].part") && mp.includes('--form-why="') && mp.includes("manifest.take ="));
+  assert.ok(mp.includes("manifest.form = { key: FORM, part: FORMS[FORM].part") && mp.includes('--form-why="') && mp.includes("--take is gone") && fs.readFileSync(path.join(__dirname, "producer-note.js"), "utf8").includes("book.take = { note, tr, by: \"operator\""));
   const formed = (body) => "# x\n\n**Engine:** antidote · **Form:** case ·\n\n```\nYou are two hosts doing a deep, original analysis of \"The Book\".\n\n" + body + "\n\n" + F.formBlock("case") + "\n\n" + F.SPEECH + "\n\nFIRST MINUTE\n- OPEN: x\n- NAME IT: x\n- PROMISE x\n\nPICTURE FIRST (this becomes animation)\n\nLENGTH x\n\nHARD RULES:\n- x\n" + "pad ".repeat(120) + "\n```\n";
   const angle = "THE ANGLE:\n- Thesis to prove: the letter was never sent.\n\nTHE EXHIBITS OF THIS BOOK:\n" + [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `${i}. the thing number ${i} from the book`).join("\n");
   assert.deepStrictEqual(checkNotebookPrompt(formed(angle), { title: "The Book", engine: "antidote", form: "case" }).errors, []);
