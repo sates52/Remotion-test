@@ -48,7 +48,7 @@ const KINDS = { company: "emblem", product: "emblem", place: "emblem", idea: "em
 // an arrow from each to the next (inflow → stock → outflow; cause → effect). A row put three small things side by side
 // with nothing between them ("Thinking in Systems", the bathtub: the faucet did not pour into anything).
 const LAYOUTS = ["solo", "versus", "row", "court", "pairs", "flow"];
-const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw", "give", "take", "at", "act"];
+const DOS = ["enter", "exit", "arrange", "title", "label", "crown", "uncrown", "world", "cross", "stamp", "cover", "uncover", "dim", "restore", "grow", "shake", "apart", "together", "collide", "burst", "coins", "pair", "date", "focus", "wide", "clear", "change", "raw", "give", "take", "throw", "drop", "at", "act"];
 /** told v3 — what each verb needs: the other it is done to ("person" | "thing" = a drawn thing | "any"), and whether it must be there */
 const VERBS = {
   hit: { target: "person", need: true }, bite: { target: "person", need: true }, chase: { target: "person", need: true },
@@ -545,6 +545,51 @@ function compileTold(beats, written = {}, opts = {}) {
           if (!drawing(ev.what) || !find(ev.what)) { err(`take: "what" is a drawn thing that stands on stage${ev.what ? ` ("${ev.what}" does not)` : ""}`); break; }
           toHand(ev.what, who[0], at, null);
           swap(who[0], at, (n) => { n.action = "hold"; delete n.holds; });
+        } break;
+        // THINGS THAT HAPPEN (2026-11-20, the first real book: "he throws the mirror out of the window and it shatters",
+        // "the bottle falls" were a thing standing still). A drawn thing leaves a hand - or the place where it stands -
+        // in ONE arc that lands on the word: thrown off the stage, at someone / something, or to the ground; dropped
+        // straight down. With "state" it lies there as what it has become (entities.json states). One motion, no loop.
+        case "throw": case "drop": if (need(1)) {
+          const a = who[0], P = find(a), isThrow = ev.do === "throw", to = ev.to == null ? (isThrow ? "off" : "ground") : ev.to;
+          if (!P || P.kind !== "figure") { err(`${ev.do}: "who" is the PERSON who ${isThrow ? "throws" : "drops"} it (on stage)`); break; }
+          const e0 = entities[ev.what], base = drawing(ev.what);
+          if (!base) { err(`${ev.do}: "what" is a DRAWN thing of entities.json${ev.what ? ` ("${ev.what}" is not)` : ""}`); break; }
+          if (!isThrow && to !== "ground") { err('drop: a dropped thing falls to the ground (no "to")'); break; }
+          if (isThrow && to !== "off" && to !== "ground" && !find(to)) { err(`throw: "to" is "off", "ground" or someone / something on stage ("${to}" is not)`); break; }
+          if (isThrow && to === a) { err("throw: a person does not throw a thing at themselves"); break; }
+          const st = ev.state != null ? (e0.states && e0.states[ev.state]) : null;
+          if (ev.state != null && !st) { err(`${ev.do}: "${ev.what}" has no state "${ev.state}" (entities.json states)`); break; }
+          if (ev.state != null && to !== "ground") { err(`${ev.do}: "state" is how the thing LIES after it lands - only with "to": "ground"`); break; }
+          const when = Math.max(at, 26), pp = stateAt(P, when), hp = handOf(P, pp), w = Math.round((P.w || 260) * HELD.box);
+          // the thing in flight: out of this hand, or picked from where it stands on stage
+          let h = heldOf(a).find((b) => b._ent === ev.what);
+          const standing = !h && find(ev.what) && find(ev.what)._role === "entity" ? find(ev.what) : null;
+          if (h) { for (const k of ["_bind"]) delete h[k]; h._role = "fx"; h.id = `${ev.what}.thrown~${++seq}`; }
+          else if (standing) { const p = stateAt(standing, when); for (const b of bound(ev.what)) leave(b, Math.max(8, when - 26), 6); leave(standing, Math.max(8, when - 22), 6); st8.who = st8.who.filter((x) => x !== ev.what);
+            h = add({ id: `${ev.what}.thrown~${++seq}`, kind: "icon", ...base, w, x: p.x, y: p.y, s: (p.s * (standing.w || 312)) / w, enter: { at: Math.max(6, when - 24), from: "fade", dur: 6 }, _role: "fx", _ent: ev.what });
+            key(h, { at: when - 14, dur: 8, ease: "inout", x: hp.x, y: hp.y, s: hp.s }); }
+          else h = add({ id: `${ev.what}.thrown~${++seq}`, kind: "icon", ...base, w, x: hp.x, y: hp.y, s: hp.s, enter: { at: Math.max(6, when - 22), from: "pop", dur: 6 }, _role: "fx", _ent: ev.what });
+          // the person: the arm goes out before the word, comes back after it
+          if (isThrow) swap(a, Math.max(4, when - 16), (n) => { n.action = "offer"; delete n.holds; delete n.act; });
+          else swap(a, Math.max(4, when - 10), (n) => { n.action = "idle"; delete n.holds; delete n.act; });
+          // in the air a hand-sized thing is a dot: it grows as it leaves the hand (first clip, 2026-11-20), and what
+          // lies on the ground is drawn large, clear of the subtitle band
+          const big = hp.s * 1.9, lie = hp.s * 2.3, half = (w * lie) / 2;
+          const T0 = to !== "off" && to !== "ground" ? find(to) : null, tp = T0 ? midOf(T0, stateAt(T0, when)) : null;
+          const dir = T0 ? (tp.x >= pp.x ? 1 : -1) : (ev.side === "left" ? -1 : ev.side === "right" ? 1 : P.flip ? -1 : pp.x > 1180 ? -1 : 1), ground = Math.min(SAFE.bottom - half - 12, pp.y - 50 * pp.s);
+          const dest = !isThrow ? { x: hp.x + 30 * dir, y: ground } : T0 ? { x: tp.x - dir * 40, y: tp.y } : to === "ground" ? { x: Math.max(160, Math.min(1760, hp.x + dir * 430)), y: ground } : { x: dir > 0 ? 2160 : -240, y: hp.y - 60 };
+          const spin = dir * (isThrow ? 300 : 35);
+          if (isThrow) { key(h, { at: when - 6, dur: 7, ease: "out", x: hp.x + (dest.x - hp.x) * 0.5, y: Math.min(hp.y, dest.y) - 150 * pp.s, r: spin * 0.5, s: big }); key(h, { at: when, dur: 6, ease: "inout", x: dest.x, y: dest.y, r: spin, s: to === "ground" ? lie : big }); }
+          else key(h, { at: when, dur: 9, ease: "inout", x: dest.x, y: dest.y, r: spin, s: lie });
+          if (T0) { T0.shake = { at: when, dur: 18, amp: 12 }; leave(h, when + 8, 6); }
+          else if (to === "off") leave(h, when + 4, 4);
+          else {
+            // it lies where it fell: as itself, or as what it has become - a knock that dies away (no loop)
+            h.shake = { at: when, dur: 16, amp: 10 }; h._role = "deco"; h._ttl = TTL_DECO;
+            if (st) { leave(h, when + 6, 6); stateOf[ev.what] = ev.state; add({ id: `${ev.what}.fallen~${++seq}`, kind: "icon", paths: st.paths, viewBox: st.viewBox, w, x: dest.x, y: dest.y, s: lie, r: 0, enter: { at: when, from: "fade", dur: 6 }, shake: { at: when, dur: 16, amp: 10 }, _role: "deco", _ttl: TTL_DECO, _ent: ev.what, state: ev.state }); }
+          }
+          swap(a, when + 12, (n) => { n.action = "idle"; });
         } break;
         case "at": setPlace(who[0] || null, at); break;
         // ── told v3: THE PERSON PLAYS THE VERB ───────────────────────────────────────────────────────────────────────

@@ -161,7 +161,11 @@ What made the approved passages work — follow it:
   narration changes, changes on screen — `{ "do": "change", "who": "demeter", "state": "wrecked" }` (it then stays
   wrecked for the rest of the film); what the narration hands over travels from hand to hand on the word —
   `{ "do": "give", "who": ["jonathan", "mina"], "what": "journal" }`; `change` + `holds: "<thing>"` puts it in a hand,
-  `take` picks up a thing that stands on stage. Where the narration IS somewhere, the stage is there:
+  `take` picks up a thing that stands on stage. What the narration THROWS or DROPS is thrown or dropped on the word:
+  `{ "do": "throw", "who": "dracula", "what": "mirror", "to": "ground", "state": "shattered" }` (`to`: off the stage
+  by default, someone / something on stage, or the ground where it lies as what it has become),
+  `{ "do": "drop", "who": "jonathan", "what": "knife" }`. Draw the broken `state` when the book breaks the thing.
+  Where the narration IS somewhere, the stage is there:
   `"stage": { …, "at": "transylvania" }` draws the place, pale, behind everything (a new `stage` without `at` is
   nowhere in particular). Only what `rules.md` lists as drawn / with states / as a place exists.
 - **PEOPLE PLAY THE VERB (told v3).** When the narration says a person does something — to someone, with something

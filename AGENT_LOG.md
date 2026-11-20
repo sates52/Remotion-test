@@ -7707,6 +7707,21 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — Thing events: a drawn thing is THROWN or DROPPED on the word (told stages)
+
+- Why: the first real book's weak mute frames were events drawn as standing symbols ("he throws the mirror out of the
+  window and it shatters", "the knife goes through empty air"). A thing could appear, change state, be handed over or
+  picked up - not thrown, dropped or broken where it lands.
+- `told-compile.js`: `{ "do": "throw", "who", "what", "to"?: "off" | "ground" | <id on stage>, "state"? }` and
+  `{ "do": "drop", "who", "what", "state"? }`. Out of the hand (or from where it stands) in ONE arc that lands on the
+  word; it grows as it flies (hand size in the air read as a dot), turns once, knocks what it hits; on the ground it
+  lies large, clear of the subtitle band, as itself or as the drawn state. Keys only (x / y / s / r, the old eases):
+  **no renderer change, no told version bump; old beats compile byte-identical (goldens unchanged).** No loop.
+- Authors: rules.md "What happens to a thing, happens" + the event table; merge checks who / what / state / to;
+  `told.md`. Seen on a scratch demo with the real Dracula cast and drawings (cloud clip thing-events-2). flicker-check
+  flags the three throws (fast one-shot motion, 6-12 frames) - expected. Not measured: a mute test with these beats;
+  no real book has authored one yet. Test: `test-thing-events.js` (5).
+
 ### 2026-11-20 — Dracula preview READY on the new code; story share re-measured; cast verdict read
 
 - **Dracula (first real book), second round after the prep gate:** preview-ready PASS — mute run5 fresh: WRONG 0/24,

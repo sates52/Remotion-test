@@ -34,7 +34,7 @@ const VERB_MEASURED = {
   bite: "not measured (lab clip: reads as one leaning onto the other)", hit: "not measured (lab clip only)", chase: "not measured (lab clip only)",
   dig: "not measured (lab clip only)", fall: "not measured (lab clip only)", write: "not measured (lab clip only)",
 };
-const ACTIVE = new Set(["act", "give", "take"]); // events in which a person DOES something
+const ACTIVE = new Set(["act", "give", "take", "throw", "drop"]); // events in which a person DOES something
 /** told v2: what an entity brings to the stage as DRAWINGS (as written: paths or a motif pointer) */
 const drawn = (e) => !!e && e.kind !== "person" && drawnAs(e) === "icon";
 const statesOf = (e) => (drawn(e) ? Object.keys(e.states || {}) : []);
@@ -65,6 +65,8 @@ const EVENT_HELP = [
   ["change", "who, state", "the same DRAWN THING as what it has become (its states are listed with it above; `base` = as it was). It stays that way for the rest of the film"],
   ["give", "who[from, to], what", "a person hands a drawn thing to another: it travels from hand to hand and lands on the word (it need not be on stage first)"],
   ["take", "who, what", "a person picks up a drawn thing that stands on stage: it goes into their hand"],
+  ["throw", "who, what, to?, state?", "a person throws a drawn thing, in one arc that lands on the word: off the stage (default), \"to\": \"<who or what on stage>\" (they are knocked), or \"to\": \"ground\" - with \"state\" it lies there as what it has become (shattered)"],
+  ["drop", "who, what, state?", "a drawn thing falls from the person's hand to the ground at their feet, on the word; with \"state\" it lies there broken"],
   ["act", "who (a person), verb, target?", "the person DOES it on the word — see **Verbs** below. This is how a person shows what the narration says they do"],
   ["at", "who (a place) | —", "the stage is now AT that place: its drawing fades in behind everything (no `who`: the plain ground again)"],
   ["clear", "what? (titles | labels | rows)", "take the extras off the stage (default: all of them)"],
@@ -94,7 +96,12 @@ function toldSection(entities) {
   narration explains how things act on each other; change their \`state\` on the words that say what happens.
 - **People handle the things**: \`{ "do": "change", "who": "<person>", "holds": "<thing id>" }\` puts it in their hand;
   \`{ "do": "give", "who": ["<from>", "<to>"], "what": "<thing id>" }\` hands it over on the word; \`take\` picks up a
-  thing that stands on stage. The narration's verb decides — never put a thing in a hand the narration does not.` : ""}${places.length ? `
+  thing that stands on stage. The narration's verb decides — never put a thing in a hand the narration does not.
+- **What happens to a thing, happens**: when the narration throws, hurls, flings, drops or smashes a thing, the thing
+  DOES it on that word — \`{ "do": "throw", "who": "<person>", "what": "<thing id>" }\` (off the stage),
+  \`"to": "<who or what>"\` (at them), \`"to": "ground", "state": "<state>"\` (it lies there broken);
+  \`{ "do": "drop", "who": "<person>", "what": "<thing id>" }\`. A thing that is thrown in the narration and stands
+  still on screen is the commonest reason a stage reads as a label.` : ""}${places.length ? `
 - **Where it happens**: \`"stage": { "layout": …, "who": […], "at": "<place id>" }\` draws that place, pale, behind the
   stage (${places.map((p) => `\`${p}\``).join(", ")}). A new \`stage\` without \`at\` is nowhere in particular; the event
   \`at\` changes the place while the things stay. Name the place only when the narration is there.
@@ -224,6 +231,12 @@ function checkToldBeat(told, narration, entities) {
       const n = ev.do === "give" ? 2 : 1;
       if (names(ev.who).length !== n || names(ev.who).some((w) => entities[w] && entities[w].kind !== "person")) out.push(`${tag} (${ev.do}): who is ${n === 2 ? "[the person who gives, the person who gets]" : "the person who takes it"}`);
       if (!drawn(entities[ev.what])) out.push(`${tag} (${ev.do}): "what" is a drawn thing of entities.json${ev.what != null ? ` ("${ev.what}" is not)` : ""}`);
+    }
+    if (ev.do === "throw" || ev.do === "drop") {
+      if (names(ev.who).length !== 1 || !e0 || e0.kind !== "person") out.push(`${tag} (${ev.do}): who is the one person who ${ev.do}s it`);
+      if (!drawn(entities[ev.what])) out.push(`${tag} (${ev.do}): "what" is a drawn thing of entities.json${ev.what != null ? ` ("${ev.what}" is not)` : ""}`);
+      else if (ev.state != null && !statesOf(entities[ev.what]).includes(ev.state)) out.push(`${tag} (${ev.do}): "${ev.what}" has no state "${ev.state}"${statesOf(entities[ev.what]).length ? ` - one of ${statesOf(entities[ev.what]).join(", ")}` : " (entities.json states)"}`);
+      if (ev.do === "throw" && ev.to != null && ev.to !== "off" && ev.to !== "ground" && !ids.has(ev.to)) out.push(`${tag} (throw): "to" is "off", "ground" or an id of entities.json`);
     }
     if (ev.do === "at" && w0 != null && !isPlaceDrawn(e0)) out.push(`${tag} (at): "${w0}" is not a place with a drawing`);
     // told v3: a person plays a verb — the verb exists, a PERSON does it, and it has the other it needs
