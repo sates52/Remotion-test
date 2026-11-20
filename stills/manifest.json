@@ -1,0 +1,70 @@
+{
+ "schema": "stills/1",
+ "name": "vox — the book's skin and announced parts",
+ "composition": "Vox-the-crucible",
+ "entry": "src/index.ts",
+ "silent": false,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/sfx/ding.wav",
+  "public/sfx/pop.wav",
+  "public/sfx/thud.wav",
+  "public/sfx/tick.wav",
+  "public/sfx/whoosh.wav"
+ ],
+ "jobs": [
+  {
+   "id": "vox-channel",
+   "config": "configs/vox-channel.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-paper-serif",
+   "config": "configs/vox-paper-serif.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-bar-condensed",
+   "config": "configs/vox-bar-condensed.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  },
+  {
+   "id": "vox-tape-slab",
+   "config": "configs/vox-tape-slab.json",
+   "frames": [
+    70,
+    400,
+    480,
+    830,
+    1120
+   ]
+  }
+ ],
+ "inputHash": "55bc19c5f7a0f846",
+ "files": {
+  "stills/configs/vox-channel.json": "b4de609888dc88e94a6077957eacd5283cc58f3a36b0d2d3a3c1c55199a0f276",
+  "stills/configs/vox-paper-serif.json": "7b6d8d6f1873ea87975a85f645a71bac8f7c3f8c90af3ceb0eb426c7c4c4d807",
+  "stills/configs/vox-bar-condensed.json": "8670f538688dc93fb6fb4b80840d3c3e1939d2f0835e94b9f76b3e2c1c3dfa11",
+  "stills/configs/vox-tape-slab.json": "18375f11b137783012b904e4695c42087f8201c01956ce9f42066848577e2b4c"
+ },
+ "builtAt": "2026-11-20T06:43:52.075Z"
+}
