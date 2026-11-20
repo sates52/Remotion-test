@@ -6,7 +6,13 @@ import { InkUnderline } from "../../components/remocn";
 
 const CHAPTER_HOLD = 2.6;
 
-export const ChapterOverlay: React.FC<{ chapters?: Chapter[] }> = ({ chapters }) => {
+/** the parts the hosts announced as the film's chapters (≥ 3, like the Antidote form track), or null */
+export function formChapters(form?: { part: string; parts: { n: number; from: number; title?: string }[] } | null): Chapter[] | null {
+  if (!form || !Array.isArray(form.parts) || form.parts.length < 3) return null;
+  return form.parts.map((p) => ({ index: p.n, fromFrame: p.from, label: p.title || `${form.part} ${p.n}` }));
+}
+
+export const ChapterOverlay: React.FC<{ chapters?: Chapter[]; word?: string }> = ({ chapters, word = "CHAPTER" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   if (!chapters || !chapters.length) return null;
@@ -27,7 +33,7 @@ export const ChapterOverlay: React.FC<{ chapters?: Chapter[] }> = ({ chapters })
         <div style={{ background: "rgba(17,13,9,0.88)", borderLeft: `10px solid ${RED}`, padding: "26px 40px 30px 34px", borderRadius: "0 14px 14px 0", boxShadow: "0 18px 40px rgba(0,0,0,0.4)", display: "flex", flexDirection: "column", gap: 14 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <span style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: 44, color: PAPER, background: RED, padding: "2px 18px", borderRadius: 2 }}>{num}</span>
-            <span style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: 32, letterSpacing: 7, color: PAPER, opacity: 0.75 }}>CHAPTER</span>
+            <span style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: 32, letterSpacing: 7, color: PAPER, opacity: 0.75 }}>{word}</span>
           </div>
           <div style={{ fontFamily: HEADLINE, fontWeight: 900, fontSize: 62, lineHeight: 0.98, color: PAPER, textTransform: "uppercase" }}>{active.label}</div>
           <div style={{ marginTop: -2 }}>

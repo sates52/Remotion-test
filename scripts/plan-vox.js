@@ -1097,8 +1097,23 @@ function imagePrompt(subject, style) {
   }
 
   const totalFrames = finalBeats.length ? finalBeats[finalBeats.length - 1].fromFrame + finalBeats[finalBeats.length - 1].durationFrames : 0;
+  // THE BOOK'S OWN FRAME (2026-11-20, as in plan-antidote): its skin (book.json skin) and its narrative form with the
+  // parts the hosts announced - read from what was SAID in each beat's window, never computed from the film's length.
+  const ownFrame = (() => {
+    try {
+      const man = JSON.parse(fs.readFileSync(require("./lib/paths").abs.manifest(SLUG), "utf8")), out = {};
+      if (require("./lib/book-skin").validSkin(man.skin)) out.skin = { caption: man.skin.caption, plate: man.skin.plate, font: man.skin.font };
+      const NF = require("./lib/narrative-form");
+      if (NF.validForm(man.form)) {
+        const said = (b) => captions.filter((c) => c.endFrame > b.fromFrame && c.startFrame < b.fromFrame + b.durationFrames).map((c) => c.text).join(" ");
+        const f = NF.filmForm(man.form, finalBeats.map((b) => ({ text: said(b), from: b.fromFrame })));
+        if (f) out.form = f;
+      }
+      return out;
+    } catch { return {}; }
+  })();
   const config = {
-    meta: { title: TITLE, author: AUTHOR, genre: GENRE, slug: SLUG, audio: AUDIO, fps: FPS, width: 1920, height: 1080, totalFrames, until: UNTIL === Infinity ? null : UNTIL, planner: USE_LLM ? "llm" : "heuristic", ...(SFX ? { sfx: true } : {}), generatedAt: new Date().toISOString() },
+    meta: { title: TITLE, author: AUTHOR, genre: GENRE, slug: SLUG, audio: AUDIO, fps: FPS, width: 1920, height: 1080, totalFrames, until: UNTIL === Infinity ? null : UNTIL, planner: USE_LLM ? "llm" : "heuristic", ...(SFX ? { sfx: true } : {}), ...ownFrame, generatedAt: new Date().toISOString() },
     captions,
     beats: finalBeats,
   };

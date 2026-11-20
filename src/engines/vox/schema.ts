@@ -85,4 +85,8 @@ export type Beat = {
 };
 export type Caption = { text: string; startFrame: number; endFrame: number; words: { w: string; s: number; e: number }[] };
 export type Chapter = { index: number; fromFrame: number; label: string; teaser?: string };
-export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };
+/** The book's graphic hand (scripts/lib/book-skin.js; drawn by the Antidote engine too): absent = the channel's look. */
+export type VoxSkin = { caption?: string; plate?: string; font?: string };
+/** The narrative form and the parts the hosts announced (scripts/lib/narrative-form.js filmForm): the chapter cards follow them. */
+export type VoxForm = { key: string; part: string; name: string; parts: { n: number; from: number; title?: string }[] };
+export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean; skin?: VoxSkin; form?: VoxForm }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };

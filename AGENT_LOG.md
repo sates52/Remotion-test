@@ -7707,6 +7707,23 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-20 — Vox: the book's skin, the announced parts as chapter cards, the originality report
+
+- Everything built since 2026-11-18 (skin, form track, originality report) was Antidote-only; 28+ Vox films are on
+  the channel. Measured (originality-report on the 12 Vox configs here): the text cards every Vox film shares are a
+  median 47 % of a film's time (the-crucible 22 %); the rest is the book's own generated images.
+- Engine (`src/engines/vox`): `captions.tsx` sets the subtitles by `meta.skin` (paper / bar / tape + the skin's
+  typeface; box / no skin = exactly the old look); `overlays.tsx formChapters`: with `meta.form` and ≥ 3 announced
+  parts the chapter cards and the progress rail follow THEM, under the form's word ("02 ROUND · …") instead of the
+  planner's chapters; without, as before. `plan-vox.js` writes `meta.skin` and `meta.form` (filmForm on what was
+  said in each beat's window). `Root.tsx`: composition `Vox-lab` (inputProps config) - the cloud stills bundle
+  carries no books, so no Vox-<slug> exists there.
+- `originality-report.js` reads a Vox book: TOLD as for any film, PICTURE (own images / shared text cards against the
+  Vox median), LOOK (skin); hand-off line "Özgünlük (Vox): …".
+- Seen: cloud stills of the-crucible's text beats in the channel look and three skins (tag vox-own-frame-2).
+  Not done: the headline face of the text CARDS (a constant used in SVG attributes too), a per-book card design -
+  the 47 % is the next thing to work on. Test: `test-vox-own-frame.js` (4).
+
 ### 2026-11-20 — Prompt v5: TELL THE WHOLE BOOK (original form, accurate summary, storytelling)
 
 - Operator: "daha özgün, çok iyi ve doğru özetlemek, ayrıca hikâye anlatımı formatında olması gerekiyor." Measured

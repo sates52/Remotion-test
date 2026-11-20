@@ -149,6 +149,21 @@ export const RemotionRoot: React.FC = () => {
                 calculateMetadata={({ props }: any) => ({ durationInFrames: Math.max(1, Math.round(props?.config?.meta?.durationInFrames ?? ANTIDOTE_LAB.meta.durationInFrames)) })}
             />
 
+            {/* VOX LAB (2026-11-20): a Vox config passed as inputProps — for cloud stills / clips of an isolated
+                config (scripts/stills-cloud.js, "composition": "Vox-lab"). The bundle that renders in the cloud
+                carries no books, so no Vox-<slug> composition exists there. The default is an empty film. */}
+            <Composition
+                id="Vox-lab"
+                component={VoxBook}
+                durationInFrames={300}
+                fps={30}
+                width={1920}
+                height={1080}
+                schema={voxBookSchema}
+                defaultProps={{ config: { meta: { audio: "sfx/ding.wav", slug: "vox-lab" }, captions: [], beats: [] } } as any}
+                calculateMetadata={({ props }: any) => ({ durationInFrames: Math.max(1, Math.round(props?.config?.meta?.totalFrames ?? 300)) })}
+            />
+
             {/* Antidote 4.0 Phase A — MULTIPLANE (2.5D depth parallax) + LOOK-AT
                 (characters orient toward each other / the motif). Same render
                 path; compare against Antidote-lab (flat). */}

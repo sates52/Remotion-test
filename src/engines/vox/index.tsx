@@ -6,7 +6,7 @@ import { PAPER, resolvePalette, resolveCaptionHighlight } from "./palette";
 import { PaperBackground, FloatingSpecks, Grain, Vignette } from "./backgrounds";
 import { SCENES, StatementScene } from "./scenes";
 import { CaptionLayer } from "./captions";
-import { ChapterOverlay, ProgressRail } from "./overlays";
+import { ChapterOverlay, ProgressRail, formChapters } from "./overlays";
 import { SfxLayer } from "./sfx";
 import { ForegroundOcclusion } from "./desk";
 
@@ -21,6 +21,8 @@ export * from "./scenes-journalism";
 export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
   const pal = resolvePalette(config.meta.slug);
   const captionHighlight = resolveCaptionHighlight(pal);
+  // the film follows what the hosts announced (meta.form, ≥ 3 parts); otherwise the planner's chapters, as before
+  const parts = formChapters(config.meta.form), chapters = parts || config.chapters;
   const paletteVars = {
     "--vox-paper": pal.paper,
     "--vox-ink": pal.ink,
@@ -42,10 +44,10 @@ export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
         </Sequence>
       );
     })}
-    <CaptionLayer captions={config.captions} />
-    <ChapterOverlay chapters={config.chapters} />
+    <CaptionLayer captions={config.captions} skin={config.meta.skin} />
+    <ChapterOverlay chapters={chapters} word={parts && config.meta.form ? config.meta.form.part : undefined} />
     {config.meta.progress === false ? null : (
-      <ProgressRail chapters={config.chapters} total={config.beats.reduce((m, b) => Math.max(m, b.fromFrame + b.durationFrames), 0)} />
+      <ProgressRail chapters={chapters} total={config.beats.reduce((m, b) => Math.max(m, b.fromFrame + b.durationFrames), 0)} />
     )}
     <ForegroundOcclusion showLampGlow={true} />
     <Vignette />
