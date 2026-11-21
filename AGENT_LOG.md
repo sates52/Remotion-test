@@ -2486,6 +2486,15 @@ ender/21-days-of-fear-one-day-one-letter-seg1..10) via purge-render-branches.js.
 - **Gemini re-measurement (2026-10-01 10:03-10:25):** RPD reset arrived; `--fresh --rater=gemini` re-ran all 6 passes on the same 30 frames (19 min wall, integrity 3×30/30 clean). Same frames, different rater character: mean agreement 0.856 (contribution 0.789), frames <2/3 = 0, splits 19 → **19 describer-caused, 0 judge-caused**; per-pass 19-21C / 5-6W / 2-4D → **all three judge passes FAIL alone**; majority FAIL vs official PASS = FLIP again, now **correctness-driven (WRONG 6/dead 1)** — the mirror image of the 11b run (WRONG 1/dead 5-7, contribution-driven). 11b evidence archived under `tmp/p3-scratch/skin-run1-11b-evidence/`; reliability.json + books/ copy now hold the protocol-consistent gemini numbers. Dataset conclusion sharpened: describer noise dominates under BOTH raters (10/11 and 19/19), and the WRONG=1/30 bar flips verdicts under both — the measurement is rater-character-sensitive, so reliability.json must always carry its model.
 - **Next (operator's priority order):** file-based blind vision runner hardening → P1.1 WRONG taxonomy → P1.3 verb benchmark; hard-gate crash fix queued. Evidence-pack manifest proposal: `audit/runs/<slug>/<run-id>/` so measurements survive publish purges (Death Row lesson).
 
+## ✅ 2026-11-21 — the-law-of-attraction — PUBLISHED (YouTube, operator-confirmed) + post-upload cleanup
+
+- **Film:** 78831/78831 frames, 43.8 min, 877 MB; cloud assembly VERIFIED, decode clean, A/V sync PASS, join dropouts 0 (REPAIRED), -14.3 LUFS. Render on 10 GitHub workers, operator-accepted quality debt ("Kabul ediyorum").
+- **Preview:** sealed mute test WRONG 1/30, DEAD 0/30, ADDS 17/30 (below the 60% target, reported as text-carried), EXPLAINS 2/30. Firewall 504 REVIEW accepted as debt.
+- **Thumbnails:** A/B/C rendered on Actions (`render-thumbnails.js --cloud`), hook visible in all three. `lint-titles --pack` READY.
+- **Cleanup order (operator, 2026-11-21):** `render-github-cleanup.js` removed 10 runs + 11 artifacts (~1.6 GB) on the workers that answered. Five workers (goodbooksummary-a11y, ahmetbahadir79-wq, berilasal099-byte, konusarakogrenduru-web, gulbendeniz0102-ai) hit TLS handshake timeouts on repeated attempts, so their remaining artifacts are NOT yet deleted. Re-run `render-github-cleanup.js --slug=the-law-of-attraction` when the network recovers.
+- `purge-render-branches.js --force`: 12 `render/the-law-of-attraction-*` refs removed on the workers. `render-purge.js`: film + 3 thumbnails removed locally (~878 MB). Committed sources and `public/captions/the-law-of-attraction.clean.vtt` kept.
+- **Unintended deletion:** `post-render.js` removed the raw `public/captions/the-law-of-attraction.vtt` during finalization (clean.vtt existed). Same class as the-witch; the raw VTT is not recoverable locally.
+
 ## ✅ 2026-10-01 — render-skin-in-the-game — PUBLISHED (YouTube)
 
 - **Engine:** Antidote · 55.2 min · 98,917 frame · 359 beats

@@ -1519,3 +1519,12 @@ ready player one, ready player one summary, ready player one explained, ready pl
 - **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnails A/B/C rendered in cloud, hook THE BILL OF LIFE visible in all three.
 - **Cleanup:** operator-ordered post-upload cleanup 2026-11-13: render-github-cleanup.js (13 artifacts, 12 runs, ~1509 MB), purge-render-branches.js --force (12 render/unwind refs on the workers), render-purge.js run, but it did not see the book-root files; local `out/unwind.mp4`, `out/thumbnail-unwind*.png` and `public/audio/unwind.mastered.m4a` were deleted by hand.
 - **Earlier unintended deletion:** the post-render finalizer removed the raw `public/captions/unwind.vtt` before the cleanup order. `unwind.clean.vtt` was not affected.
+## the-law-of-attraction (Esther Hicks) — Antidote
+- **Status:** Published on YouTube (operator-confirmed, 2026-11-21).
+- **Length:** 78,831 frames (43.8 min); technical VERIFIED in cloud assembly, decode clean, audio present, 877 MB. Join dropouts: 0 (join repair REPAIRED).
+- **Render:** 10-worker GitHub split render, operator-accepted quality debt (firewall 504 REVIEW) for this render input only.
+- **Quality provenance:** sealed mute test WRONG 1/30, DEAD 0/30, ADDS 17/30 (text-carried, below the 60% target), EXPLAINS 2/30. Single-relation A/B on scene 8 decided none.
+- **YouTube metadata:** Claude-refined English pack, `lint-titles --pack` READY; thumbnails A/B/C rendered on Actions, hook ATTRACTION TEACHINGS.
+- **Cleanup:** operator-ordered post-upload cleanup 2026-11-21. Local film, thumbnails, mastered audio, mp3 and split state removed; 12 worker `render/` refs purged. Five worker accounts still have un-deleted GitHub artifacts because of TLS timeouts (re-run render-github-cleanup.js).
+- **Earlier unintended deletion:** `post-render.js` removed the raw `public/captions/the-law-of-attraction.vtt` (clean.vtt kept).
+- **Kept:** committed source under `books/the-law-of-attraction/`, and `public/captions/the-law-of-attraction.clean.vtt`.
