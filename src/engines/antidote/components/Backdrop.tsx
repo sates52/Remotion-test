@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame } from "remotion";
 import type { BgSpec } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
-import { backdropFit } from "../told";
+import { backdropFit, backdropScene } from "../told";
 
 /**
  * Backdrop — the world behind the cast.
@@ -1019,6 +1019,10 @@ const Layer: React.FC<{ children: React.ReactNode; dx: number; dy: number; dz: n
 
 /** how strongly the book's own place is drawn behind a figure scene (the cast and the text are read over it) */
 const OWN_PLACE_OPACITY = 0.34;
+/** told v5 slice 4: a place drawn as a SCENE (bg.own.sky) is drawn as itself — its sky behind, its ground band from
+ *  its bottom edge down (told.ts backdropScene), the paths at full presence — so a figure scene stands in the same
+ *  place as the told stages around it. A bg.own without a sky is the wash above. */
+const SCENE_FAR = 2400;
 
 export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale: number } }> = ({ bg, cam }) => {
   const frame = useCurrentFrame();
@@ -1032,6 +1036,7 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
   // the book's own place (Film Flow 6) is drawn instead of the shared set — one layer, no ambient drift
   const own = bg.own && bg.own.paths && bg.own.paths.length ? bg.own : null;
   const ownFit = own ? backdropFit(own) : null;
+  const ownScene = own ? backdropScene(own) : null; // slice 4: sky + ground, or null for the wash
   const layers = own ? null : SETS[bg.set] || null;
   const tex = textureStyle(bg.texture, ink);
 
@@ -1081,7 +1086,13 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
 
       {own && ownFit ? (
         <Layer dx={cam.x * 0.55} dy={cam.y * 0.55} dz={1 + (cam.scale - 1) * 0.6}>
-          <g opacity={OWN_PLACE_OPACITY} transform={`translate(${ownFit.x} ${ownFit.y}) scale(${ownFit.k})`}>
+          {ownScene ? (
+            <g>
+              <rect x={-SCENE_FAR} y={-SCENE_FAR} width={1920 + 2 * SCENE_FAR} height={ownScene.groundTop + SCENE_FAR} fill={ownScene.sky} />
+              <rect x={-SCENE_FAR} y={ownScene.groundTop} width={1920 + 2 * SCENE_FAR} height={1080 - ownScene.groundTop + SCENE_FAR} fill={ownScene.ground} />
+            </g>
+          ) : null}
+          <g opacity={ownScene ? 1 : OWN_PLACE_OPACITY} transform={`translate(${ownFit.x} ${ownFit.y}) scale(${ownFit.k})`}>
             {own.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
           </g>
         </Layer>

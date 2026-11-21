@@ -172,6 +172,10 @@ or throws / drops a thing, the camera pushes in a little (×1.15) on the people 
 with the word, and opens wide again at the next arrangement (a cut lands wide, a change within a beat eases). Authors
 write nothing for it; `focus` / `wide` still do what they did.
 
+**The same place behind the figure scenes (slice 4).** A beat that is not told and stands at a place (`"place"`, or the
+book's home) now shows a scene backdrop as itself too — sky, drawn place, ground band — instead of the pale wash, so
+the whole film stays in the book's places across told and figure scenes alike. Nothing to write: `place` as before.
+
 ## Storyboard authors — when a beat names something
 
 Write `told` instead of concept / cast / callout / diagram (schema, layouts and the event table: `rules.md`).

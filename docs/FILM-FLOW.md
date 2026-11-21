@@ -89,9 +89,12 @@ Published books are frozen.
   the people and things of an `act` or a `throw` / `drop`, landing near the word with the feet kept above the subtitle
   band; `arrange` on a scene stage opens wide again (snap at frame 1 for a cut, a 20-frame ease within a beat). Scene
   stages only; old books byte-identical.
-- **Not yet:** the sky / ground on a figure scene's `bg.own` (`Backdrop.tsx` still draws the wash); a stage that changes
-  place mid-beat re-seats nobody (the next arrangement does); icons (own drawings) keep their generic height — only
-  emblems moved. Test: `test-told-scene.js`.
+- **Slice 4 — the same place behind the figure scenes (2026-11-21):** `told-apply.js applyPlaces` carries a scene
+  backdrop's `sky` + `ground` to the figure scene's `bg.own` (schema: two optional strings); `Backdrop.tsx` draws such a
+  `bg.own` as itself — sky rect, ground band from the backdrop's bottom edge (`backdropScene`), paths at full presence —
+  in the same parallax layer; a `bg.own` without a sky is the 0.34 wash as before. Test: `test-own-places.js` (7).
+- **Not yet:** a stage that changes place mid-beat re-seats nobody (the next arrangement does); icons (own drawings)
+  keep their generic height — only emblems moved; no contact shadow under the cast of a figure scene. Test: `test-told-scene.js`.
 
 ## Told v4 — the book's own cast (Film Flow 5, 2026-11-17)
 

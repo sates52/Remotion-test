@@ -7717,6 +7717,19 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-21 — Told v5 slice 4: the same place behind the FIGURE scenes (bg.own drawn as a scene)
+
+- **What:** `told-apply.js applyPlaces` carries a scene backdrop's `sky` + `ground` (resolved hex) to a figure
+  scene's `bg.own`; `schema.ts` admits the two optional strings; `Backdrop.tsx` draws such a `bg.own` as itself — sky
+  rect, ground band from the backdrop's bottom edge (`told.ts backdropScene`), paths at full presence — in the same
+  parallax layer as before; a `bg.own` without a sky is the 0.34 wash, unchanged. So a film stays in the book's places
+  across told and figure scenes alike. Old configs: no `sky` → identical.
+- **Seen (scratch Dracula 9-12, tag told-scene-fig-1; `Downloads/film-flow-told/sahne-v5-dilim4-figur-sahneleri`):**
+  the figure scene "Paperwork does not kill" stands in the castle scene — title over the sky, the Count on the ground,
+  the subtitle box on the ground band. flicker-check 20 events on 36 s. Not: a contact shadow under the figure scene's
+  cast; a mute test.
+- Tests: `test-own-places.js` 7 (1 new). Docs: told.md, FILM-FLOW.md.
+
 ### 2026-11-21 — Told v5 slice 3: things on the ground, the camera goes to the event (scene stages only)
 
 - **What (`told-compile.js`, only on a stage AT a scene place):** an emblem tile stands on the ground (`SCENE_EMBLEM_Y`

@@ -96,4 +96,20 @@ t("the book's HOME stands behind every stage and every nowhere-scene that names 
   assert.ok(/THE BOOK'S HOME/.test(require("./lib/own-drawings").drawingGuide().join("\n")));
 });
 
+t("told v5 slice 4: a place drawn as a SCENE reaches a figure scene's bg.own with its sky and ground; the engine draws it as itself", () => {
+  const scene = { ...ENT, whitby: { ...ENT.whitby, backdrop: { ...ENT.whitby.backdrop, sky: "paper", ground: "ink" } } };
+  const r = A.applyPlaces(config(), { s1: "whitby" }, scene, { palette: PAL });
+  assert.deepStrictEqual(r.report.errors, []);
+  const own = r.config.scenes[1].bg.own;
+  assert.strictEqual(own.sky, PAL.paper, "the sky, resolved to the book's hex");
+  assert.strictEqual(own.ground, PAL.ink, "the ground");
+  const plain = A.applyPlaces(config(), { s1: "whitby" }, ENT, { palette: PAL }).config.scenes[1].bg.own;
+  assert.ok(!("sky" in plain) && !("ground" in plain), "a backdrop without a sky writes nothing new");
+  const src = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/components/Backdrop.tsx"), "utf8");
+  assert.ok(/const ownScene = own \? backdropScene\(own\) : null;/.test(src) && /opacity=\{ownScene \? 1 : OWN_PLACE_OPACITY\}/.test(src), "full presence only for a scene; the wash otherwise");
+  assert.ok(/fill=\{ownScene\.sky\}/.test(src) && /fill=\{ownScene\.ground\}/.test(src), "the sky and the ground band are drawn");
+  const schema = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/schema.ts"), "utf8");
+  assert.ok(/sky: z\.string\(\)\.optional\(\), ground: z\.string\(\)\.optional\(\) \}\)\.optional\(\),/.test(schema), "the schema admits sky + ground on bg.own");
+});
+
 console.log(`\n${n} checks passed`);

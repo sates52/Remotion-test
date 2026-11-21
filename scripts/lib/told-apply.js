@@ -89,7 +89,8 @@ const NOWHERE = new Set(["none", "abstract", "office", "room"]);
 function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
   const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
   const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
-  const errors = [], drawingOf = (id) => { const e = ent[id]; if (!e || e.kind !== "place") return null; return e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length ? { id, wide: true, paths: e.backdrop.paths, ...(e.backdrop.viewBox ? { viewBox: e.backdrop.viewBox } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, ...(e.viewBox ? { viewBox: e.viewBox } : {}) } : null; };
+  // told v5 slice 4: a backdrop drawn as a SCENE carries its sky and ground (resolved) to the figure scene's bg.own
+  const errors = [], drawingOf = (id) => { const e = ent[id]; if (!e || e.kind !== "place") return null; return e.backdrop && Array.isArray(e.backdrop.paths) && e.backdrop.paths.length ? { id, wide: true, paths: e.backdrop.paths, ...(e.backdrop.viewBox ? { viewBox: e.backdrop.viewBox } : {}), ...(e.backdrop.sky ? { sky: e.backdrop.sky, ground: e.backdrop.ground } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, ...(e.viewBox ? { viewBox: e.viewBox } : {}) } : null; };
   // the book's HOME stands behind a figure scene whose beat names no place AND whose authored set is nowhere in
   // particular (told-compile.js does the same for a stage). A set that says where the beat is — a forest, a shore, a
   // street — is the author's decision and stays.

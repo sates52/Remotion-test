@@ -682,7 +682,8 @@ export const bgSchema = z.object({
   // THE BOOK'S OWN PLACE (Film Flow 6, 2026-11-17): the drawing of where this happens, from the book's entities.json
   // (a place's `backdrop` or its own paths) — drawn INSTEAD of the shared `set`, at the same spot and size as behind a
   // told stage, so the place holds across the cut. Written by told.js apply from the beat's `place`; absent by default.
-  own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })) }).optional(),
+  // told v5 slice 4: a place drawn as a SCENE (sky + ground) is drawn as itself behind a figure scene too
+  own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })), sky: z.string().optional(), ground: z.string().optional() }).optional(),
   // Which act of the director's color script produced this field. Metadata:
   // nothing renders it, but it makes the arc auditable in the config.
   act: z.enum(["setup", "tension", "turn", "resolution"]).optional(),
