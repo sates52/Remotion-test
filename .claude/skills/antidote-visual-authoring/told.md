@@ -60,6 +60,8 @@ book's **own drawings** (an animal, an object), plus what happens to them. The s
      (the verdict is bound to the drawing and its readings).
    - `states`: what the narration CHANGES gets a drawing per state it shows (2-3 at most), same box, same base
      silhouette. `backdrop` (a place): a wide, simple skyline / landscape in `0 0 1920 760`, standing on the bottom edge.
+   - **Draw the place as a SCENE (told v5):** give the backdrop `"sky"` and `"ground"` (see "The places of the book")
+     and the cast stands IN it; without `"sky"` it is only a pale wash behind the stage.
    - **One source:** an object that is already an own icon in `motifs.json` is not drawn twice — `"motif": "<key>"`.
    - **See them, blind:** `node scripts/own-icons-sheet.js --slug=<slug>` prints every drawing, state and backdrop as
      one picture per file; a FRESH agent (sonnet) is given ONE picture and says what it is in 1-3 words; then
@@ -128,6 +130,32 @@ Lead agent: draw EVERY place the story stands in as a `backdrop` (the castle, th
 interiors too. Authors: a told stage is there with `"stage": { …, "at": "<place>" }`; a beat that is not told is there
 with `"place": "<place>"` next to its `set` — the book's drawing replaces the generic set. `told.js status` prints how much
 of the film stands at a place the book drew; a film that stands in "office" and "room" could be any book.
+
+### The place is a SCENE, not a silhouette (told v5, 2026-11-21)
+
+Measured on the first real book (Dracula): the picture ADDED to the narration in 19 of 24 mute-test frames but EXPLAINED
+the event by itself in 1 — a told stage read as a labelled diagram: the cast in a row with name plates, the place a
+pale one-tone wash behind them. Raising the wash only made the stage dark (the ink silhouettes swallowed the title,
+the name plates and the black-clad Count). A place cannot be made real by opacity; it has to be DRAWN as a scene.
+
+Lead agent — a backdrop drawn as a scene carries two colours next to its paths:
+```json
+"backdrop": { "viewBox": "0 0 1920 760", "reads": ["castle", "mountains"], "sky": "#D6CFC3", "ground": "#2B2326", "paths": [ … ] }
+```
+- **`"sky"`** — a colour, not a path: a PALE tone of the book's palette (luminance ≥ 0.5 — the dark titles and the name
+  plates are read over it). The **upper 25 % of the box holds no path at all**: that is where the titles and the
+  plates stand. Night is a pale grey-violet with a moon lower down, not a black box.
+- **The middle ground** — the place itself in two or three MID tones of the palette (the castle on its crag, the
+  harbour wall, the room's far wall and its window): never one ink silhouette, never a wash over the whole box, and
+  **no big ink mass** (luminance ≥ 0.1 for anything larger than a detail) — the cast is drawn in ink, and in the first
+  scene stills the black-clad Count vanished against an ink abbey wall. Small details (a lit window) may be dark.
+- **`"ground"`** — a flat ground strip along the bottom edge of the box in this colour (clearly another tone than the
+  sky); the engine continues it to the bottom of the frame and the cast stands on it, with a contact shadow under a
+  figure whose feet are on it.
+- Still nothing that is an entity of its own, nobody of the cast. Lint: `own-drawings.js` (prep refuses a dark sky, a
+  ground in the sky's tone, a path in the upper band, a wash). Blind-named like every drawing (the sheet shows the sky
+  and the ground as the engine does); the verdict is bound to the picture WITH its sky.
+- A backdrop without `"sky"` is drawn as before — the pale wash — on every stage. Authors change nothing: `at` / `place`.
 
 ## Storyboard authors — when a beat names something
 

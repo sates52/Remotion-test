@@ -16,8 +16,13 @@
  *     pose (toldActs.ts) — read only when `v >= 3`. A v1 / v2 stage has no `act` and is drawn exactly as it was.
  * 4 — THE BOOK'S OWN CAST (Film Flow 5, 2026-11-17): a figure's variant carries `drawn` — a head and a garment drawn
  *     for this book on the rig (schema.ts drawnCast) — read only when `v >= 4`. A v1 – v3 stage is drawn as it was.
+ * 5 — THE PLACE IS A SCENE (Film Flow 7, 2026-11-21): a backdrop drawn as a scene carries `sky` and `ground` (a light
+ *     sky the titles and name plates are read over; a ground the cast stands on). On a v5 stage such a backdrop is
+ *     drawn at full presence — the sky behind, the ground band from its bottom edge to the bottom of the frame, a
+ *     contact shadow under a figure that stands on it. A backdrop WITHOUT `sky` is the pale wash of v2, on any
+ *     stage; a v1 – v4 stage is drawn exactly as it was (it never carries `sky`).
  */
-export const TOLD_VERSION = 4;
+export const TOLD_VERSION = 5;
 
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {
@@ -49,7 +54,10 @@ export type ToldItem = {
 export type ToldPath = { d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number };
 /** v2 — the PLACE the stage is at: that place's drawing, pale, behind everything. `wide` = drawn for the whole width
  *  (a "backdrop" drawing); otherwise the place's own icon, large and centred. It fades in / out, nothing else. */
-export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number } };
+export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number };
+  /** v5 — a SCENE backdrop: the colour of the sky behind the place (light) and of the ground the cast stands on. Both
+   *  hex, resolved by the compiler. Without `sky` the backdrop is the pale wash. */
+  sky?: string; ground?: string };
 export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[]; backdrops?: ToldBackdrop[];
   /** v2: "fit" = a name plate is as wide as its name (plateW); absent = the v1 plate */
   plate?: "fit" };
@@ -83,6 +91,22 @@ export function backdropFit(b: { viewBox?: string; wide?: boolean }): { x: numbe
   // centred across the frame, standing on the bottom of the band (a skyline has its ground there)
   return { x: 960 - (vw * k) / 2 - vx * k, y: bottom - vh * k - vy * k, k };
 }
+
+/**
+ * v5 — THE SCENE of a backdrop, or null when it is the pale wash: where its ground begins in the frame (its bottom
+ * edge, backdropFit — the drawn ground strip continues from there to the bottom of the frame in `ground`) and the
+ * sky behind it. `ground` without a colour takes the drawing's ink. A figure STANDS on that ground when its feet are
+ * on or just above the edge (`GROUND_REACH` px): one walking at mid-stage is in the place's middle ground and throws
+ * no contact shadow (the first trial drew a ground line under a figure in the air).
+ */
+export const GROUND_REACH = 60;
+export function backdropScene(b: { viewBox?: string; wide?: boolean; sky?: string; ground?: string }): { sky: string; ground: string; groundTop: number } | null {
+  if (!b.sky) return null;
+  const [, vy, , vh] = (b.viewBox ?? (b.wide ? "0 0 1920 760" : "0 0 520 520")).split(/[\s,]+/).map(Number);
+  const fit = backdropFit(b);
+  return { sky: b.sky, ground: b.ground ?? "#1E1E22", groundTop: fit.y + (vy + vh) * fit.k };
+}
+export const standsOn = (feetY: number, groundTop: number): boolean => feetY >= groundTop - GROUND_REACH;
 export const EASE = {
   out: (t: number) => 1 - Math.pow(1 - t, 3),
   inout: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),

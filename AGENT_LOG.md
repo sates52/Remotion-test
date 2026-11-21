@@ -18,6 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
+| told-scene (dev/told-scene, wt-own-drawings) — Film Flow 7 slice 1: the place is a SCENE (told v5) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-compile}.js`, `scripts/{own-icons-sheet,test-told-scene (new),test-own-cast}.js`, told.md, `docs/FILM-FLOW.md` | built + proven on a scratch Dracula passage; waiting for the operator's "tamam" before god-mode | A v ≤ 4 stage draws as before; a backdrop without `sky` is the wash; goldens + dracula's 179 stages byte-identical. Next slices: cast IN the place, camera to the event, plates recede. |
 | _(done)_ YPP "generic or repetitive content": every book TOLD its own way — narrative form at Step 0 + the form track | `scripts/lib/{narrative-form (new),notebooklm-prompt-check}.js`, `scripts/{make-prompt,plan-antidote (HUD badge only),test-step0,test-narrative-form (new)}.js`, `.claude/skills/notebooklm-prompt/SKILL.md` | _(done)_ 2026-11-18: merged to god-mode on the operator's order — the LENGTH of a formed recording is NOT yet proven (see changelog) | New books only: the prompt body is one of 8 forms (book.json `form`); a book without `form` plans and is checked as before (46 existing prompts: checker verdict unchanged). NotebookLM stays the voice. No book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 2: things / one vocabulary | `scripts/lib/{own-drawings,antidote-director}.js`, `scripts/{storyboard,told,test-own-things (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | No engine or schema change: entity drawings join the own-icon vocabulary (existing `customSvg` path). A book without drawn things plans exactly as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 1: places | `src/engines/antidote/{schema.ts (bg.own),components/Backdrop.tsx}`, `scripts/lib/{told-apply,told-rules}.js`, `scripts/{told,storyboard,test-own-places (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | New optional beat field `place` + scene `bg.own`; no told version change, every existing config draws as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
@@ -7706,6 +7707,42 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
   itself still accepts it with a warning. dracula is its owner's: it takes this only through `maintenance-upgrade`.
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
+
+### 2026-11-21 — Told v5: the place is a SCENE (Film Flow 7, slice 1 — scene backdrops; dev/told-scene, not yet on god-mode)
+
+- **Why (measured, dracula):** the picture ADDS in 19 of 24 mute frames but EXPLAINS the event by itself in 1 — a told
+  stage was a labelled diagram: the cast in a row with name plates, the place a pale one-tone wash (0.26). First trial
+  (834de149: opacity 0.62, a ground line at the lowest feet, shadows under everyone) only made it dark — the ink
+  silhouettes swallowed the title, the black plates and the black-clad Count; the ground ran under a figure walking at
+  mid-stage. **A place cannot be made real by opacity: it is DRAWN as a scene.**
+- **What:** a place's `backdrop` may carry `"sky"` + `"ground"` (hex or palette token). `own-drawings.js` lints it as a
+  scene (`RULES`: sky luminance ≥ 0.5, ground ≥ 0.15 apart, upper 25 % of the box plain, no path over ≥ 85 % of the box,
+  **no ink mass ≥ 3 % of the box above the ground strip — luminance ≥ 0.1**: in the first scene stills Jonathan's suit and
+  the Count vanished against an ink castle / abbey; that is now a lint); `resolveEntities` carries both to the stage as
+  hex (ground defaults to the ink) and into the drawing's hash; `told-compile.js backdropOf` writes them on the stage's
+  backdrop. `ToldStage.tsx` (one SVG, nothing moves): on a `v ≥ 5` stage a backdrop with `sky` is drawn at FULL
+  presence — the sky behind the whole stage, the ground band from the backdrop's bottom edge (`told.ts backdropScene`,
+  870) to the frame's bottom, a contact shadow only under a figure whose feet are on that ground (`standsOn`, 60 px). A
+  backdrop without `sky` is the pale wash on every stage; a v ≤ 4 stage draws as before (it never carries `sky`).
+  `TOLD_VERSION` 5. The sheet prints a scene backdrop on its sky with its ground continued (what the viewer sees).
+- **Proven (scratch Dracula, scenes 13-19, real config and cast; cloud tags told-scene-1/2/3; files in
+  `Downloads/film-flow-told/sahne-v5-ikinci`):** both arms compiled from the same art (beat 14 at transylvania, beat 16
+  back at carfax), only `told.v` and the two backdrop drawings differ. SEEN: the castle on its crag with mountains,
+  the ruined abbey with a moon and a tree line read as places; title, name plates, label pills and the subtitle box
+  readable over the sky; the Count stands on the ground with a contact shadow; Jonathan walking at mid-stage gets none.
+  Round 1 (castle and abbey in ink): the dark-suited cast merged with them → the mid-tone lint + redraw; round 2 clean.
+  Blind-named (fresh sonnet, one picture each): transylvania "castle in mountains", carfax "ruined church" — both PASS.
+  flicker-check on the 57 s clips: YENI 20 events (the figures' walk cycles), ESKI 47. Crossfade of two places: both
+  skies at half for 12 frames (as v2). NOT measured: a mute test; no real book made on it.
+- **Still a diagram (next slices, each with ESKI / YENI clips and its own "tamam"):** the cast stands in a row IN FRONT
+  of the place (Jonathan walks in front of the castle; the place's emblem tile "C" stands next to the drawn castle);
+  the camera does not go to the event; name plates never recede; a figure scene's `bg.own` (`Backdrop.tsx`) is still
+  the wash.
+- **Guards:** goldens v1 + v2 unchanged; dracula's 179 told beats compile byte-identical (scratch hash, base 3aee8d9c vs
+  worktree); `test-told-scene.js` (7, new), `test-own-cast.js` pins `TOLD_VERSION ≥ 4`; CI `ci/regression/told-scene`
+  (run 44882637243) success. Docs: `docs/FILM-FLOW.md` (Told v5), told.md "The place is a SCENE", `drawingGuide`.
+- **Not touched:** no book worktree, published book, quality bar, render, upload, cleanup. Scratch refs left in place:
+  `ci/stills/told-scene-1`, `-2`, `-3`, `ci/regression/told-scene`.
 
 ### 2026-11-20 — The producer's note: the operator's own sentence, on a card and in the description (NOT in the narration)
 

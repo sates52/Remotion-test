@@ -8,10 +8,23 @@ import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
 import { useSkin, plateStyle } from "./skin";
-import { toldState, itemState, backdropOpacity, backdropFit, plateW, type ToldItem, type ToldSpec } from "../told";
+import { toldState, itemState, backdropOpacity, backdropFit, backdropScene, standsOn, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
 const BACKDROP_OPACITY = 0.26;
+/**
+ * told v5 — THE PLACE IS A SCENE (Film Flow 7, 2026-11-21). Until v4 a told stage read as a labelled diagram: the
+ * book's place a pale one-tone wash, the cast floating in front of it on the paper. The first trial (opacity 0.62, a
+ * ground line at the lowest feet, shadows under every figure) only made the stage dark: the ink silhouettes swallowed
+ * the title, the black name plates and the black-clad Count, and the ground ran under a figure walking at mid-stage.
+ * A place cannot be made real by opacity; it has to be DRAWN as a scene. So a backdrop drawn with a `sky` (light — the
+ * titles and name plates are read over it) and a `ground` is drawn at FULL presence on a v5 stage: the sky behind the
+ * whole stage, the paths as drawn, the ground band from the backdrop's bottom edge (told.ts backdropScene) to the
+ * bottom of the frame, and a contact shadow only under a figure whose feet are on that ground (told.ts standsOn).
+ * Nothing moves: the ground is the place's, fixed. A backdrop without `sky` is the pale wash — on a v5 stage too —
+ * and a v ≤ 4 stage is drawn exactly as before.
+ */
+const SHADOW_FILL = "rgba(20,15,12,0.22)", FAR = 2400; // the sky / ground rects reach beyond any camera push
 
 /**
  * ToldStage — THE PICTURE SHOWS WHAT IS SAID (Film Flow level 2, pilot 2026-11-12).
@@ -161,6 +174,8 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
   const fit = (spec.v ?? 1) >= 2 && spec.plate === "fit"; // name plates as wide as their names (a told-v2 book)
   const places = (spec.v ?? 1) >= 2 ? (spec.backdrops ?? []).map((b) => ({ b, o: backdropOpacity(b, frame) })).filter((p) => p.o > 0.001) : [];
   const placed = places.reduce((m, p) => Math.max(m, p.o), 0);
+  // told v5 — a backdrop drawn as a SCENE (sky + ground): read only on a v5 stage; the wash otherwise
+  const scenes = (spec.v ?? 1) >= 5 ? places.map((p) => ({ ...p, sc: backdropScene(p.b) })).filter((p) => p.sc) : [];
   return (
     <AbsoluteFill style={{ backgroundColor: spec.bg ?? "#F2F0EA" }}>
       <svg viewBox="0 0 1920 1080" width="100%" height="100%">
@@ -172,14 +187,31 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
         ) : null}
         {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
         <g transform={`translate(960 540) scale(${cam.s}) translate(${-cam.x} ${-cam.y})`}>
+          {/* v5: the sky and the ground of a scene backdrop, under its paths; they fade with it */}
+          {scenes.map(({ b, o, sc }) => (
+            <g key={`sky-${b.id}`} opacity={o}>
+              <rect x={-FAR} y={-FAR} width={1920 + 2 * FAR} height={sc!.groundTop + FAR} fill={sc!.sky} />
+              <rect x={-FAR} y={sc!.groundTop} width={1920 + 2 * FAR} height={1080 - sc!.groundTop + FAR} fill={sc!.ground} />
+            </g>
+          ))}
           {places.map(({ b, o }) => {
             const fit = backdropFit(b);
+            const asScene = scenes.some((p) => p.b === b); // drawn as itself, not as a wash
             return (
-              <g key={`at-${b.id}`} opacity={BACKDROP_OPACITY * o} transform={`translate(${fit.x} ${fit.y}) scale(${fit.k})`}>
+              <g key={`at-${b.id}`} opacity={(asScene ? 1 : BACKDROP_OPACITY) * o} transform={`translate(${fit.x} ${fit.y}) scale(${fit.k})`}>
                 {b.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
               </g>
             );
           })}
+          {/* v5: a contact shadow under a figure that STANDS on the scene's ground (feet at the ground's edge) */}
+          {scenes.length ? spec.items.filter((it) => it.kind === "figure" && !it.screen).map((it) => {
+            const st = itemState(it, frame);
+            if (!st || st.o <= 0.001) return null;
+            const on = scenes.filter((p) => standsOn(st.y, p.sc!.groundTop)).reduce((m, p) => Math.max(m, p.o), 0);
+            if (on <= 0.001) return null;
+            const w = (it.w ?? 300) * st.s;
+            return <ellipse key={`sh-${it.id}`} cx={st.x} cy={st.y + 2} rx={w * 0.34} ry={Math.max(8, w * 0.045)} fill={SHADOW_FILL} opacity={st.o * on} />;
+          }) : null}
           {spec.items.filter((it) => !it.screen).map((it) => {
             const st = itemState(it, frame);
             if (!st || st.o <= 0.001) return null;

@@ -143,8 +143,11 @@ if (drawings.length) {
     // as on stage: on the stage's paper; a backdrop wide, a thing in its square. No name, no number in the picture.
     const [, , vw, vh] = d.viewBox.split(/[\s,]+/).map(Number), W = d.backdrop ? 960 : 520, H = Math.round((W * vh) / vw);
     const htmlPath = path.join(dir, `${num(n)}.html`);
-    fs.writeFileSync(htmlPath, `<!doctype html><html><body style="margin:0;background:#F2F0EA"><svg viewBox="${d.viewBox}" width="${W}" height="${H}" style="display:block;margin:20px">${svgPaths(d.paths)}</svg></body></html>`);
-    shoot(htmlPath, path.join(dir, `${num(n)}.png`), W + 40, H + 40);
+    // told v5: a SCENE backdrop is seen as the engine draws it — on its sky, its ground continued under the bottom edge
+    const ground = d.sky ? Math.round(H * 0.22) : 0;
+    const scene = d.sky ? `<rect x="-${vw}" y="-${vh}" width="${vw * 3}" height="${vh * 2}" fill="${d.sky}"/><rect x="-${vw}" y="${vh}" width="${vw * 3}" height="${vh}" fill="${d.ground}"/>` : "";
+    fs.writeFileSync(htmlPath, `<!doctype html><html><body style="margin:0;background:#F2F0EA"><svg viewBox="0 0 ${vw} ${vh + Math.round((ground * vw) / W)}" width="${W}" height="${H + ground}" style="display:block;margin:20px"><svg viewBox="${d.viewBox}" width="${vw}" height="${vh}" style="overflow:visible">${scene}${svgPaths(d.paths)}</svg></svg></body></html>`);
+    shoot(htmlPath, path.join(dir, `${num(n)}.png`), W + 40, H + ground + 40);
     fs.unlinkSync(htmlPath);
   });
   fs.writeFileSync(path.join(outDir, "own-drawings.key.json"), JSON.stringify(Object.fromEntries(drawings.map((d, n) => [n + 1, { key: d.key, intended: d.intended, accepted: d.accepted, hash: d.hash, file: `own-drawings/${num(n)}.png` }])), null, 2));

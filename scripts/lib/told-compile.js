@@ -310,7 +310,9 @@ function compileTold(beats, written = {}, opts = {}) {
     // THE PLACE BEHIND THE STAGE (told v2): one backdrop at a time; a new one fades in as the old one fades out
     const recrownAfter = new Set(); // v3: people who got up at a change of stage — their crown is set over the name plate again once they have their place
     const backdrops = [];
-    const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
+    // told v5: a backdrop drawn as a SCENE carries its sky and ground (resolved by own-drawings.js) through to the
+    // stage; a backdrop without them is written exactly as before (no key is added)
+    const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox, ...(e.backdrop.sky ? { sky: e.backdrop.sky, ground: e.backdrop.ground } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
     // THE BOOK'S HOME (2026-11-18): the one place marked "home": true is the ground of this book — a stage that names
     // no place stands there, not on blank paper (a book of ideas has no castle; it has the room its ideas live in)
     const HOME = Object.keys(entities).find((id) => entities[id] && entities[id].home === true && backdropOf(id)) || null;

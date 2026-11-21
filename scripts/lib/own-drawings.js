@@ -27,8 +27,23 @@ const RULES = {
   minColors: 2, maxColors: 6,
   minFill: 0.6, // the drawing spans at least this share of its box along its longer side
   bleed: 0.04, // and stays inside the box (control points may overshoot a little)
+  // a SCENE backdrop (told v5: `sky` + `ground` on a place's backdrop) — the sky is light enough for a dark title and
+  // a dark name plate to be read over it; the ground is clearly another tone; the upper band of the box holds no
+  // path (the sky is where the titles and the plates stand); no path is a wash over the whole box (that was the sky)
+  skyLuminance: 0.5, groundContrast: 0.15, skyBand: 0.25, washShare: 0.85,
+  // … and no big INK mass in the middle ground: the cast is drawn in ink (the black-clad Count, a dark suit) and
+  // vanished against the ink castle in the first scene stills — a mass above the ground strip (top above
+  // `groundLine` of the box) of at least `massShare` of the box is a mid tone (luminance ≥ `midLuminance`)
+  midLuminance: 0.1, groundLine: 0.78, massShare: 0.03,
 };
 const DEFAULT_PALETTE = { ink: "#1A1412", accent: "#C2410C", paper: "#FAF7F2" };
+
+/** relative luminance of a hex colour (sRGB, 0 … 1) — the measure behind "light enough to read dark text over" */
+function luminance(hex) {
+  const h = String(hex).replace("#", ""), s = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const ch = (i) => { const c = parseInt(s.slice(i, i + 2), 16) / 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+  return 0.2126 * ch(0) + 0.7152 * ch(2) + 0.0722 * ch(4);
+}
 
 const sha = (v) => crypto.createHash("sha256").update(JSON.stringify(v)).digest("hex").slice(0, 16);
 const norm = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -90,13 +105,13 @@ function lintDrawing(d, { palette = DEFAULT_PALETTE, kind = "thing" } = {}) {
   if (paths.length < RULES.minPaths) out.push(`${paths.length} path(s) — a drawing a stranger can name has at least ${RULES.minPaths} (the silhouette, its parts, the detail that makes it THIS thing)`);
   if (paths.length > max) out.push(`${paths.length} paths — at most ${max} (flat vector, not an illustration)`);
   const colors = new Set(); let commands = 0;
-  const box = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity };
+  const box = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity }, boxes = [];
   paths.forEach((p, k) => {
     if (!p || typeof p.d !== "string" || !p.d.trim()) { out.push(`paths[${k}]: no "d"`); return; }
     if (/url\(|<|>/.test(p.d)) { out.push(`paths[${k}]: "d" is path data only`); return; }
     const b = pathBox(p.d);
     if (b.bad) { out.push(`paths[${k}]: ${b.bad}`); return; }
-    commands += b.commands;
+    commands += b.commands; boxes[k] = b;
     if (Number.isFinite(b.x0)) { box.x0 = Math.min(box.x0, b.x0); box.y0 = Math.min(box.y0, b.y0); box.x1 = Math.max(box.x1, b.x1); box.y1 = Math.max(box.y1, b.y1); }
     for (const key of ["fill", "stroke"]) {
       if (p[key] == null || p[key] === "none") continue;
@@ -115,6 +130,25 @@ function lintDrawing(d, { palette = DEFAULT_PALETTE, kind = "thing" } = {}) {
     if (Math.max(w / vw, h / vh) < RULES.minFill) out.push(`the drawing fills ${Math.round(Math.max(w / vw, h / vh) * 100)} % of its box — at least ${RULES.minFill * 100} % along its longer side (it is drawn small on stage otherwise)`);
     const bx = vw * RULES.bleed, by = vh * RULES.bleed;
     if (box.x0 < vx - bx || box.y0 < vy - by || box.x1 > vx + vw + bx || box.y1 > vy + vh + by) out.push(`the drawing leaves its box (${Math.round(box.x0)},${Math.round(box.y0)} – ${Math.round(box.x1)},${Math.round(box.y1)} in "${vb.join(" ")}")`);
+  }
+  // a SCENE backdrop (told v5): the sky and the ground are colours of the book, the sky light, the ground another
+  // tone; the upper band is plain sky (titles and name plates stand there); nothing paints over the whole box
+  if (kind === "backdrop" && d && (d.sky != null || d.ground != null)) {
+    const sky = color(d.sky, palette), ground = color(d.ground, palette);
+    if (d.sky == null) out.push(`"ground" without "sky" — a scene backdrop names both (the sky behind the place, the ground the cast stands on)`);
+    else if (!sky || sky === "none") out.push(`"sky" "${d.sky}" — a hex colour or a palette token (${Object.keys(palette).join(", ")})`);
+    else if (luminance(sky) < RULES.skyLuminance) out.push(`"sky" ${sky} is dark (luminance ${luminance(sky).toFixed(2)}, at least ${RULES.skyLuminance}) — the titles and the name plates are read over it, so it is light: a pale tone of the book's palette`);
+    if (d.ground != null && (!ground || ground === "none")) out.push(`"ground" "${d.ground}" — a hex colour or a palette token`);
+    else if (sky && ground && sky !== "none" && ground !== "none" && Math.abs(luminance(sky) - luminance(ground)) < RULES.groundContrast) out.push(`"ground" ${ground} is the sky's tone (luminance ${luminance(ground).toFixed(2)} against ${luminance(sky).toFixed(2)}) — the ground is clearly another tone, so the cast stands on something`);
+    const [, vy, vw, vh] = vb, band = vy + vh * RULES.skyBand;
+    boxes.forEach((b, k) => {
+      if (!b || !Number.isFinite(b.y0)) return;
+      if (b.y0 < band) out.push(`paths[${k}] reaches up to y ${Math.round(b.y0)} — the upper ${RULES.skyBand * 100} % of the box (above y ${Math.round(band)}) is plain sky: the titles and the name plates are read there`);
+      if ((b.x1 - b.x0) * (b.y1 - b.y0) >= vw * vh * RULES.washShare) out.push(`paths[${k}] covers the whole box — a scene has no wash: the sky is "sky", the ground strip is drawn along the bottom edge`);
+      const f = color(paths[k].fill, palette);
+      if (f && f !== "none" && b.y0 < vy + vh * RULES.groundLine && (b.x1 - b.x0) * (b.y1 - b.y0) >= vw * vh * RULES.massShare && luminance(f) < RULES.midLuminance)
+        out.push(`paths[${k}] is a big ink mass in the middle ground (${f}, luminance ${luminance(f).toFixed(2)}) — the cast is drawn in ink and vanishes against it: draw the place in MID tones (luminance ≥ ${RULES.midLuminance}); only the ground strip along the bottom edge and small details may be dark`);
+    });
   }
   return out;
 }
@@ -161,9 +195,12 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
     const push = (key, d, extra, what) => {
       const accepted = [...new Set(list(d.reads).map(norm).filter(Boolean))];
       const drawn = drawPaths(d.paths, palette), viewBox = d.viewBox || (extra.backdrop ? RULES.backdropBox : RULES.box);
-      drawings.push({ key, entity: id, ...extra, intended: what, accepted, hash: sha({ viewBox, paths: drawn }), paths: drawn, viewBox, src: d.src,
-        lint: lintDrawing({ paths: d.paths, viewBox }, { palette, kind: extra.backdrop ? "backdrop" : "thing" }) });
-      return { paths: drawn, ...(d.viewBox ? { viewBox: d.viewBox } : {}) }; // a default box is not written into the stage (as told v1)
+      // told v5: a SCENE backdrop carries its sky and its ground (resolved to hex) — they are part of the picture a
+      // stranger names, so they are in the hash too; a backdrop without them hashes as before
+      const scene = extra.backdrop && d.sky != null ? { sky: color(d.sky, palette) || d.sky, ground: d.ground != null ? color(d.ground, palette) || d.ground : palette.ink } : null;
+      drawings.push({ key, entity: id, ...extra, intended: what, accepted, hash: sha(scene ? { viewBox, paths: drawn, ...scene } : { viewBox, paths: drawn }), paths: drawn, viewBox, src: d.src, ...(scene || {}),
+        lint: lintDrawing({ paths: d.paths, viewBox, ...(extra.backdrop ? { sky: d.sky, ground: d.ground } : {}) }, { palette, kind: extra.backdrop ? "backdrop" : "thing" }) });
+      return { paths: drawn, ...(d.viewBox ? { viewBox: d.viewBox } : {}), ...(scene || {}) }; // a default box is not written into the stage (as told v1)
     };
     if (base) {
       Object.assign(r, push(id, base, {}, e.label || id));
@@ -183,7 +220,7 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
     if (e.backdrop) {
       if (e.kind !== "place") errors.push(`entity "${id}": only a place has a backdrop`);
       const s = source(e.backdrop, motifs, errors, `entity "${id}" backdrop`);
-      if (s) r.backdrop = push(`${id}@backdrop`, s, { backdrop: true }, `${e.label || id} (the place, behind the stage)`);
+      if (s) r.backdrop = push(`${id}@backdrop`, { ...s, ...(e.backdrop.sky != null ? { sky: e.backdrop.sky } : {}), ...(e.backdrop.ground != null ? { ground: e.backdrop.ground } : {}) }, { backdrop: true }, `${e.label || id} (the place, behind the stage)`);
       else { errors.push(`entity "${id}": backdrop has no drawing (paths)`); delete r.backdrop; }
     }
     out[id] = r;
@@ -264,7 +301,8 @@ function drawingGuide(palette = DEFAULT_PALETTE) {
     `Colours: ${RULES.minColors}–${RULES.maxColors}, from the book's palette by token — ${Object.entries(palette).map(([k, v]) => `"${k}" (${v})`).join(", ")} — plus hex tones of them where a part needs its own. Never a real logo, a brand mark or a copyrighted character: an original flat drawing made for this book.`,
     `"reads": the 1-3 word names a stranger may give it ("ship", "sailing ship") — written BEFORE the blind test; never add the word it was mistaken for.`,
     `STATES — what the narration CHANGES gets a drawing per state it shows (2-3 at most): "states": { "wrecked": { "reads": ["shipwreck", "wrecked ship"], "paths": [...] } } in the same box with the same base silhouette, only the change drawn differently. Authors then write { "do": "change", "who": "<id>", "state": "wrecked" }.`,
-    `A PLACE may also be the stage's background: "backdrop": { "viewBox": "${RULES.backdropBox}", "reads": [...], "paths": [...] } — a wide, simple skyline / landscape standing on the bottom edge (it is drawn pale behind the things; up to ${RULES.maxBackdropPaths} paths). Authors write "stage": { ..., "at": "<place id>" }.`,
+    `A PLACE may also be the stage's background: "backdrop": { "viewBox": "${RULES.backdropBox}", "reads": [...], "paths": [...] } — a wide, simple skyline / landscape standing on the bottom edge (up to ${RULES.maxBackdropPaths} paths). Authors write "stage": { ..., "at": "<place id>" }.`,
+    `DRAW THE PLACE AS A SCENE, not as a silhouette (told v5): give the backdrop "sky": "<light hex or token>" and "ground": "<hex or token>" and it is drawn at full presence with the cast standing IN it — without "sky" it is only a pale wash behind the stage. Three bands, back to front: (1) the SKY is a colour, not a path — a pale tone of the book's palette (luminance ≥ ${RULES.skyLuminance}: the dark titles and the name plates are read over it), and the upper ${RULES.skyBand * 100} % of the box holds NO path at all; (2) the MIDDLE GROUND — the place itself (the castle on its crag, the harbour wall, the room's far wall and window) in two or three MID tones of the palette (luminance ≥ ${RULES.midLuminance}: the cast is drawn in ink and must stand out from the place — a black coat vanished against an ink castle), never one ink silhouette and never a wash over the whole box; only small details may be dark; (3) a flat GROUND STRIP along the bottom edge in the "ground" colour (clearly another tone than the sky) — the engine continues it to the bottom of the frame and the cast stands on it. Nothing in it that is an entity of its own, nobody of the cast.`,
     `THE BOOK'S HOME: mark ONE drawn place "home": true — it stands behind every scene that names no place, told or not, instead of blank paper or a generic office. A story's home is where it mostly happens; a book of IDEAS draws the room its ideas live in (a systems book: a workshop of tanks and pipes; a book on habits: one kitchen at 6 a.m.) — never "an office". Draw it along the edges and the top: the things and the people stand in the MIDDLE of it, so keep the middle third quiet.`,
     `EVERY place the story stands in gets a backdrop — interiors too (her bedroom, the asylum, the cellar), not only the cities: it is also drawn behind the beats that are not told ("place": "<place id>"). A backdrop holds NO thing that is an entity of its own (no ship in the harbour when the ship is on stage: the viewer sees two) and nobody of the cast.`,
     `THE SAME DRAWING EVERYWHERE: a thing drawn here is also an own icon of the beats that are NOT told — an author writes "concept": "<entity id>" and the same ship stands beside the cast. So draw the book's recurring IDEAS too, as THIS book's thing (not "law" but the deed of the estate; not "medical" but the transfusion flask): a film whose icons are the shared scales, shield and clock could be any book.`,
@@ -484,4 +522,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { iconsOfEntities, ownIcons, ownGaps, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { iconsOfEntities, ownIcons, ownGaps, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, luminance, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };

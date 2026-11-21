@@ -54,6 +54,31 @@ Published books are frozen.
 - **Next slices:** the 53 library props of the figure scenes as the book's own drawings; an own-share report over
   everything on screen; a cross-book similarity guard; the book's recurring events.
 
+## Told v5 — the place is a SCENE (Film Flow 7, slice 1: scene backdrops, 2026-11-21)
+
+- **Why (measured, dracula, the first real book):** the picture adds to the narration in 19 of 24 mute-test frames but
+  explains the event by itself in 1 — a told stage was a labelled diagram: the cast in a row with name plates, the
+  place a pale one-tone wash (`BACKDROP_OPACITY` 0.26). The first trial (opacity 0.62, a ground line at the lowest feet,
+  shadows under every figure; stills `Downloads/film-flow-told/sahne-v5-ilk-deneme`) only made the stage dark: the ink
+  silhouettes swallowed the title, the black name plates and the black-clad Count; the ground ran under a figure walking
+  at mid-stage. A place cannot be made real by opacity — it has to be DRAWN as a scene.
+- **What:** a place's `backdrop` in `storyboard/entities.json` may carry `"sky": "<hex | token>"` and
+  `"ground": "<hex | token>"`. `own-drawings.js` lints it as a scene (`RULES.skyLuminance` 0.5, `groundContrast` 0.15,
+  `skyBand` 0.25 — the upper band holds no path, `washShare` 0.85 — no path covers the box, `midLuminance` 0.1 — no big
+  ink mass above the ground strip: the cast is drawn in ink and vanished against an ink castle); `resolveEntities` carries
+  both to the stage as hex (ground defaults to the ink) and into the drawing's hash; `told-compile.js backdropOf`
+  writes them on the stage's backdrop. A backdrop without `sky` is written and drawn exactly as before.
+- **Renderer** (`ToldStage.tsx`, one SVG, nothing moves): on a `v >= 5` stage a backdrop with `sky` is drawn at FULL
+  presence — the sky behind the whole stage, the ground band from the backdrop's bottom edge (`told.ts backdropScene`:
+  870 for the wide box) to the bottom of the frame, a contact shadow under a figure whose feet are on that ground
+  (`standsOn`, 60 px reach — a figure at mid-stage is in the middle ground and throws none). `TOLD_VERSION` 5; a v ≤ 4
+  stage never carries `sky` and is drawn as it was; both golden fixtures and dracula's 179 stages compile byte-identical.
+- **Authors' guide:** told.md "The place is a SCENE"; `drawingGuide` (entities.candidates.json "drawing"); the sheet
+  (`own-icons-sheet.js`) prints a scene backdrop on its sky with its ground continued, as the engine does.
+- **Not yet (later slices, each with ESKI / YENI clips):** the cast placed IN the place (facing each other, at a thing of
+  the place, depth by size); the camera going to the event; name plates receding after the first appearance; the sky /
+  ground on a figure scene's `bg.own` (`Backdrop.tsx` still draws the wash). Test: `test-told-scene.js`.
+
 ## Told v4 — the book's own cast (Film Flow 5, 2026-11-17)
 
 - **Why:** the foundry dresses one rig from one wardrobe, so every book's people were the same face in another coat

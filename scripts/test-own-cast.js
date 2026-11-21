@@ -75,7 +75,7 @@ t("tokens become the person's own colours and the book's; the stage is given the
 
 t("told v4: an older stage never wears a drawn head; one person has one head in every scene, and revert undoes it", () => {
   const T = require("../src/engines/antidote/told.ts"), A = require("./lib/told-apply");
-  assert.strictEqual(T.TOLD_VERSION, 4);
+  assert.ok(T.TOLD_VERSION >= 4, "told v4 (own cast) is in; a later version keeps the v4 reading");
   const stage = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/components/ToldStage.tsx"), "utf8");
   assert.ok(stage.includes("if ((spec.v ?? 1) < 4) delete (v as { drawn?: unknown }).drawn"));
   const ent = { mina: { label: "MINA", kind: "person", look: { hair: "#222222", drawn: HEAD() } }, lucy: { label: "LUCY", kind: "person" } };
