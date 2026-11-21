@@ -1,0 +1,64 @@
+{
+ "schema": "stills/1",
+ "name": "told-scene-1",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "shards": 4,
+ "silent": true,
+ "jobs": [
+  {
+   "id": "ESKI-frames",
+   "config": "configs/ESKI.json",
+   "frames": [
+    230,
+    505,
+    737,
+    955,
+    1161,
+    1383,
+    1631
+   ],
+   "strip": true
+  },
+  {
+   "id": "ESKI-clip",
+   "config": "configs/ESKI.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1706,
+    "scale": 1
+   }
+  },
+  {
+   "id": "YENI-frames",
+   "config": "configs/YENI.json",
+   "frames": [
+    230,
+    505,
+    737,
+    955,
+    1161,
+    1383,
+    1631
+   ],
+   "strip": true
+  },
+  {
+   "id": "YENI-clip",
+   "config": "configs/YENI.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1706,
+    "scale": 1
+   }
+  }
+ ],
+ "inputHash": "5bf36e6340f81749",
+ "files": {
+  "stills/configs/ESKI.json": "74bc51a6304dcc0a5e6e846ebe8da9eef5397c2964d45299cea0264e5d0b414e",
+  "stills/configs/YENI.json": "e3b10062ee4d7a197173386eca15399230d5f8a3d66b595571f43aa5a308fb53"
+ },
+ "builtAt": "2026-11-21T07:46:23.778Z"
+}
