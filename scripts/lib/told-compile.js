@@ -76,6 +76,9 @@ const ACT_MIN = 36; // an act that needs an approach does not land before this s
 const drawnAs = (e) => (!e ? null : e.kind === "person" ? "figure" : (Array.isArray(e.paths) && e.paths.length) || e.motif ? "icon" : KINDS[e.kind] || null);
 const Y = { emblem: 470, figure: 850, icon: 600 };
 const SIGN_Y = 830; // slice 2: the baseline of a place's SIGN (its name in a box) standing on the scene's ground
+// slice 3: on a scene stage an emblem tile stands on the ground (its name plate's lower edge at the feet line, 850 =
+// 670 + 180) instead of floating at 470; the camera's push on an event
+const SCENE_EMBLEM_Y = 670, SCENE_PUSH = 1.15;
 // IN THE HAND: a held drawing is this share of the person's width, at the hand of the arm that faces the middle
 // (round 2: the first version put it BESIDE the hand — the operator saw a journal floating next to Mina.) The rig's
 // `hold` pose brings the forearm across the body: the hand rests in front of the chest at (228, 431) of the rig's
@@ -243,6 +246,18 @@ function compileTold(beats, written = {}, opts = {}) {
     };
     const leave = (it, at, dur = 10) => { it.exit = { at: Math.max(dur, at), dur }; it._gone = true; };
     const add = (it) => { if (it._born == null) it._born = beatNo; if (it._ttl === undefined && TTL[it._role] != null) it._ttl = TTL[it._role]; items.push(it); return it; };
+    // slice 3 — THE CAMERA GOES TO THE EVENT (scene stages only): on a person's verb or a thrown / dropped thing the
+    // camera pushes in on the people it happens between, landing with the word; the feet stay above the subtitle
+    // band (the `focus` rule). It stays there until the next arrangement, which opens wide again.
+    const camTo = (when, ents) => {
+      const ps = ents.map((e) => find(e)).filter(Boolean).map((it) => ({ it, p: stateAt(it, when) }));
+      if (!ps.length || !sceneAt()) return;
+      const s = SCENE_PUSH, cx = ps.reduce((a, q) => a + q.p.x, 0) / ps.length;
+      const foot = Math.max(...ps.map(({ it, p }) => (it.kind === "figure" ? p.y : it.kind === "icon" ? p.y + ((it.w || 312) / 2 + 66) * p.s : p.y + 180 * p.s)));
+      const x = Math.max(960 - (960 - 960 / s), Math.min(960 + (960 - 960 / s), cx)); // the frame stays inside the stage
+      Object.assign(curCam, { x, y: Math.max(Math.min(foot - 300, 520), foot - (SAFE.bottom - 540) / s), s });
+      camKeys.push({ at: Math.max(22, when), dur: 20, ease: "inout", ...curCam });
+    };
     const ensure = (ent, at, slot, from) => {
       const e = entities[ent];
       if (!e) { err(`"${ent}" is not in entities.json`); return null; }
@@ -253,7 +268,7 @@ function compileTold(beats, written = {}, opts = {}) {
       const lineup = drawnAs(e) === "figure" && slot.y == null && items.some((x) => x._under && !x._gone);
       if (lineup) slot = { ...slot, s: slot.s * 0.86 };
       // v2 timeline (`mid`): the things stay in the middle of the stage at reading size, each kind on its own line
-      const kind = drawnAs(e), y = slot.mid ? (kind === "figure" ? V2L.midFeet : kind === "emblem" ? V2L.midEmblem : V2L.midIcon) : slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : Y[kind]);
+      const kind = drawnAs(e), y = slot.mid ? (kind === "figure" ? V2L.midFeet : kind === "emblem" ? V2L.midEmblem : V2L.midIcon) : slot.head && kind === "figure" ? slot.y + 170 : slot.y ?? (lineup ? UNDER_FEET : kind === "emblem" && sceneAt() ? SCENE_EMBLEM_Y : Y[kind]);
       if (kind === "figure") { const probe = it || entityItem(ent, e, colorOf, stateOf[ent]); slot = { ...slot, s: Math.min(slot.s, fitS(probe, y, { crown: !!it && bound(ent).some((b) => b.kind === "crown"), top: slot.mid ? V2L.midTop : slot.head ? 60 : FIG_TOP })) }; }
       // v2: a NAME PLATE stays in the frame, as a label does — the thing stands far enough from the edge for its name
       if (V2) { const half = plateHalf({ label: e.label, kind }, slot.s); if (half) slot = { ...slot, x: Math.max(EDGE + half, Math.min(1920 - EDGE - half, slot.x)) }; }
@@ -272,6 +287,8 @@ function compileTold(beats, written = {}, opts = {}) {
       const stood = [];
       for (const w of who) { const it = find(w); if (it && it.act && bound(w).some((b) => b._role === "desk")) { stood.push(w); standUp(w, Math.max(8, at - 12)); swap(w, Math.max(3, at - 10), (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); } }
       const sl = slots(layout, who.length);
+      // slice 3: a new arrangement on a scene stage opens WIDE again (a cut lands wide; a change within a beat eases)
+      if (sceneAt() && curCam.s > 1.001) { Object.assign(curCam, { x: 960, y: 540, s: 1 }); camKeys.push(at > 0 ? { at: Math.max(20, at), dur: 20, ease: "inout", ...curCam } : { at: 1, dur: 1, ...curCam }); }
       // an arrangement is exact, like `stage`: a thing it does not name leaves (dracula scene-108: eight things from
       // three arrangements standing in each other)
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
@@ -617,6 +634,7 @@ function compileTold(beats, written = {}, opts = {}) {
             if (st) { leave(h, when + 6, 6); stateOf[ev.what] = ev.state; add({ id: `${ev.what}.fallen~${++seq}`, kind: "icon", paths: st.paths, viewBox: st.viewBox, w, x: dest.x, y: dest.y, s: lie, r: 0, enter: { at: when, from: "fade", dur: 6 }, shake: { at: when, dur: 16, amp: 10 }, _role: "deco", _ttl: TTL_DECO, _ent: ev.what, state: ev.state }); }
           }
           swap(a, when + 12, (n) => { n.action = "idle"; });
+          camTo(when - 10, [a, ...(T0 ? [to] : [])]);
         } break;
         case "at": setPlace(who[0] || null, at); break;
         // ── told v3: THE PERSON PLAYS THE VERB ───────────────────────────────────────────────────────────────────────
@@ -753,6 +771,8 @@ function compileTold(beats, written = {}, opts = {}) {
               break; }
             default: break;
           }
+          // slice 3: the camera goes to the verb — on the people it happens between, landing near the word
+          if (find(a)) camTo(Math.max(at, 20) - 8, [a, ...(tgt != null && find(tgt) ? [tgt] : [])]);
           break; }
         case "raw": if (!ev.item || !ev.item.kind) err("raw: needs item {kind, x, y, …}"); else { const it = clone(ev.item); it.id = it.id || `raw${++seq}`; it._role = it._role || "fx"; if (!it.enter && at > 0) it.enter = { at: Math.max(10, at), from: "pop", dur: 10 }; add(it); } break;
         default: break;

@@ -7708,6 +7708,20 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-21 — Told v5 slice 3: things on the ground, the camera goes to the event (scene stages only)
+
+- **What (`told-compile.js`, only on a stage AT a scene place):** an emblem tile stands on the ground (`SCENE_EMBLEM_Y`
+  670: its plate's lower edge on the feet line) instead of floating at 470; `camTo` pushes the camera ×1.15
+  (`SCENE_PUSH`) on the people and things of an `act` or a `throw` / `drop`, landing near the word, the feet kept above
+  the subtitle band (the `focus` rule), the frame kept inside the stage; the next `arrange` opens wide again (a cut
+  snaps wide at frame 1, a change within a beat eases over 20 frames). `focus` / `wide` unchanged. Old books
+  byte-identical (goldens; dracula 179).
+- **Seen (scratch Dracula, tag told-scene-5; `Downloads/film-flow-told/sahne-v5-dilim3-kamera`):** on "signs" the
+  camera closes on the Count at his desk and Jonathan at the gate; sky and ground continuous under the push; the next
+  stage cuts wide. flicker-check 19 events (slice 2: 20). Not measured: a mute test. Own-drawing icons keep their
+  generic height (only emblems moved); `bg.own` of figure scenes is still the wash.
+- Tests: `test-told-scene.js` 11 (1 new). Docs: told.md, FILM-FLOW.md.
+
 ### 2026-11-21 — Told v5 slice 2: the cast IN the place (spots, facing, the place as a sign, receding plates)
 
 - **Why (seen on slice 1's stills):** the place was drawn but the cast still stood in a row IN FRONT of it — Jonathan

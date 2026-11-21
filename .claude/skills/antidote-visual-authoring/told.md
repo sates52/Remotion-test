@@ -166,6 +166,12 @@ it in `who` while the stage is at it, is its name on a SIGN on the ground (not a
 A person who stays over a cut is `known`: their name plate recedes (smaller, lighter) from the next beat; the full
 plate stands where they first appear. All of this only in a book that draws at least one place as a scene.
 
+**Things on the ground, the camera at the event (slice 3).** On a scene stage an emblem tile stands on the ground
+(its name plate's lower edge at the feet line) instead of floating at mid-height. When a person plays a verb (`act`)
+or throws / drops a thing, the camera pushes in a little (×1.15) on the people and things it happens between, landing
+with the word, and opens wide again at the next arrangement (a cut lands wide, a change within a beat eases). Authors
+write nothing for it; `focus` / `wide` still do what they did.
+
 ## Storyboard authors — when a beat names something
 
 Write `told` instead of concept / cast / callout / diagram (schema, layouts and the event table: `rules.md`).

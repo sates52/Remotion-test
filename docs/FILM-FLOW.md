@@ -84,8 +84,14 @@ Published books are frozen.
   people are `known` (`V5S` books only): `ToldStage` draws their plate at 0.8 / 0.72 around its centre. The renderer
   also shadows a figure whose feet are on a spot. `setPlace` now runs before `arrange` in a `stage` (output-neutral).
   Old books: no scene backdrop → no spots, no `known`, no sign — byte-identical (goldens, dracula 179).
-- **Not yet:** the camera going to the event; the sky / ground on a figure scene's `bg.own` (`Backdrop.tsx` still
-  draws the wash); a stage that changes place mid-beat re-seats nobody (the next arrangement does). Test: `test-told-scene.js`.
+- **Slice 3 — things on the ground, the camera at the event (2026-11-21):** on a scene stage an emblem stands at
+  `SCENE_EMBLEM_Y` 670 (plate bottom on the feet line) instead of 470; `camTo` pushes the camera ×1.15 (`SCENE_PUSH`) on
+  the people and things of an `act` or a `throw` / `drop`, landing near the word with the feet kept above the subtitle
+  band; `arrange` on a scene stage opens wide again (snap at frame 1 for a cut, a 20-frame ease within a beat). Scene
+  stages only; old books byte-identical.
+- **Not yet:** the sky / ground on a figure scene's `bg.own` (`Backdrop.tsx` still draws the wash); a stage that changes
+  place mid-beat re-seats nobody (the next arrangement does); icons (own drawings) keep their generic height — only
+  emblems moved. Test: `test-told-scene.js`.
 
 ## Told v4 — the book's own cast (Film Flow 5, 2026-11-17)
 

@@ -183,4 +183,28 @@ t("slice 2 · without spots a person stands on the ground line, never at the flo
   assert.ok(/spotsOf\(p\.b\)\.some\(\(q\) => Math\.abs\(q\.y - st\.y\) < SPOT_REACH\)/.test(stage), "a contact shadow under a figure on a spot");
 });
 
+// ---- slice 3: things on the ground, the camera goes to the event ----------------------------------------------
+t("slice 3 · on a scene stage an emblem stands on the ground; the camera pushes in on a verb and opens wide at the next arrangement", () => {
+  const ENT3 = { ...ENT2, london: { label: "LONDON", kind: "place", glyph: "building" } };
+  const r = C.compileTold([
+    beat("b1", "Jonathan and the Count stood before London and the Count signed the deed", { stage: { layout: "row", who: ["jonathan", "dracula", "london", "deed"], at: "transylvania" }, events: [{ on: "signed", do: "act", who: "dracula", verb: "write", target: "deed" }] }),
+    beat("b2", "then they stood apart", { events: [{ on: "apart", do: "arrange", layout: "versus", who: ["jonathan", "dracula"] }] }),
+    beat("b3", "and in Whitby the tile floated", { stage: { layout: "row", who: ["london"], at: "whitby" } }),
+  ], ENT3, { palette: PAL });
+  assert.deepStrictEqual(r.errors, []);
+  const [s1, s2, s3] = r.stages;
+  assert.strictEqual(s1.items.find((it) => it.id === "london").y, 670, "an emblem's plate rests on the feet line (670 + 180 = 850)");
+  assert.strictEqual(s3.items.find((it) => it.id === "london").y, 470, "at a wash place the emblem floats as before");
+  const push = (s1.cam || []).find((k) => k.s > 1);
+  assert.ok(push && Math.abs(push.s - 1.15) < 1e-9 && push.dur === 20, `the camera pushes in on the verb: ${JSON.stringify(s1.cam)}`);
+  const dr = T.itemState(s1.items.find((it) => it.id === "dracula"), push.at), de = T.itemState(s1.items.find((it) => it.id === "deed"), push.at);
+  assert.ok(Math.abs(push.x - (dr.x + de.x) / 2) < 60 || push.x === 960 + (960 - 960 / 1.15), "… centred between the person and the thing (or at the stage's edge)");
+  const wide = (s2.cam || []).find((k) => k.s === 1);
+  assert.ok(wide && wide.at >= 20 && wide.dur === 20, `the next arrangement within a beat eases wide: ${JSON.stringify(s2.cam)}`);
+  assert.ok((s3.cam || []).some((k) => k.s === 1 && k.at === 1 && k.dur === 1) || !(s3.cam || []).some((k) => k.s > 1), "a new stage cuts wide");
+  // a book without a scene gets none of it
+  const plain = C.compileTold([beat("b1", "the Count signed the deed", { stage: { layout: "row", who: ["dracula", "deed", "london"], at: "whitby" }, events: [{ on: "signed", do: "act", who: "dracula", verb: "write", target: "deed" }] })], ENT3, { palette: PAL });
+  assert.ok(!plain.stages[0].cam && plain.stages[0].items.find((it) => it.id === "london").y === 470, "no camera, no ground for an emblem outside a scene");
+});
+
 console.log(`\n${n} checks passed`);
