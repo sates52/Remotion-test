@@ -8118,3 +8118,18 @@ Operator approved after two rounds of clips.
   `maintenance-upgrade`).
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/act-verbs-*`, `ci/regression/act-verbs`.
+
+### 2026-11-21 — `told.js entities` runs BEFORE prep: it emits the beats itself (first real book could not start)
+
+- **Symptom (then-she-was-gone-v2, the first real Antidote book on the current code):** the video agent stopped at the
+  entities step. `storyboard.js prep` refuses until `storyboard/entities.json` is finished (heads, places, home);
+  `entities.json` is written FROM `told.js entities` candidates; `told.js entities` wanted `storyboard/beats.json`,
+  which only `prep` wrote — after that gate. A circle; the runbook (§2f step 1) and preview-hazirla already said
+  "entities before prep", the code could not do it.
+- **Fix (`scripts/told.js`):** with no `beats.json` and no planned config, `entities` emits the beats itself with the
+  same planner call prep makes (`plan-antidote.js --emit-beats` / `plan-vox.js --emit-beats --no-llm`, the book
+  checkout's planner, cwd there) and goes on; prep later rewrites the file the same way. Nothing else is written. With
+  a `beats.json` or a config present: unchanged. `--book-root` works as before (run from current code against a
+  pinned book). Measured on then-she-was-gone-v2: 23 candidates (Laurel ×52, Ellie ×31, Floyd ×24 …) from the VTT.
+- **Not touched:** no gate, threshold, published / pinned book, render, upload or cleanup. `--own-incomplete` stays a
+  recorded reason, not a way around the step.

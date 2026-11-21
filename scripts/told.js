@@ -4,7 +4,8 @@
  *
  *   node scripts/told.js entities --slug=<slug>            what the narration names → storyboard/entities.candidates.json
  *                                                          (the lead agent writes storyboard/entities.json from it,
- *                                                           BEFORE the storyboard authors start; rules.md then lists them)
+ *                                                           BEFORE the storyboard authors start; rules.md then lists them;
+ *                                                           runs BEFORE prep: it emits storyboard/beats.json itself)
  *   node scripts/told.js check    --slug=<slug>            compile every told beat of art.json against the planned config
  *                                                          (word timings): errors, warnings, name coverage. Writes nothing.
  *   node scripts/told.js apply    --slug=<slug> [--write] [--pipeline]
@@ -63,10 +64,32 @@ function load({ needArt = true } = {}) {
   return { config, art, entities: readJSON(F.entities) || {} };
 }
 
+/**
+ * The narration's beats BEFORE any gate (2026-11-21, then-she-was-gone-v2, the first real book on this code): the lead
+ * agent writes entities.json FROM these candidates, `storyboard prep` refuses until entities.json is finished — and prep
+ * was the only thing that wrote beats.json, after that gate. Nobody could start. So, when there is no beats.json and no
+ * planned config yet, the beats are emitted here by the planner call prep makes (--emit-beats: the beats only; no
+ * config, no art); prep later rewrites the same file the same way. The book's own checkout's planner (as prep), cwd there.
+ */
+function emitBeats() {
+  const book = readJSON(path.join(BOOK, "book.json")) || {};
+  const vttRel = `public/captions/${SLUG}.vtt`;
+  if (!fs.existsSync(path.join(ROOT, vttRel))) { console.error(`told entities: no storyboard/beats.json, no planned config and no ${vttRel} — the candidates come from the narration`); process.exit(1); }
+  const engine = String(book.engine || "antidote").toLowerCase();
+  const name = engine === "vox" ? "plan-vox.js" : "plan-antidote.js";
+  const script = fs.existsSync(path.join(ROOT, "scripts", name)) ? path.join(ROOT, "scripts", name) : path.join(__dirname, name);
+  const argv = [script, `--vtt=${vttRel}`, `--slug=${SLUG}`, `--title=${book.title || SLUG}`, `--author=${book.author || ""}`, `--genre=${book.genre || "nonfiction"}`, `--emit-beats=${F.beats}`, ...(engine === "vox" ? ["--no-llm"] : [])];
+  fs.mkdirSync(SB, { recursive: true });
+  try { require("child_process").execFileSync(process.execPath, argv, { cwd: ROOT, stdio: "pipe" }); }
+  catch (e) { console.error(`told entities: the planner could not emit the beats — ${String(e.stderr || e.message).trim().split(/\r?\n/).slice(-3).join(" | ")}`); process.exit(1); }
+  console.log(`told entities: beats emitted from the narration → ${path.relative(ROOT, F.beats)} (storyboard prep rewrites it the same way)`);
+  return readJSON(F.beats);
+}
+
 if (cmd === "entities") {
-  const raw = readJSON(F.beats);
+  const raw = readJSON(F.beats) || (readJSON(F.config) ? null : emitBeats());
   const beats = Array.isArray(raw) ? raw : raw && Array.isArray(raw.beats) ? raw.beats : ((readJSON(F.config) || {}).scenes || []).map((s, i) => ({ i, narration: s._narration }));
-  if (!beats.length) { console.error("told entities: no storyboard/beats.json and no planned config — run storyboard prep first"); process.exit(1); }
+  if (!beats.length) { console.error("told entities: no beats in storyboard/beats.json and no planned config — run storyboard prep first"); process.exit(1); }
   const ents = entitiesOf(beats.map((b) => ({ _narration: b.narration })), { min: 2 });
   // the book's own TERMS (2026-11-18): a book of ideas names few people and no companies — it says "feedback loop" and "delay" in scene after scene
   let background = null; try { background = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "narration-background.json"), "utf8")); } catch {}
