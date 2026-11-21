@@ -75,9 +75,17 @@ Published books are frozen.
   stage never carries `sky` and is drawn as it was; both golden fixtures and dracula's 179 stages compile byte-identical.
 - **Authors' guide:** told.md "The place is a SCENE"; `drawingGuide` (entities.candidates.json "drawing"); the sheet
   (`own-icons-sheet.js`) prints a scene backdrop on its sky with its ground continued, as the engine does.
-- **Not yet (later slices, each with ESKI / YENI clips):** the cast placed IN the place (facing each other, at a thing of
-  the place, depth by size); the camera going to the event; name plates receding after the first appearance; the sky /
-  ground on a figure scene's `bg.own` (`Backdrop.tsx` still draws the wash). Test: `test-told-scene.js`.
+- **Slice 2 — the cast IN the place (2026-11-21):** a scene backdrop may carry `spots` (1-6 standing places in the
+  drawing's units with a depth scale; lint: on the drawn ground, inside the box). On a stage at that place the compiler
+  (`told-compile.js arrange`) puts the people of an arrangement at the spots in `who` order (`told.ts spotsOf` → frame
+  coordinates; `fitS` still keeps the plate under the title band), turns them towards the middle of their group, stands
+  a person beyond the spots — or in a scene without spots — on the ground line (never at the flow line), and draws the
+  place itself, when listed in `who`, as its name on a SIGN (`word` + box at y 830) instead of an emblem tile. Carried
+  people are `known` (`V5S` books only): `ToldStage` draws their plate at 0.8 / 0.72 around its centre. The renderer
+  also shadows a figure whose feet are on a spot. `setPlace` now runs before `arrange` in a `stage` (output-neutral).
+  Old books: no scene backdrop → no spots, no `known`, no sign — byte-identical (goldens, dracula 179).
+- **Not yet:** the camera going to the event; the sky / ground on a figure scene's `bg.own` (`Backdrop.tsx` still
+  draws the wash); a stage that changes place mid-beat re-seats nobody (the next arrangement does). Test: `test-told-scene.js`.
 
 ## Told v4 — the book's own cast (Film Flow 5, 2026-11-17)
 

@@ -75,6 +75,7 @@ const ACT_MIN = 36; // an act that needs an approach does not land before this s
 /** how a named thing is DRAWN: a person is the rig; anything with a drawing is that drawing; the rest is an emblem */
 const drawnAs = (e) => (!e ? null : e.kind === "person" ? "figure" : (Array.isArray(e.paths) && e.paths.length) || e.motif ? "icon" : KINDS[e.kind] || null);
 const Y = { emblem: 470, figure: 850, icon: 600 };
+const SIGN_Y = 830; // slice 2: the baseline of a place's SIGN (its name in a box) standing on the scene's ground
 // IN THE HAND: a held drawing is this share of the person's width, at the hand of the arm that faces the middle
 // (round 2: the first version put it BESIDE the hand — the operator saw a journal floating next to Mina.) The rig's
 // `hold` pose brings the forearm across the body: the hand rests in front of the chest at (228, 431) of the rig's
@@ -199,6 +200,9 @@ function compileTold(beats, written = {}, opts = {}) {
   // `states`, a `backdrop` or a `motif` pointer. A book written for told v1 (dracula as authored, zero-to-one, the
   // golden fixture) is placed exactly as told 1.2 placed it.
   const V2 = Object.values(written || {}).some((e) => e && (e.reads != null || e.states || e.backdrop || e.motif));
+  // slice 2 (told v5): a book that draws at least one place as a SCENE (a backdrop with a sky) — only such a book gets
+  // `known` on its carried people (receding name plates); every other book compiles byte-identical
+  const V5S = Object.values(written || {}).some((e) => e && e.backdrop && e.backdrop.sky != null);
   let place = null; // the place the told run is AT (its drawing is the stage's backdrop); a run's end clears it
 
   for (const beat of beats) {
@@ -271,7 +275,25 @@ function compileTold(beats, written = {}, opts = {}) {
       // an arrangement is exact, like `stage`: a thing it does not name leaves (dracula scene-108: eight things from
       // three arrangements standing in each other)
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && !who.includes(x._ent))) { for (const b of bound(it._ent)) leave(b, Math.max(12, at)); leave(it, Math.max(12, at)); }
-      who.forEach((ent, i) => ensure(ent, at + (at > 0 ? i * 8 : 0), sl[Math.min(i, sl.length - 1)]));
+      // slice 2 — IN THE PLACE: on a scene stage a person stands at one of the place's spots (the gate, the door:
+      // depth by the spot's scale, in `who` order) or, without spots, on the ground line — never in the air at
+      // mid-stage (the first scene stills: Jonathan walking in front of the castle at the flow line); the place
+      // itself, when the author lists it, is its name on a SIGN at its slot, not an emblem tile next to its own
+      // drawing. Heads rows (`pairs`) are left as they are.
+      const sc = sceneAt(); let fi = 0;
+      const slotOf = (ent, i) => { const base = sl[Math.min(i, sl.length - 1)]; if (!sc || base.head || drawnAs(entities[ent]) !== "figure") return base; const spot = sc.spots[fi++]; return spot ? { x: spot.x, y: spot.y, s: spot.s } : { x: base.x, y: Y.figure, s: Math.min(base.s, 1) }; };
+      who.forEach((ent, i) => {
+        const when = at + (at > 0 ? i * 8 : 0), slot = slotOf(ent, i);
+        if (sc && ent === place) { // the place as a sign on its own ground
+          const e = entities[ent], it = find(ent);
+          if (it) { const st = stateAt(it, when); if (Math.abs(st.x - slot.x) > 1) move(ent, Math.max(when, 20), { x: slot.x }); return; }
+          add({ id: ent, kind: "word", label: String(e.label || ent).toUpperCase(), size: 44, box: INK, x: slot.x, y: SIGN_Y, s: 1, _role: "entity", _ent: ent, ...(at > 0 ? { enter: { at: Math.max(14, when), from: "bottom", dur: 14 } } : {}) });
+          return;
+        }
+        ensure(ent, when, slot);
+      });
+      // … facing each other: in a scene the people of an arrangement turn towards the middle of their group
+      if (sc) { const figs = who.map((w) => find(w)).filter((it) => it && it.kind === "figure"); if (figs.length > 1) { const cx = figs.reduce((s, it) => s + it.x, 0) / figs.length; for (const it of figs) { if (it.x > cx + 1) it.flip = true; else if (it.x < cx - 1) delete it.flip; } } }
       // flow: the arrows of this arrangement (the ones of an earlier arrangement leave with it)
       for (const old of items.filter((x) => x._role === "flowArrow" && !x._gone)) leave(old, Math.max(12, at));
       if (layout === "flow" && who.length > 4) err(`layout "flow" holds at most four things (${who.length} given) — a mechanism a viewer can follow`);
@@ -312,7 +334,9 @@ function compileTold(beats, written = {}, opts = {}) {
     const backdrops = [];
     // told v5: a backdrop drawn as a SCENE carries its sky and ground (resolved by own-drawings.js) through to the
     // stage; a backdrop without them is written exactly as before (no key is added)
-    const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox, ...(e.backdrop.sky ? { sky: e.backdrop.sky, ground: e.backdrop.ground } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
+    const backdropOf = (id) => { const e = entities[id]; if (!e || e.kind !== "place") return null; return e.backdrop ? { id, wide: true, paths: e.backdrop.paths, viewBox: e.backdrop.viewBox, ...(e.backdrop.sky ? { sky: e.backdrop.sky, ground: e.backdrop.ground, ...(e.backdrop.spots ? { spots: e.backdrop.spots } : {}) } : {}) } : Array.isArray(e.paths) && e.paths.length ? { id, paths: e.paths, viewBox: e.viewBox } : null; };
+    // slice 2: the SCENE the stage is at (a backdrop with a sky), with its standing spots in frame coordinates
+    const sceneAt = () => { const b = place ? backdropOf(place) : null; return b && b.sky ? { ...b, spots: T.spotsOf(b) } : null; };
     // THE BOOK'S HOME (2026-11-18): the one place marked "home": true is the ground of this book — a stage that names
     // no place stands there, not on blank paper (a book of ideas has no castle; it has the room its ideas live in)
     const HOME = Object.keys(entities).find((id) => entities[id] && entities[id].home === true && backdropOf(id)) || null;
@@ -381,9 +405,10 @@ function compileTold(beats, written = {}, opts = {}) {
       // (seated at a desk, bent over a hole), and the desk goes
       for (const it of items.filter((x) => x._role === "entity" && !x._gone && x.act)) { for (const b of bound(it._ent).filter((x) => x._role === "desk")) { leave(b, 10, 8); if (b._seat) recrownAfter.add(it._ent); } /* the arrangement below gives the thing its place */ swap(it._ent, 12, (n) => { delete n.act; delete n.labelDy; n.action = "idle"; }, 3, true); }
       const wasOn = items.some((x) => x._role === "entity");
-      arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
-      // … and WHERE it is: a new stage without `at` is nowhere in particular (the plain ground)
+      // WHERE it is first (a new stage without `at` is nowhere in particular — the plain ground, or the book's home),
+      // then who stands in it: in a scene (slice 2) the arrangement reads the place's standing spots
       setPlace(told.stage.at || null, wasOn || place ? 14 : 0);
+      arrange(told.stage.layout || "row", who, wasOn ? (V2 && leaving.length ? 26 : 14) : 0);
     }
 
     let cursor = 0;
@@ -758,6 +783,8 @@ function compileTold(beats, written = {}, opts = {}) {
       // v3: over the cut a person is at REST in their verb (seated at the desk, slumped) — the gesture is not played
       // again; one who was still running / walking / falling when the beat ended has arrived
       if (keep.act) keep.act = { verb: keep.act.verb, at: -9999 };
+      // slice 2: a person who stays over the cut is KNOWN — their name plate recedes from the next beat on
+      if (V5S && keep.kind === "figure") keep.known = true;
       if (it._stopAfter) { keep.action = "idle"; delete keep._stopAfter; }
       if (it._lands) { keep.action = "collapsed"; delete keep._lands; }
       carried.push(keep);

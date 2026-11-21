@@ -157,6 +157,15 @@ Lead agent — a backdrop drawn as a scene carries two colours next to its paths
   and the ground as the engine does); the verdict is bound to the picture WITH its sky.
 - A backdrop without `"sky"` is drawn as before — the pale wash — on every stage. Authors change nothing: `at` / `place`.
 
+**The cast IN the place (slice 2).** A scene backdrop may name **`"spots"`**: `[{ "x": 1320, "y": 500, "s": 0.55 }, …]`
+(1-6, the drawing's units, on the drawn ground — the castle gate, the abbey door, the front of the pier; `s` is depth:
+0.45 far … 1.1 near). On a stage AT that place the PEOPLE of an arrangement stand at the spots in the order the author
+lists them (`who`), turned towards each other; a person beyond the spots, or in a place without spots, stands on the
+ground line — never in the air at mid-stage. Things keep their generic slots. The place itself, when an author lists
+it in `who` while the stage is at it, is its name on a SIGN on the ground (not an emblem tile beside its own drawing).
+A person who stays over a cut is `known`: their name plate recedes (smaller, lighter) from the next beat; the full
+plate stands where they first appear. All of this only in a book that draws at least one place as a scene.
+
 ## Storyboard authors — when a beat names something
 
 Write `told` instead of concept / cast / callout / diagram (schema, layouts and the event table: `rules.md`).

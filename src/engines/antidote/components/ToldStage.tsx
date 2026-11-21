@@ -8,7 +8,7 @@ import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
 import { useSkin, plateStyle } from "./skin";
-import { toldState, itemState, backdropOpacity, backdropFit, backdropScene, standsOn, plateW, type ToldItem, type ToldSpec } from "../told";
+import { toldState, itemState, backdropOpacity, backdropFit, backdropScene, standsOn, spotsOf, SPOT_REACH, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
 const BACKDROP_OPACITY = 0.26;
@@ -207,7 +207,8 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
           {scenes.length ? spec.items.filter((it) => it.kind === "figure" && !it.screen).map((it) => {
             const st = itemState(it, frame);
             if (!st || st.o <= 0.001) return null;
-            const on = scenes.filter((p) => standsOn(st.y, p.sc!.groundTop)).reduce((m, p) => Math.max(m, p.o), 0);
+            // … or on one of the place's own standing spots (the gate, the door: drawn ground, further back)
+            const on = scenes.filter((p) => standsOn(st.y, p.sc!.groundTop) || spotsOf(p.b).some((q) => Math.abs(q.y - st.y) < SPOT_REACH)).reduce((m, p) => Math.max(m, p.o), 0);
             if (on <= 0.001) return null;
             const w = (it.w ?? 300) * st.s;
             return <ellipse key={`sh-${it.id}`} cx={st.x} cy={st.y + 2} rx={w * 0.34} ry={Math.max(8, w * 0.045)} fill={SHADOW_FILL} opacity={st.o * on} />;
@@ -239,7 +240,14 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                   <g transform={`translate(${it.flip ? w / 2 : -w / 2} ${-h}) scale(${it.flip ? -1 : 1} 1)`}>
                     <Everyman variant={v} pose={p} width={w} body={full ? "full" : "bust"} holds={it.holds as HandProp | undefined} />
                   </g>
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={-h + headTop - (it.size ?? 38) - 34 + ((spec.v ?? 1) >= 3 ? it.labelDy ?? 0 : 0)} fit={fit} /> : null}
+                  {it.label ? (() => {
+                    const size = it.size ?? 38, py = -h + headTop - size - 34 + ((spec.v ?? 1) >= 3 ? it.labelDy ?? 0 : 0);
+                    // v5 (slice 2): a person already introduced in an earlier beat (`known`) carries a RECEDED plate —
+                    // smaller and lighter around its own centre; the full plate stands where a person first appears
+                    const recede = (spec.v ?? 1) >= 5 && it.known;
+                    const cy = py + (size + 22) / 2;
+                    return recede ? <g opacity={0.72} transform={`translate(0 ${cy}) scale(0.8) translate(0 ${-cy})`}><Tag label={it.label} size={size} y={py} fit={fit} /></g> : <Tag label={it.label} size={size} y={py} fit={fit} />;
+                  })() : null}
                 </g>
               );
             }

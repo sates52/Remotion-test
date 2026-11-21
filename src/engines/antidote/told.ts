@@ -35,6 +35,9 @@ export type ToldItem = {
    *  person, up for one of two people in contact so that the two names do not lie on each other */
   labelDy?: number;
   variant?: Record<string, unknown>; action?: string; cue?: number; body?: "bust" | "full"; flip?: boolean; holds?: string;
+  /** figure (v5, slice 2): this person was already on stage in an earlier beat — their name plate RECEDES (smaller,
+   *  lighter); the full plate stands only where a person first appears. Written by the compiler on carried figures. */
+  known?: boolean;
   /** icon: an animal or an object DRAWN FOR THIS BOOK, as paths in its own viewBox (the same data as motifs.json) */
   paths?: ToldPath[]; viewBox?: string;
   /** icon (v2): which of the drawing's states this is (the ship "wrecked") — told to the gates that read a stage */
@@ -57,7 +60,11 @@ export type ToldPath = { d: string; fill?: string; stroke?: string; strokeWidth?
 export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number };
   /** v5 — a SCENE backdrop: the colour of the sky behind the place (light) and of the ground the cast stands on. Both
    *  hex, resolved by the compiler. Without `sky` the backdrop is the pale wash. */
-  sky?: string; ground?: string };
+  sky?: string; ground?: string;
+  /** v5 (slice 2) — where a person can STAND in this place (the gate, the door, the pier): points in the drawing's
+   *  own viewBox units, with a depth scale. The compiler puts the figures of an arrangement there. */
+  spots?: ToldSpot[] };
+export type ToldSpot = { x: number; y: number; s?: number };
 export type ToldSpec = { v?: number; bg?: string; grid?: boolean; items: ToldItem[]; cam?: ToldKey[]; backdrops?: ToldBackdrop[];
   /** v2: "fit" = a name plate is as wide as its name (plateW); absent = the v1 plate */
   plate?: "fit" };
@@ -107,6 +114,15 @@ export function backdropScene(b: { viewBox?: string; wide?: boolean; sky?: strin
   return { sky: b.sky, ground: b.ground ?? "#1E1E22", groundTop: fit.y + (vy + vh) * fit.k };
 }
 export const standsOn = (feetY: number, groundTop: number): boolean => feetY >= groundTop - GROUND_REACH;
+/** v5 (slice 2) — a scene's standing spots in FRAME coordinates (the compiler places figures there; the renderer draws a
+ *  contact shadow under a figure whose feet are on one). Empty for a backdrop without spots. */
+export function spotsOf(b: { viewBox?: string; wide?: boolean; spots?: ToldSpot[] }): { x: number; y: number; s: number }[] {
+  if (!Array.isArray(b.spots) || !b.spots.length) return [];
+  const fit = backdropFit(b);
+  return b.spots.map((p) => ({ x: fit.x + p.x * fit.k, y: fit.y + p.y * fit.k, s: p.s ?? 1 }));
+}
+/** feet on a spot: within this many px of its level */
+export const SPOT_REACH = 14;
 export const EASE = {
   out: (t: number) => 1 - Math.pow(1 - t, 3),
   inout: (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),

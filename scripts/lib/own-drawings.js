@@ -35,6 +35,8 @@ const RULES = {
   // vanished against the ink castle in the first scene stills — a mass above the ground strip (top above
   // `groundLine` of the box) of at least `massShare` of the box is a mid tone (luminance ≥ `midLuminance`)
   midLuminance: 0.1, groundLine: 0.78, massShare: 0.03,
+  // slice 2: a scene's standing SPOTS — on the drawn ground (lower half of the box), a depth scale far … near
+  maxSpots: 6, spotFloor: 0.5, spotScale: [0.45, 1.1],
 };
 const DEFAULT_PALETTE = { ink: "#1A1412", accent: "#C2410C", paper: "#FAF7F2" };
 
@@ -149,6 +151,18 @@ function lintDrawing(d, { palette = DEFAULT_PALETTE, kind = "thing" } = {}) {
       if (f && f !== "none" && b.y0 < vy + vh * RULES.groundLine && (b.x1 - b.x0) * (b.y1 - b.y0) >= vw * vh * RULES.massShare && luminance(f) < RULES.midLuminance)
         out.push(`paths[${k}] is a big ink mass in the middle ground (${f}, luminance ${luminance(f).toFixed(2)}) — the cast is drawn in ink and vanishes against it: draw the place in MID tones (luminance ≥ ${RULES.midLuminance}); only the ground strip along the bottom edge and small details may be dark`);
     });
+    // slice 2: SPOTS — where a person can stand in the place (the gate, the door): on the drawn ground, 1 … 6
+    if (d.spots != null) {
+      const sp = Array.isArray(d.spots) ? d.spots : null;
+      if (!sp || !sp.length || sp.length > RULES.maxSpots) out.push(`"spots" — a list of 1 … ${RULES.maxSpots} standing places { "x", "y", "s"? } in the drawing's own units`);
+      else sp.forEach((p, k) => {
+        const [vx, vy2, vw2, vh2] = vb;
+        if (!p || !Number.isFinite(p.x) || !Number.isFinite(p.y)) { out.push(`spots[${k}]: needs numbers "x" and "y"`); return; }
+        if (p.x < vx || p.x > vx + vw2 || p.y < vy2 || p.y > vy2 + vh2) out.push(`spots[${k}] (${p.x}, ${p.y}) is outside the box`);
+        else if (p.y < vy2 + vh2 * RULES.spotFloor) out.push(`spots[${k}] stands at y ${p.y} — a person stands on the drawn ground, in the lower ${Math.round((1 - RULES.spotFloor) * 100)} % of the box (y ≥ ${Math.round(vy2 + vh2 * RULES.spotFloor)}), not in the sky`);
+        if (p.s != null && !(p.s >= RULES.spotScale[0] && p.s <= RULES.spotScale[1])) out.push(`spots[${k}].s ${p.s} — the depth scale is ${RULES.spotScale[0]} (far) … ${RULES.spotScale[1]} (near)`);
+      });
+    }
   }
   return out;
 }
@@ -199,8 +213,8 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
       // stranger names, so they are in the hash too; a backdrop without them hashes as before
       const scene = extra.backdrop && d.sky != null ? { sky: color(d.sky, palette) || d.sky, ground: d.ground != null ? color(d.ground, palette) || d.ground : palette.ink } : null;
       drawings.push({ key, entity: id, ...extra, intended: what, accepted, hash: sha(scene ? { viewBox, paths: drawn, ...scene } : { viewBox, paths: drawn }), paths: drawn, viewBox, src: d.src, ...(scene || {}),
-        lint: lintDrawing({ paths: d.paths, viewBox, ...(extra.backdrop ? { sky: d.sky, ground: d.ground } : {}) }, { palette, kind: extra.backdrop ? "backdrop" : "thing" }) });
-      return { paths: drawn, ...(d.viewBox ? { viewBox: d.viewBox } : {}), ...(scene || {}) }; // a default box is not written into the stage (as told v1)
+        lint: lintDrawing({ paths: d.paths, viewBox, ...(extra.backdrop ? { sky: d.sky, ground: d.ground, ...(d.spots != null ? { spots: d.spots } : {}) } : {}) }, { palette, kind: extra.backdrop ? "backdrop" : "thing" }) });
+      return { paths: drawn, ...(d.viewBox ? { viewBox: d.viewBox } : {}), ...(scene || {}), ...(scene && Array.isArray(d.spots) && d.spots.length ? { spots: d.spots.map((p) => ({ x: p.x, y: p.y, ...(p.s != null ? { s: p.s } : {}) })) } : {}) }; // a default box is not written into the stage (as told v1)
     };
     if (base) {
       Object.assign(r, push(id, base, {}, e.label || id));
@@ -220,7 +234,7 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
     if (e.backdrop) {
       if (e.kind !== "place") errors.push(`entity "${id}": only a place has a backdrop`);
       const s = source(e.backdrop, motifs, errors, `entity "${id}" backdrop`);
-      if (s) r.backdrop = push(`${id}@backdrop`, { ...s, ...(e.backdrop.sky != null ? { sky: e.backdrop.sky } : {}), ...(e.backdrop.ground != null ? { ground: e.backdrop.ground } : {}) }, { backdrop: true }, `${e.label || id} (the place, behind the stage)`);
+      if (s) r.backdrop = push(`${id}@backdrop`, { ...s, ...(e.backdrop.sky != null ? { sky: e.backdrop.sky } : {}), ...(e.backdrop.ground != null ? { ground: e.backdrop.ground } : {}), ...(e.backdrop.spots != null ? { spots: e.backdrop.spots } : {}) }, { backdrop: true }, `${e.label || id} (the place, behind the stage)`);
       else { errors.push(`entity "${id}": backdrop has no drawing (paths)`); delete r.backdrop; }
     }
     out[id] = r;
@@ -302,7 +316,7 @@ function drawingGuide(palette = DEFAULT_PALETTE) {
     `"reads": the 1-3 word names a stranger may give it ("ship", "sailing ship") — written BEFORE the blind test; never add the word it was mistaken for.`,
     `STATES — what the narration CHANGES gets a drawing per state it shows (2-3 at most): "states": { "wrecked": { "reads": ["shipwreck", "wrecked ship"], "paths": [...] } } in the same box with the same base silhouette, only the change drawn differently. Authors then write { "do": "change", "who": "<id>", "state": "wrecked" }.`,
     `A PLACE may also be the stage's background: "backdrop": { "viewBox": "${RULES.backdropBox}", "reads": [...], "paths": [...] } — a wide, simple skyline / landscape standing on the bottom edge (up to ${RULES.maxBackdropPaths} paths). Authors write "stage": { ..., "at": "<place id>" }.`,
-    `DRAW THE PLACE AS A SCENE, not as a silhouette (told v5): give the backdrop "sky": "<light hex or token>" and "ground": "<hex or token>" and it is drawn at full presence with the cast standing IN it — without "sky" it is only a pale wash behind the stage. Three bands, back to front: (1) the SKY is a colour, not a path — a pale tone of the book's palette (luminance ≥ ${RULES.skyLuminance}: the dark titles and the name plates are read over it), and the upper ${RULES.skyBand * 100} % of the box holds NO path at all; (2) the MIDDLE GROUND — the place itself (the castle on its crag, the harbour wall, the room's far wall and window) in two or three MID tones of the palette (luminance ≥ ${RULES.midLuminance}: the cast is drawn in ink and must stand out from the place — a black coat vanished against an ink castle), never one ink silhouette and never a wash over the whole box; only small details may be dark; (3) a flat GROUND STRIP along the bottom edge in the "ground" colour (clearly another tone than the sky) — the engine continues it to the bottom of the frame and the cast stands on it. Nothing in it that is an entity of its own, nobody of the cast.`,
+    `DRAW THE PLACE AS A SCENE, not as a silhouette (told v5): give the backdrop "sky": "<light hex or token>" and "ground": "<hex or token>" and it is drawn at full presence with the cast standing IN it — without "sky" it is only a pale wash behind the stage. Three bands, back to front: (1) the SKY is a colour, not a path — a pale tone of the book's palette (luminance ≥ ${RULES.skyLuminance}: the dark titles and the name plates are read over it), and the upper ${RULES.skyBand * 100} % of the box holds NO path at all; (2) the MIDDLE GROUND — the place itself (the castle on its crag, the harbour wall, the room's far wall and window) in two or three MID tones of the palette (luminance ≥ ${RULES.midLuminance}: the cast is drawn in ink and must stand out from the place — a black coat vanished against an ink castle), never one ink silhouette and never a wash over the whole box; only small details may be dark; (3) a flat GROUND STRIP along the bottom edge in the "ground" colour (clearly another tone than the sky) — the engine continues it to the bottom of the frame and the cast stands on it. Nothing in it that is an entity of its own, nobody of the cast. WHERE PEOPLE STAND: "spots": [{ "x", "y", "s" }] (1-${RULES.maxSpots}, the drawing's units, on the drawn ground — the gate, the door, the pier; "s" ${RULES.spotScale[0]} far … ${RULES.spotScale[1]} near): the people of a stage stand there in the order the author lists them, facing each other; without spots they stand on the ground line.`,
     `THE BOOK'S HOME: mark ONE drawn place "home": true — it stands behind every scene that names no place, told or not, instead of blank paper or a generic office. A story's home is where it mostly happens; a book of IDEAS draws the room its ideas live in (a systems book: a workshop of tanks and pipes; a book on habits: one kitchen at 6 a.m.) — never "an office". Draw it along the edges and the top: the things and the people stand in the MIDDLE of it, so keep the middle third quiet.`,
     `EVERY place the story stands in gets a backdrop — interiors too (her bedroom, the asylum, the cellar), not only the cities: it is also drawn behind the beats that are not told ("place": "<place id>"). A backdrop holds NO thing that is an entity of its own (no ship in the harbour when the ship is on stage: the viewer sees two) and nobody of the cast.`,
     `THE SAME DRAWING EVERYWHERE: a thing drawn here is also an own icon of the beats that are NOT told — an author writes "concept": "<entity id>" and the same ship stands beside the cast. So draw the book's recurring IDEAS too, as THIS book's thing (not "law" but the deed of the estate; not "medical" but the transfusion flask): a film whose icons are the shared scales, shield and clock could be any book.`,

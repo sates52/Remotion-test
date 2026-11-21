@@ -131,4 +131,56 @@ t("the authors' brief says how a place is drawn as a scene, with the lint's own 
   assert.ok(/told v5/.test(md) && /"sky"/.test(md) && /"ground"/.test(md), "told.md tells the lead agent");
 });
 
+// ---- slice 2: the cast IN the place ----------------------------------------------------------------------------
+const SPOTS = [{ x: 1320, y: 500, s: 0.55 }, { x: 1000, y: 640, s: 0.85 }, { x: 480, y: 735 }];
+const ENT2 = { ...ENT, transylvania: { label: "CASTLE DRACULA", kind: "place", backdrop: { ...SCENE, spots: SPOTS } }, dracula: { label: "COUNT DRACULA", kind: "person" }, deed: { label: "DEED", kind: "object", paths: SCENE.paths.slice(0, 5), viewBox: "0 0 1920 760" } };
+
+t("slice 2 · lint: spots stand on the drawn ground, inside the box, 1 … 6, a depth scale far … near", () => {
+  assert.deepStrictEqual(OD.lintDrawing({ ...SCENE, spots: SPOTS }, { palette: PAL, kind: "backdrop" }), []);
+  const bad = OD.lintDrawing({ ...SCENE, spots: [{ x: 100, y: 100 }, { x: 5000, y: 700 }, { x: 300, y: 700, s: 2 }, { x: "a" }] }, { palette: PAL, kind: "backdrop" });
+  assert.ok(bad.some((m) => /not in the sky/.test(m)) && bad.some((m) => /outside the box/.test(m)) && bad.some((m) => /depth scale/.test(m)) && bad.some((m) => /needs numbers/.test(m)), String(bad));
+  assert.ok(OD.lintDrawing({ ...SCENE, spots: [] }, { palette: PAL, kind: "backdrop" }).some((m) => /1 … 6 standing places/.test(m)));
+  const r = OD.resolveEntities(ENT2, { palette: PAL });
+  assert.deepStrictEqual(r.entities.transylvania.backdrop.spots, SPOTS, "spots reach the compiler as written (the drawing's units)");
+  assert.deepStrictEqual(T.spotsOf({ wide: true, viewBox: "0 0 1920 760", spots: [{ x: 1320, y: 500, s: 0.55 }] }), [{ x: 1320, y: 610, s: 0.55 }], "in the frame: the wide box stands at y 110, scale 1");
+});
+
+t("slice 2 · a person stands at the place's spots (depth by the spot's scale), people face each other, the place is a sign", () => {
+  const r = C.compileTold([
+    beat("b1", "Jonathan rode up to Castle Dracula and the Count came out", { stage: { layout: "versus", who: ["jonathan", "transylvania"], at: "transylvania" }, events: [{ on: "Count", do: "arrange", layout: "row", who: ["jonathan", "dracula", "deed"] }] }),
+    beat("b2", "and in the morning they talked", { events: [{ on: "morning", do: "arrange", layout: "versus", who: ["dracula", "jonathan"] }] }),
+  ], ENT2, { palette: PAL });
+  assert.deepStrictEqual(r.errors, []);
+  const s1 = r.stages[0], jon = s1.items.find((it) => it.id === "jonathan"), sign = s1.items.find((it) => it.id === "transylvania");
+  assert.deepStrictEqual([Math.round(jon.x), Math.round(jon.y)], [1320, 610], "the first person takes the first spot: at the gate");
+  assert.ok(Math.abs(jon.s - 0.55) < 0.02, `far and small: ${jon.s} (fitS may trim a little)`);
+  assert.ok(sign && sign.kind === "word" && sign.box && sign.label === "CASTLE DRACULA" && sign.y === 830, "the place the stage is AT is its name on a sign, not an emblem tile");
+  assert.ok(!s1.items.some((it) => it.kind === "emblem" && it.label === "CASTLE DRACULA"));
+  const after = T.itemState(s1.items.find((it) => it.id === "dracula"), 299);
+  assert.deepStrictEqual([Math.round(after.x), Math.round(after.y)], [1000, 750], "the second person takes the second spot");
+  assert.ok(after.s > jon.s + 0.1 && after.s <= 0.85, `nearer, larger (fitS keeps the plate under the title band): ${after.s}`);
+  const jon2 = T.itemState(jon, 299);
+  assert.ok(jon.flip === true && Math.round(jon2.x) === 1320, "Jonathan at the gate (right) faces the Count on the road (left)");
+  const deed = s1.items.find((it) => it.id === "deed");
+  assert.ok(deed && deed.kind === "icon" && deed.y === 600, "a thing keeps its generic slot: only people stand at spots");
+  const s2 = r.stages[1];
+  assert.ok(s2.items.filter((it) => it.kind === "figure").every((it) => it.known === true), "people who stay over the cut are KNOWN: their plates recede");
+  assert.ok(!s1.items.some((it) => it.known), "nobody is known in the beat they first appear in");
+});
+
+t("slice 2 · without spots a person stands on the ground line, never at the flow line; old books get no `known`", () => {
+  const r = C.compileTold([beat("b1", "Jonathan walked on", { stage: { layout: "flow", who: ["jonathan", "deed"], at: "transylvania" } }), beat("b2", "and on", { events: [{ on: "on", do: "shake", who: "jonathan" }] })],
+    { ...ENT2, transylvania: { label: "CASTLE DRACULA", kind: "place", backdrop: SCENE } }, { palette: PAL });
+  assert.deepStrictEqual(r.errors, []);
+  const jon = r.stages[0].items.find((it) => it.id === "jonathan");
+  assert.strictEqual(jon.y, 850, "on the ground, not in the air at mid-stage");
+  const plain = C.compileTold([beat("b1", "Jonathan walked on", { stage: { layout: "flow", who: ["jonathan", "deed"], at: "whitby" } }), beat("b2", "and on", { events: [{ on: "on", do: "shake", who: "jonathan" }] })],
+    Object.fromEntries(Object.entries({ ...ENT2, whitby: ENT.whitby }).filter(([k]) => k !== "transylvania")), { palette: PAL });
+  assert.ok(!plain.stages.flatMap((s) => s.items).some((it) => "known" in it), "a book without a scene backdrop writes no `known`");
+  assert.strictEqual(plain.stages[0].items.find((it) => it.id === "jonathan").y, 600, "… and keeps the flow line");
+  const stage = fs.readFileSync(path.join(__dirname, "../src/engines/antidote/components/ToldStage.tsx"), "utf8");
+  assert.ok(/const recede = \(spec\.v \?\? 1\) >= 5 && it\.known;/.test(stage), "the plate recedes only on a v5 stage for a known person");
+  assert.ok(/spotsOf\(p\.b\)\.some\(\(q\) => Math\.abs\(q\.y - st\.y\) < SPOT_REACH\)/.test(stage), "a contact shadow under a figure on a spot");
+});
+
 console.log(`\n${n} checks passed`);

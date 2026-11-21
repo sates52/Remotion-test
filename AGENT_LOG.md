@@ -7708,6 +7708,28 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-21 — Told v5 slice 2: the cast IN the place (spots, facing, the place as a sign, receding plates)
+
+- **Why (seen on slice 1's stills):** the place was drawn but the cast still stood in a row IN FRONT of it — Jonathan
+  walking in the air at the flow line in front of the castle, the place's emblem tile "C" next to its own drawing,
+  every name plate at full size in every beat.
+- **What (only in a book that draws at least one place as a scene — `V5S`; every other book byte-identical):**
+  a scene backdrop may name **`spots`** `[{ x, y, s }]` (1-6, drawing units; lint: inside the box, on the drawn ground
+  — lower half —, depth scale 0.45 … 1.1). `told-compile.js arrange`: on a stage AT that place the PEOPLE of an
+  arrangement stand at the spots in `who` order (`told.ts spotsOf` → frame; `fitS` still trims a near spot so the plate
+  stays under the title), turned towards the middle of their group; beyond the spots or without spots they stand on the
+  ground line (never at the flow line); things keep their generic slots; the place itself, when listed in `who`, is its
+  name on a SIGN (`word` + box, y 830) instead of an emblem tile. Carried people get `known`; `ToldStage` draws a known
+  person's plate at 0.8 / 0.72 around its centre, and shadows a figure whose feet are on a spot. `setPlace` now runs
+  before `arrange` in a `stage` (output-neutral; the arrangement must know the place).
+- **Seen (scratch Dracula 13-19, cloud tag told-scene-4; `Downloads/film-flow-told/sahne-v5-dilim2-kast-yerde`):**
+  Jonathan at the castle gate — far, small, receded plate, shadow — and the Count on the road at his desk signing the
+  deed, facing each other; the Count at the abbey door at Carfax. flicker-check 20 events (walk cycles; slice 1: 20).
+  Still a diagram: the THINGS (deed, London tile) float at their generic height beside the people; a seated person at a
+  far spot sits on a chair in the air (the spot is the feet). NOT measured: a mute test; no real book on it yet.
+- Tests: `test-told-scene.js` 10 (3 new); goldens v1 + v2 unchanged; dracula 179 stages byte-identical. Docs: told.md
+  "The cast IN the place", `drawingGuide` (spots), FILM-FLOW.md. Not touched: book worktrees, published books, bars.
+
 ### 2026-11-21 — Told v5: the place is a SCENE (Film Flow 7, slice 1 — scene backdrops; dev/told-scene, not yet on god-mode)
 
 - **Why (measured, dracula):** the picture ADDS in 19 of 24 mute frames but EXPLAINS the event by itself in 1 — a told
