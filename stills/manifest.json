@@ -1,0 +1,59 @@
+{
+ "schema": "stills/1",
+ "name": "formtrack fold eski/yeni",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "jobs": [
+  {
+   "id": "tswg-eski",
+   "config": "configs/tswg-eski.json",
+   "frames": [
+    23176,
+    23296,
+    23430
+   ],
+   "strip": true
+  },
+  {
+   "id": "tswg-yeni",
+   "config": "configs/tswg-yeni.json",
+   "frames": [
+    23176,
+    23296,
+    23430
+   ],
+   "strip": true
+  },
+  {
+   "id": "dracula-eski",
+   "config": "configs/dracula-eski.json",
+   "frames": [
+    13180,
+    13300,
+    14430
+   ],
+   "strip": true
+  },
+  {
+   "id": "dracula-yeni",
+   "config": "configs/dracula-yeni.json",
+   "frames": [
+    13180,
+    13300,
+    14430
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "06f80ab08c4f9858",
+ "files": {
+  "stills/configs/tswg-eski.json": "46992f69828bab18ffee08c92d11908cbb9891b679b59af711d31f97c3c1266c",
+  "stills/configs/tswg-yeni.json": "fe1b3ce590b9041dff60df920267f09f70cc3024a2fc858fee6854ac60c7996e",
+  "stills/configs/dracula-eski.json": "2337911241911693e3272726a9596cf033d076ce7cb02118dcfe400b52918321",
+  "stills/configs/dracula-yeni.json": "326528bf817c8d1eae1001f2a14befbcbf095e37b832df4e6240a080f31d6201"
+ },
+ "builtAt": "2026-11-23T16:56:03.100Z"
+}
