@@ -178,6 +178,14 @@ Every agent that plans, authors, tests or changes the pipeline obeys these. Deta
   `clean.vtt` (`check-clean-vtt.js`). `package-youtube.js` refuses a NOT READY pack. Metadata never blocks a render.
   Rules: `scripts/lib/title-lint.js` (`TITLE_RULES`, `lintPack`); details SKILL.md §9.6b. Published books are frozen
   (`--all` is a report only).
+- **Pack sameness + the human + the disclosure (2026-11-23, after the YPP "inauthentic content" rejection):** the description
+  is compared with every other pack (no copied line, no shared 8-word run — the old "🔔 Subscribe for more book breakdowns."
+  and the scaffold summary are gone), tags/hashtags carry at most 2 / 1 channel staples (the rest name THIS book),
+  the operator's producer's note opens the description (`NO_PRODUCER_NOTE`), and `youtube-meta.alteredContent: true`
+  + the "Altered content → Yes" checklist line record the AI disclosure. Numbers: `data/quality-policy.json → packSameness`.
+- **Upload pace is policy, not habit (operator, 2026-11-23):** ≤ 1 upload per day, ≤ 7 per week (`quality-policy.json →
+  uploadPace`). `package-youtube.js` refuses a second bundle on a full day (`--operator-approved="<reason>"` overrides,
+  printed); after every upload `node scripts/upload-pace.js --record --slug=<slug>`; `--report` shows the rhythm a reviewer sees.
 
 ## 🖼️ Thumbnails — the grammar system is the ONLY way (STRICT, 2026-09-24)
 

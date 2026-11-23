@@ -164,10 +164,77 @@ function narrationOf(slug, root = ROOT) {
   return "";
 }
 
-/** One book's entry in the channel corpus (exported so tests can build a corpus by hand). */
-function packEntry(slug, titles, shortTitle, author, text = "") {
+/**
+ * Description lines that carry copy (≥ 4 words), without the chapter timestamps and the producer's-note line: what a
+ * second book's description may NOT share verbatim.
+ */
+function descriptionLines(desc) {
+  return String(desc || "").split(/\r?\n/).map((raw) => raw.trim())
+    .filter((raw) => !/^\d{1,2}:\d{2}(:\d{2})?\s/.test(raw) && !/^producer['’]?s note/i.test(raw))
+    .map((raw) => norm(raw)).filter((l) => l && words(l).length >= 4);
+}
+/** Word n-grams of the description copy (lines joined with a break so a run never crosses two lines). */
+function descriptionRuns(desc, n) {
+  const out = new Set();
+  for (const l of descriptionLines(desc)) for (const g of ngrams(words(l), n)) out.add(g);
+  return out;
+}
+const normTag = (t) => norm(String(t || "").replace(/^#/, ""));
+
+/**
+ * One book's entry in the channel corpus (exported so tests can build a corpus by hand).
+ * `pack` = { description, tags, hashtags } — what the sameness check compares (2026-11-23).
+ */
+function packEntry(slug, titles, shortTitle, author, text = "", pack = {}) {
   const ids = identityWords(shortTitle, author);
-  return { slug, titles, angles: titles.map((t) => angleWords(t, ids)), vocab: new Set(words(`${titles.join(" ")} ${text}`).map(stem)) };
+  const runN = (PACK_SAMENESS_DEFAULT.sharedRunWords);
+  return {
+    slug, titles, angles: titles.map((t) => angleWords(t, ids)), vocab: new Set(words(`${titles.join(" ")} ${text}`).map(stem)),
+    descLines: new Set(descriptionLines(pack.description)), descRuns: descriptionRuns(pack.description, runN),
+    tags: new Set((Array.isArray(pack.tags) ? pack.tags : []).map(normTag).filter(Boolean)),
+    hashtags: new Set((Array.isArray(pack.hashtags) ? pack.hashtags : []).map(normTag).filter(Boolean)),
+  };
+}
+
+// ── pack sameness (2026-11-23, after the YPP "inauthentic content" rejection) ──────────────────────────────────────
+// YouTube's slop classifier reads the SALIENT TERMS of title + description across the channel (Google Research, S-CTS):
+// 44 packs carried "🔔 Subscribe for more book breakdowns." word for word, #BookSummary stood on 83/83, "book summary"
+// on 77/83 tags, and the hand-refined descriptions kept the scaffold's "Best for readers studying … spoilers included"
+// (23 packs). So the pack is compared with every other pack of the channel: no copied line, no shared 8-word run, at
+// most two channel-staple tags and one staple hashtag. Numbers: data/quality-policy.json → packSameness (operator).
+const PACK_SAMENESS_DEFAULT = { sharedRunWords: 8, stapleMinPacks: 3, maxStapleTags: 2, maxStapleHashtags: 1 };
+function packSamenessPolicy(root = ROOT) {
+  const q = tryJson(path.join(root, "data", "quality-policy.json")) || {};
+  return { ...PACK_SAMENESS_DEFAULT, ...(q.packSameness || {}) };
+}
+/**
+ * Compare one pack's description / tags / hashtags with the rest of the channel. Pure.
+ * @returns {{errors:string[], warnings:string[], staples:{tags:string[], hashtags:string[]}}}
+ */
+function lintPackSameness({ description, tags, hashtags, corpus, policy }) {
+  const P = { ...PACK_SAMENESS_DEFAULT, ...(policy || {}) };
+  const errors = [], warnings = [];
+  corpus = corpus || [];
+  // 1. a line of copy another pack already carries (the subscribe line, the scaffold summary, a pasted CTA)
+  const mine = descriptionLines(description);
+  for (const l of mine) {
+    const hit = corpus.find((b) => b.descLines && b.descLines.has(l));
+    if (hit) { errors.push(`DESCRIPTION_SHARED_LINE: "${l.slice(0, 70)}" is also in ${hit.slug}'s description — every line of copy is this book's (chapters and the producer's note excepted)`); break; }
+  }
+  // 2. a run of N words shared with another pack (a rewritten template is still the template)
+  const runs = descriptionRuns(description, P.sharedRunWords);
+  for (const b of corpus) {
+    if (!b.descRuns) continue;
+    const g = [...runs].find((r) => b.descRuns.has(r));
+    if (g) { errors.push(`DESCRIPTION_SHARED_RUN: ${P.sharedRunWords} words in a row ("${g}") also in ${b.slug}'s description — write the description from this book's narration`); break; }
+  }
+  // 3. channel-staple tags / hashtags: carried by ≥ stapleMinPacks other packs
+  const count = (key, v) => corpus.reduce((n, b) => n + (b[key] && b[key].has(v) ? 1 : 0), 0);
+  const stapleTags = [...new Set((tags || []).map(normTag).filter(Boolean))].filter((t) => count("tags", t) >= P.stapleMinPacks);
+  const stapleHash = [...new Set((hashtags || []).map(normTag).filter(Boolean))].filter((t) => count("hashtags", t) >= P.stapleMinPacks);
+  if (stapleTags.length > P.maxStapleTags) errors.push(`TAGS_CHANNEL_STAPLES: ${stapleTags.length} tag(s) are on ≥ ${P.stapleMinPacks} other packs (${stapleTags.slice(0, 6).join(", ")}${stapleTags.length > 6 ? ", …" : ""}) — at most ${P.maxStapleTags}; the rest name this book (its people, places, things, ideas)`);
+  if (stapleHash.length > P.maxStapleHashtags) errors.push(`HASHTAGS_CHANNEL_STAPLES: ${stapleHash.length} hashtag(s) are on ≥ ${P.stapleMinPacks} other packs (${stapleHash.map((h) => "#" + h).join(" ")}) — at most ${P.maxStapleHashtags}: #<Title> #<Author> and at most one shared`);
+  return { errors, warnings, staples: { tags: stapleTags, hashtags: stapleHash } };
 }
 
 /** Titles + text of every book's YouTube pack (read once per root): the repetition corpus and the anchor DF corpus. */
@@ -183,7 +250,8 @@ function allPacks(root) {
     const man = tryJson(path.join(root, rel.manifest(s)));
     const titles = (Array.isArray(m.titles) ? m.titles : []).map((t) => (t && typeof t === "object" ? t.title || t.text : t)).filter((t) => typeof t === "string");
     const text = [typeof m.description === "string" ? m.description : "", Array.isArray(m.tags) ? m.tags.join(" ") : String(m.tags || "")].join(" ");
-    books.push(packEntry(s, titles, shortTitleOf((man && man.title) || m.bookTitle || s.replace(/-/g, " ")), (man && man.author) || m.author || "", text));
+    books.push(packEntry(s, titles, shortTitleOf((man && man.title) || m.bookTitle || s.replace(/-/g, " ")), (man && man.author) || m.author || "", text,
+      { description: m.description, tags: m.tags, hashtags: m.hashtags }));
   }
   corpusCache.set(root, books);
   return books;
@@ -367,6 +435,20 @@ function lintPack(slug, root = ROOT) {
     const descWords = new Set(words(desc).map(stem));
     if (anchors.size && ![...anchors].some((w) => descWords.has(w))) warnings.push(`TITLE_DESCRIPTION_MISMATCH: the description never names what the angle titles promise (${[...anchors].slice(0, 5).join(", ")})`);
   }
+  // 3b. sameness against the channel (2026-11-23): no copied line, no shared 8-word run, ≤ 2 staple tags, ≤ 1 staple hashtag
+  const same = lintPackSameness({ description: desc, tags: meta.tags, hashtags: meta.hashtags, corpus: channelCorpus(slug, root), policy: packSamenessPolicy(root) });
+  for (const e of same.errors) errors.push(e);
+  for (const w of same.warnings) warnings.push(w);
+
+  // 3c. the human behind the film (operator decision 2026-11-20 / 2026-11-23): the producer's note — the operator's own
+  // sentence (book.json take, recorded by producer-note.js) — opens the description. A pack without it is not uploaded.
+  const take = man.take && man.take.by === "operator" && String(man.take.note || "").trim() ? String(man.take.note).trim() : null;
+  if (!take) errors.push(`NO_PRODUCER_NOTE: book.json has no operator take (node scripts/producer-note.js --slug=${slug} --question=… then --tr=… --note=…) — the producer's note is the human element of every upload`);
+  else if (!norm(desc).includes(norm(take).slice(0, 60))) errors.push(`PRODUCER_NOTE_NOT_IN_DESCRIPTION: the operator's note ("${take.slice(0, 50)}…") is not in the description — regenerate the pack (plan-meta / plan-antidote-meta) or paste it as the first line`);
+
+  // 3d. AI disclosure (operator decision 2026-11-23): synthetic narration → Studio "Altered content = Yes" on every video,
+  // and the pack records that it is to be ticked.
+  if (meta.alteredContent !== true) errors.push(`NO_ALTERED_CONTENT_RECORD: youtube-meta.alteredContent must be true (synthetic narration voice → YouTube Studio "Altered content: Yes" on upload; operator decision 2026-11-23)`);
 
   // 4. chapters (YouTube: first at 0:00, ≥ 3, each ≥ 10 s, and they must be IN the description to become chapters)
   const ch = Array.isArray(meta.chapters) ? meta.chapters.filter((c) => c && typeof c.t === "number") : [];
@@ -419,6 +501,7 @@ function lintPack(slug, root = ROOT) {
     if (notIn.length) errors.push(`STALE_MD: ${notIn.length} refined title(s) are not in youtube.md (e.g. "${notIn[0]}") — regenerate it (--md-only)`);
     if (desc && !md.includes(desc.trim().slice(0, 120))) errors.push("STALE_MD: youtube.md does not carry the refined description — regenerate it (--md-only)");
     if (/SCAFFOLD \(deterministic\)/.test(md)) errors.push("STALE_MD: youtube.md is marked SCAFFOLD");
+    if (!/altered content/i.test(md)) errors.push("STALE_MD: youtube.md has no \"Altered content\" checklist line — regenerate it (--md-only) so the operator ticks the AI disclosure on upload");
   }
 
   // 8. captions: the upload file
@@ -445,6 +528,13 @@ const TITLE_RULES = `TITLE SET CONTRACT (scripts/lib/title-lint.js — lint-titl
 - No honest misreading in this book? Never invent one: use { "kind": "insight", "book": the surprising idea the
   narration states, "quote": ≥ 5 verbatim words } — the title names that idea (its words), no "wrong / myth" wording.
 - Five titles = five angles: at most 2 titles may be only book + author + a modifier (no Summary/Review/Explained swaps).
-- No placeholder ever (TODO, TBD, [Insert …], {{…}}, "counter-narrative angle 1"); no unsupported sensational claims.`;
+- No placeholder ever (TODO, TBD, [Insert …], {{…}}, "counter-narrative angle 1"); no unsupported sensational claims.
+PACK CONTRACT (lint-titles.js --pack, 2026-11-23 — YouTube reads the channel's salient terms across videos):
+- The description is written from THIS book's narration: no line of copy and no 8-word run shared with another pack
+  (no "Subscribe for more book breakdowns", no "Best for readers studying … spoilers included"). Chapters + the
+  producer's note line are exempt.
+- Tags name the book (its people, places, things, ideas) — at most 2 channel-staple tags (on ≥ 3 other packs); hashtags
+  = #<Title> #<Author> + at most one shared. The producer's note (book.json take, operator) opens the description.
+- youtube-meta.alteredContent = true and the checklist's "Altered content → Yes" line (synthetic narration).`;
 
-module.exports = { lintTitleSet, lintBook, lintPack, placeholderIn, PLACEHOLDER_RE, SCAFFOLD_SENTINELS, channelCorpus, packEntry, narrationOf, shortTitleOf, angleWords, identityWords, TITLE_RULES, STOCK_PHRASES };
+module.exports = { lintTitleSet, lintBook, lintPack, lintPackSameness, packSamenessPolicy, PACK_SAMENESS_DEFAULT, descriptionLines, descriptionRuns, placeholderIn, PLACEHOLDER_RE, SCAFFOLD_SENTINELS, channelCorpus, packEntry, narrationOf, shortTitleOf, angleWords, identityWords, TITLE_RULES, STOCK_PHRASES };

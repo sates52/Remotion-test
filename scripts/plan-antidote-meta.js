@@ -139,14 +139,17 @@ function fallbackMeta() {
       ? `${firstSentence}\n\nThat's the heart of ${t}${author ? " by " + author : ""} — and it's not the story you remember.`
       : `A full, spoiler-full breakdown of ${title}${author ? " by " + author : ""}.`,
     summary: `A deep analysis of "${title}"${author ? " by " + author : ""} — the characters, the turning points, the themes, and the one argument the book quietly proves. We cover what happens, what it means, and the reading most people miss, and we take on the book's hardest criticism head-on.\n\nBest for readers studying ${t} for class or a book club, and anyone who wants the real takeaway — spoilers included.`,
-    hashtags: [`#${t.replace(/[^a-z0-9]/gi, "")}`, "#BookSummary", `#${titleCase(genre.replace(/[^a-z]/gi, "")) || "Books"}`, "#Books", "#BookTube"],
+    // Hashtags and tags name THIS book (2026-11-23, YPP "inauthentic content": #BookSummary stood on 83/83 packs,
+    // "book summary" / "booktube" / "book club" on most tags). At most one genre-level term; no channel staples
+    // (lint: TAGS_CHANNEL_STAPLES / HASHTAGS_CHANNEL_STAPLES).
+    hashtags: [`#${t.replace(/[^a-z0-9]/gi, "")}`, author ? `#${author.replace(/[^a-z0-9]/gi, "")}` : "", `#${titleCase(genre.replace(/[^a-z]/gi, "")) || "Fiction"}`].filter(Boolean),
     tags: [
       `${t} summary`, `${t} explained`, `${t} analysis`, `${t} ending explained`,
       `${t} book`, `${t} themes`, `${t} characters`,
       // author-forward (people search "<book> <author>" and "<author> books")
       author, `${t} ${author}`.trim(), author ? `${author} ${t}` : "", author ? `${author} books` : "",
-      "book summary", "book analysis", "book review", "booktube",
-      `${genre} books`, `best ${genre} books`, "book club", title,
+      `${genre} books`, title,
+      // the refine step adds the book's own people / places / things as tags (storyboard/entities.json, story-bible.json)
     ].filter(Boolean),
     thumbnailHook: hook,
     thumbnailSubject: `dramatic cinematic scene representing "${shortTitle}", intense emotional character framed on right side with dark atmospheric lighting`,
@@ -194,6 +197,8 @@ ${(meta.tags || []).join(", ")}
 - [ ] Thumbnail: \`out/thumbnail-${SLUG}.png\` + Test & compare B/C (\`-b.png\`, \`-c.png\`)
 - [ ] Captions: upload \`public/captions/${SLUG}.clean.vtt\` as English CC → **"With timing"** (NOT the raw ${SLUG}.vtt)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
+- [ ] **Altered content → Yes** (synthetic narration voice; Studio → Details → Altered content) — recorded as youtube-meta.alteredContent (operator decision 2026-11-23)
+- [ ] Upload pace: ≤ 1 per day, ≤ 7 per week — \`node scripts/upload-pace.js --check\` before, \`node scripts/upload-pace.js --record --slug=${SLUG}\` right after the upload
 `;
 }
 
@@ -223,7 +228,7 @@ ${(meta.tags || []).join(", ")}
     ...(producerNote ? [`Producer's note: "${producerNote}"`, ""] : []),
     m.hook, "", m.summary, "",
     "⏱️ Chapters:", chapterBlock, "",
-    "🔔 Subscribe for more book breakdowns.", "",
+    // no channel-wide line here (2026-11-23): "🔔 Subscribe for more book breakdowns." stood word for word on 44 packs
     hashtags,
   ].join("\n");
 
@@ -237,6 +242,7 @@ ${(meta.tags || []).join(", ")}
     tags: m.tags,
     hashtags: m.hashtags,
     chapters,
+    alteredContent: true, // synthetic narration → Studio "Altered content: Yes" on every upload (operator, 2026-11-23)
     thumbnail: {
       hook: m.thumbnailHook,
       subject: m.thumbnailSubject,

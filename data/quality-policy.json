@@ -17,6 +17,19 @@
       }
     }
   },
+  "uploadPace": {
+    "note": "OPERATOR DECISION (Savas, 2026-11-23, after the YPP 'inauthentic content' rejection): the channel's publishing rhythm. S-CTS scores upload pacing next to transcript / title / description embeddings; the register showed 20 of 32 upload days with 2-5 videos. Read by scripts/lib/upload-pace.js; package-youtube.js refuses a second bundle on a full day.",
+    "maxPerDay": 1,
+    "maxPerWeek": 7
+  },
+  "packSameness": {
+    "note": "Pack (description / tags / hashtags) sameness against every other pack of the channel — scripts/lib/title-lint.js lintPackSameness. Proposed by the agent in the 2026-11-23 plan, operator-approved with it. sharedRunWords: a run of this many words shared with another description fails; a tag / hashtag on >= stapleMinPacks other packs is a channel staple; at most maxStapleTags / maxStapleHashtags of them.",
+    "decidedBy": "operator (Savas), 2026-11-23 (plan approval)",
+    "sharedRunWords": 8,
+    "stapleMinPacks": 3,
+    "maxStapleTags": 2,
+    "maxStapleHashtags": 1
+  },
   "narrativeFirewall": {
     "note": "OPERATOR DECISIONS ONLY. Scope: preview-ready only; production delivery rules are unchanged.",
     "previewReady": {

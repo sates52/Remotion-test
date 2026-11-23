@@ -51,3 +51,34 @@ YPP application risk is behind us. Live risks now: (a) **copyright / Content ID*
 Only a face-intro clip exists. For a faceless channel, brand identity is the main visual-consistency signal. Missing pieces to build once as reusable Remotion components: **intro sting (5-8s logo+name+music), outro (5s subscribe+next-card), thumbnail template.** Caption style already exists and is consistent.
 
 ---
+
+## 2026-11-17 — ❌ REJECTED on re-review: "generic or repetitive content" (policy: *inauthentic content*)
+
+- YouTube renamed "repetitious content" to **inauthentic content** on 2025-07-15: "repetitive or mass-produced"; "content that
+  looks like it's made with a template, or that may feel repetitive to viewers after watching several videos in a row";
+  AI content is fine when it carries "the creator's original, authentic insights or perspective"; the same intro / outro is
+  allowed when "the bulk of your content is different". The review is the channel as a whole: main theme, most-viewed,
+  **newest**, metadata (titles, thumbnails, descriptions), About.
+- The operator opened the appeal (2026-11-23). **While the appeal runs nothing on the channel is deleted or edited.**
+- What the detector measures (Google Research, *Scalable Detection of Adversarial Synthetic Slop and Coordinated Media
+  Abuse*, S-CTS, 2026 — read 2026-11-23): transcript text embeddings ("repetitive, templated narratives"), the salient terms
+  of title + description, **upload pacing** (`avg_log_upload_pace`, `time_to_first_upload_secs`), frame-level visual
+  embeddings; a trained category "Synthetic Text-to-Speech Narratives". Enforcement needs an account CLUSTER too — one
+  channel with hand uploads is not a cluster, so the live risk is the content signals + the human YPP review.
+- Measured on the channel that was reviewed (71 published videos, none made with the narrative-form / Film Flow code):
+  one prompt spine (median 40 % shared words), "which brings us to the" in 67/85 films; description line
+  "🔔 Subscribe for more book breakdowns." on 44 packs, `#BookSummary` on 83/83, "book summary" on 77/83 tag lists;
+  **20 of 32 upload days carried 2–5 videos, the week of 09-28 carried 19** (the written "1/day, no bursts" rule had no code).
+- Decisions (operator, 2026-11-23): upload pace **≤ 1 per day, ≤ 7 per week** (`data/quality-policy.json → uploadPace`,
+  guarded by `scripts/upload-pace.js` + `package-youtube.js`); **Altered content = Yes on every video, recorded**
+  (`youtube-meta.alteredContent`, lint `NO_ALTERED_CONTENT_RECORD`); the producer's note is required for every upload
+  (`NO_PRODUCER_NOTE`); description / tags / hashtags are compared with every other pack (`lintPackSameness`:
+  `DESCRIPTION_SHARED_LINE`, `DESCRIPTION_SHARED_RUN`, `TAGS_CHANNEL_STAPLES`, `HASHTAGS_CHANNEL_STAPLES`).
+- The old catalogue: the operator's tiered list (`kanal-benzerlik-listesi.csv`: 22 "delete first", 39 "second wave",
+  39 "keep", 93 unmeasured) waits for the appeal's outcome; a remake = a NEW recording on the v5 form prompt + Film Flow,
+  never the old audio under new pictures (the transcript embedding would not change).
+- Next (plan 2026-11-23): transcript sameness measure + bar (`transcript-sameness.js`), frame-level sameness on Actions
+  (`visual-sameness.js`), the fixed pieces (producer-note card, chapter card, transitions, SFX) bound to the book skin,
+  a Vox text-card time cap, `catalogue-triage.js` for the post-appeal remake order.
+
+---

@@ -180,14 +180,16 @@ function fallbackMeta() {
     primaryKeyword: `${shortTitle}${author ? " " + author : ""} summary`,
     hook: open ? `${firstSentence}\n\nThat's the core of ${shortTitle}${author ? " by " + author : ""} — and it's not what you'd expect.` : `A full breakdown of ${title}${author ? " by " + author : ""}.`,
     summary: `In this deep dive into "${title}"${author ? " by " + author : ""}, we break down every key idea in plain language — the arguments, the turning points, and what they mean for the way you think and decide.\n\nBy the end you'll walk away with the book's biggest takeaways and one reframing you can actually use. No fluff, no ending spoilers.`,
-    hashtags: [`#${shortTitle.replace(/[^a-z0-9]/gi, "")}`, "#BookSummary", `#${titleCase(gWord)}`, "#Books", "#SelfImprovement"],
+    // Hashtags and tags name THIS book (2026-11-23, YPP "inauthentic content": #BookSummary stood on 83/83 packs and
+    // "book summary" / "book club" / "self improvement" on most tags — the channel's salient terms were the same on every
+    // video). At most one genre-level term; the channel-wide staples are gone (lint: TAGS_CHANNEL_STAPLES).
+    hashtags: [`#${shortTitle.replace(/[^a-z0-9]/gi, "")}`, author ? `#${author.replace(/[^a-z0-9]/gi, "")}` : "", `#${titleCase(gWord)}`].filter(Boolean),
     tags: [
       `${shortTitle} summary`, `${shortTitle} ${author || ""}`.trim(), author, `${shortTitle} explained`,
-      `${shortTitle} analysis`, `${shortTitle} book review`, "book summary", `${genre} books`,
+      `${shortTitle} analysis`, `${shortTitle} book review`, `${shortTitle} key ideas`, `${shortTitle} ending explained`,
       // no "audiobook" tag (2026-11-11, channel analytics): "<book> audiobook" searchers leave within seconds
-      `${genre} book summary`, "book breakdown", "books explained", "self improvement",
-      "personal development", `best ${genre} books`, "book club", "nonfiction summary",
-      title, `${shortTitle} key ideas`,
+      author ? `${author} books` : "", `${genre} books`, title,
+      // the refine step adds the book's own people / places / ideas as tags (storyboard/entities.json, story-bible.json)
     ].filter(Boolean),
     thumbnailHook: deriveHook(),
     thumbnailSubject: `dramatic cinematic scene representing "${shortTitle}", intense emotional character framed on right side with dark atmospheric lighting`,
@@ -234,6 +236,8 @@ ${(meta.tags || []).join(", ")}
 - [ ] Captions: upload \`public/captions/${slug}.clean.vtt\` as English CC → choose **"With timing"** (NOT the raw ${slug}.vtt — YouTube rejects its inline word-timing markup)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
 - [ ] Pin a comment with the single sharpest line from the video
+- [ ] **Altered content → Yes** (synthetic narration voice; Studio → Details → Altered content) — recorded as youtube-meta.alteredContent (operator decision 2026-11-23)
+- [ ] Upload pace: ≤ 1 per day, ≤ 7 per week — \`node scripts/upload-pace.js --check\` before, \`node scripts/upload-pace.js --record --slug=${slug}\` right after the upload
 `;
 }
 
@@ -276,8 +280,7 @@ ${(meta.tags || []).join(", ")}
     "⏱️ Chapters:",
     chapterBlock,
     "",
-    "🔔 Subscribe for more book breakdowns.",
-    "",
+    // no channel-wide line here (2026-11-23): "🔔 Subscribe for more book breakdowns." stood word for word on 44 packs
     hashtags,
   ].join("\n");
 
@@ -286,10 +289,12 @@ ${(meta.tags || []).join(", ")}
     primaryKeyword: m.primaryKeyword,
     titles: m.titles,
     titleAngles: Array.isArray(m.titleAngles) ? m.titleAngles : [],
+    ...(producerNote ? { producerNote } : {}),
     description,
     tags: m.tags,
     hashtags: m.hashtags,
     chapters,
+    alteredContent: true, // synthetic narration → Studio "Altered content: Yes" on every upload (operator, 2026-11-23)
     thumbnail: { hook: m.thumbnailHook, subject: m.thumbnailSubject, layout: m.thumbnailLayout || undefined, image: `scenes/${slug}/thumbnail-hero.png`, cut: `scenes/${slug}/thumbnail-hero-cut.png` },
     metaSource,
     needsClaudeRefine,

@@ -69,5 +69,29 @@ check("Turkish title is NOT_ENGLISH", codes(turkish).includes("NOT_ENGLISH"), tu
 const sameAnchor = lintTitleSet({ ...base, titles: [good[0], "The Great Gatsby Ending Explained: Daisy Isn't the Dream", "The Great Gatsby: Daisy Was Never the Point (F. Scott Fitzgerald)", good[3], "The Great Gatsby Summary — F. Scott Fitzgerald"] });
 check("two angles on one anchor are ANGLES_NOT_DISTINCT", codes(sameAnchor).includes("ANGLES_NOT_DISTINCT"), sameAnchor.errors.join(" | "));
 
+// ── pack sameness (2026-11-23): description lines / 8-word runs / staple tags and hashtags against the channel ──
+const { lintPackSameness } = require("./lib/title-lint");
+const mk = (slug, description, tags, hashtags) => packEntry(slug, [`${slug} Summary`], slug, "", "", { description, tags, hashtags });
+const subscribe = "🔔 Subscribe for more book breakdowns.";
+const scaffold = "Best for readers studying the book for class or a book club, and anyone who wants the real takeaway — spoilers included.";
+const packCorpus = [
+  mk("p1", `Hook one.\n\n${scaffold}\n\n⏱️ Chapters:\n0:00 The Setup\n\n${subscribe}\n\n#P1 #BookSummary #Books`, ["p1 summary", "book summary", "book club", "booktube", "p1 ending"], ["#P1", "#BookSummary", "#Books"]),
+  mk("p2", `Hook two.\n\n${scaffold}\n\n⏱️ Chapters:\n0:00 The Setup\n\n${subscribe}\n\n#P2 #BookSummary #Books`, ["p2 summary", "book summary", "book club", "booktube"], ["#P2", "#BookSummary", "#Books"]),
+  mk("p3", `Hook three.\n\n${subscribe}\n\n#P3 #BookSummary #Books`, ["p3 summary", "book summary", "book club", "booktube"], ["#P3", "#BookSummary", "#Books"]),
+];
+const sc = (r) => r.errors.map((e) => e.split(/[: ]/)[0]);
+const own = lintPackSameness({ description: "Producer's note: \"I read it twice.\"\n\nGatsby never loved Daisy; he loved the self she could prove.\n\n⏱️ Chapters:\n0:00 The Setup\n\n#TheGreatGatsby #Fitzgerald", tags: ["the great gatsby summary", "nick carraway", "valley of ashes", "book summary"], hashtags: ["#TheGreatGatsby", "#Fitzgerald"], corpus: packCorpus });
+check("a book-specific description with ≤ 2 staple tags PASSES", !own.errors.length, own.errors.join(" | "));
+const line = lintPackSameness({ description: `Gatsby never loved Daisy.\n\n${subscribe}`, tags: ["x"], hashtags: [], corpus: packCorpus });
+check("the shared subscribe line is DESCRIPTION_SHARED_LINE", sc(line).includes("DESCRIPTION_SHARED_LINE"), line.errors.join(" | "));
+const run = lintPackSameness({ description: "A study guide: best for readers studying the book for class or a book club, and anyone who reads.", tags: ["x"], hashtags: [], corpus: packCorpus });
+check("8 words copied from another pack are DESCRIPTION_SHARED_RUN", sc(run).includes("DESCRIPTION_SHARED_RUN"), run.errors.join(" | "));
+const chapters = lintPackSameness({ description: "Gatsby never loved Daisy.\n\n⏱️ Chapters:\n0:00 The Setup\n4:10 The Setup Of The Green Light", tags: ["x"], hashtags: [], corpus: packCorpus });
+check("chapter timestamp lines and the producer's note are exempt", !chapters.errors.length, chapters.errors.join(" | "));
+const staples = lintPackSameness({ description: "Gatsby never loved Daisy.", tags: ["the great gatsby", "book summary", "book club", "booktube"], hashtags: ["#TheGreatGatsby", "#BookSummary", "#Books"], corpus: packCorpus });
+check("3 staple tags → TAGS_CHANNEL_STAPLES, 2 staple hashtags → HASHTAGS_CHANNEL_STAPLES", sc(staples).includes("TAGS_CHANNEL_STAPLES") && sc(staples).includes("HASHTAGS_CHANNEL_STAPLES"), staples.errors.join(" | "));
+const policy = lintPackSameness({ description: "Gatsby never loved Daisy.", tags: ["the great gatsby", "book summary", "book club", "booktube"], hashtags: ["#TheGreatGatsby"], corpus: packCorpus, policy: { maxStapleTags: 3 } });
+check("the policy block changes the bar (operator decision)", !policy.errors.length, policy.errors.join(" | "));
+
 console.log(fails ? `\n✗ ${fails} failing` : "\n✓ title lint regression passes");
 process.exit(fails ? 1 : 0);

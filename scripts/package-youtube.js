@@ -34,6 +34,20 @@ if (pack.status !== 'READY') {
   console.warn(`\n⚠ packaging an UNREADY pack on the operator's reason: "${allowUnready}"`);
 }
 
+// Upload pace (operator policy 2026-11-23: ≤ 1 per day, ≤ 7 per week — scripts/lib/upload-pace.js). A second bundle on
+// a day that already has an upload is refused; --operator-approved="<reason>" packages anyway and is printed.
+const UP = require('./lib/upload-pace');
+const pace = UP.check({ root: ROOT, slug });
+const paceOverride = typeof args['operator-approved'] === 'string' && args['operator-approved'].trim();
+if (!pace.ok) {
+  console.error(`\n❌ upload pace — ${pace.reasons.join('; ')}`);
+  if (!paceOverride) {
+    console.error(`   package it on the next free day (node scripts/upload-pace.js --check), or the operator: --operator-approved="<reason>"`);
+    process.exit(4);
+  }
+  console.warn(`\n⚠ packaging over the upload-pace policy on the operator's reason: "${paceOverride}"`);
+} else console.log(`✓ upload pace: ${pace.day.length} upload(s) today, ${pace.week.length} in the trailing 7 days (≤ ${pace.policy.maxPerDay} / day, ≤ ${pace.policy.maxPerWeek} / week)`);
+
 const outDir = path.join(ROOT, 'out', slug);
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
@@ -122,7 +136,8 @@ if (fs.existsSync(guidePath)) {
   console.log(`  ✅ Guide: youtube.md`);
 }
 
-console.log(`\n🎉 BUNDLE READY IN: ${path.relative(ROOT, outDir)}/\n`);
+console.log(`\n🎉 BUNDLE READY IN: ${path.relative(ROOT, outDir)}/`);
+console.log(`   on upload: tick "Altered content: Yes" (synthetic narration), then record it: node scripts/upload-pace.js --record --slug=${slug}\n`);
 fs.readdirSync(outDir).forEach((f) => {
   const stat = fs.statSync(path.join(outDir, f));
   const sz = stat.size > 1e6 ? `${(stat.size / 1e6).toFixed(1)} MB` : `${(stat.size / 1e3).toFixed(1)} KB`;
