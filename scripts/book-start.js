@@ -188,7 +188,7 @@ if (args.launcher) {
   process.exit(0);
 }
 
-if (!SLUG || !/^[a-z0-9][a-z0-9-]*$/.test(SLUG)) { err("usage: git show origin/god-mode:scripts/book-start.js | node - --slug=<lowercase-slug> [--check] [--adopt=\"<reason>\"] | --launcher"); process.exit(1); }
+if (!SLUG || !/^[a-z0-9][a-z0-9-]*$/.test(SLUG)) { err("usage: git show origin/god-mode:scripts/book-start.js | node - --slug=<lowercase-slug> [--check] [--adopt=\"<reason>\"] [--restart=\"<reason>\"] | --launcher"); process.exit(1); }
 const WT = path.join(PARENT, `wt-book-${SLUG}`);
 const PIN = path.join(WT, "books", SLUG, "production-base.json");
 
@@ -223,6 +223,20 @@ const wip = wipRow();
 if (wip) out(`  Active WIP row naming ${SLUG}: ${wip}`);
 
 // resume: the book's own pinned production worktree
+// --restart="<the owner's reason>": a book that already HAS a pinned copy is started AGAIN on current code as a NEW
+// pinned copy; the old copy is retired, never deleted (american-psycho, 2026-11-23: a told-less preview on an old pin
+// with a pre-form recording; the owner wanted it redone on the told v5 code with a new recording). The old copy must
+// first stand aside under another name - this script moves nothing that is locked and linked; it says how.
+const restart = typeof args.restart === "string" ? args.restart.trim() : "";
+if (restart && restart.length < 30) { err(`REFUSED --restart: the owner's reason is recorded - write it (>= 30 characters): --restart="<why this book starts again on current code>"`); process.exit(2); }
+if (mine && exists(PIN) && restart) {
+  const pin = readJSON(PIN) || {}, aside = `${WT}-old-${String(pin.productionBase || "pin").slice(0, 8)}`;
+  err(`REFUSED --restart: the old copy still stands at ${WT}. Put it aside first (it is kept, not deleted), then run book-start again:`);
+  err(`   cd "${MAIN}"`);
+  err(`   node scripts/preview-state.js unlink --slug=${SLUG}        (drops the node_modules junction + the lock; nothing else)`);
+  err(`   git worktree move "${WT}" "${aside}"`);
+  process.exit(2);
+}
 if (mine && exists(PIN)) {
   const pin = readJSON(PIN) || {};
   out(`RESUME ${SLUG}: its production worktree exists - ${WT} (pinned ${String(pin.productionBase || "?").slice(0, 8)}${pin.productionBase && pin.productionBase !== ORIGIN ? `; origin moved to ${ORIGIN.slice(0, 8)} - the book KEEPS its pin` : ""})`);
@@ -266,12 +280,14 @@ if (mine && exists(PIN)) {
   out(`  Continue THERE: cd "${WT}" && node scripts/preview-state.js status --slug=${SLUG}`);
   process.exit(0);
 }
-if (pinnedElsewhere.length) {
+if (pinnedElsewhere.length && !restart) {
   err(`REFUSED book-start: ${SLUG} is already pinned in another worktree: ${pinnedElsewhere.map((w) => w.path).join(", ")} - continue there (its owner's session).`);
+  err(`   To start it AGAIN on current code as a new pinned copy (the old one is retired, kept, never deleted): --restart="<the owner's reason>"`);
   process.exit(2);
 }
+if (restart) out(`  RESTART ${SLUG}: ${pinnedElsewhere.length ? `retiring the pinned copy at ${pinnedElsewhere.map((w) => w.path).join(", ")}` : "no pinned copy stands elsewhere"}; reason: "${restart}"`);
 const adopt = typeof args.adopt === "string" ? args.adopt.trim() : "";
-if (startedIn.length && !adopt) {
+if (startedIn.length && !adopt && !restart) {
   err(`REFUSED book-start: ${SLUG} has already STARTED outside a production worktree - it is never migrated silently:`);
   for (const x of startedIn) err(`   ${x.w}: ${x.ev.join("; ")}`);
   err("   Its owner decides: keep it where it is (finish it there; render / assemble it with CURRENT tools via");
@@ -283,7 +299,7 @@ if (mine && !exists(PIN)) out(`  ${WT} is registered but not finished (no pin) -
 else if (exists(WT)) { err(`REFUSED book-start: ${WT} exists but is not a worktree of this repo - not touching it.`); process.exit(2); }
 
 if (CHECK) {
-  out(`READY ${SLUG}: would create ${WT} at origin/god-mode ${ORIGIN.slice(0, 8)} (locked, node_modules -> main, inputs copied, pinned)${adopt ? `; adopting a started book: ${adopt}` : ""}`);
+  out(`READY ${SLUG}: would create ${WT} at origin/god-mode ${ORIGIN.slice(0, 8)} (locked, node_modules -> main, inputs copied, pinned)${adopt ? `; adopting a started book: ${adopt}` : ""}${restart ? `; restarting (the retired copy keeps everything; only book.json, the prompt, the audio and the VTT are copied over)` : ""}`);
   process.exit(0);
 }
 
@@ -314,6 +330,21 @@ if (adopt) {
   out(`  adopted from ${src}: ${copied.length} more file(s) copied (${copied.slice(0, 6).join(", ")}${copied.length > 6 ? " ..." : ""})`);
   fs.writeFileSync(path.join(B, "adopted-from.json"), JSON.stringify({ reason: adopt, at: new Date().toISOString(), from: startedIn.map((x) => ({ checkout: x.w, evidence: x.ev })) }, null, 2) + "\n");
   out(`  adopted (owner's reason recorded in books/${SLUG}/adopted-from.json); the original is untouched`);
+}
+if (restart) {
+  // a RESTART takes only the book's INPUTS from the retired copy (book.json, the prompt, the audio, the VTT) - the
+  // storyboard, drawings and config are made again on current code; nothing is overwritten, nothing is removed there
+  const B = path.join(WT, "books", SLUG), from = pinnedElsewhere[0] ? pinnedElsewhere[0].path : startedIn[0] ? startedIn[0].w : null, copied = [];
+  if (from) {
+    for (const rel of [`books/${SLUG}/book.json`, `books/${SLUG}/prompt.notebooklm.md`, `public/audio/${SLUG}.mp3`, `public/audio/${SLUG}.m4a`, `public/audio/${SLUG}.wav`, `public/captions/${SLUG}.vtt`]) {
+      const s = path.join(from, rel), d = path.join(WT, rel);
+      if (!exists(s) || exists(d)) continue;
+      fs.mkdirSync(path.dirname(d), { recursive: true }); fs.copyFileSync(s, d); copied.push(rel);
+    }
+  }
+  fs.mkdirSync(B, { recursive: true });
+  fs.writeFileSync(path.join(B, "restarted-from.json"), JSON.stringify({ reason: restart, at: new Date().toISOString(), retired: pinnedElsewhere.map((w) => w.path), started: startedIn.map((x) => ({ checkout: x.w, evidence: x.ev })), copied }, null, 2) + "\n");
+  out(`  restarted${from ? ` from ${from}: ${copied.length} input file(s) copied (${copied.join(", ") || "none"})` : ""}; reason recorded in books/${SLUG}/restarted-from.json; the retired copy is untouched`);
 }
 out(`OK ${SLUG}: production worktree ${WT} on origin/god-mode ${ORIGIN.slice(0, 8)}.`);
 out(`  Everything for this book now runs THERE (Step 0, preview, render): cd "${WT}"`);
