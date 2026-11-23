@@ -42,8 +42,10 @@ export function placeRuns(beats: PlaceBeat[], places: Record<string, string>, ho
 }
 export const PlaceImage: React.FC<{ asset: string; paper: string }> = ({ asset, paper: paper0 }) => {
   const paper = /^#[0-9a-f]{6}$/i.test(paper0) ? paper0 : "#DAD9D5"; // the wash needs a 6-digit hex to take an alpha
+  // zIndex 0 (as the paper image): the beats' scenes carry no z-index of their own, so anything above 0 here would
+  // cover every card — the first stills (2026-11-23) showed the place and no words. DOM order puts the beats on top.
   return (
-  <AbsoluteFill style={{ zIndex: 1 }}>
+  <AbsoluteFill style={{ zIndex: 0 }}>
     <Img src={staticFile(asset)} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.04)", filter: "saturate(0.82) contrast(1.02)" }} />
     {/* the wash: the place reads at the edges, the middle third (where the cards stand) is calm */}
     <AbsoluteFill style={{ background: `radial-gradient(ellipse 62% 58% at 50% 48%, ${paper}C7 0%, ${paper}8C 55%, ${paper}33 100%)` }} />
