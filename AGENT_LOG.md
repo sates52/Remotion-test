@@ -18,7 +18,7 @@ Conventions:
 ## Active WIP (who is touching what right now)
 | agent | area / files | status | notes |
 |---|---|---|---|
-| ypp-guard (dev/ypp-guard, wt-ypp-guard) — YPP "inauthentic content" plan, W1/W2/W5/W6: pack sameness lint, upload-pace guard, AI-disclosure record, producer's note required | `scripts/lib/{title-lint,upload-pace (new)}.js`, `scripts/{upload-pace (new),test-upload-pace (new),test-title-lint,plan-meta,plan-antidote-meta,package-youtube}.js`, `data/quality-policy.json` (uploadPace, packSameness), `YPP_HISTORY.md`, CLAUDE.md | in progress 2026-11-23 (operator-approved plan) | New packs only; published packs are frozen (`--all` reports). No engine, gate, mute bar, render or book change. Next slices: transcript-sameness.js, visual-sameness.js (Actions), skin-bound fixed pieces, Vox text-card cap, catalogue-triage.js (post-appeal). |
+| ypp-guard (dev/ypp-guard, wt-ypp-guard) — YPP "inauthentic content" plan, W1/W2/W5/W6: pack sameness lint, upload-pace guard, AI-disclosure record, producer's note required | `scripts/lib/{title-lint,upload-pace (new)}.js`, `scripts/{upload-pace (new),test-upload-pace (new),test-title-lint,plan-meta,plan-antidote-meta,package-youtube}.js`, `data/quality-policy.json` (uploadPace, packSameness), `YPP_HISTORY.md`, CLAUDE.md | _(done)_ 2026-11-23: four commits on `dev/ypp-guard`, tests green locally; CI push `ci/regression/ypp-guard`; visual calibration `vs-calib-1` on Actions | New packs only; published packs are frozen (`--all` reports). No gate, mute bar, render or book change. See the 2026-11-23 changelog entry; deferred items listed there. |
 | told-scene (dev/told-scene, wt-own-drawings) — Film Flow 7 slice 1: the place is a SCENE (told v5) | `src/engines/antidote/{told.ts,components/ToldStage.tsx}`, `scripts/lib/{own-drawings,told-compile}.js`, `scripts/{own-icons-sheet,test-told-scene (new),test-own-cast}.js`, told.md, `docs/FILM-FLOW.md` | built + proven on a scratch Dracula passage; waiting for the operator's "tamam" before god-mode | A v ≤ 4 stage draws as before; a backdrop without `sky` is the wash; goldens + dracula's 179 stages byte-identical. Next slices: cast IN the place, camera to the event, plates recede. |
 | _(done)_ YPP "generic or repetitive content": every book TOLD its own way — narrative form at Step 0 + the form track | `scripts/lib/{narrative-form (new),notebooklm-prompt-check}.js`, `scripts/{make-prompt,plan-antidote (HUD badge only),test-step0,test-narrative-form (new)}.js`, `.claude/skills/notebooklm-prompt/SKILL.md` | _(done)_ 2026-11-18: merged to god-mode on the operator's order — the LENGTH of a formed recording is NOT yet proven (see changelog) | New books only: the prompt body is one of 8 forms (book.json `form`); a book without `form` plans and is checked as before (46 existing prompts: checker verdict unchanged). NotebookLM stays the voice. No book worktree, published book, threshold, render, upload or cleanup. |
 | _(done)_ Film Flow 6 — the book's own world, slice 2: things / one vocabulary | `scripts/lib/{own-drawings,antidote-director}.js`, `scripts/{storyboard,told,test-own-things (new)}.js`, `docs/FILM-FLOW.md`, `antidote-visual-authoring/told.md` | _(done)_ 2026-11-17: merged to god-mode (operator approved after the ESKI / YENI clips) | No engine or schema change: entity drawings join the own-icon vocabulary (existing `customSvg` path). A book without drawn things plans exactly as before. dracula read-only (scratch copy); no book worktree, published book, threshold, render, upload or cleanup. |
@@ -8245,3 +8245,45 @@ Operator approved after two rounds of clips.
 - **Not touched:** no gate threshold, no mute-test bar, no published / pinned book (then-she-was-gone-v2 stays on its
   pin 3955d853 — its owner takes this through `maintenance-upgrade --before-preview` if they want it on this book), no
   render, upload or cleanup.
+
+### 2026-11-23 — YPP guard: what the slop detector measures, built into the pipeline (plan approved by the operator)
+
+- **Why:** YPP rejected the channel 2026-11-17 ("generic or repetitive" → policy *inauthentic content*). The operator pasted
+  the Google Research S-CTS paper; read in full (pdftotext): the content classifier scores **transcript text embeddings**
+  ("repetitive, templated narratives"), the **salient terms of title + description**, **upload pacing** and frame-level
+  **visual embeddings**, with "Synthetic Text-to-Speech Narratives" a trained category; enforcement needs an account
+  cluster too (one channel, hand uploads: the live risk is the content signals + the human review). Plan + the appeal:
+  `YPP_HISTORY.md` 2026-11-17. Branch `dev/ypp-guard` (worktree `../wt-ypp-guard`), four commits.
+- **1/4 pack + pace + disclosure + the human** (`scripts/lib/title-lint.js` `lintPackSameness`, `scripts/lib/upload-pace.js`,
+  `scripts/upload-pace.js`, `plan-meta.js`, `plan-antidote-meta.js`, `package-youtube.js`): the description is compared with
+  every other pack (no copied line, no shared 8-word run), ≤ 2 channel-staple tags, ≤ 1 staple hashtag, the operator's
+  producer's note must open the description (`NO_PRODUCER_NOTE`), `youtube-meta.alteredContent: true` + the checklist line
+  (`NO_ALTERED_CONTENT_RECORD`); the scaffold loses "🔔 Subscribe for more book breakdowns." (44 packs), `#BookSummary`
+  (83/83) and the staple tags. Upload pace is policy (operator: ≤ 1 / day, ≤ 7 / week; `quality-policy.json → uploadPace`):
+  `package-youtube.js` refuses a second bundle on a full day (`--operator-approved`), `upload-pace.js --record` after
+  every upload, `--report` = the rhythm a reviewer sees (measured: 20 multi-upload days, 4 weeks over 7).
+- **2/4 transcript sameness** (`scripts/transcript-sameness.js`, `lib/transcript-sameness.js`): a recording against every
+  narration of the channel. **Measured:** no cosine proxy separates the formed Dracula recordings from the templated
+  films (function-word skeleton 5-grams: Dracula 0.65 vs old median 0.58; content trigrams 3–7 % for all) — the two
+  NotebookLM hosts talk the same way in every film. The rate of the channel's own repeated 5-word runs does: old films
+  median 1.20 / 1000 words (49 of 56 at or over the bar), Dracula v4 0.0. Bar `transcriptSameness.reviewRunsPer1000 = 0.6`
+  (proposed, operator-approved with the plan; re-calibrate after five formed recordings). `preview-state.js` stage
+  `sameness` after the code pin: not measured → the command; REVIEW → OPERATOR `TRANSCRIPT_SAMENESS` (record again or
+  `--accept="<why>"`); record bound to the VTT hash.
+- **3/4 look** (`scripts/visual-sameness.js`, `lib/{visual-sameness,png-lite}.js`): N frames per film rendered on Actions,
+  pHash nearest-frame layout + colour-histogram palette per film pair (report only; the bar is the operator's after the
+  first new-system films are measured — first calibration `audit/visual-sameness/vs-calib-1`, four old Antidote films).
+  Fixed pieces now follow the book: `ProducerNote.tsx` placement/entrance from the skin (`variantOf`), the Antidote
+  `ChapterCard` in the skin's typeface (serif keeps Cinzel), the director's transition menus start at a per-book offset.
+  `quality-policy.voxTextCards` (max 0.30, **not blocking**) is printed by `originality-report.js`.
+- **4/4 catalogue** (`scripts/catalogue-triage.js`): the operator's tiered list + `~/.yt-analytics` → 16 "delete +
+  re-record" (tier 1–2 with ≥ 100 views: a NEW v5 recording + Film Flow; the old audio under new pictures keeps the
+  transcript), 45 "delete", 93 unmeasured, 39 keep; schedule under the pace policy. Report only — nothing on the channel
+  moves while the appeal runs.
+- **Tests:** `test-title-lint.js` (+6 pack-sameness cases), `test-upload-pace.js` (new, 9), `test-transcript-sameness.js`
+  (new, 10), `test-visual-sameness.js` (new, 6) — all passing locally (seconds).
+- **Deferred (named in the plan, not built):** SFX subset per book; `make-prompt --check` printing the prompt's distance to
+  the last 8; a `visualSameness` bar; making `voxTextCards` blocking; the `ProducerNote.tsx` header once said the note goes
+  into the NotebookLM prompt — corrected.
+- **Not touched:** mute-test bars, gates and how they are computed, published books' packs (`lint-titles.js --all` reports
+  28 FAIL / 10 PASS now, frozen), book worktrees, renders, uploads, cleanup. New packs only.
