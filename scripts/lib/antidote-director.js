@@ -711,12 +711,17 @@ function createDirector({ palette, genre, slug, bible, dna = null }) {
 
   const transFrames = (t) => (t === "flash" ? 8 : t.startsWith("whip") ? 12 : t === "irisIn" ? 14 : 10);
 
+  // Every film cut the same way (2026-11-23, YPP "inauthentic content"): the menus below are the channel's; each book
+  // starts them at its own offset (seedBase, from the slug), so two films open their contrasts and set changes with
+  // different moves. The vocabulary is unchanged; a book without a slug rotates by 0 (as before).
+  const rotate = (arr, k) => (arr.length ? arr.slice(k % arr.length).concat(arr.slice(0, k % arr.length)) : arr);
+  const bookTurn = seedBase % 3;
   function pickTransition(cls, i, setChanged) {
     // A location change gets a louder move — but rotated, because a whip on
     // every set change is exactly how a transition stops reading as punctuation.
     const menu = setChanged
-      ? [["whipLeft", "irisIn", "wipeUp"], ["whipRight", "flash", "wipeLeft"], ["irisIn", "whipLeft", "slideUp"]][state.setIndex % 3]
-      : TRANS_MENU[cls] || TRANS_MENU.neutral;
+      ? [["whipLeft", "irisIn", "wipeUp"], ["whipRight", "flash", "wipeLeft"], ["irisIn", "whipLeft", "slideUp"]][(state.setIndex + bookTurn) % 3]
+      : rotate(TRANS_MENU[cls] || TRANS_MENU.neutral, bookTurn);
     // avoid anything used in the last two cuts, not just the last one
     const recent = state.recentTransitions.slice(-2);
     const pick = menu.find((t) => !recent.includes(t)) || menu.find((t) => t !== recent[recent.length - 1]) || menu[0];

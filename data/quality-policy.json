@@ -28,6 +28,12 @@
     "reviewRunsPer1000": 0.6,
     "minWords": 1500
   },
+  "voxTextCards": {
+    "note": "Vox films: the share of the film's time on the TEXT CARDS every Vox film shares (statement / quote / list cards) against the book's own images. Measured 2026-11-21: the published Vox films spend ~47 % on cards. Proposed by the agent in the 2026-11-23 plan; reported by originality-report.js (PICTURE line). blocking=false: a report until the operator makes it a gate (then plan-vox / preview-ready refuse over max).",
+    "decidedBy": "operator (Savas), 2026-11-23 (plan approval) — not yet blocking",
+    "max": 0.3,
+    "blocking": false
+  },
   "packSameness": {
     "note": "Pack (description / tags / hashtags) sameness against every other pack of the channel — scripts/lib/title-lint.js lintPackSameness. Proposed by the agent in the 2026-11-23 plan, operator-approved with it. sharedRunWords: a run of this many words shared with another description fails; a tag / hashtag on >= stapleMinPacks other packs is a channel staple; at most maxStapleTags / maxStapleHashtags of them.",
     "decidedBy": "operator (Savas), 2026-11-23 (plan approval)",

@@ -10,7 +10,7 @@ import { ChapterOverlay, ProgressRail, formChapters } from "./overlays";
 import { SfxLayer } from "./sfx";
 import { ForegroundOcclusion } from "./desk";
 import { CardHandContext, cardHandOf } from "./cardHand";
-import { ProducerNote } from "../../components/ProducerNote";
+import { ProducerNote, variantOf } from "../../components/ProducerNote";
 
 export { voxBookSchema } from "./schema";
 export { VoxThumbnail, thumbnailSchema } from "./thumbnail";
@@ -47,7 +47,7 @@ export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
         </Sequence>
       );
     })}
-    <ProducerNote note={config.meta.take?.note} accent={pal.red} />
+    <ProducerNote note={config.meta.take?.note} accent={pal.red} variant={variantOf(config.meta.skin)} />
     <CaptionLayer captions={config.captions} skin={config.meta.skin} />
     <ChapterOverlay chapters={chapters} word={parts && config.meta.form ? config.meta.form.part : undefined} />
     {config.meta.progress === false ? null : (

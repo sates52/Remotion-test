@@ -2,12 +2,23 @@ import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { loadFont as loadCinzel } from "@remotion/google-fonts/Cinzel";
 import { loadFont as loadPlayfair } from "@remotion/google-fonts/PlayfairDisplay";
+import { SKIN_FONT, useSkin } from "./skin";
 
 const { fontFamily: cinzelFont } = loadCinzel("normal", { weights: ["700", "800"], subsets: ["latin"] });
 const { fontFamily: playfairFont } = loadPlayfair("italic", { weights: ["600", "700"], subsets: ["latin"] });
 
 export const CHAPTER_TITLE_FONT = `${cinzelFont}, 'Times New Roman', Georgia, serif`;
 export const CHAPTER_SUBTITLE_FONT = `${playfairFont}, Georgia, serif`;
+/**
+ * The chapter card spoke Cinzel + Playfair in every film (2026-11-23, YPP "inauthentic content": one more fixed piece a
+ * frame embedding reads across the channel). It now speaks the book's skin: the title in the skin's typeface
+ * (a serif skin keeps Cinzel, the channel's old look), the subtitle in Playfair italic on a serif skin, else the same
+ * typeface lighter. A film without a skin draws as before (DEFAULT_SKIN is "poppins", which is also the subtitles' look).
+ */
+function chapterFonts(font: ReturnType<typeof useSkin>["skin"]["font"]): { title: string; subtitle: string } {
+  if (font === "serif") return { title: CHAPTER_TITLE_FONT, subtitle: CHAPTER_SUBTITLE_FONT };
+  return { title: SKIN_FONT[font], subtitle: SKIN_FONT[font] };
+}
 
 export type ChapterCardSpec = {
   category?: string; // "LAW", "PART", "CHAPTER", "RULE", "LESSON", "INSIGHT", "BIAS", "PRINCIPLE"
@@ -24,6 +35,7 @@ export const ChapterCard: React.FC<{
 }> = ({ spec, accent = "#D4AF37", durationFrames = 120 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const fonts = chapterFonts(useSkin().skin.font);
 
   const category = (spec.category || "CHAPTER").toUpperCase();
   const number = (spec.number || "01").toUpperCase();
@@ -129,7 +141,7 @@ export const ChapterCard: React.FC<{
         >
           <span
             style={{
-              fontFamily: CHAPTER_TITLE_FONT,
+              fontFamily: fonts.title,
               fontSize: 24,
               fontWeight: 800,
               letterSpacing: "6px",
@@ -168,7 +180,7 @@ export const ChapterCard: React.FC<{
         <h1
           style={{
             margin: 0,
-            fontFamily: CHAPTER_TITLE_FONT,
+            fontFamily: fonts.title,
             fontSize: title.length > 32 ? 64 : 80,
             fontWeight: 800,
             lineHeight: 1.1,
@@ -195,7 +207,7 @@ export const ChapterCard: React.FC<{
             <p
               style={{
                 margin: 0,
-                fontFamily: CHAPTER_SUBTITLE_FONT,
+                fontFamily: fonts.subtitle,
                 fontSize: 34,
                 fontStyle: "italic",
                 lineHeight: 1.35,

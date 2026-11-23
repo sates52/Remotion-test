@@ -59,3 +59,7 @@ audit/visionless-10x/p10/p10.2a-visual-scan.json
 
 # per-book production pin (preview-state.js): local to the worktree that produces the book, never committed
 books/*/production-base.json
+
+# visual-sameness stills (rendered on Actions, large) — the plan/manifest/json records stay
+audit/visual-sameness/*/*/stills/
+audit/visual-sameness/*/*/configs/

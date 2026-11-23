@@ -8,7 +8,7 @@ import { RetentionHUD } from "./components/RetentionHUD";
 import { FormTrack, hasFormTrack } from "./components/FormTrack";
 import { FormBoard } from "./components/FormBoard";
 import { SkinContext, skinOf, SKIN_FONT } from "./components/skin";
-import { ProducerNote } from "../../components/ProducerNote";
+import { ProducerNote, variantOf } from "../../components/ProducerNote";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
 import { shotPreset, stageChar } from "./shots";
@@ -116,7 +116,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
       {/* when a part of the book's narrative form is announced, its board comes up over the scene for three seconds */}
       {config.meta.hud?.enabled !== false && hasFormTrack(config) && <FormBoard config={config} />}
       {/* Subtitles sit above every scene, on the absolute timeline, in the reserved bottom band. */}
-      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={config.meta.hud?.accent ?? "#F5C544"} font={SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} />
+      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={config.meta.hud?.accent ?? "#F5C544"} font={SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} variant={variantOf(skinOf(config.meta as { skin?: Record<string, string> }))} />
       <CaptionLayer captions={config.captions} />
       {/* Top safe-zone retention HUD: timeline progress & insight trackers */}
       {/* a book told in a narrative form draws its PARTS in that form's shape instead (components/FormTrack.tsx) */}

@@ -107,6 +107,10 @@ if (require.main === module) {
     console.log(`         story: ${pct(t.story)} of the words stand in stretches that name the book by a proper name (channel ${t.kind || "all"}: ${pct(base)}) · longest stretch naming nothing: ${t.longestTalk} words · the producer's own view in the prompt: ${t.take ? "yes" : "no"}`);
     if (t.lines != null) console.log(`         lines most of the channel's narrations share: ${t.lines} per 1000 words (channel median ${t.linesMedian})${t.linesTop.length ? ` — ${t.linesTop.map(([g, n]) => `"${g}" ×${n}`).join(", ")}` : ""}`);
     console.log(`PICTURE  the book's own images: ${pct(p.ownImages)} of the film's time · text cards every Vox film shares: ${pct(p.cards)}${p.channelCards != null ? ` (median of ${p.films} other Vox films: ${pct(p.channelCards)})` : ""}${p.cardKinds.length ? ` — ${p.cardKinds.map(([k, s]) => `${k} ${pct(s)}`).join(", ")}` : ""}`);
+    { // the text-card bar (data/quality-policy.json → voxTextCards; 2026-11-23): reported until the operator makes it block
+      let pol = null; try { pol = (read(path.join(ROOT, "data", "quality-policy.json")) || {}).voxTextCards || null; } catch {}
+      if (pol && Number.isFinite(pol.max)) console.log(`         text-card bar: ${pct(p.cards)} ${p.cards > pol.max ? "OVER" : "under"} the policy max ${pct(pol.max)} (${pol.blocking ? "blocking" : "reported — not yet a gate"})`);
+    }
     console.log(`LOOK     subtitles / plates / typeface: ${r.look.skin || "the channel's look (no skin recorded: Step 0 before 2026-11-18)"}`);
     console.log(`\n${voxLine(r)}`);
     process.exit(0);
