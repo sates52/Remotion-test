@@ -90,11 +90,15 @@ function report(films, where) {
   fs.writeFileSync(path.join(DIR, "visual-sameness.json"), JSON.stringify(out, null, 2));
   if (args.json) { console.log(JSON.stringify(out, null, 2)); return; }
   const pct = (x) => `${(x * 100).toFixed(0).padStart(3)} %`;
-  console.log(`── visual sameness · ${ids.length} films · ${Object.values(out.frames).reduce((a, b) => a + b, 0)} frames · layout = pHash nearest frame, palette = colour histogram, alike = mean`);
-  for (const id of ids) console.log(`   ${id.padEnd(44).slice(0, 44)} nearest ${String(r.nearest[id].to).padEnd(30).slice(0, 30)} alike ${pct(r.nearest[id].alike)} · dark ${pct(r.dark[id])} · ${films[id].length} frames`);
+  // the bar (data/quality-policy.json → visualSameness.reviewAlike, operator 2026-11-23): a film whose nearest film is at
+  // or over it looks like the shelf; measured: old films 72–73 % to each other, Dracula (Film Flow) 58–61 % to them
+  let bar = null; try { bar = (read(path.join(ROOT, "data", "quality-policy.json")) || {}).visualSameness; } catch {}
+  const review = bar && Number.isFinite(bar.reviewAlike) ? bar.reviewAlike : null;
+  console.log(`── visual sameness · ${ids.length} films · ${Object.values(out.frames).reduce((a, b) => a + b, 0)} frames · layout = pHash nearest frame, palette = colour histogram, alike = mean${review != null ? ` · REVIEW ≥ ${pct(review)}` : ""}`);
+  for (const id of ids) console.log(`   ${review != null ? (r.nearest[id].alike >= review ? "✗" : "·") : " "} ${id.padEnd(44).slice(0, 44)} nearest ${String(r.nearest[id].to).padEnd(30).slice(0, 30)} alike ${pct(r.nearest[id].alike)} · dark ${pct(r.dark[id])} · ${films[id].length} frames`);
   console.log(`   pairs:`);
   for (const p of r.pairs) console.log(`     ${p.a.slice(0, 28).padEnd(28)} ↔ ${p.b.slice(0, 28).padEnd(28)} layout ${pct(p.layout)} palette ${pct(p.palette)} alike ${pct(p.alike)}`);
-  console.log(`   → ${path.relative(ROOT, path.join(DIR, "visual-sameness.json")).replace(/\\/g, "/")} (report only; no bar yet — quality-policy visualSameness is the operator's after the first new-system films are measured)`);
+  console.log(`   → ${path.relative(ROOT, path.join(DIR, "visual-sameness.json")).replace(/\\/g, "/")} (report; the bar is quality-policy visualSameness.reviewAlike — no stage stops on it yet)`);
 }
 const run = (label, argv) => { console.log(`\n── ${label}`); const r = spawnSync(process.execPath, [path.join(__dirname, "stills-cloud.js"), ...argv], { cwd: CODE, stdio: "inherit" }); if (r.status !== 0) { console.error(`visual-sameness: ${label} failed (exit ${r.status}). Nothing was rendered on this PC.`); process.exit(r.status || 1); } };
 

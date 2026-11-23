@@ -1,0 +1,78 @@
+{
+  "tag": "vs-calib-2",
+  "at": "2026-11-23T09:21:55.859Z",
+  "frames": {
+    "dracula": 24,
+    "farsighted": 24,
+    "thinking-in-systems": 24,
+    "we-were-liars": 24
+  },
+  "pairs": [
+    {
+      "a": "farsighted",
+      "b": "thinking-in-systems",
+      "layout": 0.78,
+      "palette": 0.681,
+      "alike": 0.73
+    },
+    {
+      "a": "farsighted",
+      "b": "we-were-liars",
+      "layout": 0.753,
+      "palette": 0.682,
+      "alike": 0.717
+    },
+    {
+      "a": "thinking-in-systems",
+      "b": "we-were-liars",
+      "layout": 0.762,
+      "palette": 0.67,
+      "alike": 0.716
+    },
+    {
+      "a": "dracula",
+      "b": "thinking-in-systems",
+      "layout": 0.649,
+      "palette": 0.566,
+      "alike": 0.608
+    },
+    {
+      "a": "dracula",
+      "b": "farsighted",
+      "layout": 0.705,
+      "palette": 0.468,
+      "alike": 0.586
+    },
+    {
+      "a": "dracula",
+      "b": "we-were-liars",
+      "layout": 0.659,
+      "palette": 0.508,
+      "alike": 0.583
+    }
+  ],
+  "nearest": {
+    "dracula": {
+      "to": "thinking-in-systems",
+      "alike": 0.608
+    },
+    "farsighted": {
+      "to": "thinking-in-systems",
+      "alike": 0.73
+    },
+    "thinking-in-systems": {
+      "to": "farsighted",
+      "alike": 0.73
+    },
+    "we-were-liars": {
+      "to": "farsighted",
+      "alike": 0.717
+    }
+  },
+  "dark": {
+    "dracula": 0.116,
+    "farsighted": 0.052,
+    "thinking-in-systems": 0.054,
+    "we-were-liars": 0.145
+  }
+}
