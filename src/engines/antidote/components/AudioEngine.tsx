@@ -22,6 +22,11 @@ import type { AntidoteConfig } from "../schema";
  */
 export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const globalEvents = config.audioEvents ?? [];
+  // OPT-IN (operator, 2026-11-23, from viewers' feedback): the dings and ticks land ON the narration — the narration is
+  // ~98.5 % speech with no gaps — and were heard as "beeps" that break the viewer's focus. Like the Vox layer
+  // (vox/sfx.tsx), this one renders only when the config asks for it: `meta.sfx: true`. A film without it has one
+  // continuous narration track and nothing else.
+  if (!(config.meta as { sfx?: boolean }).sfx) return null;
 
   return (
     <>
