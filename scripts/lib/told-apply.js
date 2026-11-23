@@ -86,6 +86,18 @@ function sealTold(scene) {
  */
 /** the shared sets that mean "nowhere in particular": only these give way to the book's home */
 const NOWHERE = new Set(["none", "abstract", "office", "room"]);
+/** a book that draws at least one place as a SCENE (a backdrop with a sky): the told-v5 books */
+const isV5S = (entities) => Object.values(entities || {}).some((e) => e && e.backdrop && e.backdrop.sky != null);
+/** shared set name → the book's own drawn place of that name (its id, a one-word label or reading); generic sets never */
+function ownPlaceBySet(ent, drawingOf) {
+  const out = new Map();
+  for (const [k, e] of Object.entries(ent || {})) {
+    if (!e || e.kind !== "place" || !drawingOf(k)) continue;
+    const names = [k, e.label, ...(Array.isArray(e.reads) ? e.reads : []), ...((e.backdrop && Array.isArray(e.backdrop.reads)) ? e.backdrop.reads : [])];
+    for (const n of names) { const w = String(n || "").toLowerCase().replace(/^the\s+/, "").trim(); if (w && !/\s/.test(w) && !NOWHERE.has(w) && !out.has(w)) out.set(w, k); }
+  }
+  return out;
+}
 function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
   const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
   const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
@@ -95,18 +107,39 @@ function applyPlaces(config, placeByScene = {}, entities = {}, drawings = {}) {
   // particular (told-compile.js does the same for a stage). A set that says where the beat is — a forest, a shore, a
   // street — is the author's decision and stays.
   const home = Object.keys(ent).find((k) => ent[k] && ent[k].home === true && drawingOf(k)) || null;
-  let applied = 0, atHome = 0;
+  // PLACE CONTINUITY (2026-11-23, Then She Was Gone: the film stood in the kitchen 81 % of the time — every beat that
+  // named no place fell back to the home, and the shared `kitchen` set stood beside the book's own kitchen). In a book
+  // that draws its places as SCENES (a backdrop with a sky — the told-v5 books), a beat that names no place stays where
+  // the film last was, as a cut in a film does; the home is only where the film starts. A shared set whose name is one
+  // of the book's own places (its id, a one-word label or reading) is drawn as that place. Any other book: as before.
+  const V5S = isV5S(entities);
+  const ownBySet = V5S ? ownPlaceBySet(ent, drawingOf) : new Map();
+  /** where a told stage ends: its last backdrop without an exit */
+  const toldPlace = (s) => { const b = ((s.told && s.told.backdrops) || []).filter((x) => !x.exit).pop(); return b ? b.id : null; };
+  // in a V5S book only the set the AUTHOR wrote says where a beat is (drawings.authoredSets: { sceneId: set }); the set
+  // the planner picked for a beat that named none (a "kitchen" here and there) is no decision — the beat stays where
+  // the film is. Without authoredSets (an older caller) every set counts, as before.
+  const authoredSets = drawings.authoredSets || null;
+  let applied = 0, atHome = 0, carried = 0, current = null;
   const scenes = (config.scenes || []).map((s) => {
     const named = placeByScene[s.id];
-    const id = named != null ? named : NOWHERE.has((s.bg && s.bg.set) || "none") ? home : null;
-    if (named == null && id != null && !s.told) atHome++;
-    if (id == null || s.told) return s;
+    if (s.told) { if (V5S) current = toldPlace(s) || current; return s; }
+    const planned = String((s.bg && s.bg.set) || "none").toLowerCase();
+    const set = V5S && authoredSets ? String(authoredSets[s.id] || "none").toLowerCase() : planned;
+    let id;
+    if (named != null) id = named;
+    else if (V5S && ownBySet.has(set)) id = ownBySet.get(set);
+    else if (NOWHERE.has(set)) { id = V5S && current ? current : home; if (V5S && current) carried++; }
+    else id = null;
+    if (named == null && id != null && id === home && !(V5S && current)) atHome++;
+    if (V5S && id != null) current = id;
+    if (id == null) return s;
     const d = drawingOf(id);
     if (!d) { errors.push({ beat: s.id, message: `place: "${id}" is not a place of entities.json with a drawing (kind "place" + paths, or a "backdrop")` }); return s; }
     applied++;
     return { ...s, bg: { ...(s.bg || {}), own: d } };
   });
-  return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors, ...(home ? { home, atHome } : {}) } };
+  return errors.length ? { config, report: { applied: 0, errors } } : { config: { ...config, scenes }, report: { applied, errors, ...(home ? { home, atHome } : {}), ...(V5S ? { continued: carried } : {}) } };
 }
 
 /**
@@ -168,7 +201,19 @@ function applyTold(config, toldByScene, entities = {}, drawings = {}) {
   const scenes = config.scenes || [];
   const beats = scenes.map((s) => ({ id: s.id, frames: s.durationFrames, words: sceneWords(config, s), told: toldByScene[s.id] }));
   const unknown = Object.keys(toldByScene).filter((id) => !scenes.some((s) => s.id === id));
-  const { stages, errors, warnings } = compileTold(beats, entities, drawings);
+  // place continuity (V5S books): the stages need to know where the figure beats between them stand — the author's
+  // `place`, else a shared set that names one of the book's own places (the same rule applyPlaces draws by)
+  let placeByScene = drawings.placeByScene || {};
+  if (isV5S(entities)) {
+    const { resolveEntities, DEFAULT_PALETTE } = require("./own-drawings");
+    const ent = resolveEntities(entities, { motifs: drawings.motifs || {}, palette: drawings.palette || DEFAULT_PALETTE }).entities;
+    const drawn = (k) => !!(ent[k] && ent[k].kind === "place" && ((ent[k].backdrop && (ent[k].backdrop.paths || []).length) || (ent[k].paths || []).length));
+    const bySet = ownPlaceBySet(ent, drawn);
+    placeByScene = { ...placeByScene };
+    const authoredSets = drawings.authoredSets || null;
+    for (const s of scenes) if (!toldByScene[s.id] && placeByScene[s.id] == null) { const set = String((authoredSets ? authoredSets[s.id] : s.bg && s.bg.set) || "").toLowerCase(); if (bySet.has(set)) placeByScene[s.id] = bySet.get(set); }
+  }
+  const { stages, errors, warnings } = compileTold(beats, entities, { ...drawings, placeByScene });
   const bad = new Set(errors.filter((e) => e.beat).map((e) => e.beat));
   const global = errors.filter((e) => !e.beat);
   let applied = 0;
@@ -216,4 +261,4 @@ function revertTold(config) {
   return { config: { ...config, meta, scenes }, reverted: n };
 }
 
-module.exports = { NOWHERE, formArt, applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };
+module.exports = { NOWHERE, isV5S, ownPlaceBySet, formArt, applyPlaces, placeShare, castHeads, applyTold, revertTold, sealTold, sceneWords, stageHash };

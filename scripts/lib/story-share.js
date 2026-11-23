@@ -26,6 +26,33 @@ function vocabOf(entities = {}) {
   return v;
 }
 
+/**
+ * The book's PLACES as the narration says them (2026-11-23): for every drawn place of entities.json the phrases a
+ * narration uses for it — its id ("ellie-room" → "ellie room"), its label without "the", its readings (the place's own
+ * and its backdrop's). Generic words that name no particular place ("room", "home", "place", "house", "office") are
+ * dropped, as are phrases under four letters. → [{ id, phrases: [..] }]
+ */
+// words that name no particular place, or that a narration mostly says for something else ("the table", "a flat
+// voice", "coffee", "the door", "the road ahead") — a reading is drawn for a blind viewer, not for the narration
+const GENERIC_PLACE = new Set(["room", "home", "place", "house", "office", "building", "city", "inside", "outside", "scene", "interior",
+  "table", "flat", "coffee", "coffee cup", "trees", "road", "door", "front door", "stove", "cooker", "hallway", "street", "window"]);
+function placeWordsOf(entities = {}) {
+  const out = [];
+  for (const [id, e] of Object.entries(entities || {})) {
+    if (!e || e.kind !== "place") continue;
+    const src = [id.replace(/[-_]+/g, " "), e.label, ...(Array.isArray(e.reads) ? e.reads : []), ...((e.backdrop && Array.isArray(e.backdrop.reads)) ? e.backdrop.reads : [])];
+    const phrases = [...new Set(src.map((s) => plain(s).filter((w) => w !== "the" && w !== "a").join(" ")).filter((p) => p.length >= 4 && !GENERIC_PLACE.has(p)))];
+    if (phrases.length) out.push({ id, phrases });
+  }
+  return out;
+}
+/** which places a text names (whole-word match; a trailing "s" allowed) → [{ id, phrase }] */
+function placesNamedIn(text, placeWords) {
+  const t = ` ${plain(text).join(" ")} `, hits = [];
+  for (const p of placeWords || []) { const ph = p.phrases.find((x) => t.includes(` ${x} `) || t.includes(` ${x}s `)); if (ph) hits.push({ id: p.id, phrase: ph }); }
+  return hits;
+}
+
 function storyShare(text, { reach = 1, vocab = null } = {}) {
   const sentences = String(text || "").replace(/\s+/g, " ").trim().split(/(?<=[.?!])\s+/).filter(Boolean);
   if (!sentences.length) return null;
@@ -40,4 +67,4 @@ function storyShare(text, { reach = 1, vocab = null } = {}) {
   return { share: total ? inStory / total : null, namingSentences: long.length ? long.filter(([, n]) => n).length / long.length : null, longestTalkWords: longest, words: total, withThings: !!(vocab && vocab.size) };
 }
 
-module.exports = { storyShare, vocabOf, CHANNEL };
+module.exports = { storyShare, vocabOf, placeWordsOf, placesNamedIn, CHANNEL };

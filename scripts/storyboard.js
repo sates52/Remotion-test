@@ -1043,6 +1043,11 @@ function merge() {
   const problems = [], warnings = [];
   const shared = { own: 0, library: 0, by: {} }, OWN_ICON_KEYS = new Set(Object.keys(ownMotifs()).map((k) => k.toLowerCase())); // Film Flow 6: whose icons the figure beats use
   const nowhere = { all: 0, none: 0 }; // Film Flow 6: figure beats, and those that stand at no place of the book
+  // 2026-11-23 (Then She Was Gone: 81 % of the film in the kitchen, 17 % empty rooms): which beat the narration puts
+  // somewhere the author did not set, which beat shows nobody and nothing, and where each beat stands — said per beat,
+  // never refused (storyboard/places.json carries the lists for the author)
+  const SSH = require("./lib/story-share"), PLACE_WORDS = SSH.placeWordsOf(Object.fromEntries(Object.entries(TOLD_ENTITIES).filter(([, e]) => isPlaceDrawn(e))));
+  const placeTodo = {}, emptyBeats = [], placeOfBeat = new Map();
   const toldUses = new Map(); // entity id → the first told beat that uses it (told v2: the own-drawing gate)
   const watchTold = toldWatch(TOLD_ENTITIES); // told v3: a person on stage and nobody doing anything → a warning
   const P = (i, m) => problems.push(`${i}: ${m}`);
@@ -1301,6 +1306,17 @@ function merge() {
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
       // FILM FLOW 6: the book's own place behind a figure beat
       if (!a.told) { nowhere.all++; if (a.place == null) nowhere.none++; }
+      { // the place the author set for this beat (a figure beat's place, a told stage's "at"); unset = where the film was
+        const setAt = a.told ? (a.told.stage && a.told.stage.at) || null : a.place != null ? a.place : null;
+        placeOfBeat.set(i, setAt);
+        if (setAt == null && PLACE_WORDS.length) for (const h of SSH.placesNamedIn(narration, PLACE_WORDS)) {
+          (placeTodo[h.id] = placeTodo[h.id] || []).push(i);
+          warnings.push(`${i}: the narration names "${h.phrase}" (${h.id}) but the beat stands at no place — ${a.told ? `"stage": { …, "at": "${h.id}" }` : `"place": "${h.id}"`}`);
+          break;
+        }
+        // nobody and nothing of the book on screen: blind raters read it as "an empty room with text under it"
+        if (!a.told && Array.isArray(a.cast) && !a.cast.length && !a.concept && !a.diagram && !a.stageRelationship) { emptyBeats.push(i); warnings.push(`${i}: nobody and nothing of the book on screen — put the person or the thing the narration names there, or make it a told beat`); }
+      }
       if (!a.told && typeof a.concept === "string" && a.concept.trim() && !/^none$/i.test(a.concept.trim())) { if (OWN_ICON_KEYS.has(a.concept.trim().toLowerCase())) shared.own++; else { shared.library++; shared.by[a.concept.trim()] = (shared.by[a.concept.trim()] || 0) + 1; } }
       if (a.place != null && a.told) P(i, `place: a told beat's place is its stage's "at" ("stage": { …, "at": "${a.place}" })`);
       else if (a.place != null && !isPlaceDrawn(TOLD_ENTITIES[a.place])) P(i, `place "${a.place}" — a place of entities.json that has a drawing (see rules.md, "Where it happens")`);
@@ -1337,6 +1353,32 @@ function merge() {
         ...(a.told ? { told: a.told, ...(a.explainedBy ? { explainedBy: a.explainedBy } : {}) } : {}),
         storyboard: sb,
       });
+    }
+    // 2026-11-23 — the lists the author works from: per place the beats whose narration is there, the empty beats, and
+    // where each PART of the narrative form opens (a reviewer jumping to minute 5, 18, 35 must land in different places)
+    {
+      const lines = Object.entries(placeTodo).sort((x, y) => y[1].length - x[1].length).map(([id, is]) => `${id}: beats ${is.join(", ")}`);
+      if (lines.length) warnings.push(`places the narration names but the beats do not stand in — ${lines.join(" · ")}`);
+      if (emptyBeats.length) warnings.push(`empty beats (nobody and nothing on screen): ${emptyBeats.join(", ")}`);
+      // where each beat stands with continuity (an unset beat stays where the film was; the home before any place)
+      const home = Object.keys(TOLD_ENTITIES).find((k) => TOLD_ENTITIES[k] && TOLD_ENTITIES[k].home === true) || null;
+      const standsAt = []; let cur = null;
+      for (const b of out) { const p = placeOfBeat.get(b.i); if (p) cur = p; standsAt[b.i] = cur || home || "none"; }
+      let partOpens = [];
+      try {
+        const cfg = JSON.parse(fs.readFileSync(path.join(path.dirname(SB), "config.antidote.json"), "utf8"));
+        const parts = (cfg.meta && cfg.meta.form && cfg.meta.form.parts) || [];
+        const sceneAtFrame = (f) => (cfg.scenes || []).findIndex((s) => f >= s.fromFrame && f < s.fromFrame + (s.durationFrames || 0));
+        partOpens = parts.map((p) => { const k = sceneAtFrame(Number.isFinite(p.from) ? p.from : p.fromFrame); return { n: p.n, beat: k, place: k >= 0 ? standsAt[k] || "none" : "none" }; }).filter((p) => p.beat >= 0);
+      } catch { /* not planned yet: no parts known */ }
+      const repeats = partOpens.filter((p, k) => k && p.place !== "none" && p.place === partOpens[k - 1].place);
+      for (const p of repeats) warnings.push(`${p.beat}: part ${p.n} opens in ${p.place} like part ${partOpens[partOpens.indexOf(p) - 1].n} — open it somewhere else the narration is (a reviewer jumping through the film lands on the same room)`);
+      const tally = {}; for (const b of out) { const p = standsAt[b.i] || "none"; tally[p] = (tally[p] || 0) + 1; }
+      const top = Object.entries(tally).sort((x, y) => y[1] - x[1]);
+      if (PLACE_WORDS.length) {
+        console.log(`places (beats, with continuity): ${top.slice(0, 6).map(([p, c]) => `${p} ${Math.round((100 * c) / (out.length || 1))} %`).join(" · ")}${partOpens.length ? ` · parts open in: ${partOpens.map((p) => `${p.n}:${p.place}`).join(" ")}` : ""}`);
+        fs.writeFileSync(path.join(SB, "places.json"), JSON.stringify({ note: "Where each beat stands after merge (an unset beat stays where the film was). setPlace: beats whose narration names a place they do not stand in. empty: beats with nobody and nothing of the book. partOpens: where each part of the form opens. Reports only (storyboard.js merge, 2026-11-23).", at: new Date().toISOString(), beats: out.length, byPlace: Object.fromEntries(top), setPlace: placeTodo, empty: emptyBeats, partOpens, partRepeats: repeats.map((p) => p.n) }, null, 2));
+      }
     }
     // FILM FLOW 6 — said once, never refused: how much of the book stands in a generic set although it drew its places
     if (Object.values(TOLD_ENTITIES).some(isPlaceDrawn) && nowhere.all && nowhere.none / nowhere.all > 0.5) warnings.push(`places: ${nowhere.none} of ${nowhere.all} beats that are not told stand at no place of the book (the generic set is drawn) — write "place": "<place id>" where the narration is there (rules.md, "Where it happens")`);

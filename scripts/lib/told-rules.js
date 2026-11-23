@@ -103,11 +103,17 @@ function toldSection(entities) {
   \`{ "do": "drop", "who": "<person>", "what": "<thing id>" }\`. A thing that is thrown in the narration and stands
   still on screen is the commonest reason a stage reads as a label.` : ""}${places.length ? `
 - **Where it happens**: \`"stage": { "layout": …, "who": […], "at": "<place id>" }\` draws that place, pale, behind the
-  stage (${places.map((p) => `\`${p}\``).join(", ")}). A new \`stage\` without \`at\` is nowhere in particular; the event
-  \`at\` changes the place while the things stay. Name the place only when the narration is there.
+  stage (${places.map((p) => `\`${p}\``).join(", ")}). A new \`stage\` without \`at\` stays where the film is (the last
+  place set — in a book whose places are drawn as scenes; elsewhere it is the book's home); the event \`at\` changes the
+  place while the things stay. Name the place when the narration goes there.
 - **The same place behind a beat that is NOT told**: \`"place": "<place id>"\` on the beat (next to \`set\`) draws the
   book's own drawing of that place behind the cast instead of the generic set. Every beat whose narration happens
-  somewhere the book drew gets it — a film that stands in "office" and "room" could be any book.` : ""}
+  somewhere the book drew gets it — a film that stands in "office" and "room" could be any book.
+- **The film MOVES (2026-11-23)**: the first Film Flow book stood in its kitchen 82 % of the time and blind viewers wrote
+  "empty kitchen" again and again. A beat that names no place stays where the film last was — so SET the place every
+  time the narration goes somewhere (merge lists the beats whose narration names a place they do not stand in), open
+  every PART of the film in another place than the part before (a reviewer jumping to minute 5, 18, 35 must land in
+  different rooms), and never leave a beat with nobody and nothing of the book on screen (merge lists those too).` : ""}
 `;
   return `## The picture shows what is said — \`told\` beats (read this before anything else)
 Measured on our films: when the narration names a company, a product, a person or a place, that thing was on screen

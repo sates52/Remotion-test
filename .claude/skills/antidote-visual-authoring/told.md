@@ -139,6 +139,21 @@ interiors too. Authors: a told stage is there with `"stage": { …, "at": "<plac
 with `"place": "<place>"` next to its `set` — the book's drawing replaces the generic set. `told.js status` prints how much
 of the film stands at a place the book drew; a film that stands in "office" and "room" could be any book.
 
+### The film moves: place continuity (2026-11-23)
+
+Measured on the first Film Flow books: Then She Was Gone stood in its kitchen 82 % of the time, Dracula at Carfax 89 %;
+every beat that named no place fell back to the home, and every part opened in the same room. Blind viewers wrote
+"empty kitchen". In a book whose places are drawn as scenes (a backdrop with a `sky`):
+- a beat that names no place **stays where the film last was** (a told stage's last place, a figure beat's `place`, an
+  authored `set` that names one of the book's places); the home is only where the film starts. A set the planner picked
+  is not a place decision. A book of washes is placed as before.
+- **merge lists the work** (and writes `storyboard/places.json`): beats whose narration names a place they do not stand
+  in (`"<i>: the narration names "library" (library) but the beat stands at no place"`), beats with nobody and nothing of
+  the book on screen, and parts that open where the part before opened. Authors fix those beats; nothing is refused.
+- `told.js status` / `apply` and `originality-report.js` print: the most-used place's share of film time, the number of
+  places, the empty-scene share, where each part opens (`lib/film-metrics.js`). Then She Was Gone, the same storyboard,
+  continuity only: kitchen 82 % → 52 %, parts opening where the part before did 7 → 2.
+
 ### The place is a SCENE, not a silhouette (told v5, 2026-11-21)
 
 Measured on the first real book (Dracula): the picture ADDED to the narration in 19 of 24 mute-test frames but EXPLAINED

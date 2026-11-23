@@ -207,9 +207,13 @@ function compileTold(beats, written = {}, opts = {}) {
   // `known` on its carried people (receding name plates); every other book compiles byte-identical
   const V5S = Object.values(written || {}).some((e) => e && e.backdrop && e.backdrop.sky != null);
   let place = null; // the place the told run is AT (its drawing is the stage's backdrop); a run's end clears it
+  // PLACE CONTINUITY (2026-11-23, V5S books only): where the FILM last was — the last told stage's place, or a figure
+  // beat's authored place (opts.placeByScene) — so a stage that names no place stays there instead of going home
+  let lastPlace = null;
+  const placeOfFigure = opts.placeByScene || {};
 
   for (const beat of beats) {
-    if (!beat.told) { stages.push(null); carried = []; cam = { x: 960, y: 540, s: 1 }; place = null; continue; }
+    if (!beat.told) { stages.push(null); carried = []; cam = { x: 960, y: 540, s: 1 }; place = null; if (V5S && placeOfFigure[beat.id] != null) lastPlace = placeOfFigure[beat.id]; continue; }
     const err = (message) => errors.push({ beat: beat.id, message });
     const told = beat.told, words = beat.words || [], D = beat.frames;
     beatNo++;
@@ -357,10 +361,13 @@ function compileTold(beats, written = {}, opts = {}) {
     // THE BOOK'S HOME (2026-11-18): the one place marked "home": true is the ground of this book — a stage that names
     // no place stands there, not on blank paper (a book of ideas has no castle; it has the room its ideas live in)
     const HOME = Object.keys(entities).find((id) => entities[id] && entities[id].home === true && backdropOf(id)) || null;
+    if (!place && V5S && lastPlace && backdropOf(lastPlace)) place = lastPlace;
     if (!place && HOME) place = HOME;
     if (place && backdropOf(place)) backdrops.push(backdropOf(place));
     const setPlace = (id0, at) => {
-      const id = id0 || HOME; // "the plain ground again" is the book's home when it has one
+      // "the plain ground again" is the book's home when it has one — in a V5S book a stage that names no place stays
+      // where the film is (continuity); the home only when nothing is set yet
+      const id = id0 || (V5S && place ? place : HOME);
       if ((id || null) === place) return;
       if (id) { if (!entities[id]) return err(`at: "${id}" is not in entities.json`); if (!backdropOf(id)) return err(`at: "${id}" is not a place with a drawing (kind "place" + paths, or a "backdrop")`); }
       const cur = backdrops.find((b) => !b.exit); if (cur) cur.exit = { at: Math.max(12, at), dur: 12 };
@@ -792,6 +799,7 @@ function compileTold(beats, written = {}, opts = {}) {
     const drawn = items.map((it, i) => [it, i]).sort((a, b) => (order[a[0]._role] ?? 3) - (order[b[0]._role] ?? 3) || a[1] - b[1]).map(([it]) => it);
     const strip = (it) => { const c = {}; for (const [k, v] of Object.entries(it)) if (!k.startsWith("_") && v !== undefined) c[k] = v; return c; };
     stages.push({ v: T.TOLD_VERSION, items: drawn.map(strip), ...(camKeys.length ? { cam: camKeys } : {}), ...(backdrops.length ? { backdrops } : {}), ...(V2 ? { plate: "fit" } : {}) });
+    if (V5S && place) lastPlace = place;
 
     // what stays for the next beat: everything still on stage at this beat's last frame, where it stands then
     carried = [];

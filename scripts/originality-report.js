@@ -129,6 +129,8 @@ if (require.main === module) {
   if (t.lines != null) console.log(`         lines most of the channel's narrations share: ${t.lines} per 1000 words (channel median ${t.linesMedian})${t.linesTop.length ? ` — ${t.linesTop.map(([g, n]) => `"${g}" ×${n}`).join(", ")}` : ""}`);
   console.log(`PEOPLE   ${p.onScreen} on screen · ${p.drawn} wear a head drawn for this book${p.tested ? ` · seen blind as intended ${p.seenBlind} of ${p.tested}` : " · not seen blind yet (cast-sheet.js)"}`);
   console.log(`PLACES   film time at a place the book drew: ${pct(pl.own)} · on told stages ${pct(pl.told)} · in SHARED sets ${pct(pl.shared)} · places drawn: ${pl.drawnPlaces} · home: ${pl.home || "none"}`);
+  // 2026-11-23: which place the film stands in most, how many it stands in, how much is empty, where its parts open
+  for (const l of require("./lib/film-metrics").metricLines(require("./lib/film-metrics").filmMetrics(config))) console.log(`         ${l}`);
   console.log(`THINGS   on told stages ${th.toldDrawn} own drawing(s), ${th.toldEmblem} emblem(s) (${pct(th.toldOwn)} own) · icons beside the cast: ${th.iconsOwn} own, ${th.iconsLibrary} from the shared library${th.iconsLibrary ? ` (${th.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.iconsWorn ? ` — ${th.iconsWorn} of them the channel's worn icons (${th.wornTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}${th.drawings ? ` · named blind ${th.namedBlind} of ${th.drawings}` : ""}`);
   console.log(`CHANNEL  ${ch.films} other films · most alike in shared material: ${ch.most ? `${ch.most.slug} ${ch.most.alike.toFixed(2)}` : "–"} · median ${ch.median == null ? "–" : ch.median.toFixed(2)} (0 = nothing shared, 1 = the same pieces for the same time)`);
   console.log(`\n${line(r)}`);

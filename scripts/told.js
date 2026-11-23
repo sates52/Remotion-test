@@ -42,10 +42,12 @@ const pct = (x) => (x == null ? "–" : `${Math.round(x * 100)} %`);
 
 /** art.json beat i → the scene it became. The planner keeps one scene per beat; a narration that does not match is refused. */
 function toldByScene(config, art) {
-  const out = {}, problems = [], places = {};
+  const out = {}, problems = [], places = {}, sets = {};
   for (const b of (art && art.beats) || []) {
     // Film Flow 6: a figure beat's `place` — the book's own drawing of where it happens, behind the cast
     if (!b.told && b.place != null && (config.scenes || [])[b.i]) places[config.scenes[b.i].id] = b.place;
+    // the set the AUTHOR wrote (not the one the planner picked): only an authored set says where a beat is
+    if (!b.told && b.set && (config.scenes || [])[b.i]) sets[config.scenes[b.i].id] = b.set;
     if (!b.told) continue;
     const s = (config.scenes || [])[b.i];
     if (!s) { problems.push(`beat ${b.i}: the config has no scene ${b.i}`); continue; }
@@ -53,7 +55,7 @@ function toldByScene(config, art) {
     if (a && c && !c.startsWith(a.slice(0, 24)) && !a.startsWith(c.slice(0, 24))) { problems.push(`beat ${b.i}: art.json narration "${a}…" is not scene ${s.id}'s "${c}…" — re-run storyboard prep / merge on this plan`); continue; }
     out[s.id] = b.told;
   }
-  return { map: out, problems, places };
+  return { map: out, problems, places, sets };
 }
 
 function load({ needArt = true } = {}) {
@@ -123,6 +125,8 @@ if (cmd === "status") {
   const share = OD.drawnShare(config), own = OD.readBook(BOOK), named = Object.values((own.verdict && own.verdict.drawings) || {});
   { const ic = OD.iconShare(config); if (ic.own + ic.library) console.log(`concept icons of the scenes that are not told: ${ic.own} the book's own, ${ic.library} from the shared library${ic.library ? ` (${ic.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}`); }
   { const p = placeShare(config); if (p.at) console.log(`film time at a place the book drew: ${pct(p.share)}`); }
+  // 2026-11-23: where the film stands, how much of it is empty, where each part opens (lib/film-metrics.js; reports only)
+  for (const l of require("./lib/film-metrics").metricLines(require("./lib/film-metrics").filmMetrics(config))) console.log(l);
   // told v5: a place drawn as a SCENE (sky + ground) stands at full presence with the cast in it; a wash is the diagram
   { const bds = own.drawings.filter((d) => d.backdrop); if (bds.length) console.log(`places drawn as a scene (sky + ground): ${bds.filter((d) => d.sky).length} of ${bds.length}${bds.some((d) => !d.sky) ? ` — washes: ${bds.filter((d) => !d.sky).map((d) => d.entity).join(", ")}` : ""}`); }
   if (told) console.log(`things on told stages shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem}; the rest are emblems)`);
@@ -140,7 +144,7 @@ if (cmd === "revert") {
 
 if (cmd === "check" || cmd === "apply") {
   const { config, art, entities } = load();
-  const { map, problems, places } = toldByScene(config, art);
+  const { map, problems, places, sets } = toldByScene(config, art);
   const n = Object.keys(map).length;
   if (!n && !problems.length && !Object.keys(places).length) { console.log(`told ${cmd}: ${SLUG} has no told beat in art.json — nothing to do`); process.exit(0); }
   const entErrors = validateEntities(entities);
@@ -148,8 +152,8 @@ if (cmd === "check" || cmd === "apply") {
   const base = revertTold(config).config;
   // told v2: the book's own drawings — motifs.json icons an entity points at, and the book's colours for the tokens
   const own = OD.readBook(BOOK);
-  const r0 = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette });
-  const pl = applyPlaces(r0.config, places, entities, { motifs: own.motifs, palette: own.palette });
+  const r0 = applyTold(base, map, entities, { motifs: own.motifs, palette: own.palette, placeByScene: places, authoredSets: sets });
+  const pl = applyPlaces(r0.config, places, entities, { motifs: own.motifs, palette: own.palette, authoredSets: sets });
   // the book's own drawings on the boards of its narrative form (a part whose title names a person / thing / place it drew)
   const fa = formArt(pl.config, entities, { motifs: own.motifs, palette: own.palette });
   const r = { config: fa.config, report: { ...r0.report, errors: [...r0.report.errors, ...pl.report.errors], places: pl.report.applied, formArt: { matched: fa.matched, parts: fa.parts } } };
@@ -167,7 +171,10 @@ if (cmd === "check" || cmd === "apply") {
   if (!errors.length && (Object.keys(places).length || atPlace.at)) console.log(`  ✓ ${pl.report.applied} figure scene(s) at a place of the book · film time at a place the book drew: ${pct(atPlace.share)}`);
   if (!errors.length && fa.parts) console.log(`  ✓ form boards: ${fa.matched} of ${fa.parts} parts carry a drawing of the book (a part's title names a person, thing or place of entities.json)`);
   if (!errors.length) console.log(`  ✓ ${r.report.applied} stage(s) compiled · what the narration names is on screen: ${pct(before.share)} → ${pct(after.share)} (${after.shown} of ${after.mentions} scenes) · things shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem})`);
-  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share }, ownIcons: OD.iconShare(r.config), ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
+  if (!errors.length && pl.report.continued != null) console.log(`  ✓ place continuity: ${pl.report.continued} figure scene(s) that name no place stay where the film was (not the home)`);
+  const FM = require("./lib/film-metrics"), fm = FM.filmMetrics(r.config);
+  if (!errors.length) for (const l of FM.metricLines(fm)) console.log(`  · ${l}`);
+  const report = { slug: SLUG, at: new Date().toISOString(), told: n, applied: errors.length ? 0 : r.report.applied, errors, warnings: r.report.warnings, coverage: { before: before.share, after: after.share, shown: after.shown, mentions: after.mentions }, ownPlaces: { figureScenes: pl.report.applied, share: atPlace.share, continued: pl.report.continued ?? null }, film: { topPlace: fm.topPlace, topShare: fm.topShare, distinct: fm.distinct, places: fm.places.slice(0, 12), emptyShare: fm.emptyShare, nobodyShare: fm.nobodyShare, toldShare: fm.toldShare, partOpenings: fm.partOpenings, partRepeats: fm.partRepeats }, ownIcons: OD.iconShare(r.config), ownDrawings: { ...share, drawings: own.drawings.length, notNamedBlind: gateMsgs }, missing: after.missing.slice(0, 60), entityErrors: entErrors };
   if (errors.length) {
     if (cmd === "apply" && args.write) fs.writeFileSync(F.report, JSON.stringify(report, null, 2));
     console.log(`TOLD NOT APPLIED — ${errors.length} error(s). Nothing was written. Fix the beats in storyboard/authored-N.json (the messages name them), merge --write, and run again.`);
