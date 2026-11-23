@@ -218,6 +218,27 @@ function bookState(slug, root = ROOT) {
   } else stage("code", "n/a", "not a git checkout");
   if (blocked()) return finish(st);
 
+  // 2b. transcript sameness (2026-11-23, YPP "inauthentic content"): is this recording told in the channel's repeated way?
+  // Decided BEFORE any authoring (a REVIEW recording may be re-recorded; the operator may keep it: --accept). The record
+  // is bound to the VTT's hash; status reads it and never measures itself (scripts/transcript-sameness.js writes it).
+  {
+    let TSm = null; try { TSm = require("./lib/transcript-sameness"); } catch {}
+    const rec = TSm ? TSm.readRecord(root, slug) : null;
+    const input = TSm ? TSm.inputHash(root, slug) : null;
+    const cmd = `node scripts/transcript-sameness.js --slug=${slug}`;
+    if (!TSm) stage("sameness", "n/a", "no transcript-sameness tool in this code");
+    else if (!rec || !rec.input || !input || rec.input.sha256 !== input.sha256) {
+      stage("sameness", "todo", rec ? "record older than the recording (VTT changed)" : "not measured");
+      go("sameness", "Measure this recording against the channel's narrations (channel runs per 1000 words; about a minute) — before any authoring", cmd, "REVIEW = the recording is told in the channel's repeated way: a new recording (Step 0, the form's SPEECH block) or the operator's --accept; OK = continue");
+      return finish(st);
+    } else if (rec.verdict === "REVIEW" && !(rec.accepted && rec.accepted.by === "operator")) {
+      stage("sameness", "failed", `REVIEW: ${rec.runs && rec.runs.per1000} channel runs / 1000 words (bar ${rec.policy && rec.policy.reviewRunsPer1000}; channel median ${rec.channelMedian && rec.channelMedian.runs})`);
+      stop("TRANSCRIPT_SAMENESS", `the recording says the channel's repeated runs ${rec.runs && rec.runs.per1000} times per 1000 words (bar ${rec.policy && rec.policy.reviewRunsPer1000}) — a transcript reader sees the channel's template. The operator decides: record again (same prompt / a different form at Step 0) or keep it: ${cmd} --accept="<why>"`,
+        [...((rec.runs && rec.runs.said) || []).slice(0, 4).map(([g, n]) => `"${g}" ×${n}`), `nearest in style: ${rec.style && rec.style.nn}`]);
+      return finish(st);
+    } else stage("sameness", "done", `${rec.runs && rec.runs.per1000} channel runs / 1000 words (${rec.verdict}${rec.accepted ? `, accepted by the operator ${String(rec.accepted.at).slice(0, 10)}` : ""})`);
+  }
+
   // 3. story bible (+ cast variants for Antidote)
   const bible = readJSON(path.join(B, "story-bible.json"));
   if (!bible || bible.authored !== true) {

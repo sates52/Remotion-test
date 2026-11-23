@@ -22,6 +22,12 @@
     "maxPerDay": 1,
     "maxPerWeek": 7
   },
+  "transcriptSameness": {
+    "note": "How much a narration is told in the channel's repeated way (scripts/lib/transcript-sameness.js): the rate of the channel's 5-word runs (said in >= 15 % of the films) per 1000 words. MEASURED 2026-11-23: old films median 1.20 (min 0.10), the formed Dracula recordings 0.4 and 0.0; no cosine proxy (skeleton 5-grams, content trigrams) separates them, so only the run rate is a bar. Proposed by the agent in the 2026-11-23 plan at half the old median; preview-state stops with TRANSCRIPT_SAMENESS at or over it unless the operator accepts (--accept).",
+    "decidedBy": "operator (Savas), 2026-11-23 (plan approval); re-calibrate after the first five formed recordings",
+    "reviewRunsPer1000": 0.6,
+    "minWords": 1500
+  },
   "packSameness": {
     "note": "Pack (description / tags / hashtags) sameness against every other pack of the channel — scripts/lib/title-lint.js lintPackSameness. Proposed by the agent in the 2026-11-23 plan, operator-approved with it. sharedRunWords: a run of this many words shared with another description fails; a tag / hashtag on >= stapleMinPacks other packs is a channel staple; at most maxStapleTags / maxStapleHashtags of them.",
     "decidedBy": "operator (Savas), 2026-11-23 (plan approval)",
