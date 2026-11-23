@@ -906,6 +906,7 @@ function prep() {
     }
     const unseen = OD.gatePeople(OWN_DRAWINGS.people, OWN_DRAWINGS.peopleVerdict);
     if (unseen.length) console.warn(`⚠ ${unseen.length} of ${OWN_DRAWINGS.people.length} people not seen blind as intended yet — node scripts/cast-sheet.js --slug=${SLUG} --cloud (merge refuses a told beat that uses one):\n${unseen.map((m) => `    ${m}`).join("\n")}`);
+    for (const f of OD.fallbacksOf(TOLD_ENTITIES)) console.warn(`↩ fallback ${f.key}: read as "${f.read}" in ${f.rounds} blind rounds — ${f.standsIn} stands in (entities.json keeps the drawing under pathsFallback / drawnFallback)`);
     const unnamed = OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict);
     if (unnamed.length) console.warn(`⚠ ${unnamed.length} of ${OWN_DRAWINGS.drawings.length} own drawing(s) not named blind as intended yet — node scripts/own-icons-sheet.js --slug=${SLUG} (merge refuses a told beat that uses one):\n${unnamed.map((m) => `    ${m}`).join("\n")}`);
   }
@@ -1353,6 +1354,8 @@ function merge() {
       const ent = (m.match(/^drawing "([^"#@]+)/) || [])[1];
       problems.push(`OWN DRAWING (first used by beat ${toldUses.get(ent)}): ${m}`);
     }
+    // told v2/v3 — a drawing that stood aside after its blind rounds (own-icons-sheet / cast-sheet --judge): said once, never a problem
+    { const fb = OD.fallbacksOf(TOLD_ENTITIES).filter((f) => toldUses.has(f.entity)); if (fb.length) warnings.push(`fallbacks on stage: ${fb.map((f) => `${f.key} (read as "${f.read}", ${f.standsIn})`).join("; ")} — the step is finished; a later redraw that is named as intended takes the drawing back`); }
     const hist = {}; out.forEach((b) => b.concept && (hist[b.concept] = (hist[b.concept] || 0) + 1));
     const top = Object.entries(hist).sort((x, y) => y[1] - x[1]);
     const ownSet = new Set(v.ownIcons || []);

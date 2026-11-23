@@ -69,6 +69,12 @@ book's **own drawings** (an animal, an object), plus what happens to them. The s
      Redraw what was read as something else (dracula's open earth box took three drawings: "wooden crate",
      "treasure chest", then "crate of soil"). **Merge refuses a told beat that uses a drawing without a passing
      verdict**; prep refuses a drawing that is not one (three polygons, one colour, a corner of its box).
+     **Two rounds, then the fallback (2026-11-23):** a miss writes `storyboard/own-drawings.redraw.md` (what it was
+     read as, what it must read as, how a drawing of its kind is read) — redraw from that, print, name, judge. On the
+     SECOND miss `--judge` records the fallback in entities.json itself (`paths` → `pathsFallback` with the record:
+     the emblem / the thing unchanged / the shared set stands in), prep and merge say it once, and you go on — never a
+     third round on your own, never a question to the operator about it. A refused sheet removes the earlier pictures:
+     nothing old is ever named.
 4. **Give every person a signature and have them told apart blind (told v3, 2026-11-17).** A person is the engine's
    rig dressed by `look`; eight people in dark suits are told apart only by their name plates. In `entities.json`:
 
@@ -99,6 +105,8 @@ The people who carry the book get `"look": { …, "drawn": { "back", "face", "ha
 in the rig's units; the rig keeps eyes, brows, mouth and limbs. The exact numbers and tokens are generated into
 `entities.candidates.json` → `"cast"`; follow that, not memory. One silhouette per person — two people differ in
 OUTLINE, not in colour. Then the same blind test as before (`cast-sheet.js --cloud`, one agent per picture, `--judge`).
+A person gets the same two rounds: a miss writes `own-people.redraw.md`; the second miss moves the head to
+`look.drawnFallback` (the rig's own head stands in, the signature stays) and the step is finished.
 `told.js apply` puts the same head on that person in the figure scenes too.
 
 ### The book's home (2026-11-18)

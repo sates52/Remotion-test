@@ -8181,3 +8181,38 @@ Operator approved after two rounds of clips.
   pinned book). Measured on then-she-was-gone-v2: 23 candidates (Laurel ×52, Ellie ×31, Floyd ×24 …) from the VTT.
 - **Not touched:** no gate, threshold, published / pinned book, render, upload or cleanup. `--own-incomplete` stays a
   recorded reason, not a way around the step.
+
+### 2026-11-23 — Own drawings: two blind rounds, then the fallback; a refused sheet leaves no old picture; the redraw note
+
+- **What the first real book measured (then-she-was-gone-v2, 2026-11-22/23):** a street, a hallway backdrop and a
+  hooded head each took three redraw rounds; two of those rounds were rated on PICTURES OF THE EARLIER DRAWINGS
+  (`own-icons-sheet.js` refused the new drawings on the lint and printed nothing, the old `own-drawings/NN.png` stayed
+  on disk, the fresh rater named them); the agent redrew from a guess ("row houses" → what now?) and ended its turn
+  asking the operator after every round. Four hour-long rounds for three pictures the policy already allowed to fall
+  back on.
+- **`scripts/lib/own-drawings.js`:** `judge(items, answers, previous)` counts a miss's ROUNDS (distinct drawings of the
+  key read as something else; the same drawing judged twice is one round) and marks the `FALLBACK_AFTER` (= 2)-th
+  miss `fallback`. `applyFallbacks(entities, verdict)` (pure) moves the drawing aside IN THE DATA — `paths` →
+  `pathsFallback`, a head `look.drawn` → `look.drawnFallback`, each with a `fallback` record {at, read, wanted,
+  rounds} — so every reader (compiler, sheet, prep, merge, director) sees no drawing and takes the fallback it always
+  had: the emblem / the thing unchanged / the shared set / the rig's own head. Nothing is deleted; moving it back is
+  one edit and a redraw named as intended takes it back. `resolveEntities` raises no error for a node standing aside;
+  `ownGaps` counts it as the step done (a home that fell back is still the home step done); `peopleOf` marks
+  `fallback`, `gatePeople` skips it; `fallbacksOf(entities)` lists them. `redrawNote()` writes why a miss missed
+  (read as / wanted / round n of 2 / how a drawing of its kind is read, `REDRAW_HINTS`) plus the misreads the channel
+  measured for the same words (`data/drawing-readings.json`, new: seeded with this book's and dracula's; a row is added
+  by hand after a miss, as in icon-readings.json).
+- **`scripts/own-icons-sheet.js`, `scripts/cast-sheet.js`:** `--judge` passes the previous verdict, prints `↩` for a
+  fallback with "round n of 2", writes the fallbacks into `storyboard/entities.json`, writes
+  `own-drawings.redraw.md` / `own-people.redraw.md` for the misses that are not yet fallbacks (exit 1 only then; all
+  passed or fallen back → exit 0: the step is finished), and ends with the ROUTINE line (run on, do not ask). A sheet
+  refused on the lint REMOVES the earlier pictures and the key: nothing old can be named.
+- **`scripts/storyboard.js`:** prep prints every fallback once (`↩ fallback …`); merge WARNS (never a problem) which
+  fallbacks a told beat puts on stage.
+- **Docs:** `antidote-visual-authoring/told.md` (§3 drawings, §4 people), `STORYBOARD_RUNBOOK.md` §2f, preview-hazirla
+  entities row: two rounds, then the fallback, never a third round or a question about it.
+- **Tests:** `scripts/test-own-fallback.js` (new, 4); own-drawings / cast / gaps / places / things / told-entities /
+  icon-identity / storyboard-flags unchanged and passing.
+- **Not touched:** no gate threshold, no mute-test bar, no published / pinned book (then-she-was-gone-v2 stays on its
+  pin 3955d853 — its owner takes this through `maintenance-upgrade --before-preview` if they want it on this book), no
+  render, upload or cleanup.

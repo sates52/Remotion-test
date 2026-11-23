@@ -47,11 +47,21 @@ if (args.judge) {
   // the answers are numbered by the sheet that was SHOWN: a drawing changed since then has no blind name
   const stale = !key ? ["the sheet was never printed"] : drawings.filter((d, n) => !key[n + 1] || key[n + 1].key !== d.key || key[n + 1].hash !== d.hash).map((d) => `"${d.key}" changed after the sheet was printed`);
   if (stale.length) { console.error(`✗ ${stale.join("; ")} — run the sheet again (without --judge) and have it named again`); process.exit(1); }
-  const verdict = { ...OD.judge(drawings, readJSON(args.judge, {}) || {}), slug: SLUG, at: new Date().toISOString() };
+  // the previous verdict counts the rounds: the FALLBACK_AFTER-th miss of a drawing records its fallback (lib/own-drawings.js)
+  const verdict = { ...OD.judge(drawings, readJSON(args.judge, {}) || {}, own.verdict), slug: SLUG, at: new Date().toISOString() };
   fs.writeFileSync(own.verdictFile, JSON.stringify(verdict, null, 2));
-  for (const [k, r] of Object.entries(verdict.drawings)) console.log(`  ${r.ok ? "✓" : "✗"} ${String(r.n).padStart(2)}  ${k.padEnd(28)} read as "${r.answer == null ? "— (no answer)" : r.answer}"${r.ok ? "" : `   wanted: ${r.accepted.join(" / ")}`}`);
+  for (const [k, r] of Object.entries(verdict.drawings)) console.log(`  ${r.ok ? "✓" : r.fallback ? "↩" : "✗"} ${String(r.n).padStart(2)}  ${k.padEnd(28)} read as "${r.answer == null ? "— (no answer)" : r.answer}"${r.ok ? "" : `   wanted: ${r.accepted.join(" / ")}${r.rounds ? ` (round ${r.rounds} of ${OD.FALLBACK_AFTER})` : ""}`}`);
   console.log(`${verdict.named} of ${verdict.total} drawings named as intended → ${rel(own.verdictFile)}`);
-  if (verdict.named < verdict.total) { console.log(`REDRAW the ✗ ones (or remove their paths: the emblem is the fallback), run the sheet and the blind naming again. Never add the misreading to "reads".`); process.exit(1); }
+  const fb = OD.applyFallbacks(own.entities, verdict);
+  if (fb.applied.length) {
+    fs.writeFileSync(path.join(outDir, "entities.json"), JSON.stringify(fb.entities, null, 2) + "\n");
+    for (const a of fb.applied) console.log(`  ↩ FALLBACK ${a.key}: read as "${a.read}" in ${a.rounds} blind rounds — ${a.standsIn} stands in; the drawing is kept under "pathsFallback" with the record (storyboard/entities.json). To try once more: move it back to "paths", redraw, print, name, judge.`);
+    console.log(`  ${fb.applied.length} fallback(s) recorded in ${rel(path.join(outDir, "entities.json"))} — the step is finished for them; prep and merge say so once.`);
+  }
+  const note = OD.redrawNote({ slug: SLUG, rows: verdict.drawings, items: drawings, readings: OD.drawingReadings() });
+  const noteFile = path.join(outDir, "own-drawings.redraw.md");
+  if (note) { fs.writeFileSync(noteFile, note); console.log(`REDRAW the ✗ ones from ${rel(noteFile)} (what each was read as, what it must read as, and how a drawing of its kind is read), run the sheet and the blind naming again. Never add the misreading to "reads". Round ${OD.FALLBACK_AFTER} is the last: the judge then records the fallback and you go on. ${require("./lib/next-step").ROUTINE}`); process.exit(1); }
+  else if (fs.existsSync(noteFile)) fs.unlinkSync(noteFile);
   process.exit(0);
 }
 
@@ -134,6 +144,12 @@ if (drawings.length) {
   if (problems.length) {
     for (const m of problems) console.error(`  ✗ ${m}`);
     console.error(`❌ ${problems.length} problem(s) in the drawings of ${rel(path.join(outDir, "entities.json"))} — fix them first (how to draw one: storyboard/entities.candidates.json "drawing", told.md). Nothing was printed.`);
+    // 2026-11-23: the pictures of the EARLIER drawings stayed on disk and a fresh rater named them as if they were the
+    // new ones (two rounds lost on then-she-was-gone-v2). A refused sheet leaves nothing anyone could rate.
+    const stale = path.join(outDir, "own-drawings"); let gone = 0;
+    try { for (const f of fs.readdirSync(stale)) if (/^\d+\.png$/.test(f)) { fs.unlinkSync(path.join(stale, f)); gone++; } } catch { /* no earlier pictures */ }
+    try { fs.unlinkSync(path.join(outDir, "own-drawings.key.json")); } catch { /* no key */ }
+    if (gone) console.error(`   ${gone} earlier picture(s) and the key were removed: nothing on disk shows the drawings as they are now — print again after the fix, never name old pictures.`);
     process.exit(1);
   }
   const dir = path.join(outDir, "own-drawings");

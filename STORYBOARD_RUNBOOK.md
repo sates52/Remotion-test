@@ -296,7 +296,9 @@ cases; the operator chose the told form on side-by-side passages. Guide (every h
 `.claude/skills/antidote-visual-authoring/told.md`; versions: `docs/FILM-FLOW.md`.
 1. Before prep (lead agent): `node scripts/told.js entities --slug=<slug>` → write `storyboard/entities.json`
    (label, kind, glyph / look / paths) → DRAW the things that carry the book and have them named blind (§1b,
-   told v2) → `storyboard.js prep` (rules.md opens with the told section).
+   told v2) → `storyboard.js prep` (rules.md opens with the told section). A drawing or a head gets TWO blind
+   rounds; the second miss records its fallback in entities.json (`pathsFallback` / `drawnFallback`) and the step is
+   finished — the redraw note (`own-drawings.redraw.md`, `own-people.redraw.md`) says why it missed (2026-11-23).
    People get a signature and are told apart blind the same way (told v3): `reads` + `look` / `holds` / `carries`,
    `node scripts/cast-sheet.js --slug=<slug> --cloud`, one picture to one fresh agent, `--judge`.
 2. Authors write `told` on the beats that name something — and `act` (who, verb, target) where the narration says a

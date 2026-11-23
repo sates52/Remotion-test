@@ -223,19 +223,19 @@ function resolveEntities(entities = {}, { motifs = {}, palette = DEFAULT_PALETTE
       for (const [name, st] of Object.entries(e.states || {})) {
         if (!/^[a-z][a-z0-9-]*$/.test(name)) { errors.push(`entity "${id}": state "${name}" — lower-case letters, digits and "-"`); continue; }
         const s = source(st, motifs, errors, `entity "${id}" state "${name}"`);
-        if (!s) { errors.push(`entity "${id}": state "${name}" has no drawing (paths, or motif)`); continue; }
+        if (!s) { if (!Array.isArray(st && st.pathsFallback)) errors.push(`entity "${id}": state "${name}" has no drawing (paths, or motif)`); continue; }
         if ((s.viewBox || RULES.box) !== (base.viewBox || RULES.box)) errors.push(`entity "${id}": state "${name}" has another viewBox than the thing itself — the same box, the same silhouette, only the change drawn differently`);
         r.states[name] = push(`${id}#${name}`, s, { state: name }, `${e.label || id} (${name})`);
       }
     } else {
       delete r.paths;
-      if (e.states && Object.keys(e.states).length) errors.push(`entity "${id}": states need the thing's own drawing first (paths, or motif)`);
+      if (e.states && Object.keys(e.states).length && !Array.isArray(e.pathsFallback)) errors.push(`entity "${id}": states need the thing's own drawing first (paths, or motif)`);
     }
     if (e.backdrop) {
       if (e.kind !== "place") errors.push(`entity "${id}": only a place has a backdrop`);
       const s = source(e.backdrop, motifs, errors, `entity "${id}" backdrop`);
       if (s) r.backdrop = push(`${id}@backdrop`, { ...s, ...(e.backdrop.sky != null ? { sky: e.backdrop.sky } : {}), ...(e.backdrop.ground != null ? { ground: e.backdrop.ground } : {}), ...(e.backdrop.spots != null ? { spots: e.backdrop.spots } : {}) }, { backdrop: true }, `${e.label || id} (the place, behind the stage)`);
-      else { errors.push(`entity "${id}": backdrop has no drawing (paths)`); delete r.backdrop; }
+      else { if (!Array.isArray(e.backdrop.pathsFallback)) errors.push(`entity "${id}": backdrop has no drawing (paths)`); delete r.backdrop; }
     }
     out[id] = r;
   }
@@ -266,16 +266,117 @@ function readsAs(answer, accepted) {
 }
 
 /**
- * judge(drawings, answers) → the verdict file: every drawing with the blind name it got. `answers` = { "<n>": "words" }
- * keyed by the sheet number (drawings are numbered in list order), or { "<key>": "words" }.
+ * A drawing (or a person's signature) gets TWO blind rounds (2026-11-23, then-she-was-gone-v2: a street, a hallway and
+ * a hooded head took three rounds each, two of them rated on pictures that were no longer the drawing, and the agent
+ * stopped to ask after every round). On the second miss the judge records the FALLBACK the policy always allowed —
+ * the thing is its emblem, the state is the thing unchanged, the place is the shared set, the person wears the rig's
+ * own head — and the step is finished: nothing blocks, merge and prep say so once. A later redraw (a new hash) is
+ * judged again and, read as intended, takes the drawing back.
  */
-function judge(drawings, answers = {}) {
-  const rows = {};
+const FALLBACK_AFTER = 2;
+
+/**
+ * judge(drawings, answers, previous?) → the verdict file: every drawing with the blind name it got. `answers` =
+ * { "<n>": "words" } keyed by the sheet number (drawings are numbered in list order), or { "<key>": "words" }.
+ * `previous` = the last verdict: a miss counts its ROUNDS (distinct drawings of this key read as something else; the
+ * same drawing judged twice is one round) and the FALLBACK_AFTER-th miss is marked `fallback`.
+ */
+function judge(drawings, answers = {}, previous = null) {
+  const rows = {}, prev = (previous && previous.drawings) || {};
   drawings.forEach((d, n) => {
     const answer = answers[String(n + 1)] != null ? answers[String(n + 1)] : answers[d.key];
-    rows[d.key] = { n: n + 1, hash: d.hash, intended: d.intended, accepted: d.accepted, answer: answer == null ? null : String(answer), ok: answer != null && readsAs(answer, d.accepted) };
+    const ok = answer != null && readsAs(answer, d.accepted);
+    const p = prev[d.key];
+    const before = p && !p.ok && p.answer != null ? Math.max(0, (p.rounds || 1) - (p.hash === d.hash ? 1 : 0)) : 0;
+    const rounds = ok ? 0 : before + 1;
+    rows[d.key] = { n: n + 1, hash: d.hash, intended: d.intended, accepted: d.accepted, answer: answer == null ? null : String(answer), ok, ...(rounds ? { rounds } : {}), ...(rounds >= FALLBACK_AFTER ? { fallback: true } : {}) };
   });
-  return { schema: "own-drawings/1", drawings: rows, named: Object.values(rows).filter((r) => r.ok).length, total: drawings.length };
+  return { schema: "own-drawings/1", drawings: rows, named: Object.values(rows).filter((r) => r.ok).length, total: drawings.length, fallbacks: Object.values(rows).filter((r) => r.fallback).length };
+}
+
+/**
+ * applyFallbacks(entities, verdict) → { entities, applied[] } — pure. For every verdict row marked `fallback`, the
+ * drawing is moved aside IN THE DATA (`paths` → `pathsFallback`, a head `look.drawn` → `look.drawnFallback`, with a
+ * `fallback` record: when, what it was read as, how many rounds) so that every reader — the compiler, the sheet, prep,
+ * merge, the director — sees no drawing and uses the fallback it always had. Nothing is deleted: moving it back is one
+ * edit. A row whose node already stands aside (or was redrawn since) is left alone.
+ */
+function applyFallbacks(entities = {}, verdict = null) {
+  const out = JSON.parse(JSON.stringify(entities || {})), applied = [];
+  for (const [key, r] of Object.entries((verdict && verdict.drawings) || {})) {
+    if (!r || !r.fallback || r.ok) continue;
+    const rec = { at: (verdict && verdict.at) || new Date().toISOString(), read: r.answer, wanted: r.accepted, rounds: r.rounds || FALLBACK_AFTER };
+    let entity = key, standsIn = null;
+    if (key.startsWith("person:")) {
+      entity = key.slice(7); const e = out[entity];
+      if (e && e.look && e.look.drawn) { e.look.drawnFallback = e.look.drawn; delete e.look.drawn; e.look.fallback = rec; standsIn = "the rig's own head"; }
+    } else if (key.endsWith("@backdrop")) {
+      entity = key.slice(0, -9); const e = out[entity];
+      if (e && e.backdrop && Array.isArray(e.backdrop.paths)) { e.backdrop.pathsFallback = e.backdrop.paths; delete e.backdrop.paths; e.backdrop.fallback = rec; standsIn = "the shared set"; }
+    } else if (key.includes("#")) {
+      const i = key.indexOf("#"); entity = key.slice(0, i); const st = out[entity] && out[entity].states && out[entity].states[key.slice(i + 1)];
+      if (st && Array.isArray(st.paths)) { st.pathsFallback = st.paths; delete st.paths; st.fallback = rec; standsIn = "the thing itself, unchanged"; }
+    } else {
+      const e = out[entity];
+      if (e && Array.isArray(e.paths)) { e.pathsFallback = e.paths; delete e.paths; e.fallback = rec; standsIn = "its emblem"; }
+    }
+    if (standsIn) applied.push({ key, entity, standsIn, read: r.answer, rounds: rec.rounds });
+  }
+  return { entities: out, applied };
+}
+
+/** fallbacksOf(entities) → [{ key, entity, standsIn, read, rounds, at }] — the drawings standing aside in a book (prep and merge say them once) */
+function fallbacksOf(entities = {}) {
+  const out = [];
+  for (const [id, e] of Object.entries(entities || {})) {
+    if (!e || typeof e !== "object") continue;
+    const row = (key, node, standsIn) => { if (node && node.fallback && typeof node.fallback === "object") out.push({ key, entity: id, standsIn, read: node.fallback.read, rounds: node.fallback.rounds, at: node.fallback.at }); };
+    if (e.kind === "person") { row(`person:${id}`, e.look, "the rig's own head"); continue; }
+    if (!Array.isArray(e.paths)) row(id, e, "its emblem");
+    for (const [name, st] of Object.entries(e.states || {})) if (st && !Array.isArray(st.paths)) row(`${id}#${name}`, st, "the thing itself, unchanged");
+    if (e.backdrop && !Array.isArray(e.backdrop.paths)) row(`${id}@backdrop`, e.backdrop, "the shared set");
+  }
+  return out;
+}
+
+/**
+ * What a drawing of each kind is READ BY — written for the agent who redraws after a miss (so the second round is
+ * drawn from a reason, not a guess), with the misreads earlier books measured (data/drawing-readings.json).
+ */
+const REDRAW_HINTS = {
+  backdrop: "A place is read by its SURFACE and ONE fixture, filling at least half the box: road + kerb + lamp post is a street; floor + a door with a number is a hallway; water + a pier is a harbour. Buildings only in the back and small — when they are the body of the picture a stranger says \"houses\". Nothing a room of another kind would also have (a coat rack is a cloakroom).",
+  thing: "One silhouette, the defining part larger than life, nothing else in the box — no scene around it, no second object. Draw the part that names it (the strap of a rucksack, the flap and seal of a letter).",
+  state: "The SAME silhouette as the thing, only the change drawn differently (open / torn / lit / empty). A different drawing is read as a different thing.",
+  person: "The rig draws the body; a stranger names the HEADWEAR, the HAIR and the GARMENT. A hood needs hair showing inside it and the face open, or it is a parka; a coat is \"coat\" whatever its colour. Say it with ONE large clear element, not three small ones; the colour never carries the reading.",
+};
+
+/**
+ * redrawNote({ slug, rows, items, people }) → markdown for storyboard/own-{drawings,people}.redraw.md: every miss that
+ * is NOT yet a fallback — what it was read as, what it must read as, which round this was, the hint for its kind, and
+ * the misreads earlier books measured for the same words. Pure.
+ */
+function redrawNote({ slug = "", rows = {}, items = [], people = false, readings = [] } = {}) {
+  const miss = items.map((d) => ({ d, r: rows[d.key] })).filter(({ r }) => r && r.answer != null && !r.ok && !r.fallback);
+  if (!miss.length) return null;
+  const kindOf = (d) => (people ? "person" : d.backdrop ? "backdrop" : d.state ? "state" : "thing");
+  const words = (s) => new Set(norm(s).split(" ").filter((w) => w.length > 2));
+  const lines = [`# Redraw — ${slug} (${people ? "people" : "drawings"}, ${new Date().toISOString().slice(0, 10)})`, "",
+    `${miss.length} ${people ? "person(s)" : "drawing(s)"} read as something else. Each gets ${FALLBACK_AFTER} blind rounds; on the ${FALLBACK_AFTER === 2 ? "second" : `${FALLBACK_AFTER}th`} miss the judge records the fallback and the step is finished — redraw from the reason below, never from a guess, and never add the misreading to "reads".`, ""];
+  for (const { d, r } of miss) {
+    const k = kindOf(d), want = (r.accepted || []).join(" / ");
+    lines.push(`## ${d.key} — read as "${r.answer}", wanted ${want} (round ${r.rounds || 1} of ${FALLBACK_AFTER})`);
+    lines.push(`- ${REDRAW_HINTS[k]}`);
+    const w = words(want);
+    const seen = (readings || []).filter((x) => x && [...words(x.intended || "")].some((t) => w.has(t)));
+    for (const x of seen.slice(0, 4)) lines.push(`- measured before: "${x.intended}" read as "${x.read}"${x.slug ? ` (${x.slug})` : ""}${x.note ? ` — ${x.note}` : ""}`);
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+/** the misreads the channel measured (data/drawing-readings.json; a row is added by hand, as in data/icon-readings.json) */
+function drawingReadings() {
+  try { const j = JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "..", "..", "data", "drawing-readings.json"), "utf8")); return Array.isArray(j) ? j : j.readings || []; } catch { return []; }
 }
 
 /**
@@ -428,7 +529,7 @@ function peopleOf(entities = {}) {
   for (const [id, e] of Object.entries(entities || {})) {
     if (!e || e.kind !== "person") continue;
     const sig = signature(e), look = sha({ look: sig.look, holds: sig.holds, carries: sig.carries });
-    const p = { key: `person:${id}`, entity: id, intended: e.label || id, accepted: [...new Set(list(e.reads).map(norm).filter(Boolean))], hash: sha(sig) };
+    const p = { key: `person:${id}`, entity: id, intended: e.label || id, accepted: [...new Set(list(e.reads).map(norm).filter(Boolean))], hash: sha(sig), ...(e.look && e.look.drawnFallback && !e.look.drawn ? { fallback: true } : {}) };
     if (seen.has(look)) p.twin = seen.get(look); else seen.set(look, id);
     out.push(p);
   }
@@ -457,6 +558,7 @@ function gatePeople(people, verdict, used = null) {
   if (!people.some((p) => p.accepted.length)) return out;
   for (const p of people) {
     if (used && !used.has(p.entity)) continue;
+    if (p.fallback) continue; // the head stands aside after its blind rounds: the rig's own head, nothing left to test
     const r = rows[p.key];
     if (!r || r.answer == null) out.push(`person "${p.entity}" has not been seen blind — node scripts/cast-sheet.js --slug=<slug> --cloud, a fresh agent says who each picture shows, then --judge`);
     else if (r.hash !== p.hash || JSON.stringify(r.accepted) !== JSON.stringify(p.accepted)) out.push(`person "${p.entity}" (the look, what they carry, or "reads") changed after the blind test — run the cast sheet and the blind test again`);
@@ -496,9 +598,10 @@ function ownIcons(bookDir) {
  */
 function ownGaps(entities = {}) {
   const es = Object.entries(entities || {}).filter(([, e]) => e && typeof e === "object");
-  const drawnPlace = (e) => !!e.backdrop || (Array.isArray(e.paths) && e.paths.length > 0);
+  // a drawing standing aside after its blind rounds (pathsFallback / drawnFallback) is the step DONE, not a gap
+  const drawnPlace = (e) => !!e.backdrop || (Array.isArray(e.paths) && e.paths.length > 0) || Array.isArray(e.pathsFallback);
   const people = es.filter(([, e]) => e.kind === "person"), places = es.filter(([, e]) => e.kind === "place");
-  const heads = people.filter(([, e]) => !(e.look && e.look.drawn && Object.keys(e.look.drawn).length)).map(([id]) => id);
+  const heads = people.filter(([, e]) => !(e.look && ((e.look.drawn && Object.keys(e.look.drawn).length) || e.look.drawnFallback))).map(([id]) => id);
   const bare = places.filter(([, e]) => !drawnPlace(e)).map(([id]) => id);
   // told v5: a place drawn as a one-tone WASH (a backdrop without a sky) is not finished either — the cast would float
   // in front of it on the paper; a scene (sky + ground, spots) is the standard for a new book
@@ -539,4 +642,4 @@ function readBook(bookDir) {
   return { entities, motifs, palette, verdictFile, verdict: read(verdictFile, null), people: peopleOf(entities), peopleVerdictFile, peopleVerdict: read(peopleVerdictFile, null), ...(({ entities: resolved, drawings, errors }) => ({ resolved, drawings, errors }))(resolveEntities(entities, { motifs, palette })) };
 }
 
-module.exports = { iconsOfEntities, ownIcons, ownGaps, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, luminance, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha };
+module.exports = { iconsOfEntities, ownIcons, ownGaps, iconShare, channelStaples, readBook, peopleOf, peopleProblems, gatePeople, signature, CAST, castPalette, lintCast, resolveLook, castGuide, drawnShare, drawingGuide, RULES, DEFAULT_PALETTE, paletteOf, color, luminance, pathBox, lintDrawing, resolveEntities, drawingProblems, readsAs, judge, gate, usedBy, sha, FALLBACK_AFTER, applyFallbacks, fallbacksOf, redrawNote, drawingReadings, REDRAW_HINTS };
