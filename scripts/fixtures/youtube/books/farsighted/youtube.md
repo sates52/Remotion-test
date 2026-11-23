@@ -19,6 +19,8 @@ Alternatives (A/B):
 ## DESCRIPTION — paste this whole block into the Description field
 
 ```
+Producer's note: "I read this one twice before I believed the second half."
+
 Charles Darwin, 29, rules a line down a notebook page: Marry on one side, Not Marry on the other. One of the greatest minds in history, reduced to a pros and cons list for the biggest choice of his life.
 
 This is a Farsighted summary and analysis of Steven Johnson's book on how we make the decisions that matter most. The thesis: our worst life-changing decisions fail before we choose - at the moment we accept there are only two options. The tool that fixes it: widen the map before you choose.
@@ -50,9 +52,8 @@ We walk through the book's cases: the city that filled in Collect Pond instead o
 53:50 Farsightedness is seeing wider
 
 💬 What's the biggest decision you framed as only two options? Tell us in the comments.
-🔔 Subscribe for more deep-dive book breakdowns.
 
-#Farsighted #StevenJohnson #DecisionMaking #BookSummary #Nonfiction
+#Farsighted #StevenJohnson #DecisionMaking #Nonfiction
 ```
 
 ## Tags (≤500 chars — paste comma-separated)
@@ -81,3 +82,4 @@ Upload all three under **Thumbnail → Test & compare**; YouTube serves them eve
 - [ ] Thumbnail: `out/thumbnail-farsighted.png` + Test & compare B/C (`-b.png`, `-c.png`)
 - [ ] Captions: upload `public/captions/farsighted.clean.vtt` as English CC → **"With timing"** (NOT the raw farsighted.vtt)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
+- [ ] **Altered content → Yes** (synthetic narration voice; Studio → Details → Altered content)

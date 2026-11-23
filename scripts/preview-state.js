@@ -223,10 +223,13 @@ function bookState(slug, root = ROOT) {
   // is bound to the VTT's hash; status reads it and never measures itself (scripts/transcript-sameness.js writes it).
   {
     let TSm = null; try { TSm = require("./lib/transcript-sameness"); } catch {}
+    // the bar is an operator policy of THIS checkout (data/quality-policy.json → transcriptSameness); a checkout without
+    // it (an older pin, a test fixture) has no sameness stage
+    const hasPolicy = !!((readJSON(path.join(root, "data", "quality-policy.json")) || {}).transcriptSameness);
     const rec = TSm ? TSm.readRecord(root, slug) : null;
-    const input = TSm ? TSm.inputHash(root, slug) : null;
+    const input = TSm && hasPolicy ? TSm.inputHash(root, slug) : null;
     const cmd = `node scripts/transcript-sameness.js --slug=${slug}`;
-    if (!TSm) stage("sameness", "n/a", "no transcript-sameness tool in this code");
+    if (!TSm || !hasPolicy) stage("sameness", "n/a", !TSm ? "no transcript-sameness tool in this code" : "no transcriptSameness policy in this checkout");
     else if (!rec || !rec.input || !input || rec.input.sha256 !== input.sha256) {
       stage("sameness", "todo", rec ? "record older than the recording (VTT changed)" : "not measured");
       go("sameness", "Measure this recording against the channel's narrations (channel runs per 1000 words; about a minute) — before any authoring", cmd, "REVIEW = the recording is told in the channel's repeated way: a new recording (Step 0, the form's SPEECH block) or the operator's --accept; OK = continue");

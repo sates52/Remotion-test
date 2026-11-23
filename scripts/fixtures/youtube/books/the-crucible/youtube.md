@@ -14,6 +14,8 @@
 ## Description
 
 ```
+Producer's note: "I kept waiting for Proctor to lie; the play is about why he cannot."
+
 If you are accused of witchcraft in Salem in 1692 and you tell the absolute truth, you hang. If you lie and name your neighbours, you live.
 
 That inverted rule is the real engine of Arthur Miller's The Crucible. In this summary and analysis we argue that Salem did not go mad: it built a court where a confession saved your life and the truth hanged you, and its people played that lethal game rationally. We follow Reverend Parris protecting his pulpit, Abigail Williams discovering the power of an accusation, Thomas Putnam turning grief into a land grab, Tituba's forced confession, the poppet and the needle, Elizabeth Proctor's one lie, Giles Corey's silence, and John Proctor's final choice: why he tears up his confession "because it is my name". We close with what Miller changed from the real 1692 trials and how the play answers the McCarthy hearings and HUAC.
@@ -31,9 +33,8 @@ That inverted rule is the real engine of Arthur Miller's The Crucible. In this s
 22:41 What Miller Changed: McCarthy and HUAC
 23:51 A System That Pays People to Lie
 
-🔔 Subscribe for more book breakdowns.
 
-#TheCrucible #ArthurMiller #BookSummary #SalemWitchTrials #Classics
+#TheCrucible #ArthurMiller #SalemWitchTrials #Classics
 ```
 
 ## Tags (≤500 chars — paste comma-separated)
@@ -65,3 +66,4 @@ Upload all three under **Thumbnail → Test & compare**; YouTube serves them eve
 - [ ] Captions: upload `public/captions/the-crucible.clean.vtt` as English CC → choose **"With timing"** (NOT the raw the-crucible.vtt — YouTube rejects its inline word-timing markup)
 - [ ] Category: Education · add to a "Book Breakdowns" playlist
 - [ ] Pin a comment with the single sharpest line from the video
+- [ ] **Altered content → Yes** (synthetic narration voice; Studio → Details → Altered content)
