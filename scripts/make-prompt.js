@@ -146,8 +146,9 @@ const { pickSkin, validSkin, parseSkin, describe: describeSkin } = require("./li
 function lengthTier(pages) {
   const n = Number(pages) || 0;
   // parts by the book's length. Measured 2026-11-18 (Dracula, 10 parts): 3.3 minutes per part → 33 minutes. The
-  // operator's floor is 30 minutes for every book and an hour or more for a long one, so a standard book has 10 parts
-  // (was 8: about 26 minutes at the measured rate), and each part now runs on two scenes (lib/narrative-form.js).
+  // operator's floor is 25 minutes (30 until 2026-11-23) for every book and an hour or more for a long one; the prompt
+  // keeps asking for MORE than the floor (10 parts ≈ 33 minutes), which is what keeps a recording above it, and each
+  // part runs on two scenes (lib/narrative-form.js). The floor itself is checked by narration-form-check.js.
   if (n > 500) return { name: "epic", pages: n, target: "75-90", min: 70, beats: 14, perBeat: "6-7" };
   if (n > 300) return { name: "long", pages: n, target: "60-75", min: 55, beats: 12, perBeat: "5-7" };
   return { name: "standard", pages: n || null, target: "45-60", min: 45, beats: 10, perBeat: "4-6" };

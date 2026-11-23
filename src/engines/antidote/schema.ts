@@ -1061,6 +1061,9 @@ export const antidoteConfigSchema = z.object({
     /** THE BOOK'S GRAPHIC HAND (2026-11-18, components/skin.tsx, scripts/lib/book-skin.js): how the subtitles are set,
      *  how a name plate is cut, which typeface speaks. Absent: the channel's look, as every earlier film. */
     skin: z.object({ caption: z.string().optional(), plate: z.string().optional(), font: z.string().optional() }).optional(),
+    /** the sound-effect layer (AudioEngine: ding / tick / pop / whoosh / thud) renders only when this is true — viewers
+     *  heard the effects as "beeps" over the narration (2026-11-23); a film without it is the narration alone */
+    sfx: z.boolean().optional(),
     /** THE PRODUCER'S NOTE (2026-11-20, src/components/ProducerNote.tsx): the operator's approved sentence about the
      *  book, shown once near the start. Absent: nothing is drawn. */
     take: z.object({ note: z.string() }).optional(),

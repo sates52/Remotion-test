@@ -7717,6 +7717,18 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-23 — Sound effects are OPT-IN on Antidote (viewers heard "beeps"); the recording floor is 25 minutes
+
+- **Operator (viewers' feedback):** the dings / ticks / pops of the Antidote `AudioEngine` landed ON the narration
+  (98.5 % speech, no gaps) and were heard as beeps that break the viewer's focus. Now the layer renders only with
+  `meta.sfx: true` (`schema.ts`), exactly like the Vox layer (`vox/sfx.tsx`, opt-in since its first day): a film without
+  it is the narration alone. Every Antidote config planned so far has `audioEvents` and procedural fallbacks — they are
+  simply not rendered from now on; nothing is deleted from a config. Published films are frozen (their beeps shipped).
+- **Operator:** the recording floor is 25 minutes (was 30; rule of 2026-11-18 otherwise unchanged: over the floor is
+  enough, nobody chases a longer one). `narration-form-check.js` `FLOOR_MIN = 25`; notebooklm-prompt SKILL.md;
+  make-prompt's comment. The prompt's own targets (10 parts ≈ 33 min) stay — they are what keeps a recording above it.
+- Test: `test-sfx-optin.js` (2, new). No render, no book worktree, no threshold in quality-policy.
+
 ### 2026-11-23 — Told v5 slice 5: adoption — a wash backdrop is not finished; status counts scenes; the skill asks for scenes
 
 - **Why:** slices 1-4 only act on a backdrop WITH `sky`; a lead agent who draws the old ink silhouettes gets the old
