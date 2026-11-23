@@ -7717,6 +7717,22 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-23 — Told v5, blind rehearsal: three frames ESKI (v4 wash) / YENI (scene), six fresh raters, WHERE / WHO / EVENT
+
+- Not the sealed mute test (no book, no judge, three frames) — a first blind signal on the scene work, one fresh sonnet
+  rater per picture, the subtitle text to be ignored. Frames of scratch Dracula (tag told-scene-5).
+- **WHERE — the place is the difference.** Castle frame: YENI "a flat-vector mountain landscape … a small castle with
+  two pointed towers"; ESKI "a flat grey backdrop with faint mountain silhouettes, an empty stretch of land". Signing
+  frame: YENI "hillside … a purple castle with orange windows behind"; ESKI "flat grey outdoor landscape … a pale
+  building or castle shape". Carfax frame: YENI "a grey castle or building with an arched doorway … a pale moon";
+  ESKI "a plain flat grey open space … reads as an outdoor or abstract backdrop rather than a specific place".
+- **WHO / EVENT — the same in both arms:** the deed being signed / handed over at the table was read in ESKI and YENI
+  alike; the Carfax frame in both arms "he is signing … nothing else is happening between figures" (the beat IS one
+  person). So the scene work adds WHERE without costing WHO / EVENT. Castle frame YENI: "a traveler is walking toward
+  or past a mountain castle" (narration: a journey through the Carpathians, miles from civilization) — ESKI: "heading
+  toward or away from the tile".
+- Not measured: the sealed test on a real book (its agent runs it); whether EXPLAINS rises (1 of 24 on the first book).
+
 ### 2026-11-23 — Sound effects are OPT-IN on Antidote (viewers heard "beeps"); the recording floor is 25 minutes
 
 - **Operator (viewers' feedback):** the dings / ticks / pops of the Antidote `AudioEngine` landed ON the narration
