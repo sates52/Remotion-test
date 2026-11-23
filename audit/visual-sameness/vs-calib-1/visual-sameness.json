@@ -1,0 +1,78 @@
+{
+  "tag": "vs-calib-1",
+  "at": "2026-11-23T08:08:17.288Z",
+  "frames": {
+    "farsighted": 24,
+    "the-new-one-minute-manager": 24,
+    "thinking-in-systems": 24,
+    "we-were-liars": 24
+  },
+  "pairs": [
+    {
+      "a": "farsighted",
+      "b": "thinking-in-systems",
+      "layout": 0.78,
+      "palette": 0.681,
+      "alike": 0.73
+    },
+    {
+      "a": "farsighted",
+      "b": "we-were-liars",
+      "layout": 0.753,
+      "palette": 0.682,
+      "alike": 0.717
+    },
+    {
+      "a": "thinking-in-systems",
+      "b": "we-were-liars",
+      "layout": 0.762,
+      "palette": 0.67,
+      "alike": 0.716
+    },
+    {
+      "a": "the-new-one-minute-manager",
+      "b": "we-were-liars",
+      "layout": 0.738,
+      "palette": 0.538,
+      "alike": 0.638
+    },
+    {
+      "a": "the-new-one-minute-manager",
+      "b": "thinking-in-systems",
+      "layout": 0.753,
+      "palette": 0.456,
+      "alike": 0.604
+    },
+    {
+      "a": "farsighted",
+      "b": "the-new-one-minute-manager",
+      "layout": 0.727,
+      "palette": 0.475,
+      "alike": 0.601
+    }
+  ],
+  "nearest": {
+    "farsighted": {
+      "to": "thinking-in-systems",
+      "alike": 0.73
+    },
+    "the-new-one-minute-manager": {
+      "to": "we-were-liars",
+      "alike": 0.638
+    },
+    "thinking-in-systems": {
+      "to": "farsighted",
+      "alike": 0.73
+    },
+    "we-were-liars": {
+      "to": "farsighted",
+      "alike": 0.717
+    }
+  },
+  "dark": {
+    "farsighted": 0.052,
+    "the-new-one-minute-manager": 0.072,
+    "thinking-in-systems": 0.054,
+    "we-were-liars": 0.145
+  }
+}
