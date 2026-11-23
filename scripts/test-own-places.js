@@ -112,4 +112,13 @@ t("told v5 slice 4: a place drawn as a SCENE reaches a figure scene's bg.own wit
   assert.ok(/sky: z\.string\(\)\.optional\(\), ground: z\.string\(\)\.optional\(\) \}\)\.optional\(\),/.test(schema), "the schema admits sky + ground on bg.own");
 });
 
+t("firewall (2026-11-23): a place the book drew locates the scene — bg.own or a told backdrop under set \"none\" is not FOREIGN_WORLD", () => {
+  const F = require("./lib/narrative-visual-firewall");
+  const loc = (scene) => F.validateScene(scene, 0, { visualProvenance: { worldId: "w" } }, "slug", {}).filter((e) => e.code === "FOREIGN_WORLD" && e.location);
+  assert.strictEqual(loc({ id: "s1", bg: { set: "none" }, props: [] }).length, 1, "a shared set with no provenance is foreign");
+  assert.deepStrictEqual(loc({ id: "s1", bg: { set: "none", own: { id: "kitchen", paths: [] } }, props: [] }), [], "the book's own drawn place under it locates the scene");
+  assert.deepStrictEqual(loc({ id: "s1", bg: { set: "none" }, told: { backdrops: [{ id: "kitchen" }] }, props: [] }), [], "a told stage at a drawn place too");
+  assert.strictEqual(F.ownPlaceOf({ bg: { set: "office" } }), null);
+});
+
 console.log(`\n${n} checks passed`);

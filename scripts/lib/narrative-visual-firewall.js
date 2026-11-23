@@ -199,6 +199,20 @@ function segmentGroundingErrors(scene, index) {
   )];
 }
 
+/**
+ * Where the BOOK ITSELF put the scene (Film Flow 6, 2026-11-23): a figure scene's `bg.own` — a drawn place of
+ * storyboard/entities.json, written there by told.js apply, drawn INSTEAD of the shared set — or a told stage's own
+ * backdrops. Such a place carries its provenance with it (it exists only in this book, as an own thing does,
+ * 2026-11-19): `bg.set` under it is the engine's unused fallback, not the location. Measured: then-she-was-gone-v2
+ * beat 21, a kitchen the book drew, compiled `set: "none"` and was BLOCKED as FOREIGN_WORLD "location none".
+ */
+function ownPlaceOf(scene) {
+  if (scene && scene.bg && scene.bg.own && typeof scene.bg.own === "object" && typeof scene.bg.own.id === "string") return scene.bg.own.id;
+  const b = scene && scene.told && Array.isArray(scene.told.backdrops) ? scene.told.backdrops : [];
+  if (b.length) return (b[0] && typeof b[0].id === "string" && b[0].id) || "told-stage";
+  return null;
+}
+
 function validateScene(scene, index, bible, slug, motifs = {}) {
   const errors = [];
   const atom = scene.narrativeAtom;
@@ -217,7 +231,7 @@ function validateScene(scene, index, bible, slug, motifs = {}) {
   // failure instead of being explicitly rejected.
   if (!atom || !intent || !contract) {
     for (const prop of scene.props || []) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' has no book-scoped provenance authorizing it`, { sceneId: scene.id, index, motif: prop.type }));
-    if (scene.bg?.set) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' has no book-scoped provenance authorizing it`, { sceneId: scene.id, index, location: scene.bg.set }));
+    if (scene.bg?.set && !ownPlaceOf(scene)) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' has no book-scoped provenance authorizing it`, { sceneId: scene.id, index, location: scene.bg.set }));
     return errors;
   }
   for (const [name, value] of [["NarrativeAtom", atom], ["VisualIntent", intent], ["VisualContract", contract]]) {
@@ -255,7 +269,7 @@ function validateScene(scene, index, bible, slug, motifs = {}) {
     if (!ownEntity && !allowedMotifs.has(prop.type) && !allowedProps.has(prop.type)) errors.push(code("MOTIF_NOT_ALLOWED", `motif '${prop.type}' is not allowed by this scene contract`, { sceneId: scene.id, index, motif: prop.type }));
     if (forbiddenMotifs.has(prop.type)) errors.push(code("FOREIGN_WORLD", `motif '${prop.type}' is forbidden in this book world`, { sceneId: scene.id, index, motif: prop.type }));
   }
-  if (scene.bg?.set && !allowedLocations.has(scene.bg.set)) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' is not allowed by this scene contract`, { sceneId: scene.id, index, location: scene.bg.set }));
+  if (scene.bg?.set && !ownPlaceOf(scene) && !allowedLocations.has(scene.bg.set)) errors.push(code("FOREIGN_WORLD", `location '${scene.bg.set}' is not allowed by this scene contract`, { sceneId: scene.id, index, location: scene.bg.set }));
   const visual = contract.visualEvidence;
   if (!visual || !Array.isArray(visual.subjects) || !Array.isArray(visual.relations) || !Array.isArray(visual.states)) {
     errors.push(code("SUBJECT_MISMATCH", "VisualContract.visualEvidence must explicitly name subjects, relations, and states", { sceneId: scene.id, index }));
@@ -389,4 +403,4 @@ function loadBook(root, slug) {
   };
 }
 
-module.exports = { REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook, isDiagnostic: (v) => v.severity === "diagnostic", strategyRequirementUnmet };
+module.exports = { ownPlaceOf, REQUIRED_PROVENANCE, validateStoryBible, validateScene, validateConfig, loadBook, isDiagnostic: (v) => v.severity === "diagnostic", strategyRequirementUnmet };

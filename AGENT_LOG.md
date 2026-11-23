@@ -8311,3 +8311,18 @@ Operator approved after two rounds of clips.
   Operator decisions the same day: Dracula is exempt from the new pack contract (its owner packages with
   `--allow-unready="<reason>"`); then-she-was-gone-v2 (producer's note recorded) is the first book under the full
   contract; old / old-pinned books are left alone (their replacements will be made new); SFX per book dropped.
+
+### 2026-11-23 — Firewall: a place the book drew LOCATES the scene (bg.own / told backdrop under `set: "none"`)
+
+- **Symptom (then-she-was-gone-v2, beat 21):** a figure beat at the book's own drawn kitchen (`place: "kitchen"` →
+  `bg.own`, Film Flow 6 slice 1) compiles `bg.set: "none"` because the engine draws the own place INSTEAD of a shared
+  set; `narrative-visual-firewall.js` read the location from `bg.set` and BLOCKED it as FOREIGN_WORLD "location
+  none". The same for a told stage AT a drawn place. The video agent de-told the beat and stripped its place to get
+  past it — the opposite of what Film Flow 6 is for.
+- **Fix (`scripts/lib/narrative-visual-firewall.js`):** `ownPlaceOf(scene)` — `bg.own.id`, or the first of a told
+  stage's `backdrops` — is where the book itself put the scene; as an own thing (2026-11-19), a place the book drew
+  carries its provenance with it. Both location checks (no contract; contract `allowedLocations`) skip `bg.set` when
+  the scene has an own place. No other code change; every scene without `bg.own` / told backdrops is checked as
+  before. Test: `test-own-places.js` (+1), `test-cross-book-firewall.js` unchanged.
+- **For the book:** restore beat 21 as the told beat it was (stage `at: "kitchen"`), re-run merge / make-book on
+  a pin that has this commit (`maintenance-upgrade --before-preview`).
