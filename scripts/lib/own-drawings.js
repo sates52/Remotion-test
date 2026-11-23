@@ -605,7 +605,8 @@ function ownGaps(entities = {}) {
   const bare = places.filter(([, e]) => !drawnPlace(e)).map(([id]) => id);
   // told v5: a place drawn as a one-tone WASH (a backdrop without a sky) is not finished either — the cast would float
   // in front of it on the paper; a scene (sky + ground, spots) is the standard for a new book
-  const washes = places.filter(([, e]) => e.backdrop && e.backdrop.sky == null).map(([id]) => id);
+  // (a backdrop standing aside after its blind rounds — pathsFallback, no paths — is the shared set, not a wash)
+  const washes = places.filter(([, e]) => e.backdrop && e.backdrop.sky == null && !(Array.isArray(e.backdrop.pathsFallback) && !Array.isArray(e.backdrop.paths))).map(([id]) => id);
   const home = places.some(([, e]) => e.home === true && drawnPlace(e));
   const none = !es.length;
   return { none, people: people.length, places: places.length, heads, bare, washes, home, any: none || heads.length > 0 || !home || washes.length > 0 };
