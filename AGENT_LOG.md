@@ -7718,6 +7718,14 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-23 — preview-hazirla: the own drawings are routine work, split into background agents, never a question
+
+- American Psycho's agent stopped twice at the entities step ("draw them myself or split across agents?"), although the
+  step was marked routine. The Autonomy list now names the drawings and their blind rounds; §2 gives the split: one
+  background agent each for the heads, the scene backdrops and the things (briefs from entities.candidates.json, the
+  bible, told.md; fragments under `storyboard/drafts/`), merge, sheets, one fresh sonnet per picture, `--judge`, two
+  redraw rounds then the fallback. Skill text only; pinned books see it on their next restart.
+
 ### 2026-11-23 — book-start.js `--restart="<reason>"`: a pinned book starts AGAIN on current code (the old copy retired, kept)
 
 - **Why (american-psycho):** the operator wanted the book redone on the told v5 code with a new recording. Its

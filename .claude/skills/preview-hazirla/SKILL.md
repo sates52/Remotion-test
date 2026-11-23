@@ -70,6 +70,14 @@ harness's wrap-up / ask tool. While status prints CONTINUE you do not: call a wr
 "shall I continue?", or write an interim "preview HAZIR DEĞİL — next step is …" report. A long pipeline is not a
 reason; you run it. Your turn ends only at READY (§5 HAZIR), at an OPERATOR stop (§3, §5), or while you wait for
 background agents you started — and then you continue when they finish, without a question.
+American Psycho (2026-11-23) stopped twice at the entities step to ask "draw them myself or split across agents?" —
+that is the same mistake. **The own drawings are routine work, done without asking, split like this:** one background
+agent per group — (a) the cast's heads (`look.drawn`, castGuide), (b) the place backdrops as SCENES (sky + ground +
+spots, drawingGuide), (c) the book's own things with their states — each given the brief from
+`storyboard/entities.candidates.json` ("cast" / "drawing"), the bible, and told.md; each writes its own JSON fragment
+under `storyboard/drafts/`; you merge them into `entities.json`, run the sheets, then ONE fresh sonnet agent per picture
+for the blind names, `--judge`, redraw the misses (two rounds, then the fallback the sheet records). Never stop to
+report "the drawings are a big job".
 
 The order is the same for every harness: code (book start) → bible → own icons → prep → authors → merge → readcheck →
 make-book → sealed mute test → preview-ready → hand-off. What you do without asking, by stage (runbook section in brackets):
@@ -129,7 +137,8 @@ inputs changed is shown stale), the sealed sample is never re-drawn, an unchange
 | operator authority | a full render, accepting quality debt, the YouTube pack upload, publishing, any cleanup — never yours |
 
 **Autonomy (canonical — what needs no approval vs the real gates).** Routine, proceed without asking: story bible,
-own icons, prep, authoring, merge and its fixes, readcheck, make-book, Screen-Text / gate fixes in the storyboard,
+own icons, the entities step with ALL its drawings (heads, scene backdrops, things) and their blind rounds — in
+background agents, split as §2 says, prep, authoring, merge and its fixes, readcheck, make-book, Screen-Text / gate fixes in the storyboard,
 missing images ONLY on providers already configured AND known free to the operator, Vox images Flux refused or lost
 (skill `vox-image-recovery` — the operator's standing decision 2026-11-13 covers those calls, capped), the whole mute test (seal, prep,
 blind, judge, tally, sealed verdict runs), fix rounds up to the allowed limit, preview-ready, the hand-off, and —
