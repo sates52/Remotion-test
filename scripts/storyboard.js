@@ -814,11 +814,12 @@ function prep() {
       if (gaps.heads.length) console.error(`   · ${gaps.heads.length} of ${gaps.people} people have no head of their own (look.drawn): ${gaps.heads.join(", ")} — told.md "The cast"; then cast-sheet.js --judge`);
       if (gaps.bare.length) console.error(`   · ${gaps.bare.length} of ${gaps.places} places have no drawing (backdrop): ${gaps.bare.join(", ")} — interiors too`);
       if (!gaps.none && !gaps.home) console.error('   · no place is the book\'s home ("home": true on ONE drawn place: where a beat stands when the narration names no place)');
+      if (gaps.washes && gaps.washes.length) console.error(`   · ${gaps.washes.length} of ${gaps.places} places are drawn as a one-tone WASH, not a scene (no "sky" / "ground" / "spots" on the backdrop): ${gaps.washes.join(", ")} — told.md "The place is a SCENE"`);
       console.error('   Draw them, then prep again. A real reason not to (≥ 30 characters) is recorded: --own-incomplete="<reason>"');
       process.exit(1);
     }
     if (!gaps.any && gaps.bare.length) console.warn(`⚠ places without a drawing (a beat there stands at home or in a shared set): ${gaps.bare.join(", ")} — draw the ones the story stands in`);
-    if (gaps.any) { fs.mkdirSync(SB, { recursive: true }); fs.writeFileSync(path.join(SB, "own-incomplete.json"), JSON.stringify({ at: new Date().toISOString(), reason: why, heads: gaps.heads, places: gaps.bare, home: gaps.home }, null, 1) + "\n"); console.warn(`⚠ own drawings incomplete, recorded reason: ${why}`); }
+    if (gaps.any) { fs.mkdirSync(SB, { recursive: true }); fs.writeFileSync(path.join(SB, "own-incomplete.json"), JSON.stringify({ at: new Date().toISOString(), reason: why, heads: gaps.heads, places: gaps.bare, washes: gaps.washes || [], home: gaps.home }, null, 1) + "\n"); console.warn(`⚠ own drawings incomplete, recorded reason: ${why}`); }
   }
   // The Step 0 decision the whole storyboard is authored FROM: make-prompt refuses
   // without a book profile, and prep must too — `minorHarm` gates the physical-harm

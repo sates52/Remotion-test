@@ -500,9 +500,12 @@ function ownGaps(entities = {}) {
   const people = es.filter(([, e]) => e.kind === "person"), places = es.filter(([, e]) => e.kind === "place");
   const heads = people.filter(([, e]) => !(e.look && e.look.drawn && Object.keys(e.look.drawn).length)).map(([id]) => id);
   const bare = places.filter(([, e]) => !drawnPlace(e)).map(([id]) => id);
+  // told v5: a place drawn as a one-tone WASH (a backdrop without a sky) is not finished either — the cast would float
+  // in front of it on the paper; a scene (sky + ground, spots) is the standard for a new book
+  const washes = places.filter(([, e]) => e.backdrop && e.backdrop.sky == null).map(([id]) => id);
   const home = places.some(([, e]) => e.home === true && drawnPlace(e));
   const none = !es.length;
-  return { none, people: people.length, places: places.length, heads, bare, home, any: none || heads.length > 0 || !home };
+  return { none, people: people.length, places: places.length, heads, bare, washes, home, any: none || heads.length > 0 || !home || washes.length > 0 };
 }
 
 /** the shared icons in at least half of the channel's films (data/channel-staples.json, build-channel-staples.js) */

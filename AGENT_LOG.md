@@ -7717,6 +7717,18 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-23 — Told v5 slice 5: adoption — a wash backdrop is not finished; status counts scenes; the skill asks for scenes
+
+- **Why:** slices 1-4 only act on a backdrop WITH `sky`; a lead agent who draws the old ink silhouettes gets the old
+  diagram. Nothing told them otherwise but a line in told.md.
+- **What:** `own-drawings.js ownGaps` → `washes` (places whose backdrop has no `sky`) and `any` includes them, so
+  `storyboard.js prep` (Antidote, current Step 0) REFUSES until every drawn place is a scene — like a missing head; a
+  real reason ≥ 30 chars (`--own-incomplete`) is recorded with the washes. `told.js status` prints "places drawn as a
+  scene (sky + ground): x of y — washes: …" (scratch dracula: 2 of 7). The candidates `example` (told.js entities) shows a
+  scene backdrop with sky / ground / spots; preview-hazirla's entities step says scenes with spots, no wash.
+- Not a quality bar (the entities step, finished); books in their own worktrees run their pinned code. Test:
+  `test-own-gaps.js` (5, updated). Docs: FILM-FLOW.md slice 5.
+
 ### 2026-11-21 — Told v5 slice 4: the same place behind the FIGURE scenes (bg.own drawn as a scene)
 
 - **What:** `told-apply.js applyPlaces` carries a scene backdrop's `sky` + `ground` (resolved hex) to a figure

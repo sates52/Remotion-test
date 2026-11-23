@@ -103,7 +103,7 @@ if (cmd === "entities") {
     cast: OD.castGuide(OD.readBook(BOOK).palette),
     example: { microsoft: { label: "MICROSOFT", kind: "company", glyph: "monitor" }, mozart: { label: "MOZART", kind: "person", look: { age: "child", height: 0.72, headScale: 1.18, outfit: "coat", hairStyle: "curly" } },
       piano: { label: "PIANO", kind: "object", w: 330, reads: ["piano", "grand piano"], paths: [{ d: "M40 150 H480 V200 H40 Z", fill: "ink" }, { d: "…at least five paths: body, lid, keys, legs, the accent detail…", fill: "accent" }], states: { closed: { reads: ["piano", "closed piano"], paths: [{ d: "…", fill: "ink" }] } } },
-      vienna: { label: "VIENNA", kind: "place", glyph: "building", reads: ["city", "cathedral"], paths: [{ d: "…", fill: "ink" }], backdrop: { reads: ["city skyline", "skyline"], paths: [{ d: "…", fill: "ink" }] } } },
+      vienna: { label: "VIENNA", kind: "place", glyph: "building", reads: ["city", "cathedral"], paths: [{ d: "…", fill: "ink" }], backdrop: { reads: ["city skyline", "skyline"], sky: "#D6CFC3", ground: "#3A3136", spots: [{ x: 1320, y: 500, s: 0.55 }, { x: 480, y: 735, s: 1 }], paths: [{ d: "…a scene: mid-tone middle ground, a ground strip along the bottom edge, nothing in the upper quarter…", fill: "#8C8597" }] } } },
     candidates: ents.map((e) => ({ name: e.name, kind: e.kind, saidInBeats: e.count, beats: e.scenes.slice(0, 12) })) };
   fs.mkdirSync(SB, { recursive: true });
   fs.writeFileSync(F.candidates, JSON.stringify(out, null, 2));
@@ -123,6 +123,8 @@ if (cmd === "status") {
   const share = OD.drawnShare(config), own = OD.readBook(BOOK), named = Object.values((own.verdict && own.verdict.drawings) || {});
   { const ic = OD.iconShare(config); if (ic.own + ic.library) console.log(`concept icons of the scenes that are not told: ${ic.own} the book's own, ${ic.library} from the shared library${ic.library ? ` (${ic.libraryTop.map(([k, n]) => `${k} ×${n}`).join(", ")})` : ""}`); }
   { const p = placeShare(config); if (p.at) console.log(`film time at a place the book drew: ${pct(p.share)}`); }
+  // told v5: a place drawn as a SCENE (sky + ground) stands at full presence with the cast in it; a wash is the diagram
+  { const bds = own.drawings.filter((d) => d.backdrop); if (bds.length) console.log(`places drawn as a scene (sky + ground): ${bds.filter((d) => d.sky).length} of ${bds.length}${bds.some((d) => !d.sky) ? ` — washes: ${bds.filter((d) => !d.sky).map((d) => d.entity).join(", ")}` : ""}`); }
   if (told) console.log(`things on told stages shown as the book's own drawing: ${pct(share.share)} (${share.drawn} of ${share.drawn + share.emblem}; the rest are emblems)`);
   if (own.drawings.length) console.log(`own drawings: ${own.drawings.length} · named blind as intended: ${named.filter((r) => r.ok).length} of ${own.drawings.length}${OD.gate(own.drawings, own.verdict).length ? " — NOT all named: node scripts/own-icons-sheet.js --slug=" + SLUG : ""}`);
   process.exit(0);

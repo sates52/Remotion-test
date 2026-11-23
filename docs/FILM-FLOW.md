@@ -93,6 +93,9 @@ Published books are frozen.
   backdrop's `sky` + `ground` to the figure scene's `bg.own` (schema: two optional strings); `Backdrop.tsx` draws such a
   `bg.own` as itself — sky rect, ground band from the backdrop's bottom edge (`backdropScene`), paths at full presence —
   in the same parallax layer; a `bg.own` without a sky is the 0.34 wash as before. Test: `test-own-places.js` (7).
+- **Slice 5 — adoption (2026-11-23):** `ownGaps` names a backdrop without a sky as a WASH and `storyboard.js prep`
+  refuses it like a missing head (`--own-incomplete` records a reason); `told.js status` prints "places drawn as a
+  scene: x of y — washes: …"; the candidates example and preview-hazirla's entities step ask for scenes with spots.
 - **Not yet:** a stage that changes place mid-beat re-seats nobody (the next arrangement does); icons (own drawings)
   keep their generic height — only emblems moved; no contact shadow under the cast of a figure scene. Test: `test-told-scene.js`.
 

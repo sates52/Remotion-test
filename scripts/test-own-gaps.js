@@ -20,10 +20,13 @@ t("a book with nothing drawn of its people and places has every gap", () => {
 });
 
 t("heads for everyone and ONE drawn home is finished; a place still bare is named, not refused", () => {
-  const g = OD.ownGaps({ mina: { kind: "person", ...head }, whitby: { kind: "place", home: true, backdrop: { viewBox: "0 0 1920 760", paths: P } }, varna: { kind: "place" } });
-  assert.deepStrictEqual([g.heads, g.bare, g.home, g.any], [[], ["varna"], true, false]);
+  const g = OD.ownGaps({ mina: { kind: "person", ...head }, whitby: { kind: "place", home: true, backdrop: { viewBox: "0 0 1920 760", sky: "#D6CFC3", ground: "#3A3136", paths: P } }, varna: { kind: "place" } });
+  assert.deepStrictEqual([g.heads, g.bare, g.washes, g.home, g.any], [[], ["varna"], [], true, false]);
   // a home that is not drawn is no home
   assert.strictEqual(OD.ownGaps({ mina: { kind: "person", ...head }, whitby: { kind: "place", home: true } }).any, true);
+  // told v5: a place drawn as a one-tone WASH (no sky) is not finished — the cast would float in front of it
+  const w = OD.ownGaps({ mina: { kind: "person", ...head }, whitby: { kind: "place", home: true, backdrop: { viewBox: "0 0 1920 760", paths: P } } });
+  assert.deepStrictEqual([w.washes, w.any], [["whitby"], true]);
 });
 
 t("prep asks for it only on a book of the current Step 0 (book.json skin), and a reason is recorded, never implied", () => {
