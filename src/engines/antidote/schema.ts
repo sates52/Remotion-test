@@ -1033,6 +1033,10 @@ export const metaHudSchema = z.object({
   title: z.string().optional(),
   showProgress: z.boolean().default(true),
   showBadge: z.boolean().default(true),
+  /** 2026-11-23 (YPP "repetitive content": the same band and title on every frame of every film): the form band is full
+   *  for a few seconds when a part is announced, then folds to a small corner mark; the book title shows at part starts
+   *  and briefly once a minute. Off unless true (the operator approves the look first). */
+  fold: z.boolean().optional(),
 });
 export type MetaHudSpec = z.infer<typeof metaHudSchema>;
 

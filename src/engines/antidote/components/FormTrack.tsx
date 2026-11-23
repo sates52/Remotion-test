@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import type { AntidoteConfig } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { useSkin } from "./skin";
@@ -25,8 +25,26 @@ const ease = (t: number) => 1 - Math.pow(1 - clamp(t), 3);
 
 export const hasFormTrack = (config?: AntidoteConfig): boolean => !!config && !!config.meta.form && (config.meta.form.parts || []).length >= 3;
 
+/**
+ * THE BAND FOLDS (2026-11-23, meta.hud.fold): the same band and the same title pill on every frame of every film is the
+ * first thing a reviewer jumping through a channel sees. With `fold` the band is full for FULL_S seconds when a part is
+ * announced (and at the film's start), then folds to a small corner mark (the part's number of N, in the book's accent);
+ * the title pill shows in those seconds and for TITLE_S seconds once a minute. Without `fold`: exactly as before.
+ */
+const FULL_S = 3, FOLD_F = 12, TITLE_EVERY_S = 60, TITLE_S = 3;
+export function foldState(frame: number, fps: number, parts: { from: number }[]): { band: number; title: number } {
+  let start = 0;
+  for (const p of parts) if (frame >= p.from) start = p.from;
+  const sinceStart = frame - start;
+  const band = 1 - clamp((sinceStart - FULL_S * fps) / FOLD_F); // 1 = full, 0 = folded
+  const inMinute = frame % (TITLE_EVERY_S * fps);
+  const minuteWin = frame > FULL_S * fps && inMinute < TITLE_S * fps ? Math.min(clamp(inMinute / FOLD_F), clamp((TITLE_S * fps - inMinute) / FOLD_F)) : 0;
+  return { band, title: Math.max(band, minuteWin) };
+}
+
 export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
   // THE BOOK'S SKIN (skin.tsx): the pills are cut like the book's name plates (round, as before, without a skin)
   const { skin: bookSkin } = useSkin();
   const form = config.meta.form!;
@@ -158,10 +176,21 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   }
   const cut = (r: number) => (bookSkin.plate === "sharp" ? 3 : bookSkin.plate === "paper" ? 9 : r);
   const leftW = Math.max(250, Math.min(540, 60 + (label.length + (title ? title.length + 3 : 0)) * 14.5));
+  const fold = config.meta.hud?.fold === true ? foldState(frame, fps, parts) : { band: 1, title: 1 };
+  const markText = cur < 0 ? "" : `${String(parts[cur].n).padStart(2, "0")} / ${String(N).padStart(2, "0")}`;
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none", zIndex: 90 }}>
       <svg viewBox="0 0 1920 90" width="100%" style={{ position: "absolute", top: 0, left: 0 }}>
+        {/* folded: a small corner mark — the part's number of N, in the book's accent — instead of the full band */}
+        {fold.band < 1 && markText ? (
+          <g opacity={1 - fold.band}>
+            <rect x={40} y={24} width={118} height={38} rx={cut(19)} fill={PLATE} stroke="rgba(255,255,255,0.22)" strokeWidth={1.2} />
+            <circle cx={60} cy={43} r={5} fill={accent} />
+            <text x={74} y={49} fontFamily={MONO} fontWeight={800} fontSize={16} letterSpacing={1} fill="rgba(255,255,255,0.86)">{markText}</text>
+          </g>
+        ) : null}
+        <g opacity={fold.band}>
         {/* the part being told: its number in the form's own word, and the name the book gave it */}
         <rect x={40} y={18} width={leftW} height={54} rx={cut(27)} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
         <circle cx={68} cy={45} r={6} fill={accent} />
@@ -173,9 +202,10 @@ export const FormTrack: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
         <rect x={X0} y={14} width={W} height={62} rx={cut(31)} fill={PLATE} stroke="rgba(255,255,255,0.22)" strokeWidth={1.5} />
         {link}
         {slots}
+        </g>
         {/* the book */}
-        {bookTitle ? (
-          <g>
+        {bookTitle && fold.title > 0 ? (
+          <g opacity={fold.title}>
             <rect x={1880 - Math.min(330, 40 + bookTitle.length * 12.5)} y={22} width={Math.min(330, 40 + bookTitle.length * 12.5)} height={46} rx={cut(23)} fill={PLATE} stroke="rgba(255,255,255,0.28)" strokeWidth={1.5} />
             <text x={1880 - Math.min(330, 40 + bookTitle.length * 12.5) / 2} y={52} textAnchor="middle" fontFamily={MONO} fontWeight={800} fontSize={17} letterSpacing={1.5} fill="#FFFFFF">{bookTitle.slice(0, 22)}</text>
           </g>
