@@ -1,0 +1,44 @@
+{
+ "schema": "stills/1",
+ "name": "vox places dust eski/yeni",
+ "composition": "Vox-lab",
+ "entry": "src/index.ts",
+ "silent": false,
+ "gl": "default",
+ "shards": 2,
+ "extra": [
+  "public/scenes/dust/place-tunnel.png",
+  "public/scenes/dust/place-silo.png",
+  "public/scenes/dust/place-perimeter.png"
+ ],
+ "jobs": [
+  {
+   "id": "dust-eski",
+   "config": "configs/eski.json",
+   "frames": [
+    2079,
+    2319,
+    3157,
+    11813
+   ],
+   "strip": true
+  },
+  {
+   "id": "dust-yeni",
+   "config": "configs/yeni.json",
+   "frames": [
+    2079,
+    2319,
+    3157,
+    11813
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "442cc2d63c106cbd",
+ "files": {
+  "stills/configs/eski.json": "704424e083411866d498952fbc462c49a593c6c84c9ee7aa5fc7ebf667616fce",
+  "stills/configs/yeni.json": "34fac855e2590b7ff9cb6c357718a10b18a2271993c19d1270f37d3da06b6be6"
+ },
+ "builtAt": "2026-11-23T17:25:55.685Z"
+}
