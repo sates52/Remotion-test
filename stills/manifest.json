@@ -1,0 +1,30 @@
+{
+ "schema": "stills/1",
+ "name": "cast sheet then-she-was-gone-v2",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "jobs": [
+  {
+   "id": "cast",
+   "config": "configs/cast.json",
+   "frames": [
+    45,
+    105,
+    165,
+    225,
+    285,
+    345,
+    405,
+    465
+   ]
+  }
+ ],
+ "inputHash": "4bf798853179ea7d",
+ "files": {
+  "stills/configs/cast.json": "358ba8183893e99525c24f98dd0bac7e78ebca8a932d957e94188e8bab849493"
+ },
+ "builtAt": "2026-11-23T06:13:49.193Z"
+}
