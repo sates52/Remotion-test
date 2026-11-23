@@ -51,7 +51,9 @@ t("the hosts never discuss it: no reader's view in the audio prompt, --take is g
 
 t("the card: one fade in and out near the start, two lines at most, nothing without a note, both engines mount it", () => {
   const c = read("src", "components", "ProducerNote.tsx");
-  assert.ok(c.includes("if (!text) return null;") && c.includes("START_S = 14") && c.includes("HOLD_S = 6.5") && c.includes("PRODUCER'S NOTE"));
+  // 2026-11-23: the card's placement and entrance follow the book's skin (four variants); variant 0 is the first look
+  assert.ok(c.includes("if (!text) return null;") && c.includes("start: 14, hold: 6.5") && c.includes("export function variantOf") && c.includes("PRODUCER'S NOTE"));
+  assert.ok(/VARIANTS\[/.test(c) && (c.match(/\{ start: \d+/g) || []).length === 4, "four placements, each with its own second");
   assert.ok(!/Math\.sin|Math\.cos|spring\(/.test(c), "no motion of its own");
   assert.ok(c.includes("text.slice(0, 180)") && c.includes("maxWidth: 1300"));
   assert.ok(read("src", "engines", "antidote", "index.tsx").includes("<ProducerNote note="));
