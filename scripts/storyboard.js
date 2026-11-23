@@ -756,6 +756,7 @@ Book context: \`books/${SLUG}/story-bible.json\` — world/era: ${era}.
     "items": [],                                     // list/checklist only: 2-4 SHORT ALL-CAPS items
     "image": null | { "subject": "a described photograph", "style": "cutout|card" },
     "compare": null | { "left": {"label","subject"}, "right": {"label","subject"} },
+    "place": null | "<a story-bible place id: ${Object.keys(bible.places || {}).join(" | ") || "none"}>",   // where the beat stands
     "storyboard": { "claim": "...", "concreteVisual": "the picture as DRAWN (or what the text card shows)", "onScreenText": "the words on screen, or \"none\"",
                     "relationToPrevious": "...", "addedInformation": "..." } } }
 // all five storyboard fields are REQUIRED on every beat, written from the narration — never a copy of another field
@@ -778,6 +779,12 @@ ONLY \`imagefocus\`, \`polaroid\`, \`compare\` and \`duo\` put a picture on scre
 type (list, question, place, quote, stat, punchline, timeline…) is never shown — the planner turns such
 a beat into imagefocus. Keep 15-30% of beats as those text archetypes WITHOUT an image where the shape
 is the point (a real question, a real list, a real quotation): 40 minutes of one layout loses viewers.
+
+## Where it happens — the book's own places (2026-11-23)
+Every Vox film used to stand on the same paper. Now the book's places (story bible: ${Object.entries(bible.places || {}).map(([k, p]) => `\`${k}\` — ${String((p && p.look) || "").slice(0, 60)}`).join("; ") || "none"})
+are drawn behind the beats. Write \`"place": "<id>"\` on a beat whenever the narration goes there; a beat without one
+stays where the film last was. Open every PART of the film somewhere else than the part before, so a viewer jumping
+through the film lands in different places. A text card then stands IN the book's place, not on blank paper.
 
 ## Output
 Return ONLY a JSON array for your chunk. Validate it parses and matches every \`i\`.
@@ -1407,8 +1414,9 @@ function merge() {
     console.log("icons:", JSON.stringify(top));
   } else {
     const TYPES = new Set(["title", "statement", "imagefocus", "list", "quote", "stat", "compare", "checklist", "polaroid", "chart", "timeline", "question", "punchline", "place", "document", "map", "flow", "trendline", "dataviz", "network", "duo", "reveal"]);
-    let withImage = 0;
+    let withImage = 0, voxPlaced = 0;
     const VOX_IMAGE_TYPES = new Set(["imagefocus", "polaroid", "compare", "duo"]);
+    const VOX_PLACES = new Set(Object.keys((bible && bible.places) || {}));
     for (const e of emitted.beats) {
       const i = e.i, a = authored.get(i);
       if (!a || !a.design) { P(i, "NOT AUTHORED"); continue; }
@@ -1424,9 +1432,13 @@ function merge() {
         const words = s.split(/\s+/).filter(Boolean).length;
         if (words < 6 || /^([\w'-]+,\s*){2,}[\w'-]+$/.test(s.trim())) P(i, `image.subject is a keyword bag, not a described photograph: "${s}"`);
       }
+      // 2026-11-23: the book's own place this beat stands in (a story-bible place id); none = where the film was
+      if (d.place != null && !VOX_PLACES.has(String(d.place))) P(i, `place "${d.place}" — one of the story bible's places (${[...VOX_PLACES].join(", ") || "none in the bible"})`);
+      if (d.place != null) voxPlaced++;
+      if (d.place == null && VOX_PLACES.size) { const hit = [...VOX_PLACES].find((p) => new RegExp(`\\b${p.replace(/[-_]+/g, "[ -]?")}s?\\b`, "i").test(String(e.narration || ""))); if (hit) warnings.push(`${i}: the narration names "${hit}" but the beat stands at no place — "place": "${hit}"`); }
       out.push({ ...d, storyboard: sb });
     }
-    console.log(`beats ${out.length} | with image ${out.filter((d) => d.image).length}`);
+    console.log(`beats ${out.length} | with image ${out.filter((d) => d.image).length}${VOX_PLACES.size ? ` | at a place of the book ${voxPlaced} (the rest stay where the film was)` : ""}`);
     if (out.length && withImage > out.length * 0.9) warnings.push(`${withImage}/${out.length} beats have an image — almost every beat will be imagefocus; keep 15-30% as real questions/lists/quotes (rules.md → Coverage)`);
     if (out.length && withImage < out.length * 0.7) warnings.push(`only ${withImage}/${out.length} beats have an image (${Math.round((withImage / out.length) * 100)}%) — aim for 70%+: the mute test scores ADDS over ALL frames (rules.md → Coverage)`);
   }

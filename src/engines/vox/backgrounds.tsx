@@ -20,6 +20,37 @@ export const PaperBackground: React.FC<{ tint?: boolean }> = ({ tint = false }) 
   );
 };
 
+/**
+ * THE BOOK'S OWN PLACE BEHIND THE FILM (2026-11-23, YPP "repetitive content": every Vox film stood on the same paper
+ * image, and 22–56 % of a film was a text card on it). With meta.places the film stands where the book is: each beat
+ * in its `place`, a beat that names none where the film last was, the home at the start. One still image per stretch
+ * (no drift, no loop); a paper wash over it keeps the cards and cutouts readable (the book's palette tints it).
+ * Without meta.places nothing is drawn: the shared paper shows, as before.
+ */
+type PlaceBeat = { fromFrame: number; durationFrames: number; place?: string };
+export function placeRuns(beats: PlaceBeat[], places: Record<string, string>, home?: string): { from: number; frames: number; asset: string; id: string }[] {
+  const runs: { from: number; frames: number; asset: string; id: string }[] = [];
+  let cur = home && places[home] ? home : null;
+  for (const b of beats) {
+    if (b.place && places[b.place]) cur = b.place;
+    if (!cur) continue;
+    const last = runs[runs.length - 1];
+    if (last && last.id === cur && last.from + last.frames === b.fromFrame) last.frames += b.durationFrames;
+    else runs.push({ from: b.fromFrame, frames: b.durationFrames, asset: places[cur], id: cur });
+  }
+  return runs;
+}
+export const PlaceImage: React.FC<{ asset: string; paper: string }> = ({ asset, paper: paper0 }) => {
+  const paper = /^#[0-9a-f]{6}$/i.test(paper0) ? paper0 : "#DAD9D5"; // the wash needs a 6-digit hex to take an alpha
+  return (
+  <AbsoluteFill style={{ zIndex: 1 }}>
+    <Img src={staticFile(asset)} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.04)", filter: "saturate(0.82) contrast(1.02)" }} />
+    {/* the wash: the place reads at the edges, the middle third (where the cards stand) is calm */}
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 62% 58% at 50% 48%, ${paper}C7 0%, ${paper}8C 55%, ${paper}33 100%)` }} />
+  </AbsoluteFill>
+  );
+};
+
 export const Grain: React.FC = () => {
   const frame = useCurrentFrame();
   const shift = (frame % 6) * 13;

@@ -33,6 +33,8 @@ export type Beat = {
   fromFrame: number;
   durationFrames: number;
   images: VImage[];
+  /** 2026-11-23: the book's place this beat stands in (a key of meta.places); absent = where the film was */
+  place?: string;
   props: {
     text: string;
     kicker?: string;
@@ -89,4 +91,7 @@ export type Chapter = { index: number; fromFrame: number; label: string; teaser?
 export type VoxSkin = { caption?: string; plate?: string; font?: string };
 /** The narrative form and the parts the hosts announced (scripts/lib/narrative-form.js filmForm): the chapter cards follow them. */
 export type VoxForm = { key: string; part: string; name: string; parts: { n: number; from: number; title?: string }[] };
-export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean; skin?: VoxSkin; form?: VoxForm; /** the producer's note (src/components/ProducerNote.tsx) */ take?: { note: string } }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };
+export type VoxConfig = { meta: { audio: string; slug?: string; progress?: boolean; /** Opt-in transition sound layer — see sfx.tsx for why it is not on by default. */ sfx?: boolean; skin?: VoxSkin; form?: VoxForm; /** the producer's note (src/components/ProducerNote.tsx) */ take?: { note: string };
+  /** 2026-11-23, the book's OWN places (one image each, scenes/<slug>/place-<id>.png) drawn behind the beats instead of
+   *  the shared paper every Vox film stood on; `home` is where the film starts. Absent = the shared paper, as before. */
+  places?: Record<string, string>; home?: string }; captions: Caption[]; beats: Beat[]; chapters?: Chapter[] };

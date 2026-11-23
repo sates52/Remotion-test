@@ -3,7 +3,7 @@ import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { BOOK_BG_TINT } from "../../books.generated";
 import type { VoxConfig } from "./schema";
 import { PAPER, resolvePalette, resolveCaptionHighlight } from "./palette";
-import { PaperBackground, FloatingSpecks, Grain, Vignette } from "./backgrounds";
+import { PaperBackground, FloatingSpecks, Grain, Vignette, PlaceImage, placeRuns } from "./backgrounds";
 import { SCENES, StatementScene } from "./scenes";
 import { CaptionLayer } from "./captions";
 import { ChapterOverlay, ProgressRail, formChapters } from "./overlays";
@@ -38,6 +38,14 @@ export const VoxBook: React.FC<{ config: VoxConfig }> = ({ config }) => {
     <Audio src={staticFile(config.meta.audio)} />
     <SfxLayer beats={config.beats} enabled={config.meta.sfx === true} />
     <PaperBackground tint={BOOK_BG_TINT[config.meta.slug ?? ""] ?? false} />
+    {/* the book's own places (meta.places): the film stands where the book is, not on the channel's paper */}
+    {config.meta.places && Object.keys(config.meta.places).length
+      ? placeRuns(config.beats, config.meta.places, config.meta.home).map((r) => (
+          <Sequence key={`place-${r.from}`} from={r.from} durationInFrames={r.frames} name={`place · ${r.id}`}>
+            <PlaceImage asset={r.asset} paper={pal.paper} />
+          </Sequence>
+        ))
+      : null}
     <FloatingSpecks />
     {config.beats.map((beat) => {
       const S = SCENES[beat.type] || StatementScene;

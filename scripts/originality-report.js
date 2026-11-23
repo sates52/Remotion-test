@@ -77,6 +77,14 @@ function voxReport({ config, book = {}, shelf = [] }) {
   const cards = Object.entries(byType).sort((a, b) => b[1] - a[1]).map(([k, f]) => [k, f / total]);
   const others = shelf.map((s) => s.cards).filter((x) => x != null).sort((a, b) => a - b);
   const picture = { beats: beats.length, ownImages: image / total, cards: 1 - image / total, cardKinds: cards.slice(0, 4), channelCards: others.length ? others[others.length >> 1] : null, films: others.length };
+  // 2026-11-23: the book's own places (meta.places) behind the beats — a card there stands IN the book, not on the
+  // shared paper every Vox film used; "cards on shared paper" is what is left of the old look
+  { const places = (config.meta && config.meta.places) || {}, ids = Object.keys(places);
+    let cur = config.meta && config.meta.home && places[config.meta.home] ? config.meta.home : null, atPlace = 0, cardsShared = 0; const byPlace = {};
+    for (const b of beats) { if (b.place && places[b.place]) cur = b.place; const f = b.durationFrames || 0, hasImg = (b.images || []).length > 0;
+      if (ids.length && cur) { atPlace += f; byPlace[cur] = (byPlace[cur] || 0) + f; } else if (!hasImg) cardsShared += f; }
+    picture.places = ids.length; picture.atPlace = atPlace / total; picture.cardsOnSharedPaper = cardsShared / total;
+    picture.topPlace = Object.entries(byPlace).sort((a, b) => b[1] - a[1]).map(([k, f]) => [k, f / total])[0] || null; }
   const skin = (config.meta && config.meta.skin) || null;
   return { engine: "vox", told, picture, look: { skin: skin ? `${skin.caption}/${skin.plate}/${skin.font}` : null } };
 }
@@ -107,6 +115,7 @@ if (require.main === module) {
     console.log(`         story: ${pct(t.story)} of the words stand in stretches that name the book by a proper name (channel ${t.kind || "all"}: ${pct(base)}) · longest stretch naming nothing: ${t.longestTalk} words · the producer's own view in the prompt: ${t.take ? "yes" : "no"}`);
     if (t.lines != null) console.log(`         lines most of the channel's narrations share: ${t.lines} per 1000 words (channel median ${t.linesMedian})${t.linesTop.length ? ` — ${t.linesTop.map(([g, n]) => `"${g}" ×${n}`).join(", ")}` : ""}`);
     console.log(`PICTURE  the book's own images: ${pct(p.ownImages)} of the film's time · text cards every Vox film shares: ${pct(p.cards)}${p.channelCards != null ? ` (median of ${p.films} other Vox films: ${pct(p.channelCards)})` : ""}${p.cardKinds.length ? ` — ${p.cardKinds.map(([k, s]) => `${k} ${pct(s)}`).join(", ")}` : ""}`);
+    console.log(`PLACES   the book's own places: ${p.places || 0}${p.places ? ` · film time at one of them ${pct(p.atPlace)}${p.topPlace ? ` (most: ${p.topPlace[0]} ${pct(p.topPlace[1])})` : ""}` : " (every frame on the channel's shared paper)"} · text cards on the shared paper: ${pct(p.cardsOnSharedPaper)}`);
     { // the text-card bar (data/quality-policy.json → voxTextCards; 2026-11-23): reported until the operator makes it block
       let pol = null; try { pol = (read(path.join(ROOT, "data", "quality-policy.json")) || {}).voxTextCards || null; } catch {}
       if (pol && Number.isFinite(pol.max)) console.log(`         text-card bar: ${pct(p.cards)} ${p.cards > pol.max ? "OVER" : "under"} the policy max ${pct(pol.max)} (${pol.blocking ? "blocking" : "reported — not yet a gate"})`);

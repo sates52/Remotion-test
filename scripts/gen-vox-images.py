@@ -100,8 +100,13 @@ with open(os.path.join(ROOT, cfg_path), "r", encoding="utf-8") as f:
 
 targets = [(img["path"], img["prompt"]) for b in cfg["beats"] for img in b.get("images", []) if img.get("path") and img.get("prompt")]
 beat_of = {img["path"]: b.get("id") for b in cfg["beats"] for img in b.get("images", []) if img.get("path")}
+# 2026-11-23: the book's own PLACES (meta.placeImages, written by plan-vox.js from the story bible) - one empty-set image
+# per place, drawn behind the beats instead of the shared paper; "--beats=place:<id>" selects one
+_place_images = [p for p in ((cfg.get("meta") or {}).get("placeImages") or []) if p.get("path") and p.get("prompt")]
+targets = [(p["path"], p["prompt"]) for p in _place_images] + targets
+beat_of.update({p["path"]: f"place:{p.get('id')}" for p in _place_images})
 if SEL_BEATS is not None:
-    unknown_beats = sorted(SEL_BEATS - set(b.get("id") for b in cfg["beats"]))
+    unknown_beats = sorted(SEL_BEATS - set(b.get("id") for b in cfg["beats"]) - set(f"place:{p.get('id')}" for p in _place_images))
     if unknown_beats:
         print(f"ERROR: --beats names beat(s) not in {cfg_path}: {', '.join(unknown_beats)}"); sys.exit(2)
 # one outcome record per image -> <config dir>/images.report.json (merged by path) - stdout alone was lost
@@ -269,6 +274,17 @@ for b in cfg["beats"]:
         else:
             dropped += 1
     b["images"] = keep
+# a place whose image did not generate is not drawn (the beats there stand on the shared paper, as before)
+_meta = cfg.get("meta") or {}
+if isinstance(_meta.get("places"), dict):
+    _missing = [k for k, rel in _meta["places"].items() if not exists(rel)]
+    for k in _missing:
+        del _meta["places"][k]
+        dropped += 1
+    if not _meta["places"]:
+        _meta.pop("places", None); _meta.pop("home", None)
+    elif _meta.get("home") not in _meta["places"]:
+        _meta["home"] = next(iter(_meta["places"]))
 if dropped:
     with open(os.path.join(ROOT, cfg_path), "w", encoding="utf-8") as f:
         json.dump(cfg, f, indent=2)
