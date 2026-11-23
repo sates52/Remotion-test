@@ -8333,3 +8333,30 @@ Operator approved after two rounds of clips.
   before. Test: `test-own-places.js` (+1), `test-cross-book-firewall.js` unchanged.
 - **For the book:** restore beat 21 as the told beat it was (stage `at: "kitchen"`), re-run merge / make-book on
   a pin that has this commit (`maintenance-upgrade --before-preview`).
+
+### 2026-11-23 — No film stands in one room: place continuity, merge lists, film metrics, FormTrack fold, Vox's own places
+
+- **Why:** YPP "generic or repetitive content". A reviewer jumps along the timeline of the newest videos; the first Film
+  Flow books stood in one room — Then She Was Gone 82 % in its kitchen (11 % empty rooms, 7 of 10 parts opening there),
+  Dracula 89 % at Carfax; every Vox film stood on the same paper image. Plan agreed with the operator and the other agent
+  (camera / hand / plate work, the explains-ledger and verb warnings deferred). Branch `dev/explains-world`.
+- **Antidote (V5S books only — a backdrop with a sky; wash books and planned configs unchanged):** `applyPlaces` walks in
+  order — a beat that names no place stays where the film last was, the home only at the start; only an AUTHORED set is a
+  place decision (the planner's pick is not); a set naming one of the book's places is drawn as it. `told-compile.js`
+  keeps the current place for a stage without `at`, across figure beats (`opts.placeByScene`). Merge lists the beats
+  whose narration names a place they do not stand in, empty beats, parts that open where the part before did
+  (`storyboard/places.json`); `lib/film-metrics.js` prints top-place share, distinct places, empty share and part
+  openings in `told.js status/apply` and `originality-report.js`. Measured on a scratch copy of Then She Was Gone, same
+  storyboard, continuity only: kitchen 82 % → 52 %, repeated part openings 7 → 2. rules.md / told.md: "The film MOVES".
+- **FormTrack fold** (`meta.hud.fold`, off by default): the part band is full for 3 s at each part start, then a small
+  "03 / 10" corner mark; the title shows at part starts and 3 s a minute. Stills: `Downloads\film-flow-told\formtrack-v2\`
+  — on by default only after the operator's "tamam".
+- **Vox:** `plan-vox.js` turns the story bible's places into `meta.places` / `placeImages` / `home` and `beat.place`
+  (designs.json "place"); `gen-vox-images.py` generates one empty-set image per place (`--beats=place:<id>`) and drops a
+  failed one; the renderer draws the place behind the beats (continuity, paper wash), a book with places is not demoted
+  imagefocus → statement; merge validates `place`; originality-report prints PLACES and cards left on the shared paper.
+  Rehearsal (scratch Dust, 3 Flux calls): cards read over silo / dust plain / tunnel; new frames 59 % alike to the old.
+- **Tests:** `test-place-continuity.js` (19), `test-vox-places.js` (12) new; told / own-drawings / storyboard / vox tests
+  unchanged and passing; full regression green on Actions.
+- **Next (the book's agent):** `Downloads\film-flow-told\then-she-was-gone-rewrite.md` — move the pin, re-author the
+  listed beats, sealed mute test; targets kitchen < 40 %, empty < 5 %, ADDS ≥ 25/30.
