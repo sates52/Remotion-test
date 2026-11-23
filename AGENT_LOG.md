@@ -7718,6 +7718,21 @@ each, never looked at); its mute test read TEXT_ONLY on 19 of 30 frames. Operato
 - **Not touched:** no published / pinned book, threshold, schema enum, render, upload, cleanup. Remote scratch refs left
   in place: `ci/stills/own-drawings-1`, `-2`, `ci/regression/own-drawings`.
 
+### 2026-11-23 — book-start.js `--restart="<reason>"`: a pinned book starts AGAIN on current code (the old copy retired, kept)
+
+- **Why (american-psycho):** the operator wanted the book redone on the told v5 code with a new recording. Its
+  production worktree was on an old pin with a told-less preview; book-start only knew RESUME (same path) and `--adopt`
+  (a book started OUTSIDE a production worktree). The video agent moved the old worktree aside by hand and was then
+  refused: "already pinned in another worktree".
+- **What:** `--restart="<owner's reason ≥ 30 chars>"` — a pinned copy elsewhere is RETIRED (listed, recorded), a started
+  book is not refused, the new copy is created on origin/god-mode; only the INPUTS come over from the retired copy
+  (book.json, the prompt, the audio, the VTT; never overwriting) and `books/<slug>/restarted-from.json` records reason,
+  retired paths and evidence. The retired copy is never written, moved or deleted by the script. When the old copy still
+  stands at the book's own path, it refuses and prints the two commands to put it aside (`preview-state.js unlink`,
+  `git worktree move … -old-<pin8>`). Measured: `--check --restart` on american-psycho → RESTART + READY.
+- Test: `test-book-restart.js` (4, source). CLAUDE.md's book-start paragraph is unchanged in wording (adopt / repin);
+  the usage line names `--restart`.
+
 ### 2026-11-23 — Told v5, blind rehearsal: three frames ESKI (v4 wash) / YENI (scene), six fresh raters, WHERE / WHO / EVENT
 
 - Not the sealed mute test (no book, no judge, three frames) — a first blind signal on the scene work, one fresh sonnet
