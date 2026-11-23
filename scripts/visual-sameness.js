@@ -5,6 +5,8 @@
  *
  *   node scripts/visual-sameness.js plan    --slugs=a,b,c [--frames=24] [--tag=<name>] [--book-root=<checkout>]
  *        → audit/visual-sameness/<tag>/{antidote,vox}/manifest.json: N frames per film, evenly spaced, from the planned configs
+ *        a book produced in its own worktree: `dracula@../wt-book-dracula` (its config is read there, its code is NOT used:
+ *        the stills render on this checkout's engine — the look of the planned config, not of its pinned engine)
  *   node scripts/visual-sameness.js cloud   --slugs=a,b,c [--frames=24] [--tag=<name>]      plan + push + fetch + compare, waits
  *   node scripts/visual-sameness.js compare --tag=<name> | --dir=<stills dir> [--json]      the matrix from stills on disk
  * Output: audit/visual-sameness/<tag>/visual-sameness.json + a table: every film's nearest film (layout = pHash,
@@ -26,10 +28,13 @@ const stamp = () => new Date().toISOString().replace(/[-:T]/g, "").slice(0, 12);
 const TAG = (typeof args.tag === "string" && args.tag) || `vs-${stamp()}`;
 const DIR = path.join(ROOT, "audit", "visual-sameness", TAG);
 
-function configOf(slug) {
+/** `slug` or `slug@<checkout>` — a book produced in its own worktree (../wt-book-<slug>) is read from there */
+function configOf(spec) {
+  const [slug, at] = String(spec).split("@");
+  const root = at ? path.resolve(ROOT, at) : ROOT;
   for (const [engine, f] of [["antidote", "config.antidote.json"], ["vox", "config.vox.json"]]) {
-    const c = read(path.join(ROOT, "books", slug, f));
-    if (c) return { engine, config: c };
+    const c = read(path.join(root, "books", slug, f));
+    if (c) return { engine, config: c, slug };
   }
   return null;
 }
@@ -40,9 +45,10 @@ function totalFramesOf(engine, c) {
 
 function plan(slugs) {
   const byEngine = { antidote: [], vox: [] };
-  for (const slug of slugs) {
-    const got = configOf(slug);
-    if (!got) { console.error(`✗ ${slug}: no planned config (books/${slug}/config.*.json)`); process.exit(2); }
+  for (const spec of slugs) {
+    const got = configOf(spec);
+    if (!got) { console.error(`✗ ${spec}: no planned config (books/<slug>/config.*.json; a book in its own worktree: <slug>@../wt-book-<slug>)`); process.exit(2); }
+    const slug = got.slug;
     const total = totalFramesOf(got.engine, got.config);
     if (!total) { console.error(`✗ ${slug}: no frames in the config`); process.exit(2); }
     // evenly spaced, inside the film (2 % margins): the opening card and the end are not the film's look
