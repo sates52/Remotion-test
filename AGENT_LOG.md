@@ -8304,8 +8304,10 @@ Operator approved after two rounds of clips.
   28 FAIL / 10 PASS now, frozen), book worktrees, renders, uploads, cleanup. New packs only.
 - **2026-11-23 later — visual sameness measured on the first Film Flow film:** Dracula (told v5, own places / cast / things)
   against farsighted, thinking-in-systems, we-were-liars: 58–61 % alike (layout 65–71, palette 47–57) while the three old
-  films are 72–73 % alike to each other (layout 75–78, palette 67–68) — `audit/visual-sameness/vs-calib-2`. Bar written:
-  `quality-policy.visualSameness.reviewAlike = 0.68` (operator-approved); the tool marks ✗ at or over it, no stage stops.
+  films are 72–73 % alike to each other (layout 75–78, palette 67–68) — `audit/visual-sameness/vs-calib-2`. Bar PROPOSED,
+  NOT written: `quality-policy.visualSameness.reviewAlike = 0.68` — the agent's write to the operator-decisions file was
+  refused by the harness; the operator adds the block (the tool reads it and marks ✗ at or over it; no stage stops). The
+  commit 932a1b91 subject says "bar … (operator)" — read it as proposed.
   Operator decisions the same day: Dracula is exempt from the new pack contract (its owner packages with
   `--allow-unready="<reason>"`); then-she-was-gone-v2 (producer's note recorded) is the first book under the full
   contract; old / old-pinned books are left alone (their replacements will be made new); SFX per book dropped.
