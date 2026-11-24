@@ -1,0 +1,175 @@
+{
+  "slug": "the-magician-s-nephew",
+  "outDir": "scenes/cinematic-pilot-mn",
+  "artLock": "hand-inked crosshatched pen linework with flat gouache colour washes, limited palette of deep charcoal grey, warm sepia, muted terracotta and pale gold, textured laid paper, Edwardian storybook engraving feel, strong silhouettes, wide 16:9 composition",
+  "characters": {
+    "andrew": "Uncle Andrew, a tall thin old man with wild grey hair, a sharply pointed nose, a faded crimson dressing gown over a buttoned waistcoat, pale vain face",
+    "jadis": "a tall woman with a cold white face, black hair, a long dark gown and a silver crown"
+  },
+  "scenes": [
+    {
+      "id": "a1",
+      "slice": "A",
+      "from": 295.6,
+      "to": 311.3,
+      "mode": "panel",
+      "cast": [
+        "andrew"
+      ],
+      "prompt": "{andrew} in a dusty attic holding up a small shiny yellow metal ring to an oil lamp, an empty wooden cage open on the desk, a red tray of small shiny yellow and green metal rings, fine ink crosshatching, muted watercolour"
+    },
+    {
+      "id": "a2",
+      "slice": "A",
+      "from": 311.3,
+      "to": 319.4,
+      "mode": "panel",
+      "prompt": "a busy Edwardian London street in 1900 with horse cabs, gaslamps and tall stone buildings, wet cobbles in the evening"
+    },
+    {
+      "id": "a3",
+      "slice": "A",
+      "from": 319.4,
+      "to": 323.7,
+      "mode": "panel",
+      "prompt": "well-dressed Edwardian ladies and gentlemen at a candle-lit seance table, hands joined, a planchette on the cloth, heavy curtains"
+    },
+    {
+      "id": "a4",
+      "slice": "A",
+      "from": 323.7,
+      "to": 338.0,
+      "mode": "panel",
+      "cast": [
+        "andrew"
+      ],
+      "cutout": "box",
+      "prompt": "{andrew} prying open an ornate ancient carved box with a chisel at his desk, fine golden dust rising from the crack, his face greedy in the glow"
+    },
+    {
+      "id": "a5",
+      "slice": "A",
+      "from": 338.0,
+      "to": 353.2,
+      "mode": "statement",
+      "cast": [
+        "andrew"
+      ],
+      "card": "Ours is a high and lonely destiny.",
+      "prompt": "{andrew} standing alone before a tall attic window, chin raised, looking down with vanity, London rooftops and chimneys beyond, the left half of the picture quiet dark wall"
+    },
+    {
+      "id": "b1",
+      "slice": "B",
+      "from": 1076.0,
+      "to": 1092.7,
+      "mode": "panel",
+      "prompt": "small distant figures - a tall woman in a dark gown, an old man, a cabman, a horse and two children - standing on nothing in total black darkness, lit only faintly from below"
+    },
+    {
+      "id": "b2",
+      "slice": "B",
+      "from": 1092.7,
+      "to": 1110.2,
+      "mode": "panel",
+      "cast": [
+        "jadis"
+      ],
+      "cutout": "bar",
+      "prompt": "{jadis}, a stately queen in a long dark velvet robe, her right hand tightly gripping a rough iron bar held diagonally across her body, standing tall in complete darkness, fine ink crosshatching, muted watercolour"
+    },
+    {
+      "id": "b3",
+      "slice": "B",
+      "from": 1110.2,
+      "to": 1120.0,
+      "mode": "split",
+      "pair": "bar",
+      "prompt": "a smoky Victorian iron foundry with molten metal pouring and tall chimneys, no signs, no clocks, no frame"
+    },
+    {
+      "id": "b4",
+      "slice": "B",
+      "from": 1120.0,
+      "to": 1128.4,
+      "mode": "panel",
+      "prompt": "the first faint stars appearing in a black sky over a flat dark horizon, a small group of figures looking up"
+    },
+    {
+      "id": "b5",
+      "slice": "B",
+      "from": 1128.4,
+      "to": 1137.2,
+      "mode": "panel",
+      "prompt": "a sky suddenly full of bright constellations above a dark empty land, a warm golden glow just beginning at the far horizon"
+    },
+    {
+      "id": "c1",
+      "slice": "C",
+      "from": 1739.0,
+      "to": 1748.6,
+      "mode": "panel",
+      "prompt": "a wide misty wood of tall trees with still round pools, two Edwardian children of 1900, a boy in a waistcoat and short trousers and a girl in a long dress and pinafore, holding rings and stepping toward one pool, soft green light, fine ink crosshatching and muted watercolour"
+    },
+    {
+      "id": "c2",
+      "slice": "C",
+      "from": 1748.6,
+      "to": 1765.9,
+      "mode": "statement",
+      "cast": [
+        "andrew"
+      ],
+      "card": "a barroom anecdote",
+      "prompt": "an older {andrew} in a deep leather armchair by a club fireplace, gesturing grandly while telling a story, a bored gentleman beside him looking away"
+    },
+    {
+      "id": "c3",
+      "slice": "C",
+      "from": 1765.9,
+      "to": 1772.7,
+      "mode": "panel",
+      "cutout": "apple",
+      "prompt": "an Edwardian boy of 1900 in a collared shirt, waistcoat and short trousers running up a narrow old staircase holding a glowing silver-gold apple in both hands, fine ink crosshatching and muted watercolour wash, like an illustration in a 1900 book"
+    },
+    {
+      "id": "c4",
+      "slice": "C",
+      "from": 1772.7,
+      "to": 1781.5,
+      "mode": "split",
+      "pair": "c5",
+      "prompt": "a dim curtained Edwardian sickroom with only two people: a pale woman resting in a brass bed and an Edwardian boy in a collared shirt and waistcoat holding out a glowing silver-gold apple to her, fine ink crosshatching and muted watercolour wash, like an illustration in a 1900 book"
+    },
+    {
+      "id": "c5",
+      "slice": "C",
+      "from": 1781.5,
+      "to": 1797.7,
+      "mode": "panel",
+      "prompt": "the same Edwardian bedroom transformed: curtains drawn back, windows open, morning sun pouring in, a piano with its lid raised, flowers on the sill"
+    }
+  ],
+  "objects": [
+    {
+      "id": "box",
+      "prompt": "a single ornate ancient carved wooden box with strange worn symbols, isolated in the centre on a plain pale cream background, nothing else"
+    },
+    {
+      "id": "bar",
+      "prompt": "exactly one single straight rough dented black iron bar with one broken twisted end, lying diagonally, isolated in the centre on a plain pale cream background, nothing else"
+    },
+    {
+      "id": "apple",
+      "prompt": "a single glowing silver-gold apple with a small leaf, isolated in the centre on a plain pale cream background, nothing else"
+    }
+  ],
+  "filterBlacklist": {
+    "soot black": "deep charcoal grey",
+    "brick red": "muted terracotta",
+    "brandy": "a small glass",
+    "Union flags": "bunting",
+    "height of empire": "1900"
+  },
+  "promptRule": "scene first, style after: a style prefix makes Flux klein ignore the scene (2026-11-24 pilot: 18/18 random portraits)"
+}

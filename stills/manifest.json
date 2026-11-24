@@ -1,0 +1,80 @@
+{
+ "schema": "stills/1",
+ "name": "cinema pilot clips",
+ "composition": "Vox-lab",
+ "entry": "src/index.ts",
+ "silent": false,
+ "gl": "default",
+ "shards": 3,
+ "extra": [
+  "public/scenes/cinematic-pilot-mn/a1.png",
+  "public/scenes/cinematic-pilot-mn/a2.png",
+  "public/scenes/cinematic-pilot-mn/a3.png",
+  "public/scenes/cinematic-pilot-mn/a4.png",
+  "public/scenes/cinematic-pilot-mn/box.cut.png",
+  "public/scenes/cinematic-pilot-mn/a5.png",
+  "public/scenes/cinematic-pilot-mn/b1.png",
+  "public/scenes/cinematic-pilot-mn/b2.png",
+  "public/scenes/cinematic-pilot-mn/b3.png",
+  "public/scenes/cinematic-pilot-mn/bar.cut.png",
+  "public/scenes/cinematic-pilot-mn/b4.png",
+  "public/scenes/cinematic-pilot-mn/b5.png",
+  "public/scenes/cinematic-pilot-mn/c1.png",
+  "public/scenes/cinematic-pilot-mn/c2.png",
+  "public/scenes/cinematic-pilot-mn/c3.png",
+  "public/scenes/cinematic-pilot-mn/c4.png",
+  "public/scenes/cinematic-pilot-mn/c5.png",
+  "public/scenes/the-magician-s-nephew/beat-044.png",
+  "public/scenes/the-magician-s-nephew/beat-047.png",
+  "public/scenes/the-magician-s-nephew/beat-150.png",
+  "public/scenes/the-magician-s-nephew/beat-152.png",
+  "public/scenes/the-magician-s-nephew/beat-238.png",
+  "public/scenes/the-magician-s-nephew/beat-238-cut.png",
+  "public/scenes/the-magician-s-nephew/beat-243.png",
+  "public/scenes/the-magician-s-nephew/beat-243-cut.png",
+  "public/sfx/ding.wav"
+ ],
+ "jobs": [
+  {
+   "id": "clip-A",
+   "config": "configs/pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 8868,
+    "to": 10595,
+    "scale": 1,
+    "crf": 20,
+    "concurrency": 3
+   }
+  },
+  {
+   "id": "clip-B",
+   "config": "configs/pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 32280,
+    "to": 34115,
+    "scale": 1,
+    "crf": 20,
+    "concurrency": 3
+   }
+  },
+  {
+   "id": "clip-C",
+   "config": "configs/pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 52170,
+    "to": 53930,
+    "scale": 1,
+    "crf": 20,
+    "concurrency": 3
+   }
+  }
+ ],
+ "inputHash": "d7178661ff569f4d",
+ "files": {
+  "stills/configs/pilot.json": "6912c530f5355cffeb453ed1203bf193bceba0acc85160147e5177a4a6f0892a"
+ },
+ "builtAt": "2026-11-24T11:07:26.505Z"
+}
