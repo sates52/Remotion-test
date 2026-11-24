@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-24T14:23:44.594Z",
+  "counts": {
+    "antidote-v2-pilot": 10,
+    "real-antidote-channel": 16
+  },
+  "pairs": [
+    {
+      "a": "antidote-v2-pilot",
+      "b": "real-antidote-channel",
+      "layout": 0.65,
+      "palette": 0.582,
+      "alike": 0.616
+    }
+  ],
+  "nearest": {
+    "antidote-v2-pilot": {
+      "to": "real-antidote-channel",
+      "alike": 0.616
+    },
+    "real-antidote-channel": {
+      "to": "antidote-v2-pilot",
+      "alike": 0.616
+    }
+  },
+  "dark": {
+    "antidote-v2-pilot": 0.655,
+    "real-antidote-channel": 0.46
+  }
+}
