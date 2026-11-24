@@ -1,0 +1,66 @@
+{
+ "schema": "stills/1",
+ "name": "cinema pilot mn eski/yeni",
+ "composition": "Vox-lab",
+ "entry": "src/index.ts",
+ "silent": false,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/scenes/the-magician-s-nephew/beat-042.png",
+  "public/scenes/the-magician-s-nephew/beat-152.png",
+  "public/scenes/the-magician-s-nephew/beat-243.png",
+  "public/scenes/the-magician-s-nephew/beat-243-cut.png",
+  "public/scenes/cinematic-pilot-mn/a1.png",
+  "public/scenes/cinematic-pilot-mn/a2.png",
+  "public/scenes/cinematic-pilot-mn/a3.png",
+  "public/scenes/cinematic-pilot-mn/a4.png",
+  "public/scenes/cinematic-pilot-mn/box.cut.png",
+  "public/scenes/cinematic-pilot-mn/a5.png",
+  "public/scenes/cinematic-pilot-mn/b1.png",
+  "public/scenes/cinematic-pilot-mn/b2.png",
+  "public/scenes/cinematic-pilot-mn/b3.png",
+  "public/scenes/cinematic-pilot-mn/bar.cut.png",
+  "public/scenes/cinematic-pilot-mn/b4.png",
+  "public/scenes/cinematic-pilot-mn/b5.png",
+  "public/scenes/cinematic-pilot-mn/c1.png",
+  "public/scenes/cinematic-pilot-mn/c2.png",
+  "public/scenes/cinematic-pilot-mn/c3.png",
+  "public/scenes/cinematic-pilot-mn/c4.png",
+  "public/scenes/cinematic-pilot-mn/c5.png"
+ ],
+ "jobs": [
+  {
+   "id": "mn-eski",
+   "config": "configs/eski.json",
+   "frames": [
+    9090,
+    10470,
+    33120,
+    33510,
+    52800,
+    53370
+   ],
+   "strip": true
+  },
+  {
+   "id": "mn-yeni",
+   "config": "configs/yeni.json",
+   "frames": [
+    9090,
+    10470,
+    33120,
+    33510,
+    52800,
+    53370
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "a520bc26324e8f2c",
+ "files": {
+  "stills/configs/eski.json": "100b73fb79470a57bde5375f9d08bf1a08c4dff295e69a2c8cc18673bef09006",
+  "stills/configs/yeni.json": "96610745248d440e55e57b6398ae27d47f1dbb85f0b2a99914c491ec1ad43de9"
+ },
+ "builtAt": "2026-11-24T09:40:59.043Z"
+}
