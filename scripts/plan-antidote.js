@@ -1642,6 +1642,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         title: (SHORT_TITLE || TITLE || "GOOD BOOK SUMMARY").toUpperCase(),
         showProgress: true,
         showBadge: true,
+        // the band folds after each part's first seconds (FormTrack.tsx foldState) — operator "tamam" on the stills, 2026-11-24
+        fold: true,
       },
       thumbnail,
       cast: CAST_BIBLE,

@@ -81,5 +81,12 @@ check("plural and multi-word readings match", SS.placesNamedIn("They search the 
   check("a wash book: the stage without 'at' goes home as before", at(old.stages[2]) === "kitchen", JSON.stringify(old.stages[2] && old.stages[2].backdrops));
 }
 
+// the band folds by default for new books (operator "tamam" on the stills, 2026-11-24)
+{
+  const pa = require("fs").readFileSync(require("path").join(__dirname, "plan-antidote.js"), "utf8");
+  const hud = pa.slice(pa.indexOf("hud: {", pa.indexOf("multiplane: true")), pa.indexOf("thumbnail,", pa.indexOf("multiplane: true")));
+  check("plan-antidote writes meta.hud.fold: true", hud.includes("fold: true,"), hud);
+}
+
 console.log(fails ? `\n✗ ${fails} failing` : "\n✓ place continuity regression passes");
 process.exit(fails ? 1 : 0);
