@@ -1,0 +1,34 @@
+{
+ "schema": "stills/1",
+ "name": "Old Vox Reference (a-civil-action)",
+ "composition": "Vox-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "jobs": [
+  {
+   "id": "old-vox-civil-action",
+   "config": "a-civil-action.json",
+   "frames": [
+    5159,
+    10208,
+    15257,
+    20306,
+    25355,
+    30404,
+    35453,
+    40502,
+    45551,
+    50600,
+    55649,
+    60698
+   ]
+  }
+ ],
+ "inputHash": "ad233a88cb7a68ea",
+ "files": {
+  "stills/a-civil-action.json": "b5ab29f393ea6131dd7802f1372f0125d7498d4c8227ed2061317d91d97ff0c6"
+ },
+ "builtAt": "2026-11-24T15:38:33.803Z"
+}
