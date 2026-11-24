@@ -1,0 +1,85 @@
+{
+ "schema": "stills/1",
+ "name": "antidote-v2-htta-pilot",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "shards": 4,
+ "silent": true,
+ "gl": "default",
+ "extra": [
+  "public/scenes/antidote-v2-pilot/s1_eye_contact.png",
+  "public/scenes/antidote-v2-pilot/s1_fast_grin.png",
+  "public/scenes/antidote-v2-pilot/s1_warm_smile.png",
+  "public/scenes/antidote-v2-pilot/s1_yale_lab.png",
+  "public/scenes/antidote-v2-pilot/s2_cold_credentials.png",
+  "public/scenes/antidote-v2-pilot/s2_static_wall.png",
+  "public/scenes/antidote-v2-pilot/s2_trampoline.png",
+  "public/scenes/antidote-v2-pilot/s2_warm_chat.png",
+  "public/scenes/antidote-v2-pilot/s3_lobby_boardroom.png",
+  "public/scenes/antidote-v2-pilot/s3_natural_ease.png",
+  "public/scenes/antidote-v2-pilot/s3_robotic_overload.png"
+ ],
+ "jobs": [
+  {
+   "id": "pilot-stills",
+   "config": "config.pilot.json",
+   "frames": [
+    252,
+    618,
+    1056,
+    1548,
+    2028,
+    2490,
+    3156,
+    3786,
+    4314,
+    4854
+   ],
+   "grid": {
+    "cols": 5,
+    "width": 480
+   }
+  },
+  {
+   "id": "slice1",
+   "config": "config.pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1739,
+    "crf": 20,
+    "scale": 1,
+    "concurrency": 2
+   }
+  },
+  {
+   "id": "slice2",
+   "config": "config.pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 1740,
+    "to": 3479,
+    "crf": 20,
+    "scale": 1,
+    "concurrency": 2
+   }
+  },
+  {
+   "id": "slice3",
+   "config": "config.pilot.json",
+   "frames": [],
+   "clip": {
+    "from": 3480,
+    "to": 5069,
+    "crf": 20,
+    "scale": 1,
+    "concurrency": 2
+   }
+  }
+ ],
+ "inputHash": "b8d4c9ef5979c040",
+ "files": {
+  "stills/config.pilot.json": "af8e4e55ee5f89374a9d3bbf762b3057219eba9c741de5da45d11f0b29f87842"
+ },
+ "builtAt": "2026-11-24T14:16:40.785Z"
+}
