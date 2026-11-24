@@ -1,0 +1,73 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 2.1 Hybrid Pilot (How to Talk to Anyone)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/scenes/antidote-v2-pilot/s1_eye_contact.png",
+  "public/scenes/antidote-v2-pilot/s1_fast_grin.png",
+  "public/scenes/antidote-v2-pilot/s1_warm_smile.png",
+  "public/scenes/antidote-v2-pilot/s1_yale_lab.png",
+  "public/scenes/antidote-v2-pilot/s2_cold_credentials.png",
+  "public/scenes/antidote-v2-pilot/s2_static_wall.png",
+  "public/scenes/antidote-v2-pilot/s2_trampoline.png",
+  "public/scenes/antidote-v2-pilot/s2_warm_chat.png",
+  "public/scenes/antidote-v2-pilot/s3_lobby_boardroom.png",
+  "public/scenes/antidote-v2-pilot/s3_natural_ease.png",
+  "public/scenes/antidote-v2-pilot/s3_robotic_overload.png"
+ ],
+ "jobs": [
+  {
+   "id": "pilot-stills",
+   "config": "config.hybrid.json",
+   "frames": [
+    220,
+    635,
+    1120,
+    1520,
+    2090,
+    2460,
+    2900,
+    3310,
+    3880,
+    4320,
+    4840
+   ]
+  },
+  {
+   "id": "clip-s1",
+   "config": "config.hybrid.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1739
+   }
+  },
+  {
+   "id": "clip-s2",
+   "config": "config.hybrid.json",
+   "frames": [],
+   "clip": {
+    "from": 1740,
+    "to": 3479
+   }
+  },
+  {
+   "id": "clip-s3",
+   "config": "config.hybrid.json",
+   "frames": [],
+   "clip": {
+    "from": 3480,
+    "to": 5069
+   }
+  }
+ ],
+ "inputHash": "58f71fbe30ddba65",
+ "files": {
+  "stills/config.hybrid.json": "11b77dc4ec6e080696ad29952231d3d15567c8bbc77de7002222bc7d127a97b5"
+ },
+ "builtAt": "2026-11-24T15:37:33.315Z"
+}

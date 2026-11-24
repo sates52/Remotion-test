@@ -1,0 +1,3840 @@
+{
+  "meta": {
+    "slug": "how-to-talk-to-anyone-hybrid-pilot",
+    "title": "How to Talk to Anyone",
+    "author": "Leil Lowndes",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 5070,
+    "cast": {
+      "host": {
+        "name": "Elena",
+        "variant": {
+          "skin": "#F0C39B",
+          "hair": "#4A2E1E",
+          "suit": "#D97736",
+          "shirt": "#F7F1E5",
+          "expression": "happy",
+          "hairStyle": "curly",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "coat",
+          "headwear": "none",
+          "accessory": "necklace",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        },
+        "role": "narrator"
+      },
+      "partner": {
+        "name": "Marcus",
+        "variant": {
+          "skin": "#E5B48B",
+          "hair": "#2B2623",
+          "suit": "#365675",
+          "shirt": "#F5F5F2",
+          "expression": "neutral",
+          "hairStyle": "short",
+          "glasses": true,
+          "beard": "none",
+          "gender": "m",
+          "age": "adult",
+          "outfit": "suit",
+          "headwear": "none",
+          "accessory": "tie",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        },
+        "role": "protagonist"
+      },
+      "researcher": {
+        "name": "Dr. Cole",
+        "variant": {
+          "skin": "#EBC2A0",
+          "hair": "#C5CBD3",
+          "suit": "#424854",
+          "shirt": "#ECEAE4",
+          "expression": "neutral",
+          "hairStyle": "receding",
+          "glasses": true,
+          "beard": "mustache",
+          "gender": "m",
+          "age": "old",
+          "outfit": "vest",
+          "headwear": "none",
+          "accessory": "none",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        },
+        "role": "mentor"
+      },
+      "stranger": {
+        "name": "Clara",
+        "variant": {
+          "skin": "#D9A47C",
+          "hair": "#2E1F1B",
+          "suit": "#7D3143",
+          "shirt": "#F5ECE0",
+          "expression": "neutral",
+          "hairStyle": "long",
+          "glasses": false,
+          "beard": "none",
+          "gender": "f",
+          "age": "adult",
+          "outfit": "coat",
+          "headwear": "none",
+          "accessory": "scarf",
+          "build": "average",
+          "height": 1,
+          "headScale": 1,
+          "overlay": []
+        },
+        "role": "foil"
+      }
+    },
+    "multiplane": true,
+    "take": {
+      "note": "Charisma is not memorizing 92 tricks — it is lowering the other person's threat response before you ask for anything."
+    },
+    "artDirection": {
+      "style": "mid-century modern New Yorker editorial gouache and crisp ink illustration",
+      "mood": "obsidianGrid",
+      "palette": {
+        "accent": "#F5B73B",
+        "accent2": "#2DD4BF",
+        "danger": "#F05D5E",
+        "positive": "#34D399"
+      },
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "s1-b1-flooding-smile",
+      "fromFrame": 0,
+      "durationFrames": 420,
+      "comparisonGrid": {
+        "title": "MASS-PRODUCED VS. CUSTOM-TAILORED",
+        "layout": "fullBleedSplit",
+        "columns": [
+          {
+            "heading": "Fast Nervous Grin",
+            "tag": "ROBOTIC",
+            "image": "scenes/antidote-v2-pilot/s1_fast_grin.png",
+            "bullets": [
+              "Flashed automatically at everyone",
+              "Reads as an anxious reflex"
+            ],
+            "tone": "danger"
+          },
+          {
+            "heading": "The Flooding Smile",
+            "tag": "CUSTOM-TAILORED",
+            "image": "scenes/antidote-v2-pilot/s1_warm_smile.png",
+            "bullets": [
+              "Pause one beat, soak in their face",
+              "Signals genuine delight in them"
+            ],
+            "tone": "positive"
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "obsidianGrid"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "s1-b2-yale-setup",
+      "fromFrame": 420,
+      "durationFrames": 360,
+      "shot": "wide",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#121A26"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "slateEditorial",
+        "image": {
+          "path": "scenes/antidote-v2-pilot/s1_yale_lab.png",
+          "opacity": 0.92,
+          "dim": 0.24,
+          "groundFog": 0.48,
+          "kenBurns": "pushIn"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.03
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "cole-1",
+          "rig": "everyman",
+          "role": "researcher",
+          "x": 560,
+          "y": 605,
+          "scale": 0.62,
+          "enter": "fade",
+          "action": "talk",
+          "body": "full",
+          "holds": "notes",
+          "says": {
+            "text": "Boston & Yale Study",
+            "at": 185
+          },
+          "holdHalo": true,
+          "lookAt": "partner"
+        },
+        {
+          "id": "elena-1",
+          "rig": "everyman",
+          "role": "host",
+          "x": 1120,
+          "y": 615,
+          "scale": 0.6,
+          "flip": true,
+          "enter": "fade",
+          "action": "idle",
+          "body": "full",
+          "lookAt": "partner"
+        },
+        {
+          "id": "marcus-1",
+          "rig": "everyman",
+          "role": "partner",
+          "x": 1380,
+          "y": 615,
+          "scale": 0.6,
+          "flip": true,
+          "enter": "fade",
+          "action": "idle",
+          "body": "full",
+          "lookAt": "partner"
+        }
+      ],
+      "props": [
+        {
+          "type": "customSvg",
+          "x": 960,
+          "y": 235,
+          "scale": 0.52,
+          "enter": "fade",
+          "at": 40,
+          "arc": "none",
+          "customSvg": {
+            "viewBox": "0 0 260 120",
+            "paths": [
+              {
+                "d": "M10,16 H250 V104 H10 Z",
+                "fill": "#1A2230",
+                "stroke": "#F5B73B",
+                "strokeWidth": 4
+              },
+              {
+                "d": "M42,46 H218",
+                "stroke": "#F5B73B",
+                "strokeWidth": 6
+              },
+              {
+                "d": "M64,74 H196",
+                "stroke": "#9FB2C9",
+                "strokeWidth": 4
+              }
+            ]
+          }
+        }
+      ],
+      "texts": []
+    },
+    {
+      "id": "s1-b3-blink-secret-task",
+      "fromFrame": 780,
+      "durationFrames": 480,
+      "shot": "twoShot",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "continueFromPrev": true,
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#121A26"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "slateEditorial",
+        "image": {
+          "path": "scenes/antidote-v2-pilot/s1_yale_lab.png",
+          "opacity": 0.9,
+          "dim": 0.3,
+          "groundFog": 0.5,
+          "kenBurns": "pushIn"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1.05,
+          1.12
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          -10
+        ]
+      },
+      "characters": [
+        {
+          "id": "elena-2",
+          "rig": "everyman",
+          "role": "host",
+          "expression": "happy",
+          "enter": "fade",
+          "action": "talk",
+          "says": {
+            "text": "Count every single blink...",
+            "at": 230
+          },
+          "lookAt": "partner"
+        },
+        {
+          "id": "marcus-2",
+          "rig": "everyman",
+          "role": "partner",
+          "expression": "surprised",
+          "emotion": "lightbulb",
+          "emotionAt": 310,
+          "enter": "fade",
+          "action": "idle",
+          "lookAt": "partner"
+        }
+      ],
+      "props": [
+        {
+          "type": "customSvg",
+          "x": 960,
+          "y": 470,
+          "scale": 0.72,
+          "enter": "fade",
+          "at": 190,
+          "arc": "none",
+          "customSvg": {
+            "viewBox": "0 0 320 140",
+            "paths": [
+              {
+                "d": "M20,70 H300",
+                "stroke": "#F5B73B",
+                "strokeWidth": 5,
+                "opacity": 0.85
+              },
+              {
+                "d": "M100,70 Q160,18 220,70 Q160,122 100,70 Z",
+                "fill": "#101319",
+                "stroke": "#F5B73B",
+                "strokeWidth": 6
+              },
+              {
+                "d": "M160,70 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0",
+                "fill": "#2DD4BF"
+              }
+            ]
+          }
+        }
+      ],
+      "texts": []
+    },
+    {
+      "id": "s1-b4-study-results",
+      "fromFrame": 1260,
+      "durationFrames": 480,
+      "depthCarry": true,
+      "dataMatrix": {
+        "variant": "dualCurve",
+        "borderless": true,
+        "title": "RESPECT & FONDNESS: BLINK-TASK VS. CONTROL",
+        "subtitle": "Subjects stared at reported dramatically higher connection",
+        "xLabel": "CONVERSATION TIME",
+        "yLabel": "REPORTED FONDNESS",
+        "curves": [
+          {
+            "label": "Unbroken Eye Contact",
+            "points": [
+              0.15,
+              0.34,
+              0.56,
+              0.78,
+              0.91
+            ],
+            "color": "#34D399"
+          },
+          {
+            "label": "Control Group",
+            "points": [
+              0.15,
+              0.22,
+              0.28,
+              0.31,
+              0.35
+            ],
+            "color": "#9FB2C9"
+          }
+        ],
+        "callout": "The secret was never counting blinks — it was never breaking gaze."
+      },
+      "shot": "medium",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "obsidianGrid"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "cole-2",
+          "rig": "everyman",
+          "role": "researcher",
+          "expression": "happy",
+          "enter": "fade",
+          "action": "point",
+          "holds": "notes"
+        }
+      ],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "s2-b1-melting-tension",
+      "fromFrame": 1740,
+      "durationFrames": 480,
+      "shot": "twoShot",
+      "transition": {
+        "type": "zoomPull",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#170B0E"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "crimsonNight",
+        "image": {
+          "path": "scenes/antidote-v2-pilot/s2_warm_chat.png",
+          "opacity": 0.9,
+          "dim": 0.28,
+          "groundFog": 0.5,
+          "kenBurns": "panRight"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "marcus-3",
+          "rig": "everyman",
+          "role": "partner",
+          "expression": "happy",
+          "enter": "fade",
+          "action": "talk",
+          "says": {
+            "text": "Brutally cold out there!",
+            "at": 35
+          },
+          "lookAt": "partner"
+        },
+        {
+          "id": "clara-1",
+          "rig": "everyman",
+          "role": "stranger",
+          "expression": "happy",
+          "enter": "fade",
+          "action": "offer",
+          "holds": "letter",
+          "says": {
+            "text": "Come join us for dinner!",
+            "at": 315
+          },
+          "holdHalo": true,
+          "lookAt": "partner"
+        }
+      ],
+      "props": [
+        {
+          "type": "coffee",
+          "x": 960,
+          "y": 690,
+          "scale": 0.52,
+          "enter": "fade",
+          "at": 15,
+          "arc": "none"
+        }
+      ],
+      "texts": []
+    },
+    {
+      "id": "s2-b2-naked-city-anchor",
+      "fromFrame": 2220,
+      "durationFrames": 450,
+      "realAnchor": {
+        "title": "NEVER THE NAKED CITY",
+        "subtitle": "Eliminate the dead-end one-word answer",
+        "badge": "CORE TECHNIQUE",
+        "quote": "When you just say 'Columbus', you dump a massive cognitive burden onto the other person.",
+        "attribution": "Leil Lowndes",
+        "annotations": [
+          {
+            "text": "One-Word Answer",
+            "side": "left"
+          },
+          {
+            "text": "Forces Mental Search",
+            "side": "right"
+          }
+        ]
+      },
+      "shot": "medium",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EFE7D6"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "warmParchment"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "elena-3",
+          "rig": "everyman",
+          "role": "host",
+          "expression": "worried",
+          "enter": "fade",
+          "action": "think"
+        }
+      ],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "s2-b3-columbus-burden",
+      "fromFrame": 2670,
+      "durationFrames": 420,
+      "shot": "twoShot",
+      "transition": {
+        "type": "zoomPush",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#121A26"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "slateEditorial",
+        "image": {
+          "path": "scenes/antidote-v2-pilot/s2_static_wall.png",
+          "opacity": 0.88,
+          "dim": 0.32,
+          "groundFog": 0.52,
+          "kenBurns": "pushIn"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.03
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "marcus-4",
+          "rig": "everyman",
+          "role": "partner",
+          "expression": "blank",
+          "enter": "fade",
+          "action": "idle",
+          "says": {
+            "text": "Columbus.",
+            "at": 20
+          },
+          "lookAt": "partner"
+        },
+        {
+          "id": "elena-4",
+          "rig": "everyman",
+          "role": "host",
+          "expression": "worried",
+          "emotion": "sweat",
+          "emotionAt": 105,
+          "enter": "fade",
+          "action": "think",
+          "says": {
+            "text": "Uh... what do I say?",
+            "at": 155
+          },
+          "lookAt": "partner"
+        }
+      ],
+      "props": [
+        {
+          "type": "boulder",
+          "x": 960,
+          "y": 540,
+          "scale": 0.65,
+          "enter": "fade",
+          "at": 70,
+          "arc": "grow"
+        }
+      ],
+      "texts": []
+    },
+    {
+      "id": "s2-b4-trampoline-equation",
+      "fromFrame": 3090,
+      "durationFrames": 390,
+      "depthCarry": true,
+      "visualEquation": {
+        "title": "STATIC RESUME → CONVERSATIONAL TRAMPOLINE",
+        "subtitle": "Give them a hook they can actually bounce off",
+        "layout": "borderless",
+        "operator": "arrow",
+        "nodes": [
+          {
+            "label": "“Columbus, Ohio.”",
+            "sublabel": "Dead end — forces mental scrambling",
+            "badge": "NAKED CITY",
+            "image": "scenes/antidote-v2-pilot/s2_static_wall.png",
+            "tone": "danger"
+          },
+          {
+            "label": "“Secret Product Testing Hub”",
+            "sublabel": "Gives them an effortless bounce",
+            "badge": "TRAMPOLINE",
+            "image": "scenes/antidote-v2-pilot/s2_trampoline.png",
+            "tone": "accent"
+          },
+          {
+            "label": "Instant Curiosity",
+            "sublabel": "Sparks natural follow-up questions",
+            "badge": "PAYOFF",
+            "glyph": "★",
+            "tone": "positive"
+          }
+        ],
+        "footnote": "Always attach one vivid hook to where you live or work."
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#121A26"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "slateEditorial"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "s3-b1-lobby-to-boardroom",
+      "fromFrame": 3480,
+      "durationFrames": 540,
+      "shot": "wide",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "obsidianGrid",
+        "image": {
+          "path": "scenes/antidote-v2-pilot/s3_lobby_boardroom.png",
+          "opacity": 0.92,
+          "dim": 0.24,
+          "groundFog": 0.48,
+          "kenBurns": "panRight"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.03
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [
+        {
+          "id": "elena-5",
+          "rig": "everyman",
+          "role": "host",
+          "expression": "happy",
+          "x": 640,
+          "y": 610,
+          "scale": 0.6,
+          "enter": "fade",
+          "action": "walk",
+          "body": "full",
+          "travel": [
+            -220,
+            220
+          ],
+          "lookAt": "partner"
+        },
+        {
+          "id": "clara-2",
+          "rig": "everyman",
+          "role": "stranger",
+          "expression": "happy",
+          "x": 1380,
+          "y": 610,
+          "scale": 0.6,
+          "flip": true,
+          "enter": "fade",
+          "action": "talk",
+          "body": "full",
+          "says": {
+            "text": "No one feels managed.",
+            "at": 360
+          },
+          "lookAt": "partner"
+        }
+      ],
+      "props": [],
+      "texts": [
+        {
+          "text": "CHOREOGRAPHING SAFETY · LOBBY TO BOARDROOM",
+          "x": 960,
+          "y": 120,
+          "style": "box",
+          "color": "#F5B73B",
+          "boxColor": "rgba(16,19,25,0.82)",
+          "size": 44,
+          "enter": "pop",
+          "at": 18
+        }
+      ]
+    },
+    {
+      "id": "s3-b2-sociopath-quadrant",
+      "fromFrame": 4020,
+      "durationFrames": 510,
+      "depthCarry": true,
+      "dataMatrix": {
+        "variant": "quadrant2x2",
+        "borderless": true,
+        "title": "THE COUNTERPOINT: THE SOCIOPATH PROBLEM",
+        "subtitle": "4 mechanics of charisma — and the trap of faking all 92 at once",
+        "xLabel": "AUTHENTICITY",
+        "yLabel": "TECHNIQUE",
+        "quadrants": [
+          {
+            "label": "1. Eye Contact",
+            "sublabel": "Warm presence vs. mechanical staring"
+          },
+          {
+            "label": "2. Posture & Palms",
+            "sublabel": "Openness vs. rehearsed wrist angles"
+          },
+          {
+            "label": "3. Conversational Pacing",
+            "sublabel": "Listening vs. scripted timing"
+          },
+          {
+            "label": "4. Boundary Setting",
+            "sublabel": "True charisma respects human safety",
+            "tone": "accent",
+            "active": true
+          }
+        ],
+        "callout": "Never make anyone feel managed or manipulated."
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryUp",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#19102E"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "deepViolet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "s3-b3-overload-vs-natural",
+      "fromFrame": 4530,
+      "durationFrames": 540,
+      "comparisonGrid": {
+        "title": "PLEASE DON'T DEPLOY ALL 92 TRICKS AT ONCE",
+        "layout": "fullBleedSplit",
+        "columns": [
+          {
+            "heading": "Mechanical Overload",
+            "tag": "MANIPULATIVE",
+            "image": "scenes/antidote-v2-pilot/s3_robotic_overload.png",
+            "bullets": [
+              "Counting seconds before you smile",
+              "Monitoring wrist angles & palm exposure"
+            ],
+            "tone": "danger"
+          },
+          {
+            "heading": "Natural Integration",
+            "tag": "TRUE CHARISMA",
+            "image": "scenes/antidote-v2-pilot/s3_natural_ease.png",
+            "bullets": [
+              "Practice one small habit at a time",
+              "Let warmth become automatic"
+            ],
+            "tone": "positive"
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPull",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "obsidianGrid"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    }
+  ],
+  "captions": [
+    {
+      "text": "delight is a specific reaction to your presence.",
+      "startFrame": 13,
+      "endFrame": 104,
+      "words": [
+        {
+          "w": "delight",
+          "s": 13,
+          "e": 28
+        },
+        {
+          "w": "is",
+          "s": 28,
+          "e": 35
+        },
+        {
+          "w": "a",
+          "s": 35,
+          "e": 42
+        },
+        {
+          "w": "specific",
+          "s": 42,
+          "e": 59
+        },
+        {
+          "w": "reaction",
+          "s": 59,
+          "e": 71
+        },
+        {
+          "w": "to",
+          "s": 71,
+          "e": 76
+        },
+        {
+          "w": "your",
+          "s": 76,
+          "e": 83
+        },
+        {
+          "w": "presence.",
+          "s": 83,
+          "e": 104
+        }
+      ]
+    },
+    {
+      "text": "It completely overrides the robotic pleasantry of a fast",
+      "startFrame": 104,
+      "endFrame": 203,
+      "words": [
+        {
+          "w": "It",
+          "s": 104,
+          "e": 112
+        },
+        {
+          "w": "completely",
+          "s": 112,
+          "e": 126
+        },
+        {
+          "w": "overrides",
+          "s": 126,
+          "e": 140
+        },
+        {
+          "w": "the",
+          "s": 140,
+          "e": 150
+        },
+        {
+          "w": "robotic",
+          "s": 150,
+          "e": 164
+        },
+        {
+          "w": "pleasantry",
+          "s": 164,
+          "e": 179
+        },
+        {
+          "w": "of",
+          "s": 179,
+          "e": 184
+        },
+        {
+          "w": "a",
+          "s": 184,
+          "e": 188
+        },
+        {
+          "w": "fast",
+          "s": 188,
+          "e": 203
+        }
+      ]
+    },
+    {
+      "text": "nervous grin. So, it's literally the difference between mass-produced",
+      "startFrame": 203,
+      "endFrame": 296,
+      "words": [
+        {
+          "w": "nervous",
+          "s": 203,
+          "e": 215
+        },
+        {
+          "w": "grin.",
+          "s": 215,
+          "e": 227
+        },
+        {
+          "w": "So,",
+          "s": 227,
+          "e": 232
+        },
+        {
+          "w": "it's",
+          "s": 232,
+          "e": 239
+        },
+        {
+          "w": "literally",
+          "s": 239,
+          "e": 248
+        },
+        {
+          "w": "the",
+          "s": 248,
+          "e": 256
+        },
+        {
+          "w": "difference",
+          "s": 256,
+          "e": 263
+        },
+        {
+          "w": "between",
+          "s": 263,
+          "e": 275
+        },
+        {
+          "w": "mass-produced",
+          "s": 275,
+          "e": 296
+        }
+      ]
+    },
+    {
+      "text": "affection and something custom-tailored just for",
+      "startFrame": 296,
+      "endFrame": 388,
+      "words": [
+        {
+          "w": "affection",
+          "s": 296,
+          "e": 318
+        },
+        {
+          "w": "and",
+          "s": 318,
+          "e": 328
+        },
+        {
+          "w": "something",
+          "s": 328,
+          "e": 344
+        },
+        {
+          "w": "custom-tailored",
+          "s": 344,
+          "e": 376
+        },
+        {
+          "w": "just",
+          "s": 376,
+          "e": 383
+        },
+        {
+          "w": "for",
+          "s": 383,
+          "e": 388
+        }
+      ]
+    },
+    {
+      "text": "them. Exactly. And the biology of this reaction",
+      "startFrame": 388,
+      "endFrame": 479,
+      "words": [
+        {
+          "w": "them.",
+          "s": 388,
+          "e": 404
+        },
+        {
+          "w": "Exactly.",
+          "s": 404,
+          "e": 433
+        },
+        {
+          "w": "And",
+          "s": 433,
+          "e": 440
+        },
+        {
+          "w": "the",
+          "s": 440,
+          "e": 445
+        },
+        {
+          "w": "biology",
+          "s": 445,
+          "e": 457
+        },
+        {
+          "w": "of",
+          "s": 457,
+          "e": 462
+        },
+        {
+          "w": "this",
+          "s": 462,
+          "e": 467
+        },
+        {
+          "w": "reaction",
+          "s": 467,
+          "e": 479
+        }
+      ]
+    },
+    {
+      "text": "is perfectly illustrated by this really fascinating study",
+      "startFrame": 479,
+      "endFrame": 570,
+      "words": [
+        {
+          "w": "is",
+          "s": 479,
+          "e": 486
+        },
+        {
+          "w": "perfectly",
+          "s": 486,
+          "e": 503
+        },
+        {
+          "w": "illustrated",
+          "s": 503,
+          "e": 515
+        },
+        {
+          "w": "by",
+          "s": 515,
+          "e": 524
+        },
+        {
+          "w": "this",
+          "s": 524,
+          "e": 534
+        },
+        {
+          "w": "really",
+          "s": 534,
+          "e": 544
+        },
+        {
+          "w": "fascinating",
+          "s": 544,
+          "e": 563
+        },
+        {
+          "w": "study",
+          "s": 563,
+          "e": 570
+        }
+      ]
+    },
+    {
+      "text": "that the source material brings up.",
+      "startFrame": 570,
+      "endFrame": 630,
+      "words": [
+        {
+          "w": "that",
+          "s": 570,
+          "e": 577
+        },
+        {
+          "w": "the",
+          "s": 577,
+          "e": 582
+        },
+        {
+          "w": "source",
+          "s": 582,
+          "e": 592
+        },
+        {
+          "w": "material",
+          "s": 592,
+          "e": 604
+        },
+        {
+          "w": "brings",
+          "s": 604,
+          "e": 611
+        },
+        {
+          "w": "up.",
+          "s": 611,
+          "e": 630
+        }
+      ]
+    },
+    {
+      "text": "It was conducted at a Boston research center alongside",
+      "startFrame": 630,
+      "endFrame": 721,
+      "words": [
+        {
+          "w": "It",
+          "s": 630,
+          "e": 635
+        },
+        {
+          "w": "was",
+          "s": 635,
+          "e": 640
+        },
+        {
+          "w": "conducted",
+          "s": 640,
+          "e": 652
+        },
+        {
+          "w": "at",
+          "s": 652,
+          "e": 656
+        },
+        {
+          "w": "a",
+          "s": 656,
+          "e": 664
+        },
+        {
+          "w": "Boston",
+          "s": 664,
+          "e": 673
+        },
+        {
+          "w": "research",
+          "s": 673,
+          "e": 685
+        },
+        {
+          "w": "center",
+          "s": 685,
+          "e": 700
+        },
+        {
+          "w": "alongside",
+          "s": 700,
+          "e": 721
+        }
+      ]
+    },
+    {
+      "text": "researchers from Yale. Okay.",
+      "startFrame": 721,
+      "endFrame": 764,
+      "words": [
+        {
+          "w": "researchers",
+          "s": 721,
+          "e": 736
+        },
+        {
+          "w": "from",
+          "s": 736,
+          "e": 743
+        },
+        {
+          "w": "Yale.",
+          "s": 743,
+          "e": 757
+        },
+        {
+          "w": "Okay.",
+          "s": 757,
+          "e": 764
+        }
+      ]
+    },
+    {
+      "text": "What did they do?",
+      "startFrame": 764,
+      "endFrame": 793,
+      "words": [
+        {
+          "w": "What",
+          "s": 764,
+          "e": 769
+        },
+        {
+          "w": "did",
+          "s": 769,
+          "e": 772
+        },
+        {
+          "w": "they",
+          "s": 772,
+          "e": 776
+        },
+        {
+          "w": "do?",
+          "s": 776,
+          "e": 793
+        }
+      ]
+    },
+    {
+      "text": "They brought in opposite sex subjects and asked them",
+      "startFrame": 793,
+      "endFrame": 884,
+      "words": [
+        {
+          "w": "They",
+          "s": 793,
+          "e": 800
+        },
+        {
+          "w": "brought",
+          "s": 800,
+          "e": 808
+        },
+        {
+          "w": "in",
+          "s": 808,
+          "e": 817
+        },
+        {
+          "w": "opposite",
+          "s": 817,
+          "e": 829
+        },
+        {
+          "w": "sex",
+          "s": 829,
+          "e": 839
+        },
+        {
+          "w": "subjects",
+          "s": 839,
+          "e": 860
+        },
+        {
+          "w": "and",
+          "s": 860,
+          "e": 872
+        },
+        {
+          "w": "asked",
+          "s": 872,
+          "e": 880
+        },
+        {
+          "w": "them",
+          "s": 880,
+          "e": 884
+        }
+      ]
+    },
+    {
+      "text": "to engage in casual conversation, but they gave half",
+      "startFrame": 884,
+      "endFrame": 968,
+      "words": [
+        {
+          "w": "to",
+          "s": 884,
+          "e": 889
+        },
+        {
+          "w": "engage",
+          "s": 889,
+          "e": 896
+        },
+        {
+          "w": "in",
+          "s": 896,
+          "e": 901
+        },
+        {
+          "w": "casual",
+          "s": 901,
+          "e": 913
+        },
+        {
+          "w": "conversation,",
+          "s": 913,
+          "e": 944
+        },
+        {
+          "w": "but",
+          "s": 944,
+          "e": 949
+        },
+        {
+          "w": "they",
+          "s": 949,
+          "e": 954
+        },
+        {
+          "w": "gave",
+          "s": 954,
+          "e": 961
+        },
+        {
+          "w": "half",
+          "s": 961,
+          "e": 968
+        }
+      ]
+    },
+    {
+      "text": "of the participants a secret task.",
+      "startFrame": 968,
+      "endFrame": 1031,
+      "words": [
+        {
+          "w": "of",
+          "s": 968,
+          "e": 971
+        },
+        {
+          "w": "the",
+          "s": 971,
+          "e": 976
+        },
+        {
+          "w": "participants",
+          "s": 976,
+          "e": 992
+        },
+        {
+          "w": "a",
+          "s": 992,
+          "e": 1000
+        },
+        {
+          "w": "secret",
+          "s": 1000,
+          "e": 1007
+        },
+        {
+          "w": "task.",
+          "s": 1007,
+          "e": 1031
+        }
+      ]
+    },
+    {
+      "text": "They told them, \"Your only job during this conversation",
+      "startFrame": 1031,
+      "endFrame": 1112,
+      "words": [
+        {
+          "w": "They",
+          "s": 1031,
+          "e": 1038
+        },
+        {
+          "w": "told",
+          "s": 1038,
+          "e": 1043
+        },
+        {
+          "w": "them,",
+          "s": 1043,
+          "e": 1052
+        },
+        {
+          "w": "\"Your",
+          "s": 1052,
+          "e": 1067
+        },
+        {
+          "w": "only",
+          "s": 1067,
+          "e": 1074
+        },
+        {
+          "w": "job",
+          "s": 1074,
+          "e": 1081
+        },
+        {
+          "w": "during",
+          "s": 1081,
+          "e": 1091
+        },
+        {
+          "w": "this",
+          "s": 1091,
+          "e": 1098
+        },
+        {
+          "w": "conversation",
+          "s": 1098,
+          "e": 1112
+        }
+      ]
+    },
+    {
+      "text": "is to count the exact number of times your",
+      "startFrame": 1112,
+      "endFrame": 1180,
+      "words": [
+        {
+          "w": "is",
+          "s": 1112,
+          "e": 1120
+        },
+        {
+          "w": "to",
+          "s": 1120,
+          "e": 1124
+        },
+        {
+          "w": "count",
+          "s": 1124,
+          "e": 1132
+        },
+        {
+          "w": "the",
+          "s": 1132,
+          "e": 1139
+        },
+        {
+          "w": "exact",
+          "s": 1139,
+          "e": 1153
+        },
+        {
+          "w": "number",
+          "s": 1153,
+          "e": 1160
+        },
+        {
+          "w": "of",
+          "s": 1160,
+          "e": 1165
+        },
+        {
+          "w": "times",
+          "s": 1165,
+          "e": 1172
+        },
+        {
+          "w": "your",
+          "s": 1172,
+          "e": 1180
+        }
+      ]
+    },
+    {
+      "text": "partner Oh my god.",
+      "startFrame": 1180,
+      "endFrame": 1232,
+      "words": [
+        {
+          "w": "partner",
+          "s": 1180,
+          "e": 1204
+        },
+        {
+          "w": "Oh",
+          "s": 1204,
+          "e": 1208
+        },
+        {
+          "w": "my",
+          "s": 1208,
+          "e": 1213
+        },
+        {
+          "w": "god.",
+          "s": 1213,
+          "e": 1232
+        }
+      ]
+    },
+    {
+      "text": "Which means they have to just stare relentlessly at",
+      "startFrame": 1232,
+      "endFrame": 1312,
+      "words": [
+        {
+          "w": "Which",
+          "s": 1232,
+          "e": 1240
+        },
+        {
+          "w": "means",
+          "s": 1240,
+          "e": 1247
+        },
+        {
+          "w": "they",
+          "s": 1247,
+          "e": 1256
+        },
+        {
+          "w": "have",
+          "s": 1256,
+          "e": 1259
+        },
+        {
+          "w": "to",
+          "s": 1259,
+          "e": 1266
+        },
+        {
+          "w": "just",
+          "s": 1266,
+          "e": 1280
+        },
+        {
+          "w": "stare",
+          "s": 1280,
+          "e": 1290
+        },
+        {
+          "w": "relentlessly",
+          "s": 1290,
+          "e": 1307
+        },
+        {
+          "w": "at",
+          "s": 1307,
+          "e": 1312
+        }
+      ]
+    },
+    {
+      "text": "the other person It forced unbroken",
+      "startFrame": 1312,
+      "endFrame": 1408,
+      "words": [
+        {
+          "w": "the",
+          "s": 1312,
+          "e": 1316
+        },
+        {
+          "w": "other",
+          "s": 1316,
+          "e": 1321
+        },
+        {
+          "w": "person",
+          "s": 1321,
+          "e": 1339
+        },
+        {
+          "w": "It",
+          "s": 1362,
+          "e": 1369
+        },
+        {
+          "w": "forced",
+          "s": 1369,
+          "e": 1384
+        },
+        {
+          "w": "unbroken",
+          "s": 1384,
+          "e": 1408
+        }
+      ]
+    },
+    {
+      "text": "intense eye contact. And the results were staggering.",
+      "startFrame": 1408,
+      "endFrame": 1513,
+      "words": [
+        {
+          "w": "intense",
+          "s": 1408,
+          "e": 1424
+        },
+        {
+          "w": "eye",
+          "s": 1424,
+          "e": 1434
+        },
+        {
+          "w": "contact.",
+          "s": 1434,
+          "e": 1460
+        },
+        {
+          "w": "And",
+          "s": 1460,
+          "e": 1465
+        },
+        {
+          "w": "the",
+          "s": 1465,
+          "e": 1472
+        },
+        {
+          "w": "results",
+          "s": 1472,
+          "e": 1482
+        },
+        {
+          "w": "were",
+          "s": 1482,
+          "e": 1487
+        },
+        {
+          "w": "staggering.",
+          "s": 1487,
+          "e": 1513
+        }
+      ]
+    },
+    {
+      "text": "The subjects who were stared at reported significantly",
+      "startFrame": 1513,
+      "endFrame": 1612,
+      "words": [
+        {
+          "w": "The",
+          "s": 1513,
+          "e": 1520
+        },
+        {
+          "w": "subjects",
+          "s": 1520,
+          "e": 1535
+        },
+        {
+          "w": "who",
+          "s": 1535,
+          "e": 1542
+        },
+        {
+          "w": "were",
+          "s": 1542,
+          "e": 1552
+        },
+        {
+          "w": "stared",
+          "s": 1552,
+          "e": 1564
+        },
+        {
+          "w": "at",
+          "s": 1564,
+          "e": 1576
+        },
+        {
+          "w": "reported",
+          "s": 1576,
+          "e": 1592
+        },
+        {
+          "w": "significantly",
+          "s": 1592,
+          "e": 1612
+        }
+      ]
+    },
+    {
+      "text": "higher feelings of deep respect and fondness for their",
+      "startFrame": 1612,
+      "endFrame": 1700,
+      "words": [
+        {
+          "w": "higher",
+          "s": 1612,
+          "e": 1621
+        },
+        {
+          "w": "feelings",
+          "s": 1621,
+          "e": 1633
+        },
+        {
+          "w": "of",
+          "s": 1633,
+          "e": 1640
+        },
+        {
+          "w": "deep",
+          "s": 1640,
+          "e": 1650
+        },
+        {
+          "w": "respect",
+          "s": 1650,
+          "e": 1662
+        },
+        {
+          "w": "and",
+          "s": 1662,
+          "e": 1672
+        },
+        {
+          "w": "fondness",
+          "s": 1672,
+          "e": 1691
+        },
+        {
+          "w": "for",
+          "s": 1691,
+          "e": 1696
+        },
+        {
+          "w": "their",
+          "s": 1696,
+          "e": 1700
+        }
+      ]
+    },
+    {
+      "text": "partners compared to the control",
+      "startFrame": 1700,
+      "endFrame": 1740,
+      "words": [
+        {
+          "w": "partners",
+          "s": 1700,
+          "e": 1715
+        },
+        {
+          "w": "compared",
+          "s": 1715,
+          "e": 1724
+        },
+        {
+          "w": "to",
+          "s": 1724,
+          "e": 1729
+        },
+        {
+          "w": "the",
+          "s": 1729,
+          "e": 1734
+        },
+        {
+          "w": "control",
+          "s": 1734,
+          "e": 1740
+        }
+      ]
+    },
+    {
+      "text": "universally agreeable remarks about how brutally cold",
+      "startFrame": 1762,
+      "endFrame": 1853,
+      "words": [
+        {
+          "w": "universally",
+          "s": 1762,
+          "e": 1786
+        },
+        {
+          "w": "agreeable",
+          "s": 1786,
+          "e": 1802
+        },
+        {
+          "w": "remarks",
+          "s": 1802,
+          "e": 1814
+        },
+        {
+          "w": "about",
+          "s": 1814,
+          "e": 1822
+        },
+        {
+          "w": "how",
+          "s": 1822,
+          "e": 1829
+        },
+        {
+          "w": "brutally",
+          "s": 1829,
+          "e": 1843
+        },
+        {
+          "w": "cold",
+          "s": 1843,
+          "e": 1853
+        }
+      ]
+    },
+    {
+      "text": "the weather is, and he offers a gentle compliment",
+      "startFrame": 1853,
+      "endFrame": 1927,
+      "words": [
+        {
+          "w": "the",
+          "s": 1853,
+          "e": 1860
+        },
+        {
+          "w": "weather",
+          "s": 1860,
+          "e": 1867
+        },
+        {
+          "w": "is,",
+          "s": 1867,
+          "e": 1884
+        },
+        {
+          "w": "and",
+          "s": 1884,
+          "e": 1891
+        },
+        {
+          "w": "he",
+          "s": 1891,
+          "e": 1896
+        },
+        {
+          "w": "offers",
+          "s": 1896,
+          "e": 1903
+        },
+        {
+          "w": "a",
+          "s": 1903,
+          "e": 1908
+        },
+        {
+          "w": "gentle",
+          "s": 1908,
+          "e": 1915
+        },
+        {
+          "w": "compliment",
+          "s": 1915,
+          "e": 1927
+        }
+      ]
+    },
+    {
+      "text": "about their Total misdirection.",
+      "startFrame": 1927,
+      "endFrame": 1987,
+      "words": [
+        {
+          "w": "about",
+          "s": 1927,
+          "e": 1932
+        },
+        {
+          "w": "their",
+          "s": 1932,
+          "e": 1951
+        },
+        {
+          "w": "Total",
+          "s": 1951,
+          "e": 1961
+        },
+        {
+          "w": "misdirection.",
+          "s": 1961,
+          "e": 1987
+        }
+      ]
+    },
+    {
+      "text": "Within minutes, the thick tension completely melts.",
+      "startFrame": 1987,
+      "endFrame": 2071,
+      "words": [
+        {
+          "w": "Within",
+          "s": 1987,
+          "e": 1999
+        },
+        {
+          "w": "minutes,",
+          "s": 1999,
+          "e": 2011
+        },
+        {
+          "w": "the",
+          "s": 2011,
+          "e": 2021
+        },
+        {
+          "w": "thick",
+          "s": 2021,
+          "e": 2028
+        },
+        {
+          "w": "tension",
+          "s": 2028,
+          "e": 2045
+        },
+        {
+          "w": "completely",
+          "s": 2045,
+          "e": 2057
+        },
+        {
+          "w": "melts.",
+          "s": 2057,
+          "e": 2071
+        }
+      ]
+    },
+    {
+      "text": "The encounter actually ends with the couple offering him",
+      "startFrame": 2071,
+      "endFrame": 2134,
+      "words": [
+        {
+          "w": "The",
+          "s": 2071,
+          "e": 2078
+        },
+        {
+          "w": "encounter",
+          "s": 2078,
+          "e": 2090
+        },
+        {
+          "w": "actually",
+          "s": 2090,
+          "e": 2098
+        },
+        {
+          "w": "ends",
+          "s": 2098,
+          "e": 2105
+        },
+        {
+          "w": "with",
+          "s": 2105,
+          "e": 2108
+        },
+        {
+          "w": "the",
+          "s": 2107,
+          "e": 2112
+        },
+        {
+          "w": "couple",
+          "s": 2112,
+          "e": 2119
+        },
+        {
+          "w": "offering",
+          "s": 2119,
+          "e": 2129
+        },
+        {
+          "w": "him",
+          "s": 2129,
+          "e": 2134
+        }
+      ]
+    },
+    {
+      "text": "a dinner invitation. That is wild.",
+      "startFrame": 2134,
+      "endFrame": 2206,
+      "words": [
+        {
+          "w": "a",
+          "s": 2134,
+          "e": 2138
+        },
+        {
+          "w": "dinner",
+          "s": 2138,
+          "e": 2148
+        },
+        {
+          "w": "invitation.",
+          "s": 2148,
+          "e": 2170
+        },
+        {
+          "w": "That",
+          "s": 2170,
+          "e": 2177
+        },
+        {
+          "w": "is",
+          "s": 2177,
+          "e": 2182
+        },
+        {
+          "w": "wild.",
+          "s": 2182,
+          "e": 2206
+        }
+      ]
+    },
+    {
+      "text": "And here's what that means for you.",
+      "startFrame": 2206,
+      "endFrame": 2258,
+      "words": [
+        {
+          "w": "And",
+          "s": 2206,
+          "e": 2210
+        },
+        {
+          "w": "here's",
+          "s": 2210,
+          "e": 2218
+        },
+        {
+          "w": "what",
+          "s": 2218,
+          "e": 2222
+        },
+        {
+          "w": "that",
+          "s": 2222,
+          "e": 2227
+        },
+        {
+          "w": "means",
+          "s": 2227,
+          "e": 2232
+        },
+        {
+          "w": "for",
+          "s": 2232,
+          "e": 2237
+        },
+        {
+          "w": "you.",
+          "s": 2237,
+          "e": 2258
+        }
+      ]
+    },
+    {
+      "text": "The underlying mechanic here is about eliminating the single",
+      "startFrame": 2258,
+      "endFrame": 2350,
+      "words": [
+        {
+          "w": "The",
+          "s": 2258,
+          "e": 2266
+        },
+        {
+          "w": "underlying",
+          "s": 2266,
+          "e": 2280
+        },
+        {
+          "w": "mechanic",
+          "s": 2280,
+          "e": 2292
+        },
+        {
+          "w": "here",
+          "s": 2292,
+          "e": 2297
+        },
+        {
+          "w": "is",
+          "s": 2297,
+          "e": 2304
+        },
+        {
+          "w": "about",
+          "s": 2304,
+          "e": 2311
+        },
+        {
+          "w": "eliminating",
+          "s": 2311,
+          "e": 2328
+        },
+        {
+          "w": "the",
+          "s": 2328,
+          "e": 2338
+        },
+        {
+          "w": "single",
+          "s": 2338,
+          "e": 2350
+        }
+      ]
+    },
+    {
+      "text": "word answer. In the book, Lowndes calls this never",
+      "startFrame": 2350,
+      "endFrame": 2438,
+      "words": [
+        {
+          "w": "word",
+          "s": 2350,
+          "e": 2359
+        },
+        {
+          "w": "answer.",
+          "s": 2359,
+          "e": 2374
+        },
+        {
+          "w": "In",
+          "s": 2374,
+          "e": 2378
+        },
+        {
+          "w": "the",
+          "s": 2378,
+          "e": 2381
+        },
+        {
+          "w": "book,",
+          "s": 2381,
+          "e": 2388
+        },
+        {
+          "w": "Lowndes",
+          "s": 2388,
+          "e": 2400
+        },
+        {
+          "w": "calls",
+          "s": 2400,
+          "e": 2407
+        },
+        {
+          "w": "this",
+          "s": 2407,
+          "e": 2426
+        },
+        {
+          "w": "never",
+          "s": 2426,
+          "e": 2438
+        }
+      ]
+    },
+    {
+      "text": "the naked city. Never the naked city.",
+      "startFrame": 2438,
+      "endFrame": 2508,
+      "words": [
+        {
+          "w": "the",
+          "s": 2438,
+          "e": 2446
+        },
+        {
+          "w": "naked",
+          "s": 2446,
+          "e": 2458
+        },
+        {
+          "w": "city.",
+          "s": 2458,
+          "e": 2472
+        },
+        {
+          "w": "Never",
+          "s": 2472,
+          "e": 2482
+        },
+        {
+          "w": "the",
+          "s": 2482,
+          "e": 2486
+        },
+        {
+          "w": "naked",
+          "s": 2486,
+          "e": 2496
+        },
+        {
+          "w": "city.",
+          "s": 2496,
+          "e": 2508
+        }
+      ]
+    },
+    {
+      "text": "When someone asks where you're from and you just",
+      "startFrame": 2508,
+      "endFrame": 2563,
+      "words": [
+        {
+          "w": "When",
+          "s": 2508,
+          "e": 2515
+        },
+        {
+          "w": "someone",
+          "s": 2515,
+          "e": 2522
+        },
+        {
+          "w": "asks",
+          "s": 2522,
+          "e": 2534
+        },
+        {
+          "w": "where",
+          "s": 2534,
+          "e": 2539
+        },
+        {
+          "w": "you're",
+          "s": 2539,
+          "e": 2544
+        },
+        {
+          "w": "from",
+          "s": 2544,
+          "e": 2549
+        },
+        {
+          "w": "and",
+          "s": 2549,
+          "e": 2554
+        },
+        {
+          "w": "you",
+          "s": 2554,
+          "e": 2558
+        },
+        {
+          "w": "just",
+          "s": 2558,
+          "e": 2563
+        }
+      ]
+    },
+    {
+      "text": "say Columbus, you have offered a naked city.",
+      "startFrame": 2563,
+      "endFrame": 2659,
+      "words": [
+        {
+          "w": "say",
+          "s": 2563,
+          "e": 2580
+        },
+        {
+          "w": "Columbus,",
+          "s": 2580,
+          "e": 2609
+        },
+        {
+          "w": "you",
+          "s": 2609,
+          "e": 2616
+        },
+        {
+          "w": "have",
+          "s": 2616,
+          "e": 2621
+        },
+        {
+          "w": "offered",
+          "s": 2621,
+          "e": 2628
+        },
+        {
+          "w": "a",
+          "s": 2628,
+          "e": 2633
+        },
+        {
+          "w": "naked",
+          "s": 2633,
+          "e": 2642
+        },
+        {
+          "w": "city.",
+          "s": 2642,
+          "e": 2659
+        }
+      ]
+    },
+    {
+      "text": "You have just dumped a massive cognitive burden onto",
+      "startFrame": 2659,
+      "endFrame": 2741,
+      "words": [
+        {
+          "w": "You",
+          "s": 2659,
+          "e": 2664
+        },
+        {
+          "w": "have",
+          "s": 2664,
+          "e": 2667
+        },
+        {
+          "w": "just",
+          "s": 2666,
+          "e": 2671
+        },
+        {
+          "w": "dumped",
+          "s": 2671,
+          "e": 2681
+        },
+        {
+          "w": "a",
+          "s": 2681,
+          "e": 2688
+        },
+        {
+          "w": "massive",
+          "s": 2688,
+          "e": 2705
+        },
+        {
+          "w": "cognitive",
+          "s": 2705,
+          "e": 2719
+        },
+        {
+          "w": "burden",
+          "s": 2719,
+          "e": 2731
+        },
+        {
+          "w": "onto",
+          "s": 2731,
+          "e": 2741
+        }
+      ]
+    },
+    {
+      "text": "the other person. Oh, because now they have to",
+      "startFrame": 2741,
+      "endFrame": 2803,
+      "words": [
+        {
+          "w": "the",
+          "s": 2741,
+          "e": 2746
+        },
+        {
+          "w": "other",
+          "s": 2746,
+          "e": 2750
+        },
+        {
+          "w": "person.",
+          "s": 2750,
+          "e": 2770
+        },
+        {
+          "w": "Oh,",
+          "s": 2770,
+          "e": 2777
+        },
+        {
+          "w": "because",
+          "s": 2777,
+          "e": 2784
+        },
+        {
+          "w": "now",
+          "s": 2784,
+          "e": 2789
+        },
+        {
+          "w": "they",
+          "s": 2789,
+          "e": 2796
+        },
+        {
+          "w": "have",
+          "s": 2796,
+          "e": 2799
+        },
+        {
+          "w": "to",
+          "s": 2798,
+          "e": 2803
+        }
+      ]
+    },
+    {
+      "text": "figure out what to say about Columbus.",
+      "startFrame": 2803,
+      "endFrame": 2854,
+      "words": [
+        {
+          "w": "figure",
+          "s": 2803,
+          "e": 2806
+        },
+        {
+          "w": "out",
+          "s": 2806,
+          "e": 2810
+        },
+        {
+          "w": "what",
+          "s": 2810,
+          "e": 2815
+        },
+        {
+          "w": "to",
+          "s": 2815,
+          "e": 2818
+        },
+        {
+          "w": "say",
+          "s": 2818,
+          "e": 2822
+        },
+        {
+          "w": "about",
+          "s": 2822,
+          "e": 2827
+        },
+        {
+          "w": "Columbus.",
+          "s": 2827,
+          "e": 2854
+        }
+      ]
+    },
+    {
+      "text": "Exactly. You are forcing them to frantically search",
+      "startFrame": 2854,
+      "endFrame": 2945,
+      "words": [
+        {
+          "w": "Exactly.",
+          "s": 2854,
+          "e": 2885
+        },
+        {
+          "w": "You",
+          "s": 2885,
+          "e": 2892
+        },
+        {
+          "w": "are",
+          "s": 2892,
+          "e": 2897
+        },
+        {
+          "w": "forcing",
+          "s": 2897,
+          "e": 2909
+        },
+        {
+          "w": "them",
+          "s": 2909,
+          "e": 2914
+        },
+        {
+          "w": "to",
+          "s": 2914,
+          "e": 2921
+        },
+        {
+          "w": "frantically",
+          "s": 2921,
+          "e": 2938
+        },
+        {
+          "w": "search",
+          "s": 2938,
+          "e": 2945
+        }
+      ]
+    },
+    {
+      "text": "their mental archives for something, anything to say about",
+      "startFrame": 2945,
+      "endFrame": 3043,
+      "words": [
+        {
+          "w": "their",
+          "s": 2945,
+          "e": 2952
+        },
+        {
+          "w": "mental",
+          "s": 2952,
+          "e": 2962
+        },
+        {
+          "w": "archives",
+          "s": 2962,
+          "e": 2976
+        },
+        {
+          "w": "for",
+          "s": 2976,
+          "e": 2983
+        },
+        {
+          "w": "something,",
+          "s": 2983,
+          "e": 2998
+        },
+        {
+          "w": "anything",
+          "s": 2998,
+          "e": 3022
+        },
+        {
+          "w": "to",
+          "s": 3022,
+          "e": 3029
+        },
+        {
+          "w": "say",
+          "s": 3029,
+          "e": 3034
+        },
+        {
+          "w": "about",
+          "s": 3034,
+          "e": 3043
+        }
+      ]
+    },
+    {
+      "text": "Columbus, Ohio. Instead, you must turn your static resume",
+      "startFrame": 3043,
+      "endFrame": 3144,
+      "words": [
+        {
+          "w": "Columbus,",
+          "s": 3043,
+          "e": 3058
+        },
+        {
+          "w": "Ohio.",
+          "s": 3058,
+          "e": 3084
+        },
+        {
+          "w": "Instead,",
+          "s": 3084,
+          "e": 3096
+        },
+        {
+          "w": "you",
+          "s": 3096,
+          "e": 3103
+        },
+        {
+          "w": "must",
+          "s": 3103,
+          "e": 3108
+        },
+        {
+          "w": "turn",
+          "s": 3108,
+          "e": 3113
+        },
+        {
+          "w": "your",
+          "s": 3113,
+          "e": 3120
+        },
+        {
+          "w": "static",
+          "s": 3120,
+          "e": 3132
+        },
+        {
+          "w": "resume",
+          "s": 3132,
+          "e": 3144
+        }
+      ]
+    },
+    {
+      "text": "into a conversational Conversational",
+      "startFrame": 3144,
+      "endFrame": 3245,
+      "words": [
+        {
+          "w": "into",
+          "s": 3144,
+          "e": 3154
+        },
+        {
+          "w": "a",
+          "s": 3154,
+          "e": 3166
+        },
+        {
+          "w": "conversational",
+          "s": 3166,
+          "e": 3184
+        },
+        {
+          "w": "Conversational",
+          "s": 3223,
+          "e": 3245
+        }
+      ]
+    },
+    {
+      "text": "trampoline. You say, \"I'm from Columbus, where",
+      "startFrame": 3245,
+      "endFrame": 3341,
+      "words": [
+        {
+          "w": "trampoline.",
+          "s": 3245,
+          "e": 3274
+        },
+        {
+          "w": "You",
+          "s": 3274,
+          "e": 3281
+        },
+        {
+          "w": "say,",
+          "s": 3281,
+          "e": 3293
+        },
+        {
+          "w": "\"I'm",
+          "s": 3293,
+          "e": 3305
+        },
+        {
+          "w": "from",
+          "s": 3305,
+          "e": 3310
+        },
+        {
+          "w": "Columbus,",
+          "s": 3310,
+          "e": 3331
+        },
+        {
+          "w": "where",
+          "s": 3331,
+          "e": 3341
+        }
+      ]
+    },
+    {
+      "text": "major corporations do their secret product testing because the",
+      "startFrame": 3341,
+      "endFrame": 3430,
+      "words": [
+        {
+          "w": "major",
+          "s": 3341,
+          "e": 3353
+        },
+        {
+          "w": "corporations",
+          "s": 3353,
+          "e": 3370
+        },
+        {
+          "w": "do",
+          "s": 3370,
+          "e": 3374
+        },
+        {
+          "w": "their",
+          "s": 3374,
+          "e": 3382
+        },
+        {
+          "w": "secret",
+          "s": 3382,
+          "e": 3396
+        },
+        {
+          "w": "product",
+          "s": 3396,
+          "e": 3406
+        },
+        {
+          "w": "testing",
+          "s": 3406,
+          "e": 3418
+        },
+        {
+          "w": "because",
+          "s": 3418,
+          "e": 3425
+        },
+        {
+          "w": "the",
+          "s": 3425,
+          "e": 3430
+        }
+      ]
+    },
+    {
+      "text": "demographic is so commercially",
+      "startFrame": 3430,
+      "endFrame": 3480,
+      "words": [
+        {
+          "w": "demographic",
+          "s": 3430,
+          "e": 3446
+        },
+        {
+          "w": "is",
+          "s": 3446,
+          "e": 3451
+        },
+        {
+          "w": "so",
+          "s": 3451,
+          "e": 3461
+        },
+        {
+          "w": "commercially",
+          "s": 3461,
+          "e": 3480
+        }
+      ]
+    },
+    {
+      "text": "Oh, I see the mechanism now.",
+      "startFrame": 3481,
+      "endFrame": 3522,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 3481,
+          "e": 3486
+        },
+        {
+          "w": "I",
+          "s": 3486,
+          "e": 3491
+        },
+        {
+          "w": "see",
+          "s": 3491,
+          "e": 3494
+        },
+        {
+          "w": "the",
+          "s": 3493,
+          "e": 3500
+        },
+        {
+          "w": "mechanism",
+          "s": 3500,
+          "e": 3515
+        },
+        {
+          "w": "now.",
+          "s": 3515,
+          "e": 3522
+        }
+      ]
+    },
+    {
+      "text": "By not acting like a threat, you don't trigger",
+      "startFrame": 3522,
+      "endFrame": 3599,
+      "words": [
+        {
+          "w": "By",
+          "s": 3522,
+          "e": 3532
+        },
+        {
+          "w": "not",
+          "s": 3532,
+          "e": 3539
+        },
+        {
+          "w": "acting",
+          "s": 3539,
+          "e": 3546
+        },
+        {
+          "w": "like",
+          "s": 3546,
+          "e": 3551
+        },
+        {
+          "w": "a",
+          "s": 3551,
+          "e": 3558
+        },
+        {
+          "w": "threat,",
+          "s": 3558,
+          "e": 3580
+        },
+        {
+          "w": "you",
+          "s": 3580,
+          "e": 3584
+        },
+        {
+          "w": "don't",
+          "s": 3584,
+          "e": 3589
+        },
+        {
+          "w": "trigger",
+          "s": 3589,
+          "e": 3599
+        }
+      ]
+    },
+    {
+      "text": "the threat response. True charisma respects the humanity",
+      "startFrame": 3599,
+      "endFrame": 3695,
+      "words": [
+        {
+          "w": "the",
+          "s": 3599,
+          "e": 3604
+        },
+        {
+          "w": "threat",
+          "s": 3604,
+          "e": 3611
+        },
+        {
+          "w": "response.",
+          "s": 3611,
+          "e": 3642
+        },
+        {
+          "w": "True",
+          "s": 3642,
+          "e": 3652
+        },
+        {
+          "w": "charisma",
+          "s": 3652,
+          "e": 3666
+        },
+        {
+          "w": "respects",
+          "s": 3666,
+          "e": 3678
+        },
+        {
+          "w": "the",
+          "s": 3678,
+          "e": 3683
+        },
+        {
+          "w": "humanity",
+          "s": 3683,
+          "e": 3695
+        }
+      ]
+    },
+    {
+      "text": "of every single person in the chain of command.",
+      "startFrame": 3695,
+      "endFrame": 3779,
+      "words": [
+        {
+          "w": "of",
+          "s": 3695,
+          "e": 3702
+        },
+        {
+          "w": "every",
+          "s": 3702,
+          "e": 3712
+        },
+        {
+          "w": "single",
+          "s": 3712,
+          "e": 3719
+        },
+        {
+          "w": "person",
+          "s": 3719,
+          "e": 3728
+        },
+        {
+          "w": "in",
+          "s": 3728,
+          "e": 3736
+        },
+        {
+          "w": "the",
+          "s": 3736,
+          "e": 3740
+        },
+        {
+          "w": "chain",
+          "s": 3740,
+          "e": 3748
+        },
+        {
+          "w": "of",
+          "s": 3748,
+          "e": 3752
+        },
+        {
+          "w": "command.",
+          "s": 3752,
+          "e": 3779
+        }
+      ]
+    },
+    {
+      "text": "You are choreographing safety from the lobby all the",
+      "startFrame": 3779,
+      "endFrame": 3870,
+      "words": [
+        {
+          "w": "You",
+          "s": 3779,
+          "e": 3786
+        },
+        {
+          "w": "are",
+          "s": 3786,
+          "e": 3791
+        },
+        {
+          "w": "choreographing",
+          "s": 3791,
+          "e": 3812
+        },
+        {
+          "w": "safety",
+          "s": 3812,
+          "e": 3829
+        },
+        {
+          "w": "from",
+          "s": 3829,
+          "e": 3836
+        },
+        {
+          "w": "the",
+          "s": 3836,
+          "e": 3844
+        },
+        {
+          "w": "lobby",
+          "s": 3844,
+          "e": 3858
+        },
+        {
+          "w": "all",
+          "s": 3858,
+          "e": 3865
+        },
+        {
+          "w": "the",
+          "s": 3865,
+          "e": 3870
+        }
+      ]
+    },
+    {
+      "text": "way up to the boardroom, ensuring no one feels",
+      "startFrame": 3870,
+      "endFrame": 3935,
+      "words": [
+        {
+          "w": "way",
+          "s": 3870,
+          "e": 3873
+        },
+        {
+          "w": "up",
+          "s": 3872,
+          "e": 3875
+        },
+        {
+          "w": "to",
+          "s": 3875,
+          "e": 3880
+        },
+        {
+          "w": "the",
+          "s": 3880,
+          "e": 3884
+        },
+        {
+          "w": "boardroom,",
+          "s": 3884,
+          "e": 3904
+        },
+        {
+          "w": "ensuring",
+          "s": 3904,
+          "e": 3916
+        },
+        {
+          "w": "no",
+          "s": 3916,
+          "e": 3920
+        },
+        {
+          "w": "one",
+          "s": 3920,
+          "e": 3925
+        },
+        {
+          "w": "feels",
+          "s": 3925,
+          "e": 3935
+        }
+      ]
+    },
+    {
+      "text": "managed or manipulated. Which naturally leads",
+      "startFrame": 3935,
+      "endFrame": 4028,
+      "words": [
+        {
+          "w": "managed",
+          "s": 3935,
+          "e": 3947
+        },
+        {
+          "w": "or",
+          "s": 3947,
+          "e": 3954
+        },
+        {
+          "w": "manipulated.",
+          "s": 3954,
+          "e": 3990
+        },
+        {
+          "w": "Which",
+          "s": 3990,
+          "e": 4002
+        },
+        {
+          "w": "naturally",
+          "s": 4002,
+          "e": 4019
+        },
+        {
+          "w": "leads",
+          "s": 4019,
+          "e": 4028
+        }
+      ]
+    },
+    {
+      "text": "us to the ultimate counterpoint we really must address",
+      "startFrame": 4028,
+      "endFrame": 4134,
+      "words": [
+        {
+          "w": "us",
+          "s": 4028,
+          "e": 4033
+        },
+        {
+          "w": "to",
+          "s": 4033,
+          "e": 4038
+        },
+        {
+          "w": "the",
+          "s": 4038,
+          "e": 4048
+        },
+        {
+          "w": "ultimate",
+          "s": 4048,
+          "e": 4057
+        },
+        {
+          "w": "counterpoint",
+          "s": 4057,
+          "e": 4076
+        },
+        {
+          "w": "we",
+          "s": 4076,
+          "e": 4091
+        },
+        {
+          "w": "really",
+          "s": 4091,
+          "e": 4103
+        },
+        {
+          "w": "must",
+          "s": 4103,
+          "e": 4110
+        },
+        {
+          "w": "address",
+          "s": 4110,
+          "e": 4134
+        }
+      ]
+    },
+    {
+      "text": "because we have unpacked the psychology of eye contact,",
+      "startFrame": 4134,
+      "endFrame": 4228,
+      "words": [
+        {
+          "w": "because",
+          "s": 4134,
+          "e": 4141
+        },
+        {
+          "w": "we",
+          "s": 4141,
+          "e": 4148
+        },
+        {
+          "w": "have",
+          "s": 4148,
+          "e": 4153
+        },
+        {
+          "w": "unpacked",
+          "s": 4153,
+          "e": 4170
+        },
+        {
+          "w": "the",
+          "s": 4170,
+          "e": 4175
+        },
+        {
+          "w": "psychology",
+          "s": 4175,
+          "e": 4192
+        },
+        {
+          "w": "of",
+          "s": 4192,
+          "e": 4204
+        },
+        {
+          "w": "eye",
+          "s": 4204,
+          "e": 4208
+        },
+        {
+          "w": "contact,",
+          "s": 4208,
+          "e": 4228
+        }
+      ]
+    },
+    {
+      "text": "posture, conversational pacing, and boundary setting.",
+      "startFrame": 4228,
+      "endFrame": 4324,
+      "words": [
+        {
+          "w": "posture,",
+          "s": 4228,
+          "e": 4247
+        },
+        {
+          "w": "conversational",
+          "s": 4247,
+          "e": 4268
+        },
+        {
+          "w": "pacing,",
+          "s": 4268,
+          "e": 4283
+        },
+        {
+          "w": "and",
+          "s": 4283,
+          "e": 4292
+        },
+        {
+          "w": "boundary",
+          "s": 4292,
+          "e": 4304
+        },
+        {
+          "w": "setting.",
+          "s": 4304,
+          "e": 4324
+        }
+      ]
+    },
+    {
+      "text": "Yes, we have to take a breath and address",
+      "startFrame": 4324,
+      "endFrame": 4396,
+      "words": [
+        {
+          "w": "Yes,",
+          "s": 4324,
+          "e": 4338
+        },
+        {
+          "w": "we",
+          "s": 4338,
+          "e": 4345
+        },
+        {
+          "w": "have",
+          "s": 4345,
+          "e": 4350
+        },
+        {
+          "w": "to",
+          "s": 4350,
+          "e": 4353
+        },
+        {
+          "w": "take",
+          "s": 4352,
+          "e": 4357
+        },
+        {
+          "w": "a",
+          "s": 4357,
+          "e": 4362
+        },
+        {
+          "w": "breath",
+          "s": 4362,
+          "e": 4379
+        },
+        {
+          "w": "and",
+          "s": 4379,
+          "e": 4386
+        },
+        {
+          "w": "address",
+          "s": 4386,
+          "e": 4396
+        }
+      ]
+    },
+    {
+      "text": "the giant looming elephant in the room, the sociopath",
+      "startFrame": 4396,
+      "endFrame": 4496,
+      "words": [
+        {
+          "w": "the",
+          "s": 4396,
+          "e": 4403
+        },
+        {
+          "w": "giant",
+          "s": 4403,
+          "e": 4417
+        },
+        {
+          "w": "looming",
+          "s": 4417,
+          "e": 4429
+        },
+        {
+          "w": "elephant",
+          "s": 4429,
+          "e": 4441
+        },
+        {
+          "w": "in",
+          "s": 4441,
+          "e": 4446
+        },
+        {
+          "w": "the",
+          "s": 4446,
+          "e": 4451
+        },
+        {
+          "w": "room,",
+          "s": 4451,
+          "e": 4468
+        },
+        {
+          "w": "the",
+          "s": 4468,
+          "e": 4475
+        },
+        {
+          "w": "sociopath",
+          "s": 4475,
+          "e": 4496
+        }
+      ]
+    },
+    {
+      "text": "problem. Yes, if you, the listener, take this",
+      "startFrame": 4496,
+      "endFrame": 4590,
+      "words": [
+        {
+          "w": "problem.",
+          "s": 4496,
+          "e": 4518
+        },
+        {
+          "w": "Yes,",
+          "s": 4518,
+          "e": 4537
+        },
+        {
+          "w": "if",
+          "s": 4537,
+          "e": 4544
+        },
+        {
+          "w": "you,",
+          "s": 4544,
+          "e": 4554
+        },
+        {
+          "w": "the",
+          "s": 4554,
+          "e": 4559
+        },
+        {
+          "w": "listener,",
+          "s": 4559,
+          "e": 4578
+        },
+        {
+          "w": "take",
+          "s": 4578,
+          "e": 4585
+        },
+        {
+          "w": "this",
+          "s": 4585,
+          "e": 4590
+        }
+      ]
+    },
+    {
+      "text": "deep dive and literally try to memorize and deploy",
+      "startFrame": 4590,
+      "endFrame": 4679,
+      "words": [
+        {
+          "w": "deep",
+          "s": 4590,
+          "e": 4600
+        },
+        {
+          "w": "dive",
+          "s": 4600,
+          "e": 4614
+        },
+        {
+          "w": "and",
+          "s": 4614,
+          "e": 4621
+        },
+        {
+          "w": "literally",
+          "s": 4621,
+          "e": 4636
+        },
+        {
+          "w": "try",
+          "s": 4636,
+          "e": 4640
+        },
+        {
+          "w": "to",
+          "s": 4640,
+          "e": 4645
+        },
+        {
+          "w": "memorize",
+          "s": 4645,
+          "e": 4660
+        },
+        {
+          "w": "and",
+          "s": 4660,
+          "e": 4667
+        },
+        {
+          "w": "deploy",
+          "s": 4667,
+          "e": 4679
+        }
+      ]
+    },
+    {
+      "text": "all 92 of these tricks Please don't",
+      "startFrame": 4679,
+      "endFrame": 4772,
+      "words": [
+        {
+          "w": "all",
+          "s": 4679,
+          "e": 4691
+        },
+        {
+          "w": "92",
+          "s": 4691,
+          "e": 4705
+        },
+        {
+          "w": "of",
+          "s": 4705,
+          "e": 4710
+        },
+        {
+          "w": "these",
+          "s": 4710,
+          "e": 4715
+        },
+        {
+          "w": "tricks",
+          "s": 4715,
+          "e": 4733
+        },
+        {
+          "w": "Please",
+          "s": 4758,
+          "e": 4765
+        },
+        {
+          "w": "don't",
+          "s": 4765,
+          "e": 4772
+        }
+      ]
+    },
+    {
+      "text": "do that. If you walk into a networking event,",
+      "startFrame": 4772,
+      "endFrame": 4840,
+      "words": [
+        {
+          "w": "do",
+          "s": 4772,
+          "e": 4777
+        },
+        {
+          "w": "that.",
+          "s": 4777,
+          "e": 4789
+        },
+        {
+          "w": "If",
+          "s": 4789,
+          "e": 4794
+        },
+        {
+          "w": "you",
+          "s": 4794,
+          "e": 4799
+        },
+        {
+          "w": "walk",
+          "s": 4799,
+          "e": 4804
+        },
+        {
+          "w": "into",
+          "s": 4804,
+          "e": 4811
+        },
+        {
+          "w": "a",
+          "s": 4811,
+          "e": 4816
+        },
+        {
+          "w": "networking",
+          "s": 4816,
+          "e": 4830
+        },
+        {
+          "w": "event,",
+          "s": 4830,
+          "e": 4840
+        }
+      ]
+    },
+    {
+      "text": "internally counting the seconds before you smile, monitoring",
+      "startFrame": 4840,
+      "endFrame": 4943,
+      "words": [
+        {
+          "w": "internally",
+          "s": 4840,
+          "e": 4859
+        },
+        {
+          "w": "counting",
+          "s": 4859,
+          "e": 4868
+        },
+        {
+          "w": "the",
+          "s": 4868,
+          "e": 4876
+        },
+        {
+          "w": "seconds",
+          "s": 4876,
+          "e": 4885
+        },
+        {
+          "w": "before",
+          "s": 4885,
+          "e": 4892
+        },
+        {
+          "w": "you",
+          "s": 4892,
+          "e": 4902
+        },
+        {
+          "w": "smile,",
+          "s": 4902,
+          "e": 4928
+        },
+        {
+          "w": "monitoring",
+          "s": 4928,
+          "e": 4943
+        }
+      ]
+    },
+    {
+      "text": "your wrist angles to ensure your palms are exposed,",
+      "startFrame": 4943,
+      "endFrame": 5032,
+      "words": [
+        {
+          "w": "your",
+          "s": 4943,
+          "e": 4950
+        },
+        {
+          "w": "wrist",
+          "s": 4950,
+          "e": 4960
+        },
+        {
+          "w": "angles",
+          "s": 4960,
+          "e": 4972
+        },
+        {
+          "w": "to",
+          "s": 4972,
+          "e": 4976
+        },
+        {
+          "w": "ensure",
+          "s": 4976,
+          "e": 4984
+        },
+        {
+          "w": "your",
+          "s": 4984,
+          "e": 4991
+        },
+        {
+          "w": "palms",
+          "s": 4991,
+          "e": 5000
+        },
+        {
+          "w": "are",
+          "s": 5000,
+          "e": 5005
+        },
+        {
+          "w": "exposed,",
+          "s": 5005,
+          "e": 5032
+        }
+      ]
+    },
+    {
+      "text": "scripting out your accidental",
+      "startFrame": 5032,
+      "endFrame": 5070,
+      "words": [
+        {
+          "w": "scripting",
+          "s": 5032,
+          "e": 5044
+        },
+        {
+          "w": "out",
+          "s": 5044,
+          "e": 5051
+        },
+        {
+          "w": "your",
+          "s": 5051,
+          "e": 5065
+        },
+        {
+          "w": "accidental",
+          "s": 5065,
+          "e": 5070
+        }
+      ]
+    }
+  ]
+}
