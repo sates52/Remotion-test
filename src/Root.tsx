@@ -6,6 +6,7 @@ import { ChapterCard } from './engines/antidote/components/ChapterCard';
 import { pickHeroScenes, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
 import { ANTIDOTE_LAB } from './engines/antidote/lab';
 import { ANTIDOTE_LAB4 } from './engines/antidote/lab4';
+import { ANTIDOTE_V2_SHOWCASE } from './engines/antidote/showcaseV2';
 import { CastSheet } from './engines/antidote/CastSheet';
 import { RemocnShowcase } from './compositions/RemocnShowcase';
 import { AntidoteShowcase } from './compositions/AntidoteShowcase';
@@ -246,6 +247,18 @@ export const RemotionRoot: React.FC = () => {
                 fps={24}
                 width={1920}
                 height={1080}
+            />
+
+            {/* Antidote 2.0 Visual-Thinking Showcase (opt-in v2 primitives) */}
+            <Composition
+                id="Antidote-V2-Showcase"
+                component={AntidoteBook}
+                durationInFrames={ANTIDOTE_V2_SHOWCASE.meta.durationInFrames}
+                fps={ANTIDOTE_V2_SHOWCASE.meta.fps}
+                width={1920}
+                height={1080}
+                schema={antidoteBookSchema}
+                defaultProps={{ config: ANTIDOTE_V2_SHOWCASE }}
             />
         </>
     );

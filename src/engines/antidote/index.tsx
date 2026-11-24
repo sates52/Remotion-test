@@ -8,6 +8,7 @@ import { RetentionHUD } from "./components/RetentionHUD";
 import { FormTrack, hasFormTrack } from "./components/FormTrack";
 import { FormBoard } from "./components/FormBoard";
 import { SkinContext, skinOf, SKIN_FONT } from "./components/skin";
+import { ArtDirectionContext, type ArtDirectionConfig } from "./components/artDirection";
 import { ProducerNote, variantOf } from "../../components/ProducerNote";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
@@ -48,9 +49,12 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
   const level = flowLevel(config.meta);
   const speech = React.useMemo(() => (level >= 1 ? buildSpeech(config.captions as Parameters<typeof buildSpeech>[0], config.meta.fps || 30) : null), [level, config.captions, config.meta.fps]);
   const flowAt = (base: number): Flow => ({ level, speech, base });
+  const artDir = (config.meta as { artDirection?: ArtDirectionConfig }).artDirection ?? null;
+  const hideHud = artDir?.hud === "off";
   return (
-    <SkinContext.Provider value={{ skin: skinOf(config.meta as { skin?: Record<string, string> }), accent: config.meta.hud?.accent ?? "#F5C544" }}>
-    <AbsoluteFill style={{ backgroundColor: "#0b0b0b" }}>
+    <ArtDirectionContext.Provider value={artDir}>
+    <SkinContext.Provider value={{ skin: skinOf(config.meta as { skin?: Record<string, string> }), accent: artDir?.palette?.accent ?? config.meta.hud?.accent ?? "#F5C544" }}>
+    <AbsoluteFill style={{ backgroundColor: artDir?.palette?.bg ?? "#0b0b0b" }}>
       {config.meta.audio ? <Audio src={staticFile(config.meta.audio)} /> : null}
       {config.scenes.map((scene, i) => {
         // NOTE: Remotion hands `defaultProps` to the renderer as-is — it does NOT
@@ -76,8 +80,9 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
           >
             {(() => {
               const beat = continues ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0, color: keptAccent[i] } } : afterStaged ? { ...scene, transition: { ...transition, type: "cut" as const, frames: 0 } } : scene;
+              const prevBg = i > 0 && beat.depthCarry ? config.scenes[i - 1].bg : undefined;
               const shots = (scene as { shots?: BeatShot[] }).shots;
-              if (!shots || !shots.length) return <FlowContext.Provider value={flowAt(scene.fromFrame - transIn)}><Scene scene={beat} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} /></FlowContext.Provider>;
+              if (!shots || !shots.length) return <FlowContext.Provider value={flowAt(scene.fromFrame - transIn)}><Scene scene={beat} transIn={transIn} cast={config.meta.cast} multiplane={config.meta.multiplane} continuity={continues ? continuity[i] : undefined} singleRelation={(config.meta as { singleRelation?: boolean }).singleRelation === true} prevBg={prevBg} /></FlowContext.Provider>;
               // C19 BEAT SHOTS: the beat keeps its id, order, start, length and transition; its shots are cut INSIDE it
               // on the narrator's words (from/to are beat-relative). The beat transition enters the first shot only;
               // every later shot is a hard cut. A shot carries its own staging and inherits only the beat's records.
@@ -114,16 +119,17 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
         );
       })}
       {/* when a part of the book's narrative form is announced, its board comes up over the scene for three seconds */}
-      {config.meta.hud?.enabled !== false && hasFormTrack(config) && <FormBoard config={config} />}
+      {!hideHud && config.meta.hud?.enabled !== false && hasFormTrack(config) && <FormBoard config={config} />}
       {/* Subtitles sit above every scene, on the absolute timeline, in the reserved bottom band. */}
-      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={config.meta.hud?.accent ?? "#F5C544"} font={SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} variant={variantOf(skinOf(config.meta as { skin?: Record<string, string> }))} />
+      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={artDir?.palette?.accent ?? config.meta.hud?.accent ?? "#F5C544"} font={SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} variant={variantOf(skinOf(config.meta as { skin?: Record<string, string> }))} />
       <CaptionLayer captions={config.captions} />
       {/* Top safe-zone retention HUD: timeline progress & insight trackers */}
       {/* a book told in a narrative form draws its PARTS in that form's shape instead (components/FormTrack.tsx) */}
-      {config.meta.hud?.enabled !== false && (hasFormTrack(config) ? <FormTrack config={config} /> : <RetentionHUD config={config} />)}
+      {!hideHud && config.meta.hud?.enabled !== false && (hasFormTrack(config) ? <FormTrack config={config} /> : <RetentionHUD config={config} />)}
       {/* Frame-accurate sound design (transitions, ticks, chapter hits) */}
       <AudioEngine config={config} />
     </AbsoluteFill>
     </SkinContext.Provider>
+    </ArtDirectionContext.Provider>
   );
 };

@@ -3,6 +3,7 @@ import { useCurrentFrame } from "remotion";
 import { ANTIDOTE_FONT } from "./KineticText";
 import type { CaptionSpec } from "../schema";
 import { useSkin, SKIN_FONT, isLight } from "./skin";
+import { DEFAULT_BODY_FONT, resolveArtPalette, useArtDirection } from "./artDirection";
 
 /**
  * CaptionLayer — non-intrusive word-timed subtitles.
@@ -17,10 +18,48 @@ import { useSkin, SKIN_FONT, isLight } from "./skin";
  */
 export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }> = ({ captions, accent = "#F5C544" }) => {
   const frame = useCurrentFrame();
+  const ad = useArtDirection();
+  if (ad?.captions === "off") return null;
   const cap = captions.find((c) => frame >= c.startFrame && frame <= c.endFrame);
   if (!cap) return null;
 
   const words = cap.words && cap.words.length ? cap.words : cap.text.split(/\s+/).map((w) => ({ w, s: -1, e: -1 }));
+  if (ad?.captions === "minimal") {
+    const pal = resolveArtPalette(ad);
+    return (
+      <div
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          padding: "56px 140px 38px",
+          background: "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.72) 55%, rgba(8,10,15,0.92) 100%)",
+          textAlign: "center",
+          fontFamily: ad.fontBody ?? DEFAULT_BODY_FONT,
+          fontWeight: 600,
+          fontSize: 38,
+          lineHeight: 1.24,
+          color: "#F5F1E8",
+          textShadow: "0 2px 10px rgba(0,0,0,0.75)",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "0 11px",
+          pointerEvents: "none",
+        }}
+      >
+        {words.map((w, i) => {
+          const on = w.s >= 0 && frame >= w.s && frame <= w.e;
+          return (
+            <span key={i} style={{ color: on ? pal.accent : "#F5F1E8" }}>
+              {w.w}
+            </span>
+          );
+        })}
+      </div>
+    );
+  }
   // THE BOOK'S SKIN (skin.tsx): how the subtitles are SET. Same band, same size, same words — another hand.
   const { skin, accent: bookAccent } = useSkin();
   const def = skin.caption === "box" && skin.font === "poppins"; // the channel's look: exactly as before

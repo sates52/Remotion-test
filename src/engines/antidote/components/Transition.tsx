@@ -19,11 +19,13 @@ export type TransitionRender = {
 };
 
 const ease = (p: number) => interpolate(p, [0, 1], [0, 1], { easing: Easing.out(Easing.cubic) });
+const easeP4 = (p: number) => interpolate(p, [0, 1], [0, 1], { easing: Easing.out(Easing.poly(4)) });
 
 export function transitionRender(spec: TransitionSpec, localFrame: number): TransitionRender {
   const frames = Math.max(1, spec.frames);
   const raw = interpolate(localFrame, [0, frames], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const p = ease(raw);
+  const p4 = easeP4(raw);
   const color = spec.color || "#FFFFFF";
   const done = raw >= 1;
   const none: TransitionRender = { style: {}, overlay: null };
@@ -40,6 +42,65 @@ export function transitionRender(spec: TransitionSpec, localFrame: number): Tran
       return { style: { clipPath: `inset(${(1 - p) * 100}% 0 0 0)` }, overlay: null };
     case "slideUp":
       return { style: { transform: `translateY(${(1 - p) * 100}%)` }, overlay: null };
+    // ── Antidote 2.0 (motion-doctrine / cut-the-curve partial-travel seams) ──
+    // ~12% partial-travel velocity-matched entry with power4.out & size-scaled blur.
+    case "slideCarryLeft": {
+      const blur = (1 - p4) * 12;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.4),
+          transform: `translateX(${(1 - p4) * 12}%)`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+        },
+        overlay: null,
+      };
+    }
+    case "slideCarryUp": {
+      const blur = (1 - p4) * 10;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.4),
+          transform: `translateY(${(1 - p4) * 10}%)`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+        },
+        overlay: null,
+      };
+    }
+    case "zoomPush": {
+      // Scale-sign rule (Z forward): incoming grows cleanly from 0.90 → 1.00
+      const blur = (1 - p4) * 14;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.2),
+          transform: `scale(${(0.9 + p4 * 0.1).toFixed(4)})`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+        },
+        overlay: null,
+      };
+    }
+    case "zoomPull": {
+      // Scale-sign rule (Z backward / inverse zoom): incoming pulls back 1.12 → 1.00
+      const blur = (1 - p4) * 14;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.2),
+          transform: `scale(${(1.12 - p4 * 0.12).toFixed(4)})`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+        },
+        overlay: null,
+      };
+    }
+    case "blurCut": {
+      // Rack-focus blur-cut (18px peak full-frame blur)
+      const blur = (1 - p4) * 18;
+      return {
+        style: {
+          opacity: p4,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+        },
+        overlay: null,
+      };
+    }
     case "whipLeft":
     case "whipRight": {
       const dir = spec.type === "whipLeft" ? -1 : 1;

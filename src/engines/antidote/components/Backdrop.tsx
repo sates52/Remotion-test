@@ -1,8 +1,9 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { BgSpec } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { backdropFit, backdropScene } from "../told";
+import { STAGE_MOODS } from "./artDirection";
 
 /**
  * Backdrop — the world behind the cast.
@@ -1024,8 +1025,53 @@ const OWN_PLACE_OPACITY = 0.34;
  *  place as the told stages around it. A bg.own without a sky is the wash above. */
 const SCENE_FAR = 2400;
 
-export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale: number } }> = ({ bg, cam }) => {
+export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale: number }; durationFrames?: number }> = ({ bg, cam, durationFrames = 180 }) => {
   const frame = useCurrentFrame();
+  const moodSpec = bg.stageMood ? STAGE_MOODS[bg.stageMood] : null;
+  const imgSpec = bg.image;
+  if (moodSpec || imgSpec) {
+    const dur = Math.max(1, durationFrames);
+    const p = interpolate(frame, [0, dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const kb = imgSpec?.kenBurns ?? "pushIn";
+    const imgScale = kb === "pushIn" ? 1.02 + p * 0.07 : kb === "pullOut" ? 1.09 - p * 0.07 : kb === "none" ? 1 : 1.06;
+    const imgTx = kb === "panLeft" ? (0.5 - p) * 52 : kb === "panRight" ? (p - 0.5) * 52 : 0;
+    return (
+      <AbsoluteFill style={{ background: moodSpec ? moodSpec.background : "#101319", overflow: "hidden" }}>
+        {moodSpec && (
+          <AbsoluteFill
+            style={{
+              backgroundImage: `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`,
+              backgroundSize: `${moodSpec.gridSize}px ${moodSpec.gridSize}px`,
+              opacity: moodSpec.gridOpacity,
+              transform: `translate(${(cam.x * 0.15).toFixed(1)}px, ${(cam.y * 0.15).toFixed(1)}px)`,
+            }}
+          />
+        )}
+        {imgSpec && (
+          <AbsoluteFill
+            style={{
+              opacity: imgSpec.opacity ?? 1,
+              filter: imgSpec.blur ? `blur(${imgSpec.blur}px)` : undefined,
+              transform: `translate(${(imgTx + cam.x * 0.25).toFixed(1)}px, ${(cam.y * 0.25).toFixed(1)}px) scale(${(imgScale * (1 + (cam.scale - 1) * 0.35)).toFixed(4)})`,
+              transformOrigin: "center",
+            }}
+          >
+            <Img src={staticFile(imgSpec.path)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </AbsoluteFill>
+        )}
+        {imgSpec && (imgSpec.dim ?? 0) > 0 && (
+          <AbsoluteFill style={{ backgroundColor: `rgba(8, 10, 15, ${imgSpec.dim})` }} />
+        )}
+        <AbsoluteFill
+          style={{
+            background: moodSpec
+              ? moodSpec.vignette
+              : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
+          }}
+        />
+      </AbsoluteFill>
+    );
+  }
   const colors = bg.colors && bg.colors.length ? bg.colors : ["#8FC0E8"];
   const base =
     bg.type === "gradient" && colors.length >= 2

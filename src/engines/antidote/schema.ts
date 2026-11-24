@@ -109,6 +109,8 @@ export type ShotName = z.infer<typeof shotName>;
 export const transitionType = z.enum([
   "cut", "dissolve", "wipeRight", "wipeLeft", "wipeUp",
   "whipLeft", "whipRight", "irisIn", "flash", "slideUp",
+  // Antidote 2.0 (motion-doctrine / cut-the-curve velocity-matched seams, opt-in)
+  "slideCarryLeft", "slideCarryUp", "zoomPush", "zoomPull", "blurCut",
 ]);
 export type TransitionType = z.infer<typeof transitionType>;
 export const transitionSchema = z.object({
@@ -684,6 +686,15 @@ export const bgSchema = z.object({
   // told stage, so the place holds across the cut. Written by told.js apply from the beat's `place`; absent by default.
   // told v5 slice 4: a place drawn as a SCENE (sky + ground) is drawn as itself behind a figure scene too
   own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })), sky: z.string().optional(), ground: z.string().optional() }).optional(),
+  // Antidote 2.0 (opt-in): curated rich canvas mood & bespoke Flux scenic/isometric diorama backdrop
+  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial"]).optional(),
+  image: z.object({
+    path: z.string(),
+    opacity: z.number().min(0).max(1).optional(),
+    blur: z.number().min(0).max(24).optional(),
+    dim: z.number().min(0).max(0.95).optional(),
+    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+  }).optional(),
   // Which act of the director's color script produced this field. Metadata:
   // nothing renders it, but it makes the arc auditable in the config.
   act: z.enum(["setup", "tension", "turn", "resolution"]).optional(),
@@ -943,10 +954,124 @@ export const beatShotSchema = z.object({
 });
 export type BeatShot = z.infer<typeof beatShotSchema>;
 
+const v2Tone = z.enum(["neutral", "accent", "danger", "positive"]);
+
+/** Antidote 2.0 (opt-in): Causal visual equation [Node A] -> [Mechanism B] -> [Outcome C] */
+export const visualEquationSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  operator: z.enum(["arrow", "versus", "transform"]).optional(),
+  nodes: z.array(z.object({
+    label: z.string().min(1),
+    sublabel: z.string().optional(),
+    badge: z.string().optional(),
+    glyph: z.string().optional(),
+    image: z.string().optional(),
+    imageFit: z.enum(["cover", "contain"]).optional(),
+    tone: v2Tone.optional(),
+  })).min(2).max(4),
+  footnote: z.string().optional(),
+  at: z.number().optional(),
+});
+export type VisualEquationSpec = z.infer<typeof visualEquationSchema>;
+
+/** Antidote 2.0 (opt-in): Side-by-side visual comparison cards (Anchoring, Strategy A vs B) */
+export const comparisonGridSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  columns: z.array(z.object({
+    heading: z.string().min(1),
+    tag: z.string().optional(),
+    image: z.string().optional(),
+    bullets: z.array(z.string()).default([]),
+    highlight: z.string().optional(),
+    tone: v2Tone.optional(),
+  })).min(2).max(3),
+  at: z.number().optional(),
+});
+export type ComparisonGridSpec = z.infer<typeof comparisonGridSchema>;
+
+/** Antidote 2.0 (opt-in): 2x2 Quadrant Matrix, Dual-Curve Intensity Chart, or Weekly Schedule */
+export const dataMatrixSchema = z.object({
+  variant: z.enum(["quadrant2x2", "dualCurve", "schedule"]),
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  xLabel: z.string().optional(),
+  yLabel: z.string().optional(),
+  quadrants: z.array(z.object({
+    label: z.string().min(1),
+    sublabel: z.string().optional(),
+    tone: v2Tone.optional(),
+    active: z.boolean().optional(),
+  })).max(4).optional(),
+  curves: z.array(z.object({
+    label: z.string().min(1),
+    points: z.array(z.number().min(0).max(1)).min(2),
+    color: z.string().optional(),
+  })).max(3).optional(),
+  schedule: z.array(z.object({
+    day: z.string().min(1),
+    blocks: z.array(z.object({
+      label: z.string().optional(),
+      active: z.boolean().optional(),
+      tone: v2Tone.optional(),
+    })).default([]),
+  })).max(7).optional(),
+  callout: z.string().optional(),
+  at: z.number().optional(),
+});
+export type DataMatrixSpec = z.infer<typeof dataMatrixSchema>;
+
+/** Antidote 2.0 (opt-in): Real-world book/author/study anchor with animated editorial callout arrows */
+export const realAnchorSchema = z.object({
+  title: z.string().min(1),
+  subtitle: z.string().optional(),
+  badge: z.string().optional(),
+  image: z.string().optional(),
+  quote: z.string().optional(),
+  attribution: z.string().optional(),
+  annotations: z.array(z.object({
+    text: z.string().min(1),
+    side: z.enum(["left", "right"]).default("left"),
+  })).default([]),
+  at: z.number().optional(),
+});
+export type RealAnchorSpec = z.infer<typeof realAnchorSchema>;
+
+/** Antidote 2.0 (opt-in): Book-level art direction lock (breaks channel-wide YPP template clustering) */
+export const artDirectionSchema = z.object({
+  style: z.string().optional(),
+  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial"]).optional(),
+  palette: z.object({
+    bg: z.string().optional(),
+    bgAlt: z.string().optional(),
+    surface: z.string().optional(),
+    surfaceBorder: z.string().optional(),
+    ink: z.string().optional(),
+    muted: z.string().optional(),
+    accent: z.string().optional(),
+    accent2: z.string().optional(),
+    danger: z.string().optional(),
+    positive: z.string().optional(),
+  }).optional(),
+  fontDisplay: z.string().optional(),
+  fontBody: z.string().optional(),
+  captions: z.enum(["off", "minimal", "box"]).optional(),
+  hud: z.enum(["off", "minimal", "default"]).optional(),
+  motionDoctrine: z.boolean().optional(),
+});
+export type ArtDirectionSpec = z.infer<typeof artDirectionSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
   durationFrames: z.number(),
+  /** Antidote 2.0 (opt-in): visual-thinking explanatory canvases & spatial depth-carry */
+  depthCarry: z.boolean().optional(),
+  visualEquation: visualEquationSchema.optional(),
+  comparisonGrid: comparisonGridSchema.optional(),
+  dataMatrix: dataMatrixSchema.optional(),
+  realAnchor: realAnchorSchema.optional(),
   /** The beat's literal SUBJECT, when it has one (e.g. "crash", "home", "ledge").
    *  Set by the director's concept lexicon / Claude; drives the illustration shot
    *  + scene icon. Advisory/telemetry — the icon itself lives in `props`. */
@@ -1081,6 +1206,9 @@ export const antidoteConfigSchema = z.object({
     /** SINGLE-RELATION capability (cycle 13, default OFF): when true, scenes carrying a compiled `singleRelation`
      *  contract (scripts/lib/single-relation.js) draw it; when absent / false the field is ignored. */
     singleRelation: z.boolean().optional(),
+    /** Antidote 2.0 (opt-in): per-book art direction, caption/HUD style, and motion-doctrine seam laws.
+     *  Absent on all pre-existing configs → 100% byte-identical legacy behavior. */
+    artDirection: artDirectionSchema.optional(),
   }),
   scenes: z.array(sceneSchema),
   promises: z.array(promiseLifecycleSchema).optional(),

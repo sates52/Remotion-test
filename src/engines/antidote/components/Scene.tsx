@@ -28,6 +28,10 @@ import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 import { FlowContext } from "../flow";
 import { ToldStage, type ToldSpec } from "./ToldStage";
 import { voiceAt } from "../speech";
+import { VisualEquation } from "./VisualEquation";
+import { ComparisonGrid } from "./ComparisonGrid";
+import { DataMatrix } from "./DataMatrix";
+import { RealAnchorCard } from "./RealAnchorCard";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -370,7 +374,7 @@ const slotOrdered = (bodies: CharacterSpec[], plan: ScenePlan): CharacterSpec[] 
 };
 
 // ── the scene: backdrop + camera-transformed stage + transition reveal ──────
-export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; singleRelation?: boolean }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, singleRelation = false }) => {
+export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; singleRelation?: boolean; prevBg?: SceneSpec["bg"] }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, singleRelation = false, prevBg }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const sceneFlow = React.useContext(FlowContext); // a hook: before any early return
@@ -386,6 +390,26 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const accent = transition.color || bg.accent || "#E23B57";
   const ink = bg.accent || "#1E1E22";
   const bodies = preset.dropsCast ? [] : scene.characters ?? [];
+
+  // Antidote 2.0 (opt-in) — EXPLANATORY VISUAL-THINKING STAGES.
+  // Active ONLY when a scene explicitly supplies one of the four v2 payloads; legacy configs never enter here.
+  if (scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+    return (
+      <AbsoluteFill style={t.style}>
+        <Backdrop bg={bg} cam={cam} durationFrames={scene.durationFrames} />
+        {scene.depthCarry && prevBg ? (
+          <AbsoluteFill style={{ opacity: 0.2, filter: "blur(6px)", pointerEvents: "none" }}>
+            <Backdrop bg={prevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
+          </AbsoluteFill>
+        ) : null}
+        {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.realAnchor ? <RealAnchorCard spec={scene.realAnchor} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {t.overlay}
+      </AbsoluteFill>
+    );
+  }
 
   // FILM FLOW level 2 — THE PICTURE SHOWS WHAT IS SAID (ToldStage.tsx): a scene that carries `told` draws the things
   // the narration names and what happens to them, instead of a figure and a text. Only when the film asks for it.
@@ -560,7 +584,12 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       };
   return (
     <AbsoluteFill style={t.style}>
-      <Backdrop bg={bg} cam={cam} />
+      <Backdrop bg={bg} cam={cam} durationFrames={scene.durationFrames} />
+      {scene.depthCarry && prevBg ? (
+        <AbsoluteFill style={{ opacity: 0.18, filter: "blur(6px)", pointerEvents: "none" }}>
+          <Backdrop bg={prevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
+        </AbsoluteFill>
+      ) : null}
       {props.map((p, i) => (i === liftDest || i === placeIdx ? null : renderProp(p, i)))}
       {scene.diagram && plan && plan.diagram ? (
         // CARRIED: the same graphic, already built — only its new labels/values build in
