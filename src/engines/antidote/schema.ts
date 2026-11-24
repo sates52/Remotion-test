@@ -693,6 +693,7 @@ export const bgSchema = z.object({
     opacity: z.number().min(0).max(1).optional(),
     blur: z.number().min(0).max(24).optional(),
     dim: z.number().min(0).max(0.95).optional(),
+    groundFog: z.number().min(0).max(1).optional(),
     kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
   }).optional(),
   // Which act of the director's color script produced this field. Metadata:
@@ -960,6 +961,7 @@ const v2Tone = z.enum(["neutral", "accent", "danger", "positive"]);
 export const visualEquationSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
+  layout: z.enum(["cards", "borderless"]).optional(),
   operator: z.enum(["arrow", "versus", "transform"]).optional(),
   nodes: z.array(z.object({
     label: z.string().min(1),
@@ -979,6 +981,7 @@ export type VisualEquationSpec = z.infer<typeof visualEquationSchema>;
 export const comparisonGridSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
+  layout: z.enum(["cards", "fullBleedSplit", "borderless"]).optional(),
   columns: z.array(z.object({
     heading: z.string().min(1),
     tag: z.string().optional(),
@@ -994,6 +997,7 @@ export type ComparisonGridSpec = z.infer<typeof comparisonGridSchema>;
 /** Antidote 2.0 (opt-in): 2x2 Quadrant Matrix, Dual-Curve Intensity Chart, or Weekly Schedule */
 export const dataMatrixSchema = z.object({
   variant: z.enum(["quadrant2x2", "dualCurve", "schedule"]),
+  borderless: z.boolean().optional(),
   title: z.string().optional(),
   subtitle: z.string().optional(),
   xLabel: z.string().optional(),

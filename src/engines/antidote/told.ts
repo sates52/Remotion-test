@@ -27,7 +27,8 @@ export const TOLD_VERSION = 5;
 export type ToldKey = { at: number; x?: number; y?: number; s?: number; o?: number; r?: number; dur?: number; ease?: "out" | "back" | "inout" };
 export type ToldItem = {
   id: string;
-  kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow" | "figure" | "icon";
+  kind: "emblem" | "tile" | "word" | "planet" | "house" | "coin" | "burst" | "dash" | "cross" | "crown" | "panel" | "bar" | "arrow" | "figure" | "icon" | "cutout";
+  image?: string;
   /** figure: the person — look (wardrobe.tsx: age, outfit, headwear, hair …), what they do, and what is in their hand */
   /** figure (v3): the verb this person plays and the stage frame of the narrator's word (toldActs.ts actPose) */
   act?: { verb: string; at: number };
@@ -57,7 +58,7 @@ export type ToldItem = {
 export type ToldPath = { d: string; fill?: string; stroke?: string; strokeWidth?: number; opacity?: number };
 /** v2 — the PLACE the stage is at: that place's drawing, pale, behind everything. `wide` = drawn for the whole width
  *  (a "backdrop" drawing); otherwise the place's own icon, large and centred. It fades in / out, nothing else. */
-export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number };
+export type ToldBackdrop = { id: string; paths: ToldPath[]; viewBox?: string; wide?: boolean; image?: string; dim?: number; groundTop?: number; enter?: { at: number; dur?: number }; exit?: { at: number; dur?: number };
   /** v5 — a SCENE backdrop: the colour of the sky behind the place (light) and of the ground the cast stands on. Both
    *  hex, resolved by the compiler. Without `sky` the backdrop is the pale wash. */
   sky?: string; ground?: string;

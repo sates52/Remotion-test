@@ -151,7 +151,9 @@ const CharacterLayer: React.FC<{
   rest?: RestCarry;
   /** LEAVE / FLEE (Action 2.0, leaveLayout.ts): px from the slot to the exit (the icon, or off the frame) */
   exitDx?: number;
-}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx }) => {
+  /** Hybrid Antidote: true when standing over a painted Flux bg.image (stronger separation + floor contact shadow). */
+  overImage?: boolean;
+}> = ({ spec, shot, index, cast, durationFrames, accent, lookAtPoint, approach = 0, carry, embraceRole = "lead", liftDx, rest, exitDx, overImage = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const flow = React.useContext(FlowContext); // a hook: before any early return
@@ -257,13 +259,29 @@ const CharacterLayer: React.FC<{
   return (
     <>
     {flying}
+    {overImage && body === "full" && (
+      <div
+        style={{
+          position: "absolute",
+          left: st.x + e.tx + travel + jitterX + approach + liftShift + exitShift,
+          top: st.y + 445 * scale,
+          width: 240 * scale,
+          height: 36 * scale,
+          transform: "translate(-50%, -50%)",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse, rgba(6,8,12,0.52) 0%, rgba(6,8,12,0) 72%)",
+          opacity: e.opacity * goneOpacity,
+          pointerEvents: "none",
+        }}
+      />
+    )}
     <div
       style={{
         position: "absolute",
         left: st.x,
         top: st.y,
         opacity: e.opacity * goneOpacity,
-        filter: "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
+        filter: overImage ? "drop-shadow(0 20px 36px rgba(0,0,0,0.48))" : "drop-shadow(0 16px 28px rgba(0,0,0,0.14))",
         transform: `translate(-50%, -50%) translate(${e.tx + travel + jitterX + approach + liftShift + exitShift}px, ${e.ty}px) scale(${scale}) scaleX(${faceFlip ? -1 : 1})`,
         transformOrigin: "center",
       }}
@@ -394,6 +412,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   // Antidote 2.0 (opt-in) — EXPLANATORY VISUAL-THINKING STAGES.
   // Active ONLY when a scene explicitly supplies one of the four v2 payloads; legacy configs never enter here.
   if (scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+    const coCast = scene.characters ?? [];
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid;
+    const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
         <Backdrop bg={bg} cam={cam} durationFrames={scene.durationFrames} />
@@ -402,10 +423,30 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
             <Backdrop bg={prevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
           </AbsoluteFill>
         ) : null}
-        {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
-        {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} /> : null}
-        {scene.realAnchor ? <RealAnchorCard spec={scene.realAnchor} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
+        {scene.realAnchor ? <RealAnchorCard spec={scene.realAnchor} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
+        {hasCoCast ? coCast.map((c, ci) => (
+          <CharacterLayer
+            key={c.id}
+            spec={{
+              ...c,
+              x: c.x ?? 195,
+              y: c.y ?? 800,
+              scale: c.scale ?? 0.72,
+              body: c.body ?? "bust",
+              action: c.action ?? "point",
+            }}
+            shot={scene.shot}
+            index={ci}
+            cast={cast}
+            durationFrames={scene.durationFrames}
+            accent={accent}
+            lookAtPoint={{ x: 1080, y: 460 }}
+            overImage={!!bg.image}
+          />
+        )) : null}
         {t.overlay}
       </AbsoluteFill>
     );
@@ -686,6 +727,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
                 liftDx={lift ? { approach: ci === 0 ? lift.approach : 0, carry: lift.carry, back: ci === 0 ? lift.stepBack : 0 } : undefined}
                 rest={cc && cc.rest ? cc.rest : undefined}
                 exitDx={(() => { const L = leaveOf(ci); return L ? L.exitDx : undefined; })()}
+                overImage={!!bg.image}
               />
             )}
           </AbsoluteFill>

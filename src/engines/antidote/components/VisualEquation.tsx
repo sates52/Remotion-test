@@ -10,7 +10,7 @@ import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, 
  * crisp visual equations: [Node A] ──► [Mechanism B] ──► [Outcome C].
  * Supports bespoke Flux editorial cutouts/illustrations (or clean symbolic cards for minorHarm books).
  */
-export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
+export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: number; stageMood?: StageMoodName; sideInsetLeft?: number }> = ({ spec, localFrame, stageMood, sideInsetLeft = 0 }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
@@ -22,6 +22,9 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
   const nodes = spec.nodes.slice(0, 4);
   const n = nodes.length;
   const operator = spec.operator ?? "arrow";
+  const layout = spec.layout ?? "cards";
+  const isBorderless = layout === "borderless";
+  const captionPad = ad?.captions === "minimal" ? 150 : 110;
 
   // Title waterfall entrance (cut-the-curve power4.out feel)
   const titleP = interpolate(frame, [0, 14], [0, 1], {
@@ -43,7 +46,7 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "76px 88px 110px",
+        padding: `76px 72px ${captionPad}px ${sideInsetLeft + 72}px`,
         boxSizing: "border-box",
       }}
     >
@@ -117,26 +120,29 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
             <React.Fragment key={i}>
               <div
                 style={{
-                  width: cardWidth,
-                  minHeight: cardHeight,
-                  borderRadius: 28,
-                  background: palette.surface,
-                  border: `3px solid ${hasTone ? accent : palette.surfaceBorder}`,
-                  boxShadow: hasTone
+                  width: isBorderless ? (n <= 2 ? 440 : n === 3 ? 380 : 300) : cardWidth,
+                  minHeight: isBorderless ? 360 : cardHeight,
+                  borderRadius: isBorderless ? 0 : 28,
+                  background: isBorderless ? "transparent" : palette.surface,
+                  border: isBorderless ? "none" : `3px solid ${hasTone ? accent : palette.surfaceBorder}`,
+                  boxShadow: isBorderless
+                    ? "none"
+                    : hasTone
                     ? `0 24px 60px rgba(0,0,0,0.42), 0 0 0 1px ${accent}44`
                     : "0 24px 54px rgba(0,0,0,0.36)",
-                  padding: "28px 28px 30px",
+                  padding: isBorderless ? "8px 14px" : "28px 28px 30px",
                   boxSizing: "border-box",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "space-between",
+                  justifyContent: isBorderless ? "flex-start" : "space-between",
+                  gap: isBorderless ? 14 : 0,
                   opacity: nodeP,
                   transform: `translateY(${(1 - nodeP) * 34}px) scale(${0.94 + nodeP * 0.06})`,
                 }}
               >
                 {/* Top step badge */}
-                <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ width: "100%", display: "flex", justifyContent: isBorderless ? "center" : "space-between", alignItems: "center" }}>
                   <span
                     style={{
                       fontFamily: displayFont,
@@ -157,13 +163,16 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
                 {/* Bespoke Flux illustration / cutout OR crisp symbolic emblem */}
                 <div
                   style={{
-                    width: "100%",
-                    height: 196,
-                    margin: "16px 0",
-                    borderRadius: 18,
+                    width: isBorderless ? (n <= 3 ? 250 : 210) : "100%",
+                    height: isBorderless ? (n <= 3 ? 250 : 210) : 196,
+                    margin: isBorderless ? "6px 0" : "16px 0",
+                    borderRadius: isBorderless ? "50%" : 18,
                     overflow: "hidden",
                     background: node.image ? "rgba(0,0,0,0.22)" : `${accent}14`,
-                    border: `1.5px solid ${hasTone ? `${accent}44` : "rgba(255,255,255,0.08)"}`,
+                    border: isBorderless
+                      ? `3px solid ${hasTone ? accent : palette.surfaceBorder}`
+                      : `1.5px solid ${hasTone ? `${accent}44` : "rgba(255,255,255,0.08)"}`,
+                    boxShadow: isBorderless ? "0 22px 48px rgba(0,0,0,0.5)" : "none",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

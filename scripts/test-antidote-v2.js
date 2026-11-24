@@ -206,4 +206,62 @@ test("all 5 stage moods resolve complete art palettes", () => {
   assert.strictEqual(overridden.accent, "#123456");
 });
 
+test("Hybrid Antidote 2.1 fields (fullBleedSplit, borderless, groundFog) parse cleanly", () => {
+  const hybrid = schema.antidoteConfigSchema.parse({
+    meta: { slug: "hybrid-test", title: "Hybrid", durationInFrames: 300, artDirection: { captions: "minimal" } },
+    captions: [{ text: "Hello world", startFrame: 0, endFrame: 30, words: [{ w: "Hello", s: 0, e: 15 }] }],
+    scenes: [
+      {
+        id: "s1", fromFrame: 0, durationFrames: 100,
+        bg: { image: { path: "scenes/a.png", dim: 0.25, groundFog: 0.5, kenBurns: "pushIn" } },
+        comparisonGrid: { layout: "fullBleedSplit", columns: [{ heading: "A", bullets: ["x"] }, { heading: "B", bullets: ["y"] }] },
+      },
+      {
+        id: "s2", fromFrame: 100, durationFrames: 100,
+        visualEquation: { layout: "borderless", nodes: [{ label: "One" }, { label: "Two" }] },
+      },
+      {
+        id: "s3", fromFrame: 200, durationFrames: 100,
+        dataMatrix: { variant: "quadrant2x2", borderless: true, quadrants: [{ label: "Q1" }, { label: "Q2" }, { label: "Q3" }, { label: "Q4", active: true }] },
+      },
+    ],
+  });
+  assert.strictEqual(hybrid.scenes[0].bg.image.groundFog, 0.5);
+  assert.strictEqual(hybrid.scenes[0].comparisonGrid.layout, "fullBleedSplit");
+  assert.strictEqual(hybrid.scenes[1].visualEquation.layout, "borderless");
+  assert.strictEqual(hybrid.scenes[2].dataMatrix.borderless, true);
+});
+
+test("v2-variety-lint passes balanced hybrid and rejects 40% boxed-card config", () => {
+  const { assertVariety } = require("./lib/v2-variety-lint");
+  const balanced = {
+    meta: { artDirection: { captions: "minimal" } },
+    captions: [{ text: "Hi", startFrame: 0, endFrame: 10 }],
+    scenes: [
+      { id: "1", comparisonGrid: { layout: "fullBleedSplit" } },
+      { id: "2", characters: [{ id: "a" }] },
+      { id: "3", characters: [{ id: "a" }], continueFromPrev: true },
+      { id: "4", dataMatrix: { variant: "dualCurve", borderless: true } },
+      { id: "5", realAnchor: { title: "Book" } },
+      { id: "6", visualEquation: { layout: "borderless" } },
+    ],
+  };
+  const stats = assertVariety(balanced);
+  assert.strictEqual(stats.total, 6);
+  assert.strictEqual(stats.continuityCount, 1);
+
+  const repetitive = {
+    meta: { artDirection: { captions: "off" } },
+    captions: [],
+    scenes: [
+      { id: "1", comparisonGrid: { columns: [] } },
+      { id: "2", comparisonGrid: { columns: [] } },
+      { id: "3", characters: [{ id: "a" }] },
+      { id: "4", characters: [{ id: "a" }] },
+      { id: "5", characters: [{ id: "a" }] },
+    ],
+  };
+  assert.throws(() => assertVariety(repetitive), /boxed-card share/);
+});
+
 console.log(`\nAll ${passed} Antidote 2.0 tests passed.`);

@@ -33,15 +33,15 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           left: 0,
           right: 0,
           bottom: 0,
-          padding: "56px 140px 38px",
-          background: "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.72) 55%, rgba(8,10,15,0.92) 100%)",
+          padding: "46px 180px 28px",
+          background: "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)",
           textAlign: "center",
           fontFamily: ad.fontBody ?? DEFAULT_BODY_FONT,
           fontWeight: 600,
-          fontSize: 38,
-          lineHeight: 1.24,
-          color: "#F5F1E8",
-          textShadow: "0 2px 10px rgba(0,0,0,0.75)",
+          fontSize: 36,
+          lineHeight: 1.26,
+          color: "#F8F5EE",
+          textShadow: "0 2px 12px rgba(0,0,0,0.88)",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
@@ -52,7 +52,7 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
         {words.map((w, i) => {
           const on = w.s >= 0 && frame >= w.s && frame <= w.e;
           return (
-            <span key={i} style={{ color: on ? pal.accent : "#F5F1E8" }}>
+            <span key={i} style={{ color: on ? pal.accent : "#F8F5EE", fontWeight: on ? 700 : 600 }}>
               {w.w}
             </span>
           );

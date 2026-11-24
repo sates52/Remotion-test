@@ -19,11 +19,170 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
 
   const cols = spec.columns.slice(0, 3);
   const n = cols.length;
+  const layout = spec.layout ?? "cards";
+  const captionPad = ad?.captions === "minimal" ? 148 : 88;
   const titleP = interpolate(frame, [0, 12], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.poly(4)),
   });
+
+  if (layout === "fullBleedSplit" && cols.length >= 2) {
+    const left = cols[0];
+    const right = cols[1];
+    const wipeP = interpolate(frame, [10, 26], [0, 1], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.out(Easing.poly(4)),
+    });
+    const kbLeft = interpolate(frame, [0, 420], [1.02, 1.07], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const kbRight = interpolate(frame, [10, 420], [1.03, 1.08], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+    const renderHalf = (col: typeof left, align: "left" | "right", kb: number) => {
+      const accent = toneColor(col.tone, palette);
+      const hasTone = col.tone && col.tone !== "neutral";
+      return (
+        <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", background: palette.bg }}>
+          {col.image ? (
+            <Img
+              src={staticFile(col.image)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: `scale(${kb})`,
+                transformOrigin: "center",
+              }}
+            />
+          ) : null}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(180deg, rgba(8,10,15,0.68) 0%, rgba(8,10,15,0.12) 38%, rgba(8,10,15,0.18) 58%, rgba(8,10,15,0.90) 100%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              left: 64,
+              right: 64,
+              bottom: captionPad + 20,
+              textAlign: align,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: align === "left" ? "flex-start" : "flex-end",
+              gap: 10,
+            }}
+          >
+            {col.tag && (
+              <span
+                style={{
+                  fontFamily: displayFont,
+                  fontWeight: 900,
+                  fontSize: 18,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  padding: "6px 16px",
+                  borderRadius: 6,
+                  background: hasTone ? accent : palette.accent,
+                  color: "#0C0F14",
+                }}
+              >
+                {col.tag}
+              </span>
+            )}
+            <div
+              style={{
+                fontFamily: displayFont,
+                fontWeight: 900,
+                fontSize: 48,
+                lineHeight: 1.08,
+                color: "#F8F5EE",
+                textShadow: "0 4px 18px rgba(0,0,0,0.72)",
+              }}
+            >
+              {col.heading}
+            </div>
+            {col.bullets.slice(0, 2).map((b, bi) => (
+              <div
+                key={bi}
+                style={{
+                  fontFamily: bodyFont,
+                  fontWeight: 600,
+                  fontSize: 25,
+                  lineHeight: 1.28,
+                  color: "rgba(248,245,238,0.88)",
+                  textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+                }}
+              >
+                {b}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    };
+
+    return (
+      <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+        <div style={{ position: "absolute", left: 0, top: 0, width: "50%", height: "100%" }}>
+          {renderHalf(left, "left", kbLeft)}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: 0,
+            width: "50%",
+            height: "100%",
+            clipPath: `inset(0 ${(1 - wipeP) * 100}% 0 0)`,
+          }}
+        >
+          {renderHalf(right, "right", kbRight)}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: 0,
+            bottom: 0,
+            width: 4,
+            marginLeft: -2,
+            background: palette.accent,
+            boxShadow: `0 0 22px ${palette.accent}`,
+            transform: `scaleY(${wipeP})`,
+            transformOrigin: "top center",
+          }}
+        />
+        {spec.title && (
+          <div
+            style={{
+              position: "absolute",
+              top: 36,
+              left: "50%",
+              transform: `translateX(-50%) translateY(${(1 - titleP) * -16}px)`,
+              opacity: titleP,
+              padding: "10px 28px",
+              borderRadius: 999,
+              background: "rgba(8,10,15,0.72)",
+              border: `1px solid ${palette.surfaceBorder}`,
+              fontFamily: displayFont,
+              fontWeight: 900,
+              fontSize: 30,
+              letterSpacing: "0.04em",
+              color: palette.accent,
+              whiteSpace: "nowrap",
+              textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+            }}
+          >
+            {spec.title}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -34,7 +193,7 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "70px 96px 104px",
+        padding: `70px 96px ${ad?.captions === "minimal" ? 148 : 104}px`,
         boxSizing: "border-box",
       }}
     >
@@ -97,15 +256,17 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
           const accent = toneColor(col.tone, palette);
           const hasTone = col.tone && col.tone !== "neutral";
 
+          const isBorderless = layout === "borderless";
           return (
             <div
               key={i}
               style={{
-                background: palette.surface,
-                border: `3px solid ${hasTone ? accent : palette.surfaceBorder}`,
-                borderRadius: 28,
-                padding: "30px 32px 32px",
-                boxShadow: "0 24px 54px rgba(0,0,0,0.38)",
+                background: isBorderless ? "transparent" : palette.surface,
+                border: isBorderless ? "none" : `3px solid ${hasTone ? accent : palette.surfaceBorder}`,
+                borderLeft: isBorderless && i > 0 ? `1px solid ${palette.surfaceBorder}` : undefined,
+                borderRadius: isBorderless ? 0 : 28,
+                padding: isBorderless ? "12px 36px" : "30px 32px 32px",
+                boxShadow: isBorderless ? "none" : "0 24px 54px rgba(0,0,0,0.38)",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",

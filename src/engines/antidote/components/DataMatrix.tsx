@@ -7,7 +7,7 @@ import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, 
  * DataMatrix — Antidote 2.0 analytical graphics (2×2 Quadrant Matrix, Dual-Curve Intensity Chart,
  * and Weekly/Daily Schedule Grid). Pure CPU-cheap animated SVG/DOM.
  */
-export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
+export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; stageMood?: StageMoodName; sideInsetLeft?: number }> = ({ spec, localFrame, stageMood, sideInsetLeft = 0 }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
@@ -15,6 +15,8 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
   const palette = resolveArtPalette(ad, stageMood);
   const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
   const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const borderless = !!spec.borderless;
+  const captionPad = ad?.captions === "minimal" ? 148 : 104;
 
   const titleP = interpolate(frame, [0, 12], [0, 1], {
     extrapolateLeft: "clamp",
@@ -31,7 +33,7 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "68px 104px 104px",
+        padding: `64px 96px ${captionPad}px ${sideInsetLeft + 96}px`,
         boxSizing: "border-box",
       }}
     >
@@ -76,7 +78,7 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
 
       {/* ── VARIANT 1: 2x2 QUADRANT MATRIX ───────────────────────────────── */}
       {spec.variant === "quadrant2x2" && (
-        <div style={{ position: "relative", width: 1220, height: 590 }}>
+        <div style={{ position: "relative", width: sideInsetLeft ? 1040 : 1220, height: 540 }}>
           {/* Axis labels */}
           {spec.yLabel && (
             <div
@@ -118,14 +120,21 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
           )}
           <div
             style={{
+              position: "relative",
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gridTemplateRows: "1fr 1fr",
-              gap: 20,
+              gap: borderless ? 0 : 20,
               width: "100%",
               height: "100%",
             }}
           >
+            {borderless && (
+              <>
+                <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 2, marginLeft: -1, background: palette.surfaceBorder, pointerEvents: "none" }} />
+                <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: 2, marginTop: -1, background: palette.surfaceBorder, pointerEvents: "none" }} />
+              </>
+            )}
             {(spec.quadrants ?? []).slice(0, 4).map((q, i) => {
               const qp = spring({
                 frame: Math.max(0, frame - (5 + i * 6)),
@@ -138,13 +147,19 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
                 <div
                   key={i}
                   style={{
-                    borderRadius: 24,
-                    background: isActive ? `${accent}24` : palette.surface,
-                    border: `${isActive ? 4 : 2}px solid ${isActive ? accent : palette.surfaceBorder}`,
-                    boxShadow: isActive
+                    borderRadius: borderless ? 0 : 24,
+                    background: borderless
+                      ? (isActive ? `${accent}1E` : "rgba(255,255,255,0.03)")
+                      : (isActive ? `${accent}24` : palette.surface),
+                    border: borderless
+                      ? (isActive ? `2px solid ${accent}` : "1px solid transparent")
+                      : `${isActive ? 4 : 2}px solid ${isActive ? accent : palette.surfaceBorder}`,
+                    boxShadow: borderless
+                      ? "none"
+                      : isActive
                       ? `0 18px 46px rgba(0,0,0,0.44), 0 0 28px ${accent}33`
                       : "0 14px 36px rgba(0,0,0,0.3)",
-                    padding: "30px 36px",
+                    padding: "28px 36px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -189,8 +204,8 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
 
       {/* ── VARIANT 2: DUAL-CURVE INTENSITY VS TIME ──────────────────────── */}
       {spec.variant === "dualCurve" && (() => {
-        const W = 1360;
-        const H = 560;
+        const W = sideInsetLeft ? 1160 : 1360;
+        const H = 520;
         const padL = 110;
         const padR = 230;
         const padT = 40;
@@ -222,11 +237,11 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
         return (
           <div
             style={{
-              background: palette.surface,
-              border: `2px solid ${palette.surfaceBorder}`,
-              borderRadius: 28,
-              padding: "24px 30px",
-              boxShadow: "0 24px 60px rgba(0,0,0,0.42)",
+              background: borderless ? "transparent" : palette.surface,
+              border: borderless ? "none" : `2px solid ${palette.surfaceBorder}`,
+              borderRadius: borderless ? 0 : 28,
+              padding: borderless ? "8px 12px" : "24px 30px",
+              boxShadow: borderless ? "none" : "0 24px 60px rgba(0,0,0,0.42)",
             }}
           >
             <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>

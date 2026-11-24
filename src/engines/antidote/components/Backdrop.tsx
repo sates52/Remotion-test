@@ -1062,6 +1062,13 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
         {imgSpec && (imgSpec.dim ?? 0) > 0 && (
           <AbsoluteFill style={{ backgroundColor: `rgba(8, 10, 15, ${imgSpec.dim})` }} />
         )}
+        {imgSpec && (imgSpec.groundFog ?? 0) > 0 && (
+          <AbsoluteFill
+            style={{
+              background: `linear-gradient(180deg, rgba(8,10,15,0) 52%, rgba(8,10,15,${imgSpec.groundFog}) 100%)`,
+            }}
+          />
+        )}
         <AbsoluteFill
           style={{
             background: moodSpec

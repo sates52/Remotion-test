@@ -8,7 +8,7 @@ import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, useArtDirec
  * with animated curved editorial pointer arrows and callout notes.
  * Strong YPP educational-commentary signal (direct parallel to Real Antidote's Deep Work & Art of War anchors).
  */
-export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
+export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: number; stageMood?: StageMoodName; sideInsetLeft?: number }> = ({ spec, localFrame, stageMood, sideInsetLeft = 0 }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
@@ -16,6 +16,9 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
   const palette = resolveArtPalette(ad, stageMood);
   const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
   const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const captionPad = ad?.captions === "minimal" ? 148 : 104;
+  const noteColW = sideInsetLeft ? 340 : 420;
+  const plateW = sideInsetLeft ? 560 : 620;
 
   const cardP = spring({
     frame,
@@ -35,14 +38,14 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        gap: 44,
-        padding: "70px 88px 104px",
+        gap: sideInsetLeft ? 32 : 44,
+        padding: `70px 72px ${captionPad}px ${sideInsetLeft + 72}px`,
         boxSizing: "border-box",
       }}
     >
       {/* Left-hand editorial annotations */}
       {leftNotes.length > 0 && (
-        <div style={{ width: 420, display: "flex", flexDirection: "column", gap: 36, alignItems: "flex-end" }}>
+        <div style={{ width: noteColW, display: "flex", flexDirection: "column", gap: 36, alignItems: "flex-end" }}>
           {leftNotes.map((note, i) => {
             const np = interpolate(frame, [10 + i * 9, 22 + i * 9], [0, 1], {
               extrapolateLeft: "clamp",
@@ -94,7 +97,7 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
       {/* Center Anchor Plate (Book Cover / Study Document / Author Quote) */}
       <div
         style={{
-          width: spec.image ? 620 : 780,
+          width: spec.image ? plateW : (sideInsetLeft ? 680 : 780),
           maxWidth: 840,
           borderRadius: 28,
           background: palette.surface,
@@ -210,7 +213,7 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
 
       {/* Right-hand editorial annotations */}
       {rightNotes.length > 0 && (
-        <div style={{ width: 420, display: "flex", flexDirection: "column", gap: 36, alignItems: "flex-start" }}>
+        <div style={{ width: noteColW, display: "flex", flexDirection: "column", gap: 36, alignItems: "flex-start" }}>
           {rightNotes.map((note, i) => {
             const np = interpolate(frame, [14 + i * 9, 26 + i * 9], [0, 1], {
               extrapolateLeft: "clamp",

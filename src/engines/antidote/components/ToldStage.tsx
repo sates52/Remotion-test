@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, staticFile, useCurrentFrame } from "remotion";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { Everyman } from "../characters/Everyman";
 import { pose } from "../movements";
@@ -195,6 +195,14 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             </g>
           ))}
           {places.map(({ b, o }) => {
+            if (b.image) {
+              return (
+                <g key={`img-${b.id}`} opacity={o}>
+                  <image href={staticFile(b.image)} x={0} y={0} width={1920} height={1080} preserveAspectRatio="xMidYMid slice" />
+                  {(b.dim ?? 0) > 0 ? <rect x={0} y={0} width={1920} height={1080} fill={`rgba(10,12,18,${b.dim})`} /> : null}
+                </g>
+              );
+            }
             const fit = backdropFit(b);
             const asScene = scenes.some((p) => p.b === b); // drawn as itself, not as a wash
             return (
@@ -203,12 +211,13 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               </g>
             );
           })}
-          {/* v5: a contact shadow under a figure that STANDS on the scene's ground (feet at the ground's edge) */}
-          {scenes.length ? spec.items.filter((it) => it.kind === "figure" && !it.screen).map((it) => {
+          {/* v5 + hybrid: a contact shadow under a figure that STANDS on the scene's ground */}
+          {(scenes.length || places.some((p) => p.b.groundTop != null)) ? spec.items.filter((it) => it.kind === "figure" && !it.screen).map((it) => {
             const st = itemState(it, frame);
             if (!st || st.o <= 0.001) return null;
-            // … or on one of the place's own standing spots (the gate, the door: drawn ground, further back)
-            const on = scenes.filter((p) => standsOn(st.y, p.sc!.groundTop) || spotsOf(p.b).some((q) => Math.abs(q.y - st.y) < SPOT_REACH)).reduce((m, p) => Math.max(m, p.o), 0);
+            const onScene = scenes.filter((p) => standsOn(st.y, p.sc!.groundTop) || spotsOf(p.b).some((q) => Math.abs(q.y - st.y) < SPOT_REACH)).reduce((m, p) => Math.max(m, p.o), 0);
+            const onImg = places.filter((p) => p.b.groundTop != null && Math.abs(st.y - p.b.groundTop!) <= 64).reduce((m, p) => Math.max(m, p.o), 0);
+            const on = Math.max(onScene, onImg);
             if (on <= 0.001) return null;
             const w = (it.w ?? 300) * st.s;
             return <ellipse key={`sh-${it.id}`} cx={st.x} cy={st.y + 2} rx={w * 0.34} ry={Math.max(8, w * 0.045)} fill={SHADOW_FILL} opacity={st.o * on} />;
@@ -248,6 +257,16 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                     const cy = py + (size + 22) / 2;
                     return recede ? <g opacity={0.72} transform={`translate(0 ${cy}) scale(0.8) translate(0 ${-cy})`}><Tag label={it.label} size={size} y={py} fit={fit} /></g> : <Tag label={it.label} size={size} y={py} fit={fit} />;
                   })() : null}
+                </g>
+              );
+            }
+            if (it.kind === "cutout" && it.image) {
+              const w = it.w ?? 320;
+              const h = it.h ?? w;
+              return (
+                <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
+                  <image href={staticFile(it.image)} x={-w / 2} y={-h / 2} width={w} height={h} preserveAspectRatio="xMidYMid meet" />
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={h / 2 + 8} fit={fit} /> : null}
                 </g>
               );
             }
