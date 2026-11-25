@@ -136,8 +136,9 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
               </>
             )}
             {(spec.quadrants ?? []).slice(0, 4).map((q, i) => {
+              const qStep = spec.quadrantRevealStep ?? 10;
               const qp = spring({
-                frame: Math.max(0, frame - (5 + i * 6)),
+                frame: Math.max(0, frame - (8 + i * qStep)),
                 fps,
                 config: { damping: 16, stiffness: 140 },
               });
@@ -204,15 +205,16 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
 
       {/* ── VARIANT 2: DUAL-CURVE INTENSITY VS TIME ──────────────────────── */}
       {spec.variant === "dualCurve" && (() => {
-        const W = sideInsetLeft ? 1160 : 1360;
-        const H = 520;
-        const padL = 110;
-        const padR = 230;
-        const padT = 40;
+        const W = sideInsetLeft ? 1240 : 1420;
+        const H = 500;
+        const padL = 150;
+        const padR = 340;
+        const padT = 44;
         const padB = 78;
         const plotW = W - padL - padR;
         const plotH = H - padT - padB;
-        const drawP = interpolate(frame, [6, 46], [0, 1], {
+        const drawStart = spec.drawAt ?? 6;
+        const drawP = interpolate(frame, [drawStart, drawStart + 42], [0, 1], {
           extrapolateLeft: "clamp",
           extrapolateRight: "clamp",
           easing: Easing.out(Easing.cubic),
@@ -268,13 +270,14 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
 
               {/* Axis labels */}
               <text
-                x={padL - 22}
-                y={padT - 8}
-                textAnchor="middle"
+                x={padL}
+                y={padT - 12}
+                textAnchor="start"
                 fill={palette.muted}
                 fontFamily={displayFont}
                 fontWeight={800}
-                fontSize={24}
+                fontSize={22}
+                letterSpacing={2}
               >
                 {spec.yLabel ?? "INTENSITY"}
               </text>
@@ -297,7 +300,7 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
                 const pathD = buildPath(c.points);
                 const lastY = padT + (1 - Math.max(0, Math.min(1, c.points[c.points.length - 1] ?? 0.5))) * plotH;
                 const dashLen = 2400;
-                const labelP = interpolate(frame, [30 + ci * 6, 44 + ci * 6], [0, 1], {
+                const labelP = interpolate(frame, [drawStart + 24 + ci * 6, drawStart + 38 + ci * 6], [0, 1], {
                   extrapolateLeft: "clamp",
                   extrapolateRight: "clamp",
                 });
@@ -320,12 +323,12 @@ export const DataMatrix: React.FC<{ spec: DataMatrixSpec; localFrame?: number; s
                       opacity={labelP}
                     />
                     <text
-                      x={padL + plotW + 20}
-                      y={lastY + 9}
+                      x={padL + plotW + 18}
+                      y={lastY + 8}
                       fill={col}
                       fontFamily={displayFont}
                       fontWeight={800}
-                      fontSize={30}
+                      fontSize={25}
                       opacity={labelP}
                     >
                       {c.label}

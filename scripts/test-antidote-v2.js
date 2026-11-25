@@ -264,4 +264,47 @@ test("v2-variety-lint passes balanced hybrid and rejects 40% boxed-card config",
   assert.throws(() => assertVariety(repetitive), /boxed-card share/);
 });
 
+test("Antidote 10x Single-World schemas (annotatedScene, cohortGrid, shotIntent, highlightPhrases) parse cleanly", () => {
+  const s = schema.antidoteConfigSchema.parse({
+    meta: { slug: "v10x-test", title: "10x", durationInFrames: 300, artDirection: { captions: "minimal" } },
+    captions: [{ text: "Hi", startFrame: 0, endFrame: 15, words: [{ w: "Hi", s: 0, e: 15 }] }],
+    scenes: [
+      {
+        id: "a1", fromFrame: 0, durationFrames: 150,
+        shotIntent: { job: "annotate-place", subject: "lobby", action: "trace", payoff: "shows hierarchy" },
+        annotatedScene: {
+          image: "scenes/a.png",
+          framing: "editorialPrint",
+          spotlights: [{ cx: 500, cy: 400, rx: 120, label: "LOBBY", at: 30 }],
+          traces: [{ from: { x: 500, y: 400 }, to: { x: 500, y: 200 }, at: 40 }],
+          stickers: [{ title: "SAFETY", icon: "check", x: 200, y: 500, at: 60 }],
+        },
+      },
+      {
+        id: "c1", fromFrame: 150, durationFrames: 150,
+        shotIntent: { job: "cohort-split", subject: "pairs", action: "split", payoff: "50/50 split" },
+        cohortGrid: {
+          total: 20, splitAt: 30,
+          leftGroup: { label: "Task", share: 0.5, tone: "accent" },
+          rightGroup: { label: "Control", share: 0.5 },
+        },
+      },
+    ],
+  });
+  assert.strictEqual(s.scenes[0].annotatedScene.framing, "editorialPrint");
+  assert.strictEqual(s.scenes[1].cohortGrid.total, 20);
+});
+
+test("v2-variety-lint rejects Single-World collision (characters over bg.image without emptyStage)", () => {
+  const { assertVariety } = require("./lib/v2-variety-lint");
+  const clash = {
+    meta: { artDirection: { captions: "off" } },
+    captions: [],
+    scenes: [
+      { id: "bad", bg: { image: { path: "scenes/people.png" } }, characters: [{ id: "p1" }] },
+    ],
+  };
+  assert.throws(() => assertVariety(clash), /Single-World violation/);
+});
+
 console.log(`\nAll ${passed} Antidote 2.0 tests passed.`);

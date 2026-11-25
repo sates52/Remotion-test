@@ -190,7 +190,47 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
               textAlign: "left",
             }}
           >
-            “{spec.quote}”
+            “{(() => {
+              const phrases = spec.highlightPhrases ?? [];
+              if (!phrases.length) return spec.quote;
+              const segments: Array<{ text: string; at?: number }> = [{ text: spec.quote }];
+              for (const ph of phrases) {
+                for (let si = 0; si < segments.length; si++) {
+                  const seg = segments[si];
+                  if (seg.at != null) continue;
+                  const idx = seg.text.indexOf(ph.text);
+                  if (idx >= 0) {
+                    const before = seg.text.slice(0, idx);
+                    const match = seg.text.slice(idx, idx + ph.text.length);
+                    const after = seg.text.slice(idx + ph.text.length);
+                    const rep: Array<{ text: string; at?: number }> = [];
+                    if (before) rep.push({ text: before });
+                    rep.push({ text: match, at: ph.at });
+                    if (after) rep.push({ text: after });
+                    segments.splice(si, 1, ...rep);
+                    break;
+                  }
+                }
+              }
+              return segments.map((seg, si) => {
+                if (seg.at == null) return <React.Fragment key={si}>{seg.text}</React.Fragment>;
+                const hp = interpolate(frame, [seg.at, seg.at + 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+                return (
+                  <span
+                    key={si}
+                    style={{
+                      background: `linear-gradient(90deg, ${palette.accent}55 0%, ${palette.accent}55 100%)`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: `${hp * 100}% 100%`,
+                      borderRadius: 4,
+                      padding: "0 4px",
+                    }}
+                  >
+                    {seg.text}
+                  </span>
+                );
+              });
+            })()}”
             {spec.attribution && (
               <div
                 style={{
@@ -209,6 +249,29 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
             )}
           </div>
         )}
+
+        {spec.marginNote && (() => {
+          const mp = interpolate(frame, [spec.marginNote.at ?? 24, (spec.marginNote.at ?? 24) + 12], [0, 1], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          });
+          return (
+            <div
+              style={{
+                marginTop: 18,
+                fontFamily: "Georgia, 'Brush Script MT', cursive",
+                fontStyle: "italic",
+                fontWeight: 700,
+                fontSize: 32,
+                color: palette.accent,
+                transform: "rotate(-1.5deg)",
+                opacity: mp,
+              }}
+            >
+              {spec.marginNote.text}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Right-hand editorial annotations */}

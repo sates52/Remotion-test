@@ -694,6 +694,7 @@ export const bgSchema = z.object({
     blur: z.number().min(0).max(24).optional(),
     dim: z.number().min(0).max(0.95).optional(),
     groundFog: z.number().min(0).max(1).optional(),
+    emptyStage: z.boolean().optional(),
     kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
   }).optional(),
   // Which act of the director's color script produced this field. Metadata:
@@ -998,6 +999,8 @@ export type ComparisonGridSpec = z.infer<typeof comparisonGridSchema>;
 export const dataMatrixSchema = z.object({
   variant: z.enum(["quadrant2x2", "dualCurve", "schedule"]),
   borderless: z.boolean().optional(),
+  drawAt: z.number().optional(),
+  quadrantRevealStep: z.number().optional(),
   title: z.string().optional(),
   subtitle: z.string().optional(),
   xLabel: z.string().optional(),
@@ -1034,6 +1037,14 @@ export const realAnchorSchema = z.object({
   image: z.string().optional(),
   quote: z.string().optional(),
   attribution: z.string().optional(),
+  highlightPhrases: z.array(z.object({
+    text: z.string().min(1),
+    at: z.number(),
+  })).optional(),
+  marginNote: z.object({
+    text: z.string().min(1),
+    at: z.number().optional(),
+  }).optional(),
   annotations: z.array(z.object({
     text: z.string().min(1),
     side: z.enum(["left", "right"]).default("left"),
@@ -1066,12 +1077,94 @@ export const artDirectionSchema = z.object({
 });
 export type ArtDirectionSpec = z.infer<typeof artDirectionSchema>;
 
+export const shotIntentSchema = z.object({
+  job: z.enum(["contrast", "annotate-place", "cohort-split", "character-drama", "mechanism-flow", "data-proof", "document-quote", "framework-map"]),
+  subject: z.string().min(1),
+  action: z.string().min(1),
+  payoff: z.string().min(1),
+  revealFrame: z.number().optional(),
+});
+export type ShotIntentSpec = z.infer<typeof shotIntentSchema>;
+
+export const annotatedSceneSchema = z.object({
+  image: z.string(),
+  kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+  dim: z.number().min(0).max(0.8).optional(),
+  framing: z.enum(["fullBleed", "editorialPrint"]).optional(),
+  banner: z.object({ text: z.string(), at: z.number().optional() }).optional(),
+  spotlights: z.array(z.object({
+    cx: z.number(),
+    cy: z.number(),
+    rx: z.number().default(140),
+    ry: z.number().optional(),
+    label: z.string().optional(),
+    note: z.string().optional(),
+    labelPos: z.enum(["left", "right", "top", "bottom"]).optional(),
+    labelX: z.number().optional(),
+    labelY: z.number().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().default(0),
+  })).default([]),
+  traces: z.array(z.object({
+    from: z.object({ x: z.number(), y: z.number(), label: z.string().optional() }),
+    to: z.object({ x: z.number(), y: z.number(), label: z.string().optional() }),
+    tone: v2Tone.optional(),
+    at: z.number().default(0),
+    dur: z.number().default(24),
+  })).default([]),
+  stickers: z.array(z.object({
+    title: z.string(),
+    subtitle: z.string().optional(),
+    icon: z.enum(["envelope", "eye", "spark", "clock", "check", "quote"]).optional(),
+    x: z.number(),
+    y: z.number(),
+    rot: z.number().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().default(0),
+  })).default([]),
+  at: z.number().optional(),
+});
+export type AnnotatedSceneSpec = z.infer<typeof annotatedSceneSchema>;
+
+export const cohortGridSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  total: z.number().int().min(6).max(40).default(20),
+  splitAt: z.number().default(45),
+  leftGroup: z.object({
+    label: z.string(),
+    sublabel: z.string().optional(),
+    badge: z.string().optional(),
+    share: z.number().min(0.1).max(0.9).default(0.5),
+    tone: v2Tone.optional(),
+  }),
+  rightGroup: z.object({
+    label: z.string(),
+    sublabel: z.string().optional(),
+    badge: z.string().optional(),
+    share: z.number().min(0.1).max(0.9).default(0.5),
+    tone: v2Tone.optional(),
+  }),
+  insetImage: z.object({
+    path: z.string(),
+    caption: z.string().optional(),
+    at: z.number().default(90),
+  }).optional(),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type CohortGridSpec = z.infer<typeof cohortGridSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
   durationFrames: z.number(),
-  /** Antidote 2.0 (opt-in): visual-thinking explanatory canvases & spatial depth-carry */
+  /** Antidote 2.0 / 10x (opt-in): visual-thinking explanatory canvases & spatial depth-carry */
   depthCarry: z.boolean().optional(),
+  shotIntent: shotIntentSchema.optional(),
+  annotatedScene: annotatedSceneSchema.optional(),
+  cohortGrid: cohortGridSchema.optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),

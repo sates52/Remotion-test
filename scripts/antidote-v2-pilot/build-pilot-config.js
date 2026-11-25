@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-pilot-config.js — Build & Zod/Variety-validate the 3-slice Hybrid Antidote 2.1 pilot
+ * build-pilot-config.js — Build & Zod/Single-World/Variety-validate the 3-slice Antidote 10x pilot
  * for "How to Talk to Anyone" (Leil Lowndes) + GitHub Actions stills/clips manifest.
  *
  * Slices (from public/captions/how-to-talk-to-anyone.vtt @ 30fps):
@@ -71,7 +71,7 @@ for (const [s0, s1, baseFrame] of slices) {
 
 const config = {
   meta: {
-    slug: "how-to-talk-to-anyone-hybrid-pilot",
+    slug: "how-to-talk-to-anyone-10x-pilot",
     title: "How to Talk to Anyone",
     author: "Leil Lowndes",
     fps: 30,
@@ -131,25 +131,9 @@ const config = {
           expression: "neutral",
         },
       },
-      stranger: {
-        name: "Clara",
-        role: "foil",
-        variant: {
-          skin: "#D9A47C",
-          hair: "#2E1F1B",
-          suit: "#7D3143",
-          shirt: "#F5ECE0",
-          gender: "f",
-          age: "adult",
-          outfit: "coat",
-          hairStyle: "long",
-          accessory: "scarf",
-          expression: "neutral",
-        },
-      },
     },
     artDirection: {
-      style: "mid-century modern New Yorker editorial gouache and crisp ink illustration",
+      style: "mid-century modern New Yorker editorial gouache, torn paper collage, and crisp ink illustration",
       mood: "obsidianGrid",
       captions: "minimal",
       hud: "off",
@@ -179,6 +163,13 @@ const config = {
       characters: [],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "contrast",
+        subject: "fast nervous grin vs flooding smile",
+        action: "full-bleed split wipe reveals custom-tailored smile",
+        payoff: "instant visual contrast between robotic reflex and genuine warmth",
+        revealFrame: 20,
+      },
       comparisonGrid: {
         layout: "fullBleedSplit",
         title: "MASS-PRODUCED VS. CUSTOM-TAILORED",
@@ -201,142 +192,114 @@ const config = {
       },
     },
     {
-      id: "s1-b2-yale-setup",
+      id: "s1-b2-yale-lab-annotated",
       fromFrame: 420,
-      durationFrames: 360,
-      shot: "wide",
+      durationFrames: 390,
+      shot: "insert",
       transition: { type: "slideCarryLeft", frames: 12 },
-      bg: {
-        type: "flat",
-        colors: ["#121A26"],
-        set: "none",
-        texture: "none",
-        stageMood: "slateEditorial",
-        image: { path: img("s1_yale_lab"), opacity: 0.92, dim: 0.24, groundFog: 0.48, kenBurns: "pushIn" },
-      },
-      camera: { zoom: [1, 1.03], panX: [0, 0], panY: [0, 0] },
-      characters: [
-        {
-          id: "cole-1",
-          role: "researcher",
-          x: 560,
-          y: 605,
-          scale: 0.62,
-          body: "full",
-          action: "talk",
-          holds: "notes",
-          holdHalo: true,
-          says: { text: "Boston & Yale Study", at: 185 },
-          lookAt: "partner",
-        },
-        {
-          id: "elena-1",
-          role: "host",
-          x: 1120,
-          y: 615,
-          scale: 0.60,
-          body: "full",
-          flip: true,
-          action: "idle",
-          lookAt: "partner",
-        },
-        {
-          id: "marcus-1",
-          role: "partner",
-          x: 1380,
-          y: 615,
-          scale: 0.60,
-          body: "full",
-          flip: true,
-          action: "idle",
-          lookAt: "partner",
-        },
-      ],
-      props: [
-        {
-          type: "customSvg",
-          x: 960,
-          y: 235,
-          scale: 0.52,
-          at: 40,
-          customSvg: {
-            viewBox: "0 0 260 120",
-            paths: [
-              { d: "M10,16 H250 V104 H10 Z", fill: "#1A2230", stroke: "#F5B73B", strokeWidth: 4 },
-              { d: "M42,46 H218", stroke: "#F5B73B", strokeWidth: 6 },
-              { d: "M64,74 H196", stroke: "#9FB2C9", strokeWidth: 4 },
-            ],
-          },
-        },
-      ],
+      bg: { type: "flat", colors: ["#121A26"], set: "none", texture: "none", stageMood: "slateEditorial" },
+      camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
+      characters: [],
+      props: [],
       texts: [],
+      shotIntent: {
+        job: "annotate-place",
+        subject: "Boston & Yale psychology lab",
+        action: "word-synced spotlights highlight researcher and opposite-sex pairs",
+        payoff: "viewer sees the real study setup without puppet clutter",
+        revealFrame: 210,
+      },
+      annotatedScene: {
+        image: img("s1_yale_lab"),
+        framing: "fullBleed",
+        kenBurns: "pushIn",
+        dim: 0.12,
+        banner: { text: "BOSTON & YALE PSYCHOLOGY STUDY", at: 180 },
+        spotlights: [
+          {
+            cx: 730,
+            cy: 360,
+            rx: 145,
+            ry: 170,
+            label: "YALE RESEARCHER",
+            note: "Assigns the secret task",
+            labelX: 290,
+            labelY: 220,
+            tone: "accent",
+            at: 210,
+          },
+          {
+            cx: 1410,
+            cy: 540,
+            rx: 170,
+            ry: 140,
+            label: "OPPOSITE-SEX PAIRS",
+            note: "Casual conversation",
+            labelX: 1580,
+            labelY: 240,
+            tone: "positive",
+            at: 325,
+          },
+        ],
+      },
     },
     {
-      id: "s1-b3-blink-secret-task",
-      fromFrame: 780,
+      id: "s1-b3-blink-cohort-split",
+      fromFrame: 810,
       durationFrames: 480,
-      shot: "twoShot",
-      continueFromPrev: true,
-      transition: { type: "cut", frames: 0 },
-      bg: {
-        type: "flat",
-        colors: ["#121A26"],
-        set: "none",
-        texture: "none",
-        stageMood: "slateEditorial",
-        image: { path: img("s1_yale_lab"), opacity: 0.9, dim: 0.30, groundFog: 0.50, kenBurns: "pushIn" },
-      },
-      camera: { zoom: [1.05, 1.12], panX: [0, 0], panY: [0, -10] },
-      characters: [
-        {
-          id: "elena-2",
-          role: "host",
-          action: "talk",
-          expression: "happy",
-          lookAt: "partner",
-          says: { text: "Count every single blink...", at: 230 },
-        },
-        {
-          id: "marcus-2",
-          role: "partner",
-          action: "idle",
-          expression: "surprised",
-          emotion: "lightbulb",
-          emotionAt: 310,
-          lookAt: "partner",
-        },
-      ],
-      props: [
-        {
-          type: "customSvg",
-          x: 960,
-          y: 470,
-          scale: 0.72,
-          at: 190,
-          customSvg: {
-            viewBox: "0 0 320 140",
-            paths: [
-              { d: "M20,70 H300", stroke: "#F5B73B", strokeWidth: 5, opacity: 0.85 },
-              { d: "M100,70 Q160,18 220,70 Q160,122 100,70 Z", fill: "#101319", stroke: "#F5B73B", strokeWidth: 6 },
-              { d: "M160,70 m-18,0 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0", fill: "#2DD4BF" },
-            ],
-          },
-        },
-      ],
+      shot: "insert",
+      transition: { type: "zoomPush", frames: 12 },
+      bg: { type: "flat", colors: ["#19102E"], set: "none", texture: "none", stageMood: "deepViolet" },
+      camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
+      characters: [],
+      props: [],
       texts: [],
+      shotIntent: {
+        job: "cohort-split",
+        subject: "20 study participants",
+        action: "cohort splits 50/50 into secret blink-counting task vs control",
+        payoff: "immediately visualizes the experimental split and unbroken gaze",
+        revealFrame: 140,
+      },
+      cohortGrid: {
+        title: "THE SECRET BLINK-COUNTING EXPERIMENT",
+        subtitle: "Half the participants were given one hidden instruction",
+        total: 20,
+        splitAt: 140,
+        leftGroup: {
+          badge: "50% · SECRET TASK",
+          label: "Count Every Blink",
+          sublabel: "Forced relentless eye focus",
+          share: 0.5,
+          tone: "accent",
+        },
+        rightGroup: {
+          badge: "50% · CONTROL GROUP",
+          label: "Normal Conversation",
+          sublabel: "No special gaze instruction",
+          share: 0.5,
+          tone: "neutral",
+        },
+        insetImage: {
+          path: img("s1_eye_contact"),
+          caption: "UNBROKEN EYE CONTACT",
+          at: 360,
+        },
+        callout: "They didn't know it — the task was designed to lock their gaze.",
+        calloutAt: 310,
+      },
     },
     {
       id: "s1-b4-study-results",
-      fromFrame: 1260,
-      durationFrames: 480,
+      fromFrame: 1290,
+      durationFrames: 450,
       shot: "medium",
-      depthCarry: true,
       transition: { type: "blurCut", frames: 12 },
       bg: { type: "flat", colors: ["#101319"], set: "none", texture: "none", stageMood: "obsidianGrid" },
       camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
       characters: [
         {
-          id: "cole-2",
+          id: "cole-1",
           role: "researcher",
           action: "point",
           expression: "happy",
@@ -345,9 +308,17 @@ const config = {
       ],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "data-proof",
+        subject: "Dr. Cole + fondness curve",
+        action: "researcher points as curve climbs on 'significantly higher feelings'",
+        payoff: "proves unbroken eye contact drives deep respect and fondness",
+        revealFrame: 95,
+      },
       dataMatrix: {
         variant: "dualCurve",
         borderless: true,
+        drawAt: 95,
         title: "RESPECT & FONDNESS: BLINK-TASK VS. CONTROL",
         subtitle: "Subjects stared at reported dramatically higher connection",
         xLabel: "CONVERSATION TIME",
@@ -362,44 +333,67 @@ const config = {
 
     // ── SLICE 2 (1740..3480, 58s @ ~18:00) ───────────────────────────────────
     {
-      id: "s2-b1-melting-tension",
+      id: "s2-b1-melting-tension-annotated",
       fromFrame: 1740,
       durationFrames: 480,
-      shot: "twoShot",
+      shot: "insert",
       transition: { type: "zoomPull", frames: 12 },
-      bg: {
-        type: "flat",
-        colors: ["#170B0E"],
-        set: "none",
-        texture: "none",
-        stageMood: "crimsonNight",
-        image: { path: img("s2_warm_chat"), opacity: 0.9, dim: 0.28, groundFog: 0.50, kenBurns: "panRight" },
-      },
+      bg: { type: "flat", colors: ["#170B0E"], set: "none", texture: "none", stageMood: "crimsonNight" },
       camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
-      characters: [
-        {
-          id: "marcus-3",
-          role: "partner",
-          action: "talk",
-          expression: "happy",
-          lookAt: "partner",
-          says: { text: "Brutally cold out there!", at: 35 },
-        },
-        {
-          id: "clara-1",
-          role: "stranger",
-          action: "offer",
-          holds: "letter",
-          holdHalo: true,
-          expression: "happy",
-          lookAt: "partner",
-          says: { text: "Come join us for dinner!", at: 315 },
-        },
-      ],
-      props: [
-        { type: "coffee", x: 960, y: 690, scale: 0.52, at: 15 },
-      ],
+      characters: [],
+      props: [],
       texts: [],
+      shotIntent: {
+        job: "annotate-place",
+        subject: "warm snowy window conversation",
+        action: "spotlights cold window & melting tension, then stamps dinner invitation",
+        payoff: "single illustrated world with zero puppet clash",
+        revealFrame: 35,
+      },
+      annotatedScene: {
+        image: img("s2_warm_chat"),
+        framing: "fullBleed",
+        kenBurns: "panRight",
+        dim: 0.10,
+        spotlights: [
+          {
+            cx: 1700,
+            cy: 440,
+            rx: 145,
+            ry: 190,
+            label: "AGREEABLE SMALL TALK",
+            note: "Brutally cold outside!",
+            labelX: 1580,
+            labelY: 160,
+            tone: "positive",
+            at: 35,
+          },
+          {
+            cx: 960,
+            cy: 360,
+            rx: 320,
+            ry: 160,
+            label: "THICK TENSION MELTS",
+            note: "Warmth beats credentials",
+            labelX: 960,
+            labelY: 115,
+            tone: "accent",
+            at: 235,
+          },
+        ],
+        stickers: [
+          {
+            title: "DINNER INVITATION",
+            subtitle: "Won through warmth, not status",
+            icon: "envelope",
+            x: 320,
+            y: 745,
+            rot: -2.4,
+            tone: "positive",
+            at: 330,
+          },
+        ],
+      },
     },
     {
       id: "s2-b2-naked-city-anchor",
@@ -411,7 +405,7 @@ const config = {
       camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
       characters: [
         {
-          id: "elena-3",
+          id: "elena-1",
           role: "host",
           action: "think",
           expression: "worried",
@@ -419,12 +413,24 @@ const config = {
       ],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "document-quote",
+        subject: "Leil Lowndes quote + Elena",
+        action: "highlighter sweeps key phrases in sync with narration",
+        payoff: "anchors the 'Never the Naked City' rule visually",
+        revealFrame: 280,
+      },
       realAnchor: {
         badge: "CORE TECHNIQUE",
         title: "NEVER THE NAKED CITY",
         subtitle: "Eliminate the dead-end one-word answer",
         quote: "When you just say 'Columbus', you dump a massive cognitive burden onto the other person.",
         attribution: "Leil Lowndes",
+        highlightPhrases: [
+          { text: "just say 'Columbus'", at: 280 },
+          { text: "massive cognitive burden", at: 360 },
+        ],
+        marginNote: { text: "Never leave the listener stranded!", at: 320 },
         annotations: [
           { text: "One-Word Answer", side: "left" },
           { text: "Forces Mental Search", side: "right" },
@@ -432,44 +438,44 @@ const config = {
       },
     },
     {
-      id: "s2-b3-columbus-burden",
+      id: "s2-b3-columbus-burden-stage",
       fromFrame: 2670,
       durationFrames: 420,
       shot: "twoShot",
       transition: { type: "zoomPush", frames: 12 },
-      bg: {
-        type: "flat",
-        colors: ["#121A26"],
-        set: "none",
-        texture: "none",
-        stageMood: "slateEditorial",
-        image: { path: img("s2_static_wall"), opacity: 0.88, dim: 0.32, groundFog: 0.52, kenBurns: "pushIn" },
-      },
+      bg: { type: "flat", colors: ["#EFE7D6"], set: "none", texture: "none", stageMood: "warmParchment" },
       camera: { zoom: [1, 1.03], panX: [0, 0], panY: [0, 0] },
       characters: [
         {
-          id: "marcus-4",
+          id: "marcus-1",
           role: "partner",
           action: "idle",
           expression: "blank",
           lookAt: "partner",
-          says: { text: "Columbus.", at: 20 },
+          says: { text: "Columbus.", at: 15 },
         },
         {
-          id: "elena-4",
+          id: "elena-2",
           role: "host",
           action: "think",
           expression: "worried",
           emotion: "sweat",
-          emotionAt: 105,
+          emotionAt: 95,
           lookAt: "partner",
-          says: { text: "Uh... what do I say?", at: 155 },
+          says: { text: "Uh... what do I say?", at: 145 },
         },
       ],
       props: [
-        { type: "boulder", x: 960, y: 540, scale: 0.65, arc: "grow", at: 70 },
+        { type: "boulder", x: 960, y: 540, scale: 0.65, arc: "grow", at: 55 },
       ],
       texts: [],
+      shotIntent: {
+        job: "character-drama",
+        subject: "Marcus + Elena + growing boulder",
+        action: "bare 'Columbus.' drops a growing boulder between them",
+        payoff: "clean pure-vector stage makes cognitive burden unmistakable",
+        revealFrame: 55,
+      },
     },
     {
       id: "s2-b4-trampoline-equation",
@@ -483,6 +489,13 @@ const config = {
       characters: [],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "mechanism-flow",
+        subject: "Naked City -> Trampoline -> Payoff",
+        action: "borderless circular medallions show the hook transformation",
+        payoff: "shows how one vivid hook sparks effortless follow-ups",
+        revealFrame: 30,
+      },
       visualEquation: {
         layout: "borderless",
         title: "STATIC RESUME → CONVERSATIONAL TRAMPOLINE",
@@ -499,51 +512,77 @@ const config = {
 
     // ── SLICE 3 (3480..5070, 53s @ ~34:30) ───────────────────────────────────
     {
-      id: "s3-b1-lobby-to-boardroom",
+      id: "s3-b1-lobby-to-boardroom-trace",
       fromFrame: 3480,
       durationFrames: 540,
-      shot: "wide",
+      shot: "insert",
       transition: { type: "blurCut", frames: 12 },
-      bg: {
-        type: "flat",
-        colors: ["#101319"],
-        set: "none",
-        texture: "none",
-        stageMood: "obsidianGrid",
-        image: { path: img("s3_lobby_boardroom"), opacity: 0.92, dim: 0.24, groundFog: 0.48, kenBurns: "panRight" },
-      },
-      camera: { zoom: [1, 1.03], panX: [0, 0], panY: [0, 0] },
-      characters: [
-        {
-          id: "elena-5",
-          role: "host",
-          x: 640,
-          y: 610,
-          scale: 0.60,
-          body: "full",
-          action: "walk",
-          travel: [-220, 220],
-          expression: "happy",
-          lookAt: "partner",
-        },
-        {
-          id: "clara-2",
-          role: "stranger",
-          x: 1380,
-          y: 610,
-          scale: 0.60,
-          body: "full",
-          flip: true,
-          action: "talk",
-          expression: "happy",
-          lookAt: "partner",
-          says: { text: "No one feels managed.", at: 360 },
-        },
-      ],
+      bg: { type: "flat", colors: ["#101319"], set: "none", texture: "none", stageMood: "obsidianGrid" },
+      camera: { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] },
+      characters: [],
       props: [],
-      texts: [
-        { text: "CHOREOGRAPHING SAFETY · LOBBY TO BOARDROOM", x: 960, y: 120, size: 44, style: "box", boxColor: "rgba(16,19,25,0.82)", color: "#F5B73B", at: 18 },
-      ],
+      texts: [],
+      shotIntent: {
+        job: "annotate-place",
+        subject: "2-story building cutaway",
+        action: "golden trace rises from Lobby to Boardroom as narrator says it",
+        payoff: "fixes giant-puppet clash and visualizes organizational safety",
+        revealFrame: 280,
+      },
+      annotatedScene: {
+        image: img("s3_lobby_boardroom"),
+        framing: "editorialPrint",
+        kenBurns: "pushIn",
+        dim: 0.05,
+        banner: { text: "CHOREOGRAPHING SAFETY · CHAIN OF COMMAND", at: 18 },
+        spotlights: [
+          {
+            cx: 1045,
+            cy: 660,
+            rx: 145,
+            ry: 78,
+            label: "01 · THE LOBBY",
+            note: "Respect starts at the desk",
+            labelX: 1690,
+            labelY: 650,
+            tone: "accent",
+            at: 280,
+          },
+          {
+            cx: 1020,
+            cy: 405,
+            rx: 150,
+            ry: 82,
+            label: "02 · THE BOARDROOM",
+            note: "Zero threat at the top",
+            labelX: 1690,
+            labelY: 365,
+            tone: "positive",
+            at: 350,
+          },
+        ],
+        traces: [
+          {
+            from: { x: 1045, y: 635, label: "LOBBY" },
+            to: { x: 1020, y: 425, label: "BOARDROOM" },
+            tone: "accent",
+            at: 300,
+            dur: 45,
+          },
+        ],
+        stickers: [
+          {
+            title: "PSYCHOLOGICAL SAFETY",
+            subtitle: "No one feels managed or manipulated",
+            icon: "check",
+            x: 205,
+            y: 540,
+            rot: -1.8,
+            tone: "accent",
+            at: 430,
+          },
+        ],
+      },
     },
     {
       id: "s3-b2-sociopath-quadrant",
@@ -557,9 +596,17 @@ const config = {
       characters: [],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "framework-map",
+        subject: "4 mechanics of charisma",
+        action: "quadrants reveal in sync with spoken enumeration",
+        payoff: "maps technique vs authenticity and highlights boundary setting",
+        revealFrame: 60,
+      },
       dataMatrix: {
         variant: "quadrant2x2",
         borderless: true,
+        quadrantRevealStep: 52,
         title: "THE COUNTERPOINT: THE SOCIOPATH PROBLEM",
         subtitle: "4 mechanics of charisma — and the trap of faking all 92 at once",
         xLabel: "AUTHENTICITY",
@@ -584,6 +631,13 @@ const config = {
       characters: [],
       props: [],
       texts: [],
+      shotIntent: {
+        job: "contrast",
+        subject: "mechanical overload vs natural integration",
+        action: "full-bleed split contrasts robotic anxiety with effortless ease",
+        payoff: "closes with memorable contrast: practice one habit at a time",
+        revealFrame: 20,
+      },
       comparisonGrid: {
         layout: "fullBleedSplit",
         title: "PLEASE DON'T DEPLOY ALL 92 TRICKS AT ONCE",
@@ -613,35 +667,38 @@ const varietyStats = assertVariety(parsed);
 
 const outDir = path.join(ROOT, "audit", "antidote-v2-pilot");
 fs.mkdirSync(outDir, { recursive: true });
-const cfgPath = path.join(outDir, "config.hybrid.json");
+const cfgPath = path.join(outDir, "config.v10x.json");
 fs.writeFileSync(cfgPath, JSON.stringify(parsed, null, 2));
+
+const extraPngs = fs
+  .readdirSync(path.join(ROOT, "public", "scenes", "antidote-v2-pilot"))
+  .filter((f) => f.endsWith(".png"))
+  .sort()
+  .map((f) => `public/scenes/antidote-v2-pilot/${f}`);
 
 const manifest = {
   schema: "stills/1",
-  name: "Antidote 2.1 Hybrid Pilot (How to Talk to Anyone)",
+  name: "Antidote 10x Single-World Pilot (How to Talk to Anyone)",
   composition: "Antidote-lab",
   entry: "src/index.ts",
   silent: true,
   gl: "default",
   shards: 4,
-  extra: fs.readdirSync(path.join(ROOT, "public", "scenes", "antidote-v2-pilot"))
-    .filter((f) => f.endsWith(".png"))
-    .sort()
-    .map((f) => `public/scenes/antidote-v2-pilot/${f}`),
+  extra: extraPngs,
   jobs: [
     {
       id: "pilot-stills",
-      config: "config.hybrid.json",
-      frames: [220, 635, 1120, 1520, 2090, 2460, 2900, 3310, 3880, 4320, 4840],
+      config: "config.v10x.json",
+      frames: [260, 770, 1210, 1620, 2120, 2600, 2940, 3360, 3950, 4420, 4920],
     },
-    { id: "clip-s1", config: "config.hybrid.json", frames: [], clip: { from: 0, to: 1739 } },
-    { id: "clip-s2", config: "config.hybrid.json", frames: [], clip: { from: 1740, to: 3479 } },
-    { id: "clip-s3", config: "config.hybrid.json", frames: [], clip: { from: 3480, to: 5069 } },
+    { id: "clip-s1", config: "config.v10x.json", frames: [], clip: { from: 0, to: 1739 } },
+    { id: "clip-s2", config: "config.v10x.json", frames: [], clip: { from: 1740, to: 3479 } },
+    { id: "clip-s3", config: "config.v10x.json", frames: [], clip: { from: 3480, to: 5069 } },
   ],
 };
-const manifestPath = path.join(outDir, "manifest.hybrid.json");
+const manifestPath = path.join(outDir, "manifest.v10x.json");
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
 console.log(`✓ Wrote ${path.relative(ROOT, cfgPath)} (${parsed.scenes.length} scenes, ${parsed.captions.length} captions, ${parsed.meta.durationInFrames} frames)`);
-console.log(`✓ Variety stats:`, JSON.stringify(varietyStats));
-console.log(`✓ Wrote ${path.relative(ROOT, manifestPath)}`);
+console.log(`✓ Variety & Single-World stats:`, JSON.stringify(varietyStats));
+console.log(`✓ Wrote ${path.relative(ROOT, manifestPath)} (${extraPngs.length} extra PNGs)`);

@@ -1,13 +1,18 @@
 /**
- * v2-variety-lint.js — YPP anti-template variety quota validator for Hybrid Antidote 2.1.
+ * v2-variety-lint.js — YPP anti-template & Single-World collision validator for Antidote 10x.
  *
- * Ensures no single visual mode dominates the film, boxed-card layouts stay <= 20%,
- * no mode runs > 2 consecutive scenes without `continueFromPrev: true`, and minimal
- * captions are populated when `artDirection.captions === "minimal"`.
+ * Ensures:
+ *  1. No single visual mode dominates (>35%, or >65% for live-story) & boxed-card <= 20%.
+ *  2. No mode runs > 2 consecutive scenes without `continueFromPrev: true`.
+ *  3. Minimal captions are populated when `artDirection.captions === "minimal"`.
+ *  4. Single-World rule: flat-vector `characters` NEVER collide with `annotatedScene`, `cohortGrid`,
+ *     `comparisonGrid`, or a `bg.image` that lacks `emptyStage: true`.
  */
 
 function classifySceneMode(scene) {
   if (!scene || typeof scene !== "object") return "unknown";
+  if (scene.annotatedScene) return "annotated-scene";
+  if (scene.cohortGrid) return "cohort-grid";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"
@@ -36,13 +41,23 @@ function analyzeVariety(config) {
   let curRun = 0;
   let coStagedCount = 0;
   let continuityCount = 0;
+  let intentCount = 0;
+  let singleWorldViolations = 0;
 
   for (const s of scenes) {
     const mode = classifySceneMode(s);
     counts[mode] = (counts[mode] || 0) + 1;
     if (s.continueFromPrev) continuityCount++;
-    if ((s.visualEquation || s.dataMatrix || s.realAnchor) && Array.isArray(s.characters) && s.characters.length > 0) {
+    if (s.shotIntent) intentCount++;
+    const hasChars = Array.isArray(s.characters) && s.characters.length > 0;
+    if ((s.visualEquation || s.dataMatrix || s.realAnchor) && hasChars) {
       coStagedCount++;
+    }
+    if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
+      singleWorldViolations++;
+    }
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid)) {
+      singleWorldViolations++;
     }
     if (mode === curMode && !s.continueFromPrev) {
       curRun++;
@@ -59,13 +74,34 @@ function analyzeVariety(config) {
   }
 
   const castCount = config?.meta?.cast ? Object.keys(config.meta.cast).length : 0;
-  return { total, counts, shares, maxConsecutive, coStagedCount, continuityCount, castCount };
+  return {
+    total,
+    counts,
+    shares,
+    maxConsecutive,
+    coStagedCount,
+    continuityCount,
+    intentCount,
+    singleWorldClean: singleWorldViolations === 0,
+    singleWorldViolations,
+    castCount,
+  };
 }
 
 function assertVariety(config) {
+  const scenes = Array.isArray(config?.scenes) ? config.scenes : [];
   const stats = analyzeVariety(config);
   const errors = [];
   if (stats.total === 0) errors.push("config has 0 scenes");
+  for (const s of scenes) {
+    const hasChars = Array.isArray(s.characters) && s.characters.length > 0;
+    if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
+      errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
+    }
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid)) {
+      errors.push(`Single-World violation in ${s.id}: annotatedScene/cohortGrid/comparisonGrid cannot mix flat-vector characters`);
+    }
+  }
   if ((stats.shares["boxed-card"] || 0) > 0.20) {
     errors.push(`boxed-card share ${(stats.shares["boxed-card"] * 100).toFixed(1)}% exceeds 20% YPP limit`);
   }
@@ -82,7 +118,7 @@ function assertVariety(config) {
     errors.push(`artDirection.captions === "minimal" but config.captions is empty`);
   }
   if (errors.length) {
-    const err = new Error(`Variety quota failed:\n  - ${errors.join("\n  - ")}`);
+    const err = new Error(`Variety/Single-World check failed:\n  - ${errors.join("\n  - ")}`);
     err.stats = stats;
     throw err;
   }

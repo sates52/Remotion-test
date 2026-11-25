@@ -32,6 +32,8 @@ import { VisualEquation } from "./VisualEquation";
 import { ComparisonGrid } from "./ComparisonGrid";
 import { DataMatrix } from "./DataMatrix";
 import { RealAnchorCard } from "./RealAnchorCard";
+import { AnnotatedScene } from "./AnnotatedScene";
+import { CohortGrid } from "./CohortGrid";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -409,11 +411,11 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const ink = bg.accent || "#1E1E22";
   const bodies = preset.dropsCast ? [] : scene.characters ?? [];
 
-  // Antidote 2.0 (opt-in) — EXPLANATORY VISUAL-THINKING STAGES.
-  // Active ONLY when a scene explicitly supplies one of the four v2 payloads; legacy configs never enter here.
-  if (scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+  // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
+  // Active ONLY when a scene explicitly supplies one of the v2/10x payloads; legacy configs never enter here.
+  if (scene.annotatedScene || scene.cohortGrid || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
     const coCast = scene.characters ?? [];
-    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid;
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid;
     const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
@@ -423,6 +425,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
             <Backdrop bg={prevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
           </AbsoluteFill>
         ) : null}
+        {scene.annotatedScene ? <AnnotatedScene spec={scene.annotatedScene} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.cohortGrid ? <CohortGrid spec={scene.cohortGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
