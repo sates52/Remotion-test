@@ -1,0 +1,68 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Book 3 Pilot (Essentialism - Light Polarity)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/scenes/essentialism-10x-pilot/e1_char_overwhelmed.png",
+  "public/scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+  "public/scenes/essentialism-10x-pilot/e1_prop_tetris_stack.png",
+  "public/scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_mentor.png",
+  "public/scenes/essentialism-10x-pilot/e2_cluttered_desk.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e3_pharmacy_integrity.png"
+ ],
+ "jobs": [
+  {
+   "id": "essentialism-stills",
+   "config": "config.essentialism.json",
+   "frames": [
+    450,
+    780,
+    1340,
+    1920,
+    2260,
+    2930,
+    3460,
+    3810,
+    4440
+   ]
+  },
+  {
+   "id": "clip-s1",
+   "config": "config.essentialism.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1499
+   }
+  },
+  {
+   "id": "clip-s2",
+   "config": "config.essentialism.json",
+   "frames": [],
+   "clip": {
+    "from": 1500,
+    "to": 2999
+   }
+  },
+  {
+   "id": "clip-s3",
+   "config": "config.essentialism.json",
+   "frames": [],
+   "clip": {
+    "from": 3000,
+    "to": 4499
+   }
+  }
+ ],
+ "inputHash": "4dbc336350ee3f6c",
+ "files": {
+  "stills/config.essentialism.json": "2f8d5c8a5b0272b3265dbcfe80ac0eef700a87a43b58e15643a46514286855b4"
+ },
+ "builtAt": "2026-11-25T11:24:56.684Z"
+}
