@@ -1,0 +1,45 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x 3-Book Book-Native Thumbnails",
+ "composition": "Thumb-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/scenes/antidote-v2-pilot/s1_fast_grin.png",
+  "public/scenes/strategy-10x-pilot/s1_chess_expectation.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e1_char_overwhelmed.png"
+ ],
+ "jobs": [
+  {
+   "id": "thumb-book1-talk",
+   "config": "thumb.book1.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "thumb-book2-strategy",
+   "config": "thumb.book2.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "thumb-book3-essentialism",
+   "config": "thumb.book3.json",
+   "frames": [
+    1
+   ]
+  }
+ ],
+ "inputHash": "0979bfc3409b055f",
+ "files": {
+  "stills/thumb.book1.json": "e5f4ab5e6a06b0b047026fae6366f3dd013ba2e55fbe37198c889888c65720b4",
+  "stills/thumb.book2.json": "69b3e9e355dd5d73644fe1ed96a161999060d959de95d92bb8c050bdd4c1cb89",
+  "stills/thumb.book3.json": "b49bbb6debd46c39636dba62beaefedcfe1aac36a34e2bf44523cf1f3656482c"
+ },
+ "builtAt": "2026-11-25T13:34:15.590Z"
+}
