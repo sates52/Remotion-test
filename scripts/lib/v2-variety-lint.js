@@ -13,6 +13,8 @@ function classifySceneMode(scene) {
   if (!scene || typeof scene !== "object") return "unknown";
   if (scene.annotatedScene) return "annotated-scene";
   if (scene.cohortGrid) return "cohort-grid";
+  if (scene.timelineScrub) return "timeline-scrub";
+  if (scene.statSlam) return "stat-slam";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"
@@ -56,7 +58,7 @@ function analyzeVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       singleWorldViolations++;
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid)) {
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam)) {
       singleWorldViolations++;
     }
     if (mode === curMode && !s.continueFromPrev) {
@@ -98,8 +100,11 @@ function assertVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid)) {
-      errors.push(`Single-World violation in ${s.id}: annotatedScene/cohortGrid/comparisonGrid cannot mix flat-vector characters`);
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam)) {
+      errors.push(`Single-World violation in ${s.id}: annotatedScene/cohortGrid/comparisonGrid/timelineScrub/statSlam cannot mix flat-vector characters`);
+    }
+    if (hasChars && config?.meta?.artDirection?.castMode === "illustrated") {
+      errors.push(`Single-World violation in ${s.id}: castMode "illustrated" cannot mix flat-vector Everyman characters`);
     }
   }
   if ((stats.shares["boxed-card"] || 0) > 0.20) {

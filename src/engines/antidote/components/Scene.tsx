@@ -34,6 +34,8 @@ import { DataMatrix } from "./DataMatrix";
 import { RealAnchorCard } from "./RealAnchorCard";
 import { AnnotatedScene } from "./AnnotatedScene";
 import { CohortGrid } from "./CohortGrid";
+import { TimelineScrub } from "./TimelineScrub";
+import { StatSlam } from "./StatSlam";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -413,9 +415,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
 
   // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
   // Active ONLY when a scene explicitly supplies one of the v2/10x payloads; legacy configs never enter here.
-  if (scene.annotatedScene || scene.cohortGrid || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
     const coCast = scene.characters ?? [];
-    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid;
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam;
     const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
@@ -427,6 +429,8 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         ) : null}
         {scene.annotatedScene ? <AnnotatedScene spec={scene.annotatedScene} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.cohortGrid ? <CohortGrid spec={scene.cohortGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.timelineScrub ? <TimelineScrub spec={scene.timelineScrub} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.statSlam ? <StatSlam spec={scene.statSlam} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}

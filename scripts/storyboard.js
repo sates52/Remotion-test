@@ -534,6 +534,11 @@ a face with a callout is the last resort.
 A wrong icon is worse than none.
 ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${process.env.STORYBOARD_SPEECH === "1" ? SPEECH_LINE : ""}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
+## Antidote 10x Single-World Devices (opt-in when book.json sets stylePack / artDirection)
+- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`.
+- Devices by narrative job: \`annotatedScene\` (spotlights, traces, stickers over full-bleed/editorialPrint art), \`cohortGrid\` (50/50 group split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`layout: "fullBleedSplit"\`), \`visualEquation\` (\`layout: "borderless"\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\` (\`highlightPhrases\` + \`marginNote\`).
+- Every 10x beat should declare \`shotIntent: { job, subject, action, payoff }\`.
+
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
 

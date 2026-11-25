@@ -1493,6 +1493,21 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     }
     lastPlannedShot = out.shot;
     lastPlannedBg = out.bg ? JSON.parse(JSON.stringify(out.bg)) : null;
+    // Antidote 10x (opt-in): pass through authored 10x Single-World payloads from art.json
+    if (A) {
+      const v10xKeys = ["annotatedScene", "cohortGrid", "timelineScrub", "statSlam", "visualEquation", "comparisonGrid", "dataMatrix", "realAnchor", "shotIntent", "depthCarry"];
+      for (const k of v10xKeys) {
+        if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
+      }
+      if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
+      if (A.bgImage) out.bg = { ...(out.bg || {}), image: A.bgImage };
+      const fullStage = !!(A.annotatedScene || A.cohortGrid || A.timelineScrub || A.statSlam || A.comparisonGrid || ((A.visualEquation || A.dataMatrix) && !(Array.isArray(A.cast) && A.cast.length)));
+      if (fullStage) {
+        out.characters = [];
+        out.props = [];
+        out.texts = [];
+      }
+    }
     return out;
   });
 
@@ -1651,6 +1666,8 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); return man.take && man.take.by === "operator" && man.take.note ? { take: { note: String(man.take.note).slice(0, 200) } } : {}; } catch { return {}; } })(),
       // the book's graphic hand (book.json skin, lib/book-skin.js): subtitles, name plates, typeface
       ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); return require("./lib/book-skin").validSkin(man.skin) ? { skin: { caption: man.skin.caption, plate: man.skin.plate, font: man.skin.font } } : {}; } catch { return {}; } })(),
+      // Antidote 10x (opt-in): per-book stylePack / artDirection from book.json
+      ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); if (man.artDirection) return { artDirection: man.artDirection }; if (man.stylePack) return { artDirection: require("./lib/style-packs").toArtDirection(man.stylePack) }; return {}; } catch { return {}; } })(),
       // the book's narrative form and the parts its hosts announced (lib/narrative-form.js): the film's frame draws them
       ...(() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); const ff = require("./lib/narrative-form").filmForm(man.form, scenes.map((x) => ({ text: x.text, from: x.from }))); return ff ? { form: ff } : {}; } catch { return {}; } })(),
     },

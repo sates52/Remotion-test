@@ -12,7 +12,10 @@ export type StageMoodName =
   | "deepViolet"
   | "warmParchment"
   | "crimsonNight"
-  | "slateEditorial";
+  | "slateEditorial"
+  | "blueprintNavy"
+  | "inkScroll"
+  | "emeraldNoir";
 
 export type ArtPalette = {
   bg: string;
@@ -29,6 +32,8 @@ export type ArtPalette = {
 
 export type ArtDirectionConfig = {
   style?: string;
+  stylePack?: string;
+  castMode?: "illustrated" | "vectorRig";
   mood?: StageMoodName;
   palette?: Partial<ArtPalette>;
   fontDisplay?: string;
@@ -144,6 +149,63 @@ export const STAGE_MOODS: Record<
       positive: "#34D399",
     },
   },
+  blueprintNavy: {
+    background: "radial-gradient(ellipse at 50% 40%, #132642 0%, #0B1626 68%, #060D18 100%)",
+    gridColor: "rgba(56, 189, 248, 0.10)",
+    gridSize: 64,
+    gridOpacity: 0.65,
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 48%, rgba(4,9,18,0.58) 100%)",
+    palette: {
+      bg: "#0B1626",
+      bgAlt: "#132642",
+      surface: "rgba(15, 31, 56, 0.92)",
+      surfaceBorder: "rgba(56, 189, 248, 0.24)",
+      ink: "#F4F7FB",
+      muted: "#94B4D4",
+      accent: "#F06449",
+      accent2: "#38BDF8",
+      danger: "#FB7185",
+      positive: "#34D399",
+    },
+  },
+  inkScroll: {
+    background: "radial-gradient(ellipse at 50% 40%, #F3ECE0 0%, #E4D8C3 72%, #D4C5AA 100%)",
+    gridColor: "rgba(28, 25, 23, 0.06)",
+    gridSize: 84,
+    gridOpacity: 0.4,
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 56%, rgba(36,24,14,0.20) 100%)",
+    palette: {
+      bg: "#F3ECE0",
+      bgAlt: "#E4D8C3",
+      surface: "rgba(252, 248, 240, 0.95)",
+      surfaceBorder: "rgba(28, 25, 23, 0.20)",
+      ink: "#1C1917",
+      muted: "#57534E",
+      accent: "#B9382C",
+      accent2: "#1E3A5F",
+      danger: "#B91C1C",
+      positive: "#166534",
+    },
+  },
+  emeraldNoir: {
+    background: "radial-gradient(ellipse at 50% 38%, #132B22 0%, #0B1914 68%, #050D0A 100%)",
+    gridColor: "rgba(212, 168, 83, 0.08)",
+    gridSize: 72,
+    gridOpacity: 0.5,
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 48%, rgba(4,10,7,0.58) 100%)",
+    palette: {
+      bg: "#0B1914",
+      bgAlt: "#132B22",
+      surface: "rgba(16, 36, 29, 0.92)",
+      surfaceBorder: "rgba(212, 168, 83, 0.24)",
+      ink: "#F5F3EC",
+      muted: "#9AB8AD",
+      accent: "#D4A853",
+      accent2: "#34D399",
+      danger: "#F87171",
+      positive: "#4ADE80",
+    },
+  },
 };
 
 export const DEFAULT_DISPLAY_FONT =
@@ -151,10 +213,31 @@ export const DEFAULT_DISPLAY_FONT =
 export const DEFAULT_BODY_FONT =
   '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
 
+function hexLuminance(hex?: string): number {
+  if (!hex || typeof hex !== "string") return 0.5;
+  const m = hex.trim().replace("#", "");
+  const full = m.length === 3 ? m.split("").map((c) => c + c).join("") : m;
+  if (!/^[0-9a-f]{6}$/i.test(full)) return 0.5;
+  const n = parseInt(full, 16);
+  const r = ((n >> 16) & 255) / 255;
+  const g = ((n >> 8) & 255) / 255;
+  const b = (n & 255) / 255;
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
 export function resolveArtPalette(ad?: ArtDirectionConfig | null, moodOverride?: StageMoodName): ArtPalette {
   const mood = moodOverride ?? ad?.mood ?? "obsidianGrid";
   const base = STAGE_MOODS[mood]?.palette ?? STAGE_MOODS.obsidianGrid.palette;
-  return { ...base, ...(ad?.palette ?? {}) };
+  const ov = ad?.palette ?? {};
+  const isLightBg = hexLuminance(base.bg) > 0.5;
+  if (!isLightBg) return { ...base, ...ov };
+  const safeOv: Partial<ArtPalette> = { ...ov };
+  for (const k of ["accent", "ink", "muted", "positive", "danger"] as const) {
+    if (safeOv[k] && hexLuminance(safeOv[k]) > 0.45) {
+      delete safeOv[k];
+    }
+  }
+  return { ...base, ...safeOv };
 }
 
 export function toneColor(

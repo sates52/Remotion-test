@@ -12,7 +12,10 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 args = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--") and "=" in a)
 ONLY = set(args["only"].split(",")) if args.get("only") else None
 
-P = json.load(open(os.path.join(HERE, "prompts.json"), encoding="utf-8"))
+prompts_path = args.get("prompts") or os.path.join(HERE, "prompts.json")
+if not os.path.isabs(prompts_path):
+    prompts_path = os.path.join(ROOT, prompts_path) if os.path.exists(os.path.join(ROOT, prompts_path)) else os.path.join(HERE, prompts_path)
+P = json.load(open(prompts_path, encoding="utf-8"))
 OUT = os.path.join(ROOT, "public", P["outDir"])
 os.makedirs(OUT, exist_ok=True)
 REP = os.path.join(OUT, "assets.report.json")

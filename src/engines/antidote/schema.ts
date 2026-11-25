@@ -687,7 +687,7 @@ export const bgSchema = z.object({
   // told v5 slice 4: a place drawn as a SCENE (sky + ground) is drawn as itself behind a figure scene too
   own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })), sky: z.string().optional(), ground: z.string().optional() }).optional(),
   // Antidote 2.0 (opt-in): curated rich canvas mood & bespoke Flux scenic/isometric diorama backdrop
-  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial"]).optional(),
+  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"]).optional(),
   image: z.object({
     path: z.string(),
     opacity: z.number().min(0).max(1).optional(),
@@ -1056,7 +1056,9 @@ export type RealAnchorSpec = z.infer<typeof realAnchorSchema>;
 /** Antidote 2.0 (opt-in): Book-level art direction lock (breaks channel-wide YPP template clustering) */
 export const artDirectionSchema = z.object({
   style: z.string().optional(),
-  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial"]).optional(),
+  stylePack: z.string().optional(),
+  castMode: z.enum(["illustrated", "vectorRig"]).optional(),
+  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"]).optional(),
   palette: z.object({
     bg: z.string().optional(),
     bgAlt: z.string().optional(),
@@ -1156,6 +1158,42 @@ export const cohortGridSchema = z.object({
 });
 export type CohortGridSpec = z.infer<typeof cohortGridSchema>;
 
+export const timelineScrubSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  events: z.array(z.object({
+    time: z.string(),
+    title: z.string().min(1),
+    detail: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().default(0),
+  })).min(2).max(6),
+  loopLabel: z.string().optional(),
+  loopAt: z.number().optional(),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type TimelineScrubSpec = z.infer<typeof timelineScrubSchema>;
+
+export const statSlamSchema = z.object({
+  kicker: z.string().optional(),
+  value: z.string().min(1),
+  label: z.string().min(1),
+  note: z.string().optional(),
+  framing: z.enum(["paperBlock", "blueprint", "minimal"]).optional(),
+  tone: v2Tone.optional(),
+  bars: z.array(z.object({
+    label: z.string().min(1),
+    value: z.number().min(0).max(1),
+    text: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).max(4).optional(),
+  at: z.number().optional(),
+});
+export type StatSlamSpec = z.infer<typeof statSlamSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
@@ -1165,6 +1203,8 @@ export const sceneSchema = z.object({
   shotIntent: shotIntentSchema.optional(),
   annotatedScene: annotatedSceneSchema.optional(),
   cohortGrid: cohortGridSchema.optional(),
+  timelineScrub: timelineScrubSchema.optional(),
+  statSlam: statSlamSchema.optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),

@@ -194,8 +194,8 @@ test("quadrant2x2 dataMatrix variant parses cleanly", () => {
   assert.strictEqual(q.quadrants[3].active, true);
 });
 
-test("all 5 stage moods resolve complete art palettes", () => {
-  const moods = ["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial"];
+test("all 8 stage moods resolve complete art palettes + WCAG light-mood contrast guard", () => {
+  const moods = ["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"];
   for (const m of moods) {
     const pal = artDir.resolveArtPalette({ mood: m });
     for (const k of ["bg", "surface", "ink", "muted", "accent", "accent2", "danger", "positive"]) {
@@ -204,6 +204,35 @@ test("all 5 stage moods resolve complete art palettes", () => {
   }
   const overridden = artDir.resolveArtPalette({ mood: "obsidianGrid", palette: { accent: "#123456" } });
   assert.strictEqual(overridden.accent, "#123456");
+  const lightSafe = artDir.resolveArtPalette({ mood: "obsidianGrid", palette: { accent: "#F5B73B" } }, "warmParchment");
+  assert.strictEqual(lightSafe.accent, "#C2410C");
+});
+
+test("timelineScrub and statSlam schemas + style-packs.js + castMode illustrated lint", () => {
+  const s = schema.antidoteConfigSchema.parse({
+    meta: { slug: "p", title: "P", durationInFrames: 200, artDirection: { stylePack: "tacticalBlueprint", castMode: "illustrated", mood: "blueprintNavy", captions: "minimal" } },
+    captions: [{ text: "Test", startFrame: 0, endFrame: 20, words: [{ w: "Test", s: 0, e: 20 }] }],
+    scenes: [
+      { id: "t1", fromFrame: 0, durationFrames: 100, timelineScrub: { events: [{ time: "0s", title: "A", at: 0 }, { time: "5s", title: "B", at: 50 }], loopLabel: "LOOP" } },
+      { id: "s1", fromFrame: 100, durationFrames: 100, statSlam: { value: "92%", label: "Test", bars: [{ label: "X", value: 0.9 }] } },
+    ],
+  });
+  assert.strictEqual(s.scenes[0].timelineScrub.events.length, 2);
+  assert.strictEqual(s.scenes[1].statSlam.value, "92%");
+
+  const sp = require("./lib/style-packs");
+  assert.strictEqual(sp.pickStylePack({ slug: "x", minorHarm: true }).id, "storybookVector");
+  const p1 = sp.pickStylePack({ slug: "book-a", genre: "strategy", recent: [] });
+  const p2 = sp.pickStylePack({ slug: "book-b", genre: "strategy", recent: [p1] });
+  assert.notStrictEqual(p1.id, p2.id);
+  assert.notStrictEqual(p1.mood, p2.mood);
+
+  const { assertVariety } = require("./lib/v2-variety-lint");
+  assert.throws(() => assertVariety({
+    meta: { artDirection: { castMode: "illustrated", captions: "off" } },
+    captions: [],
+    scenes: [{ id: "bad", characters: [{ id: "c1" }] }],
+  }), /castMode "illustrated"/);
 });
 
 test("Hybrid Antidote 2.1 fields (fullBleedSplit, borderless, groundFog) parse cleanly", () => {
