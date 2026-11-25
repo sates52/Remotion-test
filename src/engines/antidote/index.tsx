@@ -8,7 +8,7 @@ import { RetentionHUD } from "./components/RetentionHUD";
 import { FormTrack, hasFormTrack } from "./components/FormTrack";
 import { FormBoard } from "./components/FormBoard";
 import { SkinContext, skinOf, SKIN_FONT } from "./components/skin";
-import { ArtDirectionContext, type ArtDirectionConfig } from "./components/artDirection";
+import { ArtDirectionContext, resolveArtPalette, type ArtDirectionConfig } from "./components/artDirection";
 import { ProducerNote, variantOf } from "../../components/ProducerNote";
 import { antidoteBookSchema, DEFAULT_TRANSITION, type AntidoteConfig, type BeatShot } from "./schema";
 import { planContinuity, sceneTransIn, isAuthoredContinuation, keptAccents, type CarryDeps } from "./continuity";
@@ -49,12 +49,16 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
   const level = flowLevel(config.meta);
   const speech = React.useMemo(() => (level >= 1 ? buildSpeech(config.captions as Parameters<typeof buildSpeech>[0], config.meta.fps || 30) : null), [level, config.captions, config.meta.fps]);
   const flowAt = (base: number): Flow => ({ level, speech, base });
-  const artDir = (config.meta as { artDirection?: ArtDirectionConfig }).artDirection ?? null;
+  const rawArtDir = (config.meta as { artDirection?: ArtDirectionConfig }).artDirection ?? null;
+  const artDir = rawArtDir && rawArtDir.typography && !rawArtDir.fontDisplay
+    ? { ...rawArtDir, fontDisplay: SKIN_FONT[rawArtDir.typography] }
+    : rawArtDir;
   const hideHud = artDir?.hud === "off";
+  const stageBg = artDir ? resolveArtPalette(artDir).bg : "#0b0b0b";
   return (
     <ArtDirectionContext.Provider value={artDir}>
     <SkinContext.Provider value={{ skin: skinOf(config.meta as { skin?: Record<string, string> }), accent: artDir?.palette?.accent ?? config.meta.hud?.accent ?? "#F5C544" }}>
-    <AbsoluteFill style={{ backgroundColor: artDir?.palette?.bg ?? "#0b0b0b" }}>
+    <AbsoluteFill style={{ backgroundColor: stageBg }}>
       {config.meta.audio ? <Audio src={staticFile(config.meta.audio)} /> : null}
       {config.scenes.map((scene, i) => {
         // NOTE: Remotion hands `defaultProps` to the renderer as-is — it does NOT

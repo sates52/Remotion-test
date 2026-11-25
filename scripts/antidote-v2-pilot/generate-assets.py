@@ -35,7 +35,7 @@ if not KEY:
     sys.exit(1)
 
 URL = "https://ai.api.nvidia.com/v1/genai/black-forest-labs/flux.2-klein-4b"
-NO_TEXT = ", no text, no letters, no signature, no watermark"
+NO_TEXT = ""
 
 
 def full_prompt(s):
@@ -46,7 +46,10 @@ def full_prompt(s):
         if bad.lower() in p.lower():
             p = re.sub(re.escape(bad), good, p, flags=re.IGNORECASE)
             print(f"  [blacklist] {bad!r} -> {good!r}")
-    out = p + ". " + P["artLock"] + NO_TEXT
+    out = p + ". " + P["artLock"]
+    if s.get("cutout"):
+        out += ", isolated single subject centered with generous margin on pure flat solid white #FFFFFF seamless background, crisp ink outer contour, no cast shadow"
+    out += NO_TEXT
     if len(out) > 800:
         raise SystemExit(f"prompt too long ({len(out)} > 800): {s.get('id')}")
     return out
@@ -70,11 +73,11 @@ def call(prompt, w, h):
 
 
 SIZES = [(1344, 768), (1024, 576)]
-jobs = [(s["id"], full_prompt(s), s.get("mode", "scene")) for s in P["scenes"]]
+jobs = [(s["id"], full_prompt(s), s.get("mode", "scene"), bool(s.get("cutout"))) for s in P["scenes"]]
 t_all = time.time()
 calls = 0
 
-for jid, prompt, _mode in jobs:
+for jid, prompt, _mode, is_cutout in jobs:
     if ONLY and jid not in ONLY:
         continue
     sha = hashlib.sha256(prompt.encode()).hexdigest()[:16]
@@ -91,8 +94,14 @@ for jid, prompt, _mode in jobs:
         rec["attempts"].append({"size": f"{w}x{h}", "seconds": round(dt, 1), "result": why})
         print(f"[{jid}] {w}x{h} {why} {dt:.1f}s", flush=True)
         if data:
-            with open(out, "wb") as f:
-                f.write(data)
+            if is_cutout:
+                raw_out = os.path.join(OUT, f"{jid}.raw.png")
+                with open(raw_out, "wb") as f:
+                    f.write(data)
+                subprocess.check_call([sys.executable, os.path.join(HERE, "cutout.py"), raw_out, out])
+            else:
+                with open(out, "wb") as f:
+                    f.write(data)
             rec["size"] = f"{w}x{h}"
             rec["outcome"] = "ok"
             break

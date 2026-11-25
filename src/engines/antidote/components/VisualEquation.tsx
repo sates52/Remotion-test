@@ -1,7 +1,7 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { VisualEquationSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 
 /**
  * VisualEquation — Antidote 2.0 explanatory mental-model flow.
@@ -16,8 +16,10 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
+  const nodeShape = spec.nodeShape ?? ad?.nodeShape ?? "circle";
 
   const nodes = spec.nodes.slice(0, 4);
   const n = nodes.length;
@@ -163,16 +165,48 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
                 {/* Bespoke Flux illustration / cutout OR crisp symbolic emblem */}
                 <div
                   style={{
-                    width: isBorderless ? (n <= 3 ? 250 : 210) : "100%",
-                    height: isBorderless ? (n <= 3 ? 250 : 210) : 196,
+                    width: isBorderless
+                      ? nodeShape === "filmStrip"
+                        ? 280
+                        : n <= 3
+                          ? 250
+                          : 210
+                      : "100%",
+                    height: isBorderless
+                      ? nodeShape === "filmStrip"
+                        ? 185
+                        : n <= 3
+                          ? 250
+                          : 210
+                      : 196,
                     margin: isBorderless ? "6px 0" : "16px 0",
-                    borderRadius: isBorderless ? "50%" : 18,
+                    borderRadius: isBorderless
+                      ? nodeShape === "arch"
+                        ? "130px 130px 14px 14px"
+                        : nodeShape === "tornPaper"
+                          ? 4
+                          : nodeShape === "filmStrip"
+                            ? 6
+                            : nodeShape === "hex"
+                              ? 0
+                              : "50%"
+                      : 18,
+                    clipPath:
+                      isBorderless && nodeShape === "hex"
+                        ? "polygon(50% 0%, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%)"
+                        : undefined,
                     overflow: "hidden",
                     background: node.image ? "rgba(0,0,0,0.22)" : `${accent}14`,
                     border: isBorderless
-                      ? `3px solid ${hasTone ? accent : palette.surfaceBorder}`
+                      ? nodeShape === "filmStrip"
+                        ? `4px solid ${palette.ink}`
+                        : `3px solid ${hasTone ? accent : palette.surfaceBorder}`
                       : `1.5px solid ${hasTone ? `${accent}44` : "rgba(255,255,255,0.08)"}`,
-                    boxShadow: isBorderless ? "0 22px 48px rgba(0,0,0,0.5)" : "none",
+                    boxShadow: isBorderless
+                      ? nodeShape === "tornPaper"
+                        ? `10px 10px 0 ${accent}`
+                        : "0 22px 48px rgba(0,0,0,0.28)"
+                      : "none",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

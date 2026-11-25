@@ -687,7 +687,7 @@ export const bgSchema = z.object({
   // told v5 slice 4: a place drawn as a SCENE (sky + ground) is drawn as itself behind a figure scene too
   own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })), sky: z.string().optional(), ground: z.string().optional() }).optional(),
   // Antidote 2.0 (opt-in): curated rich canvas mood & bespoke Flux scenic/isometric diorama backdrop
-  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"]).optional(),
+  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"]).optional(),
   image: z.object({
     path: z.string(),
     opacity: z.number().min(0).max(1).optional(),
@@ -963,6 +963,7 @@ export const visualEquationSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
   layout: z.enum(["cards", "borderless"]).optional(),
+  nodeShape: z.enum(["circle", "arch", "hex", "tornPaper", "filmStrip"]).optional(),
   operator: z.enum(["arrow", "versus", "transform"]).optional(),
   nodes: z.array(z.object({
     label: z.string().min(1),
@@ -1058,7 +1059,11 @@ export const artDirectionSchema = z.object({
   style: z.string().optional(),
   stylePack: z.string().optional(),
   castMode: z.enum(["illustrated", "vectorRig"]).optional(),
-  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"]).optional(),
+  polarity: z.enum(["dark", "light"]).optional(),
+  typography: z.enum(["poppins", "serif", "condensed", "slab"]).optional(),
+  annotationStyle: z.enum(["circle", "bracket", "underline", "spotlightMask", "pin"]).optional(),
+  nodeShape: z.enum(["circle", "arch", "hex", "tornPaper", "filmStrip"]).optional(),
+  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"]).optional(),
   palette: z.object({
     bg: z.string().optional(),
     bgAlt: z.string().optional(),
@@ -1080,7 +1085,7 @@ export const artDirectionSchema = z.object({
 export type ArtDirectionSpec = z.infer<typeof artDirectionSchema>;
 
 export const shotIntentSchema = z.object({
-  job: z.enum(["contrast", "annotate-place", "cohort-split", "character-drama", "mechanism-flow", "data-proof", "document-quote", "framework-map"]),
+  job: z.enum(["contrast", "annotate-place", "cohort-split", "character-drama", "mechanism-flow", "data-proof", "document-quote", "framework-map", "cutout-drama", "manifesto", "decision-tree", "tradeoff-scale", "burner-grid"]),
   subject: z.string().min(1),
   action: z.string().min(1),
   payoff: z.string().min(1),
@@ -1093,6 +1098,7 @@ export const annotatedSceneSchema = z.object({
   kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
   dim: z.number().min(0).max(0.8).optional(),
   framing: z.enum(["fullBleed", "editorialPrint"]).optional(),
+  markerStyle: z.enum(["circle", "bracket", "underline", "spotlightMask", "pin"]).optional(),
   banner: z.object({ text: z.string(), at: z.number().optional() }).optional(),
   spotlights: z.array(z.object({
     cx: z.number(),
@@ -1194,6 +1200,145 @@ export const statSlamSchema = z.object({
 });
 export type StatSlamSpec = z.infer<typeof statSlamSchema>;
 
+export const cutoutStageSchema = z.object({
+  backdrop: z.object({
+    image: z.string(),
+    dim: z.number().min(0).max(0.6).optional(),
+    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+  }),
+  banner: z.object({ text: z.string(), at: z.number().optional() }).optional(),
+  actors: z.array(z.object({
+    id: z.string(),
+    image: z.string(),
+    x: z.number(),
+    y: z.number(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+    flip: z.boolean().optional(),
+    enter: z.enum(["left", "right", "up", "fade", "pop"]).optional(),
+    at: z.number().optional(),
+    action: z.enum(["stand", "leanIn", "nod", "stepIn", "overwhelmed", "calm"]).optional(),
+    actionAt: z.number().optional(),
+    says: z.object({
+      text: z.string().min(1),
+      at: z.number().optional(),
+      side: z.enum(["left", "right"]).optional(),
+      tone: v2Tone.optional(),
+    }).optional(),
+  })).min(1).max(3),
+  props: z.array(z.object({
+    image: z.string().optional(),
+    label: z.string().optional(),
+    sublabel: z.string().optional(),
+    x: z.number(),
+    y: z.number(),
+    width: z.number().optional(),
+    fromX: z.number().optional(),
+    fromY: z.number().optional(),
+    rot: z.number().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+    fadeAt: z.number().optional(),
+  })).default([]),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type CutoutStageSpec = z.infer<typeof cutoutStageSchema>;
+
+export const editorialSpreadSchema = z.object({
+  image: z.string(),
+  mediaSide: z.enum(["left", "right"]).default("left"),
+  kicker: z.string().optional(),
+  headline: z.string().min(1),
+  quote: z.string().optional(),
+  highlightPhrases: z.array(z.object({ text: z.string().min(1), at: z.number() })).optional(),
+  points: z.array(z.object({
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    at: z.number().optional(),
+    tone: v2Tone.optional(),
+  })).optional(),
+  attribution: z.string().optional(),
+  at: z.number().optional(),
+});
+export type EditorialSpreadSpec = z.infer<typeof editorialSpreadSchema>;
+
+export const kineticManifestoSchema = z.object({
+  kicker: z.string().optional(),
+  lines: z.array(z.object({
+    text: z.string().min(1),
+    emphasis: z.boolean().optional(),
+    tone: v2Tone.optional(),
+    strikeAt: z.number().optional(),
+    at: z.number().optional(),
+  })).min(1).max(5),
+  divider: z.enum(["none", "line"]).optional(),
+  footnote: z.string().optional(),
+  footnoteAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type KineticManifestoSpec = z.infer<typeof kineticManifestoSchema>;
+
+export const decisionTreeSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  root: z.object({ label: z.string().min(1), sublabel: z.string().optional() }),
+  branches: z.array(z.object({
+    label: z.string().min(1),
+    sublabel: z.string().optional(),
+    outcome: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+    pruneAt: z.number().optional(),
+    winner: z.boolean().optional(),
+  })).min(2).max(4),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type DecisionTreeSpec = z.infer<typeof decisionTreeSchema>;
+
+const scaleWeightSchema = z.object({
+  label: z.string().min(1),
+  sublabel: z.string().optional(),
+  weight: z.number().min(0.2).max(5).default(1),
+  tone: v2Tone.optional(),
+  at: z.number().optional(),
+});
+
+export const balanceScaleSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  leftLabel: z.string().min(1),
+  rightLabel: z.string().min(1),
+  leftWeights: z.array(scaleWeightSchema).min(1).max(4),
+  rightWeights: z.array(scaleWeightSchema).min(1).max(4),
+  verdict: z.string().optional(),
+  verdictAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type BalanceScaleSpec = z.infer<typeof balanceScaleSchema>;
+
+export const stackRevealSchema = z.object({
+  variant: z.enum(["strata", "burners"]).default("burners"),
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  items: z.array(z.object({
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    level: z.number().min(0).max(1).optional(),
+    targetLevel: z.number().min(0).max(1).optional(),
+    changeAt: z.number().optional(),
+    active: z.boolean().optional(),
+    tone: v2Tone.optional(),
+  })).min(2).max(5),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type StackRevealSpec = z.infer<typeof stackRevealSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
@@ -1205,6 +1350,12 @@ export const sceneSchema = z.object({
   cohortGrid: cohortGridSchema.optional(),
   timelineScrub: timelineScrubSchema.optional(),
   statSlam: statSlamSchema.optional(),
+  cutoutStage: cutoutStageSchema.optional(),
+  editorialSpread: editorialSpreadSchema.optional(),
+  kineticManifesto: kineticManifestoSchema.optional(),
+  decisionTree: decisionTreeSchema.optional(),
+  balanceScale: balanceScaleSchema.optional(),
+  stackReveal: stackRevealSchema.optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),

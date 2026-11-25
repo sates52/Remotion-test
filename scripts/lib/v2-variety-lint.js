@@ -15,6 +15,12 @@ function classifySceneMode(scene) {
   if (scene.cohortGrid) return "cohort-grid";
   if (scene.timelineScrub) return "timeline-scrub";
   if (scene.statSlam) return "stat-slam";
+  if (scene.cutoutStage) return "cutout-stage";
+  if (scene.editorialSpread) return "editorial-spread";
+  if (scene.kineticManifesto) return "kinetic-manifesto";
+  if (scene.decisionTree) return "decision-tree";
+  if (scene.balanceScale) return "balance-scale";
+  if (scene.stackReveal) return "stack-reveal";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"
@@ -58,7 +64,7 @@ function analyzeVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       singleWorldViolations++;
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam)) {
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal)) {
       singleWorldViolations++;
     }
     if (mode === curMode && !s.continueFromPrev) {
@@ -100,8 +106,8 @@ function assertVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam)) {
-      errors.push(`Single-World violation in ${s.id}: annotatedScene/cohortGrid/comparisonGrid/timelineScrub/statSlam cannot mix flat-vector characters`);
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal)) {
+      errors.push(`Single-World violation in ${s.id}: full-stage 10x device cannot mix flat-vector characters`);
     }
     if (hasChars && config?.meta?.artDirection?.castMode === "illustrated") {
       errors.push(`Single-World violation in ${s.id}: castMode "illustrated" cannot mix flat-vector Everyman characters`);

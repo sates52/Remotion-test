@@ -1,7 +1,7 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { AnnotatedSceneSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 
 const HAND_FONT = "Georgia, 'Brush Script MT', cursive";
 
@@ -65,8 +65,11 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const light = isLightPalette(palette);
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
+  const markerStyle = spec.markerStyle ?? ad?.annotationStyle ?? "circle";
 
   const framing = spec.framing ?? "fullBleed";
   const kb = spec.kenBurns ?? "pushIn";
@@ -106,11 +109,11 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
             top: 105,
             width: 1180,
             height: 740,
-            borderRadius: 16,
+            borderRadius: light ? 8 : 16,
             overflow: "hidden",
             border: `2px solid ${palette.surfaceBorder}`,
-            boxShadow: "0 28px 80px rgba(0,0,0,0.58)",
-            background: "#0B0D12",
+            boxShadow: light ? "0 20px 56px rgba(24,24,27,0.16)" : "0 28px 80px rgba(0,0,0,0.58)",
+            background: light ? palette.surface : "#0B0D12",
           }}
         >
           <Img
@@ -145,8 +148,8 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
               transform: `translateX(-50%) translateY(${(1 - bp) * -14}px)`,
               opacity: bp,
               padding: "9px 26px",
-              borderRadius: 999,
-              background: "rgba(10,13,20,0.82)",
+              borderRadius: light ? 4 : 999,
+              background: light ? palette.surface : "rgba(10,13,20,0.82)",
               border: `1.5px solid ${palette.accent}`,
               fontFamily: displayFont,
               fontWeight: 900,
@@ -154,7 +157,7 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
               letterSpacing: "0.08em",
               color: palette.accent,
               whiteSpace: "nowrap",
-              boxShadow: "0 10px 28px rgba(0,0,0,0.45)",
+              boxShadow: light ? "0 8px 24px rgba(24,24,27,0.12)" : "0 10px 28px rgba(0,0,0,0.45)",
             }}
           >
             {spec.banner.text}
@@ -226,33 +229,72 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
           const sy = ly < sp.cy ? sp.cy - ry * 0.55 : sp.cy + ry * 0.35;
           const midX = (sx + lx) / 2;
           const midY = Math.min(sy, ly) - 24;
+          const bx0 = sp.cx - rx;
+          const bx1 = sp.cx + rx;
+          const by0 = sp.cy - ry;
+          const by1 = sp.cy + ry;
+          const arm = Math.min(42, rx * 0.35, ry * 0.35);
+          const inset = (1 - rp) * 26;
           return (
             <g key={`sp-${si}`}>
-              <ellipse
-                cx={sp.cx}
-                cy={sp.cy}
-                rx={rx + 6}
-                ry={ry + 6}
-                fill="none"
-                stroke={col}
-                strokeWidth={2}
-                opacity={0.35 * rp}
-              />
-              <ellipse
-                cx={sp.cx}
-                cy={sp.cy}
-                rx={rx}
-                ry={ry}
-                fill="none"
-                stroke={col}
-                strokeWidth={5.5}
-                strokeLinecap="round"
-                strokeDasharray={perim}
-                strokeDashoffset={(1 - rp) * perim}
-              />
+              {markerStyle === "bracket" ? (
+                <g stroke={col} strokeWidth={5} fill="none" strokeLinecap="square" opacity={rp}>
+                  <polyline points={`${bx0 - inset},${by0 + arm - inset} ${bx0 - inset},${by0 - inset} ${bx0 + arm - inset},${by0 - inset}`} />
+                  <polyline points={`${bx1 - arm + inset},${by0 - inset} ${bx1 + inset},${by0 - inset} ${bx1 + inset},${by0 + arm - inset}`} />
+                  <polyline points={`${bx0 - inset},${by1 - arm + inset} ${bx0 - inset},${by1 + inset} ${bx0 + arm - inset},${by1 + inset}`} />
+                  <polyline points={`${bx1 - arm + inset},${by1 + inset} ${bx1 + inset},${by1 + inset} ${bx1 + inset},${by1 - arm + inset}`} />
+                </g>
+              ) : markerStyle === "underline" ? (
+                <line
+                  x1={bx0}
+                  y1={sp.cy + ry * 0.65}
+                  x2={bx0 + (bx1 - bx0) * rp}
+                  y2={sp.cy + ry * 0.65}
+                  stroke={col}
+                  strokeWidth={8}
+                  strokeLinecap="round"
+                />
+              ) : markerStyle === "spotlightMask" ? (
+                <g opacity={rp}>
+                  <rect x={bx0} y={by0} width={rx * 2} height={ry * 2} rx={4} fill={`${col}14`} stroke={col} strokeWidth={3} />
+                  <line x1={sp.cx - 12} y1={sp.cy} x2={sp.cx + 12} y2={sp.cy} stroke={col} strokeWidth={2} />
+                  <line x1={sp.cx} y1={sp.cy - 12} x2={sp.cx} y2={sp.cy + 12} stroke={col} strokeWidth={2} />
+                </g>
+              ) : markerStyle === "pin" ? (
+                <g opacity={rp}>
+                  <circle cx={sp.cx} cy={sp.cy} r={14} fill={col} />
+                  <circle cx={sp.cx} cy={sp.cy} r={6} fill="#FFFFFF" />
+                  <line x1={sp.cx} y1={sp.cy} x2={sp.cx} y2={sp.cy - ry * 0.7} stroke={col} strokeWidth={3} />
+                </g>
+              ) : (
+                <>
+                  <ellipse
+                    cx={sp.cx}
+                    cy={sp.cy}
+                    rx={rx + 6}
+                    ry={ry + 6}
+                    fill="none"
+                    stroke={col}
+                    strokeWidth={2}
+                    opacity={0.35 * rp}
+                  />
+                  <ellipse
+                    cx={sp.cx}
+                    cy={sp.cy}
+                    rx={rx}
+                    ry={ry}
+                    fill="none"
+                    stroke={col}
+                    strokeWidth={5.5}
+                    strokeLinecap="round"
+                    strokeDasharray={perim}
+                    strokeDashoffset={(1 - rp) * perim}
+                  />
+                </>
+              )}
               {(sp.label || sp.note) && (
                 <path
-                  d={`M ${sx} ${sy} Q ${midX} ${midY} ${lx} ${ly}`}
+                  d={markerStyle === "bracket" || markerStyle === "pin" ? `M ${sx} ${sy} L ${lx} ${sy} L ${lx} ${ly}` : `M ${sx} ${sy} Q ${midX} ${midY} ${lx} ${ly}`}
                   fill="none"
                   stroke={col}
                   strokeWidth={3.5}

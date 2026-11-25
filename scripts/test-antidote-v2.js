@@ -194,18 +194,50 @@ test("quadrant2x2 dataMatrix variant parses cleanly", () => {
   assert.strictEqual(q.quadrants[3].active, true);
 });
 
-test("all 8 stage moods resolve complete art palettes + WCAG light-mood contrast guard", () => {
-  const moods = ["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir"];
+test("all 11 stage moods resolve complete art palettes + WCAG light-mood contrast guard + isLightPalette", () => {
+  const moods = ["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"];
   for (const m of moods) {
     const pal = artDir.resolveArtPalette({ mood: m });
     for (const k of ["bg", "surface", "ink", "muted", "accent", "accent2", "danger", "positive"]) {
       assert.ok(typeof pal[k] === "string" && pal[k].length > 0, `mood ${m} missing ${k}`);
     }
   }
+  assert.strictEqual(artDir.isLightPalette(artDir.resolveArtPalette({ mood: "ivoryBroadsheet" })), true);
+  assert.strictEqual(artDir.isLightPalette(artDir.resolveArtPalette({ mood: "obsidianGrid" })), false);
+  assert.ok(artDir.resolveArtFonts({ typography: "serif" }).display.includes("Playfair"));
   const overridden = artDir.resolveArtPalette({ mood: "obsidianGrid", palette: { accent: "#123456" } });
   assert.strictEqual(overridden.accent, "#123456");
   const lightSafe = artDir.resolveArtPalette({ mood: "obsidianGrid", palette: { accent: "#F5B73B" } }, "warmParchment");
   assert.strictEqual(lightSafe.accent, "#C2410C");
+});
+
+test("6 new Antidote 10x devices + style-packs polarity alternation + v2-variety-lint", () => {
+  const s = schema.antidoteConfigSchema.parse({
+    meta: { slug: "ess", title: "Essentialism", durationInFrames: 600, artDirection: { stylePack: "kinfolkMinimal", polarity: "light", typography: "serif", annotationStyle: "bracket", nodeShape: "tornPaper", mood: "ivoryBroadsheet", captions: "minimal" } },
+    captions: [{ text: "Less", startFrame: 0, endFrame: 20, words: [{ w: "Less", s: 0, e: 20 }] }],
+    scenes: [
+      { id: "k1", fromFrame: 0, durationFrames: 100, kineticManifesto: { lines: [{ text: "ADDITION", strikeAt: 20 }, { text: "SUBTRACTION", emphasis: true }] } },
+      { id: "e1", fromFrame: 100, durationFrames: 100, editorialSpread: { image: "scenes/a.png", mediaSide: "left", headline: "Carve Away" } },
+      { id: "c1", fromFrame: 200, durationFrames: 100, cutoutStage: { backdrop: { image: "scenes/bg.png" }, actors: [{ id: "a", image: "scenes/c.png", x: 500, y: 550 }] } },
+      { id: "d1", fromFrame: 300, durationFrames: 100, decisionTree: { root: { label: "Success" }, branches: [{ label: "Trap", pruneAt: 30 }, { label: "Focus", winner: true }] } },
+      { id: "b1", fromFrame: 400, durationFrames: 100, balanceScale: { leftLabel: "Cost", rightLabel: "Safety", leftWeights: [{ label: "Revenue", weight: 1 }], rightWeights: [{ label: "Lives", weight: 3 }] } },
+      { id: "s1", fromFrame: 500, durationFrames: 100, stackReveal: { variant: "burners", items: [{ label: "Work", level: 0.9 }, { label: "Health", level: 0.8, targetLevel: 0, changeAt: 30 }] } },
+    ],
+  });
+  assert.strictEqual(s.scenes.length, 6);
+
+  const sp = require("./lib/style-packs");
+  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 10);
+  const pDark = sp.STYLE_PACKS.tacticalBlueprint;
+  const pNext = sp.pickStylePack({ slug: "essentialism", genre: "productivity", recent: [pDark] });
+  assert.strictEqual(pNext.polarity, "light");
+
+  const { assertVariety } = require("./lib/v2-variety-lint");
+  assert.throws(() => assertVariety({
+    meta: { artDirection: { captions: "off" } },
+    captions: [],
+    scenes: [{ id: "bad-cutout", cutoutStage: { backdrop: { image: "x.png" }, actors: [{ id: "a", image: "y.png", x: 100, y: 100 }] }, characters: [{ id: "c1" }] }],
+  }), /Single-World violation/);
 });
 
 test("timelineScrub and statSlam schemas + style-packs.js + castMode illustrated lint", () => {

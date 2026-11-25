@@ -1037,11 +1037,19 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
     const imgTx = kb === "panLeft" ? (0.5 - p) * 52 : kb === "panRight" ? (p - 0.5) * 52 : 0;
     return (
       <AbsoluteFill style={{ background: moodSpec ? moodSpec.background : "#101319", overflow: "hidden" }}>
-        {moodSpec && (
+        {moodSpec && moodSpec.texture !== "clean" && (
           <AbsoluteFill
             style={{
-              backgroundImage: `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`,
-              backgroundSize: `${moodSpec.gridSize}px ${moodSpec.gridSize}px`,
+              backgroundImage:
+                moodSpec.texture === "dots"
+                  ? `radial-gradient(${moodSpec.gridColor} 1.5px, transparent 1.5px)`
+                  : moodSpec.texture === "lines"
+                    ? `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px)`
+                    : `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`,
+              backgroundSize:
+                moodSpec.texture === "lines"
+                  ? `100% ${moodSpec.gridSize}px`
+                  : `${moodSpec.gridSize}px ${moodSpec.gridSize}px`,
               opacity: moodSpec.gridOpacity,
               transform: `translate(${(cam.x * 0.15).toFixed(1)}px, ${(cam.y * 0.15).toFixed(1)}px)`,
             }}

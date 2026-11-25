@@ -15,7 +15,12 @@ export type StageMoodName =
   | "slateEditorial"
   | "blueprintNavy"
   | "inkScroll"
-  | "emeraldNoir";
+  | "emeraldNoir"
+  | "ivoryBroadsheet"
+  | "sageBotanical"
+  | "terracottaStudio";
+
+export type StageTextureMode = "grid" | "dots" | "lines" | "clean";
 
 export type ArtPalette = {
   bg: string;
@@ -34,6 +39,10 @@ export type ArtDirectionConfig = {
   style?: string;
   stylePack?: string;
   castMode?: "illustrated" | "vectorRig";
+  polarity?: "dark" | "light";
+  typography?: "poppins" | "serif" | "condensed" | "slab";
+  annotationStyle?: "circle" | "bracket" | "underline" | "spotlightMask" | "pin";
+  nodeShape?: "circle" | "arch" | "hex" | "tornPaper" | "filmStrip";
   mood?: StageMoodName;
   palette?: Partial<ArtPalette>;
   fontDisplay?: string;
@@ -50,6 +59,7 @@ export const STAGE_MOODS: Record<
     gridColor: string;
     gridSize: number;
     gridOpacity: number;
+    texture?: StageTextureMode;
     vignette: string;
     palette: ArtPalette;
   }
@@ -192,6 +202,7 @@ export const STAGE_MOODS: Record<
     gridColor: "rgba(212, 168, 83, 0.08)",
     gridSize: 72,
     gridOpacity: 0.5,
+    texture: "grid",
     vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 48%, rgba(4,10,7,0.58) 100%)",
     palette: {
       bg: "#0B1914",
@@ -206,12 +217,106 @@ export const STAGE_MOODS: Record<
       positive: "#4ADE80",
     },
   },
+  ivoryBroadsheet: {
+    background: "radial-gradient(ellipse at 50% 42%, #FFFDF8 0%, #FAF7F0 65%, #F0E9DC 100%)",
+    gridColor: "rgba(24, 24, 27, 0.05)",
+    gridSize: 80,
+    gridOpacity: 0,
+    texture: "clean",
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 62%, rgba(40,32,20,0.08) 100%)",
+    palette: {
+      bg: "#FAF7F0",
+      bgAlt: "#F0E9DC",
+      surface: "rgba(255, 253, 248, 0.96)",
+      surfaceBorder: "rgba(24, 24, 27, 0.16)",
+      ink: "#18181B",
+      muted: "#52525B",
+      accent: "#C2410C",
+      accent2: "#166534",
+      danger: "#B91C1C",
+      positive: "#166534",
+    },
+  },
+  sageBotanical: {
+    background: "radial-gradient(ellipse at 50% 40%, #F4F8F3 0%, #EDF2EB 68%, #DFE7DC 100%)",
+    gridColor: "rgba(20, 35, 27, 0.09)",
+    gridSize: 28,
+    gridOpacity: 0.45,
+    texture: "dots",
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(16,32,22,0.10) 100%)",
+    palette: {
+      bg: "#EDF2EB",
+      bgAlt: "#DFE7DC",
+      surface: "rgba(248, 251, 247, 0.95)",
+      surfaceBorder: "rgba(20, 35, 27, 0.18)",
+      ink: "#14231B",
+      muted: "#4B5E52",
+      accent: "#166534",
+      accent2: "#B45309",
+      danger: "#B91C1C",
+      positive: "#15803D",
+    },
+  },
+  terracottaStudio: {
+    background: "radial-gradient(ellipse at 50% 42%, #FAF1E8 0%, #F5E9DC 68%, #EAD8C5 100%)",
+    gridColor: "rgba(35, 25, 21, 0.07)",
+    gridSize: 44,
+    gridOpacity: 0.45,
+    texture: "lines",
+    vignette: "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(45,28,18,0.12) 100%)",
+    palette: {
+      bg: "#F5E9DC",
+      bgAlt: "#EAD8C5",
+      surface: "rgba(253, 247, 241, 0.95)",
+      surfaceBorder: "rgba(35, 25, 21, 0.18)",
+      ink: "#231915",
+      muted: "#6B5449",
+      accent: "#9A3412",
+      accent2: "#0F766E",
+      danger: "#B91C1C",
+      positive: "#0F766E",
+    },
+  },
 };
 
 export const DEFAULT_DISPLAY_FONT =
   '"Poppins", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
 export const DEFAULT_BODY_FONT =
   '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+
+export const TYPOGRAPHY_STACKS: Record<
+  "poppins" | "serif" | "condensed" | "slab",
+  { display: string; body: string }
+> = {
+  poppins: {
+    display: DEFAULT_DISPLAY_FONT,
+    body: DEFAULT_BODY_FONT,
+  },
+  serif: {
+    display: '"Playfair Display", Georgia, "Times New Roman", serif',
+    body: 'Georgia, "Times New Roman", serif',
+  },
+  condensed: {
+    display: '"Oswald", "Arial Narrow", Arial, sans-serif',
+    body: DEFAULT_BODY_FONT,
+  },
+  slab: {
+    display: '"Roboto Slab", Rockwell, Georgia, serif',
+    body: DEFAULT_BODY_FONT,
+  },
+};
+
+export function resolveArtFonts(ad?: ArtDirectionConfig | null): { display: string; body: string } {
+  const stack = ad?.typography ? TYPOGRAPHY_STACKS[ad.typography] : undefined;
+  return {
+    display: ad?.fontDisplay ?? stack?.display ?? DEFAULT_DISPLAY_FONT,
+    body: ad?.fontBody ?? stack?.body ?? DEFAULT_BODY_FONT,
+  };
+}
+
+export function isLightPalette(palette: ArtPalette): boolean {
+  return hexLuminance(palette.bg) > 0.5;
+}
 
 function hexLuminance(hex?: string): number {
   if (!hex || typeof hex !== "string") return 0.5;

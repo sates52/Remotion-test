@@ -3,7 +3,7 @@ import { useCurrentFrame } from "remotion";
 import { ANTIDOTE_FONT } from "./KineticText";
 import type { CaptionSpec } from "../schema";
 import { useSkin, SKIN_FONT, isLight } from "./skin";
-import { DEFAULT_BODY_FONT, resolveArtPalette, useArtDirection } from "./artDirection";
+import { isLightPalette, resolveArtFonts, resolveArtPalette, useArtDirection } from "./artDirection";
 
 /**
  * CaptionLayer — non-intrusive word-timed subtitles.
@@ -26,6 +26,8 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
   const words = cap.words && cap.words.length ? cap.words : cap.text.split(/\s+/).map((w) => ({ w, s: -1, e: -1 }));
   if (ad?.captions === "minimal") {
     const pal = resolveArtPalette(ad);
+    const light = isLightPalette(pal);
+    const fonts = resolveArtFonts(ad);
     return (
       <div
         style={{
@@ -34,14 +36,16 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           right: 0,
           bottom: 0,
           padding: "46px 180px 28px",
-          background: "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)",
+          background: light
+            ? `linear-gradient(180deg, rgba(250,247,240,0) 0%, ${pal.bg}E0 42%, ${pal.bg}FA 100%)`
+            : "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)",
           textAlign: "center",
-          fontFamily: ad.fontBody ?? DEFAULT_BODY_FONT,
+          fontFamily: fonts.body,
           fontWeight: 600,
           fontSize: 36,
           lineHeight: 1.26,
-          color: "#F8F5EE",
-          textShadow: "0 2px 12px rgba(0,0,0,0.88)",
+          color: light ? pal.ink : "#F8F5EE",
+          textShadow: light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
@@ -52,7 +56,14 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
         {words.map((w, i) => {
           const on = w.s >= 0 && frame >= w.s && frame <= w.e;
           return (
-            <span key={i} style={{ color: on ? pal.accent : "#F8F5EE", fontWeight: on ? 700 : 600 }}>
+            <span
+              key={i}
+              style={{
+                color: on ? pal.accent : light ? pal.ink : "#F8F5EE",
+                fontWeight: on ? 800 : 600,
+                borderBottom: light && on ? `3px solid ${pal.accent}` : undefined,
+              }}
+            >
               {w.w}
             </span>
           );
