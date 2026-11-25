@@ -1,0 +1,233 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 2 Samples",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 6,
+ "extra": [
+  "public/scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+  "public/scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_calm.png",
+  "public/scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+  "public/scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+  "public/scenes/antidote-v2-pilot/s1_yale_lab.png",
+  "public/scenes/antidote-v2-pilot/s3_lobby_boardroom.png"
+ ],
+ "jobs": [
+  {
+   "id": "sample-swiss-light",
+   "config": "configs/sample-swiss-light.json",
+   "frames": [
+    42,
+    84,
+    125,
+    167,
+    208,
+    249,
+    291,
+    332,
+    374,
+    415,
+    456,
+    498
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-swiss-light-clip",
+   "config": "configs/sample-swiss-light.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 539,
+    "scale": 0.5,
+    "crf": 23
+   }
+  },
+  {
+   "id": "sample-nocturne-left",
+   "config": "configs/sample-nocturne-left.json",
+   "frames": [
+    42,
+    84,
+    125,
+    167,
+    208,
+    249,
+    291,
+    332,
+    374,
+    415,
+    456,
+    498
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-nocturne-left-clip",
+   "config": "configs/sample-nocturne-left.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 539,
+    "scale": 0.5,
+    "crf": 23
+   }
+  },
+  {
+   "id": "sample-monocle-right",
+   "config": "configs/sample-monocle-right.json",
+   "frames": [
+    42,
+    84,
+    125,
+    167,
+    208,
+    249,
+    291,
+    332,
+    374,
+    415,
+    456,
+    498
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-monocle-right-clip",
+   "config": "configs/sample-monocle-right.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 539,
+    "scale": 0.5,
+    "crf": 23
+   }
+  },
+  {
+   "id": "sample-cinema-xray",
+   "config": "configs/sample-cinema-xray.json",
+   "frames": [
+    42,
+    84,
+    125,
+    167,
+    208,
+    249,
+    291,
+    332,
+    374,
+    415,
+    456,
+    498
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-cinema-xray-clip",
+   "config": "configs/sample-cinema-xray.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 539,
+    "scale": 0.5,
+    "crf": 23
+   }
+  },
+  {
+   "id": "sample-broadsheet-spine",
+   "config": "configs/sample-broadsheet-spine.json",
+   "frames": [
+    42,
+    84,
+    125,
+    167,
+    208,
+    249,
+    291,
+    332,
+    374,
+    415,
+    456,
+    498
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-broadsheet-spine-clip",
+   "config": "configs/sample-broadsheet-spine.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 539,
+    "scale": 0.5,
+    "crf": 23
+   }
+  },
+  {
+   "id": "sample-p1-devices",
+   "config": "configs/sample-p1-devices.json",
+   "frames": [
+    55,
+    101,
+    147,
+    193,
+    239,
+    285,
+    331,
+    377,
+    423,
+    469,
+    515,
+    561,
+    607,
+    653,
+    699,
+    745
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "sample-p1-devices-clip",
+   "config": "configs/sample-p1-devices.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 799,
+    "scale": 0.5,
+    "crf": 23
+   }
+  }
+ ],
+ "inputHash": "bbdc2c3cddd1105d",
+ "files": {
+  "stills/configs/sample-swiss-light.json": "936327fa1fae0cfaec653adb00db6f01b154bd99a33b2e95d877dd56b60a02e4",
+  "stills/configs/sample-nocturne-left.json": "7af8772915dd053df033b44a7032a1870c36e7e5985335e16b923dd0ae070b5d",
+  "stills/configs/sample-monocle-right.json": "040ce48503fc8b40bec836e929b01430531272a3ade28d2f8d80c7dfdb502a1c",
+  "stills/configs/sample-cinema-xray.json": "f95af65885edb442906a845df2a794e46d1ebb08113ea2eeb854bd52466fa366",
+  "stills/configs/sample-broadsheet-spine.json": "4dfbc6ba2a429a4690073018fd26b95e824d65732b62c17e19905a818f823d4d",
+  "stills/configs/sample-p1-devices.json": "360490029d9b34c52ae998f6de61cc8f4ab1167079e748f78884b2c1baa6c108"
+ },
+ "builtAt": "2026-11-25T21:13:41.161Z"
+}

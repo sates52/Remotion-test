@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "slug": "sample-swiss-light",
+    "title": "Swiss Light",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 540,
+    "artDirection": {
+      "stylePack": "swissModernist",
+      "style": "Swiss International Typographic Style poster art, bold primary red and cobalt geometric blocks on warm cream paper, crisp grid discipline",
+      "mood": "swissBauhaus",
+      "polarity": "light",
+      "typography": "condensed",
+      "annotationStyle": "bracket",
+      "nodeShape": "hex",
+      "layoutGrammar": "swissPoster",
+      "transitionFamily": "print",
+      "captionAlign": "left",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "captions": [
+    {
+      "text": "Eighty-two percent or 82% of noise disappears when you focus.",
+      "startFrame": 0,
+      "endFrame": 89
+    },
+    {
+      "text": "Leverage lives where skill meets need.",
+      "startFrame": 90,
+      "endFrame": 179
+    },
+    {
+      "text": "Zooming in reveals the hidden mechanism.",
+      "startFrame": 180,
+      "endFrame": 269
+    },
+    {
+      "text": "From 100% inputs to 42% filtered and 14% executed.",
+      "startFrame": 270,
+      "endFrame": 359
+    },
+    {
+      "text": "Sequence one lever instead of doing everything.",
+      "startFrame": 360,
+      "endFrame": 449
+    },
+    {
+      "text": "Design beats willpower every single day.",
+      "startFrame": 450,
+      "endFrame": 539
+    }
+  ],
+  "scenes": [
+    {
+      "id": "sl-1",
+      "fromFrame": 0,
+      "durationFrames": 90,
+      "transition": {
+        "type": "cut",
+        "frames": 10
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "statSlam": {
+        "kicker": "CORE THESIS",
+        "value": "82%",
+        "label": "Noise Eliminated",
+        "tone": "accent",
+        "bars": [
+          {
+            "label": "Signal",
+            "value": 0.82,
+            "tone": "positive"
+          },
+          {
+            "label": "Noise",
+            "value": 0.18,
+            "tone": "danger"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sl-2",
+      "fromFrame": 90,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "vennMerge": {
+        "title": "Strategic Overlap",
+        "circles": [
+          {
+            "label": "Deep Skill",
+            "tone": "accent"
+          },
+          {
+            "label": "Market Need",
+            "tone": "positive"
+          }
+        ],
+        "intersection": {
+          "label": "Leverage",
+          "detail": "Where value compounds"
+        }
+      }
+    },
+    {
+      "id": "sl-3",
+      "fromFrame": 180,
+      "durationFrames": 90,
+      "transition": {
+        "type": "paperTear",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "upClose": {
+        "image": "scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+        "zoomTarget": {
+          "x": 0.52,
+          "y": 0.45,
+          "scale": 2.1
+        },
+        "lensLabel": "DETAIL",
+        "annotation": {
+          "headline": "Focus Under Pressure",
+          "detail": "Zooming in reveals the hidden mechanism.",
+          "side": "right"
+        }
+      }
+    },
+    {
+      "id": "sl-4",
+      "fromFrame": 270,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "analyticsFunnel": {
+        "title": "Attention Funnel",
+        "stages": [
+          {
+            "label": "Inputs",
+            "value": "100%",
+            "share": 1,
+            "tone": "neutral"
+          },
+          {
+            "label": "Filtered",
+            "value": "42%",
+            "share": 0.55,
+            "tone": "accent"
+          },
+          {
+            "label": "Executed",
+            "value": "14%",
+            "share": 0.3,
+            "tone": "positive",
+            "dropNote": "86% noise cut"
+          }
+        ],
+        "bottleneckIndex": 1
+      }
+    },
+    {
+      "id": "sl-5",
+      "fromFrame": 360,
+      "durationFrames": 90,
+      "transition": {
+        "type": "paperTear",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "crumpleToss": {
+        "title": "Old Habit vs New Rule",
+        "myth": {
+          "badge": "MYTH",
+          "headline": "Do everything at once",
+          "bullets": [
+            "Fragmented focus",
+            "Zero compounding"
+          ]
+        },
+        "tossAt": 36,
+        "truth": {
+          "badge": "RULE",
+          "headline": "Sequence one lever",
+          "detail": "Clarity precedes speed."
+        }
+      }
+    },
+    {
+      "id": "sl-6",
+      "fromFrame": 450,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "swissBauhaus"
+      },
+      "editorialSpread": {
+        "image": "scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+        "mediaSide": "left",
+        "kicker": "TAKEAWAY",
+        "headline": "Design beats willpower",
+        "body": "Structure your environment so the right choice is effortless."
+      }
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "meta": {
+    "slug": "sample-nocturne-left",
+    "title": "Nocturne Left",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 540,
+    "artDirection": {
+      "stylePack": "bauhausMidnight",
+      "style": "Bauhaus nocturnal gouache and matte charcoal collage, warm amber and crimson geometric planes, dramatic architectural shadows",
+      "mood": "bauhausNocturne",
+      "polarity": "dark",
+      "typography": "slab",
+      "annotationStyle": "bracket",
+      "nodeShape": "filmStrip",
+      "layoutGrammar": "editorialLeft",
+      "transitionFamily": "kinetic",
+      "captionAlign": "left",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "captions": [
+    {
+      "text": "Subtraction beats addition.",
+      "startFrame": 0,
+      "endFrame": 89
+    },
+    {
+      "text": "Every system has three hidden layers.",
+      "startFrame": 90,
+      "endFrame": 179
+    },
+    {
+      "text": "Compounding systems overtake raw hustle from 30% to 92%.",
+      "startFrame": 180,
+      "endFrame": 269
+    },
+    {
+      "text": "Calm execution inside a noisy world.",
+      "startFrame": 270,
+      "endFrame": 359
+    },
+    {
+      "text": "The timeline separates signal from panic.",
+      "startFrame": 360,
+      "endFrame": 449
+    },
+    {
+      "text": "Compare the old reactive mode with deliberate design.",
+      "startFrame": 450,
+      "endFrame": 539
+    }
+  ],
+  "scenes": [
+    {
+      "id": "nl-1",
+      "fromFrame": 0,
+      "durationFrames": 90,
+      "transition": {
+        "type": "cut",
+        "frames": 10
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "kineticManifesto": {
+        "kicker": "MANIFESTO",
+        "lines": [
+          {
+            "text": "ADDITION",
+            "strikeAt": 24
+          },
+          {
+            "text": "SUBTRACTION",
+            "emphasis": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl-2",
+      "fromFrame": 90,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "explodedView": {
+        "title": "System Architecture",
+        "layers": [
+          {
+            "label": "Surface Habit",
+            "detail": "Visible action",
+            "tone": "accent"
+          },
+          {
+            "label": "Trigger Cue",
+            "detail": "Prompt",
+            "tone": "positive"
+          },
+          {
+            "label": "Identity",
+            "detail": "Core belief"
+          }
+        ],
+        "expandAt": 20
+      }
+    },
+    {
+      "id": "nl-3",
+      "fromFrame": 180,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pushThrough",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "barRace": {
+        "title": "Compounding Edge",
+        "epochs": [
+          {
+            "label": "YEAR 1",
+            "at": 0,
+            "bars": [
+              {
+                "id": "a",
+                "label": "Hustle",
+                "value": 60,
+                "displayValue": "60%"
+              },
+              {
+                "id": "b",
+                "label": "Systems",
+                "value": 30,
+                "displayValue": "30%",
+                "tone": "positive"
+              }
+            ]
+          },
+          {
+            "label": "YEAR 5",
+            "at": 40,
+            "bars": [
+              {
+                "id": "a",
+                "label": "Hustle",
+                "value": 40,
+                "displayValue": "40%"
+              },
+              {
+                "id": "b",
+                "label": "Systems",
+                "value": 92,
+                "displayValue": "92%",
+                "tone": "positive"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl-4",
+      "fromFrame": 270,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "cutoutStage": {
+        "backdrop": {
+          "image": "scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+          "dim": 0.25,
+          "kenBurns": "dollyZoom"
+        },
+        "actors": [
+          {
+            "id": "w",
+            "image": "scenes/essentialism-10x-pilot/e2_worker_calm.png",
+            "x": 960,
+            "y": 620,
+            "height": 540
+          }
+        ],
+        "callout": "Calm Execution"
+      }
+    },
+    {
+      "id": "nl-5",
+      "fromFrame": 360,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pushThrough",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "timelineScrub": {
+        "title": "Decision Horizon",
+        "events": [
+          {
+            "time": "DAY 1",
+            "title": "Audit",
+            "at": 0
+          },
+          {
+            "time": "DAY 7",
+            "title": "Prune",
+            "at": 30
+          },
+          {
+            "time": "DAY 30",
+            "title": "Compound",
+            "at": 60,
+            "tone": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nl-6",
+      "fromFrame": 450,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "bauhausNocturne"
+      },
+      "comparisonGrid": {
+        "layout": "fullBleedSplit",
+        "columns": [
+          {
+            "heading": "Reactive",
+            "image": "scenes/antidote-v2-pilot/s3_lobby_boardroom.png",
+            "bullets": [
+              "Constant urgency"
+            ],
+            "tone": "danger"
+          },
+          {
+            "heading": "Deliberate",
+            "image": "scenes/antidote-v2-pilot/s1_yale_lab.png",
+            "bullets": [
+              "Deep leverage"
+            ],
+            "tone": "positive"
+          }
+        ]
+      }
+    }
+  ]
+}

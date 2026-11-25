@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "slug": "sample-broadsheet-spine",
+    "title": "Broadsheet Spine",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 540,
+    "artDirection": {
+      "stylePack": "broadsheetArchive",
+      "style": "archival broadsheet newspaper stipple engraving and halftone newsprint illustration, crimson and slate ink on warm newsprint",
+      "mood": "archivalBroadsheet",
+      "polarity": "light",
+      "typography": "slab",
+      "annotationStyle": "pin",
+      "nodeShape": "tornPaper",
+      "layoutGrammar": "splitSpine",
+      "transitionFamily": "print",
+      "captionAlign": "left",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "captions": [
+    {
+      "text": "Four sequential steps turn chaos into order.",
+      "startFrame": 0,
+      "endFrame": 89
+    },
+    {
+      "text": "Systems overtake hustle from 30% to 92%.",
+      "startFrame": 90,
+      "endFrame": 179
+    },
+    {
+      "text": "Discard the myth of constant availability.",
+      "startFrame": 180,
+      "endFrame": 269
+    },
+    {
+      "text": "Research anchors the argument in evidence.",
+      "startFrame": 270,
+      "endFrame": 359
+    },
+    {
+      "text": "Filter plus focus equals compounding output.",
+      "startFrame": 360,
+      "endFrame": 449
+    },
+    {
+      "text": "The route maps every milestone clearly.",
+      "startFrame": 450,
+      "endFrame": 539
+    }
+  ],
+  "scenes": [
+    {
+      "id": "bs-1",
+      "fromFrame": 0,
+      "durationFrames": 90,
+      "transition": {
+        "type": "cut",
+        "frames": 10
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "comicStrip": {
+        "layout": "quad2x2",
+        "title": "Four-Step Sequence",
+        "panels": [
+          {
+            "step": "01",
+            "title": "Notice"
+          },
+          {
+            "step": "02",
+            "title": "Filter"
+          },
+          {
+            "step": "03",
+            "title": "Commit"
+          },
+          {
+            "step": "04",
+            "title": "Compound",
+            "tone": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bs-2",
+      "fromFrame": 90,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "barRace": {
+        "title": "Output Shift",
+        "epochs": [
+          {
+            "label": "Q1",
+            "at": 0,
+            "bars": [
+              {
+                "id": "a",
+                "label": "Hustle",
+                "value": 60,
+                "displayValue": "60%"
+              },
+              {
+                "id": "b",
+                "label": "Systems",
+                "value": 30,
+                "displayValue": "30%",
+                "tone": "positive"
+              }
+            ]
+          },
+          {
+            "label": "Q4",
+            "at": 40,
+            "bars": [
+              {
+                "id": "a",
+                "label": "Hustle",
+                "value": 35,
+                "displayValue": "35%"
+              },
+              {
+                "id": "b",
+                "label": "Systems",
+                "value": 92,
+                "displayValue": "92%",
+                "tone": "positive"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "bs-3",
+      "fromFrame": 180,
+      "durationFrames": 90,
+      "transition": {
+        "type": "whipPan",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "crumpleToss": {
+        "title": "Availability Myth",
+        "myth": {
+          "badge": "MYTH",
+          "headline": "Always-on responsiveness"
+        },
+        "tossAt": 34,
+        "truth": {
+          "badge": "RULE",
+          "headline": "Protected deep blocks",
+          "detail": "Batch communication twice daily."
+        }
+      }
+    },
+    {
+      "id": "bs-4",
+      "fromFrame": 270,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "realAnchor": {
+        "title": "Field Evidence",
+        "subtitle": "Longitudinal Study",
+        "badge": "ANCHOR",
+        "annotations": [
+          {
+            "text": "2x retention",
+            "side": "left"
+          },
+          {
+            "text": "Zero burnout",
+            "side": "right"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bs-5",
+      "fromFrame": 360,
+      "durationFrames": 90,
+      "transition": {
+        "type": "whipPan",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "visualEquation": {
+        "title": "The Formula",
+        "layout": "borderless",
+        "operator": "plus",
+        "nodes": [
+          {
+            "label": "Filter"
+          },
+          {
+            "label": "Focus",
+            "tone": "accent"
+          },
+          {
+            "label": "Output",
+            "tone": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bs-6",
+      "fromFrame": 450,
+      "durationFrames": 90,
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "archivalBroadsheet"
+      },
+      "spatialJourney": {
+        "variant": "routeMap",
+        "title": "Execution Route",
+        "stations": [
+          {
+            "label": "Start"
+          },
+          {
+            "label": "Milestone"
+          },
+          {
+            "label": "Finish",
+            "tone": "positive"
+          }
+        ]
+      }
+    }
+  ]
+}

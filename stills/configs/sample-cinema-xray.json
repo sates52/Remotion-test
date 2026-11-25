@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "slug": "sample-cinema-xray",
+    "title": "Cinema XRay",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 540,
+    "artDirection": {
+      "stylePack": "xrayDiagnostics",
+      "style": "diagnostic cyan X-ray schematic and precision wireframe illustration on deep abyssal teal, luminous amber callout highlights",
+      "mood": "cyberXRay",
+      "polarity": "dark",
+      "typography": "condensed",
+      "annotationStyle": "spotlightMask",
+      "nodeShape": "hex",
+      "layoutGrammar": "cinemaWide",
+      "transitionFamily": "blueprint",
+      "captionAlign": "center",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "captions": [
+    {
+      "text": "Inside the boardroom, tension hides behind polite nods.",
+      "startFrame": 0,
+      "endFrame": 89
+    },
+    {
+      "text": "Anger spikes fast while lasting damage stays flat.",
+      "startFrame": 90,
+      "endFrame": 179
+    },
+    {
+      "text": "Calendar Tetris fills every open hour.",
+      "startFrame": 180,
+      "endFrame": 269
+    },
+    {
+      "text": "Precision lies at the intersection of data and judgment.",
+      "startFrame": 270,
+      "endFrame": 359
+    },
+    {
+      "text": "Turn off the secondary burners to fuel the core.",
+      "startFrame": 360,
+      "endFrame": 449
+    },
+    {
+      "text": "Compare the noisy room with the calm studio.",
+      "startFrame": 450,
+      "endFrame": 539
+    }
+  ],
+  "scenes": [
+    {
+      "id": "cx-1",
+      "fromFrame": 0,
+      "durationFrames": 90,
+      "transition": {
+        "type": "cut",
+        "frames": 10
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "annotatedScene": {
+        "image": "scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+        "spotlights": [
+          {
+            "cx": 960,
+            "cy": 480,
+            "rx": 180,
+            "label": "BOTTLENECK",
+            "at": 18
+          }
+        ],
+        "stickers": [
+          {
+            "title": "HIGH STAKES",
+            "icon": "alert",
+            "x": 320,
+            "y": 340,
+            "at": 28
+          }
+        ]
+      }
+    },
+    {
+      "id": "cx-2",
+      "fromFrame": 90,
+      "durationFrames": 90,
+      "transition": {
+        "type": "focusPull",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "dataMatrix": {
+        "variant": "dualCurve",
+        "title": "Spike vs Decay",
+        "xLabel": "TIME",
+        "yLabel": "IMPACT",
+        "curves": [
+          {
+            "label": "Impulse",
+            "points": [
+              0,
+              0.95,
+              0.7,
+              0.2,
+              0.1
+            ]
+          },
+          {
+            "label": "Consequence",
+            "points": [
+              0,
+              0.55,
+              0.62,
+              0.6,
+              0.58
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cx-3",
+      "fromFrame": 180,
+      "durationFrames": 90,
+      "transition": {
+        "type": "whipPan",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "liveInterface": {
+        "variant": "calendarTetris",
+        "title": "Calendar Tetris",
+        "channels": [
+          {
+            "name": "#alerts",
+            "count": 14,
+            "at": 10
+          }
+        ],
+        "blocks": [
+          {
+            "day": 0,
+            "label": "Sync",
+            "at": 12
+          },
+          {
+            "day": 2,
+            "label": "Review",
+            "at": 24
+          }
+        ]
+      }
+    },
+    {
+      "id": "cx-4",
+      "fromFrame": 270,
+      "durationFrames": 90,
+      "transition": {
+        "type": "focusPull",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "vennMerge": {
+        "title": "Diagnostic Lens",
+        "circles": [
+          {
+            "label": "Data",
+            "tone": "accent"
+          },
+          {
+            "label": "Judgment",
+            "tone": "positive"
+          }
+        ],
+        "intersection": {
+          "label": "Precision"
+        }
+      }
+    },
+    {
+      "id": "cx-5",
+      "fromFrame": 360,
+      "durationFrames": 90,
+      "transition": {
+        "type": "whipPan",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "stackReveal": {
+        "variant": "burners",
+        "title": "Four Burners",
+        "items": [
+          {
+            "label": "Core Craft",
+            "level": 0.95,
+            "tone": "positive"
+          },
+          {
+            "label": "Side Quests",
+            "level": 0.7,
+            "targetLevel": 0.05,
+            "changeAt": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "cx-6",
+      "fromFrame": 450,
+      "durationFrames": 90,
+      "transition": {
+        "type": "focusPull",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "cyberXRay"
+      },
+      "beforeAfterWipe": {
+        "direction": "diagonal",
+        "wipeAt": 30,
+        "before": {
+          "label": "BEFORE",
+          "headline": "Noisy Room",
+          "image": "scenes/essentialism-10x-pilot/e3_boardroom_table.png"
+        },
+        "after": {
+          "label": "AFTER",
+          "headline": "Calm Studio",
+          "image": "scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+          "tone": "positive"
+        }
+      }
+    }
+  ]
+}

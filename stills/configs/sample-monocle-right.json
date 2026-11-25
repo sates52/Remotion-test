@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "slug": "sample-monocle-right",
+    "title": "Monocle Right",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 540,
+    "artDirection": {
+      "stylePack": "monocleEditorial",
+      "style": "Monocle magazine editorial gouache and fine-nib ink spot illustration on warm archival stock, deep teal and ochre accents, airy margin composition",
+      "mood": "monoclePrint",
+      "polarity": "light",
+      "typography": "serif",
+      "annotationStyle": "underline",
+      "nodeShape": "arch",
+      "layoutGrammar": "editorialRight",
+      "transitionFamily": "paper",
+      "captionAlign": "left",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "captions": [
+    {
+      "text": "Part one: the architecture of attention.",
+      "startFrame": 0,
+      "endFrame": 89
+    },
+    {
+      "text": "Unfiltered obligations pile up until they crush clarity.",
+      "startFrame": 90,
+      "endFrame": 179
+    },
+    {
+      "text": "Half the group protected deep work.",
+      "startFrame": 180,
+      "endFrame": 269
+    },
+    {
+      "text": "The route spans from audit to execution.",
+      "startFrame": 270,
+      "endFrame": 359
+    },
+    {
+      "text": "True leverage outweighs busywork.",
+      "startFrame": 360,
+      "endFrame": 449
+    },
+    {
+      "text": "Prune the trivial many to protect the vital few.",
+      "startFrame": 450,
+      "endFrame": 539
+    }
+  ],
+  "scenes": [
+    {
+      "id": "mr-1",
+      "fromFrame": 0,
+      "durationFrames": 90,
+      "transition": {
+        "type": "cut",
+        "frames": 10
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "chapterInterstitial": {
+        "variant": "broadsheetRule",
+        "kicker": "PART I",
+        "title": "THE ARCHITECTURE OF ATTENTION",
+        "subtitle": "Why less creates more"
+      }
+    },
+    {
+      "id": "mr-2",
+      "fromFrame": 90,
+      "durationFrames": 90,
+      "transition": {
+        "type": "paperTear",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "gravityPile": {
+        "title": "Obligation Overload",
+        "items": [
+          {
+            "label": "Urgent Ping",
+            "tag": "NOISE"
+          },
+          {
+            "label": "Status Call",
+            "tag": "SYNC"
+          },
+          {
+            "label": "Ad-hoc Deck",
+            "tag": "RUSH"
+          },
+          {
+            "label": "Deep Work",
+            "tag": "CORE",
+            "tone": "positive"
+          },
+          {
+            "label": "Inbox Zero",
+            "tag": "TRAP"
+          },
+          {
+            "label": "Review",
+            "tag": "CHECK"
+          }
+        ],
+        "dropZoneLabel": "BANDWIDTH"
+      }
+    },
+    {
+      "id": "mr-3",
+      "fromFrame": 180,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "cohortGrid": {
+        "title": "Controlled Split",
+        "total": 20,
+        "splitAt": 24,
+        "leftGroup": {
+          "label": "Protected",
+          "share": 0.5,
+          "tone": "positive"
+        },
+        "rightGroup": {
+          "label": "Fragmented",
+          "share": 0.5
+        }
+      }
+    },
+    {
+      "id": "mr-4",
+      "fromFrame": 270,
+      "durationFrames": 90,
+      "transition": {
+        "type": "paperTear",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "spatialJourney": {
+        "variant": "worldArc",
+        "title": "Global Rollout",
+        "stations": [
+          {
+            "label": "Audit",
+            "detail": "Week 1"
+          },
+          {
+            "label": "Filter",
+            "detail": "Week 2"
+          },
+          {
+            "label": "Scale",
+            "detail": "Week 4",
+            "tone": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mr-5",
+      "fromFrame": 360,
+      "durationFrames": 90,
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "balanceScale": {
+        "title": "The Trade-Off",
+        "leftLabel": "Busywork",
+        "rightLabel": "Leverage",
+        "leftWeights": [
+          {
+            "label": "Meetings",
+            "weight": 1
+          }
+        ],
+        "rightWeights": [
+          {
+            "label": "Deep Craft",
+            "weight": 3,
+            "tone": "positive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mr-6",
+      "fromFrame": 450,
+      "durationFrames": 90,
+      "transition": {
+        "type": "paperTear",
+        "frames": 12
+      },
+      "bg": {
+        "stageMood": "monoclePrint"
+      },
+      "decisionTree": {
+        "title": "Strategic Pruning",
+        "root": {
+          "label": "Opportunity"
+        },
+        "branches": [
+          {
+            "label": "Trivial Many",
+            "pruneAt": 32
+          },
+          {
+            "label": "Vital Few",
+            "winner": true
+          }
+        ]
+      }
+    }
+  ]
+}
