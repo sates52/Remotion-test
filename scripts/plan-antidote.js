@@ -1450,12 +1450,47 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // gate-authorship --restore restores the enum-valid REPAIRED action, never a
     // schema-external authored original. The gate FAILs on a drift.
     const A = ART && ART[i];
+    // Antidote 10x (opt-in): pass through authored 10x Single-World payloads from art.json
+    // BEFORE _authorship.lock so full-stage 10x scenes seal with cast:[] / concept:null / props:[].
+    let fullStage10x = false;
+    if (A) {
+      const { PASSTHROUGH_10X_KEYS, isFullStage10x } = require("./lib/antidote-10x-keys");
+      for (const k of PASSTHROUGH_10X_KEYS) {
+        if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
+      }
+      if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
+      if (A.bgImage) out.bg = { ...(out.bg || {}), image: A.bgImage };
+      fullStage10x = isFullStage10x(A);
+      if (fullStage10x) {
+        out.characters = [];
+        out.props = [];
+        out.texts = [];
+        delete out.concept;
+        if (out.visualContract && Array.isArray(out.visualContract.characterIntent)) {
+          out.visualContract.characterIntent = [];
+        }
+        if (out._authorship) {
+          delete out._authorship.conceptAuthored;
+          out._authorship.propTypes = [];
+        }
+      }
+    }
     // what EVERY authored beat seals, staged or not (2026-10-20, burn 217/236): its own callout text(s) and
     // that it is a scene, not a chapter card. `planShot` lets --restore undo a card without sealing the
     // engine-chosen shot of a beat whose staging the author left to the engine.
     const artTexts = (out.texts || []).filter((t) => t && t.src === "art").map((t) => JSON.parse(JSON.stringify(t)));
     const beatSeal = { planShot: out.shot, ...(artTexts.length ? { artTexts } : {}) };
-    if (A && !isTitle && out._authorship && !(Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
+    if (A && !isTitle && out._authorship && fullStage10x) {
+      out._authorship.lock = {
+        ...beatSeal,
+        shot: out.shot,
+        cast: [],
+        concept: null,
+        props: [],
+        propTypes: [],
+        fullStage10x: true,
+      };
+    } else if (A && !isTitle && out._authorship && !(Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
       // ICON + CALLOUT only (no staging authored): seal the icon and the callout, never the engine's shot/set/cast.
       out._authorship.lock = {
         ...beatSeal,
@@ -1463,8 +1498,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         props: JSON.parse(JSON.stringify(out.props || [])),
         propTypes: (out.props || []).map((p) => p && p.type).filter(Boolean),
       };
-    }
-    if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
+    } else if (A && !isTitle && out._authorship && (Array.isArray(A.cast) || A.expression || A.action || A.holds || A.set || A.shotOverride || A.conceptMotion || authorContinue)) {
       const c0 = (out.characters || [])[0] || {};
       out._authorship.lock = {
         ...beatSeal,
@@ -1493,21 +1527,6 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     }
     lastPlannedShot = out.shot;
     lastPlannedBg = out.bg ? JSON.parse(JSON.stringify(out.bg)) : null;
-    // Antidote 10x (opt-in): pass through authored 10x Single-World payloads from art.json
-    if (A) {
-      const v10xKeys = ["annotatedScene", "cohortGrid", "timelineScrub", "statSlam", "cutoutStage", "editorialSpread", "kineticManifesto", "decisionTree", "balanceScale", "stackReveal", "liveInterface", "comicStrip", "beforeAfterWipe", "spatialJourney", "chapterInterstitial", "visualEquation", "comparisonGrid", "dataMatrix", "realAnchor", "shotIntent", "depthCarry"];
-      for (const k of v10xKeys) {
-        if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
-      }
-      if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
-      if (A.bgImage) out.bg = { ...(out.bg || {}), image: A.bgImage };
-      const fullStage = !!(A.annotatedScene || A.cohortGrid || A.timelineScrub || A.statSlam || A.cutoutStage || A.editorialSpread || A.kineticManifesto || A.decisionTree || A.balanceScale || A.stackReveal || A.liveInterface || A.comicStrip || A.beforeAfterWipe || A.spatialJourney || A.chapterInterstitial || A.comparisonGrid || ((A.visualEquation || A.dataMatrix) && !(Array.isArray(A.cast) && A.cast.length)));
-      if (fullStage) {
-        out.characters = [];
-        out.props = [];
-        out.texts = [];
-      }
-    }
     return out;
   });
 

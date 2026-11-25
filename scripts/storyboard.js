@@ -535,8 +535,8 @@ A wrong icon is worse than none.
 ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${process.env.STORYBOARD_SPEECH === "1" ? SPEECH_LINE : ""}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## Antidote 10x Single-World Devices (opt-in when book.json sets stylePack / artDirection)
-- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`.
-- Devices by narrative job: \`cutoutStage\` (book-specific transparent Flux character/prop theatre over \`emptyStage\`), \`editorialSpread\` (asymmetric full-bleed magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 stove dials or \`strata\` cutaway), \`annotatedScene\` (\`markerStyle\`: \`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 group split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`layout: "fullBleedSplit"\`), \`visualEquation\` (\`layout: "borderless"\`, \`nodeShape\`: \`arch\`/\`hex\`/\`tornPaper\`/\`filmStrip\`/\`circle\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\` (\`highlightPhrases\` + \`marginNote\`).
+- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`liveInterface\`, \`comicStrip\`, \`beforeAfterWipe\`, \`spatialJourney\`, \`chapterInterstitial\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`. Full-stage 10x beats must use \`cast: []\` (or omit \`cast\`) and \`concept: null\` (no legacy \`diagram\` or \`told\`).
+- Devices by narrative job: \`cutoutStage\` (book-specific transparent Flux character/prop theatre over \`emptyStage\`), \`editorialSpread\` (asymmetric full-bleed magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 stove dials or \`strata\` cutaway), \`liveInterface\` (\`calendarTetris\`/\`notificationFlood\`/\`chatThread\`/\`metricBoard\`), \`comicStrip\` (\`triptych\`/\`quad2x2\`/\`asymmetric3\`), \`beforeAfterWipe\` (\`horizontal\`/\`diagonal\`), \`spatialJourney\` (3-5 station route), \`chapterInterstitial\` (4 chapter openers), \`annotatedScene\` (\`markerStyle\`: \`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 group split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`layout: "fullBleedSplit"\`), \`visualEquation\` (\`layout: "borderless"\`, \`nodeShape\`: \`arch\`/\`hex\`/\`tornPaper\`/\`filmStrip\`/\`circle\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\` (\`highlightPhrases\` + \`marginNote\`). Optional stage fields: \`stageMood\`, \`bgImage\`, \`depthCarry\`.
 - Every 10x beat should declare \`shotIntent: { job, subject, action, payoff }\`.
 
 ## How staging reads (measured in mute tests)
@@ -1068,9 +1068,11 @@ function merge() {
   // Unsupported top-level fields are an error, never silently dropped (burn scene-218: "shot" instead of
   // "shotOverride" — the authored framing never reached the screen). No auto-conversion: the author fixes it.
   {
+    const { ALL_10X_KEYS } = require("./lib/antidote-10x-keys");
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told", "place"]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told", "place",
+        ...ALL_10X_KEYS]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1108,10 +1110,36 @@ function merge() {
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
     const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute", "mechanism", "causal"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const { DEVICE_10X_KEYS, ALL_10X_KEYS, hasAny10xDevice, isFullStage10x } = require("./lib/antidote-10x-keys");
+    const { sceneSchema: AN_SCENE_SCHEMA, bgSchema: AN_BG_SCHEMA } = require("../src/engines/antidote/schema.ts");
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
       if (!a) { P(i, "NOT AUTHORED"); continue; }
+      const has10x = hasAny10xDevice(a);
+      const full10x = isFullStage10x(a);
+      for (const dk of [...DEVICE_10X_KEYS, "shotIntent", "depthCarry"]) {
+        if (a[dk] == null) continue;
+        const parsed = AN_SCENE_SCHEMA.shape[dk].safeParse(a[dk]);
+        if (!parsed.success) {
+          for (const issue of parsed.error.issues.slice(0, 3)) {
+            P(i, `${dk}: ${issue.path.length ? issue.path.join(".") + " — " : ""}${issue.message}`);
+          }
+        }
+      }
+      if (a.stageMood != null) {
+        const parsedMood = AN_BG_SCHEMA.shape.stageMood.safeParse(a.stageMood);
+        if (!parsedMood.success) P(i, `stageMood: ${parsedMood.error.issues[0]?.message || "invalid stageMood"}`);
+      }
+      if (a.bgImage != null && (typeof a.bgImage !== "string" || !a.bgImage.trim())) {
+        P(i, "bgImage must be a non-empty path string");
+      }
+      if (full10x) {
+        if (Array.isArray(a.cast) && a.cast.length > 0) P(i, "10x full-stage device cannot be combined with flat-vector cast — set cast: [] or omit cast");
+        if (a.diagram) P(i, "10x full-stage device cannot be combined with legacy diagram");
+        if (a.told) P(i, "10x full-stage device cannot be combined with told");
+        if (a.concept) P(i, '10x full-stage device replaces concept icon — set "concept": null');
+      }
       if (a.concept != null && !ICONS.has(a.concept)) P(i, `icon "${a.concept}" not in this book's vocabulary`);
       // authored continuation: only after a beat that exists, and on the same set
       if (a.continue != null) {
@@ -1317,7 +1345,7 @@ function merge() {
       // FILM FLOW 2: a told beat is its own complete picture (lib/told-rules.js) — the storyboard prose is not asked of it
       if (a.told) checkToldBeat(a.told, narration, TOLD_ENTITIES).forEach((m) => P(i, m));
       // FILM FLOW 6: the book's own place behind a figure beat
-      if (!a.told) { nowhere.all++; if (a.place == null) nowhere.none++; }
+      if (!a.told && !has10x) { nowhere.all++; if (a.place == null) nowhere.none++; }
       { // the place the author set for this beat (a figure beat's place, a told stage's "at"); unset = where the film was
         const setAt = a.told ? (a.told.stage && a.told.stage.at) || null : a.place != null ? a.place : null;
         placeOfBeat.set(i, setAt);
@@ -1327,7 +1355,7 @@ function merge() {
           break;
         }
         // nobody and nothing of the book on screen: blind raters read it as "an empty room with text under it"
-        if (!a.told && Array.isArray(a.cast) && !a.cast.length && !a.concept && !a.diagram && !a.stageRelationship) { emptyBeats.push(i); warnings.push(`${i}: nobody and nothing of the book on screen — put the person or the thing the narration names there, or make it a told beat`); }
+        if (!a.told && !has10x && Array.isArray(a.cast) && !a.cast.length && !a.concept && !a.diagram && !a.stageRelationship) { emptyBeats.push(i); warnings.push(`${i}: nobody and nothing of the book on screen — put the person or the thing the narration names there, or make it a told beat`); }
       }
       if (!a.told && typeof a.concept === "string" && a.concept.trim() && !/^none$/i.test(a.concept.trim())) { if (OWN_ICON_KEYS.has(a.concept.trim().toLowerCase())) shared.own++; else { shared.library++; shared.by[a.concept.trim()] = (shared.by[a.concept.trim()] || 0) + 1; } }
       if (a.place != null && a.told) P(i, `place: a told beat's place is its stage's "at" ("stage": { …, "at": "${a.place}" })`);
@@ -1335,7 +1363,7 @@ function merge() {
       if (a.told) OD.usedBy(a.told).forEach((id) => { if (!toldUses.has(id)) toldUses.set(id, i); });
       watchTold(a.told || null).forEach((m) => warnings.push(`${i}: ${m}`));
       if (!a.told) sbFields.forEach((k) => { if (!sb[k]) P(i, `storyboard.${k} missing`); });
-      if (!a.told && !a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
+      if (!a.told && !has10x && !a.callout && !a.diagram && !a.concept && !a.cast && !a.stageRelationship) warnings.push(`${i}: no callout/diagram/icon/staging`);
       // EXPERIMENT: relationship staging is an AUTHORED decision. The author selects it
       // (stageRelationship: true), writes the source-grounded relationship record, and removes
       // everything that would compete with it. Nothing is fixed silently: each conflict is
@@ -1363,6 +1391,7 @@ function merge() {
         ...(a.stageRelationship ? { stageRelationship: true, relationship: a.relationship } : {}),
         ...(a.place != null && !a.told ? { place: a.place } : {}),
         ...(a.told ? { told: a.told, ...(a.explainedBy ? { explainedBy: a.explainedBy } : {}) } : {}),
+        ...Object.fromEntries(ALL_10X_KEYS.filter((dk) => a[dk] != null).map((dk) => [dk, a[dk]])),
         storyboard: sb,
       });
     }
@@ -1415,7 +1444,7 @@ function merge() {
     const ownSet = new Set(v.ownIcons || []);
     top.filter(([k, n]) => !ownSet.has(k) && n > out.length * 0.05).forEach(([k, n]) => warnings.push(`icon "${k}" on ${n}/${out.length} beats (>5%) — an icon used for everything means nothing; re-check each against data/icon-readings.json`));
     signatureObjects().filter((o) => ownSet.has(o.key) && !hist[o.key]).forEach((o) => warnings.push(`signature object "${o.key}" is drawn but never used`));
-    console.log(`beats ${out.length} | icon ${out.filter((b) => b.concept).length} | diagram ${out.filter((b) => b.diagram).length} | callout ${out.filter((b) => b.callout).length} | staged ${out.filter((b) => Array.isArray(b.cast) && b.cast.length).length} | empty cast ${out.filter((b) => Array.isArray(b.cast) && !b.cast.length).length}`);
+    console.log(`beats ${out.length} | icon ${out.filter((b) => b.concept).length} | diagram ${out.filter((b) => b.diagram).length} | callout ${out.filter((b) => b.callout).length} | staged ${out.filter((b) => Array.isArray(b.cast) && b.cast.length).length} | empty cast ${out.filter((b) => Array.isArray(b.cast) && !b.cast.length).length} | 10x ${out.filter((b) => hasAny10xDevice(b)).length}`);
     console.log("icons:", JSON.stringify(top));
   } else {
     const TYPES = new Set(["title", "statement", "imagefocus", "list", "quote", "stat", "compare", "checklist", "polaroid", "chart", "timeline", "question", "punchline", "place", "document", "map", "flow", "trendline", "dataviz", "network", "duo", "reveal"]);

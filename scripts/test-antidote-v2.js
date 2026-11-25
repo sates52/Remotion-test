@@ -403,4 +403,142 @@ test("v2-variety-lint rejects Single-World collision (characters over bg.image w
   assert.throws(() => assertVariety(clash), /Single-World violation/);
 });
 
+test("antidote-10x-keys covers all 19 devices and isFullStage10x rules", () => {
+  const keys = require("./lib/antidote-10x-keys");
+  assert.strictEqual(keys.DEVICE_10X_KEYS.length, 19);
+  assert.strictEqual(keys.hasAny10xDevice({ timelineScrub: { title: "X" } }), true);
+  assert.strictEqual(keys.isFullStage10x({ timelineScrub: { title: "X" } }), true);
+  assert.strictEqual(keys.isFullStage10x({ visualEquation: { layout: "borderless" }, cast: [] }), true);
+  assert.strictEqual(keys.isFullStage10x({ visualEquation: { layout: "borderless" }, cast: ["laurel"] }), false);
+});
+
+test("storyboard.js merge passes valid 10x devices to art.json and rejects invalid/colliding 10x beats", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const { execFileSync } = require("child_process");
+  const root = path.resolve(__dirname, "..");
+  const slug = "__test-10x-merge-tmp";
+  const dir = path.join(root, "books", slug);
+  const sbDir = path.join(dir, "storyboard");
+  const vttPath = path.join(root, "public", "captions", `${slug}.vtt`);
+  try {
+    fs.mkdirSync(sbDir, { recursive: true });
+    fs.mkdirSync(path.dirname(vttPath), { recursive: true });
+    fs.writeFileSync(vttPath, "WEBVTT\n\n00:00:00.000 --> 00:00:05.000\nTen<00:00:00.500><c> years</c><00:00:01.000><c> passed</c><00:00:01.500><c> without</c><00:00:02.000><c> a</c><00:00:02.500><c> single</c><00:00:03.000><c> clue.</c>\n");
+    fs.writeFileSync(path.join(dir, "book.json"), JSON.stringify({
+      slug,
+      title: "Test",
+      engine: "antidote",
+      stylePack: "storybookVector",
+      engineProfile: { kind: "fiction", world: "contemporary", era: 2015, realPeople: false, format: "story", violence: "none", minorHarm: false, mustSee: ["Timeline", "Clues", "Room"] },
+    }, null, 2));
+    fs.writeFileSync(path.join(dir, "story-bible.json"), JSON.stringify({
+      cast: { laurel: { name: "Laurel", look: "dark coat", variant: { gender: "female", age: "adult", outfit: "coat", suit: "#222222", hair: "#4a3222", hairStyle: "short" } } },
+      ownIcons: [],
+      signatureObjects: [],
+    }, null, 2));
+    fs.writeFileSync(path.join(sbDir, "beats.json"), JSON.stringify({
+      beats: [{ i: 0, narration: "Ten years passed between 2005 and 2015 without a single clue." }],
+    }, null, 2));
+
+    // 1. Valid 10x beat
+    fs.writeFileSync(path.join(sbDir, "authored-0.json"), JSON.stringify([{
+      i: 0,
+      concept: null,
+      diagram: null,
+      callout: null,
+      cast: [],
+      stageMood: "warmParchment",
+      shotIntent: { job: "mechanism-flow", subject: "10 years", action: "scrub", payoff: "gap" },
+      timelineScrub: {
+        title: "TEN YEARS",
+        events: [
+          { time: "2005", title: "Ellie vanishes" },
+          { time: "2015", title: "Poppy appears", at: 40 },
+        ],
+      },
+      storyboard: {
+        claim: "Ten years passed",
+        concreteVisual: "Timeline 2005 to 2015",
+        onScreenText: "TEN YEARS",
+        relationToPrevious: "Opens mystery",
+        addedInformation: "Exact decade gap",
+      },
+    }], null, 2));
+    try {
+      execFileSync("node", [path.join(root, "scripts", "storyboard.js"), "prep", `--slug=${slug}`], { cwd: root, stdio: "pipe" });
+      execFileSync("node", [path.join(root, "scripts", "storyboard.js"), "merge", `--slug=${slug}`, "--write"], { cwd: root, stdio: "pipe" });
+    } catch (err) {
+      throw new Error(`merge failed:\n${err.stdout?.toString() || ""}\n${err.stderr?.toString() || ""}`);
+    }
+    const art = JSON.parse(fs.readFileSync(path.join(dir, "art.json"), "utf8"));
+    assert.strictEqual(art.beats[0].timelineScrub.title, "TEN YEARS");
+    assert.strictEqual(art.beats[0].stageMood, "warmParchment");
+    assert.strictEqual(art.beats[0].shotIntent.job, "mechanism-flow");
+
+    // 2. Invalid Zod payload (events.length < 2)
+    fs.writeFileSync(path.join(sbDir, "authored-0.json"), JSON.stringify([{
+      i: 0,
+      concept: null,
+      cast: [],
+      timelineScrub: { title: "BAD", events: [] },
+      storyboard: { claim: "a", concreteVisual: "b", onScreenText: "c", relationToPrevious: "d", addedInformation: "e" },
+    }], null, 2));
+    assert.throws(() => execFileSync("node", [path.join(root, "scripts", "storyboard.js"), "merge", `--slug=${slug}`, "--write"], { cwd: root, stdio: "pipe" }));
+
+    // 3. Single-World violation (fullStage10x + cast)
+    fs.writeFileSync(path.join(sbDir, "authored-0.json"), JSON.stringify([{
+      i: 0,
+      concept: null,
+      cast: ["laurel"],
+      timelineScrub: { title: "BAD", events: [{ time: "2005", title: "A" }, { time: "2015", title: "B" }] },
+      storyboard: { claim: "a", concreteVisual: "b", onScreenText: "c", relationToPrevious: "d", addedInformation: "e" },
+    }], null, 2));
+    assert.throws(() => execFileSync("node", [path.join(root, "scripts", "storyboard.js"), "merge", `--slug=${slug}`, "--write"], { cwd: root, stdio: "pipe" }));
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+    fs.rmSync(vttPath, { force: true });
+  }
+});
+
+test("authorship fullStage10x lock catches post-plan pollution and restores cleanly", () => {
+  const { stagingDrift, restoreAuthoredStaging, evaluateAuthorship } = require("./lib/authorship");
+  const cfg = {
+    meta: { slug: "test-10x" },
+    scenes: [{
+      id: "s0",
+      shot: "medium",
+      timelineScrub: { title: "TEN YEARS", events: [{ time: "2005", title: "A" }, { time: "2015", title: "B" }] },
+      characters: [{ id: "c0", identity: "everyman", role: "everyman" }],
+      props: [{ type: "lightbulb" }],
+      texts: [{ text: "POLLUTED" }],
+      chapterCard: { title: "X" },
+      _authorship: {
+        src: "art",
+        propTypes: [],
+        lock: {
+          planShot: "medium",
+          shot: "medium",
+          cast: [],
+          concept: null,
+          props: [],
+          propTypes: [],
+          fullStage10x: true,
+        },
+      },
+    }],
+  };
+  const drift = stagingDrift(cfg.scenes[0]);
+  assert.ok(drift.length >= 3, "should detect polluted cast, props, texts, chapterCard");
+  const repaired = restoreAuthoredStaging(cfg);
+  assert.strictEqual(repaired, 1);
+  assert.deepStrictEqual(cfg.scenes[0].characters, []);
+  assert.deepStrictEqual(cfg.scenes[0].props, []);
+  assert.deepStrictEqual(cfg.scenes[0].texts, []);
+  assert.strictEqual(cfg.scenes[0].chapterCard, undefined);
+  assert.strictEqual(cfg.scenes[0].timelineScrub.title, "TEN YEARS");
+  const ev = evaluateAuthorship(cfg, { engine: "antidote", slug: "test-10x" });
+  assert.strictEqual(ev.status, "PASS");
+});
+
 console.log(`\nAll ${passed} Antidote 2.0 tests passed.`);

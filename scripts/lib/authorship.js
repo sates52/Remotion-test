@@ -288,6 +288,7 @@ function stagingDrift(s) {
     const now = new Set((s.texts || []).map((t) => t && t.text));
     for (const t of L.artTexts) if (!now.has(t.text)) d.push(`callout "${t.text}" dropped`);
   }
+  if (L.fullStage10x && Array.isArray(s.texts) && s.texts.length) d.push(`fullStage10x texts 0→${s.texts.length}`);
   // the authored continuation (art.json `continue` → continueFromPrev + a 0-frame cut)
   if (L.continue !== true && s.continueFromPrev === true) d.push("continue added (not authored)");
   // the carried END STATE of a continued beat (10x P1: she stays in the tub) — sealed with the continuation
@@ -323,6 +324,7 @@ function restoreAuthoredStaging(config) {
       const ts = s.texts || (s.texts = []);
       for (const t of L.artTexts) if (!ts.some((x) => x && x.text === t.text)) ts.push(JSON.parse(JSON.stringify(t)));
     }
+    if (L.fullStage10x) s.texts = [];
     if (!staging) { repaired++; continue; }
     if (L.shot) s.shot = L.shot;
     if (L.set && s.bg) { s.bg.set = L.set; if (L.shot !== "split") delete s.bg.split; }
