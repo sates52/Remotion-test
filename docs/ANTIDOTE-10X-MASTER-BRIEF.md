@@ -1,6 +1,6 @@
 # Antidote 10x — Master Handoff Brief, YPP Guardrails & Remotion Library Catalog
 
-> **Branch / Worktree:** `dev/antidote-v2` @ `C:\Users\savas\Cursor\Remotion\wt-antidote-v2` (HEAD `df565aea`, 7 commits ahead of `origin/god-mode` — not yet merged to `origin/god-mode`).
+> **Branch / Worktree:** `dev/antidote-v2` @ `C:\Users\savas\Cursor\Remotion\wt-antidote-v2` (Phase 1 merged to `origin/god-mode` on 2026-11-25, operator approved; Phase 2 continues on `dev/antidote-v2` / `origin/god-mode`).
 > **Purpose:** Single durable memory file for any fresh development session continuing Antidote 10x, YPP-proofing, and Remotion visual-library upgrades.
 
 ---
@@ -38,9 +38,9 @@
 
 ---
 
-## 3. Completed Antidote 10x Architecture & Proven Metrics (`dev/antidote-v2` @ `df565aea`)
+## 3. Completed Antidote 10x Architecture & Proven Metrics (Phase 1 merged to `origin/god-mode` 2026-11-25)
 
-7 commits ahead of `origin/god-mode`: `ec2c0a9f`, `92d54dea`, `14a843b8`, `ea2da0cd`, `64a6c5f8`, `f1e3b324`, `df565aea`.
+Phase 1 commits (`ec2c0a9f`, `92d54dea`, `14a843b8`, `ea2da0cd`, `64a6c5f8`, `f1e3b324`, `df565aea`, `075c7407`) merged to `origin/god-mode` on 2026-11-25 (operator approved). Phase 2 continues from `dev/antidote-v2` / `origin/god-mode`.
 
 - **Single-World Law** (enforced by `scripts/lib/v2-variety-lint.js`): Zero cartoon vector-rig puppets over painted/Flux scenes; `boxed-card <= 20%`; `maxConsecutive <= 2`.
 - **19 Visual Storytelling Devices** in `src/engines/antidote/components/`:
