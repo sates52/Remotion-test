@@ -1,0 +1,3770 @@
+{
+  "meta": {
+    "slug": "the-art-of-strategy-10x-pilot",
+    "title": "The Art of Strategy",
+    "author": "Avinash Dixit & Barry Nalebuff",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 4950,
+    "multiplane": true,
+    "take": {
+      "note": "Strategy is not about being stronger — it is about controlling what your rival expects you to do next."
+    },
+    "artDirection": {
+      "style": "architectural copper-plate etching and navy blueprint technical illustration, crisp ivory and vermilion drafting ink accents, clean uncluttered composition",
+      "stylePack": "tacticalBlueprint",
+      "castMode": "illustrated",
+      "mood": "blueprintNavy",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "st1-b1-expectation-law",
+      "fromFrame": 0,
+      "durationFrames": 480,
+      "shotIntent": {
+        "job": "data-proof",
+        "subject": "bedrock law of game theory",
+        "action": "statSlam slams core law and fills comparison bars",
+        "payoff": "anchors the thesis: controlling expectations beats raw strength",
+        "revealFrame": 20
+      },
+      "statSlam": {
+        "kicker": "THE BEDROCK LAW OF GAME THEORY",
+        "value": "CONTROL EXPECTATIONS",
+        "label": "It is not about being stronger — it is about shaping what your rival expects you to do next.",
+        "note": "Every strategic move is a reaction to anticipated reactions.",
+        "framing": "blueprint",
+        "tone": "accent",
+        "bars": [
+          {
+            "label": "Raw Strength Alone",
+            "value": 0.35,
+            "text": "35% · Predictable",
+            "tone": "neutral",
+            "at": 180
+          },
+          {
+            "label": "Expectation Control",
+            "value": 0.92,
+            "text": "92% · Decisive Leverage",
+            "tone": "positive",
+            "at": 260
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1626"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "blueprintNavy"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st1-b2-chess-reframe",
+      "fromFrame": 480,
+      "durationFrames": 540,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "hand hovering over brass chess knight",
+        "action": "spotlights reframe from strongest move to manipulating expectation",
+        "payoff": "shows the mental shift from brute force to strategic anticipation",
+        "revealFrame": 30
+      },
+      "annotatedScene": {
+        "image": "scenes/strategy-10x-pilot/s1_chess_expectation.png",
+        "kenBurns": "pushIn",
+        "dim": 0.14,
+        "framing": "fullBleed",
+        "spotlights": [
+          {
+            "cx": 960,
+            "cy": 500,
+            "rx": 200,
+            "ry": 180,
+            "label": "NEW QUESTION",
+            "note": "How do I shape their expectation?",
+            "labelX": 1520,
+            "labelY": 260,
+            "tone": "accent",
+            "at": 100
+          }
+        ],
+        "traces": [],
+        "stickers": [
+          {
+            "title": "BUSINESS WARFARE",
+            "subtitle": "Executives in boardrooms",
+            "icon": "spark",
+            "x": 320,
+            "y": 740,
+            "rot": -2,
+            "tone": "positive",
+            "at": 360
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1626"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "blueprintNavy"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st1-b3-rival-merchants",
+      "fromFrame": 1020,
+      "durationFrames": 630,
+      "shotIntent": {
+        "job": "contrast",
+        "subject": "BB Lean vs Rainbow's",
+        "action": "full-bleed split contrasts the two rival catalog merchants",
+        "payoff": "sets up the classic chambray shirt pricing rivalry",
+        "revealFrame": 20
+      },
+      "comparisonGrid": {
+        "title": "TWO RIVAL CATALOG MERCHANTS",
+        "layout": "fullBleedSplit",
+        "columns": [
+          {
+            "heading": "BB Lean",
+            "tag": "CATALOG STAPLE",
+            "image": "scenes/strategy-10x-pilot/s1_bb_lean.png",
+            "bullets": [
+              "High-margin deluxe chambray shirt",
+              "Locked in a years-long rivalry"
+            ],
+            "tone": "accent"
+          },
+          {
+            "heading": "Rainbow's",
+            "tag": "RIVAL MERCHANT",
+            "image": "scenes/strategy-10x-pilot/s1_rainbows.png",
+            "bullets": [
+              "Matching shirt, identical demand",
+              "Every price cut shapes expectations"
+            ],
+            "tone": "positive"
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPush",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1626"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "blueprintNavy"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st2-b1-phone-tag-timeline",
+      "fromFrame": 1650,
+      "durationFrames": 630,
+      "shotIntent": {
+        "job": "mechanism-flow",
+        "subject": "simultaneous phone tag loop",
+        "action": "timelineScrub advances through 5 beats and closes feedback loop",
+        "payoff": "makes the chaotic phone-tag loop immediately visible",
+        "revealFrame": 30
+      },
+      "timelineScrub": {
+        "title": "THE PHONE-TAG COORDINATION TRAP",
+        "subtitle": "Why simultaneous logic leads to endless collision",
+        "events": [
+          {
+            "time": "0s",
+            "title": "Call Drops",
+            "detail": "Both try to reconnect",
+            "tone": "accent",
+            "at": 10
+          },
+          {
+            "time": "2s",
+            "title": "Voicemail",
+            "detail": "Both dial at once",
+            "tone": "danger",
+            "at": 75
+          },
+          {
+            "time": "7s",
+            "title": "Hang Up",
+            "detail": "Realize what happened",
+            "tone": "neutral",
+            "at": 195
+          },
+          {
+            "time": "10s",
+            "title": "Wait 10s",
+            "detail": "Both pause together",
+            "tone": "neutral",
+            "at": 295
+          },
+          {
+            "time": "13s",
+            "title": "Collision!",
+            "detail": "Dial again together",
+            "tone": "danger",
+            "at": 405
+          }
+        ],
+        "loopLabel": "TOTAL CHAOS · REPEAT",
+        "loopAt": 455,
+        "callout": "Talking over each other digitally — neither knows who should call.",
+        "calloutAt": 500
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1626"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "blueprintNavy"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st2-b2-multiple-equilibria",
+      "fromFrame": 2280,
+      "durationFrames": 570,
+      "shotIntent": {
+        "job": "framework-map",
+        "subject": "2x2 multiple equilibria matrix",
+        "action": "quadrants reveal two stable states vs two failure states",
+        "payoff": "shows why pure math cannot pick between two symmetric equilibria",
+        "revealFrame": 60
+      },
+      "dataMatrix": {
+        "variant": "quadrant2x2",
+        "borderless": true,
+        "quadrantRevealStep": 42,
+        "title": "THE TRAGEDY OF MULTIPLE EQUILIBRIA",
+        "subtitle": "Two stable outcomes — but pure logic cannot tell you which one they picked",
+        "xLabel": "THEIR ACTION",
+        "yLabel": "YOUR ACTION",
+        "quadrants": [
+          {
+            "label": "You Call + They Wait",
+            "sublabel": "STABLE ✓ Connection succeeds",
+            "tone": "positive",
+            "active": true
+          },
+          {
+            "label": "Both Call",
+            "sublabel": "COLLISION × Straight to voicemail",
+            "tone": "danger"
+          },
+          {
+            "label": "Both Wait",
+            "sublabel": "DEADLOCK × Silence forever",
+            "tone": "danger"
+          },
+          {
+            "label": "You Wait + They Call",
+            "sublabel": "STABLE ✓ Connection succeeds",
+            "tone": "positive",
+            "active": true
+          }
+        ],
+        "callout": "Math won't tell you who should press the call button."
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryUp",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1914"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "emeraldNoir"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st2-b3-focal-point",
+      "fromFrame": 2850,
+      "durationFrames": 450,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "converging clock tower focal point",
+        "action": "highlights central focal point where paths meet",
+        "payoff": "explains Schelling's focal point visually",
+        "revealFrame": 120
+      },
+      "annotatedScene": {
+        "image": "scenes/strategy-10x-pilot/s2_focal_clock.png",
+        "kenBurns": "pushIn",
+        "dim": 0.04,
+        "framing": "editorialPrint",
+        "banner": {
+          "text": "THE SOLUTION: A FOCAL POINT",
+          "at": 30
+        },
+        "spotlights": [
+          {
+            "cx": 960,
+            "cy": 430,
+            "rx": 185,
+            "ry": 185,
+            "label": "THE FOCAL POINT",
+            "note": "A shared social convention",
+            "labelX": 1690,
+            "labelY": 360,
+            "tone": "accent",
+            "at": 130
+          }
+        ],
+        "traces": [],
+        "stickers": [
+          {
+            "title": "COORDINATION SOLVED",
+            "subtitle": "When pure logic fails, convention wins",
+            "icon": "clock",
+            "x": 210,
+            "y": 520,
+            "rot": -2,
+            "tone": "positive",
+            "at": 210
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPull",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F3ECE0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "inkScroll"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st3-b1-commitment-device",
+      "fromFrame": 3300,
+      "durationFrames": 570,
+      "shotIntent": {
+        "job": "mechanism-flow",
+        "subject": "Dean's commitment device",
+        "action": "borderless equation links penalty contract to future willpower",
+        "payoff": "shows how binding yourself changes expectations",
+        "revealFrame": 40
+      },
+      "visualEquation": {
+        "title": "BUYING FUTURE WILLPOWER",
+        "subtitle": "How Dean locked in his diet by making failure financially devastating",
+        "layout": "borderless",
+        "operator": "arrow",
+        "nodes": [
+          {
+            "label": "Binding Penalty",
+            "sublabel": "Massive financial cost if he fails",
+            "badge": "COMMITMENT",
+            "image": "scenes/strategy-10x-pilot/s3_commitment_lock.png",
+            "tone": "danger"
+          },
+          {
+            "label": "Credible Rule",
+            "sublabel": "His friend knows he cannot quit",
+            "badge": "EXPECTATION",
+            "glyph": "⚡",
+            "tone": "accent"
+          },
+          {
+            "label": "Future Willpower",
+            "sublabel": "Changed what both sides expect",
+            "badge": "RESULT",
+            "glyph": "★",
+            "tone": "positive"
+          }
+        ],
+        "footnote": "He built a mechanical response rule that couldn't be ignored."
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1914"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "emeraldNoir"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st3-b2-expectation-echo",
+      "fromFrame": 3870,
+      "durationFrames": 450,
+      "shotIntent": {
+        "job": "document-quote",
+        "subject": "core strategy bookend quote",
+        "action": "vermilion highlighter sweeps key words on inkScroll paper",
+        "payoff": "echoes the opening law with crisp dark-on-light contrast",
+        "revealFrame": 120
+      },
+      "realAnchor": {
+        "title": "THE STRATEGIC BOOKEND",
+        "subtitle": "Why credibility beats raw willpower",
+        "badge": "CORE PRINCIPLE",
+        "quote": "It's not about being stronger. It's about controlling what they expect.",
+        "attribution": "The Art of Strategy",
+        "highlightPhrases": [
+          {
+            "text": "not about being stronger",
+            "at": 180
+          },
+          {
+            "text": "controlling what they expect",
+            "at": 240
+          }
+        ],
+        "marginNote": {
+          "text": "Pay the price to prove the rule is real!",
+          "at": 290
+        },
+        "annotations": [
+          {
+            "text": "Mechanical Rule",
+            "side": "left"
+          },
+          {
+            "text": "Credible Threat",
+            "side": "right"
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F3ECE0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "inkScroll"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "st3-b3-hunting-grounds-map",
+      "fromFrame": 4320,
+      "durationFrames": 630,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "north vs south hunting grounds map",
+        "action": "spotlights north (2 units) vs south (1 unit) with converging traces",
+        "payoff": "visualizes the Stone Age hunters showdown over the richer valley",
+        "revealFrame": 220
+      },
+      "annotatedScene": {
+        "image": "scenes/strategy-10x-pilot/s3_hunting_map.png",
+        "kenBurns": "pushIn",
+        "dim": 0.06,
+        "framing": "editorialPrint",
+        "banner": {
+          "text": "THE ULTIMATE SHOWDOWN · BRETT VS. BARNEY",
+          "at": 20
+        },
+        "spotlights": [
+          {
+            "cx": 960,
+            "cy": 290,
+            "rx": 230,
+            "ry": 95,
+            "label": "NORTH VALLEY · 2 UNITS",
+            "note": "Lush & plentiful meat",
+            "labelX": 1690,
+            "labelY": 280,
+            "tone": "positive",
+            "at": 260
+          },
+          {
+            "cx": 960,
+            "cy": 640,
+            "rx": 230,
+            "ry": 95,
+            "label": "SOUTH PLATEAU · 1 UNIT",
+            "note": "Sparse fallback ground",
+            "labelX": 1690,
+            "labelY": 640,
+            "tone": "neutral",
+            "at": 390
+          }
+        ],
+        "traces": [
+          {
+            "from": {
+              "x": 520,
+              "y": 470,
+              "label": "BRETT"
+            },
+            "to": {
+              "x": 840,
+              "y": 310,
+              "label": "NORTH"
+            },
+            "tone": "accent",
+            "at": 210,
+            "dur": 40
+          },
+          {
+            "from": {
+              "x": 1400,
+              "y": 470,
+              "label": "BARNEY"
+            },
+            "to": {
+              "x": 1080,
+              "y": 310,
+              "label": "NORTH"
+            },
+            "tone": "danger",
+            "at": 210,
+            "dur": 40
+          }
+        ],
+        "stickers": []
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPush",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#0B1626"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "blueprintNavy"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    }
+  ],
+  "captions": [
+    {
+      "text": "are always constantly reacting to the anticipated",
+      "startFrame": 0,
+      "endFrame": 96,
+      "words": [
+        {
+          "w": "are",
+          "s": 0,
+          "e": 5
+        },
+        {
+          "w": "always",
+          "s": 5,
+          "e": 22
+        },
+        {
+          "w": "constantly",
+          "s": 22,
+          "e": 46
+        },
+        {
+          "w": "reacting",
+          "s": 46,
+          "e": 58
+        },
+        {
+          "w": "to",
+          "s": 58,
+          "e": 65
+        },
+        {
+          "w": "the",
+          "s": 65,
+          "e": 72
+        },
+        {
+          "w": "anticipated",
+          "s": 72,
+          "e": 96
+        }
+      ]
+    },
+    {
+      "text": "reactions of others. And that framework is going to",
+      "startFrame": 96,
+      "endFrame": 166,
+      "words": [
+        {
+          "w": "reactions",
+          "s": 96,
+          "e": 110
+        },
+        {
+          "w": "of",
+          "s": 110,
+          "e": 115
+        },
+        {
+          "w": "others.",
+          "s": 115,
+          "e": 134
+        },
+        {
+          "w": "And",
+          "s": 134,
+          "e": 139
+        },
+        {
+          "w": "that",
+          "s": 139,
+          "e": 146
+        },
+        {
+          "w": "framework",
+          "s": 146,
+          "e": 156
+        },
+        {
+          "w": "is",
+          "s": 156,
+          "e": 161
+        },
+        {
+          "w": "going",
+          "s": 161,
+          "e": 164
+        },
+        {
+          "w": "to",
+          "s": 163,
+          "e": 166
+        }
+      ]
+    },
+    {
+      "text": "be the bedrock idea for everything we discuss today.",
+      "startFrame": 166,
+      "endFrame": 259,
+      "words": [
+        {
+          "w": "be",
+          "s": 166,
+          "e": 169
+        },
+        {
+          "w": "the",
+          "s": 168,
+          "e": 173
+        },
+        {
+          "w": "bedrock",
+          "s": 173,
+          "e": 185
+        },
+        {
+          "w": "idea",
+          "s": 185,
+          "e": 194
+        },
+        {
+          "w": "for",
+          "s": 194,
+          "e": 206
+        },
+        {
+          "w": "everything",
+          "s": 206,
+          "e": 218
+        },
+        {
+          "w": "we",
+          "s": 218,
+          "e": 226
+        },
+        {
+          "w": "discuss",
+          "s": 226,
+          "e": 235
+        },
+        {
+          "w": "today.",
+          "s": 235,
+          "e": 259
+        }
+      ]
+    },
+    {
+      "text": "It's not about being stronger.",
+      "startFrame": 259,
+      "endFrame": 314,
+      "words": [
+        {
+          "w": "It's",
+          "s": 259,
+          "e": 266
+        },
+        {
+          "w": "not",
+          "s": 266,
+          "e": 271
+        },
+        {
+          "w": "about",
+          "s": 271,
+          "e": 278
+        },
+        {
+          "w": "being",
+          "s": 278,
+          "e": 286
+        },
+        {
+          "w": "stronger.",
+          "s": 286,
+          "e": 314
+        }
+      ]
+    },
+    {
+      "text": "It's about controlling what they expect.",
+      "startFrame": 314,
+      "endFrame": 379,
+      "words": [
+        {
+          "w": "It's",
+          "s": 314,
+          "e": 322
+        },
+        {
+          "w": "about",
+          "s": 322,
+          "e": 329
+        },
+        {
+          "w": "controlling",
+          "s": 329,
+          "e": 343
+        },
+        {
+          "w": "what",
+          "s": 343,
+          "e": 350
+        },
+        {
+          "w": "they",
+          "s": 350,
+          "e": 355
+        },
+        {
+          "w": "expect.",
+          "s": 355,
+          "e": 379
+        }
+      ]
+    },
+    {
+      "text": "And once you accept that premise, I mean, it",
+      "startFrame": 379,
+      "endFrame": 432,
+      "words": [
+        {
+          "w": "And",
+          "s": 379,
+          "e": 384
+        },
+        {
+          "w": "once",
+          "s": 384,
+          "e": 391
+        },
+        {
+          "w": "you",
+          "s": 391,
+          "e": 394
+        },
+        {
+          "w": "accept",
+          "s": 394,
+          "e": 403
+        },
+        {
+          "w": "that",
+          "s": 403,
+          "e": 408
+        },
+        {
+          "w": "premise,",
+          "s": 408,
+          "e": 420
+        },
+        {
+          "w": "I",
+          "s": 420,
+          "e": 423
+        },
+        {
+          "w": "mean,",
+          "s": 422,
+          "e": 427
+        },
+        {
+          "w": "it",
+          "s": 427,
+          "e": 432
+        }
+      ]
+    },
+    {
+      "text": "changes every decision you make.",
+      "startFrame": 432,
+      "endFrame": 492,
+      "words": [
+        {
+          "w": "changes",
+          "s": 432,
+          "e": 444
+        },
+        {
+          "w": "every",
+          "s": 444,
+          "e": 454
+        },
+        {
+          "w": "decision",
+          "s": 454,
+          "e": 468
+        },
+        {
+          "w": "you",
+          "s": 468,
+          "e": 478
+        },
+        {
+          "w": "make.",
+          "s": 478,
+          "e": 492
+        }
+      ]
+    },
+    {
+      "text": "You stop asking, \"Well, what's my strongest move, right?\"",
+      "startFrame": 492,
+      "endFrame": 574,
+      "words": [
+        {
+          "w": "You",
+          "s": 492,
+          "e": 497
+        },
+        {
+          "w": "stop",
+          "s": 497,
+          "e": 504
+        },
+        {
+          "w": "asking,",
+          "s": 504,
+          "e": 511
+        },
+        {
+          "w": "\"Well,",
+          "s": 511,
+          "e": 521
+        },
+        {
+          "w": "what's",
+          "s": 521,
+          "e": 528
+        },
+        {
+          "w": "my",
+          "s": 528,
+          "e": 535
+        },
+        {
+          "w": "strongest",
+          "s": 535,
+          "e": 547
+        },
+        {
+          "w": "move,",
+          "s": 547,
+          "e": 559
+        },
+        {
+          "w": "right?\"",
+          "s": 559,
+          "e": 574
+        }
+      ]
+    },
+    {
+      "text": "And you start asking, \"How do I manipulate their",
+      "startFrame": 574,
+      "endFrame": 658,
+      "words": [
+        {
+          "w": "And",
+          "s": 574,
+          "e": 578
+        },
+        {
+          "w": "you",
+          "s": 578,
+          "e": 588
+        },
+        {
+          "w": "start",
+          "s": 588,
+          "e": 595
+        },
+        {
+          "w": "asking,",
+          "s": 595,
+          "e": 612
+        },
+        {
+          "w": "\"How",
+          "s": 612,
+          "e": 622
+        },
+        {
+          "w": "do",
+          "s": 622,
+          "e": 626
+        },
+        {
+          "w": "I",
+          "s": 626,
+          "e": 631
+        },
+        {
+          "w": "manipulate",
+          "s": 631,
+          "e": 648
+        },
+        {
+          "w": "their",
+          "s": 648,
+          "e": 658
+        }
+      ]
+    },
+    {
+      "text": "expectation of my next Okay, so let's take",
+      "startFrame": 658,
+      "endFrame": 751,
+      "words": [
+        {
+          "w": "expectation",
+          "s": 658,
+          "e": 689
+        },
+        {
+          "w": "of",
+          "s": 689,
+          "e": 696
+        },
+        {
+          "w": "my",
+          "s": 696,
+          "e": 703
+        },
+        {
+          "w": "next",
+          "s": 703,
+          "e": 730
+        },
+        {
+          "w": "Okay,",
+          "s": 730,
+          "e": 737
+        },
+        {
+          "w": "so",
+          "s": 737,
+          "e": 742
+        },
+        {
+          "w": "let's",
+          "s": 742,
+          "e": 746
+        },
+        {
+          "w": "take",
+          "s": 746,
+          "e": 751
+        }
+      ]
+    },
+    {
+      "text": "this out of the teenage death race scenario, probably",
+      "startFrame": 751,
+      "endFrame": 835,
+      "words": [
+        {
+          "w": "this",
+          "s": 751,
+          "e": 756
+        },
+        {
+          "w": "out",
+          "s": 756,
+          "e": 761
+        },
+        {
+          "w": "of",
+          "s": 761,
+          "e": 764
+        },
+        {
+          "w": "the",
+          "s": 763,
+          "e": 768
+        },
+        {
+          "w": "teenage",
+          "s": 768,
+          "e": 782
+        },
+        {
+          "w": "death",
+          "s": 782,
+          "e": 790
+        },
+        {
+          "w": "race",
+          "s": 790,
+          "e": 797
+        },
+        {
+          "w": "scenario,",
+          "s": 797,
+          "e": 826
+        },
+        {
+          "w": "probably",
+          "s": 826,
+          "e": 835
+        }
+      ]
+    },
+    {
+      "text": "for the best. Let's put it into everyday concrete",
+      "startFrame": 835,
+      "endFrame": 910,
+      "words": [
+        {
+          "w": "for",
+          "s": 835,
+          "e": 840
+        },
+        {
+          "w": "the",
+          "s": 840,
+          "e": 845
+        },
+        {
+          "w": "best.",
+          "s": 845,
+          "e": 862
+        },
+        {
+          "w": "Let's",
+          "s": 862,
+          "e": 869
+        },
+        {
+          "w": "put",
+          "s": 869,
+          "e": 872
+        },
+        {
+          "w": "it",
+          "s": 871,
+          "e": 876
+        },
+        {
+          "w": "into",
+          "s": 876,
+          "e": 883
+        },
+        {
+          "w": "everyday",
+          "s": 883,
+          "e": 895
+        },
+        {
+          "w": "concrete",
+          "s": 895,
+          "e": 910
+        }
+      ]
+    },
+    {
+      "text": "business warfare. We aren't teenagers in cars.",
+      "startFrame": 910,
+      "endFrame": 994,
+      "words": [
+        {
+          "w": "business",
+          "s": 910,
+          "e": 919
+        },
+        {
+          "w": "warfare.",
+          "s": 919,
+          "e": 948
+        },
+        {
+          "w": "We",
+          "s": 948,
+          "e": 955
+        },
+        {
+          "w": "aren't",
+          "s": 955,
+          "e": 962
+        },
+        {
+          "w": "teenagers",
+          "s": 962,
+          "e": 977
+        },
+        {
+          "w": "in",
+          "s": 977,
+          "e": 984
+        },
+        {
+          "w": "cars.",
+          "s": 984,
+          "e": 994
+        }
+      ]
+    },
+    {
+      "text": "We are executives in boardrooms.",
+      "startFrame": 994,
+      "endFrame": 1049,
+      "words": [
+        {
+          "w": "We",
+          "s": 994,
+          "e": 998
+        },
+        {
+          "w": "are",
+          "s": 998,
+          "e": 1006
+        },
+        {
+          "w": "executives",
+          "s": 1006,
+          "e": 1022
+        },
+        {
+          "w": "in",
+          "s": 1022,
+          "e": 1030
+        },
+        {
+          "w": "boardrooms.",
+          "s": 1030,
+          "e": 1049
+        }
+      ]
+    },
+    {
+      "text": "Let's do it. Let's look at two rival catalog",
+      "startFrame": 1049,
+      "endFrame": 1121,
+      "words": [
+        {
+          "w": "Let's",
+          "s": 1049,
+          "e": 1056
+        },
+        {
+          "w": "do",
+          "s": 1056,
+          "e": 1059
+        },
+        {
+          "w": "it.",
+          "s": 1058,
+          "e": 1075
+        },
+        {
+          "w": "Let's",
+          "s": 1075,
+          "e": 1082
+        },
+        {
+          "w": "look",
+          "s": 1082,
+          "e": 1085
+        },
+        {
+          "w": "at",
+          "s": 1085,
+          "e": 1092
+        },
+        {
+          "w": "two",
+          "s": 1092,
+          "e": 1097
+        },
+        {
+          "w": "rival",
+          "s": 1097,
+          "e": 1109
+        },
+        {
+          "w": "catalog",
+          "s": 1109,
+          "e": 1121
+        }
+      ]
+    },
+    {
+      "text": "merchants from the source material.",
+      "startFrame": 1121,
+      "endFrame": 1157,
+      "words": [
+        {
+          "w": "merchants",
+          "s": 1121,
+          "e": 1130
+        },
+        {
+          "w": "from",
+          "s": 1130,
+          "e": 1135
+        },
+        {
+          "w": "the",
+          "s": 1135,
+          "e": 1138
+        },
+        {
+          "w": "source",
+          "s": 1138,
+          "e": 1147
+        },
+        {
+          "w": "material.",
+          "s": 1147,
+          "e": 1157
+        }
+      ]
+    },
+    {
+      "text": "We'll call them BB Lean and Rainbow's Great examples.",
+      "startFrame": 1157,
+      "endFrame": 1255,
+      "words": [
+        {
+          "w": "We'll",
+          "s": 1157,
+          "e": 1164
+        },
+        {
+          "w": "call",
+          "s": 1164,
+          "e": 1169
+        },
+        {
+          "w": "them",
+          "s": 1169,
+          "e": 1174
+        },
+        {
+          "w": "BB",
+          "s": 1174,
+          "e": 1183
+        },
+        {
+          "w": "Lean",
+          "s": 1183,
+          "e": 1190
+        },
+        {
+          "w": "and",
+          "s": 1190,
+          "e": 1195
+        },
+        {
+          "w": "Rainbow's",
+          "s": 1195,
+          "e": 1217
+        },
+        {
+          "w": "Great",
+          "s": 1217,
+          "e": 1222
+        },
+        {
+          "w": "examples.",
+          "s": 1222,
+          "e": 1255
+        }
+      ]
+    },
+    {
+      "text": "They are locked in this bitter yearslong rivalry",
+      "startFrame": 1255,
+      "endFrame": 1346,
+      "words": [
+        {
+          "w": "They",
+          "s": 1255,
+          "e": 1262
+        },
+        {
+          "w": "are",
+          "s": 1262,
+          "e": 1265
+        },
+        {
+          "w": "locked",
+          "s": 1265,
+          "e": 1272
+        },
+        {
+          "w": "in",
+          "s": 1272,
+          "e": 1279
+        },
+        {
+          "w": "this",
+          "s": 1279,
+          "e": 1286
+        },
+        {
+          "w": "bitter",
+          "s": 1286,
+          "e": 1306
+        },
+        {
+          "w": "yearslong",
+          "s": 1306,
+          "e": 1327
+        },
+        {
+          "w": "rivalry",
+          "s": 1327,
+          "e": 1346
+        }
+      ]
+    },
+    {
+      "text": "and they are both competing over one very specific,",
+      "startFrame": 1346,
+      "endFrame": 1414,
+      "words": [
+        {
+          "w": "and",
+          "s": 1346,
+          "e": 1354
+        },
+        {
+          "w": "they",
+          "s": 1354,
+          "e": 1358
+        },
+        {
+          "w": "are",
+          "s": 1358,
+          "e": 1363
+        },
+        {
+          "w": "both",
+          "s": 1363,
+          "e": 1368
+        },
+        {
+          "w": "competing",
+          "s": 1368,
+          "e": 1380
+        },
+        {
+          "w": "over",
+          "s": 1380,
+          "e": 1387
+        },
+        {
+          "w": "one",
+          "s": 1387,
+          "e": 1394
+        },
+        {
+          "w": "very",
+          "s": 1394,
+          "e": 1402
+        },
+        {
+          "w": "specific,",
+          "s": 1402,
+          "e": 1414
+        }
+      ]
+    },
+    {
+      "text": "highly lucrative item. A deluxe chambray shirt.",
+      "startFrame": 1414,
+      "endFrame": 1517,
+      "words": [
+        {
+          "w": "highly",
+          "s": 1414,
+          "e": 1423
+        },
+        {
+          "w": "lucrative",
+          "s": 1423,
+          "e": 1438
+        },
+        {
+          "w": "item.",
+          "s": 1438,
+          "e": 1459
+        },
+        {
+          "w": "A",
+          "s": 1459,
+          "e": 1466
+        },
+        {
+          "w": "deluxe",
+          "s": 1466,
+          "e": 1486
+        },
+        {
+          "w": "chambray",
+          "s": 1486,
+          "e": 1500
+        },
+        {
+          "w": "shirt.",
+          "s": 1500,
+          "e": 1517
+        }
+      ]
+    },
+    {
+      "text": "A classic catalog staple.",
+      "startFrame": 1517,
+      "endFrame": 1589,
+      "words": [
+        {
+          "w": "A",
+          "s": 1517,
+          "e": 1524
+        },
+        {
+          "w": "classic",
+          "s": 1524,
+          "e": 1543
+        },
+        {
+          "w": "catalog",
+          "s": 1543,
+          "e": 1567
+        },
+        {
+          "w": "staple.",
+          "s": 1567,
+          "e": 1589
+        }
+      ]
+    },
+    {
+      "text": "High margin, very consistent demand",
+      "startFrame": 1589,
+      "endFrame": 1650,
+      "words": [
+        {
+          "w": "High",
+          "s": 1589,
+          "e": 1598
+        },
+        {
+          "w": "margin,",
+          "s": 1598,
+          "e": 1620
+        },
+        {
+          "w": "very",
+          "s": 1620,
+          "e": 1632
+        },
+        {
+          "w": "consistent",
+          "s": 1632,
+          "e": 1646
+        },
+        {
+          "w": "demand",
+          "s": 1646,
+          "e": 1650
+        }
+      ]
+    },
+    {
+      "text": "immediately try to call the person back, but my",
+      "startFrame": 1650,
+      "endFrame": 1720,
+      "words": [
+        {
+          "w": "immediately",
+          "s": 1650,
+          "e": 1662
+        },
+        {
+          "w": "try",
+          "s": 1662,
+          "e": 1667
+        },
+        {
+          "w": "to",
+          "s": 1667,
+          "e": 1672
+        },
+        {
+          "w": "call",
+          "s": 1672,
+          "e": 1676
+        },
+        {
+          "w": "the",
+          "s": 1676,
+          "e": 1681
+        },
+        {
+          "w": "person",
+          "s": 1681,
+          "e": 1688
+        },
+        {
+          "w": "back,",
+          "s": 1688,
+          "e": 1708
+        },
+        {
+          "w": "but",
+          "s": 1708,
+          "e": 1715
+        },
+        {
+          "w": "my",
+          "s": 1715,
+          "e": 1720
+        }
+      ]
+    },
+    {
+      "text": "call won't go through because I get their voicemail",
+      "startFrame": 1720,
+      "endFrame": 1777,
+      "words": [
+        {
+          "w": "call",
+          "s": 1720,
+          "e": 1724
+        },
+        {
+          "w": "won't",
+          "s": 1724,
+          "e": 1732
+        },
+        {
+          "w": "go",
+          "s": 1732,
+          "e": 1735
+        },
+        {
+          "w": "through",
+          "s": 1734,
+          "e": 1739
+        },
+        {
+          "w": "because",
+          "s": 1739,
+          "e": 1746
+        },
+        {
+          "w": "I",
+          "s": 1746,
+          "e": 1751
+        },
+        {
+          "w": "get",
+          "s": 1751,
+          "e": 1754
+        },
+        {
+          "w": "their",
+          "s": 1753,
+          "e": 1758
+        },
+        {
+          "w": "voicemail",
+          "s": 1758,
+          "e": 1777
+        }
+      ]
+    },
+    {
+      "text": "because they are simultaneously trying to call me, So",
+      "startFrame": 1777,
+      "endFrame": 1866,
+      "words": [
+        {
+          "w": "because",
+          "s": 1777,
+          "e": 1784
+        },
+        {
+          "w": "they",
+          "s": 1784,
+          "e": 1789
+        },
+        {
+          "w": "are",
+          "s": 1789,
+          "e": 1794
+        },
+        {
+          "w": "simultaneously",
+          "s": 1794,
+          "e": 1816
+        },
+        {
+          "w": "trying",
+          "s": 1816,
+          "e": 1820
+        },
+        {
+          "w": "to",
+          "s": 1820,
+          "e": 1825
+        },
+        {
+          "w": "call",
+          "s": 1825,
+          "e": 1830
+        },
+        {
+          "w": "me,",
+          "s": 1830,
+          "e": 1861
+        },
+        {
+          "w": "So",
+          "s": 1861,
+          "e": 1866
+        }
+      ]
+    },
+    {
+      "text": "then we both hang up.",
+      "startFrame": 1866,
+      "endFrame": 1912,
+      "words": [
+        {
+          "w": "then",
+          "s": 1866,
+          "e": 1873
+        },
+        {
+          "w": "we",
+          "s": 1873,
+          "e": 1878
+        },
+        {
+          "w": "both",
+          "s": 1878,
+          "e": 1885
+        },
+        {
+          "w": "hang",
+          "s": 1885,
+          "e": 1892
+        },
+        {
+          "w": "up.",
+          "s": 1892,
+          "e": 1912
+        }
+      ]
+    },
+    {
+      "text": "We both realize what happened.",
+      "startFrame": 1912,
+      "endFrame": 1964,
+      "words": [
+        {
+          "w": "We",
+          "s": 1912,
+          "e": 1919
+        },
+        {
+          "w": "both",
+          "s": 1919,
+          "e": 1924
+        },
+        {
+          "w": "realize",
+          "s": 1924,
+          "e": 1936
+        },
+        {
+          "w": "what",
+          "s": 1936,
+          "e": 1943
+        },
+        {
+          "w": "happened.",
+          "s": 1943,
+          "e": 1964
+        }
+      ]
+    },
+    {
+      "text": "We both sit there waiting for 10 seconds and",
+      "startFrame": 1964,
+      "endFrame": 2039,
+      "words": [
+        {
+          "w": "We",
+          "s": 1964,
+          "e": 1969
+        },
+        {
+          "w": "both",
+          "s": 1969,
+          "e": 1976
+        },
+        {
+          "w": "sit",
+          "s": 1976,
+          "e": 1981
+        },
+        {
+          "w": "there",
+          "s": 1981,
+          "e": 1988
+        },
+        {
+          "w": "waiting",
+          "s": 1988,
+          "e": 1996
+        },
+        {
+          "w": "for",
+          "s": 1996,
+          "e": 2000
+        },
+        {
+          "w": "10",
+          "s": 2000,
+          "e": 2008
+        },
+        {
+          "w": "seconds",
+          "s": 2008,
+          "e": 2032
+        },
+        {
+          "w": "and",
+          "s": 2032,
+          "e": 2039
+        }
+      ]
+    },
+    {
+      "text": "then we both try to call each other at",
+      "startFrame": 2039,
+      "endFrame": 2080,
+      "words": [
+        {
+          "w": "then",
+          "s": 2039,
+          "e": 2044
+        },
+        {
+          "w": "we",
+          "s": 2044,
+          "e": 2048
+        },
+        {
+          "w": "both",
+          "s": 2048,
+          "e": 2053
+        },
+        {
+          "w": "try",
+          "s": 2053,
+          "e": 2056
+        },
+        {
+          "w": "to",
+          "s": 2056,
+          "e": 2060
+        },
+        {
+          "w": "call",
+          "s": 2060,
+          "e": 2065
+        },
+        {
+          "w": "each",
+          "s": 2065,
+          "e": 2070
+        },
+        {
+          "w": "other",
+          "s": 2070,
+          "e": 2073
+        },
+        {
+          "w": "at",
+          "s": 2072,
+          "e": 2080
+        }
+      ]
+    },
+    {
+      "text": "the exact same time It's total chaos.",
+      "startFrame": 2080,
+      "endFrame": 2161,
+      "words": [
+        {
+          "w": "the",
+          "s": 2080,
+          "e": 2083
+        },
+        {
+          "w": "exact",
+          "s": 2082,
+          "e": 2089
+        },
+        {
+          "w": "same",
+          "s": 2089,
+          "e": 2094
+        },
+        {
+          "w": "time",
+          "s": 2094,
+          "e": 2113
+        },
+        {
+          "w": "It's",
+          "s": 2113,
+          "e": 2120
+        },
+        {
+          "w": "total",
+          "s": 2120,
+          "e": 2130
+        },
+        {
+          "w": "chaos.",
+          "s": 2130,
+          "e": 2161
+        }
+      ]
+    },
+    {
+      "text": "We constantly talk over each other digitally trying to",
+      "startFrame": 2161,
+      "endFrame": 2231,
+      "words": [
+        {
+          "w": "We",
+          "s": 2161,
+          "e": 2168
+        },
+        {
+          "w": "constantly",
+          "s": 2168,
+          "e": 2183
+        },
+        {
+          "w": "talk",
+          "s": 2183,
+          "e": 2190
+        },
+        {
+          "w": "over",
+          "s": 2190,
+          "e": 2195
+        },
+        {
+          "w": "each",
+          "s": 2195,
+          "e": 2202
+        },
+        {
+          "w": "other",
+          "s": 2202,
+          "e": 2207
+        },
+        {
+          "w": "digitally",
+          "s": 2207,
+          "e": 2221
+        },
+        {
+          "w": "trying",
+          "s": 2221,
+          "e": 2226
+        },
+        {
+          "w": "to",
+          "s": 2226,
+          "e": 2231
+        }
+      ]
+    },
+    {
+      "text": "fix because you are experiencing the tragedy",
+      "startFrame": 2231,
+      "endFrame": 2324,
+      "words": [
+        {
+          "w": "fix",
+          "s": 2231,
+          "e": 2257
+        },
+        {
+          "w": "because",
+          "s": 2257,
+          "e": 2267
+        },
+        {
+          "w": "you",
+          "s": 2267,
+          "e": 2276
+        },
+        {
+          "w": "are",
+          "s": 2276,
+          "e": 2284
+        },
+        {
+          "w": "experiencing",
+          "s": 2284,
+          "e": 2300
+        },
+        {
+          "w": "the",
+          "s": 2300,
+          "e": 2310
+        },
+        {
+          "w": "tragedy",
+          "s": 2310,
+          "e": 2324
+        }
+      ]
+    },
+    {
+      "text": "of multiple equilibria. Okay, explain that.",
+      "startFrame": 2324,
+      "endFrame": 2425,
+      "words": [
+        {
+          "w": "of",
+          "s": 2324,
+          "e": 2332
+        },
+        {
+          "w": "multiple",
+          "s": 2332,
+          "e": 2348
+        },
+        {
+          "w": "equilibria.",
+          "s": 2348,
+          "e": 2366
+        },
+        {
+          "w": "Okay,",
+          "s": 2384,
+          "e": 2396
+        },
+        {
+          "w": "explain",
+          "s": 2396,
+          "e": 2406
+        },
+        {
+          "w": "that.",
+          "s": 2406,
+          "e": 2425
+        }
+      ]
+    },
+    {
+      "text": "The math of game theory doesn't actually give you",
+      "startFrame": 2425,
+      "endFrame": 2485,
+      "words": [
+        {
+          "w": "The",
+          "s": 2425,
+          "e": 2430
+        },
+        {
+          "w": "math",
+          "s": 2430,
+          "e": 2437
+        },
+        {
+          "w": "of",
+          "s": 2437,
+          "e": 2442
+        },
+        {
+          "w": "game",
+          "s": 2442,
+          "e": 2449
+        },
+        {
+          "w": "theory",
+          "s": 2449,
+          "e": 2459
+        },
+        {
+          "w": "doesn't",
+          "s": 2459,
+          "e": 2468
+        },
+        {
+          "w": "actually",
+          "s": 2468,
+          "e": 2476
+        },
+        {
+          "w": "give",
+          "s": 2476,
+          "e": 2480
+        },
+        {
+          "w": "you",
+          "s": 2480,
+          "e": 2485
+        }
+      ]
+    },
+    {
+      "text": "a clean answer here.",
+      "startFrame": 2485,
+      "endFrame": 2531,
+      "words": [
+        {
+          "w": "a",
+          "s": 2485,
+          "e": 2492
+        },
+        {
+          "w": "clean",
+          "s": 2492,
+          "e": 2500
+        },
+        {
+          "w": "answer",
+          "s": 2500,
+          "e": 2507
+        },
+        {
+          "w": "here.",
+          "s": 2507,
+          "e": 2531
+        }
+      ]
+    },
+    {
+      "text": "Both states, you calling or them calling, are stable,",
+      "startFrame": 2531,
+      "endFrame": 2646,
+      "words": [
+        {
+          "w": "Both",
+          "s": 2531,
+          "e": 2543
+        },
+        {
+          "w": "states,",
+          "s": 2543,
+          "e": 2557
+        },
+        {
+          "w": "you",
+          "s": 2557,
+          "e": 2564
+        },
+        {
+          "w": "calling",
+          "s": 2564,
+          "e": 2576
+        },
+        {
+          "w": "or",
+          "s": 2576,
+          "e": 2586
+        },
+        {
+          "w": "them",
+          "s": 2586,
+          "e": 2596
+        },
+        {
+          "w": "calling,",
+          "s": 2596,
+          "e": 2608
+        },
+        {
+          "w": "are",
+          "s": 2608,
+          "e": 2617
+        },
+        {
+          "w": "stable,",
+          "s": 2617,
+          "e": 2646
+        }
+      ]
+    },
+    {
+      "text": "but you have absolutely no way of knowing which",
+      "startFrame": 2646,
+      "endFrame": 2716,
+      "words": [
+        {
+          "w": "but",
+          "s": 2646,
+          "e": 2651
+        },
+        {
+          "w": "you",
+          "s": 2651,
+          "e": 2658
+        },
+        {
+          "w": "have",
+          "s": 2658,
+          "e": 2663
+        },
+        {
+          "w": "absolutely",
+          "s": 2663,
+          "e": 2680
+        },
+        {
+          "w": "no",
+          "s": 2680,
+          "e": 2687
+        },
+        {
+          "w": "way",
+          "s": 2687,
+          "e": 2692
+        },
+        {
+          "w": "of",
+          "s": 2692,
+          "e": 2696
+        },
+        {
+          "w": "knowing",
+          "s": 2696,
+          "e": 2706
+        },
+        {
+          "w": "which",
+          "s": 2706,
+          "e": 2716
+        }
+      ]
+    },
+    {
+      "text": "stable state the other person is currently aiming for.",
+      "startFrame": 2716,
+      "endFrame": 2792,
+      "words": [
+        {
+          "w": "stable",
+          "s": 2716,
+          "e": 2728
+        },
+        {
+          "w": "state",
+          "s": 2728,
+          "e": 2735
+        },
+        {
+          "w": "the",
+          "s": 2735,
+          "e": 2742
+        },
+        {
+          "w": "other",
+          "s": 2742,
+          "e": 2749
+        },
+        {
+          "w": "person",
+          "s": 2749,
+          "e": 2754
+        },
+        {
+          "w": "is",
+          "s": 2754,
+          "e": 2761
+        },
+        {
+          "w": "currently",
+          "s": 2761,
+          "e": 2771
+        },
+        {
+          "w": "aiming",
+          "s": 2771,
+          "e": 2780
+        },
+        {
+          "w": "for.",
+          "s": 2780,
+          "e": 2792
+        }
+      ]
+    },
+    {
+      "text": "Oh, I see. Pure logic fails completely in this",
+      "startFrame": 2792,
+      "endFrame": 2884,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 2792,
+          "e": 2797
+        },
+        {
+          "w": "I",
+          "s": 2797,
+          "e": 2804
+        },
+        {
+          "w": "see.",
+          "s": 2804,
+          "e": 2824
+        },
+        {
+          "w": "Pure",
+          "s": 2824,
+          "e": 2833
+        },
+        {
+          "w": "logic",
+          "s": 2833,
+          "e": 2845
+        },
+        {
+          "w": "fails",
+          "s": 2845,
+          "e": 2857
+        },
+        {
+          "w": "completely",
+          "s": 2857,
+          "e": 2872
+        },
+        {
+          "w": "in",
+          "s": 2872,
+          "e": 2876
+        },
+        {
+          "w": "this",
+          "s": 2876,
+          "e": 2884
+        }
+      ]
+    },
+    {
+      "text": "scenario. You can run the numbers all day and",
+      "startFrame": 2884,
+      "endFrame": 2953,
+      "words": [
+        {
+          "w": "scenario.",
+          "s": 2884,
+          "e": 2903
+        },
+        {
+          "w": "You",
+          "s": 2903,
+          "e": 2910
+        },
+        {
+          "w": "can",
+          "s": 2910,
+          "e": 2913
+        },
+        {
+          "w": "run",
+          "s": 2912,
+          "e": 2917
+        },
+        {
+          "w": "the",
+          "s": 2917,
+          "e": 2924
+        },
+        {
+          "w": "numbers",
+          "s": 2924,
+          "e": 2934
+        },
+        {
+          "w": "all",
+          "s": 2934,
+          "e": 2941
+        },
+        {
+          "w": "day",
+          "s": 2941,
+          "e": 2946
+        },
+        {
+          "w": "and",
+          "s": 2946,
+          "e": 2953
+        }
+      ]
+    },
+    {
+      "text": "math won't tell you who should press the call",
+      "startFrame": 2953,
+      "endFrame": 3016,
+      "words": [
+        {
+          "w": "math",
+          "s": 2953,
+          "e": 2963
+        },
+        {
+          "w": "won't",
+          "s": 2963,
+          "e": 2970
+        },
+        {
+          "w": "tell",
+          "s": 2970,
+          "e": 2975
+        },
+        {
+          "w": "you",
+          "s": 2975,
+          "e": 2982
+        },
+        {
+          "w": "who",
+          "s": 2982,
+          "e": 2992
+        },
+        {
+          "w": "should",
+          "s": 2992,
+          "e": 2999
+        },
+        {
+          "w": "press",
+          "s": 2999,
+          "e": 3004
+        },
+        {
+          "w": "the",
+          "s": 3004,
+          "e": 3011
+        },
+        {
+          "w": "call",
+          "s": 3011,
+          "e": 3016
+        }
+      ]
+    },
+    {
+      "text": "button. So, how do you ever reconnect?",
+      "startFrame": 3016,
+      "endFrame": 3100,
+      "words": [
+        {
+          "w": "button.",
+          "s": 3016,
+          "e": 3037
+        },
+        {
+          "w": "So,",
+          "s": 3037,
+          "e": 3047
+        },
+        {
+          "w": "how",
+          "s": 3047,
+          "e": 3052
+        },
+        {
+          "w": "do",
+          "s": 3052,
+          "e": 3056
+        },
+        {
+          "w": "you",
+          "s": 3056,
+          "e": 3061
+        },
+        {
+          "w": "ever",
+          "s": 3061,
+          "e": 3068
+        },
+        {
+          "w": "reconnect?",
+          "s": 3068,
+          "e": 3100
+        }
+      ]
+    },
+    {
+      "text": "You need a social or psychological convention.",
+      "startFrame": 3100,
+      "endFrame": 3179,
+      "words": [
+        {
+          "w": "You",
+          "s": 3100,
+          "e": 3104
+        },
+        {
+          "w": "need",
+          "s": 3104,
+          "e": 3107
+        },
+        {
+          "w": "a",
+          "s": 3107,
+          "e": 3114
+        },
+        {
+          "w": "social",
+          "s": 3114,
+          "e": 3121
+        },
+        {
+          "w": "or",
+          "s": 3121,
+          "e": 3128
+        },
+        {
+          "w": "psychological",
+          "s": 3128,
+          "e": 3148
+        },
+        {
+          "w": "convention.",
+          "s": 3148,
+          "e": 3179
+        }
+      ]
+    },
+    {
+      "text": "Game theorists call this a focal point.",
+      "startFrame": 3179,
+      "endFrame": 3244,
+      "words": [
+        {
+          "w": "Game",
+          "s": 3179,
+          "e": 3188
+        },
+        {
+          "w": "theorists",
+          "s": 3188,
+          "e": 3200
+        },
+        {
+          "w": "call",
+          "s": 3200,
+          "e": 3205
+        },
+        {
+          "w": "this",
+          "s": 3205,
+          "e": 3212
+        },
+        {
+          "w": "a",
+          "s": 3212,
+          "e": 3217
+        },
+        {
+          "w": "focal",
+          "s": 3217,
+          "e": 3227
+        },
+        {
+          "w": "point.",
+          "s": 3227,
+          "e": 3244
+        }
+      ]
+    },
+    {
+      "text": "A focal point. Yeah.",
+      "startFrame": 3244,
+      "endFrame": 3284,
+      "words": [
+        {
+          "w": "A",
+          "s": 3244,
+          "e": 3251
+        },
+        {
+          "w": "focal",
+          "s": 3251,
+          "e": 3263
+        },
+        {
+          "w": "point.",
+          "s": 3263,
+          "e": 3277
+        },
+        {
+          "w": "Yeah.",
+          "s": 3277,
+          "e": 3284
+        }
+      ]
+    },
+    {
+      "text": "You need a",
+      "startFrame": 3284,
+      "endFrame": 3300,
+      "words": [
+        {
+          "w": "You",
+          "s": 3284,
+          "e": 3292
+        },
+        {
+          "w": "need",
+          "s": 3292,
+          "e": 3295
+        },
+        {
+          "w": "a",
+          "s": 3294,
+          "e": 3300
+        }
+      ]
+    },
+    {
+      "text": "securing his own future.",
+      "startFrame": 3300,
+      "endFrame": 3353,
+      "words": [
+        {
+          "w": "securing",
+          "s": 3300,
+          "e": 3310
+        },
+        {
+          "w": "his",
+          "s": 3310,
+          "e": 3317
+        },
+        {
+          "w": "own",
+          "s": 3317,
+          "e": 3324
+        },
+        {
+          "w": "future.",
+          "s": 3324,
+          "e": 3353
+        }
+      ]
+    },
+    {
+      "text": "Therefore, he knows for an absolute fact he will",
+      "startFrame": 3353,
+      "endFrame": 3432,
+      "words": [
+        {
+          "w": "Therefore,",
+          "s": 3353,
+          "e": 3370
+        },
+        {
+          "w": "he",
+          "s": 3370,
+          "e": 3377
+        },
+        {
+          "w": "knows",
+          "s": 3377,
+          "e": 3386
+        },
+        {
+          "w": "for",
+          "s": 3386,
+          "e": 3391
+        },
+        {
+          "w": "an",
+          "s": 3391,
+          "e": 3396
+        },
+        {
+          "w": "absolute",
+          "s": 3396,
+          "e": 3410
+        },
+        {
+          "w": "fact",
+          "s": 3410,
+          "e": 3420
+        },
+        {
+          "w": "he",
+          "s": 3420,
+          "e": 3427
+        },
+        {
+          "w": "will",
+          "s": 3427,
+          "e": 3432
+        }
+      ]
+    },
+    {
+      "text": "be financially devastated if he ever fails his own",
+      "startFrame": 3432,
+      "endFrame": 3518,
+      "words": [
+        {
+          "w": "be",
+          "s": 3432,
+          "e": 3437
+        },
+        {
+          "w": "financially",
+          "s": 3437,
+          "e": 3461
+        },
+        {
+          "w": "devastated",
+          "s": 3461,
+          "e": 3480
+        },
+        {
+          "w": "if",
+          "s": 3480,
+          "e": 3487
+        },
+        {
+          "w": "he",
+          "s": 3487,
+          "e": 3492
+        },
+        {
+          "w": "ever",
+          "s": 3492,
+          "e": 3499
+        },
+        {
+          "w": "fails",
+          "s": 3499,
+          "e": 3509
+        },
+        {
+          "w": "his",
+          "s": 3509,
+          "e": 3514
+        },
+        {
+          "w": "own",
+          "s": 3514,
+          "e": 3518
+        }
+      ]
+    },
+    {
+      "text": "diet. He literally bought himself future willpower",
+      "startFrame": 3518,
+      "endFrame": 3617,
+      "words": [
+        {
+          "w": "diet.",
+          "s": 3518,
+          "e": 3540
+        },
+        {
+          "w": "He",
+          "s": 3540,
+          "e": 3550
+        },
+        {
+          "w": "literally",
+          "s": 3550,
+          "e": 3562
+        },
+        {
+          "w": "bought",
+          "s": 3562,
+          "e": 3571
+        },
+        {
+          "w": "himself",
+          "s": 3571,
+          "e": 3583
+        },
+        {
+          "w": "future",
+          "s": 3583,
+          "e": 3598
+        },
+        {
+          "w": "willpower",
+          "s": 3598,
+          "e": 3617
+        }
+      ]
+    },
+    {
+      "text": "by being seemingly ruthlessly irrational in the",
+      "startFrame": 3617,
+      "endFrame": 3722,
+      "words": [
+        {
+          "w": "by",
+          "s": 3617,
+          "e": 3626
+        },
+        {
+          "w": "being",
+          "s": 3626,
+          "e": 3634
+        },
+        {
+          "w": "seemingly",
+          "s": 3634,
+          "e": 3655
+        },
+        {
+          "w": "ruthlessly",
+          "s": 3655,
+          "e": 3677
+        },
+        {
+          "w": "irrational",
+          "s": 3677,
+          "e": 3696
+        },
+        {
+          "w": "in",
+          "s": 3696,
+          "e": 3703
+        },
+        {
+          "w": "the",
+          "s": 3703,
+          "e": 3722
+        }
+      ]
+    },
+    {
+      "text": "Wow. So Dean didn't lose the weight by just",
+      "startFrame": 3722,
+      "endFrame": 3782,
+      "words": [
+        {
+          "w": "Wow.",
+          "s": 3722,
+          "e": 3732
+        },
+        {
+          "w": "So",
+          "s": 3732,
+          "e": 3739
+        },
+        {
+          "w": "Dean",
+          "s": 3739,
+          "e": 3749
+        },
+        {
+          "w": "didn't",
+          "s": 3749,
+          "e": 3756
+        },
+        {
+          "w": "lose",
+          "s": 3756,
+          "e": 3761
+        },
+        {
+          "w": "the",
+          "s": 3761,
+          "e": 3766
+        },
+        {
+          "w": "weight",
+          "s": 3766,
+          "e": 3770
+        },
+        {
+          "w": "by",
+          "s": 3770,
+          "e": 3778
+        },
+        {
+          "w": "just",
+          "s": 3778,
+          "e": 3782
+        }
+      ]
+    },
+    {
+      "text": "having stronger willpower than the rest of us mortals.",
+      "startFrame": 3782,
+      "endFrame": 3869,
+      "words": [
+        {
+          "w": "having",
+          "s": 3782,
+          "e": 3790
+        },
+        {
+          "w": "stronger",
+          "s": 3790,
+          "e": 3802
+        },
+        {
+          "w": "willpower",
+          "s": 3802,
+          "e": 3816
+        },
+        {
+          "w": "than",
+          "s": 3816,
+          "e": 3821
+        },
+        {
+          "w": "the",
+          "s": 3821,
+          "e": 3826
+        },
+        {
+          "w": "rest",
+          "s": 3826,
+          "e": 3829
+        },
+        {
+          "w": "of",
+          "s": 3828,
+          "e": 3833
+        },
+        {
+          "w": "us",
+          "s": 3833,
+          "e": 3838
+        },
+        {
+          "w": "mortals.",
+          "s": 3838,
+          "e": 3869
+        }
+      ]
+    },
+    {
+      "text": "He did it by controlling what his friend expected",
+      "startFrame": 3869,
+      "endFrame": 3953,
+      "words": [
+        {
+          "w": "He",
+          "s": 3869,
+          "e": 3876
+        },
+        {
+          "w": "did",
+          "s": 3876,
+          "e": 3881
+        },
+        {
+          "w": "it",
+          "s": 3881,
+          "e": 3895
+        },
+        {
+          "w": "by",
+          "s": 3895,
+          "e": 3902
+        },
+        {
+          "w": "controlling",
+          "s": 3902,
+          "e": 3914
+        },
+        {
+          "w": "what",
+          "s": 3914,
+          "e": 3922
+        },
+        {
+          "w": "his",
+          "s": 3922,
+          "e": 3929
+        },
+        {
+          "w": "friend",
+          "s": 3929,
+          "e": 3938
+        },
+        {
+          "w": "expected",
+          "s": 3938,
+          "e": 3953
+        }
+      ]
+    },
+    {
+      "text": "him to do and in turn what he expected",
+      "startFrame": 3953,
+      "endFrame": 4039,
+      "words": [
+        {
+          "w": "him",
+          "s": 3953,
+          "e": 3960
+        },
+        {
+          "w": "to",
+          "s": 3960,
+          "e": 3965
+        },
+        {
+          "w": "do",
+          "s": 3965,
+          "e": 3982
+        },
+        {
+          "w": "and",
+          "s": 3982,
+          "e": 3989
+        },
+        {
+          "w": "in",
+          "s": 3989,
+          "e": 3998
+        },
+        {
+          "w": "turn",
+          "s": 3998,
+          "e": 4013
+        },
+        {
+          "w": "what",
+          "s": 4013,
+          "e": 4022
+        },
+        {
+          "w": "he",
+          "s": 4022,
+          "e": 4030
+        },
+        {
+          "w": "expected",
+          "s": 4030,
+          "e": 4039
+        }
+      ]
+    },
+    {
+      "text": "his friend to do.",
+      "startFrame": 4039,
+      "endFrame": 4075,
+      "words": [
+        {
+          "w": "his",
+          "s": 4039,
+          "e": 4046
+        },
+        {
+          "w": "friend",
+          "s": 4046,
+          "e": 4051
+        },
+        {
+          "w": "to",
+          "s": 4051,
+          "e": 4058
+        },
+        {
+          "w": "do.",
+          "s": 4058,
+          "e": 4075
+        }
+      ]
+    },
+    {
+      "text": "It's not about being stronger.",
+      "startFrame": 4075,
+      "endFrame": 4118,
+      "words": [
+        {
+          "w": "It's",
+          "s": 4075,
+          "e": 4082
+        },
+        {
+          "w": "not",
+          "s": 4082,
+          "e": 4087
+        },
+        {
+          "w": "about",
+          "s": 4087,
+          "e": 4092
+        },
+        {
+          "w": "being",
+          "s": 4092,
+          "e": 4099
+        },
+        {
+          "w": "stronger.",
+          "s": 4099,
+          "e": 4118
+        }
+      ]
+    },
+    {
+      "text": "It's about controlling what they expect.",
+      "startFrame": 4118,
+      "endFrame": 4181,
+      "words": [
+        {
+          "w": "It's",
+          "s": 4118,
+          "e": 4123
+        },
+        {
+          "w": "about",
+          "s": 4123,
+          "e": 4130
+        },
+        {
+          "w": "controlling",
+          "s": 4130,
+          "e": 4145
+        },
+        {
+          "w": "what",
+          "s": 4145,
+          "e": 4152
+        },
+        {
+          "w": "they",
+          "s": 4152,
+          "e": 4159
+        },
+        {
+          "w": "expect.",
+          "s": 4159,
+          "e": 4181
+        }
+      ]
+    },
+    {
+      "text": "He built a mechanical response rule that couldn't be",
+      "startFrame": 4181,
+      "endFrame": 4267,
+      "words": [
+        {
+          "w": "He",
+          "s": 4181,
+          "e": 4186
+        },
+        {
+          "w": "built",
+          "s": 4186,
+          "e": 4195
+        },
+        {
+          "w": "a",
+          "s": 4195,
+          "e": 4202
+        },
+        {
+          "w": "mechanical",
+          "s": 4202,
+          "e": 4222
+        },
+        {
+          "w": "response",
+          "s": 4222,
+          "e": 4236
+        },
+        {
+          "w": "rule",
+          "s": 4236,
+          "e": 4243
+        },
+        {
+          "w": "that",
+          "s": 4243,
+          "e": 4250
+        },
+        {
+          "w": "couldn't",
+          "s": 4250,
+          "e": 4260
+        },
+        {
+          "w": "be",
+          "s": 4260,
+          "e": 4267
+        }
+      ]
+    },
+    {
+      "text": "ignored. And he paid the price to prove it",
+      "startFrame": 4267,
+      "endFrame": 4332,
+      "words": [
+        {
+          "w": "ignored.",
+          "s": 4267,
+          "e": 4291
+        },
+        {
+          "w": "And",
+          "s": 4291,
+          "e": 4296
+        },
+        {
+          "w": "he",
+          "s": 4296,
+          "e": 4301
+        },
+        {
+          "w": "paid",
+          "s": 4301,
+          "e": 4306
+        },
+        {
+          "w": "the",
+          "s": 4306,
+          "e": 4310
+        },
+        {
+          "w": "price",
+          "s": 4310,
+          "e": 4315
+        },
+        {
+          "w": "to",
+          "s": 4315,
+          "e": 4320
+        },
+        {
+          "w": "prove",
+          "s": 4320,
+          "e": 4325
+        },
+        {
+          "w": "it",
+          "s": 4325,
+          "e": 4332
+        }
+      ]
+    },
+    {
+      "text": "was real. Okay, let's escalate this tension.",
+      "startFrame": 4332,
+      "endFrame": 4414,
+      "words": [
+        {
+          "w": "was",
+          "s": 4332,
+          "e": 4335
+        },
+        {
+          "w": "real.",
+          "s": 4334,
+          "e": 4354
+        },
+        {
+          "w": "Okay,",
+          "s": 4354,
+          "e": 4363
+        },
+        {
+          "w": "let's",
+          "s": 4363,
+          "e": 4373
+        },
+        {
+          "w": "escalate",
+          "s": 4373,
+          "e": 4387
+        },
+        {
+          "w": "this",
+          "s": 4387,
+          "e": 4392
+        },
+        {
+          "w": "tension.",
+          "s": 4392,
+          "e": 4414
+        }
+      ]
+    },
+    {
+      "text": "Let's look at what happens when two massive threats",
+      "startFrame": 4414,
+      "endFrame": 4476,
+      "words": [
+        {
+          "w": "Let's",
+          "s": 4414,
+          "e": 4421
+        },
+        {
+          "w": "look",
+          "s": 4421,
+          "e": 4426
+        },
+        {
+          "w": "at",
+          "s": 4426,
+          "e": 4429
+        },
+        {
+          "w": "what",
+          "s": 4428,
+          "e": 4435
+        },
+        {
+          "w": "happens",
+          "s": 4435,
+          "e": 4440
+        },
+        {
+          "w": "when",
+          "s": 4440,
+          "e": 4447
+        },
+        {
+          "w": "two",
+          "s": 4447,
+          "e": 4454
+        },
+        {
+          "w": "massive",
+          "s": 4454,
+          "e": 4466
+        },
+        {
+          "w": "threats",
+          "s": 4466,
+          "e": 4476
+        }
+      ]
+    },
+    {
+      "text": "collide head-on. The ultimate showdown.",
+      "startFrame": 4476,
+      "endFrame": 4547,
+      "words": [
+        {
+          "w": "collide",
+          "s": 4476,
+          "e": 4488
+        },
+        {
+          "w": "head-on.",
+          "s": 4488,
+          "e": 4507
+        },
+        {
+          "w": "The",
+          "s": 4507,
+          "e": 4517
+        },
+        {
+          "w": "ultimate",
+          "s": 4517,
+          "e": 4529
+        },
+        {
+          "w": "showdown.",
+          "s": 4529,
+          "e": 4547
+        }
+      ]
+    },
+    {
+      "text": "We are back with Brett and Barney, our Stone",
+      "startFrame": 4570,
+      "endFrame": 4627,
+      "words": [
+        {
+          "w": "We",
+          "s": 4570,
+          "e": 4574
+        },
+        {
+          "w": "are",
+          "s": 4574,
+          "e": 4579
+        },
+        {
+          "w": "back",
+          "s": 4579,
+          "e": 4584
+        },
+        {
+          "w": "with",
+          "s": 4584,
+          "e": 4589
+        },
+        {
+          "w": "Brett",
+          "s": 4589,
+          "e": 4596
+        },
+        {
+          "w": "and",
+          "s": 4596,
+          "e": 4601
+        },
+        {
+          "w": "Barney,",
+          "s": 4601,
+          "e": 4613
+        },
+        {
+          "w": "our",
+          "s": 4613,
+          "e": 4620
+        },
+        {
+          "w": "Stone",
+          "s": 4620,
+          "e": 4627
+        }
+      ]
+    },
+    {
+      "text": "Age hunters. But this time, they're eyeing two different",
+      "startFrame": 4627,
+      "endFrame": 4714,
+      "words": [
+        {
+          "w": "Age",
+          "s": 4627,
+          "e": 4634
+        },
+        {
+          "w": "hunters.",
+          "s": 4634,
+          "e": 4654
+        },
+        {
+          "w": "But",
+          "s": 4654,
+          "e": 4661
+        },
+        {
+          "w": "this",
+          "s": 4661,
+          "e": 4666
+        },
+        {
+          "w": "time,",
+          "s": 4666,
+          "e": 4675
+        },
+        {
+          "w": "they're",
+          "s": 4675,
+          "e": 4685
+        },
+        {
+          "w": "eyeing",
+          "s": 4685,
+          "e": 4699
+        },
+        {
+          "w": "two",
+          "s": 4699,
+          "e": 4706
+        },
+        {
+          "w": "different",
+          "s": 4706,
+          "e": 4714
+        }
+      ]
+    },
+    {
+      "text": "hunting the hunting ground to the north is",
+      "startFrame": 4714,
+      "endFrame": 4805,
+      "words": [
+        {
+          "w": "hunting",
+          "s": 4714,
+          "e": 4732
+        },
+        {
+          "w": "the",
+          "s": 4762,
+          "e": 4769
+        },
+        {
+          "w": "hunting",
+          "s": 4769,
+          "e": 4778
+        },
+        {
+          "w": "ground",
+          "s": 4778,
+          "e": 4783
+        },
+        {
+          "w": "to",
+          "s": 4783,
+          "e": 4788
+        },
+        {
+          "w": "the",
+          "s": 4788,
+          "e": 4793
+        },
+        {
+          "w": "north",
+          "s": 4793,
+          "e": 4798
+        },
+        {
+          "w": "is",
+          "s": 4798,
+          "e": 4805
+        }
+      ]
+    },
+    {
+      "text": "lush and plentiful. Let's say it's worth two units",
+      "startFrame": 4805,
+      "endFrame": 4889,
+      "words": [
+        {
+          "w": "lush",
+          "s": 4805,
+          "e": 4812
+        },
+        {
+          "w": "and",
+          "s": 4812,
+          "e": 4819
+        },
+        {
+          "w": "plentiful.",
+          "s": 4819,
+          "e": 4836
+        },
+        {
+          "w": "Let's",
+          "s": 4836,
+          "e": 4843
+        },
+        {
+          "w": "say",
+          "s": 4843,
+          "e": 4846
+        },
+        {
+          "w": "it's",
+          "s": 4846,
+          "e": 4853
+        },
+        {
+          "w": "worth",
+          "s": 4853,
+          "e": 4870
+        },
+        {
+          "w": "two",
+          "s": 4870,
+          "e": 4879
+        },
+        {
+          "w": "units",
+          "s": 4879,
+          "e": 4889
+        }
+      ]
+    },
+    {
+      "text": "of meat. The ground to the south is",
+      "startFrame": 4889,
+      "endFrame": 4950,
+      "words": [
+        {
+          "w": "of",
+          "s": 4889,
+          "e": 4894
+        },
+        {
+          "w": "meat.",
+          "s": 4894,
+          "e": 4913
+        },
+        {
+          "w": "The",
+          "s": 4913,
+          "e": 4920
+        },
+        {
+          "w": "ground",
+          "s": 4920,
+          "e": 4925
+        },
+        {
+          "w": "to",
+          "s": 4925,
+          "e": 4932
+        },
+        {
+          "w": "the",
+          "s": 4932,
+          "e": 4937
+        },
+        {
+          "w": "south",
+          "s": 4937,
+          "e": 4944
+        },
+        {
+          "w": "is",
+          "s": 4944,
+          "e": 4950
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Book 2 Pilot (The Art of Strategy)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 4,
+ "extra": [
+  "public/scenes/strategy-10x-pilot/s1_bb_lean.png",
+  "public/scenes/strategy-10x-pilot/s1_chess_expectation.png",
+  "public/scenes/strategy-10x-pilot/s1_rainbows.png",
+  "public/scenes/strategy-10x-pilot/s2_focal_clock.png",
+  "public/scenes/strategy-10x-pilot/s2_phone_chaos.png",
+  "public/scenes/strategy-10x-pilot/s3_commitment_lock.png",
+  "public/scenes/strategy-10x-pilot/s3_hunters_ridge.png",
+  "public/scenes/strategy-10x-pilot/s3_hunting_map.png"
+ ],
+ "jobs": [
+  {
+   "id": "strategy-stills",
+   "config": "config.strategy.json",
+   "frames": [
+    320,
+    780,
+    1340,
+    2180,
+    2660,
+    3140,
+    3620,
+    4180,
+    4780
+   ]
+  },
+  {
+   "id": "clip-s1",
+   "config": "config.strategy.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1649
+   }
+  },
+  {
+   "id": "clip-s2",
+   "config": "config.strategy.json",
+   "frames": [],
+   "clip": {
+    "from": 1650,
+    "to": 3299
+   }
+  },
+  {
+   "id": "clip-s3",
+   "config": "config.strategy.json",
+   "frames": [],
+   "clip": {
+    "from": 3300,
+    "to": 4949
+   }
+  }
+ ],
+ "inputHash": "b9ff83c6e340ba25",
+ "files": {
+  "stills/config.strategy.json": "2173a4be64ff82a50983d712cb0cc0850869e113f26406050f6c864e1de5b189"
+ },
+ "builtAt": "2026-11-25T10:08:31.318Z"
+}
