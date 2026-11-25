@@ -1,0 +1,3302 @@
+{
+  "meta": {
+    "slug": "essentialism-10x-pilot",
+    "title": "Essentialism: The Disciplined Pursuit of Less",
+    "author": "Greg McKeown",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 4500,
+    "multiplane": true,
+    "take": {
+      "note": "High-level execution is not an addition problem — it is the disciplined subtraction of everything non-essential."
+    },
+    "artDirection": {
+      "style": "warm Kinfolk editorial fine-line ink and translucent gouache illustration on bright ivory archival paper, sunlit organic negative space, terracotta and sage accents, uncluttered minimalist framing",
+      "stylePack": "kinfolkMinimal",
+      "castMode": "illustrated",
+      "polarity": "light",
+      "typography": "serif",
+      "annotationStyle": "bracket",
+      "nodeShape": "tornPaper",
+      "layoutGrammar": "editorialLeft",
+      "captionAlign": "left",
+      "mood": "ivoryBroadsheet",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "es1-b1-subtraction-manifesto",
+      "fromFrame": 0,
+      "durationFrames": 495,
+      "shotIntent": {
+        "job": "manifesto",
+        "subject": "addition vs subtraction problem",
+        "action": "kineticManifesto strikes through ADDITION on cue and reveals SUBTRACTION",
+        "payoff": "anchors the book's core mental-model flip with light-native ProducerNote",
+        "revealFrame": 440
+      },
+      "kineticManifesto": {
+        "kicker": "THE CORE REFRAME",
+        "lines": [
+          {
+            "text": "PRODUCTIVITY BY ADDITION",
+            "strikeAt": 410,
+            "at": 30
+          },
+          {
+            "text": "EXECUTION BY SUBTRACTION",
+            "emphasis": true,
+            "tone": "accent",
+            "at": 430
+          }
+        ],
+        "divider": "line",
+        "footnote": "Doing more meetings, side hustles, and projects is the trap.",
+        "footnoteAt": 245
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#FAF7F0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ivoryBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es1-b2-carving-away",
+      "fromFrame": 495,
+      "durationFrames": 405,
+      "shotIntent": {
+        "job": "document-quote",
+        "subject": "sculptor carving away the non-essential",
+        "action": "asymmetric editorialSpread pairs chisel art with highlighted oxygen quote",
+        "payoff": "makes subtraction feel tangible and deliberate",
+        "revealFrame": 130
+      },
+      "editorialSpread": {
+        "image": "scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+        "mediaSide": "left",
+        "kicker": "THE DISCIPLINED PURSUIT",
+        "headline": "Carve Away Everything Else",
+        "quote": "Carving away the non-essential stuff just so the absolute essential thing actually has the oxygen to survive.",
+        "highlightPhrases": [
+          {
+            "text": "non-essential stuff",
+            "at": 165
+          },
+          {
+            "text": "oxygen to survive",
+            "at": 335
+          }
+        ],
+        "attribution": "Essentialism · Greg McKeown"
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EDF2EB"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "sageBotanical"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es1-b3-tetris-interface",
+      "fromFrame": 900,
+      "durationFrames": 600,
+      "shotIntent": {
+        "job": "live-interface",
+        "subject": "Slack/Teams lit up + Tetris calendar blocks falling",
+        "action": "liveInterface lights up unread channels and drops Tetris blocks into weekly calendar",
+        "payoff": "shows 10 AM digital overload literally instead of static coffee character",
+        "revealFrame": 420
+      },
+      "liveInterface": {
+        "variant": "calendarTetris",
+        "title": "10:00 A.M. · THE EVERYDAY REALITY",
+        "subtitle": "Your channels light up like a Christmas tree while your calendar fills like Tetris",
+        "channels": [
+          {
+            "name": "#product-launch",
+            "preview": "Need your sign-off ASAP",
+            "count": 42,
+            "tone": "danger",
+            "at": 330
+          },
+          {
+            "name": "#exec-sync",
+            "preview": "Added 3 urgent threads",
+            "count": 19,
+            "tone": "danger",
+            "at": 360
+          },
+          {
+            "name": "Teams · Direct",
+            "preview": "Can you hop on a quick call?",
+            "count": 14,
+            "tone": "accent",
+            "at": 390
+          },
+          {
+            "name": "#side-project",
+            "preview": "Updated deck attached",
+            "count": 27,
+            "tone": "danger",
+            "at": 415
+          }
+        ],
+        "blocks": [
+          {
+            "day": 0,
+            "label": "All-Hands",
+            "span": 1.2,
+            "tone": "accent",
+            "at": 120
+          },
+          {
+            "day": 0,
+            "label": "Urgent Sync",
+            "span": 1.4,
+            "tone": "danger",
+            "at": 320
+          },
+          {
+            "day": 1,
+            "label": "Committee",
+            "span": 1.5,
+            "tone": "accent",
+            "at": 180
+          },
+          {
+            "day": 1,
+            "label": "1:1 Review",
+            "span": 1.2,
+            "tone": "danger",
+            "at": 380
+          },
+          {
+            "day": 2,
+            "label": "Status Call",
+            "span": 1.3,
+            "tone": "neutral",
+            "at": 240
+          },
+          {
+            "day": 2,
+            "label": "Fire Drill",
+            "span": 1.6,
+            "tone": "danger",
+            "at": 430
+          },
+          {
+            "day": 3,
+            "label": "Deck Review",
+            "span": 1.4,
+            "tone": "accent",
+            "at": 350
+          },
+          {
+            "day": 4,
+            "label": "Tetris Overload",
+            "span": 1.8,
+            "tone": "danger",
+            "at": 470
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPush",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F5E9DC"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "terracottaStudio"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es2-b1-paradox-comic",
+      "fromFrame": 1500,
+      "durationFrames": 525,
+      "shotIntent": {
+        "job": "comic-strip",
+        "subject": "Paradox of Success 4 sequential phases",
+        "action": "4-panel ComicStrip reveals Phase 1->2->3->4 in sequence",
+        "payoff": "eliminates parallel-branch confusion and breaks centered layout",
+        "revealFrame": 340
+      },
+      "comicStrip": {
+        "layout": "quad2x2",
+        "title": "THE PARADOX OF SUCCESS",
+        "subtitle": "How winning creates the exact distractions that undermine clarity",
+        "panels": [
+          {
+            "step": "PHASE 1",
+            "title": "Clear Focus",
+            "caption": "Clarity of purpose drives your initial breakthrough.",
+            "visual": "focusBeam",
+            "tone": "positive",
+            "at": 10
+          },
+          {
+            "step": "PHASE 2",
+            "title": "Flood of Options",
+            "caption": "Success rewards you with committees & side projects.",
+            "visual": "floodArrows",
+            "tone": "accent",
+            "at": 45
+          },
+          {
+            "step": "PHASE 3",
+            "title": "Diffused Efforts",
+            "caption": "Spread too thin — nothing is done well.",
+            "visual": "thinSpread",
+            "tone": "danger",
+            "at": 295
+          },
+          {
+            "step": "PHASE 4",
+            "title": "Distracted from Core",
+            "caption": "Your own success undermines the clarity that created it.",
+            "visual": "buriedCore",
+            "tone": "danger",
+            "at": 380
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#FAF7F0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ivoryBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es2-b2-desk-brackets",
+      "fromFrame": 2025,
+      "durationFrames": 390,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "cluttered desk of diffused commitments",
+        "action": "annotatedScene frames the blueprint pad with crisp architectural brackets",
+        "payoff": "matches Phase 4 label consistently and pinpoints core competency",
+        "revealFrame": 120
+      },
+      "annotatedScene": {
+        "image": "scenes/essentialism-10x-pilot/e2_cluttered_desk.png",
+        "kenBurns": "pushIn",
+        "dim": 0.04,
+        "framing": "editorialPrint",
+        "markerStyle": "bracket",
+        "banner": {
+          "text": "PHASE 4 · DISTRACTED FROM THE CORE",
+          "at": 20
+        },
+        "spotlights": [
+          {
+            "cx": 1240,
+            "cy": 630,
+            "rx": 210,
+            "ry": 150,
+            "label": "CORE COMPETENCY",
+            "note": "Buried under new options",
+            "labelX": 1680,
+            "labelY": 360,
+            "tone": "danger",
+            "at": 110
+          }
+        ],
+        "traces": [],
+        "stickers": [
+          {
+            "title": "CLARITY UNDERMINED",
+            "subtitle": "Your own success created the noise",
+            "icon": "eye",
+            "x": 225,
+            "y": 520,
+            "rot": 0,
+            "tone": "accent",
+            "at": 210
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryUp",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EDF2EB"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "sageBotanical"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es2-b3-mentor-drama",
+      "fromFrame": 2415,
+      "durationFrames": 585,
+      "shotIntent": {
+        "job": "cutout-drama",
+        "subject": "go-to person pulled in 4 directions vs calm mentor",
+        "action": "multi-pose worker cutout switches from asking to stressed as 4 pressure connectors hit",
+        "payoff": "shows the go-to trap visually with face-safe tailed speech bubbles",
+        "revealFrame": 495
+      },
+      "cutoutStage": {
+        "backdrop": {
+          "image": "scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+          "dim": 0.06,
+          "kenBurns": "pullOut"
+        },
+        "banner": {
+          "text": "THE GO-TO PERSON ILLUSION",
+          "at": 20
+        },
+        "actors": [
+          {
+            "id": "young_pro",
+            "image": "scenes/essentialism-10x-pilot/e1_char_overwhelmed.png",
+            "x": 560,
+            "y": 590,
+            "width": 310,
+            "height": 490,
+            "enter": "left",
+            "at": 10,
+            "action": "leanIn",
+            "actionAt": 130,
+            "poses": [
+              {
+                "at": 0,
+                "image": "scenes/essentialism-10x-pilot/e1_char_overwhelmed.png"
+              },
+              {
+                "at": 360,
+                "image": "scenes/essentialism-10x-pilot/e2_worker_calm.png"
+              }
+            ],
+            "says": {
+              "text": "Ultimate job security?",
+              "at": 130,
+              "side": "right",
+              "tone": "accent"
+            }
+          },
+          {
+            "id": "mentor",
+            "image": "scenes/essentialism-10x-pilot/e2_char_mentor.png",
+            "x": 1360,
+            "y": 590,
+            "width": 320,
+            "height": 510,
+            "flip": true,
+            "enter": "right",
+            "at": 30,
+            "action": "calm",
+            "actionAt": 495,
+            "says": {
+              "text": "Spread too thin = zero impact.",
+              "at": 495,
+              "side": "left",
+              "tone": "danger"
+            }
+          }
+        ],
+        "props": [],
+        "connectors": [
+          {
+            "from": {
+              "x": 240,
+              "y": 310
+            },
+            "to": {
+              "x": 470,
+              "y": 450
+            },
+            "label": "URGENT FAVOR",
+            "tone": "danger",
+            "at": 180
+          },
+          {
+            "from": {
+              "x": 240,
+              "y": 560
+            },
+            "to": {
+              "x": 470,
+              "y": 540
+            },
+            "label": "EXTRA COMMITTEE",
+            "tone": "danger",
+            "at": 240
+          },
+          {
+            "from": {
+              "x": 890,
+              "y": 320
+            },
+            "to": {
+              "x": 670,
+              "y": 450
+            },
+            "label": "SIDE PROJECT",
+            "tone": "accent",
+            "at": 300
+          },
+          {
+            "from": {
+              "x": 890,
+              "y": 580
+            },
+            "to": {
+              "x": 670,
+              "y": 540
+            },
+            "label": "ALL-HANDS",
+            "tone": "danger",
+            "at": 360
+          }
+        ],
+        "callout": "Being indispensable for everything blocks what matters most.",
+        "calloutAt": 520
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPull",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#FAF7F0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ivoryBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es3-b1-tradeoff-scale",
+      "fromFrame": 3000,
+      "durationFrames": 645,
+      "shotIntent": {
+        "job": "tradeoff-scale",
+        "subject": "terrifying trade-off: revenue loss vs customer trust",
+        "action": "balanceScale tips decisively toward unimpeachable integrity with clean pan clearance",
+        "payoff": "shows trade-offs are choosing which problem you want",
+        "revealFrame": 420
+      },
+      "balanceScale": {
+        "title": "CHOOSING YOUR PROBLEM",
+        "subtitle": "Every real trade-off forces a choice between two hard realities",
+        "leftLabel": "SHORT-TERM PAIN",
+        "rightLabel": "LONG-TERM INTEGRITY",
+        "leftWeights": [
+          {
+            "label": "Massive Revenue Loss",
+            "sublabel": "Explaining to angry shareholders",
+            "weight": 1.2,
+            "tone": "danger",
+            "at": 440
+          }
+        ],
+        "rightWeights": [
+          {
+            "label": "Unimpeachable Integrity",
+            "sublabel": "Refused compromised safety",
+            "weight": 1.6,
+            "tone": "positive",
+            "at": 145
+          },
+          {
+            "label": "Saved Brand Trust Forever",
+            "sublabel": "Decisive leadership under fire",
+            "weight": 1.4,
+            "tone": "positive",
+            "at": 240
+          }
+        ],
+        "verdict": "They knew exactly which problem they wanted.",
+        "verdictAt": 335
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "slideCarryLeft",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F5E9DC"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "terracottaStudio"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es3-b2-boardroom-to-home",
+      "fromFrame": 3645,
+      "durationFrames": 255,
+      "shotIntent": {
+        "job": "before-after-wipe",
+        "subject": "boardroom vs living room trade-off",
+        "action": "diagonal wipe transitions from corporate boardroom to personal living room",
+        "payoff": "makes the boardroom-to-living-room bridge concrete and visual",
+        "revealFrame": 90
+      },
+      "beforeAfterWipe": {
+        "direction": "diagonal",
+        "wipeAt": 40,
+        "endSplit": 0.5,
+        "before": {
+          "image": "scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+          "label": "THE BOARDROOM",
+          "headline": "Corporate Trade-Offs",
+          "points": [
+            "Revenue vs. Brand Trust"
+          ],
+          "tone": "accent"
+        },
+        "after": {
+          "image": "scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+          "label": "THE LIVING ROOM",
+          "headline": "Personal Trade-Offs",
+          "points": [
+            "Where we struggle most"
+          ],
+          "tone": "positive"
+        }
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "blurCut",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#FAF7F0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ivoryBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "es3-b3-four-burners",
+      "fromFrame": 3900,
+      "durationFrames": 600,
+      "shotIntent": {
+        "job": "burner-grid",
+        "subject": "Four-Burner Stove analogy",
+        "action": "stackReveal burners dial down Friends and Health on cue, then challenge the cliche",
+        "payoff": "visualizes the four-burner stove dynamically in 2x2 dials",
+        "revealFrame": 420
+      },
+      "stackReveal": {
+        "variant": "burners",
+        "title": "THE FOUR-BURNER STOVE ANALOGY",
+        "subtitle": "Your life has four burners — the cliché says you must shut them down",
+        "items": [
+          {
+            "label": "WORK",
+            "detail": "Career & output",
+            "level": 0.9,
+            "tone": "accent"
+          },
+          {
+            "label": "FAMILY",
+            "detail": "Home & loved ones",
+            "level": 0.85,
+            "tone": "positive"
+          },
+          {
+            "label": "FRIENDS",
+            "detail": "Social circle",
+            "level": 0.75,
+            "targetLevel": 0,
+            "changeAt": 420,
+            "tone": "accent"
+          },
+          {
+            "label": "HEALTH",
+            "detail": "Sleep & vitality",
+            "level": 0.8,
+            "targetLevel": 0,
+            "changeAt": 490,
+            "tone": "danger"
+          }
+        ],
+        "callout": "Turn off 1 to succeed, 2 for a billionaire — I refuse to accept that.",
+        "calloutAt": 530
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "zoomPush",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EDF2EB"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "sageBotanical"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    }
+  ],
+  "captions": [
+    {
+      "text": "to view productivity as an addition Always addition,",
+      "startFrame": 10,
+      "endFrame": 108,
+      "words": [
+        {
+          "w": "to",
+          "s": 10,
+          "e": 14
+        },
+        {
+          "w": "view",
+          "s": 14,
+          "e": 22
+        },
+        {
+          "w": "productivity",
+          "s": 22,
+          "e": 41
+        },
+        {
+          "w": "as",
+          "s": 41,
+          "e": 53
+        },
+        {
+          "w": "an",
+          "s": 53,
+          "e": 60
+        },
+        {
+          "w": "addition",
+          "s": 60,
+          "e": 84
+        },
+        {
+          "w": "Always",
+          "s": 84,
+          "e": 94
+        },
+        {
+          "w": "addition,",
+          "s": 94,
+          "e": 108
+        }
+      ]
+    },
+    {
+      "text": "right? The math in our heads just says, well,",
+      "startFrame": 108,
+      "endFrame": 173,
+      "words": [
+        {
+          "w": "right?",
+          "s": 108,
+          "e": 113
+        },
+        {
+          "w": "The",
+          "s": 113,
+          "e": 120
+        },
+        {
+          "w": "math",
+          "s": 120,
+          "e": 125
+        },
+        {
+          "w": "in",
+          "s": 125,
+          "e": 130
+        },
+        {
+          "w": "our",
+          "s": 130,
+          "e": 134
+        },
+        {
+          "w": "heads",
+          "s": 134,
+          "e": 142
+        },
+        {
+          "w": "just",
+          "s": 142,
+          "e": 149
+        },
+        {
+          "w": "says,",
+          "s": 149,
+          "e": 168
+        },
+        {
+          "w": "well,",
+          "s": 168,
+          "e": 173
+        }
+      ]
+    },
+    {
+      "text": "if I want to achieve more, I must do",
+      "startFrame": 173,
+      "endFrame": 245,
+      "words": [
+        {
+          "w": "if",
+          "s": 173,
+          "e": 178
+        },
+        {
+          "w": "I",
+          "s": 178,
+          "e": 182
+        },
+        {
+          "w": "want",
+          "s": 182,
+          "e": 185
+        },
+        {
+          "w": "to",
+          "s": 185,
+          "e": 188
+        },
+        {
+          "w": "achieve",
+          "s": 187,
+          "e": 197
+        },
+        {
+          "w": "more,",
+          "s": 197,
+          "e": 218
+        },
+        {
+          "w": "I",
+          "s": 218,
+          "e": 228
+        },
+        {
+          "w": "must",
+          "s": 228,
+          "e": 238
+        },
+        {
+          "w": "do",
+          "s": 238,
+          "e": 245
+        }
+      ]
+    },
+    {
+      "text": "more. I need more meetings, more side hustles, more",
+      "startFrame": 245,
+      "endFrame": 310,
+      "words": [
+        {
+          "w": "more.",
+          "s": 245,
+          "e": 252
+        },
+        {
+          "w": "I",
+          "s": 252,
+          "e": 259
+        },
+        {
+          "w": "need",
+          "s": 259,
+          "e": 264
+        },
+        {
+          "w": "more",
+          "s": 264,
+          "e": 269
+        },
+        {
+          "w": "meetings,",
+          "s": 269,
+          "e": 281
+        },
+        {
+          "w": "more",
+          "s": 281,
+          "e": 286
+        },
+        {
+          "w": "side",
+          "s": 286,
+          "e": 290
+        },
+        {
+          "w": "hustles,",
+          "s": 290,
+          "e": 305
+        },
+        {
+          "w": "more",
+          "s": 305,
+          "e": 310
+        }
+      ]
+    },
+    {
+      "text": "projects. But high-level execution is",
+      "startFrame": 310,
+      "endFrame": 413,
+      "words": [
+        {
+          "w": "projects.",
+          "s": 310,
+          "e": 341
+        },
+        {
+          "w": "But",
+          "s": 341,
+          "e": 350
+        },
+        {
+          "w": "high-level",
+          "s": 350,
+          "e": 370
+        },
+        {
+          "w": "execution",
+          "s": 370,
+          "e": 396
+        },
+        {
+          "w": "is",
+          "s": 396,
+          "e": 413
+        }
+      ]
+    },
+    {
+      "text": "fundamentally a subtraction problem.",
+      "startFrame": 413,
+      "endFrame": 502,
+      "words": [
+        {
+          "w": "fundamentally",
+          "s": 413,
+          "e": 439
+        },
+        {
+          "w": "a",
+          "s": 439,
+          "e": 449
+        },
+        {
+          "w": "subtraction",
+          "s": 449,
+          "e": 470
+        },
+        {
+          "w": "problem.",
+          "s": 470,
+          "e": 502
+        }
+      ]
+    },
+    {
+      "text": "It is this active and honestly sometimes",
+      "startFrame": 502,
+      "endFrame": 593,
+      "words": [
+        {
+          "w": "It",
+          "s": 502,
+          "e": 509
+        },
+        {
+          "w": "is",
+          "s": 509,
+          "e": 514
+        },
+        {
+          "w": "this",
+          "s": 514,
+          "e": 523
+        },
+        {
+          "w": "active",
+          "s": 523,
+          "e": 540
+        },
+        {
+          "w": "and",
+          "s": 540,
+          "e": 564
+        },
+        {
+          "w": "honestly",
+          "s": 564,
+          "e": 578
+        },
+        {
+          "w": "sometimes",
+          "s": 578,
+          "e": 593
+        }
+      ]
+    },
+    {
+      "text": "painful process of carving away the non-essential",
+      "startFrame": 593,
+      "endFrame": 686,
+      "words": [
+        {
+          "w": "painful",
+          "s": 593,
+          "e": 607
+        },
+        {
+          "w": "process",
+          "s": 607,
+          "e": 619
+        },
+        {
+          "w": "of",
+          "s": 619,
+          "e": 631
+        },
+        {
+          "w": "carving",
+          "s": 631,
+          "e": 648
+        },
+        {
+          "w": "away",
+          "s": 648,
+          "e": 658
+        },
+        {
+          "w": "the",
+          "s": 658,
+          "e": 665
+        },
+        {
+          "w": "non-essential",
+          "s": 665,
+          "e": 686
+        }
+      ]
+    },
+    {
+      "text": "stuff just so the absolute",
+      "startFrame": 686,
+      "endFrame": 782,
+      "words": [
+        {
+          "w": "stuff",
+          "s": 686,
+          "e": 713
+        },
+        {
+          "w": "just",
+          "s": 713,
+          "e": 722
+        },
+        {
+          "w": "so",
+          "s": 722,
+          "e": 737
+        },
+        {
+          "w": "the",
+          "s": 737,
+          "e": 751
+        },
+        {
+          "w": "absolute",
+          "s": 751,
+          "e": 782
+        }
+      ]
+    },
+    {
+      "text": "essential thing actually has the oxygen to survive.",
+      "startFrame": 782,
+      "endFrame": 883,
+      "words": [
+        {
+          "w": "essential",
+          "s": 782,
+          "e": 797
+        },
+        {
+          "w": "thing",
+          "s": 797,
+          "e": 816
+        },
+        {
+          "w": "actually",
+          "s": 816,
+          "e": 826
+        },
+        {
+          "w": "has",
+          "s": 826,
+          "e": 833
+        },
+        {
+          "w": "the",
+          "s": 833,
+          "e": 840
+        },
+        {
+          "w": "oxygen",
+          "s": 840,
+          "e": 854
+        },
+        {
+          "w": "to",
+          "s": 854,
+          "e": 862
+        },
+        {
+          "w": "survive.",
+          "s": 862,
+          "e": 883
+        }
+      ]
+    },
+    {
+      "text": "Yeah. And I want to ground this in the",
+      "startFrame": 883,
+      "endFrame": 922,
+      "words": [
+        {
+          "w": "Yeah.",
+          "s": 883,
+          "e": 888
+        },
+        {
+          "w": "And",
+          "s": 888,
+          "e": 893
+        },
+        {
+          "w": "I",
+          "s": 893,
+          "e": 896
+        },
+        {
+          "w": "want",
+          "s": 895,
+          "e": 898
+        },
+        {
+          "w": "to",
+          "s": 898,
+          "e": 901
+        },
+        {
+          "w": "ground",
+          "s": 900,
+          "e": 907
+        },
+        {
+          "w": "this",
+          "s": 907,
+          "e": 912
+        },
+        {
+          "w": "in",
+          "s": 912,
+          "e": 917
+        },
+        {
+          "w": "the",
+          "s": 917,
+          "e": 922
+        }
+      ]
+    },
+    {
+      "text": "everyday reality that frankly anyone listening right now is",
+      "startFrame": 922,
+      "endFrame": 1008,
+      "words": [
+        {
+          "w": "everyday",
+          "s": 922,
+          "e": 931
+        },
+        {
+          "w": "reality",
+          "s": 931,
+          "e": 943
+        },
+        {
+          "w": "that",
+          "s": 943,
+          "e": 958
+        },
+        {
+          "w": "frankly",
+          "s": 958,
+          "e": 970
+        },
+        {
+          "w": "anyone",
+          "s": 970,
+          "e": 982
+        },
+        {
+          "w": "listening",
+          "s": 982,
+          "e": 991
+        },
+        {
+          "w": "right",
+          "s": 991,
+          "e": 996
+        },
+        {
+          "w": "now",
+          "s": 996,
+          "e": 1001
+        },
+        {
+          "w": "is",
+          "s": 1001,
+          "e": 1008
+        }
+      ]
+    },
+    {
+      "text": "probably already experienced by like 10:00 a.m.",
+      "startFrame": 1008,
+      "endFrame": 1082,
+      "words": [
+        {
+          "w": "probably",
+          "s": 1008,
+          "e": 1015
+        },
+        {
+          "w": "already",
+          "s": 1015,
+          "e": 1027
+        },
+        {
+          "w": "experienced",
+          "s": 1027,
+          "e": 1051
+        },
+        {
+          "w": "by",
+          "s": 1051,
+          "e": 1058
+        },
+        {
+          "w": "like",
+          "s": 1058,
+          "e": 1066
+        },
+        {
+          "w": "10:00",
+          "s": 1066,
+          "e": 1075
+        },
+        {
+          "w": "a.m.",
+          "s": 1075,
+          "e": 1082
+        }
+      ]
+    },
+    {
+      "text": "this morning. Just uh picture your current",
+      "startFrame": 1082,
+      "endFrame": 1181,
+      "words": [
+        {
+          "w": "this",
+          "s": 1082,
+          "e": 1090
+        },
+        {
+          "w": "morning.",
+          "s": 1090,
+          "e": 1114
+        },
+        {
+          "w": "Just",
+          "s": 1114,
+          "e": 1128
+        },
+        {
+          "w": "uh",
+          "s": 1128,
+          "e": 1135
+        },
+        {
+          "w": "picture",
+          "s": 1135,
+          "e": 1147
+        },
+        {
+          "w": "your",
+          "s": 1147,
+          "e": 1154
+        },
+        {
+          "w": "current",
+          "s": 1154,
+          "e": 1181
+        }
+      ]
+    },
+    {
+      "text": "Oh boy. You're staring at a Slack channel or",
+      "startFrame": 1181,
+      "endFrame": 1277,
+      "words": [
+        {
+          "w": "Oh",
+          "s": 1181,
+          "e": 1188
+        },
+        {
+          "w": "boy.",
+          "s": 1188,
+          "e": 1214
+        },
+        {
+          "w": "You're",
+          "s": 1214,
+          "e": 1224
+        },
+        {
+          "w": "staring",
+          "s": 1224,
+          "e": 1231
+        },
+        {
+          "w": "at",
+          "s": 1231,
+          "e": 1236
+        },
+        {
+          "w": "a",
+          "s": 1236,
+          "e": 1241
+        },
+        {
+          "w": "Slack",
+          "s": 1241,
+          "e": 1248
+        },
+        {
+          "w": "channel",
+          "s": 1248,
+          "e": 1267
+        },
+        {
+          "w": "or",
+          "s": 1267,
+          "e": 1277
+        }
+      ]
+    },
+    {
+      "text": "a Teams dashboard and it is lit up like",
+      "startFrame": 1277,
+      "endFrame": 1351,
+      "words": [
+        {
+          "w": "a",
+          "s": 1277,
+          "e": 1284
+        },
+        {
+          "w": "Teams",
+          "s": 1284,
+          "e": 1296
+        },
+        {
+          "w": "dashboard",
+          "s": 1296,
+          "e": 1313
+        },
+        {
+          "w": "and",
+          "s": 1313,
+          "e": 1320
+        },
+        {
+          "w": "it",
+          "s": 1320,
+          "e": 1327
+        },
+        {
+          "w": "is",
+          "s": 1327,
+          "e": 1332
+        },
+        {
+          "w": "lit",
+          "s": 1332,
+          "e": 1342
+        },
+        {
+          "w": "up",
+          "s": 1342,
+          "e": 1346
+        },
+        {
+          "w": "like",
+          "s": 1346,
+          "e": 1351
+        }
+      ]
+    },
+    {
+      "text": "a Christmas tree. Your calendar looks like a high-speed",
+      "startFrame": 1351,
+      "endFrame": 1440,
+      "words": [
+        {
+          "w": "a",
+          "s": 1351,
+          "e": 1356
+        },
+        {
+          "w": "Christmas",
+          "s": 1356,
+          "e": 1366
+        },
+        {
+          "w": "tree.",
+          "s": 1366,
+          "e": 1390
+        },
+        {
+          "w": "Your",
+          "s": 1390,
+          "e": 1397
+        },
+        {
+          "w": "calendar",
+          "s": 1397,
+          "e": 1414
+        },
+        {
+          "w": "looks",
+          "s": 1414,
+          "e": 1421
+        },
+        {
+          "w": "like",
+          "s": 1421,
+          "e": 1424
+        },
+        {
+          "w": "a",
+          "s": 1423,
+          "e": 1428
+        },
+        {
+          "w": "high-speed",
+          "s": 1428,
+          "e": 1440
+        }
+      ]
+    },
+    {
+      "text": "game of Tetris where the blocks are just falling",
+      "startFrame": 1440,
+      "endFrame": 1500,
+      "words": [
+        {
+          "w": "game",
+          "s": 1440,
+          "e": 1445
+        },
+        {
+          "w": "of",
+          "s": 1445,
+          "e": 1450
+        },
+        {
+          "w": "Tetris",
+          "s": 1450,
+          "e": 1462
+        },
+        {
+          "w": "where",
+          "s": 1462,
+          "e": 1466
+        },
+        {
+          "w": "the",
+          "s": 1466,
+          "e": 1471
+        },
+        {
+          "w": "blocks",
+          "s": 1471,
+          "e": 1478
+        },
+        {
+          "w": "are",
+          "s": 1478,
+          "e": 1483
+        },
+        {
+          "w": "just",
+          "s": 1483,
+          "e": 1495
+        },
+        {
+          "w": "falling",
+          "s": 1495,
+          "e": 1500
+        }
+      ]
+    },
+    {
+      "text": "are rewarded with a flood of new options, committees,",
+      "startFrame": 1500,
+      "endFrame": 1582,
+      "words": [
+        {
+          "w": "are",
+          "s": 1500,
+          "e": 1505
+        },
+        {
+          "w": "rewarded",
+          "s": 1505,
+          "e": 1517
+        },
+        {
+          "w": "with",
+          "s": 1517,
+          "e": 1522
+        },
+        {
+          "w": "a",
+          "s": 1522,
+          "e": 1526
+        },
+        {
+          "w": "flood",
+          "s": 1526,
+          "e": 1536
+        },
+        {
+          "w": "of",
+          "s": 1536,
+          "e": 1541
+        },
+        {
+          "w": "new",
+          "s": 1541,
+          "e": 1548
+        },
+        {
+          "w": "options,",
+          "s": 1548,
+          "e": 1567
+        },
+        {
+          "w": "committees,",
+          "s": 1567,
+          "e": 1582
+        }
+      ]
+    },
+    {
+      "text": "and side projects. Right?",
+      "startFrame": 1582,
+      "endFrame": 1627,
+      "words": [
+        {
+          "w": "and",
+          "s": 1582,
+          "e": 1589
+        },
+        {
+          "w": "side",
+          "s": 1589,
+          "e": 1596
+        },
+        {
+          "w": "projects.",
+          "s": 1596,
+          "e": 1618
+        },
+        {
+          "w": "Right?",
+          "s": 1618,
+          "e": 1627
+        }
+      ]
+    },
+    {
+      "text": "Which sounds great at first.",
+      "startFrame": 1627,
+      "endFrame": 1670,
+      "words": [
+        {
+          "w": "Which",
+          "s": 1627,
+          "e": 1634
+        },
+        {
+          "w": "sounds",
+          "s": 1634,
+          "e": 1642
+        },
+        {
+          "w": "great",
+          "s": 1642,
+          "e": 1649
+        },
+        {
+          "w": "at",
+          "s": 1649,
+          "e": 1654
+        },
+        {
+          "w": "first.",
+          "s": 1654,
+          "e": 1670
+        }
+      ]
+    },
+    {
+      "text": "You're popular. It does sound great.",
+      "startFrame": 1670,
+      "endFrame": 1747,
+      "words": [
+        {
+          "w": "You're",
+          "s": 1670,
+          "e": 1678
+        },
+        {
+          "w": "popular.",
+          "s": 1678,
+          "e": 1704
+        },
+        {
+          "w": "It",
+          "s": 1704,
+          "e": 1709
+        },
+        {
+          "w": "does",
+          "s": 1709,
+          "e": 1714
+        },
+        {
+          "w": "sound",
+          "s": 1714,
+          "e": 1721
+        },
+        {
+          "w": "great.",
+          "s": 1721,
+          "e": 1747
+        }
+      ]
+    },
+    {
+      "text": "But then comes phase three.",
+      "startFrame": 1747,
+      "endFrame": 1798,
+      "words": [
+        {
+          "w": "But",
+          "s": 1747,
+          "e": 1752
+        },
+        {
+          "w": "then",
+          "s": 1752,
+          "e": 1759
+        },
+        {
+          "w": "comes",
+          "s": 1759,
+          "e": 1769
+        },
+        {
+          "w": "phase",
+          "s": 1769,
+          "e": 1781
+        },
+        {
+          "w": "three.",
+          "s": 1781,
+          "e": 1798
+        }
+      ]
+    },
+    {
+      "text": "Those increased options lead to diffused efforts.",
+      "startFrame": 1798,
+      "endFrame": 1896,
+      "words": [
+        {
+          "w": "Those",
+          "s": 1798,
+          "e": 1805
+        },
+        {
+          "w": "increased",
+          "s": 1805,
+          "e": 1822
+        },
+        {
+          "w": "options",
+          "s": 1822,
+          "e": 1836
+        },
+        {
+          "w": "lead",
+          "s": 1836,
+          "e": 1843
+        },
+        {
+          "w": "to",
+          "s": 1843,
+          "e": 1853
+        },
+        {
+          "w": "diffused",
+          "s": 1853,
+          "e": 1874
+        },
+        {
+          "w": "efforts.",
+          "s": 1874,
+          "e": 1896
+        }
+      ]
+    },
+    {
+      "text": "You are now spread so incredibly thin that you",
+      "startFrame": 1896,
+      "endFrame": 1980,
+      "words": [
+        {
+          "w": "You",
+          "s": 1896,
+          "e": 1901
+        },
+        {
+          "w": "are",
+          "s": 1901,
+          "e": 1906
+        },
+        {
+          "w": "now",
+          "s": 1906,
+          "e": 1910
+        },
+        {
+          "w": "spread",
+          "s": 1910,
+          "e": 1925
+        },
+        {
+          "w": "so",
+          "s": 1925,
+          "e": 1937
+        },
+        {
+          "w": "incredibly",
+          "s": 1937,
+          "e": 1956
+        },
+        {
+          "w": "thin",
+          "s": 1956,
+          "e": 1968
+        },
+        {
+          "w": "that",
+          "s": 1968,
+          "e": 1975
+        },
+        {
+          "w": "you",
+          "s": 1975,
+          "e": 1980
+        }
+      ]
+    },
+    {
+      "text": "aren't doing any of them well.",
+      "startFrame": 1980,
+      "endFrame": 2024,
+      "words": [
+        {
+          "w": "aren't",
+          "s": 1980,
+          "e": 1987
+        },
+        {
+          "w": "doing",
+          "s": 1987,
+          "e": 1992
+        },
+        {
+          "w": "any",
+          "s": 1992,
+          "e": 1997
+        },
+        {
+          "w": "of",
+          "s": 1997,
+          "e": 2000
+        },
+        {
+          "w": "them",
+          "s": 1999,
+          "e": 2006
+        },
+        {
+          "w": "well.",
+          "s": 2006,
+          "e": 2024
+        }
+      ]
+    },
+    {
+      "text": "And finally, phase four.",
+      "startFrame": 2045,
+      "endFrame": 2098,
+      "words": [
+        {
+          "w": "And",
+          "s": 2045,
+          "e": 2050
+        },
+        {
+          "w": "finally,",
+          "s": 2050,
+          "e": 2064
+        },
+        {
+          "w": "phase",
+          "s": 2064,
+          "e": 2074
+        },
+        {
+          "w": "four.",
+          "s": 2074,
+          "e": 2098
+        }
+      ]
+    },
+    {
+      "text": "You become entirely distracted from the exact core",
+      "startFrame": 2098,
+      "endFrame": 2189,
+      "words": [
+        {
+          "w": "You",
+          "s": 2098,
+          "e": 2102
+        },
+        {
+          "w": "become",
+          "s": 2102,
+          "e": 2112
+        },
+        {
+          "w": "entirely",
+          "s": 2112,
+          "e": 2131
+        },
+        {
+          "w": "distracted",
+          "s": 2131,
+          "e": 2146
+        },
+        {
+          "w": "from",
+          "s": 2146,
+          "e": 2153
+        },
+        {
+          "w": "the",
+          "s": 2153,
+          "e": 2162
+        },
+        {
+          "w": "exact",
+          "s": 2162,
+          "e": 2177
+        },
+        {
+          "w": "core",
+          "s": 2177,
+          "e": 2189
+        }
+      ]
+    },
+    {
+      "text": "competency that made you successful in the first place.",
+      "startFrame": 2189,
+      "endFrame": 2287,
+      "words": [
+        {
+          "w": "competency",
+          "s": 2189,
+          "e": 2218
+        },
+        {
+          "w": "that",
+          "s": 2218,
+          "e": 2227
+        },
+        {
+          "w": "made",
+          "s": 2227,
+          "e": 2232
+        },
+        {
+          "w": "you",
+          "s": 2232,
+          "e": 2239
+        },
+        {
+          "w": "successful",
+          "s": 2239,
+          "e": 2251
+        },
+        {
+          "w": "in",
+          "s": 2251,
+          "e": 2258
+        },
+        {
+          "w": "the",
+          "s": 2258,
+          "e": 2263
+        },
+        {
+          "w": "first",
+          "s": 2263,
+          "e": 2268
+        },
+        {
+          "w": "place.",
+          "s": 2268,
+          "e": 2287
+        }
+      ]
+    },
+    {
+      "text": "Your own success has literally undermined the",
+      "startFrame": 2287,
+      "endFrame": 2381,
+      "words": [
+        {
+          "w": "Your",
+          "s": 2287,
+          "e": 2297
+        },
+        {
+          "w": "own",
+          "s": 2297,
+          "e": 2306
+        },
+        {
+          "w": "success",
+          "s": 2306,
+          "e": 2330
+        },
+        {
+          "w": "has",
+          "s": 2330,
+          "e": 2342
+        },
+        {
+          "w": "literally",
+          "s": 2342,
+          "e": 2359
+        },
+        {
+          "w": "undermined",
+          "s": 2359,
+          "e": 2374
+        },
+        {
+          "w": "the",
+          "s": 2374,
+          "e": 2381
+        }
+      ]
+    },
+    {
+      "text": "clarity that created it.",
+      "startFrame": 2381,
+      "endFrame": 2424,
+      "words": [
+        {
+          "w": "clarity",
+          "s": 2381,
+          "e": 2390
+        },
+        {
+          "w": "that",
+          "s": 2390,
+          "e": 2398
+        },
+        {
+          "w": "created",
+          "s": 2398,
+          "e": 2407
+        },
+        {
+          "w": "it.",
+          "s": 2407,
+          "e": 2424
+        }
+      ]
+    },
+    {
+      "text": "But wait, let me jump in here.",
+      "startFrame": 2424,
+      "endFrame": 2482,
+      "words": [
+        {
+          "w": "But",
+          "s": 2424,
+          "e": 2431
+        },
+        {
+          "w": "wait,",
+          "s": 2431,
+          "e": 2438
+        },
+        {
+          "w": "let",
+          "s": 2438,
+          "e": 2441
+        },
+        {
+          "w": "me",
+          "s": 2441,
+          "e": 2444
+        },
+        {
+          "w": "jump",
+          "s": 2443,
+          "e": 2448
+        },
+        {
+          "w": "in",
+          "s": 2448,
+          "e": 2455
+        },
+        {
+          "w": "here.",
+          "s": 2455,
+          "e": 2482
+        }
+      ]
+    },
+    {
+      "text": "If I'm a young professional trying to build a",
+      "startFrame": 2482,
+      "endFrame": 2537,
+      "words": [
+        {
+          "w": "If",
+          "s": 2482,
+          "e": 2489
+        },
+        {
+          "w": "I'm",
+          "s": 2489,
+          "e": 2494
+        },
+        {
+          "w": "a",
+          "s": 2494,
+          "e": 2498
+        },
+        {
+          "w": "young",
+          "s": 2498,
+          "e": 2506
+        },
+        {
+          "w": "professional",
+          "s": 2506,
+          "e": 2518
+        },
+        {
+          "w": "trying",
+          "s": 2518,
+          "e": 2522
+        },
+        {
+          "w": "to",
+          "s": 2522,
+          "e": 2525
+        },
+        {
+          "w": "build",
+          "s": 2525,
+          "e": 2530
+        },
+        {
+          "w": "a",
+          "s": 2530,
+          "e": 2537
+        }
+      ]
+    },
+    {
+      "text": "career, isn't becoming the go-to person the",
+      "startFrame": 2537,
+      "endFrame": 2633,
+      "words": [
+        {
+          "w": "career,",
+          "s": 2537,
+          "e": 2563
+        },
+        {
+          "w": "isn't",
+          "s": 2563,
+          "e": 2575
+        },
+        {
+          "w": "becoming",
+          "s": 2575,
+          "e": 2592
+        },
+        {
+          "w": "the",
+          "s": 2592,
+          "e": 2599
+        },
+        {
+          "w": "go-to",
+          "s": 2599,
+          "e": 2616
+        },
+        {
+          "w": "person",
+          "s": 2616,
+          "e": 2623
+        },
+        {
+          "w": "the",
+          "s": 2623,
+          "e": 2633
+        }
+      ]
+    },
+    {
+      "text": "ultimate goal? I mean, having everyone in the company",
+      "startFrame": 2633,
+      "endFrame": 2705,
+      "words": [
+        {
+          "w": "ultimate",
+          "s": 2633,
+          "e": 2640
+        },
+        {
+          "w": "goal?",
+          "s": 2640,
+          "e": 2650
+        },
+        {
+          "w": "I",
+          "s": 2650,
+          "e": 2654
+        },
+        {
+          "w": "mean,",
+          "s": 2654,
+          "e": 2666
+        },
+        {
+          "w": "having",
+          "s": 2666,
+          "e": 2676
+        },
+        {
+          "w": "everyone",
+          "s": 2676,
+          "e": 2686
+        },
+        {
+          "w": "in",
+          "s": 2686,
+          "e": 2693
+        },
+        {
+          "w": "the",
+          "s": 2693,
+          "e": 2698
+        },
+        {
+          "w": "company",
+          "s": 2698,
+          "e": 2705
+        }
+      ]
+    },
+    {
+      "text": "come to you for answers sounds like absolute job",
+      "startFrame": 2705,
+      "endFrame": 2774,
+      "words": [
+        {
+          "w": "come",
+          "s": 2705,
+          "e": 2710
+        },
+        {
+          "w": "to",
+          "s": 2710,
+          "e": 2714
+        },
+        {
+          "w": "you",
+          "s": 2714,
+          "e": 2719
+        },
+        {
+          "w": "for",
+          "s": 2719,
+          "e": 2724
+        },
+        {
+          "w": "answers",
+          "s": 2724,
+          "e": 2734
+        },
+        {
+          "w": "sounds",
+          "s": 2734,
+          "e": 2741
+        },
+        {
+          "w": "like",
+          "s": 2741,
+          "e": 2750
+        },
+        {
+          "w": "absolute",
+          "s": 2750,
+          "e": 2767
+        },
+        {
+          "w": "job",
+          "s": 2767,
+          "e": 2774
+        }
+      ]
+    },
+    {
+      "text": "security. It sounds like power.",
+      "startFrame": 2774,
+      "endFrame": 2827,
+      "words": [
+        {
+          "w": "security.",
+          "s": 2774,
+          "e": 2789
+        },
+        {
+          "w": "It",
+          "s": 2789,
+          "e": 2794
+        },
+        {
+          "w": "sounds",
+          "s": 2794,
+          "e": 2798
+        },
+        {
+          "w": "like",
+          "s": 2798,
+          "e": 2806
+        },
+        {
+          "w": "power.",
+          "s": 2806,
+          "e": 2827
+        }
+      ]
+    },
+    {
+      "text": "Why on earth would I want to stop that",
+      "startFrame": 2827,
+      "endFrame": 2891,
+      "words": [
+        {
+          "w": "Why",
+          "s": 2827,
+          "e": 2834
+        },
+        {
+          "w": "on",
+          "s": 2834,
+          "e": 2839
+        },
+        {
+          "w": "earth",
+          "s": 2839,
+          "e": 2844
+        },
+        {
+          "w": "would",
+          "s": 2844,
+          "e": 2849
+        },
+        {
+          "w": "I",
+          "s": 2849,
+          "e": 2854
+        },
+        {
+          "w": "want",
+          "s": 2854,
+          "e": 2858
+        },
+        {
+          "w": "to",
+          "s": 2858,
+          "e": 2866
+        },
+        {
+          "w": "stop",
+          "s": 2866,
+          "e": 2873
+        },
+        {
+          "w": "that",
+          "s": 2873,
+          "e": 2891
+        }
+      ]
+    },
+    {
+      "text": "Because it is a complete trap.",
+      "startFrame": 2914,
+      "endFrame": 3000,
+      "words": [
+        {
+          "w": "Because",
+          "s": 2914,
+          "e": 2926
+        },
+        {
+          "w": "it",
+          "s": 2926,
+          "e": 2933
+        },
+        {
+          "w": "is",
+          "s": 2933,
+          "e": 2938
+        },
+        {
+          "w": "a",
+          "s": 2938,
+          "e": 2947
+        },
+        {
+          "w": "complete",
+          "s": 2947,
+          "e": 2969
+        },
+        {
+          "w": "trap.",
+          "s": 2969,
+          "e": 3000
+        }
+      ]
+    },
+    {
+      "text": "They made the terrifying trade-off, but in doing",
+      "startFrame": 3022,
+      "endFrame": 3115,
+      "words": [
+        {
+          "w": "They",
+          "s": 3022,
+          "e": 3031
+        },
+        {
+          "w": "made",
+          "s": 3031,
+          "e": 3036
+        },
+        {
+          "w": "the",
+          "s": 3036,
+          "e": 3041
+        },
+        {
+          "w": "terrifying",
+          "s": 3041,
+          "e": 3058
+        },
+        {
+          "w": "trade-off,",
+          "s": 3058,
+          "e": 3089
+        },
+        {
+          "w": "but",
+          "s": 3089,
+          "e": 3101
+        },
+        {
+          "w": "in",
+          "s": 3101,
+          "e": 3108
+        },
+        {
+          "w": "doing",
+          "s": 3108,
+          "e": 3115
+        }
+      ]
+    },
+    {
+      "text": "so, they demonstrated such unimpeachable integrity",
+      "startFrame": 3115,
+      "endFrame": 3211,
+      "words": [
+        {
+          "w": "so,",
+          "s": 3115,
+          "e": 3137
+        },
+        {
+          "w": "they",
+          "s": 3137,
+          "e": 3146
+        },
+        {
+          "w": "demonstrated",
+          "s": 3146,
+          "e": 3161
+        },
+        {
+          "w": "such",
+          "s": 3161,
+          "e": 3170
+        },
+        {
+          "w": "unimpeachable",
+          "s": 3170,
+          "e": 3192
+        },
+        {
+          "w": "integrity",
+          "s": 3192,
+          "e": 3211
+        }
+      ]
+    },
+    {
+      "text": "that they ultimately saved the brand's trust forever.",
+      "startFrame": 3211,
+      "endFrame": 3306,
+      "words": [
+        {
+          "w": "that",
+          "s": 3211,
+          "e": 3218
+        },
+        {
+          "w": "they",
+          "s": 3218,
+          "e": 3228
+        },
+        {
+          "w": "ultimately",
+          "s": 3228,
+          "e": 3240
+        },
+        {
+          "w": "saved",
+          "s": 3240,
+          "e": 3247
+        },
+        {
+          "w": "the",
+          "s": 3247,
+          "e": 3254
+        },
+        {
+          "w": "brand's",
+          "s": 3254,
+          "e": 3266
+        },
+        {
+          "w": "trust",
+          "s": 3266,
+          "e": 3288
+        },
+        {
+          "w": "forever.",
+          "s": 3288,
+          "e": 3306
+        }
+      ]
+    },
+    {
+      "text": "They knew exactly which problem they wanted.",
+      "startFrame": 3326,
+      "endFrame": 3398,
+      "words": [
+        {
+          "w": "They",
+          "s": 3326,
+          "e": 3334
+        },
+        {
+          "w": "knew",
+          "s": 3334,
+          "e": 3341
+        },
+        {
+          "w": "exactly",
+          "s": 3341,
+          "e": 3355
+        },
+        {
+          "w": "which",
+          "s": 3355,
+          "e": 3365
+        },
+        {
+          "w": "problem",
+          "s": 3365,
+          "e": 3374
+        },
+        {
+          "w": "they",
+          "s": 3374,
+          "e": 3382
+        },
+        {
+          "w": "wanted.",
+          "s": 3382,
+          "e": 3398
+        }
+      ]
+    },
+    {
+      "text": "They wanted the problem of explaining a massive revenue",
+      "startFrame": 3398,
+      "endFrame": 3487,
+      "words": [
+        {
+          "w": "They",
+          "s": 3398,
+          "e": 3410
+        },
+        {
+          "w": "wanted",
+          "s": 3410,
+          "e": 3420
+        },
+        {
+          "w": "the",
+          "s": 3420,
+          "e": 3427
+        },
+        {
+          "w": "problem",
+          "s": 3427,
+          "e": 3434
+        },
+        {
+          "w": "of",
+          "s": 3434,
+          "e": 3442
+        },
+        {
+          "w": "explaining",
+          "s": 3442,
+          "e": 3454
+        },
+        {
+          "w": "a",
+          "s": 3454,
+          "e": 3461
+        },
+        {
+          "w": "massive",
+          "s": 3461,
+          "e": 3475
+        },
+        {
+          "w": "revenue",
+          "s": 3475,
+          "e": 3487
+        }
+      ]
+    },
+    {
+      "text": "loss to angry shareholders.",
+      "startFrame": 3487,
+      "endFrame": 3542,
+      "words": [
+        {
+          "w": "loss",
+          "s": 3487,
+          "e": 3494
+        },
+        {
+          "w": "to",
+          "s": 3494,
+          "e": 3499
+        },
+        {
+          "w": "angry",
+          "s": 3499,
+          "e": 3509
+        },
+        {
+          "w": "shareholders.",
+          "s": 3509,
+          "e": 3542
+        }
+      ]
+    },
+    {
+      "text": "They flatly refused the problem of dead customers.",
+      "startFrame": 3542,
+      "endFrame": 3662,
+      "words": [
+        {
+          "w": "They",
+          "s": 3542,
+          "e": 3562
+        },
+        {
+          "w": "flatly",
+          "s": 3562,
+          "e": 3576
+        },
+        {
+          "w": "refused",
+          "s": 3576,
+          "e": 3586
+        },
+        {
+          "w": "the",
+          "s": 3586,
+          "e": 3593
+        },
+        {
+          "w": "problem",
+          "s": 3593,
+          "e": 3602
+        },
+        {
+          "w": "of",
+          "s": 3602,
+          "e": 3614
+        },
+        {
+          "w": "dead",
+          "s": 3614,
+          "e": 3626
+        },
+        {
+          "w": "customers.",
+          "s": 3626,
+          "e": 3662
+        }
+      ]
+    },
+    {
+      "text": "Okay, but let's bring this down from the boardroom",
+      "startFrame": 3662,
+      "endFrame": 3754,
+      "words": [
+        {
+          "w": "Okay,",
+          "s": 3662,
+          "e": 3677
+        },
+        {
+          "w": "but",
+          "s": 3677,
+          "e": 3689
+        },
+        {
+          "w": "let's",
+          "s": 3689,
+          "e": 3698
+        },
+        {
+          "w": "bring",
+          "s": 3698,
+          "e": 3703
+        },
+        {
+          "w": "this",
+          "s": 3703,
+          "e": 3710
+        },
+        {
+          "w": "down",
+          "s": 3710,
+          "e": 3718
+        },
+        {
+          "w": "from",
+          "s": 3718,
+          "e": 3725
+        },
+        {
+          "w": "the",
+          "s": 3725,
+          "e": 3730
+        },
+        {
+          "w": "boardroom",
+          "s": 3730,
+          "e": 3754
+        }
+      ]
+    },
+    {
+      "text": "to the living room because I struggle with this",
+      "startFrame": 3754,
+      "endFrame": 3835,
+      "words": [
+        {
+          "w": "to",
+          "s": 3754,
+          "e": 3761
+        },
+        {
+          "w": "the",
+          "s": 3761,
+          "e": 3766
+        },
+        {
+          "w": "living",
+          "s": 3766,
+          "e": 3773
+        },
+        {
+          "w": "room",
+          "s": 3773,
+          "e": 3797
+        },
+        {
+          "w": "because",
+          "s": 3797,
+          "e": 3806
+        },
+        {
+          "w": "I",
+          "s": 3806,
+          "e": 3816
+        },
+        {
+          "w": "struggle",
+          "s": 3816,
+          "e": 3823
+        },
+        {
+          "w": "with",
+          "s": 3823,
+          "e": 3830
+        },
+        {
+          "w": "this",
+          "s": 3830,
+          "e": 3835
+        }
+      ]
+    },
+    {
+      "text": "concept in my personal life.",
+      "startFrame": 3835,
+      "endFrame": 3890,
+      "words": [
+        {
+          "w": "concept",
+          "s": 3835,
+          "e": 3845
+        },
+        {
+          "w": "in",
+          "s": 3845,
+          "e": 3852
+        },
+        {
+          "w": "my",
+          "s": 3852,
+          "e": 3857
+        },
+        {
+          "w": "personal",
+          "s": 3857,
+          "e": 3866
+        },
+        {
+          "w": "life.",
+          "s": 3866,
+          "e": 3890
+        }
+      ]
+    },
+    {
+      "text": "Think about that famous four-burner stove analogy.",
+      "startFrame": 3890,
+      "endFrame": 3988,
+      "words": [
+        {
+          "w": "Think",
+          "s": 3890,
+          "e": 3898
+        },
+        {
+          "w": "about",
+          "s": 3898,
+          "e": 3905
+        },
+        {
+          "w": "that",
+          "s": 3905,
+          "e": 3919
+        },
+        {
+          "w": "famous",
+          "s": 3919,
+          "e": 3938
+        },
+        {
+          "w": "four-burner",
+          "s": 3938,
+          "e": 3960
+        },
+        {
+          "w": "stove",
+          "s": 3960,
+          "e": 3970
+        },
+        {
+          "w": "analogy.",
+          "s": 3970,
+          "e": 3988
+        }
+      ]
+    },
+    {
+      "text": "Oh, I know where this is going, right?",
+      "startFrame": 4008,
+      "endFrame": 4082,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 4008,
+          "e": 4015
+        },
+        {
+          "w": "I",
+          "s": 4015,
+          "e": 4020
+        },
+        {
+          "w": "know",
+          "s": 4020,
+          "e": 4025
+        },
+        {
+          "w": "where",
+          "s": 4025,
+          "e": 4030
+        },
+        {
+          "w": "this",
+          "s": 4030,
+          "e": 4034
+        },
+        {
+          "w": "is",
+          "s": 4034,
+          "e": 4039
+        },
+        {
+          "w": "going,",
+          "s": 4039,
+          "e": 4051
+        },
+        {
+          "w": "right?",
+          "s": 4051,
+          "e": 4082
+        }
+      ]
+    },
+    {
+      "text": "Your life has four burners.",
+      "startFrame": 4082,
+      "endFrame": 4135,
+      "words": [
+        {
+          "w": "Your",
+          "s": 4082,
+          "e": 4090
+        },
+        {
+          "w": "life",
+          "s": 4090,
+          "e": 4094
+        },
+        {
+          "w": "has",
+          "s": 4094,
+          "e": 4102
+        },
+        {
+          "w": "four",
+          "s": 4102,
+          "e": 4109
+        },
+        {
+          "w": "burners.",
+          "s": 4109,
+          "e": 4135
+        }
+      ]
+    },
+    {
+      "text": "Work, family, friends, and health.",
+      "startFrame": 4135,
+      "endFrame": 4224,
+      "words": [
+        {
+          "w": "Work,",
+          "s": 4135,
+          "e": 4157
+        },
+        {
+          "w": "family,",
+          "s": 4157,
+          "e": 4174
+        },
+        {
+          "w": "friends,",
+          "s": 4174,
+          "e": 4188
+        },
+        {
+          "w": "and",
+          "s": 4188,
+          "e": 4195
+        },
+        {
+          "w": "health.",
+          "s": 4195,
+          "e": 4224
+        }
+      ]
+    },
+    {
+      "text": "The depressing cliche is that to be successful, you",
+      "startFrame": 4224,
+      "endFrame": 4315,
+      "words": [
+        {
+          "w": "The",
+          "s": 4224,
+          "e": 4231
+        },
+        {
+          "w": "depressing",
+          "s": 4231,
+          "e": 4246
+        },
+        {
+          "w": "cliche",
+          "s": 4246,
+          "e": 4260
+        },
+        {
+          "w": "is",
+          "s": 4260,
+          "e": 4265
+        },
+        {
+          "w": "that",
+          "s": 4265,
+          "e": 4274
+        },
+        {
+          "w": "to",
+          "s": 4274,
+          "e": 4282
+        },
+        {
+          "w": "be",
+          "s": 4282,
+          "e": 4286
+        },
+        {
+          "w": "successful,",
+          "s": 4286,
+          "e": 4310
+        },
+        {
+          "w": "you",
+          "s": 4310,
+          "e": 4315
+        }
+      ]
+    },
+    {
+      "text": "have to turn off one burner.",
+      "startFrame": 4315,
+      "endFrame": 4366,
+      "words": [
+        {
+          "w": "have",
+          "s": 4315,
+          "e": 4320
+        },
+        {
+          "w": "to",
+          "s": 4320,
+          "e": 4323
+        },
+        {
+          "w": "turn",
+          "s": 4322,
+          "e": 4330
+        },
+        {
+          "w": "off",
+          "s": 4330,
+          "e": 4339
+        },
+        {
+          "w": "one",
+          "s": 4339,
+          "e": 4346
+        },
+        {
+          "w": "burner.",
+          "s": 4346,
+          "e": 4366
+        }
+      ]
+    },
+    {
+      "text": "And to be a billionaire, you have to turn",
+      "startFrame": 4366,
+      "endFrame": 4409,
+      "words": [
+        {
+          "w": "And",
+          "s": 4366,
+          "e": 4370
+        },
+        {
+          "w": "to",
+          "s": 4370,
+          "e": 4375
+        },
+        {
+          "w": "be",
+          "s": 4375,
+          "e": 4378
+        },
+        {
+          "w": "a",
+          "s": 4378,
+          "e": 4382
+        },
+        {
+          "w": "billionaire,",
+          "s": 4382,
+          "e": 4392
+        },
+        {
+          "w": "you",
+          "s": 4392,
+          "e": 4397
+        },
+        {
+          "w": "have",
+          "s": 4397,
+          "e": 4402
+        },
+        {
+          "w": "to",
+          "s": 4402,
+          "e": 4405
+        },
+        {
+          "w": "turn",
+          "s": 4404,
+          "e": 4409
+        }
+      ]
+    },
+    {
+      "text": "off two. But I refuse to accept that.",
+      "startFrame": 4409,
+      "endFrame": 4500,
+      "words": [
+        {
+          "w": "off",
+          "s": 4409,
+          "e": 4414
+        },
+        {
+          "w": "two.",
+          "s": 4414,
+          "e": 4440
+        },
+        {
+          "w": "But",
+          "s": 4440,
+          "e": 4450
+        },
+        {
+          "w": "I",
+          "s": 4450,
+          "e": 4457
+        },
+        {
+          "w": "refuse",
+          "s": 4457,
+          "e": 4466
+        },
+        {
+          "w": "to",
+          "s": 4466,
+          "e": 4471
+        },
+        {
+          "w": "accept",
+          "s": 4471,
+          "e": 4481
+        },
+        {
+          "w": "that.",
+          "s": 4481,
+          "e": 4500
+        }
+      ]
+    }
+  ]
+}
