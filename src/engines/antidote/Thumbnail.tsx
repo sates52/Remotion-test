@@ -1,6 +1,7 @@
 import React from "react";
-import { AbsoluteFill, Freeze } from "remotion";
+import { AbsoluteFill, Freeze, Img, staticFile } from "remotion";
 import { z } from "zod";
+import { resolveArtFonts, resolveArtPalette, type ArtDirectionConfig } from "./components/artDirection";
 import { Everyman } from "./characters/Everyman";
 import { pose } from "./movements";
 import {
@@ -61,6 +62,9 @@ export const antidoteThumbPropsSchema = z.object({
   /** top distinct hero scenes (Root: pickHeroScenes); grammar.sceneRank indexes it */
   heroScenes: z.any().optional(),
   cast: z.any().optional(),
+  artDirection: z.any().optional(),
+  cutoutImg: z.string().optional(),
+  kicker: z.string().optional(),
 });
 export type AntidoteThumbProps = z.infer<typeof antidoteThumbPropsSchema>;
 
@@ -490,11 +494,93 @@ const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) =
   );
 };
 
+const EditorialCover10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, kicker, artDirection }) => {
+  const ad = (artDirection ?? null) as ArtDirectionConfig | null;
+  const pal = resolveArtPalette(ad);
+  const fonts = resolveArtFonts(ad);
+  return (
+    <AbsoluteFill style={{ background: pal.bg }}>
+      {heroImg && (
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "66%", overflow: "hidden" }}>
+          <Img src={staticFile(heroImg)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, ${pal.bg} 0%, transparent 32%)` }} />
+        </div>
+      )}
+      <div style={{ position: "absolute", top: 44, left: 68, right: 68, zIndex: 4 }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 22, letterSpacing: "0.14em", color: pal.accent, marginBottom: 10 }}>
+          {kicker || title.toUpperCase()}
+        </div>
+        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
+          {hook}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const SplitPoster10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, kicker, artDirection }) => {
+  const ad = (artDirection ?? null) as ArtDirectionConfig | null;
+  const pal = resolveArtPalette(ad);
+  const fonts = resolveArtFonts(ad);
+  return (
+    <AbsoluteFill style={{ background: pal.bg, display: "flex", flexDirection: "row" }}>
+      <div style={{ width: "52%", height: "100%", padding: "56px 56px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: `6px solid ${pal.accent}` }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 20, letterSpacing: "0.14em", color: pal.accent, marginBottom: 16 }}>
+          {kicker || title.toUpperCase()}
+        </div>
+        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 88, lineHeight: 0.98, color: pal.ink }}>
+          {hook}
+        </div>
+      </div>
+      <div style={{ width: "48%", height: "100%", position: "relative", overflow: "hidden" }}>
+        {heroImg && <Img src={staticFile(heroImg)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const CutoutHero10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, cutoutImg, kicker, artDirection }) => {
+  const ad = (artDirection ?? null) as ArtDirectionConfig | null;
+  const pal = resolveArtPalette(ad);
+  const fonts = resolveArtFonts(ad);
+  return (
+    <AbsoluteFill style={{ background: pal.bg }}>
+      {heroImg && <Img src={staticFile(heroImg)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.42 }} />}
+      {cutoutImg && (
+        <Img
+          src={staticFile(cutoutImg)}
+          style={{
+            position: "absolute",
+            right: 54,
+            bottom: -10,
+            height: 670,
+            width: "auto",
+            objectFit: "contain",
+            filter: "drop-shadow(0 20px 34px rgba(0,0,0,0.28))",
+          }}
+        />
+      )}
+      <div style={{ position: "absolute", left: 68, top: 0, bottom: 0, width: 700, display: "flex", flexDirection: "column", justifyContent: "center", zIndex: 4 }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 22, letterSpacing: "0.14em", color: pal.accent, marginBottom: 14 }}>
+          {kicker || title.toUpperCase()}
+        </div>
+        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
+          {hook}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // ── MAIN COMPONENT ──────────────────────────────────────────────────────────
 
 export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
   const { paper, ink, slug, layout: layoutOverride, heroImg } = props;
   const g = resolveGrammar(slug ?? "default", "antidote", props.grammar, layoutOverride);
+  if (g.layout === "editorial-cover-10x") return <EditorialCover10x {...props} />;
+  if (g.layout === "split-poster-10x") return <SplitPoster10x {...props} />;
+  if (g.layout === "cutout-hero-10x") return <CutoutHero10x {...props} />;
+  if (g.layout === "diagram-hook-10x") return <SceneStill {...props} g={{ ...g, layout: "scene-still" }} />;
   // scene-still needs a scene; a config-less preview falls back to the poster.
   const layout = g.layout === "scene-still" && !heroOf(props, g) ? "text-poster" : g.layout;
 
@@ -538,4 +624,21 @@ export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
       <Grain ink={ink} />
     </AbsoluteFill>
   );
+};
+
+export const AntidoteThumbLab: React.FC<{ config?: AntidoteThumbProps }> = ({ config }) => {
+  const fallback: AntidoteThumbProps = {
+    title: "Book Summary",
+    author: "",
+    hook: "CORE IDEA",
+    paper: "#FAF7F0",
+    ink: "#18181B",
+    accent: "#C2410C",
+    gold: "#166534",
+    variant: { skin: "#F2C79B", hair: "#3A2A22", suit: "#4E6E8E", shirt: "#FFFFFF", expression: "neutral", hairStyle: "short", glasses: false, beard: "none", gender: "m", age: "adult", outfit: "suit", headwear: "none", accessory: "none", build: "average", height: 1, headScale: 1, overlay: [] },
+    action: "celebrate",
+    expression: "happy",
+    motif: "risingBars",
+  };
+  return <AntidoteThumbnail {...(config ?? fallback)} />;
 };

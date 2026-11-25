@@ -40,7 +40,8 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
   const rad = (tiltDeg * Math.PI) / 180;
 
   const cx = 960;
-  const cy = 560;
+  const cy = 480;
+  const panDrop = 170;
   const halfBeam = 420;
   const lx = cx - halfBeam * Math.cos(rad);
   const ly = cy - halfBeam * Math.sin(rad);
@@ -58,13 +59,14 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
       style={{
         position: "absolute",
         left: px,
-        top: py + 84,
+        top: py + panDrop,
         width: 380,
         transform: "translate(-50%, -100%)",
         display: "flex",
         flexDirection: "column-reverse",
         alignItems: "center",
         gap: 10,
+        zIndex: 2,
         pointerEvents: "none",
       }}
     >
@@ -158,17 +160,17 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
       )}
 
       {/* Fulcrum & Beam SVG */}
-      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
         {/* Base & Pillar */}
-        <polygon points={`${cx - 56},760 ${cx + 56},760 ${cx},575`} fill={palette.ink} opacity={0.85} />
-        <rect x={cx - 140} y={760} width={280} height={14} rx={4} fill={palette.ink} />
+        <polygon points={`${cx - 56},740 ${cx + 56},740 ${cx},495`} fill={palette.ink} opacity={0.85} />
+        <rect x={cx - 140} y={740} width={280} height={14} rx={4} fill={palette.ink} />
         {/* Beam */}
         <line x1={lx} y1={ly} x2={rx} y2={ry} stroke={palette.ink} strokeWidth={10} strokeLinecap="round" />
         {/* Pivot */}
         <circle cx={cx} cy={cy} r={16} fill={palette.accent} stroke={palette.ink} strokeWidth={4} />
         {/* Pan Hangers */}
-        <line x1={lx} y1={ly} x2={lx} y2={ly + 84} stroke={palette.muted} strokeWidth={3} />
-        <line x1={rx} y1={ry} x2={rx} y2={ry + 84} stroke={palette.muted} strokeWidth={3} />
+        <line x1={lx} y1={ly} x2={lx} y2={ly + panDrop} stroke={palette.muted} strokeWidth={3} />
+        <line x1={rx} y1={ry} x2={rx} y2={ry + panDrop} stroke={palette.muted} strokeWidth={3} />
       </svg>
 
       {renderPan(lx, ly, spec.leftLabel, spec.leftWeights, "danger")}

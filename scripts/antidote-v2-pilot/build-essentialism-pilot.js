@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 /**
- * build-essentialism-pilot.js — Book 3 ("Essentialism") Antidote 10x Light-Polarity Pilot
- * using `kinfolkMinimal` Style Pack (ivoryBroadsheet / sageBotanical / terracottaStudio)
- * + all 6 NEW storytelling devices + CutoutStage book-specific animated characters.
- *
- * Slices (from public/captions/essentialism-the-disciplined-pursuit-of-less.vtt @ 30fps):
- *   Slice 1: 120.0s – 170.0s (50s = 1500 frames, 0..1499)
- *   Slice 2: 720.0s – 770.0s (50s = 1500 frames, 1500..2999)
- *   Slice 3: 1380.0s – 1430.0s (50s = 1500 frames, 3000..4499)
+ * build-essentialism-pilot.js — Book 3 ("Essentialism") Antidote 10x v2 Pilot
+ * Upgrades all 5 Blind Mute Viewer findings + enforces editorialLeft + left captions.
  */
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
 const { parseWords, buildCaptions } = require("../lib/vtt");
 const { assertVariety } = require("../lib/v2-variety-lint");
+const { assertNarrativeQuality } = require("../lib/v2-narrative-lint");
 const { toArtDirection } = require("../lib/style-packs");
 
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -100,7 +95,7 @@ const config = {
         job: "manifesto",
         subject: "addition vs subtraction problem",
         action: "kineticManifesto strikes through ADDITION on cue and reveals SUBTRACTION",
-        payoff: "anchors the book's core mental-model flip with zero clutter",
+        payoff: "anchors the book's core mental-model flip with light-native ProducerNote",
         revealFrame: 440,
       },
       kineticManifesto: {
@@ -146,7 +141,7 @@ const config = {
       },
     },
     {
-      id: "es1-b3-tetris-overload",
+      id: "es1-b3-tetris-interface",
       fromFrame: 900,
       durationFrames: 600,
       shot: "insert",
@@ -157,44 +152,38 @@ const config = {
       props: [],
       texts: [],
       shotIntent: {
-        job: "cutout-drama",
-        subject: "overwhelmed worker buried in Slack and Tetris calendar blocks",
-        action: "cutoutStage animates illustrated character slumping as cutout stack & task cards drop in",
-        payoff: "shows 10 AM overload in the book's exact watercolor world",
-        revealFrame: 330,
+        job: "live-interface",
+        subject: "Slack/Teams lit up + Tetris calendar blocks falling",
+        action: "liveInterface lights up unread channels and drops Tetris blocks into weekly calendar",
+        payoff: "shows 10 AM digital overload literally instead of static coffee character",
+        revealFrame: 420,
       },
-      cutoutStage: {
-        backdrop: { image: img("e1_sunlit_desk_stage"), dim: 0.08, kenBurns: "pushIn" },
-        banner: { text: "10:00 A.M. · THE EVERYDAY REALITY", at: 145 },
-        actors: [
-          {
-            id: "worker",
-            image: img("e1_char_overwhelmed"),
-            x: 680,
-            y: 590,
-            width: 340,
-            height: 540,
-            enter: "left",
-            at: 20,
-            action: "overwhelmed",
-            actionAt: 330,
-            says: { text: "Lit up like a Christmas tree!", at: 420, side: "left", tone: "danger" },
-          },
+      liveInterface: {
+        variant: "calendarTetris",
+        title: "10:00 A.M. · THE EVERYDAY REALITY",
+        subtitle: "Your channels light up like a Christmas tree while your calendar fills like Tetris",
+        channels: [
+          { name: "#product-launch", preview: "Need your sign-off ASAP", count: 42, tone: "danger", at: 330 },
+          { name: "#exec-sync", preview: "Added 3 urgent threads", count: 19, tone: "danger", at: 360 },
+          { name: "Teams · Direct", preview: "Can you hop on a quick call?", count: 14, tone: "accent", at: 390 },
+          { name: "#side-project", preview: "Updated deck attached", count: 27, tone: "danger", at: 415 },
         ],
-        props: [
-          { image: img("e1_prop_tetris_stack"), x: 1250, y: 510, width: 320, fromX: 1250, fromY: -120, at: 320 },
-          { label: "SLACK CHANNEL", sublabel: "42 unread threads", x: 1520, y: 310, fromX: 1520, fromY: -60, rot: 2.0, tone: "danger", at: 335 },
-          { label: "TEAMS DASHBOARD", sublabel: "Back-to-back calls", x: 1540, y: 460, fromX: 1540, fromY: -60, rot: -1.5, tone: "accent", at: 380 },
-          { label: "TETRIS CALENDAR", sublabel: "Blocks falling fast", x: 1520, y: 615, fromX: 1520, fromY: -60, rot: 1.5, tone: "danger", at: 545 },
+        blocks: [
+          { day: 0, label: "All-Hands", span: 1.2, tone: "accent", at: 120 },
+          { day: 0, label: "Urgent Sync", span: 1.4, tone: "danger", at: 320 },
+          { day: 1, label: "Committee", span: 1.5, tone: "accent", at: 180 },
+          { day: 1, label: "1:1 Review", span: 1.2, tone: "danger", at: 380 },
+          { day: 2, label: "Status Call", span: 1.3, tone: "neutral", at: 240 },
+          { day: 2, label: "Fire Drill", span: 1.6, tone: "danger", at: 430 },
+          { day: 3, label: "Deck Review", span: 1.4, tone: "accent", at: 350 },
+          { day: 4, label: "Tetris Overload", span: 1.8, tone: "danger", at: 470 },
         ],
-        callout: "Your calendar looks like a high-speed game of Tetris.",
-        calloutAt: 495,
       },
     },
 
     // ── SLICE 2 (1500..3000, 50s @ 720..770s) ────────────────────────────────
     {
-      id: "es2-b1-paradox-tree",
+      id: "es2-b1-paradox-comic",
       fromFrame: 1500,
       durationFrames: 525,
       shot: "insert",
@@ -205,23 +194,22 @@ const config = {
       props: [],
       texts: [],
       shotIntent: {
-        job: "decision-tree",
-        subject: "Paradox of Success 4 phases",
-        action: "decisionTree branches into diffused efforts and prunes them on cue",
-        payoff: "makes the Paradox of Success causal chain immediately clear",
+        job: "comic-strip",
+        subject: "Paradox of Success 4 sequential phases",
+        action: "4-panel ComicStrip reveals Phase 1->2->3->4 in sequence",
+        payoff: "eliminates parallel-branch confusion and breaks centered layout",
         revealFrame: 340,
       },
-      decisionTree: {
+      comicStrip: {
+        layout: "quad2x2",
         title: "THE PARADOX OF SUCCESS",
         subtitle: "How winning creates the exact distractions that undermine clarity",
-        root: { label: "Phase 1 · Success", sublabel: "Clear focus brings results" },
-        branches: [
-          { label: "Phase 2 · Flood of Options", sublabel: "Committees & side projects", outcome: "Popular at first", tone: "accent", at: 20, pruneAt: 340 },
-          { label: "Phase 3 · Diffused Efforts", sublabel: "Spread incredibly thin", outcome: "Nothing done well", tone: "danger", at: 290, pruneAt: 380 },
-          { label: "Phase 4 · Core Clarity", sublabel: "Protect what made you win", outcome: "Sustained Mastery", tone: "positive", at: 180, winner: true },
+        panels: [
+          { step: "PHASE 1", title: "Clear Focus", caption: "Clarity of purpose drives your initial breakthrough.", visual: "focusBeam", tone: "positive", at: 10 },
+          { step: "PHASE 2", title: "Flood of Options", caption: "Success rewards you with committees & side projects.", visual: "floodArrows", tone: "accent", at: 45 },
+          { step: "PHASE 3", title: "Diffused Efforts", caption: "Spread too thin — nothing is done well.", visual: "thinSpread", tone: "danger", at: 295 },
+          { step: "PHASE 4", title: "Distracted from Core", caption: "Your own success undermines the clarity that created it.", visual: "buriedCore", tone: "danger", at: 380 },
         ],
-        callout: "Doing everything well is a myth — protect your core competency.",
-        calloutAt: 410,
       },
     },
     {
@@ -238,8 +226,8 @@ const config = {
       shotIntent: {
         job: "annotate-place",
         subject: "cluttered desk of diffused commitments",
-        action: "annotatedScene uses crisp architectural corner brackets (zero circles)",
-        payoff: "pinpoints how success-driven clutter buries core competency",
+        action: "annotatedScene frames the blueprint pad with crisp architectural brackets",
+        payoff: "matches Phase 4 label consistently and pinpoints core competency",
         revealFrame: 120,
       },
       annotatedScene: {
@@ -251,8 +239,8 @@ const config = {
         banner: { text: "PHASE 4 · DISTRACTED FROM THE CORE", at: 20 },
         spotlights: [
           {
-            cx: 960,
-            cy: 470,
+            cx: 1240,
+            cy: 630,
             rx: 210,
             ry: 150,
             label: "CORE COMPETENCY",
@@ -278,7 +266,7 @@ const config = {
       },
     },
     {
-      id: "es2-b3-mentor-dialogue",
+      id: "es2-b3-mentor-drama",
       fromFrame: 2415,
       durationFrames: 585,
       shot: "insert",
@@ -290,44 +278,54 @@ const config = {
       texts: [],
       shotIntent: {
         job: "cutout-drama",
-        subject: "young professional vs mentor on go-to person trap",
-        action: "two book-specific watercolor cutouts converse with word-synced speech bubbles",
-        payoff: "brings back recurring characters inside the book's exact art world",
-        revealFrame: 500,
+        subject: "go-to person pulled in 4 directions vs calm mentor",
+        action: "multi-pose worker cutout switches from asking to stressed as 4 pressure connectors hit",
+        payoff: "shows the go-to trap visually with face-safe tailed speech bubbles",
+        revealFrame: 495,
       },
       cutoutStage: {
         backdrop: { image: img("e2_studio_lounge_stage"), dim: 0.06, kenBurns: "pullOut" },
         banner: { text: "THE GO-TO PERSON ILLUSION", at: 20 },
+        connectors: [
+          { from: { x: 240, y: 310 }, to: { x: 470, y: 450 }, label: "URGENT FAVOR", tone: "danger", at: 180 },
+          { from: { x: 240, y: 560 }, to: { x: 470, y: 540 }, label: "EXTRA COMMITTEE", tone: "danger", at: 240 },
+          { from: { x: 890, y: 320 }, to: { x: 670, y: 450 }, label: "SIDE PROJECT", tone: "accent", at: 300 },
+          { from: { x: 890, y: 580 }, to: { x: 670, y: 540 }, label: "ALL-HANDS", tone: "danger", at: 360 },
+        ],
         actors: [
           {
             id: "young_pro",
             image: img("e1_char_overwhelmed"),
+            poses: [
+              { at: 0, image: img("e1_char_overwhelmed") },
+              { at: 360, image: img("e2_worker_calm") },
+            ],
             x: 560,
-            y: 585,
-            width: 320,
-            height: 520,
+            y: 590,
+            width: 310,
+            height: 490,
             enter: "left",
             at: 10,
             action: "leanIn",
             actionAt: 130,
-            says: { text: "Isn't being the go-to person ultimate job security?", at: 130, side: "right", tone: "accent" },
+            says: { text: "Ultimate job security?", at: 130, side: "right", tone: "accent" },
           },
           {
             id: "mentor",
             image: img("e2_char_mentor"),
             x: 1360,
-            y: 585,
-            width: 330,
-            height: 540,
+            y: 590,
+            width: 320,
+            height: 510,
             flip: true,
             enter: "right",
             at: 30,
             action: "calm",
             actionAt: 495,
-            says: { text: "Because it is a complete trap.", at: 495, side: "left", tone: "danger" },
+            says: { text: "Spread too thin = zero impact.", at: 495, side: "left", tone: "danger" },
           },
         ],
-        callout: "Being indispensable for everything prevents you from doing what matters most.",
+        callout: "Being indispensable for everything blocks what matters most.",
         calloutAt: 520,
       },
     },
@@ -347,7 +345,7 @@ const config = {
       shotIntent: {
         job: "tradeoff-scale",
         subject: "terrifying trade-off: revenue loss vs customer trust",
-        action: "balanceScale tips decisively toward unimpeachable integrity as weights land",
+        action: "balanceScale tips decisively toward unimpeachable integrity with clean pan clearance",
         payoff: "shows trade-offs are choosing which problem you want",
         revealFrame: 420,
       },
@@ -368,7 +366,7 @@ const config = {
       },
     },
     {
-      id: "es3-b2-integrity-spread",
+      id: "es3-b2-boardroom-to-home",
       fromFrame: 3645,
       durationFrames: 255,
       shot: "insert",
@@ -379,22 +377,30 @@ const config = {
       props: [],
       texts: [],
       shotIntent: {
-        job: "document-quote",
+        job: "before-after-wipe",
         subject: "boardroom vs living room trade-off",
-        action: "editorialSpread bridges corporate integrity to everyday personal choices",
-        payoff: "replaces boxed quote card with clean full-bleed magazine layout",
-        revealFrame: 60,
+        action: "diagonal wipe transitions from corporate boardroom to personal living room",
+        payoff: "makes the boardroom-to-living-room bridge concrete and visual",
+        revealFrame: 90,
       },
-      editorialSpread: {
-        image: img("e3_pharmacy_integrity"),
-        mediaSide: "right",
-        kicker: "FROM BOARDROOM TO LIVING ROOM",
-        headline: "Which Problem Do You Want?",
-        points: [
-          { label: "Decisive Elimination", detail: "Say no to good options to protect the vital few", at: 30, tone: "positive" },
-          { label: "Personal Trade-Offs", detail: "Where we struggle most in daily life", at: 130, tone: "accent" },
-        ],
-        attribution: "Essentialism · Trade-Offs",
+      beforeAfterWipe: {
+        direction: "diagonal",
+        wipeAt: 40,
+        endSplit: 0.5,
+        before: {
+          image: img("e3_boardroom_table"),
+          label: "THE BOARDROOM",
+          headline: "Corporate Trade-Offs",
+          points: ["Revenue vs. Brand Trust"],
+          tone: "accent",
+        },
+        after: {
+          image: img("e3_living_room_calm"),
+          label: "THE LIVING ROOM",
+          headline: "Personal Trade-Offs",
+          points: ["Where we struggle most"],
+          tone: "positive",
+        },
       },
     },
     {
@@ -434,10 +440,11 @@ const config = {
 
 const parsed = antidoteConfigSchema.parse(config);
 const varietyStats = assertVariety(parsed);
+const narrativeRes = assertNarrativeQuality(parsed);
 
 const outDir = path.join(ROOT, "audit", "essentialism-10x-pilot");
 fs.mkdirSync(outDir, { recursive: true });
-const cfgPath = path.join(outDir, "config.essentialism.json");
+const cfgPath = path.join(outDir, "config.essentialism.v2.json");
 fs.writeFileSync(cfgPath, JSON.stringify(parsed, null, 2));
 
 const extraPngs = fs
@@ -448,7 +455,7 @@ const extraPngs = fs
 
 const manifest = {
   schema: "stills/1",
-  name: "Antidote 10x Book 3 Pilot (Essentialism - Light Polarity)",
+  name: "Antidote 10x Book 3 v2 Pilot (Essentialism)",
   composition: "Antidote-lab",
   entry: "src/index.ts",
   silent: true,
@@ -458,17 +465,19 @@ const manifest = {
   jobs: [
     {
       id: "essentialism-stills",
-      config: "config.essentialism.json",
+      config: "config.essentialism.v2.json",
       frames: [450, 780, 1340, 1920, 2260, 2930, 3460, 3810, 4440],
     },
-    { id: "clip-s1", config: "config.essentialism.json", frames: [], clip: { from: 0, to: 1499 } },
-    { id: "clip-s2", config: "config.essentialism.json", frames: [], clip: { from: 1500, to: 2999 } },
-    { id: "clip-s3", config: "config.essentialism.json", frames: [], clip: { from: 3000, to: 4499 } },
+    { id: "clip-s1", config: "config.essentialism.v2.json", frames: [], clip: { from: 0, to: 1499 } },
+    { id: "clip-s2", config: "config.essentialism.v2.json", frames: [], clip: { from: 1500, to: 2999 } },
+    { id: "clip-s3", config: "config.essentialism.v2.json", frames: [], clip: { from: 3000, to: 4499 } },
   ],
 };
-const manifestPath = path.join(outDir, "manifest.essentialism.json");
+const manifestPath = path.join(outDir, "manifest.essentialism.v2.json");
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
 console.log(`✓ Wrote ${path.relative(ROOT, cfgPath)} (${parsed.scenes.length} scenes, ${parsed.captions.length} captions, ${parsed.meta.durationInFrames} frames)`);
 console.log(`✓ Variety & Single-World stats:`, JSON.stringify(varietyStats));
+console.log(`✓ Narrative lint: ok=${narrativeRes.ok}, warnings=${narrativeRes.warnings.length}`);
+if (narrativeRes.warnings.length) console.log("  Warnings:", narrativeRes.warnings);
 console.log(`✓ Wrote ${path.relative(ROOT, manifestPath)} (${extraPngs.length} extra PNGs)`);

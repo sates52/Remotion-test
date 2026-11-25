@@ -371,6 +371,13 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   if (args.skin && !askedSkin) { console.error(`❌ --skin="${args.skin}" — caption/plate/font from scripts/lib/book-skin.js (e.g. paper/sharp/serif)`); process.exit(1); }
   const SKIN = askedSkin || (validSkin(manifest.skin) && !args.reskin ? manifest.skin : pickSkin({ slug: SLUG, recent: recentSkins(SLUG) }));
   manifest.skin = { caption: SKIN.caption, plate: SKIN.plate, font: SKIN.font, at: (manifest.skin && !args.reskin && !askedSkin && manifest.skin.at) || new Date().toISOString(), by: askedSkin ? "agent" : "book-skin" };
+  if (picked.engine === "antidote") {
+    const spLib = require("./lib/style-packs");
+    const minorHarm = !!(profile && profile.minorHarm);
+    const explicitPack = args["style-pack"] && spLib.STYLE_PACKS[args["style-pack"]] ? spLib.STYLE_PACKS[args["style-pack"]] : null;
+    const chosenPack = explicitPack || (manifest.stylePack && spLib.STYLE_PACKS[manifest.stylePack] && !args.reskin ? spLib.STYLE_PACKS[manifest.stylePack] : spLib.pickStylePack({ slug: SLUG, genre: GENRE, minorHarm, recent: [] }));
+    manifest.stylePack = chosenPack.id;
+  }
   // THE PRODUCER'S NOTE is not part of the audio prompt (operator 2026-11-20: the hosts do not discuss it). He asks
   // NotebookLM's chat for three candidates, chooses, and scripts/producer-note.js records his sentence (book.json take,
   // kept across re-runs of this script). It reaches the film as a card and the description - never the narration.

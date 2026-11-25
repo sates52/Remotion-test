@@ -240,6 +240,41 @@ test("6 new Antidote 10x devices + style-packs polarity alternation + v2-variety
   }), /Single-World violation/);
 });
 
+test("5 new Next-Level schemas + v2-narrative-lint + 10x thumbnail layouts", () => {
+  const cfg = schema.antidoteConfigSchema.parse({
+    meta: {
+      slug: "nl-test",
+      title: "Next Level",
+      durationInFrames: 500,
+      artDirection: { stylePack: "kinfolkMinimal", layoutGrammar: "editorialLeft", captionAlign: "left", captions: "minimal" },
+    },
+    captions: [{ text: "Test", startFrame: 0, endFrame: 20, words: [{ w: "Test", s: 0, e: 20 }] }],
+    scenes: [
+      { id: "li", fromFrame: 0, durationFrames: 100, liveInterface: { variant: "calendarTetris", channels: [{ name: "#eng", count: 9 }], blocks: [{ day: 0, label: "Sync", at: 10 }] } },
+      { id: "cs", fromFrame: 100, durationFrames: 100, comicStrip: { layout: "quad2x2", panels: [{ step: "PHASE 1", title: "Focus" }, { step: "PHASE 2", title: "Options" }] } },
+      { id: "bw", fromFrame: 200, durationFrames: 100, beforeAfterWipe: { direction: "diagonal", wipeAt: 30, before: { label: "A", headline: "Old" }, after: { label: "B", headline: "New" } } },
+      { id: "sj", fromFrame: 300, durationFrames: 100, spatialJourney: { stations: [{ label: "Start" }, { label: "End" }] } },
+      { id: "ci", fromFrame: 400, durationFrames: 100, chapterInterstitial: { variant: "broadsheetRule", kicker: "PART 01", title: "Begin" } },
+    ],
+  });
+  assert.strictEqual(cfg.scenes.length, 5);
+
+  const { analyzeNarrative } = require("./lib/v2-narrative-lint");
+  assert.strictEqual(analyzeNarrative(cfg).ok, true);
+
+  const conflict = analyzeNarrative({
+    captions: [],
+    scenes: [
+      { id: "p1", fromFrame: 0, durationFrames: 100, comicStrip: { panels: [{ step: "PHASE 4", title: "Core Clarity" }] } },
+      { id: "p2", fromFrame: 100, durationFrames: 100, annotatedScene: { banner: { text: "PHASE 4 · DISTRACTED FROM CORE" } } },
+    ],
+  });
+  assert.ok(conflict.warnings.some((w) => w.includes("conflicts")));
+
+  const ts = loadTs("src/engines/thumbnail-shared.ts");
+  assert.ok(ts.THUMB_LAYOUTS.includes("editorial-cover-10x") && ts.THUMB_LAYOUTS.includes("cutout-hero-10x"));
+});
+
 test("timelineScrub and statSlam schemas + style-packs.js + castMode illustrated lint", () => {
   const s = schema.antidoteConfigSchema.parse({
     meta: { slug: "p", title: "P", durationInFrames: 200, artDirection: { stylePack: "tacticalBlueprint", castMode: "illustrated", mood: "blueprintNavy", captions: "minimal" } },

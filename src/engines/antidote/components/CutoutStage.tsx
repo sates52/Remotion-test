@@ -142,6 +142,62 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
         );
       })}
 
+      {/* 3b. Action / Pressure Connectors (turning dialogue into visual drama) */}
+      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        {(spec.connectors ?? []).map((cn, ci) => {
+          const dt = frame - (cn.at ?? 0);
+          if (dt < 0) return null;
+          const tp = interpolate(dt, [0, 18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.poly(3)) });
+          const col = toneColor(cn.tone ?? "danger", palette);
+          const dx = cn.to.x - cn.from.x;
+          const dy = cn.to.y - cn.from.y;
+          const len = Math.max(1, Math.hypot(dx, dy));
+          const cx = cn.from.x + dx * tp;
+          const cy = cn.from.y + dy * tp;
+          const ang = Math.atan2(dy, dx);
+          const hs = 14;
+          return (
+            <g key={`cn-${ci}`}>
+              <line x1={cn.from.x} y1={cn.from.y} x2={cn.to.x} y2={cn.to.y} stroke={col} strokeWidth={5} strokeDasharray={len} strokeDashoffset={(1 - tp) * len} strokeLinecap="round" />
+              {tp > 0.2 && (
+                <polygon points={`${cx},${cy} ${cx - hs * Math.cos(ang - 0.5)},${cy - hs * Math.sin(ang - 0.5)} ${cx - hs * Math.cos(ang + 0.5)},${cy - hs * Math.sin(ang + 0.5)}`} fill={col} />
+              )}
+            </g>
+          );
+        })}
+      </svg>
+      {(spec.connectors ?? []).map((cn, ci) => {
+        const dt = frame - (cn.at ?? 0);
+        if (dt < 0 || !cn.label) return null;
+        const lp = spring({ frame: dt, fps, config: { damping: 15, stiffness: 160 } });
+        const col = toneColor(cn.tone ?? "danger", palette);
+        return (
+          <div
+            key={`cnl-${ci}`}
+            style={{
+              position: "absolute",
+              left: cn.from.x,
+              top: cn.from.y,
+              transform: `translate(-50%, -50%) scale(${0.86 + lp * 0.14})`,
+              opacity: lp,
+              padding: "6px 14px",
+              borderRadius: 6,
+              background: palette.surface,
+              border: `2px solid ${col}`,
+              fontFamily: fonts.display,
+              fontWeight: 800,
+              fontSize: 16,
+              color: col,
+              whiteSpace: "nowrap",
+              boxShadow: light ? "0 8px 18px rgba(24,24,27,0.12)" : "0 10px 24px rgba(0,0,0,0.45)",
+              pointerEvents: "none",
+            }}
+          >
+            {cn.label}
+          </div>
+        );
+      })}
+
       {/* 4. Book-Specific Illustrated Cutout Actors */}
       {spec.actors.map((actor, ai) => {
         const dt = frame - (actor.at ?? 0);
@@ -167,6 +223,8 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
         const safeY = Math.min(820, actor.y);
         const ax = actor.x + enterTx + actTx;
         const ay = safeY + enterTy + actTy;
+        const activePose = (actor.poses ?? []).filter((ps) => frame >= ps.at).sort((a, b) => b.at - a.at)[0];
+        const actorImg = activePose ? activePose.image : actor.image;
 
         return (
           <React.Fragment key={actor.id}>
@@ -199,7 +257,7 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
               }}
             >
               <Img
-                src={staticFile(actor.image)}
+                src={staticFile(actorImg)}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -209,12 +267,12 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
               />
             </div>
 
-            {/* Speech Callout Bubble */}
+            {/* Guaranteed Face-Safe Speech Callout Bubble + Tail */}
             {actor.says && frame >= (actor.says.at ?? 0) && (() => {
               const sp = spring({ frame: Math.max(0, frame - (actor.says!.at ?? 0)), fps, config: { damping: 14, stiffness: 165 } });
               const side = actor.says!.side ?? (actor.x < 960 ? "right" : "left");
-              const bx = Math.max(250, Math.min(1670, side === "right" ? ax + w * 0.68 : ax - w * 0.68));
-              const by = Math.max(88, ay - h * 0.56 - 28);
+              const bx = Math.max(250, Math.min(1670, side === "right" ? ax + w * 0.34 : ax - w * 0.34));
+              const by = Math.max(96, ay - h * 0.5 - 48);
               const col = toneColor(actor.says!.tone ?? "accent", palette);
               return (
                 <div
@@ -224,8 +282,8 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
                     top: by,
                     transform: `translate(-50%, -50%) scale(${0.86 + sp * 0.14})`,
                     opacity: sp,
-                    maxWidth: 400,
-                    padding: "16px 24px",
+                    maxWidth: 380,
+                    padding: "14px 22px",
                     borderRadius: 12,
                     background: palette.surface,
                     border: `2.5px solid ${col}`,
@@ -237,13 +295,27 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
                     style={{
                       fontFamily: fonts.body,
                       fontWeight: 700,
-                      fontSize: 25,
-                      lineHeight: 1.28,
+                      fontSize: 24,
+                      lineHeight: 1.26,
                       color: palette.ink,
                     }}
                   >
                     {actor.says!.text}
                   </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: -11,
+                      left: side === "right" ? 36 : undefined,
+                      right: side === "left" ? 36 : undefined,
+                      width: 16,
+                      height: 16,
+                      background: palette.surface,
+                      borderRight: `2.5px solid ${col}`,
+                      borderBottom: `2.5px solid ${col}`,
+                      transform: "rotate(45deg)",
+                    }}
+                  />
                 </div>
               );
             })()}

@@ -125,6 +125,16 @@ if (engine) {
     const fu = spawnSync(process.execPath, ["scripts/feature-usage.js", `--slug=${slug}`, "--json"], { cwd: ROOT, encoding: "utf8" });
     let fuRep = null;
     try { fuRep = JSON.parse(fu.stdout); } catch { /* reported below */ }
+    const cfgObj = readJSON(path.join(BOOK, "config.antidote.json"));
+    if (cfgObj && cfgObj.meta && cfgObj.meta.artDirection) {
+      try {
+        const vs = require("./lib/v2-variety-lint").assertVariety(cfgObj);
+        const nr = require("./lib/v2-narrative-lint").analyzeNarrative(cfgObj);
+        rows.push({ name: "10x variety & narrative lint (advisory)", advisory: true, ok: nr.ok, detail: `modes=${Object.keys(vs.counts).length}, narrativeErrors=${nr.errors.length}, warnings=${nr.warnings.length}` });
+      } catch (e) {
+        rows.push({ name: "10x variety & narrative lint (advisory)", advisory: true, ok: false, detail: String(e.message || e).split("\n")[0] });
+      }
+    }
     const tx = fuRep ? fuRep.features.filter((f) => f.capability !== undefined && !/carried hold/.test(f.feature)) : [];
     const used = tx.filter((f) => typeof f.planned === "number" && f.planned > 0);
     const seen = tx.filter((f) => f.blind && typeof f.blind === "object");

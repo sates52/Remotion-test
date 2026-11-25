@@ -27,7 +27,7 @@ export function variantOf(skin?: { caption?: string } | null): number {
   return i < 0 ? 0 : i;
 }
 
-export const ProducerNote: React.FC<{ note?: string | null; accent?: string; font?: string; variant?: number }> = ({ note, accent = "#E04329", font = "'Arial Black', Arial, sans-serif", variant = 0 }) => {
+export const ProducerNote: React.FC<{ note?: string | null; accent?: string; font?: string; variant?: number; surface?: string; ink?: string; border?: string }> = ({ note, accent = "#E04329", font = "'Arial Black', Arial, sans-serif", variant = 0, surface, ink, border }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const text = String(note || "").trim();
@@ -40,13 +40,15 @@ export const ProducerNote: React.FC<{ note?: string | null; accent?: string; fon
     interpolate(local, [hold - FADE, hold], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
   );
   const right = V.box.textAlign === "right";
+  const bg = surface ?? "rgba(17,19,24,0.92)";
+  const fg = ink ?? "#F4F1EA";
   return (
     <AbsoluteFill style={{ zIndex: 80, pointerEvents: "none" }}>
       {/* wide and low: two lines at most (the note is ≤ 180 characters), so it ends above the name plates of a told
           stage and the tag of a Vox card (first stills, 2026-11-20: three lines at 860 px sat on both) */}
-      <div style={{ position: "absolute", ...V.box, opacity: op, background: "rgba(17,19,24,0.92)", [right ? "borderRight" : "borderLeft"]: `10px solid ${accent}`, padding: right ? "11px 22px 13px 26px" : "11px 26px 13px 22px", boxShadow: "0 12px 28px rgba(0,0,0,0.35)" }}>
+      <div style={{ position: "absolute", ...V.box, opacity: op, background: bg, border: border ? `1.5px solid ${border}` : undefined, [right ? "borderRight" : "borderLeft"]: `10px solid ${accent}`, padding: right ? "11px 22px 13px 26px" : "11px 26px 13px 22px", boxShadow: "0 12px 28px rgba(0,0,0,0.22)" }}>
         <div style={{ fontFamily: '"JetBrains Mono", "SF Mono", Monaco, Consolas, monospace', fontWeight: 800, fontSize: 17, letterSpacing: 3, color: accent, marginBottom: 5 }}>PRODUCER'S NOTE</div>
-        <div style={{ fontFamily: font, fontWeight: 700, fontSize: 26, lineHeight: 1.2, color: "#F4F1EA" }}>{`“${text.slice(0, 180)}”`}</div>
+        <div style={{ fontFamily: font, fontWeight: 700, fontSize: 26, lineHeight: 1.2, color: fg }}>{`“${text.slice(0, 180)}”`}</div>
       </div>
     </AbsoluteFill>
   );

@@ -1063,6 +1063,8 @@ export const artDirectionSchema = z.object({
   typography: z.enum(["poppins", "serif", "condensed", "slab"]).optional(),
   annotationStyle: z.enum(["circle", "bracket", "underline", "spotlightMask", "pin"]).optional(),
   nodeShape: z.enum(["circle", "arch", "hex", "tornPaper", "filmStrip"]).optional(),
+  layoutGrammar: z.enum(["centered", "editorialLeft", "cinemaWide", "splitSpine"]).optional(),
+  captionAlign: z.enum(["center", "left"]).optional(),
   mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"]).optional(),
   palette: z.object({
     bg: z.string().optional(),
@@ -1085,7 +1087,7 @@ export const artDirectionSchema = z.object({
 export type ArtDirectionSpec = z.infer<typeof artDirectionSchema>;
 
 export const shotIntentSchema = z.object({
-  job: z.enum(["contrast", "annotate-place", "cohort-split", "character-drama", "mechanism-flow", "data-proof", "document-quote", "framework-map", "cutout-drama", "manifesto", "decision-tree", "tradeoff-scale", "burner-grid"]),
+  job: z.enum(["contrast", "annotate-place", "cohort-split", "character-drama", "mechanism-flow", "data-proof", "document-quote", "framework-map", "cutout-drama", "manifesto", "decision-tree", "tradeoff-scale", "burner-grid", "live-interface", "comic-strip", "before-after-wipe", "spatial-journey", "chapter-interstitial"]),
   subject: z.string().min(1),
   action: z.string().min(1),
   payoff: z.string().min(1),
@@ -1219,6 +1221,7 @@ export const cutoutStageSchema = z.object({
     at: z.number().optional(),
     action: z.enum(["stand", "leanIn", "nod", "stepIn", "overwhelmed", "calm"]).optional(),
     actionAt: z.number().optional(),
+    poses: z.array(z.object({ at: z.number(), image: z.string() })).optional(),
     says: z.object({
       text: z.string().min(1),
       at: z.number().optional(),
@@ -1240,6 +1243,13 @@ export const cutoutStageSchema = z.object({
     at: z.number().optional(),
     fadeAt: z.number().optional(),
   })).default([]),
+  connectors: z.array(z.object({
+    from: z.object({ x: z.number(), y: z.number() }),
+    to: z.object({ x: z.number(), y: z.number() }),
+    label: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).optional(),
   callout: z.string().optional(),
   calloutAt: z.number().optional(),
   at: z.number().optional(),
@@ -1339,6 +1349,90 @@ export const stackRevealSchema = z.object({
 });
 export type StackRevealSpec = z.infer<typeof stackRevealSchema>;
 
+export const liveInterfaceSchema = z.object({
+  variant: z.enum(["calendarTetris", "notificationFlood", "chatThread", "metricBoard"]).default("calendarTetris"),
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  channels: z.array(z.object({
+    name: z.string().min(1),
+    preview: z.string().optional(),
+    count: z.union([z.number(), z.string()]).optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).optional(),
+  blocks: z.array(z.object({
+    day: z.number().int().min(0).max(4),
+    label: z.string().min(1),
+    span: z.number().min(0.6).max(3).optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).optional(),
+  at: z.number().optional(),
+});
+export type LiveInterfaceSpec = z.infer<typeof liveInterfaceSchema>;
+
+export const comicStripSchema = z.object({
+  layout: z.enum(["triptych", "quad2x2", "asymmetric3"]).default("quad2x2"),
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  panels: z.array(z.object({
+    step: z.string().optional(),
+    title: z.string().min(1),
+    caption: z.string().optional(),
+    image: z.string().optional(),
+    visual: z.enum(["focusBeam", "floodArrows", "thinSpread", "buriedCore"]).optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+    strikeAt: z.number().optional(),
+  })).min(2).max(4),
+  at: z.number().optional(),
+});
+export type ComicStripSpec = z.infer<typeof comicStripSchema>;
+
+export const beforeAfterWipeSchema = z.object({
+  direction: z.enum(["horizontal", "diagonal"]).default("diagonal"),
+  wipeAt: z.number().optional(),
+  endSplit: z.number().min(0).max(1).optional(),
+  before: z.object({
+    image: z.string().optional(),
+    label: z.string().min(1),
+    headline: z.string().min(1),
+    points: z.array(z.string()).optional(),
+    tone: v2Tone.optional(),
+  }),
+  after: z.object({
+    image: z.string().optional(),
+    label: z.string().min(1),
+    headline: z.string().min(1),
+    points: z.array(z.string()).optional(),
+    tone: v2Tone.optional(),
+  }),
+  at: z.number().optional(),
+});
+export type BeforeAfterWipeSpec = z.infer<typeof beforeAfterWipeSchema>;
+
+export const spatialJourneySchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  stations: z.array(z.object({
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).min(2).max(5),
+  at: z.number().optional(),
+});
+export type SpatialJourneySpec = z.infer<typeof spatialJourneySchema>;
+
+export const chapterInterstitialSchema = z.object({
+  variant: z.enum(["broadsheetRule", "blueprintStamp", "verticalSpine", "fullBleedMask"]).default("broadsheetRule"),
+  kicker: z.string().optional(),
+  title: z.string().min(1),
+  subtitle: z.string().optional(),
+  at: z.number().optional(),
+});
+export type ChapterInterstitialSpec = z.infer<typeof chapterInterstitialSchema>;
+
 export const sceneSchema = z.object({
   id: z.string(),
   fromFrame: z.number(),
@@ -1356,6 +1450,11 @@ export const sceneSchema = z.object({
   decisionTree: decisionTreeSchema.optional(),
   balanceScale: balanceScaleSchema.optional(),
   stackReveal: stackRevealSchema.optional(),
+  liveInterface: liveInterfaceSchema.optional(),
+  comicStrip: comicStripSchema.optional(),
+  beforeAfterWipe: beforeAfterWipeSchema.optional(),
+  spatialJourney: spatialJourneySchema.optional(),
+  chapterInterstitial: chapterInterstitialSchema.optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),

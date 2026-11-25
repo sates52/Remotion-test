@@ -28,7 +28,7 @@ const CARRY: CarryDeps = {
 
 export { antidoteBookSchema };
 export type { AntidoteConfig };
-export { AntidoteThumbnail, antidoteThumbPropsSchema } from "./Thumbnail";
+export { AntidoteThumbnail, AntidoteThumbLab, antidoteThumbPropsSchema } from "./Thumbnail";
 export type { AntidoteThumbProps } from "./Thumbnail";
 
 /**
@@ -125,7 +125,7 @@ export const AntidoteBook: React.FC<{ config: AntidoteConfig }> = ({ config }) =
       {/* when a part of the book's narrative form is announced, its board comes up over the scene for three seconds */}
       {!hideHud && config.meta.hud?.enabled !== false && hasFormTrack(config) && <FormBoard config={config} />}
       {/* Subtitles sit above every scene, on the absolute timeline, in the reserved bottom band. */}
-      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={artDir?.palette?.accent ?? config.meta.hud?.accent ?? "#F5C544"} font={SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} variant={variantOf(skinOf(config.meta as { skin?: Record<string, string> }))} />
+      <ProducerNote note={(config.meta as { take?: { note?: string } }).take?.note} accent={artDir ? resolveArtPalette(artDir).accent : config.meta.hud?.accent ?? "#F5C544"} font={artDir?.fontDisplay ?? SKIN_FONT[skinOf(config.meta as { skin?: Record<string, string> }).font]} variant={variantOf(skinOf(config.meta as { skin?: Record<string, string> }))} surface={artDir ? resolveArtPalette(artDir).surface : undefined} ink={artDir ? resolveArtPalette(artDir).ink : undefined} border={artDir ? resolveArtPalette(artDir).surfaceBorder : undefined} />
       <CaptionLayer captions={config.captions} />
       {/* Top safe-zone retention HUD: timeline progress & insight trackers */}
       {/* a book told in a narrative form draws its PARTS in that form's shape instead (components/FormTrack.tsx) */}

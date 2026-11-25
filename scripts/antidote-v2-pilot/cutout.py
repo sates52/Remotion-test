@@ -97,14 +97,44 @@ def make_preview(paths, out_png: str) -> None:
     print("cutouts preview:", out_png)
 
 
+def slice_grid(in_path: str, out_prefix: str, grid: str, names=None):
+    cols, rows = [int(x) for x in grid.lower().split("x")]
+    im = Image.open(in_path).convert("RGBA")
+    cw = im.width // cols
+    ch = im.height // rows
+    gx = max(4, int(cw * 0.02))
+    gy = max(4, int(ch * 0.02))
+    outs = []
+    idx = 0
+    for r in range(rows):
+        for c in range(cols):
+            cell = im.crop((c * cw + gx, r * ch + gy, (c + 1) * cw - gx, (r + 1) * ch - gy))
+            suffix = names[idx] if names and idx < len(names) else str(idx + 1)
+            tmp_in = f"{out_prefix}_{suffix}.cell.png"
+            out_p = f"{out_prefix}_{suffix}.png"
+            cell.save(tmp_in, "PNG")
+            extract_cutout(tmp_in, out_p)
+            try:
+                os.remove(tmp_in)
+            except OSError:
+                pass
+            outs.append(out_p)
+            print("cutout:", out_p)
+            idx += 1
+    return outs
+
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     opts = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--") and "=" in a)
     if opts.get("preview"):
         make_preview(args, opts["preview"])
+    elif opts.get("grid") and len(args) >= 2:
+        names = opts["names"].split(",") if opts.get("names") else None
+        slice_grid(args[0], args[1], opts["grid"], names)
     elif len(args) >= 2:
         extract_cutout(args[0], args[1])
         print("cutout:", args[1])
     else:
-        print("Usage: cutout.py <in.png> <out.png> | cutout.py --preview=<sheet.png> <cutouts...>")
+        print("Usage: cutout.py <in.png> <out.png> | cutout.py --grid=2x2 [--names=a,b,c,d] <in.png> <out_prefix> | cutout.py --preview=<sheet.png> <cutouts...>")
         sys.exit(1)

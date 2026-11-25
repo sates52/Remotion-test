@@ -21,6 +21,11 @@ function classifySceneMode(scene) {
   if (scene.decisionTree) return "decision-tree";
   if (scene.balanceScale) return "balance-scale";
   if (scene.stackReveal) return "stack-reveal";
+  if (scene.liveInterface) return "live-interface";
+  if (scene.comicStrip) return "comic-strip";
+  if (scene.beforeAfterWipe) return "before-after-wipe";
+  if (scene.spatialJourney) return "spatial-journey";
+  if (scene.chapterInterstitial) return "chapter-interstitial";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"
@@ -64,7 +69,7 @@ function analyzeVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       singleWorldViolations++;
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal)) {
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal || s.liveInterface || s.comicStrip || s.beforeAfterWipe || s.spatialJourney || s.chapterInterstitial)) {
       singleWorldViolations++;
     }
     if (mode === curMode && !s.continueFromPrev) {
@@ -106,7 +111,7 @@ function assertVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal)) {
+    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal || s.liveInterface || s.comicStrip || s.beforeAfterWipe || s.spatialJourney || s.chapterInterstitial)) {
       errors.push(`Single-World violation in ${s.id}: full-stage 10x device cannot mix flat-vector characters`);
     }
     if (hasChars && config?.meta?.artDirection?.castMode === "illustrated") {

@@ -43,6 +43,8 @@ export type ArtDirectionConfig = {
   typography?: "poppins" | "serif" | "condensed" | "slab";
   annotationStyle?: "circle" | "bracket" | "underline" | "spotlightMask" | "pin";
   nodeShape?: "circle" | "arch" | "hex" | "tornPaper" | "filmStrip";
+  layoutGrammar?: "centered" | "editorialLeft" | "cinemaWide" | "splitSpine";
+  captionAlign?: "center" | "left";
   mood?: StageMoodName;
   palette?: Partial<ArtPalette>;
   fontDisplay?: string;

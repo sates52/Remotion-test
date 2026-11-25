@@ -1,7 +1,7 @@
 import React from 'react';
 import { Composition } from 'remotion';
 import { VoxBook, voxBookSchema, VoxThumbnail, thumbnailSchema } from './engines/vox';
-import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, antidoteThumbPropsSchema } from './engines/antidote';
+import { AntidoteBook, antidoteBookSchema, AntidoteThumbnail, AntidoteThumbLab, antidoteThumbPropsSchema } from './engines/antidote';
 import { ChapterCard } from './engines/antidote/components/ChapterCard';
 import { pickHeroScenes, THUMB_FREEZE_SPAN } from './engines/antidote/thumbHero';
 import { ANTIDOTE_LAB } from './engines/antidote/lab';
@@ -70,6 +70,7 @@ export const RemotionRoot: React.FC = () => {
                                     // top-3 distinct moments; grammar.sceneRank picks one (Test & Compare B/C use 1, 2)
                                     heroScenes: pickHeroScenes(b.config.scenes, t.hook || '', (t as any).grammar?.sceneId, 3),
                                     cast: b.config.meta.cast,
+                                    artDirection: (b.config.meta as any).artDirection,
                                 }}
                             />
                         ) : null}
@@ -136,6 +137,15 @@ export const RemotionRoot: React.FC = () => {
             {/* Antidote Engine 3.0 — full-body rig, walking/sitting/holding, real
                 locations. A dev reel through the ordinary AntidoteBook path, so a
                 regression here is a regression in every book. */}
+            <Composition
+                id="Thumb-lab"
+                component={AntidoteThumbLab as any}
+                durationInFrames={THUMB_FREEZE_SPAN}
+                fps={30}
+                width={1280}
+                height={720}
+                defaultProps={{ config: undefined } as any}
+            />
             <Composition
                 id="Antidote-lab"
                 component={AntidoteBook}

@@ -28,6 +28,7 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
     const pal = resolveArtPalette(ad);
     const light = isLightPalette(pal);
     const fonts = resolveArtFonts(ad);
+    const leftAlign = ad?.captionAlign === "left";
     return (
       <div
         style={{
@@ -35,11 +36,11 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           left: 0,
           right: 0,
           bottom: 0,
-          padding: "46px 180px 28px",
+          padding: leftAlign ? "36px 260px 26px 88px" : "46px 180px 28px",
           background: light
             ? `linear-gradient(180deg, rgba(250,247,240,0) 0%, ${pal.bg}E0 42%, ${pal.bg}FA 100%)`
             : "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)",
-          textAlign: "center",
+          textAlign: leftAlign ? "left" : "center",
           fontFamily: fonts.body,
           fontWeight: 600,
           fontSize: 36,
@@ -47,27 +48,36 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           color: light ? pal.ink : "#F8F5EE",
           textShadow: light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
           display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "0 11px",
+          justifyContent: leftAlign ? "flex-start" : "center",
           pointerEvents: "none",
         }}
       >
-        {words.map((w, i) => {
-          const on = w.s >= 0 && frame >= w.s && frame <= w.e;
-          return (
-            <span
-              key={i}
-              style={{
-                color: on ? pal.accent : light ? pal.ink : "#F8F5EE",
-                fontWeight: on ? 800 : 600,
-                borderBottom: light && on ? `3px solid ${pal.accent}` : undefined,
-              }}
-            >
-              {w.w}
-            </span>
-          );
-        })}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: leftAlign ? "flex-start" : "center",
+            gap: "0 11px",
+            borderLeft: leftAlign ? `5px solid ${pal.accent}` : undefined,
+            paddingLeft: leftAlign ? 18 : 0,
+          }}
+        >
+          {words.map((w, i) => {
+            const on = w.s >= 0 && frame >= w.s && frame <= w.e;
+            return (
+              <span
+                key={i}
+                style={{
+                  color: on ? pal.accent : light ? pal.ink : "#F8F5EE",
+                  fontWeight: on ? 800 : 600,
+                  borderBottom: light && on ? `3px solid ${pal.accent}` : undefined,
+                }}
+              >
+                {w.w}
+              </span>
+            );
+          })}
+        </div>
       </div>
     );
   }
