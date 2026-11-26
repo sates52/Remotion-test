@@ -12,6 +12,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { isFullStage10x } = require("./antidote-10x-keys");
 
 /**
  * Plans and aligns chapter-level narrative arcs across scenes.
@@ -99,7 +100,12 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
     // A card REPLACES the whole scene (Scene.tsx draws scene.chapterCard instead of its staging). Never on an
     // authored beat (invariant 1: burn 217/236, the-courage-to-be-disliked 19/19 cards hid authored beats), never
     // untitled (a bare "CHAPTER 16" says nothing). Skipped cards are reported, not moved onto another beat.
-    const cardOnAuthored = !!(cardScene && cardScene._authorship && cardScene._authorship.src === "art");
+    const cardOnAuthored = !!(
+      cardScene &&
+      (cardScene.told ||
+        isFullStage10x(cardScene) ||
+        (cardScene._authorship && cardScene._authorship.src && cardScene._authorship.src !== "none"))
+    );
     const untitled = !String(title || "").trim();
     if (startIdx > 0 && cardsAllowed && (cardOnAuthored || untitled)) {
       skippedCards.push({ chapter: chapterNumber, sceneId: cardScene && cardScene.id, reason: cardOnAuthored ? "authored beat" : "untitled chapter" });

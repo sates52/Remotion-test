@@ -545,4 +545,5 @@ export function toneColor(
 }
 
 export const ArtDirectionContext = React.createContext<ArtDirectionConfig | null>(null);
+export const ArtDirectionProvider = ArtDirectionContext.Provider;
 export const useArtDirection = () => React.useContext(ArtDirectionContext);

@@ -29,8 +29,16 @@
  */
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { bundleFor, renderThumb, describeGrammar: describe, writeTestCompareBlock } = require("./lib/thumb-render");
 const { publishedSlugs } = require("./lib/thumbnail-grammar");
+
+const sha256File = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
+const grammarSigOf = (t) =>
+  crypto.createHash("sha256")
+    .update(JSON.stringify({ grammar: (t && t.grammar) || null, variants: (t && t.variants) || null }))
+    .digest("hex")
+    .slice(0, 16);
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -125,7 +133,11 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
   const done = [];
   const { grayOf, hookVisibility } = require("./lib/thumb-hook-check");
   const checks = [];
+  const grammarSig = grammarSigOf(thumb);
+  let renderFailed = false;
   for (const j of jobs) {
+    const prevMtime = fs.existsSync(j.file) ? fs.statSync(j.file).mtimeMs : null;
+    const relFile = path.relative(ROOT, j.file).replace(/\\/g, "/");
     try {
       const props = {
         ...(j.grammar ? { grammar: j.grammar, layout: j.grammar.layout } : {}),
@@ -136,6 +148,7 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
       await renderThumb(serveUrl, SLUG, j.file, props);
       console.log(`  ✓ ${j.letter}  ${path.relative(ROOT, j.file)}  (${describe(j.grammar)})`);
       done.push(j);
+      const fileSha = sha256File(j.file);
       if (hook && !args["no-hook-check"]) {
         // the same still without the hook: what the hook adds is what a viewer can read
         const bare = path.join(ROOT, "out", "_thumbpreview", `${SLUG}-${j.letter}-nohook.png`);
@@ -143,18 +156,37 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
         await renderThumb(serveUrl, SLUG, bare, { ...props, hook: "" });
         const v = hookVisibility(grayOf(j.file), grayOf(bare));
         fs.rmSync(bare, { force: true });
-        checks.push({ letter: j.letter, file: path.relative(ROOT, j.file).replace(/\\/g, "/"), ...v });
+        checks.push({ letter: j.letter, file: relFile, sha256: fileSha, ...v });
         console.log(`    ${v.hookVisible ? "✓" : v.hookVisible === false ? "✗" : "?"} hook ${v.hookVisible ? "visible" : v.hookVisible === false ? "NOT VISIBLE" : "unchecked"} — ${v.detail}`);
+      } else {
+        checks.push({ letter: j.letter, file: relFile, sha256: fileSha, hookVisible: hook ? null : true, detail: hook ? "no-hook-check" : "empty-hook" });
       }
     } catch (e) {
-      console.error(`  ✗ ${j.letter} failed: ${String(e.message).split("\n")[0]}`);
-      if (j.letter === "A") process.exitCode = 1;
+      renderFailed = true;
+      process.exitCode = 1;
+      if (fs.existsSync(j.file) && fs.statSync(j.file).mtimeMs !== prevMtime) {
+        try { fs.rmSync(j.file, { force: true }); } catch {}
+      }
+      const errMsg = String(e.message).split("\n")[0];
+      console.error(`  ✗ ${j.letter} failed: ${errMsg}`);
+      checks.push({ letter: j.letter, file: relFile, hookVisible: false, renderError: errMsg });
     }
   }
-  if (checks.length) {
-    // read by lint-titles.js --pack (YouTube READY): HOOK_NOT_VISIBLE / HOOK_STALE_THUMBNAIL
-    fs.writeFileSync(path.join(ROOT, "books", SLUG, "thumbnail-check.json"), JSON.stringify({ slug: SLUG, hook, at: new Date().toISOString(), variants: checks }, null, 2) + "\n");
-    if (checks.some((c) => c.hookVisible === false)) { console.error(`  ✗ the hook is not visible in ${checks.filter((c) => c.hookVisible === false).map((c) => c.letter).join(", ")} — YouTube NOT READY`); process.exitCode = 1; }
+  // Always write thumbnail-check.json (fail-closed: a failed render must never leave an older passing check behind).
+  fs.writeFileSync(
+    path.join(ROOT, "books", SLUG, "thumbnail-check.json"),
+    JSON.stringify({
+      slug: SLUG,
+      hook,
+      grammarSig,
+      ok: !renderFailed && !checks.some((c) => c.hookVisible === false),
+      at: new Date().toISOString(),
+      variants: checks,
+    }, null, 2) + "\n",
+  );
+  if (checks.some((c) => c.hookVisible === false)) {
+    console.error(`  ✗ the hook is not visible or render failed in ${checks.filter((c) => c.hookVisible === false).map((c) => c.letter).join(", ")} — YouTube NOT READY`);
+    process.exitCode = 1;
   }
 
   if (writeTestCompareBlock(ROOT, SLUG, done.map((j) => ({ letter: j.letter, rel: path.relative(ROOT, j.file).replace(/\\/g, "/"), grammar: j.grammar })))) {

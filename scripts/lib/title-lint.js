@@ -17,6 +17,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { ROOT, rel, listBookSlugs } = require("./paths");
 
 const MAX_LEN = 100;
@@ -484,10 +485,27 @@ function lintPack(slug, root = ROOT) {
     if (!own.length) warnings.push(`HOOK_REPEATS_TITLE: the hook only repeats the book title/author ("${hook}") — it should add what the title doesn't`);
   }
   const check = tryJson(P(`books/${slug}/thumbnail-check.json`));
+  const currentGrammarSig = crypto.createHash("sha256")
+    .update(JSON.stringify({ grammar: (meta.thumbnail && meta.thumbnail.grammar) || null, variants: (meta.thumbnail && meta.thumbnail.variants) || null }))
+    .digest("hex")
+    .slice(0, 16);
   if (!check) warnings.push(`HOOK_UNVERIFIED: no books/${slug}/thumbnail-check.json — run render-thumbnails.js (it checks the hook pixels in every variant)`);
   else {
+    if (check.ok === false) errors.push(`THUMBNAIL_RENDER_FAILED: thumbnail-check.json recorded a failed thumbnail render — re-run render-thumbnails.js`);
     if (hook && check.hook && check.hook !== hook) errors.push(`HOOK_STALE_THUMBNAIL: the thumbnails were rendered with hook "${check.hook}", the meta now says "${hook}" — re-run render-thumbnails.js`);
-    for (const v of check.variants || []) if (v.hookVisible === false) errors.push(`HOOK_NOT_VISIBLE: ${v.file} — the hook text is not in the image (${v.detail || "no pixel difference with/without the hook"})`);
+    if (check.grammarSig && check.grammarSig !== currentGrammarSig) errors.push(`THUMBNAIL_STALE_GRAMMAR: thumbnail grammar/variants changed since thumbnail-check.json — re-run render-thumbnails.js`);
+    for (const v of check.variants || []) {
+      if (v.renderError) errors.push(`THUMBNAIL_RENDER_FAILED: ${v.file} — ${v.renderError}`);
+      else if (v.hookVisible === false) errors.push(`HOOK_NOT_VISIBLE: ${v.file} — the hook text is not in the image (${v.detail || "no pixel difference with/without the hook"})`);
+      if (v.sha256 && v.file) {
+        const fp = P(v.file);
+        if (!fs.existsSync(fp)) errors.push(`THUMBNAIL_MISSING: ${v.file} — re-run render-thumbnails.js`);
+        else {
+          const actualSha = crypto.createHash("sha256").update(fs.readFileSync(fp)).digest("hex");
+          if (actualSha !== v.sha256) errors.push(`THUMBNAIL_STALE_FILE: ${v.file} on disk differs from thumbnail-check.json — re-run render-thumbnails.js`);
+        }
+      }
+    }
   }
 
   // 7. youtube.md = what the operator pastes; it must be the refined pack, not an older scaffold

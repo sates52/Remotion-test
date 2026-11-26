@@ -66,14 +66,14 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
 
   return (
     <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", gap: 14, paddingBottom: 170, boxSizing: "border-box" }}>
 
       <div
         style={{
           flex: 1,
           display: "grid",
           gridTemplateColumns: cols,
-          gap: 22,
+          gap: 16,
           minHeight: 0,
         }}
       >
@@ -91,7 +91,7 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
                 background: palette.surface,
                 border: `2.5px solid ${col}`,
                 borderTop: `8px solid ${col}`,
-                padding: "20px 24px",
+                padding: "14px 20px",
                 boxSizing: "border-box",
                 display: "flex",
                 flexDirection: "column",
@@ -121,7 +121,7 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
                 )}
               </div>
 
-              <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", margin: "10px 0" }}>
+              <div style={{ flex: 1, minHeight: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", margin: "10px 0" }}>
                 {pn.image ? (
                   <Img src={staticFile(pn.image)} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 6 }} />
                 ) : (

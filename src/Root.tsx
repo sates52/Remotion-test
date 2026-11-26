@@ -64,7 +64,9 @@ export const RemotionRoot: React.FC = () => {
                                     expression: t.expression,
                                     motif: t.motif,
                                     slug: b.slug,
-                                    heroImg: (t as any).image || (((t as any).grammar?.layout ?? (t as any).layout) === 'cinematic-bleed' ? `scenes/${b.slug}/thumbnail-hero.png` : undefined),
+                                    heroImg: b.thumbHeroImg !== undefined
+                                      ? (b.thumbHeroImg || undefined)
+                                      : (((t as any).grammar?.layout ?? (t as any).layout) === 'cinematic-bleed' ? ((t as any).image || `scenes/${b.slug}/thumbnail-hero.png`) : undefined),
                                     layout: (t as any).layout,
                                     grammar: (t as any).grammar,
                                     // top-3 distinct moments; grammar.sceneRank picks one (Test & Compare B/C use 1, 2)

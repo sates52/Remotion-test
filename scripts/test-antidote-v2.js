@@ -594,4 +594,150 @@ test("compile10xCues clamps out-of-bounds authored at and strikeAt timestamps", 
   assert.ok(scene.kineticManifesto.lines[1].strikeAt <= 189, `expected strikeAt <= 189, got ${scene.kineticManifesto.lines[1].strikeAt}`);
 });
 
+test("ArtDirectionProvider is exported and Thumbnail.tsx bundles cleanly", () => {
+  assert.ok(artDir.ArtDirectionProvider, "ArtDirectionProvider must be exported from artDirection.tsx");
+  assert.strictEqual(artDir.ArtDirectionProvider, artDir.ArtDirectionContext.Provider);
+  const thumbSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/Thumbnail.tsx"), "utf8");
+  const m = thumbSrc.match(/import\s*\{([^}]+)\}\s*from\s*["']\.\/components\/artDirection["']/);
+  assert.ok(m, "Thumbnail.tsx should import from ./components/artDirection");
+  const runtimeImports = m[1]
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => s && !s.startsWith("type "));
+  for (const sym of runtimeImports) {
+    assert.ok(artDir[sym] !== undefined, `artDirection.tsx missing runtime export: ${sym}`);
+  }
+  const tmpOut = path.join(os.tmpdir(), `antidote-thumb-bundle-${Date.now()}.cjs`);
+  try {
+    esbuild.buildSync({
+      entryPoints: [path.join(ROOT, "src/engines/antidote/Thumbnail.tsx")],
+      bundle: true,
+      platform: "node",
+      format: "cjs",
+      outfile: tmpOut,
+      external: ["react", "remotion"],
+      jsx: "automatic",
+    });
+    assert.ok(fs.existsSync(tmpOut));
+  } finally {
+    try { fs.unlinkSync(tmpOut); } catch {}
+  }
+});
+
+test("lintPack fails closed on failed/stale thumbnail-check.json", () => {
+  const crypto = require("crypto");
+  const { lintPack } = require("./lib/title-lint");
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "lintpack-thumb-"));
+  const slug = "zz-thumb-check";
+  const bDir = path.join(tmp, "books", slug);
+  const outDir = path.join(tmp, "out");
+  const capDir = path.join(tmp, "public", "captions");
+  fs.mkdirSync(bDir, { recursive: true });
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.mkdirSync(capDir, { recursive: true });
+  try {
+    const grammar = { layout: "editorial-cover-10x", textPos: "left", type: "editorial", treatment: "color", accent: "gold", sceneRank: 0 };
+    const variants = [grammar];
+    const grammarSig = crypto.createHash("sha256").update(JSON.stringify({ grammar, variants })).digest("hex").slice(0, 16);
+    const pngRel = `out/thumbnail-${slug}.png`;
+    fs.writeFileSync(path.join(tmp, pngRel), "PNG_BYTES_V1");
+    const pngSha = crypto.createHash("sha256").update("PNG_BYTES_V1").digest("hex");
+    const hook = "NOBODY LOOKED";
+    const meta = {
+      bookTitle: "Test Book",
+      author: "Jane Doe",
+      needsClaudeRefine: false,
+      alteredContent: true,
+      titles: [
+        "Test Book Summary — Jane Doe",
+        "Test Book Explained: Why Laurel Waits",
+        "Test Book Ending Explained: The Bus Isn't Healing",
+        "Test Book Analysis: Floyd's Lie by Jane Doe",
+        "Test Book Review: Ten Years",
+      ],
+      titleAngles: [
+        { kind: "myth", myth: "Laurel heals", book: "Laurel repeats the substitution", quote: "Laurel waits on the bus every morning" },
+        { kind: "myth", myth: "Floyd is kind", book: "Floyd lies daily", quote: "Floyd lies daily to everyone around him" },
+      ],
+      description: "Producer's note: \"A sharp thriller.\"\n\nTest Book by Jane Doe. Laurel waits on the bus every morning while Floyd lies daily to everyone around him.\n\n0:00 Intro\n0:30 Middle\n1:00 End",
+      chapters: [{ t: 0, label: "Intro" }, { t: 30, label: "Middle" }, { t: 60, label: "End" }],
+      tags: ["Test Book", "Jane Doe", "Laurel", "Floyd"],
+      hashtags: ["#TestBook", "#JaneDoe"],
+      thumbnail: { hook, grammar, variants },
+    };
+    fs.writeFileSync(path.join(bDir, "book.json"), JSON.stringify({ slug, title: "Test Book", author: "Jane Doe", take: { by: "operator", note: "A sharp thriller." } }));
+    fs.writeFileSync(path.join(bDir, "youtube-meta.json"), JSON.stringify(meta));
+    fs.writeFileSync(path.join(bDir, "youtube.md"), `${meta.titles.join("\n")}\n${meta.description}\nAltered content: Yes\n`);
+    fs.writeFileSync(path.join(capDir, `${slug}.clean.vtt`), "WEBVTT\n\n1\n00:00:00.000 --> 00:00:05.000\nLaurel waits on the bus every morning while Floyd lies daily to everyone around him.\n");
+
+    // 1. Passing check
+    fs.writeFileSync(path.join(bDir, "thumbnail-check.json"), JSON.stringify({ slug, hook, grammarSig, ok: true, variants: [{ letter: "A", file: pngRel, sha256: pngSha, hookVisible: true }] }));
+    const okRes = lintPack(slug, tmp);
+    assert.ok(!okRes.errors.some((e) => /THUMBNAIL|HOOK_/.test(e)), `unexpected thumb error: ${okRes.errors.join("; ")}`);
+
+    // 2. Failed render (ok: false)
+    fs.writeFileSync(path.join(bDir, "thumbnail-check.json"), JSON.stringify({ slug, hook, grammarSig, ok: false, variants: [{ letter: "A", file: pngRel, hookVisible: false, renderError: "React #130" }] }));
+    assert.ok(lintPack(slug, tmp).errors.some((e) => e.includes("THUMBNAIL_RENDER_FAILED")));
+
+    // 3. Stale PNG bytes
+    fs.writeFileSync(path.join(bDir, "thumbnail-check.json"), JSON.stringify({ slug, hook, grammarSig, ok: true, variants: [{ letter: "A", file: pngRel, sha256: pngSha, hookVisible: true }] }));
+    fs.writeFileSync(path.join(tmp, pngRel), "PNG_BYTES_V2_BROKEN");
+    assert.ok(lintPack(slug, tmp).errors.some((e) => e.includes("THUMBNAIL_STALE_FILE")));
+
+    // 4. Stale grammar
+    fs.writeFileSync(path.join(tmp, pngRel), "PNG_BYTES_V1");
+    fs.writeFileSync(path.join(bDir, "thumbnail-check.json"), JSON.stringify({ slug, hook, grammarSig: "old0000000000000", ok: true, variants: [{ letter: "A", file: pngRel, sha256: pngSha, hookVisible: true }] }));
+    assert.ok(lintPack(slug, tmp).errors.some((e) => e.includes("THUMBNAIL_STALE_GRAMMAR")));
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test("planChapterArcs skips chapterCard on told and fullStage10x beats", () => {
+  const { planChapterArcs } = require("./lib/antidote-chapter-arcs");
+  const scenes = [
+    { id: "s0", fromFrame: 0, durationFrames: 90 },
+    { id: "s1", fromFrame: 90, durationFrames: 90 },
+    { id: "s2", fromFrame: 180, durationFrames: 90, told: { events: [] } },
+    { id: "s3", fromFrame: 270, durationFrames: 90 },
+    { id: "s4", fromFrame: 360, durationFrames: 90, timelineScrub: { title: "10Y", events: [{ time: "2005", title: "A" }, { time: "2015", title: "B" }] } },
+    { id: "s5", fromFrame: 450, durationFrames: 90 },
+  ];
+  const res = planChapterArcs(scenes, [{ t: 0, label: "Intro" }, { t: 6, label: "Told Chap" }, { t: 12, label: "10x Chap" }], 30);
+  assert.strictEqual(res.scenes[2].chapterCard, undefined);
+  assert.strictEqual(res.scenes[4].chapterCard, undefined);
+  assert.strictEqual(res.skippedCards.length, 2);
+});
+
+test("readcheck.js shows 10x device text without leaking narration and increments recheck-N by max", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "rc-10x-"));
+  const slug = "zz-rc-10x";
+  const bDir = path.join(tmp, "books", slug);
+  fs.mkdirSync(path.join(bDir, "storyboard", "readcheck", "recheck-2"), { recursive: true });
+  try {
+    fs.writeFileSync(path.join(bDir, "story-bible.json"), JSON.stringify({ cast: {} }));
+    fs.writeFileSync(path.join(bDir, "art.json"), JSON.stringify({
+      beats: [{
+        i: 0,
+        narration: "SECRET_NARRATION_TEXT",
+        storyboard: { claim: "SECRET_CLAIM", concreteVisual: "v", onScreenText: "t", relationToPrevious: "r", addedInformation: "a" },
+        timelineScrub: { title: "TEN YEARS", events: [{ time: "2005", title: "Vanished" }, { time: "2015", title: "Return" }] },
+      }],
+    }));
+    execFileSync(process.execPath, [path.join(ROOT, "scripts", "readcheck.js"), "prep", `--slug=${slug}`, `--root=${tmp}`], { stdio: "pipe" });
+    const visRaw = fs.readFileSync(path.join(bDir, "storyboard", "readcheck", "visible-1.json"), "utf8");
+    const vis = JSON.parse(visRaw);
+    assert.strictEqual(vis[0].device.type, "timelineScrub");
+    assert.ok(vis[0].device.shown.includes("TEN YEARS"));
+    assert.ok(vis[0].device.shown.includes("Vanished"));
+    assert.ok(!/SECRET_NARRATION_TEXT|SECRET_CLAIM/.test(visRaw));
+
+    fs.mkdirSync(path.join(bDir, "storyboard", "readcheck", "recheck-2"), { recursive: true });
+    execFileSync(process.execPath, [path.join(ROOT, "scripts", "readcheck.js"), "prep", `--slug=${slug}`, `--root=${tmp}`, "--beats=0"], { stdio: "pipe" });
+    assert.ok(fs.existsSync(path.join(bDir, "storyboard", "readcheck", "recheck-3", "visible-1.json")), "expected recheck-3");
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
 console.log(`\nAll ${passed} Antidote 2.0 tests passed.`);

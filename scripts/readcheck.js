@@ -51,7 +51,10 @@ const BASE = path.join(BOOK, "storyboard", "readcheck");
 // --beats (prep) or --recheck=N (judge) work in readcheck/recheck-N/; the full run stays untouched.
 const recheckDirs = () => (fs.existsSync(BASE) ? fs.readdirSync(BASE).filter((d) => /^recheck-\d+$/.test(d)).sort((a, b) => parseInt(a.slice(8)) - parseInt(b.slice(8))) : []);
 function outDir() {
-  if (CMD === "prep" && args.beats) { const n = recheckDirs().length + 1; return path.join(BASE, `recheck-${n}`); }
+  if (CMD === "prep" && args.beats) {
+    const maxN = recheckDirs().reduce((m, d) => Math.max(m, parseInt(d.slice(8), 10) || 0), 0);
+    return path.join(BASE, `recheck-${maxN + 1}`);
+  }
   if (CMD === "judge" && args.recheck) return path.join(BASE, `recheck-${parseInt(args.recheck, 10)}`);
   return BASE;
 }
@@ -138,6 +141,49 @@ const BODY_DRAWN = {
 };
 const bodyOf = (a) => BODY_DRAWN[a] || a;
 
+const { active10xDevice, isFullStage10x } = require("./lib/antidote-10x-keys");
+
+const TENX_TEXT_KEYS = new Set([
+  "kicker", "title", "subtitle", "headline", "subhead", "heading", "label", "sublabel",
+  "text", "caption", "footnote", "callout", "highlight", "value", "unit", "time", "step",
+  "badge", "leftLabel", "rightLabel", "name", "quote", "author",
+]);
+const TENX_SKIP_KEYS = new Set([
+  "at", "strikeAt", "wipeAt", "pruneAt", "changeAt", "image", "tone", "id", "variant",
+  "layout", "direction", "mediaSide", "x", "y", "scale", "weight", "level", "targetLevel",
+  "emphasis", "winner", "active", "visual", "icon", "count", "day", "points",
+]);
+
+function describe10xVisible(devKey, spec) {
+  const shown = [];
+  const seen = new Set();
+  const push = (s) => {
+    const t = String(s || "").trim();
+    if (!t || seen.has(t) || shown.length >= 24) return;
+    seen.add(t);
+    shown.push(t);
+  };
+  const walk = (val, keyHint) => {
+    if (val == null || shown.length >= 24) return;
+    if (typeof val === "string") {
+      if (!keyHint || TENX_TEXT_KEYS.has(keyHint)) push(val);
+      return;
+    }
+    if (Array.isArray(val)) {
+      for (const item of val) walk(item, typeof item === "string" ? keyHint : null);
+      return;
+    }
+    if (typeof val === "object") {
+      for (const [k, v] of Object.entries(val)) {
+        if (TENX_SKIP_KEYS.has(k)) continue;
+        walk(v, k);
+      }
+    }
+  };
+  walk(spec, null);
+  return { type: devKey, shown };
+}
+
 function visible(b, bible, own, mech, causal) {
   const v = {};
   // FILM FLOW 2 (told beat): the reader is given what the stage shows — the named things on it and what happens to
@@ -149,6 +195,11 @@ function visible(b, bible, own, mech, causal) {
     const ev = (b.told.events || []).filter((e) => e && e.do !== "raw").map((e) => [e.do, who(e.who), e.state ? `→ ${e.state}` : "", e.what ? `the ${e.what}` : "", typeof e.holds === "string" ? `holds ${e.holds}` : "", e.text ? `"${e.text}"` : "", e.left ? `"${e.left}" vs "${e.right}"` : ""].filter(Boolean).join(" "));
     if (ev.length) v.happens = ev;
     return v;
+  }
+  const devKey = active10xDevice(b);
+  if (devKey) {
+    v.device = describe10xVisible(devKey, b[devKey]);
+    if (isFullStage10x(b)) return v;
   }
   const cast = Array.isArray(b.cast) ? b.cast : [];
   const framed = !(typeof b.shotOverride === "string" && DROPS_CAST.has(b.shotOverride));

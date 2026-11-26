@@ -34,12 +34,25 @@ const voxBooks = listVoxSlugs().map((slug) => ({
   metaPath: fs.existsSync(abs.youtubeMeta(slug)) ? rel.youtubeMeta(slug) : null,
   engine: engineOf(slug),
 }));
-const antidoteBooks = listAntidoteSlugs().map((slug) => ({
-  slug,
-  cfgPath: rel.antidoteConfig(slug),
-  metaPath: fs.existsSync(abs.youtubeMeta(slug)) ? rel.youtubeMeta(slug) : null,
-  engine: engineOf(slug),
-}));
+const antidoteBooks = listAntidoteSlugs().map((slug) => {
+  const cfgPath = rel.antidoteConfig(slug);
+  const metaPath = fs.existsSync(abs.youtubeMeta(slug)) ? rel.youtubeMeta(slug) : null;
+  let thumbHeroImg = "";
+  try {
+    const meta = metaPath ? JSON.parse(fs.readFileSync(path.join(ROOT, metaPath), "utf8").replace(/^\uFEFF/, "")) : null;
+    const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, cfgPath), "utf8").replace(/^\uFEFF/, ""));
+    const t = (meta && meta.thumbnail) || (cfg && cfg.meta && cfg.meta.thumbnail) || {};
+    const cand = typeof t.image === "string" && t.image.trim() ? t.image.trim().replace(/^public\//, "") : "";
+    if (cand && fs.existsSync(path.join(ROOT, "public", cand))) thumbHeroImg = cand;
+  } catch {}
+  return {
+    slug,
+    cfgPath,
+    metaPath,
+    engine: engineOf(slug),
+    thumbHeroImg,
+  };
+});
 
 // Palette map for EVERY known book (union of both engines), pulled from book.json.
 const allSlugs = [...new Set([...voxBooks.map((b) => b.slug), ...antidoteBooks.map((b) => b.slug)])].sort();
@@ -87,7 +100,7 @@ const voxEntries = voxBooks
 const antEntries = antidoteBooks
   .map(
     (b) =>
-      `  {\n    slug: '${b.slug}',\n    engine: '${b.engine}',\n    config: ant_${ident(b.slug)} as any,\n    meta: ${b.metaPath ? `ant_meta_${ident(b.slug)} as any` : "null"},\n  },`,
+      `  {\n    slug: '${b.slug}',\n    engine: '${b.engine}',\n    config: ant_${ident(b.slug)} as any,\n    meta: ${b.metaPath ? `ant_meta_${ident(b.slug)} as any` : "null"},\n    thumbHeroImg: '${b.thumbHeroImg}',\n  },`,
   )
   .join("\n");
 
@@ -110,6 +123,7 @@ export type AntidoteBookEntry = {
   engine: 'vox' | 'antidote';
   config: any;
   meta?: any | null;
+  thumbHeroImg?: string;
 };
 
 // Per-book palettes (from books/<slug>/book.json). resolvePalette() in voxkit and

@@ -544,7 +544,7 @@ const EditorialCover10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (p
           {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
         </div>
         {hasHook && (
-          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 92, lineHeight: 0.96, color: pal.ink }}>
+          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: hook.length > 18 ? 72 : 92, lineHeight: 0.96, color: pal.ink }}>
             {hook}
           </div>
         )}
@@ -567,7 +567,7 @@ const SplitPoster10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
         {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
       </div>
       {hasHook && (
-        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 84, lineHeight: 0.98, color: pal.ink }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: hook.length > 18 ? 66 : 84, lineHeight: 0.98, color: pal.ink }}>
           {hook}
         </div>
       )}
@@ -575,7 +575,7 @@ const SplitPoster10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
   );
   const mediaCol = (
     <div style={{ width: "50%", height: "100%", position: "relative", overflow: "hidden", background: pal.bgAlt }}>
-      <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.62} />
+      <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.35} />
     </div>
   );
   return (
@@ -601,19 +601,19 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
           <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 18, letterSpacing: "0.14em", color: pal.accent }}>
             {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
           </div>
-          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 82, lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
+          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: hook.length > 18 ? 64 : 82, lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
           <div style={{ width: 96, height: 6, background: pal.accent, borderRadius: 3 }} />
         </div>
       )}
       <div style={{ flex: 1, width: bottom ? "100%" : undefined, height: bottom ? "64%" : "100%", position: "relative", overflow: "hidden", borderRadius: 18, border: `3px solid ${pal.surfaceBorder}`, boxShadow: "0 20px 50px rgba(0,0,0,0.22)", background: pal.bgAlt }}>
-        <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.46} />
+        <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={bottom ? 0.56 : 0.37} />
       </div>
       {(bottom || textRight) && (
         <div style={{ width: bottom ? "100%" : "40%", display: "flex", flexDirection: "column", justifyContent: "center", gap: 12 }}>
           <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 18, letterSpacing: "0.14em", color: pal.accent }}>
             {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
           </div>
-          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: bottom ? 74 : 82, lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
+          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: bottom ? (hook.length > 18 ? 60 : 74) : (hook.length > 18 ? 64 : 82), lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
         </div>
       )}
     </AbsoluteFill>
@@ -651,7 +651,7 @@ const CutoutHero10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props
           {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
         </div>
         {hasHook && (
-          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
+          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: hook.length > 18 ? 74 : 96, lineHeight: 0.96, color: pal.ink }}>
             {hook}
           </div>
         )}
