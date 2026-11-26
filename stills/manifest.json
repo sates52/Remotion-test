@@ -1,0 +1,167 @@
+{
+ "schema": "stills/1",
+ "composition": "Antidote-lab",
+ "silent": true,
+ "gl": "default",
+ "extra": [
+  "public/scenes/p2-book-demos/tfs_stage_presenter.png",
+  "public/scenes/p2-book-demos/f90_day1_hallway.png",
+  "public/scenes/p2-book-demos/pop_mixing_console.png"
+ ],
+ "jobs": [
+  {
+   "id": "p3_tfs_grid",
+   "config": "config.tfs.json",
+   "frames": [
+    240,
+    585,
+    870,
+    1155,
+    1440,
+    1785,
+    2070,
+    2385,
+    2670,
+    3735
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "p3_f90_grid",
+   "config": "config.f90.json",
+   "frames": [
+    240,
+    885,
+    1159,
+    1395,
+    1680,
+    2055,
+    2340,
+    2835
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "p3_pop_grid",
+   "config": "config.pop.json",
+   "frames": [
+    216,
+    435,
+    655,
+    825,
+    1110,
+    1380,
+    1654,
+    1890,
+    2130,
+    2325
+   ],
+   "grid": {
+    "cols": 4,
+    "width": 480
+   }
+  },
+  {
+   "id": "p3_tfs_s1",
+   "config": "config.tfs.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1199,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_tfs_s2",
+   "config": "config.tfs.json",
+   "frames": [],
+   "clip": {
+    "from": 1200,
+    "to": 2849,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_tfs_s3",
+   "config": "config.tfs.json",
+   "frames": [],
+   "clip": {
+    "from": 2850,
+    "to": 3779,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_f90_s1",
+   "config": "config.f90.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 1439,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_f90_s2",
+   "config": "config.f90.json",
+   "frames": [],
+   "clip": {
+    "from": 1440,
+    "to": 2879,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_pop_s1",
+   "config": "config.pop.json",
+   "frames": [],
+   "clip": {
+    "from": 0,
+    "to": 869,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_pop_s2",
+   "config": "config.pop.json",
+   "frames": [],
+   "clip": {
+    "from": 870,
+    "to": 1934,
+    "scale": 0.75,
+    "crf": 22
+   }
+  },
+  {
+   "id": "p3_pop_s3",
+   "config": "config.pop.json",
+   "frames": [],
+   "clip": {
+    "from": 1935,
+    "to": 2369,
+    "scale": 0.75,
+    "crf": 22
+   }
+  }
+ ],
+ "shards": 8,
+ "inputHash": "fa739b206008c840",
+ "files": {
+  "stills/config.tfs.json": "7e4720fa70d6251c961c8fa88dd8ce3ef64d3a93f4c01b5d5277937133084f66",
+  "stills/config.f90.json": "00190201ecb9f915e3969897d8cc75b8d54811f82e15e17e425b905d2acb9089",
+  "stills/config.pop.json": "ad9fe5030dc2375f698233dcfdf9709f82368ff6dc399f9c682b9ad3bcc1cac3"
+ },
+ "builtAt": "2026-11-26T16:55:35.067Z"
+}

@@ -1,0 +1,2208 @@
+{
+  "meta": {
+    "slug": "demo-p3-the-first-90-days",
+    "title": "The First 90 Days",
+    "author": "Michael Watkins",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 2880,
+    "multiplane": true,
+    "hud": {
+      "enabled": false,
+      "showProgress": false,
+      "showBadge": false
+    },
+    "take": {
+      "note": "Early credibility comes from aligning fast wins with your boss's core priorities, not chasing easy busywork."
+    },
+    "artDirection": {
+      "style": "architectural cobalt cyanotype and warm brass drafting-ink illustration on rich cobalt blue paper, crisp white linework, clean geometric depth",
+      "stylePack": "cobaltDrafting",
+      "castMode": "illustrated",
+      "polarity": "chromaticMid",
+      "typography": "condensed",
+      "annotationStyle": "bracket",
+      "nodeShape": "hex",
+      "layoutGrammar": "cinemaWide",
+      "transitionFamily": "blueprint",
+      "captionAlign": "center",
+      "mood": "cobaltBlueprint",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "p3-f90-1a",
+      "fromFrame": 0,
+      "durationFrames": 930,
+      "shotIntent": {
+        "job": "spatial-journey",
+        "subject": "flying blind",
+        "action": "spatialJourney maps political landmines",
+        "payoff": "stages transition risk",
+        "revealFrame": 760
+      },
+      "spatialJourney": {
+        "variant": "topoExpedition",
+        "title": "FLYING BLIND INTO DAY ONE",
+        "subtitle": "NO RELIABLE MAP FOR THE TRANSITION",
+        "stations": [
+          {
+            "label": "NO RELIABLE MAP",
+            "detail": "Uncharted territory",
+            "tone": "accent",
+            "at": 10
+          },
+          {
+            "label": "POLITICAL LANDMINES",
+            "detail": "Buried history",
+            "tone": "danger",
+            "at": 153
+          },
+          {
+            "label": "FLYING BLIND",
+            "detail": "Leading the room",
+            "tone": "neutral",
+            "at": 340
+          },
+          {
+            "label": "RISKIEST MOMENT",
+            "detail": "Career transition",
+            "tone": "danger",
+            "at": 670
+          }
+        ]
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "cobaltBlueprint",
+        "image": {
+          "path": "scenes/p2-book-demos/f90_day1_hallway.png",
+          "opacity": 0.22,
+          "blur": 7,
+          "emptyStage": true,
+          "ambientCanvas": true,
+          "tintOpacity": 0.72,
+          "kenBurns": "pushIn"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.042
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "pulses": [
+          505,
+          800
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "p3-f90-1b",
+      "fromFrame": 930,
+      "durationFrames": 510,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "Day One hallway",
+        "action": "annotatedScene dollyZoom spotlights tension",
+        "payoff": "grounds Day One",
+        "revealFrame": 375
+      },
+      "annotatedScene": {
+        "image": "scenes/p2-book-demos/f90_day1_hallway.png",
+        "kenBurns": "dollyZoom",
+        "dim": 0.22,
+        "markerStyle": "spotlightMask",
+        "banner": {
+          "text": "THE DREADED DAY ONE",
+          "at": 130
+        },
+        "spotlights": [
+          {
+            "cx": 740,
+            "cy": 540,
+            "rx": 155,
+            "label": "CUP OF COFFEE",
+            "note": "Fresh paint & pure anxiety",
+            "labelPos": "left",
+            "tone": "accent",
+            "at": 10
+          },
+          {
+            "cx": 1320,
+            "cy": 480,
+            "rx": 165,
+            "label": "SIDEWAYS GLANCES",
+            "note": "Everyone watching your first move",
+            "labelPos": "right",
+            "tone": "danger",
+            "at": 367
+          }
+        ],
+        "traces": [],
+        "stickers": []
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "pushThrough",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "cobaltBlueprint"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.042
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "pulses": [
+          249
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "p3-f90-2a",
+      "fromFrame": 1440,
+      "durationFrames": 660,
+      "shotIntent": {
+        "job": "contrast",
+        "subject": "false dichotomy",
+        "action": "crumpleToss discards coffee machine myth",
+        "payoff": "refutes busywork",
+        "revealFrame": 220
+      },
+      "crumpleToss": {
+        "title": "THE EARLY WIN TRAP",
+        "subtitle": "ESCAPE THE FALSE DICHOTOMY",
+        "myth": {
+          "badge": "FALSE DICHOTOMY",
+          "headline": "Fixing the coffee machine is better than nothing",
+          "bullets": [
+            "Easy low-stakes busywork",
+            "Unconnected to core goals"
+          ]
+        },
+        "tossAt": 95,
+        "truth": {
+          "badge": "FIRST 90 DAYS RULE",
+          "headline": "Secure wins that matter specifically to your boss",
+          "detail": "Aggressively align early targets in your first 90 days",
+          "tone": "positive"
+        }
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "pushThrough",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "cobaltBlueprint",
+        "image": {
+          "path": "scenes/p2-book-demos/f90_day1_hallway.png",
+          "opacity": 0.22,
+          "blur": 7,
+          "emptyStage": true,
+          "ambientCanvas": true,
+          "tintOpacity": 0.72,
+          "kenBurns": "pushIn"
+        }
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.042
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "pulses": [
+          283,
+          472
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "p3-f90-2b",
+      "fromFrame": 2100,
+      "durationFrames": 780,
+      "shotIntent": {
+        "job": "tradeoff-scale",
+        "subject": "busywork vs strategy",
+        "action": "balanceScale weighs core strategy",
+        "payoff": "proves priority",
+        "revealFrame": 540
+      },
+      "balanceScale": {
+        "title": "BUSYWORK VS. CORE STRATEGY",
+        "subtitle": "WHAT ACTUALLY BUILDS CREDIBILITY",
+        "leftLabel": "LOW-HANGING FRUIT",
+        "rightLabel": "CORE STRATEGY",
+        "leftWeights": [
+          {
+            "label": "Coffee Machine",
+            "sublabel": "Looks busy",
+            "weight": 0.8,
+            "tone": "danger",
+            "at": 20
+          },
+          {
+            "label": "Old Playbook",
+            "sublabel": "Easily distracted",
+            "weight": 0.7,
+            "tone": "danger",
+            "at": 320
+          }
+        ],
+        "rightWeights": [
+          {
+            "label": "Customer Retention",
+            "sublabel": "Keeps boss awake",
+            "weight": 2.8,
+            "tone": "positive",
+            "at": 10
+          },
+          {
+            "label": "Boss's Priority",
+            "sublabel": "Advances strategy",
+            "weight": 2.4,
+            "tone": "positive",
+            "at": 430
+          }
+        ],
+        "verdict": "Advance core strategy — skip irrelevant easy wins",
+        "verdictAt": 540
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "focusPull",
+        "frames": 16
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "cobaltBlueprint"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ],
+        "pulses": [
+          170,
+          660
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    }
+  ],
+  "captions": [
+    {
+      "text": "But you have absolutely no reliable map.",
+      "startFrame": 5,
+      "endFrame": 80,
+      "words": [
+        {
+          "w": "But",
+          "s": 5,
+          "e": 15
+        },
+        {
+          "w": "you",
+          "s": 15,
+          "e": 22
+        },
+        {
+          "w": "have",
+          "s": 22,
+          "e": 27
+        },
+        {
+          "w": "absolutely",
+          "s": 27,
+          "e": 41
+        },
+        {
+          "w": "no",
+          "s": 41,
+          "e": 49
+        },
+        {
+          "w": "reliable",
+          "s": 49,
+          "e": 63
+        },
+        {
+          "w": "map.",
+          "s": 63,
+          "e": 80
+        }
+      ]
+    },
+    {
+      "text": "None. You don't know where the political landmines are",
+      "startFrame": 80,
+      "endFrame": 147,
+      "words": [
+        {
+          "w": "None.",
+          "s": 80,
+          "e": 94
+        },
+        {
+          "w": "You",
+          "s": 94,
+          "e": 101
+        },
+        {
+          "w": "don't",
+          "s": 101,
+          "e": 104
+        },
+        {
+          "w": "know",
+          "s": 104,
+          "e": 107
+        },
+        {
+          "w": "where",
+          "s": 106,
+          "e": 113
+        },
+        {
+          "w": "the",
+          "s": 113,
+          "e": 118
+        },
+        {
+          "w": "political",
+          "s": 118,
+          "e": 128
+        },
+        {
+          "w": "landmines",
+          "s": 128,
+          "e": 142
+        },
+        {
+          "w": "are",
+          "s": 142,
+          "e": 147
+        }
+      ]
+    },
+    {
+      "text": "buried. You don't know the deep-seated historical",
+      "startFrame": 147,
+      "endFrame": 243,
+      "words": [
+        {
+          "w": "buried.",
+          "s": 147,
+          "e": 178
+        },
+        {
+          "w": "You",
+          "s": 178,
+          "e": 185
+        },
+        {
+          "w": "don't",
+          "s": 185,
+          "e": 190
+        },
+        {
+          "w": "know",
+          "s": 190,
+          "e": 195
+        },
+        {
+          "w": "the",
+          "s": 195,
+          "e": 205
+        },
+        {
+          "w": "deep-seated",
+          "s": 205,
+          "e": 229
+        },
+        {
+          "w": "historical",
+          "s": 229,
+          "e": 243
+        }
+      ]
+    },
+    {
+      "text": "problems that, you know, aren't showing up on the",
+      "startFrame": 243,
+      "endFrame": 298,
+      "words": [
+        {
+          "w": "problems",
+          "s": 243,
+          "e": 255
+        },
+        {
+          "w": "that,",
+          "s": 255,
+          "e": 265
+        },
+        {
+          "w": "you",
+          "s": 265,
+          "e": 269
+        },
+        {
+          "w": "know,",
+          "s": 269,
+          "e": 272
+        },
+        {
+          "w": "aren't",
+          "s": 272,
+          "e": 281
+        },
+        {
+          "w": "showing",
+          "s": 281,
+          "e": 286
+        },
+        {
+          "w": "up",
+          "s": 286,
+          "e": 289
+        },
+        {
+          "w": "on",
+          "s": 289,
+          "e": 293
+        },
+        {
+          "w": "the",
+          "s": 293,
+          "e": 298
+        }
+      ]
+    },
+    {
+      "text": "quarterly spreadsheets. You barely even know the You're just",
+      "startFrame": 298,
+      "endFrame": 392,
+      "words": [
+        {
+          "w": "quarterly",
+          "s": 298,
+          "e": 308
+        },
+        {
+          "w": "spreadsheets.",
+          "s": 308,
+          "e": 339
+        },
+        {
+          "w": "You",
+          "s": 339,
+          "e": 346
+        },
+        {
+          "w": "barely",
+          "s": 346,
+          "e": 353
+        },
+        {
+          "w": "even",
+          "s": 353,
+          "e": 361
+        },
+        {
+          "w": "know",
+          "s": 361,
+          "e": 364
+        },
+        {
+          "w": "the",
+          "s": 363,
+          "e": 382
+        },
+        {
+          "w": "You're",
+          "s": 382,
+          "e": 387
+        },
+        {
+          "w": "just",
+          "s": 387,
+          "e": 392
+        }
+      ]
+    },
+    {
+      "text": "flying blind. You are, for all intents and purposes,",
+      "startFrame": 392,
+      "endFrame": 483,
+      "words": [
+        {
+          "w": "flying",
+          "s": 392,
+          "e": 404
+        },
+        {
+          "w": "blind.",
+          "s": 404,
+          "e": 433
+        },
+        {
+          "w": "You",
+          "s": 433,
+          "e": 440
+        },
+        {
+          "w": "are,",
+          "s": 440,
+          "e": 447
+        },
+        {
+          "w": "for",
+          "s": 447,
+          "e": 454
+        },
+        {
+          "w": "all",
+          "s": 454,
+          "e": 459
+        },
+        {
+          "w": "intents",
+          "s": 459,
+          "e": 469
+        },
+        {
+          "w": "and",
+          "s": 469,
+          "e": 473
+        },
+        {
+          "w": "purposes,",
+          "s": 473,
+          "e": 483
+        }
+      ]
+    },
+    {
+      "text": "flying completely blind. Yet, you are standing at the",
+      "startFrame": 483,
+      "endFrame": 557,
+      "words": [
+        {
+          "w": "flying",
+          "s": 483,
+          "e": 495
+        },
+        {
+          "w": "completely",
+          "s": 495,
+          "e": 507
+        },
+        {
+          "w": "blind.",
+          "s": 507,
+          "e": 526
+        },
+        {
+          "w": "Yet,",
+          "s": 526,
+          "e": 533
+        },
+        {
+          "w": "you",
+          "s": 533,
+          "e": 538
+        },
+        {
+          "w": "are",
+          "s": 538,
+          "e": 543
+        },
+        {
+          "w": "standing",
+          "s": 543,
+          "e": 548
+        },
+        {
+          "w": "at",
+          "s": 548,
+          "e": 553
+        },
+        {
+          "w": "the",
+          "s": 553,
+          "e": 557
+        }
+      ]
+    },
+    {
+      "text": "front of the room and you are expected to",
+      "startFrame": 557,
+      "endFrame": 603,
+      "words": [
+        {
+          "w": "front",
+          "s": 557,
+          "e": 562
+        },
+        {
+          "w": "of",
+          "s": 562,
+          "e": 565
+        },
+        {
+          "w": "the",
+          "s": 565,
+          "e": 568
+        },
+        {
+          "w": "room",
+          "s": 567,
+          "e": 572
+        },
+        {
+          "w": "and",
+          "s": 572,
+          "e": 579
+        },
+        {
+          "w": "you",
+          "s": 579,
+          "e": 584
+        },
+        {
+          "w": "are",
+          "s": 584,
+          "e": 589
+        },
+        {
+          "w": "expected",
+          "s": 589,
+          "e": 598
+        },
+        {
+          "w": "to",
+          "s": 598,
+          "e": 603
+        }
+      ]
+    },
+    {
+      "text": "lead the formation, right?",
+      "startFrame": 603,
+      "endFrame": 639,
+      "words": [
+        {
+          "w": "lead",
+          "s": 603,
+          "e": 608
+        },
+        {
+          "w": "the",
+          "s": 608,
+          "e": 613
+        },
+        {
+          "w": "formation,",
+          "s": 613,
+          "e": 634
+        },
+        {
+          "w": "right?",
+          "s": 634,
+          "e": 639
+        }
+      ]
+    },
+    {
+      "text": "And that brings us to the actual moment of",
+      "startFrame": 639,
+      "endFrame": 706,
+      "words": [
+        {
+          "w": "And",
+          "s": 639,
+          "e": 646
+        },
+        {
+          "w": "that",
+          "s": 646,
+          "e": 651
+        },
+        {
+          "w": "brings",
+          "s": 651,
+          "e": 658
+        },
+        {
+          "w": "us",
+          "s": 658,
+          "e": 663
+        },
+        {
+          "w": "to",
+          "s": 663,
+          "e": 668
+        },
+        {
+          "w": "the",
+          "s": 668,
+          "e": 675
+        },
+        {
+          "w": "actual",
+          "s": 675,
+          "e": 692
+        },
+        {
+          "w": "moment",
+          "s": 692,
+          "e": 699
+        },
+        {
+          "w": "of",
+          "s": 699,
+          "e": 706
+        }
+      ]
+    },
+    {
+      "text": "transition, which the research argues is the single riskiest",
+      "startFrame": 706,
+      "endFrame": 807,
+      "words": [
+        {
+          "w": "transition,",
+          "s": 706,
+          "e": 723
+        },
+        {
+          "w": "which",
+          "s": 723,
+          "e": 730
+        },
+        {
+          "w": "the",
+          "s": 730,
+          "e": 737
+        },
+        {
+          "w": "research",
+          "s": 737,
+          "e": 747
+        },
+        {
+          "w": "argues",
+          "s": 747,
+          "e": 759
+        },
+        {
+          "w": "is",
+          "s": 759,
+          "e": 766
+        },
+        {
+          "w": "the",
+          "s": 766,
+          "e": 776
+        },
+        {
+          "w": "single",
+          "s": 776,
+          "e": 788
+        },
+        {
+          "w": "riskiest",
+          "s": 788,
+          "e": 807
+        }
+      ]
+    },
+    {
+      "text": "moment of your entire career.",
+      "startFrame": 807,
+      "endFrame": 867,
+      "words": [
+        {
+          "w": "moment",
+          "s": 807,
+          "e": 817
+        },
+        {
+          "w": "of",
+          "s": 817,
+          "e": 824
+        },
+        {
+          "w": "your",
+          "s": 824,
+          "e": 833
+        },
+        {
+          "w": "entire",
+          "s": 833,
+          "e": 848
+        },
+        {
+          "w": "career.",
+          "s": 848,
+          "e": 867
+        }
+      ]
+    },
+    {
+      "text": "Oh, without a doubt.",
+      "startFrame": 867,
+      "endFrame": 896,
+      "words": [
+        {
+          "w": "Oh,",
+          "s": 867,
+          "e": 872
+        },
+        {
+          "w": "without",
+          "s": 872,
+          "e": 879
+        },
+        {
+          "w": "a",
+          "s": 879,
+          "e": 884
+        },
+        {
+          "w": "doubt.",
+          "s": 884,
+          "e": 896
+        }
+      ]
+    },
+    {
+      "text": "So, let's drop right into it.",
+      "startFrame": 896,
+      "endFrame": 958,
+      "words": [
+        {
+          "w": "So,",
+          "s": 896,
+          "e": 903
+        },
+        {
+          "w": "let's",
+          "s": 903,
+          "e": 913
+        },
+        {
+          "w": "drop",
+          "s": 913,
+          "e": 920
+        },
+        {
+          "w": "right",
+          "s": 920,
+          "e": 925
+        },
+        {
+          "w": "into",
+          "s": 925,
+          "e": 932
+        },
+        {
+          "w": "it.",
+          "s": 932,
+          "e": 958
+        }
+      ]
+    },
+    {
+      "text": "Picture this. You are standing in the hallway outside",
+      "startFrame": 958,
+      "endFrame": 1037,
+      "words": [
+        {
+          "w": "Picture",
+          "s": 958,
+          "e": 970
+        },
+        {
+          "w": "this.",
+          "s": 970,
+          "e": 987
+        },
+        {
+          "w": "You",
+          "s": 987,
+          "e": 994
+        },
+        {
+          "w": "are",
+          "s": 994,
+          "e": 999
+        },
+        {
+          "w": "standing",
+          "s": 999,
+          "e": 1009
+        },
+        {
+          "w": "in",
+          "s": 1009,
+          "e": 1013
+        },
+        {
+          "w": "the",
+          "s": 1013,
+          "e": 1018
+        },
+        {
+          "w": "hallway",
+          "s": 1018,
+          "e": 1028
+        },
+        {
+          "w": "outside",
+          "s": 1028,
+          "e": 1037
+        }
+      ]
+    },
+    {
+      "text": "your new office. It's day one.",
+      "startFrame": 1037,
+      "endFrame": 1088,
+      "words": [
+        {
+          "w": "your",
+          "s": 1037,
+          "e": 1045
+        },
+        {
+          "w": "new",
+          "s": 1045,
+          "e": 1049
+        },
+        {
+          "w": "office.",
+          "s": 1049,
+          "e": 1059
+        },
+        {
+          "w": "It's",
+          "s": 1059,
+          "e": 1066
+        },
+        {
+          "w": "day",
+          "s": 1066,
+          "e": 1073
+        },
+        {
+          "w": "one.",
+          "s": 1073,
+          "e": 1088
+        }
+      ]
+    },
+    {
+      "text": "The dreaded day one.",
+      "startFrame": 1088,
+      "endFrame": 1119,
+      "words": [
+        {
+          "w": "The",
+          "s": 1088,
+          "e": 1093
+        },
+        {
+          "w": "dreaded",
+          "s": 1093,
+          "e": 1105
+        },
+        {
+          "w": "day",
+          "s": 1105,
+          "e": 1109
+        },
+        {
+          "w": "one.",
+          "s": 1109,
+          "e": 1119
+        }
+      ]
+    },
+    {
+      "text": "You're holding a cup of coffee and the smell",
+      "startFrame": 1119,
+      "endFrame": 1177,
+      "words": [
+        {
+          "w": "You're",
+          "s": 1119,
+          "e": 1124
+        },
+        {
+          "w": "holding",
+          "s": 1124,
+          "e": 1131
+        },
+        {
+          "w": "a",
+          "s": 1131,
+          "e": 1136
+        },
+        {
+          "w": "cup",
+          "s": 1136,
+          "e": 1141
+        },
+        {
+          "w": "of",
+          "s": 1141,
+          "e": 1145
+        },
+        {
+          "w": "coffee",
+          "s": 1145,
+          "e": 1157
+        },
+        {
+          "w": "and",
+          "s": 1157,
+          "e": 1162
+        },
+        {
+          "w": "the",
+          "s": 1162,
+          "e": 1169
+        },
+        {
+          "w": "smell",
+          "s": 1169,
+          "e": 1177
+        }
+      ]
+    },
+    {
+      "text": "of fresh paint and just pure anxiety hangs in",
+      "startFrame": 1177,
+      "endFrame": 1270,
+      "words": [
+        {
+          "w": "of",
+          "s": 1177,
+          "e": 1181
+        },
+        {
+          "w": "fresh",
+          "s": 1181,
+          "e": 1191
+        },
+        {
+          "w": "paint",
+          "s": 1191,
+          "e": 1208
+        },
+        {
+          "w": "and",
+          "s": 1208,
+          "e": 1217
+        },
+        {
+          "w": "just",
+          "s": 1217,
+          "e": 1234
+        },
+        {
+          "w": "pure",
+          "s": 1234,
+          "e": 1246
+        },
+        {
+          "w": "anxiety",
+          "s": 1246,
+          "e": 1258
+        },
+        {
+          "w": "hangs",
+          "s": 1258,
+          "e": 1265
+        },
+        {
+          "w": "in",
+          "s": 1265,
+          "e": 1270
+        }
+      ]
+    },
+    {
+      "text": "the air. You can feel it.",
+      "startFrame": 1270,
+      "endFrame": 1309,
+      "words": [
+        {
+          "w": "the",
+          "s": 1270,
+          "e": 1275
+        },
+        {
+          "w": "air.",
+          "s": 1275,
+          "e": 1287
+        },
+        {
+          "w": "You",
+          "s": 1287,
+          "e": 1292
+        },
+        {
+          "w": "can",
+          "s": 1292,
+          "e": 1297
+        },
+        {
+          "w": "feel",
+          "s": 1297,
+          "e": 1300
+        },
+        {
+          "w": "it.",
+          "s": 1299,
+          "e": 1309
+        }
+      ]
+    },
+    {
+      "text": "Yeah. People are walking past you and they're stealing",
+      "startFrame": 1309,
+      "endFrame": 1388,
+      "words": [
+        {
+          "w": "Yeah.",
+          "s": 1309,
+          "e": 1323
+        },
+        {
+          "w": "People",
+          "s": 1323,
+          "e": 1330
+        },
+        {
+          "w": "are",
+          "s": 1330,
+          "e": 1337
+        },
+        {
+          "w": "walking",
+          "s": 1337,
+          "e": 1345
+        },
+        {
+          "w": "past",
+          "s": 1345,
+          "e": 1354
+        },
+        {
+          "w": "you",
+          "s": 1354,
+          "e": 1364
+        },
+        {
+          "w": "and",
+          "s": 1364,
+          "e": 1371
+        },
+        {
+          "w": "they're",
+          "s": 1371,
+          "e": 1378
+        },
+        {
+          "w": "stealing",
+          "s": 1378,
+          "e": 1388
+        }
+      ]
+    },
+    {
+      "text": "these sideways glances.",
+      "startFrame": 1388,
+      "endFrame": 1440,
+      "words": [
+        {
+          "w": "these",
+          "s": 1388,
+          "e": 1405
+        },
+        {
+          "w": "sideways",
+          "s": 1405,
+          "e": 1421
+        },
+        {
+          "w": "glances.",
+          "s": 1421,
+          "e": 1440
+        }
+      ]
+    },
+    {
+      "text": "that. I mean, isn't fixing the coffee machine better",
+      "startFrame": 1440,
+      "endFrame": 1510,
+      "words": [
+        {
+          "w": "that.",
+          "s": 1440,
+          "e": 1445
+        },
+        {
+          "w": "I",
+          "s": 1445,
+          "e": 1452
+        },
+        {
+          "w": "mean,",
+          "s": 1452,
+          "e": 1457
+        },
+        {
+          "w": "isn't",
+          "s": 1457,
+          "e": 1466
+        },
+        {
+          "w": "fixing",
+          "s": 1466,
+          "e": 1476
+        },
+        {
+          "w": "the",
+          "s": 1476,
+          "e": 1483
+        },
+        {
+          "w": "coffee",
+          "s": 1483,
+          "e": 1493
+        },
+        {
+          "w": "machine",
+          "s": 1493,
+          "e": 1502
+        },
+        {
+          "w": "better",
+          "s": 1502,
+          "e": 1510
+        }
+      ]
+    },
+    {
+      "text": "than nothing? It's a false dichotomy.",
+      "startFrame": 1510,
+      "endFrame": 1579,
+      "words": [
+        {
+          "w": "than",
+          "s": 1510,
+          "e": 1517
+        },
+        {
+          "w": "nothing?",
+          "s": 1517,
+          "e": 1534
+        },
+        {
+          "w": "It's",
+          "s": 1534,
+          "e": 1538
+        },
+        {
+          "w": "a",
+          "s": 1538,
+          "e": 1543
+        },
+        {
+          "w": "false",
+          "s": 1543,
+          "e": 1550
+        },
+        {
+          "w": "dichotomy.",
+          "s": 1550,
+          "e": 1579
+        }
+      ]
+    },
+    {
+      "text": "The book doesn't say ignore all easy problems.",
+      "startFrame": 1579,
+      "endFrame": 1685,
+      "words": [
+        {
+          "w": "The",
+          "s": 1579,
+          "e": 1586
+        },
+        {
+          "w": "book",
+          "s": 1586,
+          "e": 1596
+        },
+        {
+          "w": "doesn't",
+          "s": 1596,
+          "e": 1606
+        },
+        {
+          "w": "say",
+          "s": 1606,
+          "e": 1622
+        },
+        {
+          "w": "ignore",
+          "s": 1622,
+          "e": 1634
+        },
+        {
+          "w": "all",
+          "s": 1634,
+          "e": 1644
+        },
+        {
+          "w": "easy",
+          "s": 1644,
+          "e": 1656
+        },
+        {
+          "w": "problems.",
+          "s": 1656,
+          "e": 1685
+        }
+      ]
+    },
+    {
+      "text": "It demands you secure wins in areas that matter",
+      "startFrame": 1685,
+      "endFrame": 1752,
+      "words": [
+        {
+          "w": "It",
+          "s": 1685,
+          "e": 1692
+        },
+        {
+          "w": "demands",
+          "s": 1692,
+          "e": 1699
+        },
+        {
+          "w": "you",
+          "s": 1699,
+          "e": 1706
+        },
+        {
+          "w": "secure",
+          "s": 1706,
+          "e": 1714
+        },
+        {
+          "w": "wins",
+          "s": 1714,
+          "e": 1723
+        },
+        {
+          "w": "in",
+          "s": 1723,
+          "e": 1728
+        },
+        {
+          "w": "areas",
+          "s": 1728,
+          "e": 1735
+        },
+        {
+          "w": "that",
+          "s": 1735,
+          "e": 1740
+        },
+        {
+          "w": "matter",
+          "s": 1740,
+          "e": 1752
+        }
+      ]
+    },
+    {
+      "text": "specifically to the boss.",
+      "startFrame": 1752,
+      "endFrame": 1805,
+      "words": [
+        {
+          "w": "specifically",
+          "s": 1752,
+          "e": 1774
+        },
+        {
+          "w": "to",
+          "s": 1774,
+          "e": 1781
+        },
+        {
+          "w": "the",
+          "s": 1781,
+          "e": 1786
+        },
+        {
+          "w": "boss.",
+          "s": 1786,
+          "e": 1805
+        }
+      ]
+    },
+    {
+      "text": "Ah, okay. You don't aim so high that you",
+      "startFrame": 1805,
+      "endFrame": 1872,
+      "words": [
+        {
+          "w": "Ah,",
+          "s": 1805,
+          "e": 1817
+        },
+        {
+          "w": "okay.",
+          "s": 1817,
+          "e": 1834
+        },
+        {
+          "w": "You",
+          "s": 1834,
+          "e": 1838
+        },
+        {
+          "w": "don't",
+          "s": 1838,
+          "e": 1843
+        },
+        {
+          "w": "aim",
+          "s": 1843,
+          "e": 1850
+        },
+        {
+          "w": "so",
+          "s": 1850,
+          "e": 1858
+        },
+        {
+          "w": "high",
+          "s": 1858,
+          "e": 1861
+        },
+        {
+          "w": "that",
+          "s": 1860,
+          "e": 1867
+        },
+        {
+          "w": "you",
+          "s": 1867,
+          "e": 1872
+        }
+      ]
+    },
+    {
+      "text": "failed to deliver anything in the first 90 days,",
+      "startFrame": 1872,
+      "endFrame": 1934,
+      "words": [
+        {
+          "w": "failed",
+          "s": 1872,
+          "e": 1879
+        },
+        {
+          "w": "to",
+          "s": 1879,
+          "e": 1884
+        },
+        {
+          "w": "deliver",
+          "s": 1884,
+          "e": 1891
+        },
+        {
+          "w": "anything",
+          "s": 1891,
+          "e": 1898
+        },
+        {
+          "w": "in",
+          "s": 1898,
+          "e": 1906
+        },
+        {
+          "w": "the",
+          "s": 1906,
+          "e": 1909
+        },
+        {
+          "w": "first",
+          "s": 1908,
+          "e": 1913
+        },
+        {
+          "w": "90",
+          "s": 1913,
+          "e": 1922
+        },
+        {
+          "w": "days,",
+          "s": 1922,
+          "e": 1934
+        }
+      ]
+    },
+    {
+      "text": "but you must aggressively align your early targets with",
+      "startFrame": 1934,
+      "endFrame": 2018,
+      "words": [
+        {
+          "w": "but",
+          "s": 1934,
+          "e": 1946
+        },
+        {
+          "w": "you",
+          "s": 1946,
+          "e": 1954
+        },
+        {
+          "w": "must",
+          "s": 1954,
+          "e": 1961
+        },
+        {
+          "w": "aggressively",
+          "s": 1961,
+          "e": 1978
+        },
+        {
+          "w": "align",
+          "s": 1978,
+          "e": 1987
+        },
+        {
+          "w": "your",
+          "s": 1987,
+          "e": 1992
+        },
+        {
+          "w": "early",
+          "s": 1992,
+          "e": 2002
+        },
+        {
+          "w": "targets",
+          "s": 2002,
+          "e": 2014
+        },
+        {
+          "w": "with",
+          "s": 2014,
+          "e": 2018
+        }
+      ]
+    },
+    {
+      "text": "your boss's true That makes sense.",
+      "startFrame": 2018,
+      "endFrame": 2117,
+      "words": [
+        {
+          "w": "your",
+          "s": 2018,
+          "e": 2026
+        },
+        {
+          "w": "boss's",
+          "s": 2026,
+          "e": 2042
+        },
+        {
+          "w": "true",
+          "s": 2042,
+          "e": 2074
+        },
+        {
+          "w": "That",
+          "s": 2074,
+          "e": 2081
+        },
+        {
+          "w": "makes",
+          "s": 2081,
+          "e": 2086
+        },
+        {
+          "w": "sense.",
+          "s": 2086,
+          "e": 2117
+        }
+      ]
+    },
+    {
+      "text": "Fixing the coffee machine is low-hanging fruit, but if",
+      "startFrame": 2117,
+      "endFrame": 2196,
+      "words": [
+        {
+          "w": "Fixing",
+          "s": 2117,
+          "e": 2126
+        },
+        {
+          "w": "the",
+          "s": 2126,
+          "e": 2134
+        },
+        {
+          "w": "coffee",
+          "s": 2134,
+          "e": 2141
+        },
+        {
+          "w": "machine",
+          "s": 2141,
+          "e": 2150
+        },
+        {
+          "w": "is",
+          "s": 2150,
+          "e": 2158
+        },
+        {
+          "w": "low-hanging",
+          "s": 2158,
+          "e": 2174
+        },
+        {
+          "w": "fruit,",
+          "s": 2174,
+          "e": 2184
+        },
+        {
+          "w": "but",
+          "s": 2184,
+          "e": 2191
+        },
+        {
+          "w": "if",
+          "s": 2191,
+          "e": 2196
+        }
+      ]
+    },
+    {
+      "text": "your boss is staying awake at night worrying about",
+      "startFrame": 2196,
+      "endFrame": 2256,
+      "words": [
+        {
+          "w": "your",
+          "s": 2196,
+          "e": 2201
+        },
+        {
+          "w": "boss",
+          "s": 2201,
+          "e": 2206
+        },
+        {
+          "w": "is",
+          "s": 2206,
+          "e": 2213
+        },
+        {
+          "w": "staying",
+          "s": 2213,
+          "e": 2218
+        },
+        {
+          "w": "awake",
+          "s": 2218,
+          "e": 2225
+        },
+        {
+          "w": "at",
+          "s": 2225,
+          "e": 2232
+        },
+        {
+          "w": "night",
+          "s": 2232,
+          "e": 2237
+        },
+        {
+          "w": "worrying",
+          "s": 2237,
+          "e": 2246
+        },
+        {
+          "w": "about",
+          "s": 2246,
+          "e": 2256
+        }
+      ]
+    },
+    {
+      "text": "customer retention, fixing the coffee machine does",
+      "startFrame": 2256,
+      "endFrame": 2352,
+      "words": [
+        {
+          "w": "customer",
+          "s": 2256,
+          "e": 2270
+        },
+        {
+          "w": "retention,",
+          "s": 2270,
+          "e": 2288
+        },
+        {
+          "w": "fixing",
+          "s": 2306,
+          "e": 2316
+        },
+        {
+          "w": "the",
+          "s": 2316,
+          "e": 2321
+        },
+        {
+          "w": "coffee",
+          "s": 2321,
+          "e": 2330
+        },
+        {
+          "w": "machine",
+          "s": 2330,
+          "e": 2342
+        },
+        {
+          "w": "does",
+          "s": 2342,
+          "e": 2352
+        }
+      ]
+    },
+    {
+      "text": "absolutely nothing for your Just proves you",
+      "startFrame": 2352,
+      "endFrame": 2446,
+      "words": [
+        {
+          "w": "absolutely",
+          "s": 2352,
+          "e": 2371
+        },
+        {
+          "w": "nothing",
+          "s": 2371,
+          "e": 2378
+        },
+        {
+          "w": "for",
+          "s": 2378,
+          "e": 2386
+        },
+        {
+          "w": "your",
+          "s": 2386,
+          "e": 2404
+        },
+        {
+          "w": "Just",
+          "s": 2422,
+          "e": 2426
+        },
+        {
+          "w": "proves",
+          "s": 2426,
+          "e": 2436
+        },
+        {
+          "w": "you",
+          "s": 2436,
+          "e": 2446
+        }
+      ]
+    },
+    {
+      "text": "are easily distracted. Exactly.",
+      "startFrame": 2446,
+      "endFrame": 2510,
+      "words": [
+        {
+          "w": "are",
+          "s": 2446,
+          "e": 2453
+        },
+        {
+          "w": "easily",
+          "s": 2453,
+          "e": 2465
+        },
+        {
+          "w": "distracted.",
+          "s": 2465,
+          "e": 2489
+        },
+        {
+          "w": "Exactly.",
+          "s": 2489,
+          "e": 2510
+        }
+      ]
+    },
+    {
+      "text": "You have to pursue wins that make your boss",
+      "startFrame": 2510,
+      "endFrame": 2566,
+      "words": [
+        {
+          "w": "You",
+          "s": 2510,
+          "e": 2518
+        },
+        {
+          "w": "have",
+          "s": 2518,
+          "e": 2521
+        },
+        {
+          "w": "to",
+          "s": 2520,
+          "e": 2525
+        },
+        {
+          "w": "pursue",
+          "s": 2525,
+          "e": 2534
+        },
+        {
+          "w": "wins",
+          "s": 2534,
+          "e": 2544
+        },
+        {
+          "w": "that",
+          "s": 2544,
+          "e": 2549
+        },
+        {
+          "w": "make",
+          "s": 2549,
+          "e": 2552
+        },
+        {
+          "w": "your",
+          "s": 2551,
+          "e": 2556
+        },
+        {
+          "w": "boss",
+          "s": 2556,
+          "e": 2566
+        }
+      ]
+    },
+    {
+      "text": "look good and advance the core strategy, not just",
+      "startFrame": 2566,
+      "endFrame": 2647,
+      "words": [
+        {
+          "w": "look",
+          "s": 2566,
+          "e": 2573
+        },
+        {
+          "w": "good",
+          "s": 2573,
+          "e": 2587
+        },
+        {
+          "w": "and",
+          "s": 2587,
+          "e": 2594
+        },
+        {
+          "w": "advance",
+          "s": 2594,
+          "e": 2604
+        },
+        {
+          "w": "the",
+          "s": 2604,
+          "e": 2611
+        },
+        {
+          "w": "core",
+          "s": 2611,
+          "e": 2618
+        },
+        {
+          "w": "strategy,",
+          "s": 2618,
+          "e": 2635
+        },
+        {
+          "w": "not",
+          "s": 2635,
+          "e": 2640
+        },
+        {
+          "w": "just",
+          "s": 2640,
+          "e": 2647
+        }
+      ]
+    },
+    {
+      "text": "ones that make you look busy.",
+      "startFrame": 2647,
+      "endFrame": 2702,
+      "words": [
+        {
+          "w": "ones",
+          "s": 2647,
+          "e": 2654
+        },
+        {
+          "w": "that",
+          "s": 2654,
+          "e": 2659
+        },
+        {
+          "w": "make",
+          "s": 2659,
+          "e": 2664
+        },
+        {
+          "w": "you",
+          "s": 2664,
+          "e": 2671
+        },
+        {
+          "w": "look",
+          "s": 2671,
+          "e": 2676
+        },
+        {
+          "w": "busy.",
+          "s": 2676,
+          "e": 2702
+        }
+      ]
+    },
+    {
+      "text": "I see. Because picking off the easiest, most irrelevant",
+      "startFrame": 2702,
+      "endFrame": 2798,
+      "words": [
+        {
+          "w": "I",
+          "s": 2702,
+          "e": 2712
+        },
+        {
+          "w": "see.",
+          "s": 2712,
+          "e": 2726
+        },
+        {
+          "w": "Because",
+          "s": 2726,
+          "e": 2736
+        },
+        {
+          "w": "picking",
+          "s": 2736,
+          "e": 2746
+        },
+        {
+          "w": "off",
+          "s": 2746,
+          "e": 2750
+        },
+        {
+          "w": "the",
+          "s": 2750,
+          "e": 2755
+        },
+        {
+          "w": "easiest,",
+          "s": 2755,
+          "e": 2772
+        },
+        {
+          "w": "most",
+          "s": 2772,
+          "e": 2779
+        },
+        {
+          "w": "irrelevant",
+          "s": 2779,
+          "e": 2798
+        }
+      ]
+    },
+    {
+      "text": "problems is just a lazy trick from your old",
+      "startFrame": 2798,
+      "endFrame": 2856,
+      "words": [
+        {
+          "w": "problems",
+          "s": 2798,
+          "e": 2810
+        },
+        {
+          "w": "is",
+          "s": 2810,
+          "e": 2815
+        },
+        {
+          "w": "just",
+          "s": 2815,
+          "e": 2820
+        },
+        {
+          "w": "a",
+          "s": 2820,
+          "e": 2825
+        },
+        {
+          "w": "lazy",
+          "s": 2825,
+          "e": 2834
+        },
+        {
+          "w": "trick",
+          "s": 2834,
+          "e": 2839
+        },
+        {
+          "w": "from",
+          "s": 2839,
+          "e": 2844
+        },
+        {
+          "w": "your",
+          "s": 2844,
+          "e": 2849
+        },
+        {
+          "w": "old",
+          "s": 2849,
+          "e": 2856
+        }
+      ]
+    },
+    {
+      "text": "playbook. It",
+      "startFrame": 2856,
+      "endFrame": 2880,
+      "words": [
+        {
+          "w": "playbook.",
+          "s": 2856,
+          "e": 2875
+        },
+        {
+          "w": "It",
+          "s": 2875,
+          "e": 2880
+        }
+      ]
+    }
+  ]
+}
