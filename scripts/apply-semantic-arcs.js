@@ -27,6 +27,7 @@ const { enforceSemanticRelevance } = require("./lib/visual-intent");
 // declared write site below announces what it already did (engine, field, from,
 // to, reason, semanticSignature delta). Nothing is blocked, reverted or skipped.
 const { withEngine, summarize: ledgerSummarize } = require("./lib/post-plan-ledger");
+const { isFullStage10x } = require("./lib/antidote-10x-keys");
 
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
@@ -116,7 +117,13 @@ for (let i = 0; i < scenes.length; i++) {
     if (oldTextStr !== newTextStr) {
       rewrittenTexts++;
     }
-    s.texts = semantic.texts;
+    if (isFullStage10x(s)) {
+      s.texts = [];
+      s.characters = [];
+      s.props = [];
+    } else {
+      s.texts = semantic.texts;
+    }
     return { scenes: sc };
   });
 }
@@ -181,6 +188,13 @@ withEngine("cognitive_compression", "8", "diagram-pose scaling", scenes, (sc) =>
 withEngine("semantic_relevance", "9", "conceptual alignment enforcement", scenes, (sc) => {
   config.scenes = sc;
   enforceSemanticRelevance(config);
+  for (const s of config.scenes || []) {
+    if (isFullStage10x(s)) {
+      s.characters = [];
+      s.props = [];
+      s.texts = [];
+    }
+  }
   return { scenes: config.scenes };
 });
 scenes = config.scenes;

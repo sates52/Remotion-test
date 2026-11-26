@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { StackRevealSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * StackReveal — Two Variants:
@@ -24,39 +25,7 @@ export const StackReveal: React.FC<{ spec: StackRevealSpec; localFrame?: number;
   });
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        padding: "54px 120px 150px",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      {(spec.title || spec.subtitle) && (
-        <div
-          style={{
-            textAlign: "center",
-            marginBottom: 28,
-            opacity: titleP,
-            transform: `translateY(${(1 - titleP) * 18}px)`,
-          }}
-        >
-          {spec.title && (
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 48, color: palette.ink, lineHeight: 1.08 }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: fonts.body, fontWeight: 500, fontSize: 23, color: palette.muted, marginTop: 6 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
 
       {spec.variant === "burners" ? (
         <div
@@ -198,6 +167,6 @@ export const StackReveal: React.FC<{ spec: StackRevealSpec; localFrame?: number;
           {spec.callout}
         </div>
       )}
-    </div>
+    </GrammarStage>
   );
 };

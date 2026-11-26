@@ -28,7 +28,17 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
     const pal = resolveArtPalette(ad);
     const light = isLightPalette(pal);
     const fonts = resolveArtFonts(ad);
-    const leftAlign = ad?.captionAlign === "left";
+    const g = ad?.layoutGrammar || "centered";
+    const leftAlign = ad?.captionAlign === "left" || g === "editorialLeft" || g === "editorialRight" || g === "splitSpine";
+    const padLeft = g === "editorialLeft" ? 560 : leftAlign ? 88 : 180;
+    const padRight = g === "editorialRight" ? 560 : leftAlign ? 180 : 180;
+    const padBottom = g === "cinemaWide" ? 24 : 28;
+    const bgGrad =
+      g === "cinemaWide"
+        ? "transparent"
+        : light
+          ? `linear-gradient(180deg, rgba(250,247,240,0) 0%, ${pal.bg}E0 42%, ${pal.bg}FA 100%)`
+          : "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)";
     return (
       <div
         style={{
@@ -36,20 +46,19 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           left: 0,
           right: 0,
           bottom: 0,
-          padding: leftAlign ? "36px 260px 26px 88px" : "46px 180px 28px",
-          background: light
-            ? `linear-gradient(180deg, rgba(250,247,240,0) 0%, ${pal.bg}E0 42%, ${pal.bg}FA 100%)`
-            : "linear-gradient(180deg, rgba(8,10,15,0) 0%, rgba(8,10,15,0.68) 48%, rgba(8,10,15,0.92) 100%)",
+          padding: `36px ${padRight}px ${padBottom}px ${padLeft}px`,
+          background: bgGrad,
           textAlign: leftAlign ? "left" : "center",
           fontFamily: fonts.body,
           fontWeight: 600,
-          fontSize: 36,
+          fontSize: g === "cinemaWide" ? 32 : 36,
           lineHeight: 1.26,
-          color: light ? pal.ink : "#F8F5EE",
-          textShadow: light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
+          color: g === "cinemaWide" ? "#F8F5EE" : light ? pal.ink : "#F8F5EE",
+          textShadow: g === "cinemaWide" ? "0 2px 10px rgba(0,0,0,0.9)" : light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
           display: "flex",
           justifyContent: leftAlign ? "flex-start" : "center",
           pointerEvents: "none",
+          zIndex: 20,
         }}
       >
         <div
@@ -68,9 +77,9 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
               <span
                 key={i}
                 style={{
-                  color: on ? pal.accent : light ? pal.ink : "#F8F5EE",
+                  color: on ? pal.accent : g === "cinemaWide" ? "#F8F5EE" : light ? pal.ink : "#F8F5EE",
                   fontWeight: on ? 800 : 600,
-                  borderBottom: light && on ? `3px solid ${pal.accent}` : undefined,
+                  borderBottom: light && g !== "cinemaWide" && on ? `3px solid ${pal.accent}` : undefined,
                 }}
               >
                 {w.w}

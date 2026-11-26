@@ -163,6 +163,25 @@ function recentOpenings(slug) {
   booksIn(path.join(parent, "test"));
   return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
 }
+/** Style packs of the Antidote books made before this one, newest first (same scan as recentForms). */
+function recentStylePacks(slug) {
+  const { STYLE_PACKS } = require("./lib/style-packs");
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => {
+    try {
+      const b = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (b.slug && b.slug !== slug && b.stylePack && STYLE_PACKS[b.stylePack] && !seen.has(b.slug)) {
+        const at = b.stylePackAt || (b.skin && b.skin.at) || (b.opening && b.opening.at) || "";
+        seen.set(b.slug, { id: b.stylePack, at: String(at) });
+      }
+    } catch {}
+  };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 8).map((x) => x.id);
+}
 /** The skins of the books made before this one, newest first (same places as recentOpenings). */
 function recentSkins(slug) {
   const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
@@ -173,6 +192,25 @@ function recentSkins(slug) {
   booksIn(path.join(parent, "test"));
   return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
 }
+/** Style packs of the Antidote books made before this one, newest first (same scan as recentForms). */
+function recentStylePacks(slug) {
+  const { STYLE_PACKS } = require("./lib/style-packs");
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => {
+    try {
+      const b = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (b.slug && b.slug !== slug && b.stylePack && STYLE_PACKS[b.stylePack] && !seen.has(b.slug)) {
+        const at = b.stylePackAt || (b.skin && b.skin.at) || (b.opening && b.opening.at) || "";
+        seen.set(b.slug, { id: b.stylePack, at: String(at) });
+      }
+    } catch {}
+  };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 8).map((x) => x.id);
+}
 /** The narrative forms of the books made before this one, newest first (same places as recentOpenings). */
 function recentForms(slug) {
   const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
@@ -182,6 +220,25 @@ function recentForms(slug) {
   try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
   booksIn(path.join(parent, "test"));
   return [...seen.values()].sort((a, b) => String(b.at || "").localeCompare(String(a.at || ""))).slice(0, 8);
+}
+/** Style packs of the Antidote books made before this one, newest first (same scan as recentForms). */
+function recentStylePacks(slug) {
+  const { STYLE_PACKS } = require("./lib/style-packs");
+  const root = path.join(__dirname, ".."), parent = path.dirname(root), seen = new Map();
+  const take = (file) => {
+    try {
+      const b = JSON.parse(fs.readFileSync(file, "utf8"));
+      if (b.slug && b.slug !== slug && b.stylePack && STYLE_PACKS[b.stylePack] && !seen.has(b.slug)) {
+        const at = b.stylePackAt || (b.skin && b.skin.at) || (b.opening && b.opening.at) || "";
+        seen.set(b.slug, { id: b.stylePack, at: String(at) });
+      }
+    } catch {}
+  };
+  const booksIn = (r) => { try { for (const d of fs.readdirSync(path.join(r, "books"))) take(path.join(r, "books", d, "book.json")); } catch {} };
+  booksIn(root);
+  try { for (const d of fs.readdirSync(parent)) { const m = /^wt-book-(.+)$/.exec(d); if (m) take(path.join(parent, d, "books", m[1], "book.json")); } } catch {}
+  booksIn(path.join(parent, "test"));
+  return [...seen.values()].sort((a, b) => b.at.localeCompare(a.at)).slice(0, 8).map((x) => x.id);
 }
 const PICTURE_FIRST = {
   antidote: `PICTURE FIRST (this becomes animation): build every part on ONE physical thing and say it BEFORE its meaning — the object, who does what to it, what changes — and return to it when the part ends.`,
@@ -375,8 +432,10 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
     const spLib = require("./lib/style-packs");
     const minorHarm = !!(profile && profile.minorHarm);
     const explicitPack = args["style-pack"] && spLib.STYLE_PACKS[args["style-pack"]] ? spLib.STYLE_PACKS[args["style-pack"]] : null;
-    const chosenPack = explicitPack || (manifest.stylePack && spLib.STYLE_PACKS[manifest.stylePack] && !args.reskin ? spLib.STYLE_PACKS[manifest.stylePack] : spLib.pickStylePack({ slug: SLUG, genre: GENRE, minorHarm, recent: [] }));
+    const chosenPack = explicitPack || (manifest.stylePack && spLib.STYLE_PACKS[manifest.stylePack] && !args.reskin ? spLib.STYLE_PACKS[manifest.stylePack] : spLib.pickStylePack({ slug: SLUG, genre: GENRE, minorHarm, recent: recentStylePacks(SLUG) }));
     manifest.stylePack = chosenPack.id;
+    manifest.stylePackAt = (manifest.stylePack === chosenPack.id && manifest.stylePackAt && !args.reskin && !explicitPack) ? manifest.stylePackAt : new Date().toISOString();
+    console.log(`🎨 10X PACK → ${chosenPack.id} (${chosenPack.polarity} · ${chosenPack.layoutGrammar || "centered"} · ${chosenPack.mood} · ${chosenPack.transitionFamily || "editorial"})`);
   }
   // THE PRODUCER'S NOTE is not part of the audio prompt (operator 2026-11-20: the hosts do not discuss it). He asks
   // NotebookLM's chat for three candidates, chooses, and scripts/producer-note.js records his sentence (book.json take,

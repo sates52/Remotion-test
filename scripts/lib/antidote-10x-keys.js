@@ -25,9 +25,16 @@ const DEVICE_10X_KEYS = [
   "comparisonGrid",
   "dataMatrix",
   "realAnchor",
+  "vennMerge",
+  "explodedView",
+  "gravityPile",
+  "crumpleToss",
+  "analyticsFunnel",
+  "barRace",
+  "upClose",
 ];
 
-const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage"];
+const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests"];
 
 const ALL_10X_KEYS = [...DEVICE_10X_KEYS, ...EXTRA_10X_KEYS];
 
@@ -50,10 +57,25 @@ const ALWAYS_FULL_STAGE_10X_KEYS = [
   "spatialJourney",
   "chapterInterstitial",
   "comparisonGrid",
+  "vennMerge",
+  "explodedView",
+  "gravityPile",
+  "crumpleToss",
+  "analyticsFunnel",
+  "barRace",
+  "upClose",
 ];
 
 function hasAny10xDevice(obj) {
   return !!obj && DEVICE_10X_KEYS.some((k) => obj[k] != null);
+}
+
+function active10xDevice(obj) {
+  if (!obj) return null;
+  for (const k of DEVICE_10X_KEYS) {
+    if (obj[k] != null) return k;
+  }
+  return null;
 }
 
 function isFullStage10x(obj) {
@@ -72,5 +94,6 @@ module.exports = {
   PASSTHROUGH_10X_KEYS,
   ALWAYS_FULL_STAGE_10X_KEYS,
   hasAny10xDevice,
+  active10xDevice,
   isFullStage10x,
 };

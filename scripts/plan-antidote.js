@@ -1454,13 +1454,34 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // BEFORE _authorship.lock so full-stage 10x scenes seal with cast:[] / concept:null / props:[].
     let fullStage10x = false;
     if (A) {
-      const { PASSTHROUGH_10X_KEYS, isFullStage10x } = require("./lib/antidote-10x-keys");
+      const { PASSTHROUGH_10X_KEYS, isFullStage10x, hasAny10xDevice } = require("./lib/antidote-10x-keys");
+      const { STYLE_PACKS, TRANSITION_FAMILIES } = require("./lib/style-packs");
+      const { compile10xCues } = require("./lib/compile-10x-cues");
+      const man10x = readManifest(SLUG);
+      const pack10x = man10x && man10x.stylePack && STYLE_PACKS[man10x.stylePack] ? STYLE_PACKS[man10x.stylePack] : null;
       for (const k of PASSTHROUGH_10X_KEYS) {
         if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
       }
+      if (hasAny10xDevice(out)) {
+        const beatWords = Array.isArray(s.words) ? s.words : [];
+        compile10xCues(out, { words: beatWords, beatStartSec: s.from ?? (out.fromFrame / FPS), durationFrames: out.durationFrames, fps: FPS });
+      }
       if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
+      else if (pack10x && hasAny10xDevice(out)) {
+        const moods = [pack10x.mood, ...(pack10x.secondaryMoods || [])].filter(Boolean);
+        out.bg = { ...(out.bg || {}), stageMood: moods[Math.floor(i / 8) % moods.length] };
+      }
       if (A.bgImage) out.bg = { ...(out.bg || {}), image: A.bgImage };
       fullStage10x = isFullStage10x(A);
+      if (fullStage10x && out.bg?.stageMood) {
+        delete out.bg.set;
+      }
+      if (A.transitionOverride) {
+        out.transition = { type: A.transitionOverride, frames: 12, color: PAL.red || "#F7C948" };
+      } else if (pack10x && hasAny10xDevice(out) && i > 0 && !authorContinue) {
+        const fam = TRANSITION_FAMILIES[pack10x.transitionFamily || "editorial"] || TRANSITION_FAMILIES.editorial;
+        out.transition = { type: fam[i % fam.length], frames: 12, color: PAL.red || "#F7C948" };
+      }
       if (fullStage10x) {
         out.characters = [];
         out.props = [];
@@ -1671,7 +1692,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       durationInFrames,
       multiplane: true,
       hud: {
-        enabled: true,
+        enabled: (() => { try { const man = JSON.parse(fs.readFileSync(abs.manifest(SLUG), "utf8")); const ad = man.artDirection || (man.stylePack && require("./lib/style-packs").toArtDirection(man.stylePack)); return !(ad && ad.hud === "off"); } catch { return true; } })(),
         accent: PAL.red || PAL.gold || "#F59E0B",
         title: (SHORT_TITLE || TITLE || "GOOD BOOK SUMMARY").toUpperCase(),
         showProgress: true,

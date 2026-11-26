@@ -1,7 +1,8 @@
 import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { StatSlamSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * StatSlam — Blog-to-video inspired monumental law / stat / payoff ratio card.
@@ -14,27 +15,16 @@ export const StatSlam: React.FC<{ spec: StatSlamSpec; localFrame?: number; stage
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
-  const captionPad = ad?.captions === "minimal" ? 148 : 104;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
 
   const slamP = spring({ frame, fps, config: { damping: 14, stiffness: 160 } });
   const accent = toneColor(spec.tone ?? "accent", palette);
   const framing = spec.framing ?? "blueprint";
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: `72px 120px ${captionPad}px`,
-        boxSizing: "border-box",
-      }}
-    >
+    <GrammarStage kicker={spec.kicker} stageMood={stageMood} localFrame={frame}>
       <div
         style={{
           width: "100%",
@@ -49,26 +39,6 @@ export const StatSlam: React.FC<{ spec: StatSlamSpec; localFrame?: number; stage
           opacity: Math.min(1, slamP * 1.4),
         }}
       >
-        {spec.kicker && (
-          <div
-            style={{
-              display: "inline-block",
-              fontFamily: displayFont,
-              fontWeight: 900,
-              fontSize: 19,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: palette.bg,
-              background: accent,
-              padding: "6px 18px",
-              borderRadius: 999,
-              marginBottom: 18,
-            }}
-          >
-            {spec.kicker}
-          </div>
-        )}
-
         <div
           style={{
             fontFamily: displayFont,
@@ -139,6 +109,6 @@ export const StatSlam: React.FC<{ spec: StatSlamSpec; localFrame?: number; stage
           </div>
         )}
       </div>
-    </div>
+    </GrammarStage>
   );
 };

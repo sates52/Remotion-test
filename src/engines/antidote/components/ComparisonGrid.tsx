@@ -1,7 +1,8 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { ComparisonGridSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { StageGrammarOverlay } from "./layoutGrammar";
 
 /**
  * ComparisonGrid — Side-by-side framed mental-model contrast cards
@@ -14,8 +15,9 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
 
   const cols = spec.columns.slice(0, 3);
   const n = cols.length;

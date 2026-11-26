@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { LiveInterfaceSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * LiveInterface — Animated Digital Workspace, Calendar Tetris & Notification Flood.
@@ -27,39 +28,8 @@ export const LiveInterface: React.FC<{ spec: LiveInterfaceSpec; localFrame?: num
   const days = ["MON", "TUE", "WED", "THU", "FRI"];
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        padding: "46px 72px 150px",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        gap: 22,
-      }}
-    >
-      {/* Asymmetric Left-Aligned Editorial Header */}
-      {(spec.title || spec.subtitle) && (
-        <div
-          style={{
-            borderLeft: `6px solid ${palette.accent}`,
-            paddingLeft: 22,
-            opacity: headP,
-            transform: `translateX(${(1 - headP) * -18}px)`,
-          }}
-        >
-          {spec.title && (
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 44, color: palette.ink, lineHeight: 1.08 }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: fonts.body, fontWeight: 500, fontSize: 22, color: palette.muted, marginTop: 4 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", gap: 22 }}>
 
       {/* Main Interface Body */}
       {spec.variant === "calendarTetris" ? (
@@ -241,6 +211,7 @@ export const LiveInterface: React.FC<{ spec: LiveInterfaceSpec; localFrame?: num
           })}
         </div>
       )}
-    </div>
+      </div>
+    </GrammarStage>
   );
 };

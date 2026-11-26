@@ -74,7 +74,7 @@ export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: n
   const framing = spec.framing ?? "fullBleed";
   const kb = spec.kenBurns ?? "pushIn";
   const p = interpolate(frame, [0, 480], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const imgScale = kb === "pushIn" ? 1.01 + p * 0.045 : kb === "pullOut" ? 1.055 - p * 0.045 : kb === "none" ? 1 : 1.03;
+  const imgScale = kb === "dollyZoom" ? 1.0 + p * 0.14 : kb === "pushIn" ? 1.01 + p * 0.045 : kb === "pullOut" ? 1.055 - p * 0.045 : kb === "none" ? 1 : 1.03;
   const imgTx = kb === "panLeft" ? (0.5 - p) * 32 : kb === "panRight" ? (p - 0.5) * 32 : 0;
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import type { ChapterInterstitialSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * ChapterInterstitial — Style-Pack-Native Part / Chapter Divider.
@@ -22,18 +23,18 @@ export const ChapterInterstitial: React.FC<{ spec: ChapterInterstitialSpec; loca
   const leftAligned = spec.variant === "broadsheetRule" || spec.variant === "verticalSpine";
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        padding: leftAligned ? "120px 140px 160px 120px" : "120px 140px 160px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: leftAligned ? "flex-start" : "center",
-        textAlign: leftAligned ? "left" : "center",
-      }}
-    >
+    <GrammarStage stageMood={stageMood} localFrame={frame}>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: leftAligned ? "flex-start" : "center",
+          textAlign: leftAligned ? "left" : "center",
+        }}
+      >
       <div
         style={{
           borderLeft: leftAligned ? `8px solid ${palette.accent}` : undefined,
@@ -56,6 +57,7 @@ export const ChapterInterstitial: React.FC<{ spec: ChapterInterstitialSpec; loca
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </GrammarStage>
   );
 };

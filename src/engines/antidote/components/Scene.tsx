@@ -47,6 +47,13 @@ import { ComicStrip } from "./ComicStrip";
 import { BeforeAfterWipe } from "./BeforeAfterWipe";
 import { SpatialJourney } from "./SpatialJourney";
 import { ChapterInterstitial } from "./ChapterInterstitial";
+import { VennMerge } from "./VennMerge";
+import { ExplodedView } from "./ExplodedView";
+import { GravityPile } from "./GravityPile";
+import { CrumpleToss } from "./CrumpleToss";
+import { AnalyticsFunnel } from "./AnalyticsFunnel";
+import { BarRace } from "./BarRace";
+import { UpClose } from "./UpClose";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -426,9 +433,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
 
   // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
   // Active ONLY when a scene explicitly supplies one of the v2/10x payloads; legacy configs never enter here.
-  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.vennMerge || scene.explodedView || scene.gravityPile || scene.crumpleToss || scene.analyticsFunnel || scene.barRace || scene.upClose || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
     const coCast = scene.characters ?? [];
-    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial;
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose;
     const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
@@ -453,6 +460,13 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         {scene.beforeAfterWipe ? <BeforeAfterWipe spec={scene.beforeAfterWipe} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.spatialJourney ? <SpatialJourney spec={scene.spatialJourney} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.chapterInterstitial ? <ChapterInterstitial spec={scene.chapterInterstitial} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.vennMerge ? <VennMerge spec={scene.vennMerge} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.explodedView ? <ExplodedView spec={scene.explodedView} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.gravityPile ? <GravityPile spec={scene.gravityPile} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.crumpleToss ? <CrumpleToss spec={scene.crumpleToss} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.analyticsFunnel ? <AnalyticsFunnel spec={scene.analyticsFunnel} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.barRace ? <BarRace spec={scene.barRace} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.upClose ? <UpClose spec={scene.upClose} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}

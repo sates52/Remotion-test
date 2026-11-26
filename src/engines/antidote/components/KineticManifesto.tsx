@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, interpolate, useCurrentFrame } from "remotion";
 import type { KineticManifestoSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * KineticManifesto — Full-Screen Typographic Pattern Interrupt.
@@ -26,47 +27,8 @@ export const KineticManifesto: React.FC<{ spec: KineticManifestoSpec; localFrame
   const fontSize = lineCount <= 2 ? 102 : lineCount === 3 ? 86 : 74;
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        padding: "96px 140px 160px",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-      }}
-    >
-      {spec.kicker && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            marginBottom: 34,
-            opacity: kickerP,
-          }}
-        >
-          <div style={{ width: 42, height: 2.5, background: palette.accent }} />
-          <div
-            style={{
-              fontFamily: fonts.display,
-              fontWeight: 800,
-              fontSize: 21,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: palette.accent,
-            }}
-          >
-            {spec.kicker}
-          </div>
-          <div style={{ width: 42, height: 2.5, background: palette.accent }} />
-        </div>
-      )}
-
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}>
+    <GrammarStage kicker={spec.kicker} stageMood={stageMood} localFrame={frame}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 18, textAlign: "center" }}>
         {spec.lines.map((ln, i) => {
           const at = ln.at ?? i * 10;
           const lp = interpolate(frame - at, [0, 14], [0, 1], {
@@ -148,6 +110,6 @@ export const KineticManifesto: React.FC<{ spec: KineticManifestoSpec; localFrame
           {spec.footnote}
         </div>
       )}
-    </div>
+    </GrammarStage>
   );
 };

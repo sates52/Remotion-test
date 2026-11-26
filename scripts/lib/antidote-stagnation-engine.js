@@ -15,6 +15,7 @@
 
 // ── FNV-1a 32-bit Hash ───────────────────────────────────────────────────────
 const { isFirewallSafeMotif } = require("./bible-integrity");
+const { isFullStage10x, active10xDevice } = require("./antidote-10x-keys");
 
 function fnv1a(str) {
   let hash = 0x811c9dc5;
@@ -82,13 +83,14 @@ function extractVisualState(scene) {
   const toldChange = toldItems
     ? toldItems.filter((x) => x.enter || x.exit || (x.keys && x.keys.length) || x.shake).map((x) => `${x.id}${x.enter ? "+" : ""}${x.exit ? "-" : ""}${(x.keys || []).length || ""}`).join(",") + ((scene.told.cam || []).length > 1 ? ":cam" : "")
     : "";
-  const motif = toldItems ? `told:${toldChange || "still"}` : scene.props?.[0]?.type || "none";
+  const d10 = active10xDevice(scene);
+  const motif = d10 ? `10x:${d10}` : toldItems ? `told:${toldChange || "still"}` : scene.props?.[0]?.type || "none";
   const diagram = scene.diagram?.type || "none";
 
   // 4. Environment (set + texture)
   const envSet = scene.bg?.set || "none";
   const envTexture = scene.bg?.texture || "none";
-  const environment = `${envSet}:${envTexture}`;
+  const environment = scene.bg?.stageMood ? `mood:${scene.bg.stageMood}` : `${envSet}:${envTexture}`;
 
   // 5. Scale category
   let scale = "medium";

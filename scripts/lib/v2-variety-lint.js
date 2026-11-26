@@ -9,6 +9,8 @@
  *     `comparisonGrid`, or a `bg.image` that lacks `emptyStage: true`.
  */
 
+const { ALWAYS_FULL_STAGE_10X_KEYS } = require("./antidote-10x-keys");
+
 function classifySceneMode(scene) {
   if (!scene || typeof scene !== "object") return "unknown";
   if (scene.annotatedScene) return "annotated-scene";
@@ -26,6 +28,13 @@ function classifySceneMode(scene) {
   if (scene.beforeAfterWipe) return "before-after-wipe";
   if (scene.spatialJourney) return "spatial-journey";
   if (scene.chapterInterstitial) return "chapter-interstitial";
+  if (scene.vennMerge) return "venn-merge";
+  if (scene.explodedView) return "exploded-view";
+  if (scene.gravityPile) return "gravity-pile";
+  if (scene.crumpleToss) return "crumple-toss";
+  if (scene.analyticsFunnel) return "analytics-funnel";
+  if (scene.barRace) return "bar-race";
+  if (scene.upClose) return "up-close";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"
@@ -69,7 +78,7 @@ function analyzeVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       singleWorldViolations++;
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal || s.liveInterface || s.comicStrip || s.beforeAfterWipe || s.spatialJourney || s.chapterInterstitial)) {
+    if (hasChars && ALWAYS_FULL_STAGE_10X_KEYS.some((k) => s[k] != null)) {
       singleWorldViolations++;
     }
     if (mode === curMode && !s.continueFromPrev) {
@@ -111,7 +120,7 @@ function assertVariety(config) {
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
     }
-    if (hasChars && (s.annotatedScene || s.cohortGrid || s.comparisonGrid || s.timelineScrub || s.statSlam || s.cutoutStage || s.editorialSpread || s.kineticManifesto || s.decisionTree || s.balanceScale || s.stackReveal || s.liveInterface || s.comicStrip || s.beforeAfterWipe || s.spatialJourney || s.chapterInterstitial)) {
+    if (hasChars && ALWAYS_FULL_STAGE_10X_KEYS.some((k) => s[k] != null)) {
       errors.push(`Single-World violation in ${s.id}: full-stage 10x device cannot mix flat-vector characters`);
     }
     if (hasChars && config?.meta?.artDirection?.castMode === "illustrated") {

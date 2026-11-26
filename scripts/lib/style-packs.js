@@ -1,10 +1,19 @@
 /**
  * style-packs.js — Per-Book Visual Style Packs for Antidote 10x (YPP anti-clustering).
  *
- * 10 balanced packs (5 dark, 5 light). Consecutive books alternate polarity (dark <-> light)
- * and rotate annotationStyle, nodeShape, typography, and mood so no two books cluster.
- * `minorHarm: true` (CLAUDE.md Rule 8) forces `storybookVector` with zero photoreal Flux.
+ * 19 packs (18 rotatable: 9 dark, 9 light + `storybookVector` for `minorHarm: true`).
+ * Consecutive books alternate polarity (dark <-> light) and rotate layoutGrammar,
+ * mood, transitionFamily, typography, annotationStyle, and nodeShape so no two books cluster.
  */
+
+const TRANSITION_FAMILIES = {
+  paper: ["pageTurn", "paperTear", "slideCarryLeft", "dissolve"],
+  editorial: ["pushThrough", "slideCarryLeft", "focusPull", "slideCarryUp"],
+  blueprint: ["focusPull", "zoomPush", "pushThrough", "blurCut"],
+  print: ["halftoneCut", "paperTear", "whipPan", "slideCarryLeft"],
+  cinema: ["focusPull", "whipPan", "zoomPush", "zoomPull"],
+  kinetic: ["whipPan", "pushThrough", "halftoneCut", "slideCarryUp"],
+};
 
 const STYLE_PACKS = {
   midCenturyEditorial: {
@@ -60,6 +69,8 @@ const STYLE_PACKS = {
     typography: "slab",
     annotationStyle: "underline",
     nodeShape: "arch",
+    layoutGrammar: "editorialRight",
+    transitionFamily: "paper",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["biology", "health", "nature", "habits"],
@@ -73,6 +84,8 @@ const STYLE_PACKS = {
     typography: "condensed",
     annotationStyle: "pin",
     nodeShape: "hex",
+    layoutGrammar: "splitSpine",
+    transitionFamily: "editorial",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["craft", "leadership", "culture", "biography", "memoir"],
@@ -86,6 +99,8 @@ const STYLE_PACKS = {
     typography: "serif",
     annotationStyle: "underline",
     nodeShape: "arch",
+    layoutGrammar: "editorialRight",
+    transitionFamily: "paper",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["philosophy", "history", "war", "classic"],
@@ -99,6 +114,8 @@ const STYLE_PACKS = {
     typography: "condensed",
     annotationStyle: "spotlightMask",
     nodeShape: "filmStrip",
+    layoutGrammar: "cinemaWide",
+    transitionFamily: "cinema",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["negotiation", "crime", "thriller", "investigative"],
@@ -112,6 +129,8 @@ const STYLE_PACKS = {
     typography: "slab",
     annotationStyle: "underline",
     nodeShape: "arch",
+    layoutGrammar: "editorialRight",
+    transitionFamily: "paper",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["finance", "economics", "investing", "entrepreneurship"],
@@ -125,6 +144,8 @@ const STYLE_PACKS = {
     typography: "poppins",
     annotationStyle: "pin",
     nodeShape: "tornPaper",
+    layoutGrammar: "splitSpine",
+    transitionFamily: "kinetic",
     castMode: "illustrated",
     minorHarmSafe: false,
     genreAffinity: ["creativity", "design", "marketing", "innovation"],
@@ -138,10 +159,157 @@ const STYLE_PACKS = {
     typography: "slab",
     annotationStyle: "pin",
     nodeShape: "tornPaper",
+    layoutGrammar: "centered",
+    transitionFamily: "paper",
+    captionAlign: "center",
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["fiction", "novel", "drama", "trauma"],
     artLock: "",
+  },
+  swissModernist: {
+    id: "swissModernist",
+    polarity: "light",
+    mood: "swissBauhaus",
+    secondaryMoods: ["archivalBroadsheet", "ivoryBroadsheet"],
+    typography: "condensed",
+    annotationStyle: "bracket",
+    nodeShape: "hex",
+    layoutGrammar: "swissPoster",
+    transitionFamily: "print",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["design", "architecture", "systems", "productivity", "strategy"],
+    artLock: "Swiss International Typographic Style poster art, bold primary red and cobalt geometric blocks on warm cream paper, crisp grid discipline",
+  },
+  monocleEditorial: {
+    id: "monocleEditorial",
+    polarity: "light",
+    mood: "monoclePrint",
+    secondaryMoods: ["ivoryBroadsheet", "warmParchment"],
+    typography: "serif",
+    annotationStyle: "underline",
+    nodeShape: "arch",
+    layoutGrammar: "editorialRight",
+    transitionFamily: "paper",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["culture", "economics", "leadership", "journalism", "memoir"],
+    artLock: "Monocle magazine editorial gouache and fine-nib ink spot illustration on warm archival stock, deep teal and ochre accents, airy margin composition",
+  },
+  broadsheetArchive: {
+    id: "broadsheetArchive",
+    polarity: "light",
+    mood: "archivalBroadsheet",
+    secondaryMoods: ["inkScroll", "warmParchment"],
+    typography: "slab",
+    annotationStyle: "pin",
+    nodeShape: "tornPaper",
+    layoutGrammar: "splitSpine",
+    transitionFamily: "print",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["history", "law", "politics", "investigative", "biography"],
+    artLock: "archival broadsheet newspaper stipple engraving and halftone newsprint illustration, crimson and slate ink on warm newsprint",
+  },
+  risographZine: {
+    id: "risographZine",
+    polarity: "light",
+    mood: "sunlitRiso",
+    secondaryMoods: ["terracottaStudio", "sageBotanical"],
+    typography: "poppins",
+    annotationStyle: "circle",
+    nodeShape: "circle",
+    layoutGrammar: "editorialLeft",
+    transitionFamily: "paper",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["creativity", "marketing", "psychology", "habits"],
+    artLock: "sunlit two-color risograph zine illustration on warm cream paper, vermilion and cobalt soy-ink overprint, playful geometric grain",
+  },
+  botanicalSketch: {
+    id: "botanicalSketch",
+    polarity: "light",
+    mood: "sageBotanical",
+    secondaryMoods: ["monoclePrint", "ivoryBroadsheet"],
+    typography: "serif",
+    annotationStyle: "circle",
+    nodeShape: "arch",
+    layoutGrammar: "swissPoster",
+    transitionFamily: "paper",
+    captionAlign: "center",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["biology", "health", "mindfulness", "nature"],
+    artLock: "naturalist field-journal ink and watercolor botanical study on pale sage paper, crisp pen contours, generous negative space",
+  },
+  xrayDiagnostics: {
+    id: "xrayDiagnostics",
+    polarity: "dark",
+    mood: "cyberXRay",
+    secondaryMoods: ["blueprintNavy", "slateEditorial"],
+    typography: "condensed",
+    annotationStyle: "spotlightMask",
+    nodeShape: "hex",
+    layoutGrammar: "cinemaWide",
+    transitionFamily: "blueprint",
+    captionAlign: "center",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["technology", "engineering", "science", "medicine", "systems"],
+    artLock: "diagnostic cyan X-ray schematic and precision wireframe illustration on deep abyssal teal, luminous amber callout highlights",
+  },
+  bauhausMidnight: {
+    id: "bauhausMidnight",
+    polarity: "dark",
+    mood: "bauhausNocturne",
+    secondaryMoods: ["obsidianGrid", "crimsonNight"],
+    typography: "slab",
+    annotationStyle: "bracket",
+    nodeShape: "filmStrip",
+    layoutGrammar: "editorialLeft",
+    transitionFamily: "kinetic",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["business", "negotiation", "entrepreneurship", "finance"],
+    artLock: "Bauhaus nocturnal gouache and matte charcoal collage, warm amber and crimson geometric planes, dramatic architectural shadows",
+  },
+  flutedMuseum: {
+    id: "flutedMuseum",
+    polarity: "dark",
+    mood: "flutedGallery",
+    secondaryMoods: ["emeraldNoir", "deepViolet"],
+    typography: "serif",
+    annotationStyle: "underline",
+    nodeShape: "arch",
+    layoutGrammar: "editorialRight",
+    transitionFamily: "cinema",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["philosophy", "classic", "art", "history"],
+    artLock: "museum gallery chiaroscuro oil-pastel and ink illustration on warm espresso ground, burnished gold highlights, calm architectural depth",
+  },
+  chalkSeminar: {
+    id: "chalkSeminar",
+    polarity: "dark",
+    mood: "chalkboardLecture",
+    secondaryMoods: ["emeraldNoir", "slateEditorial"],
+    typography: "poppins",
+    annotationStyle: "circle",
+    nodeShape: "circle",
+    layoutGrammar: "splitSpine",
+    transitionFamily: "editorial",
+    captionAlign: "left",
+    castMode: "illustrated",
+    minorHarmSafe: false,
+    genreAffinity: ["education", "economics", "math", "self-help", "communication"],
+    artLock: "university seminar chalkboard and warm chalk-pastel diagram illustration on deep forest slate, crisp ivory and gold chalk strokes",
   },
 };
 
@@ -157,9 +325,18 @@ function pickStylePack({ slug = "", genre = "", minorHarm = false, recent = [] }
   for (const pack of Object.values(STYLE_PACKS)) {
     if (pack.id === "storybookVector") continue;
     if (win[0] && (win[0].id === pack.id || win[0].mood === pack.mood)) continue;
+    const prevGrammar = win[0]?.layoutGrammar || "centered";
+    const packGrammar = pack.layoutGrammar || "centered";
+    if (win[0] && prevGrammar === packGrammar) continue;
     let score = 0;
-    if (win[0] && win[0].polarity && pack.polarity !== win[0].polarity) {
-      score += 40;
+    if (win[0]) {
+      if (pack.polarity !== win[0].polarity) score += 40;
+      if (packGrammar !== prevGrammar) score += 28;
+      if (pack.mood !== win[0].mood) score += 20;
+      if ((pack.transitionFamily || "editorial") !== (win[0].transitionFamily || "editorial")) score += 14;
+      if (pack.typography !== win[0].typography) score += 12;
+      if (pack.annotationStyle !== win[0].annotationStyle) score += 10;
+      if (pack.nodeShape !== win[0].nodeShape) score += 10;
     }
     for (let i = 0; i < win.length; i++) {
       const weight = win.length - i;
@@ -191,6 +368,7 @@ function toArtDirection(packOrId, overrides = {}) {
     annotationStyle: base.annotationStyle,
     nodeShape: base.nodeShape,
     layoutGrammar: base.layoutGrammar || "centered",
+    transitionFamily: base.transitionFamily || "editorial",
     captionAlign: base.captionAlign || "center",
     castMode: base.castMode,
     captions: "minimal",
@@ -200,4 +378,4 @@ function toArtDirection(packOrId, overrides = {}) {
   };
 }
 
-module.exports = { STYLE_PACKS, pickStylePack, toArtDirection };
+module.exports = { STYLE_PACKS, TRANSITION_FAMILIES, pickStylePack, toArtDirection };

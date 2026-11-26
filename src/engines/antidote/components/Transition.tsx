@@ -139,6 +139,109 @@ export function transitionRender(spec: TransitionSpec, localFrame: number): Tran
         style: {},
         overlay: <AbsoluteFill style={{ background: color, opacity: Math.max(0, 1 - p * 1.25) }} />,
       };
+    // ── Antidote 10x Phase 2 (Book-Skin-Bound CPU-Safe Transitions, zero WebGL) ──
+    case "pageTurn": {
+      const deg = (1 - p4) * 86;
+      return {
+        style: {
+          transformOrigin: "left center",
+          transform: `perspective(1800px) rotateY(-${deg.toFixed(2)}deg)`,
+          opacity: Math.min(1, raw * 3.0),
+        },
+        overlay: (
+          <AbsoluteFill
+            style={{
+              background: `linear-gradient(90deg, rgba(0,0,0,${((1 - p4) * 0.35).toFixed(2)}) 0%, rgba(255,255,255,${((1 - p4) * 0.18).toFixed(2)}) 22%, rgba(0,0,0,0) 55%)`,
+              pointerEvents: "none",
+            }}
+          />
+        ),
+      };
+    }
+    case "paperTear": {
+      const edge = p4 * 104;
+      const e1 = Math.max(0, edge - 4).toFixed(1);
+      const e2 = Math.min(100, edge + 2).toFixed(1);
+      const e3 = Math.max(0, edge - 3).toFixed(1);
+      const e4 = Math.min(100, edge + 3).toFixed(1);
+      return {
+        style: {
+          clipPath: `polygon(0% 0%, ${e1}% 0%, ${e2}% 22%, ${e3}% 46%, ${e4}% 72%, ${e1}% 100%, 0% 100%)`,
+        },
+        overlay: (
+          <svg width={1920} height={1080} viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+            <polyline
+              points={`${e1},0 ${e2},22 ${e3},46 ${e4},72 ${e1},100`}
+              fill="none"
+              stroke={color}
+              strokeWidth={0.6}
+              opacity={Math.max(0, 1 - p4)}
+            />
+          </svg>
+        ),
+      };
+    }
+    case "pushThrough": {
+      const sc = 0.86 + p4 * 0.14;
+      const tx = (1 - p4) * 6;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.5),
+          transform: `translateX(${tx.toFixed(2)}%) scale(${sc.toFixed(4)})`,
+        },
+        overlay: null,
+      };
+    }
+    case "focusPull": {
+      const blur = (1 - p4) * 20;
+      const sc = 1.06 - p4 * 0.06;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.0),
+          transform: `scale(${sc.toFixed(4)})`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px) brightness(${(1 + (1 - p4) * 0.12).toFixed(2)})` : undefined,
+        },
+        overlay: null,
+      };
+    }
+    case "halftoneCut": {
+      const r = p4 * 85;
+      const cols = 12;
+      const rows = 7;
+      return {
+        style: {
+          opacity: Math.min(1, raw * 2.2),
+        },
+        overlay: r < 84 ? (
+          <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: Math.max(0, 1 - p4 * 1.15) }}>
+            {Array.from({ length: cols * rows }).map((_, idx) => {
+              const cx = ((idx % cols) + 0.5) * (1920 / cols);
+              const cy = (Math.floor(idx / cols) + 0.5) * (1080 / rows);
+              return <circle key={idx} cx={cx} cy={cy} r={Math.max(0, (1 - p4) * 72)} fill={color} />;
+            })}
+          </svg>
+        ) : null,
+      };
+    }
+    case "whipPan": {
+      const blur = (1 - p4) * 18;
+      return {
+        style: {
+          transform: `translateX(${((1 - p4) * 34).toFixed(2)}%) scaleX(${(1 + (1 - p4) * 0.12).toFixed(4)})`,
+          filter: blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : undefined,
+          opacity: Math.min(1, raw * 3.0),
+        },
+        overlay: (
+          <AbsoluteFill
+            style={{
+              background: `linear-gradient(90deg, ${color}00 0%, ${color}44 50%, ${color}00 100%)`,
+              opacity: Math.max(0, 1 - p4 * 1.4),
+              pointerEvents: "none",
+            }}
+          />
+        ),
+      };
+    }
     default:
       return none;
   }

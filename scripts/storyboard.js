@@ -535,9 +535,10 @@ A wrong icon is worse than none.
 ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${process.env.STORYBOARD_SPEECH === "1" ? SPEECH_LINE : ""}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## Antidote 10x Single-World Devices (opt-in when book.json sets stylePack / artDirection)
-- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`liveInterface\`, \`comicStrip\`, \`beforeAfterWipe\`, \`spatialJourney\`, \`chapterInterstitial\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`. Full-stage 10x beats must use \`cast: []\` (or omit \`cast\`) and \`concept: null\` (no legacy \`diagram\` or \`told\`).
-- Devices by narrative job: \`cutoutStage\` (book-specific transparent Flux character/prop theatre over \`emptyStage\`), \`editorialSpread\` (asymmetric full-bleed magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 stove dials or \`strata\` cutaway), \`liveInterface\` (\`calendarTetris\`/\`notificationFlood\`/\`chatThread\`/\`metricBoard\`), \`comicStrip\` (\`triptych\`/\`quad2x2\`/\`asymmetric3\`), \`beforeAfterWipe\` (\`horizontal\`/\`diagonal\`), \`spatialJourney\` (3-5 station route), \`chapterInterstitial\` (4 chapter openers), \`annotatedScene\` (\`markerStyle\`: \`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 group split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`layout: "fullBleedSplit"\`), \`visualEquation\` (\`layout: "borderless"\`, \`nodeShape\`: \`arch\`/\`hex\`/\`tornPaper\`/\`filmStrip\`/\`circle\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\` (\`highlightPhrases\` + \`marginNote\`). Optional stage fields: \`stageMood\`, \`bgImage\`, \`depthCarry\`.
-- Every 10x beat should declare \`shotIntent: { job, subject, action, payoff }\`.
+- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`liveInterface\`, \`comicStrip\`, \`beforeAfterWipe\`, \`spatialJourney\`, \`chapterInterstitial\`, \`vennMerge\`, \`explodedView\`, \`gravityPile\`, \`crumpleToss\`, \`analyticsFunnel\`, \`barRace\`, \`upClose\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`. Full-stage 10x beats must use \`cast: []\` (or omit \`cast\`) and \`concept: null\` (no legacy \`diagram\` or \`told\`).
+- 26 Devices by narrative job: \`cutoutStage\` (transparent Flux character/prop theatre over \`emptyStage\`, supports \`kenBurns: "dollyZoom"\`), \`editorialSpread\` (asymmetric magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 dials or \`strata\`), \`liveInterface\` (\`calendarTetris\`/\`notificationFlood\`/\`chatThread\`/\`metricBoard\`), \`comicStrip\` (\`triptych\`/\`quad2x2\`/\`asymmetric3\`), \`beforeAfterWipe\` (\`horizontal\`/\`diagonal\`), \`spatialJourney\` (\`constellation\`/\`routeMap\`/\`topoExpedition\`/\`worldArc\`), \`chapterInterstitial\` (4 chapter openers), \`annotatedScene\` (\`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`fullBleedSplit\`), \`visualEquation\` (\`borderless\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\`, PLUS 7 Phase 2 devices: \`vennMerge\` (2-3 overlapping circles + intersection), \`explodedView\` (2-6 isometric layers expanding on \`expandCue\`), \`gravityPile\` (3-14 rigid-drop items), \`crumpleToss\` (myth crumpled & tossed on \`tossCue\` -> truth), \`analyticsFunnel\` (2-6 stage funnel + bottleneck), \`barRace\` (2-6 epochs overtaking bars), \`upClose\` (optical macro-zoom over image).
+- Optional stage & transition fields: \`stageMood\` (19 moods), \`bgImage\`, \`depthCarry\`, \`transitionOverride\` (\`pageTurn\`, \`paperTear\`, \`pushThrough\`, \`focusPull\`, \`halftoneCut\`, \`whipPan\`), word-anchored cues (\`tossCue\`, \`splitCue\`, \`wipeCue\`, \`zoomCue\`, \`expandCue\`, item \`cue\`), and \`assetRequests: [{ id, prompt, mode: "scene"|"cutout"|"poses2x2" }]\` (max 45 unique Flux assets per book).
+- Variety & YPP rules: \`boxed-card <= 20%\`, \`maxConsecutive <= 2\`, no single mode \`> 35%\`, and every 10x beat declares \`shotIntent: { job, subject, action, payoff }\`.
 
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -818,7 +819,10 @@ function prep() {
   // (book.json has a skin) is authored only when every person has a head of their own and one drawn place is home (a place
   // still without a drawing is named, not refused) — the first real book drew its 13 things and skipped both, and its film had the channel's faces in the
   // channel's rooms. Not a quality bar: it is the entities step, finished. A real reason is recorded, never implied.
-  if (ENGINE === "antidote" && book.skin && typeof book.skin === "object") {
+  const { STYLE_PACKS } = require("./lib/style-packs");
+  const BOOK_PACK = book.stylePack && STYLE_PACKS[book.stylePack] ? STYLE_PACKS[book.stylePack] : null;
+  const IS_10X_ILLUSTRATED = ENGINE === "antidote" && !!BOOK_PACK && BOOK_PACK.castMode === "illustrated" && !(book.engineProfile && book.engineProfile.minorHarm);
+  if (ENGINE === "antidote" && book.skin && typeof book.skin === "object" && !IS_10X_ILLUSTRATED) {
     const gaps = require("./lib/own-drawings").ownGaps(TOLD_ENTITIES), why = typeof args["own-incomplete"] === "string" ? args["own-incomplete"].trim() : "";
     if (gaps.any && why.length < 30) {
       console.error(`❌ books/${SLUG}/storyboard/entities.json is not finished — the film would wear the channel's faces and stand in the channel's rooms:`);
@@ -922,7 +926,7 @@ function prep() {
     const unnamed = OD.gate(OWN_DRAWINGS.drawings, OWN_DRAWINGS.verdict);
     if (unnamed.length) console.warn(`⚠ ${unnamed.length} of ${OWN_DRAWINGS.drawings.length} own drawing(s) not named blind as intended yet — node scripts/own-icons-sheet.js --slug=${SLUG} (merge refuses a told beat that uses one):\n${unnamed.map((m) => `    ${m}`).join("\n")}`);
   }
-  if (ENGINE === "antidote") {
+  if (ENGINE === "antidote" && !IS_10X_ILLUSTRATED) {
     const castIssues = checkCastVariants();
     castIssues.warn.forEach((w) => console.warn(`⚠ ${w}`));
     if (castIssues.stop.length && !args["skip-cast-check"]) {
@@ -1110,8 +1114,11 @@ function merge() {
     const ICONS = new Set(v.icons), SETS = new Set(v.sets), SHOTS = new Set(v.shots), EXP = new Set(v.expressions),
       ACT = new Set(v.actions), HOLD = new Set(v.holds), CAST = new Set(v.cast.map((c) => c.key));
     const DIAG = new Set(["flow", "sorter", "spectrum", "matchWave", "scorecard", "refute", "mechanism", "causal"]), STY = new Set(["reveal", "highlight", "strike", "box", "stack", "outline", "marker"]);
+    const { STYLE_PACKS, toArtDirection } = require("./lib/style-packs");
+    const BOOK_PACK = book.stylePack && STYLE_PACKS[book.stylePack] ? STYLE_PACKS[book.stylePack] : null;
+    const IS_10X_ILLUSTRATED = !!BOOK_PACK && BOOK_PACK.castMode === "illustrated" && !(book.engineProfile && book.engineProfile.minorHarm);
     const { DEVICE_10X_KEYS, ALL_10X_KEYS, hasAny10xDevice, isFullStage10x } = require("./lib/antidote-10x-keys");
-    const { sceneSchema: AN_SCENE_SCHEMA, bgSchema: AN_BG_SCHEMA } = require("../src/engines/antidote/schema.ts");
+    const { sceneSchema: AN_SCENE_SCHEMA, bgSchema: AN_BG_SCHEMA, transitionType: AN_TRANSITION_TYPE } = require("../src/engines/antidote/schema.ts");
     for (let k = 0; k < emitted.beats.length; k++) {
       const e = emitted.beats[k];
       const i = e.i, a = authored.get(i), narration = e.narration;
@@ -1133,6 +1140,23 @@ function merge() {
       }
       if (a.bgImage != null && (typeof a.bgImage !== "string" || !a.bgImage.trim())) {
         P(i, "bgImage must be a non-empty path string");
+      }
+      if (a.transitionOverride != null) {
+        const pt = AN_TRANSITION_TYPE.safeParse(a.transitionOverride);
+        if (!pt.success) P(i, `transitionOverride: invalid transition "${a.transitionOverride}"`);
+      }
+      if (a.assetRequests != null) {
+        if (!Array.isArray(a.assetRequests)) P(i, "assetRequests must be an array");
+        else if (book.engineProfile && book.engineProfile.minorHarm && a.assetRequests.length) P(i, "minorHarm: true forbids Flux assetRequests");
+        else {
+          for (const req of a.assetRequests) {
+            if (!req || !req.id || !req.prompt) P(i, "assetRequests item requires non-empty id and prompt");
+            else if (/\b(TODO|TBD|FIXME)\b/.test(req.prompt)) P(i, `assetRequests "${req.id}" contains placeholder`);
+          }
+        }
+      }
+      if (IS_10X_ILLUSTRATED && !a.told && Array.isArray(a.cast) && a.cast.length > 0) {
+        P(i, `castMode "illustrated" (${BOOK_PACK.id}) cannot use flat-vector cast — use cutoutStage or another 10x device with cast: []`);
       }
       if (full10x) {
         if (Array.isArray(a.cast) && a.cast.length > 0) P(i, "10x full-stage device cannot be combined with flat-vector cast — set cast: [] or omit cast");
@@ -1508,6 +1532,33 @@ function merge() {
       storyboard: { method: "authored storyboard (STORYBOARD_RUNBOOK.md)", authoredBy: "claude", date: new Date().toISOString().slice(0, 10) },
       beats: out,
     }, null, 2) + "\n");
+    const { hasAny10xDevice } = require("./lib/antidote-10x-keys");
+    if (out.some(hasAny10xDevice)) {
+      const { STYLE_PACKS, toArtDirection } = require("./lib/style-packs");
+      const { analyzeVariety } = require("./lib/v2-variety-lint");
+      const pack = book.stylePack && STYLE_PACKS[book.stylePack] ? STYLE_PACKS[book.stylePack] : null;
+      const vStats = analyzeVariety({ meta: { artDirection: pack ? toArtDirection(pack) : {} }, scenes: out });
+      if ((vStats.shares["boxed-card"] || 0) > 0.20) console.warn(`⚠ 10x variety: boxed-card ${(vStats.shares["boxed-card"] * 100).toFixed(1)}% > 20%`);
+      if (vStats.maxConsecutive > 2) console.warn(`⚠ 10x variety: maxConsecutive=${vStats.maxConsecutive} > 2`);
+      const promptsPath = path.join(BOOK, "prompts.10x.json");
+      const built = require("./lib/build-10x-prompts").buildPrompts10x({
+        slug: SLUG,
+        beats: out,
+        pack,
+        minorHarm: !!(book.engineProfile && book.engineProfile.minorHarm),
+        maxCalls: 45,
+        publicRoot: path.join(ROOT, "public"),
+      });
+      if (!built.skipped && built.scenes.length > 0) {
+        const prev = readJSON(promptsPath);
+        if (!prev || prev.generatedBy === "storyboard-merge" || args["overwrite-prompts"]) {
+          fs.writeFileSync(promptsPath, JSON.stringify({ generatedBy: built.generatedBy, slug: built.slug, stylePack: built.stylePack, artLock: built.artLock, maxCalls: built.maxCalls, scenes: built.scenes }, null, 2) + "\n");
+          console.log(`✓ books/${SLUG}/prompts.10x.json written (${built.scenes.length}/${built.maxCalls} Flux assets)`);
+        }
+        built.warnings.forEach((w) => console.warn(`⚠ ${w}`));
+        if (built.missingRefs.length) console.warn(`⚠ 10x missing assetRefs (${built.missingRefs.length}): ${built.missingRefs.slice(0, 5).join(", ")}`);
+      }
+    }
     // the next step is the STATE MACHINE's (2026-10-30: this line said make-book; for Antidote status says readcheck —
     // Trust Fall stopped here and asked)
     console.log(`\n✓ books/${SLUG}/art.json written`);

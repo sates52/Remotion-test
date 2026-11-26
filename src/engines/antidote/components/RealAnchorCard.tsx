@@ -1,7 +1,8 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { RealAnchorSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
+import { StageGrammarOverlay } from "./layoutGrammar";
 
 /**
  * RealAnchorCard — Real-world book cover / author portrait / research document / quote
@@ -14,8 +15,9 @@ export const RealAnchorCard: React.FC<{ spec: RealAnchorSpec; localFrame?: numbe
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
   const captionPad = ad?.captions === "minimal" ? 148 : 104;
   const noteColW = sideInsetLeft ? 340 : 420;
   const plateW = sideInsetLeft ? 560 : 620;

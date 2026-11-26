@@ -16,6 +16,8 @@
  *   - 60s without novel visual = FAIL
  */
 
+const { isFullStage10x, active10xDevice } = require("./antidote-10x-keys");
+
 const NOVELTY_TYPES = {
   HERO_METAPHOR: "HERO_METAPHOR",
   SPLIT_CONTRAST: "SPLIT_CONTRAST",
@@ -29,6 +31,14 @@ const NOVELTY_TYPES = {
  */
 function classifySceneNovelty(scene) {
   const fulfilled = new Set();
+  const d10 = active10xDevice(scene);
+  if (d10) {
+    fulfilled.add(NOVELTY_TYPES.HERO_METAPHOR);
+    if (["comparisonGrid", "beforeAfterWipe", "balanceScale", "crumpleToss"].includes(d10)) fulfilled.add(NOVELTY_TYPES.SPLIT_CONTRAST);
+    if (["dataMatrix", "statSlam", "cohortGrid", "analyticsFunnel", "barRace", "timelineScrub", "vennMerge", "explodedView"].includes(d10)) fulfilled.add(NOVELTY_TYPES.DATA_DIAGRAM);
+    if (["kineticManifesto", "chapterInterstitial", "upClose"].includes(d10)) fulfilled.add(NOVELTY_TYPES.PATTERN_BREAK);
+    return Array.from(fulfilled);
+  }
   const shot = scene.shot || "medium";
   const vJob = scene.visualJob || "";
   const nFunc = scene.narrative?.function || "";
@@ -122,7 +132,7 @@ function auditNoveltyBudget(scenes, fps = 30) {
       typeFrequencies[t] = (typeFrequencies[t] || 0) + 1;
     }
 
-    if (novelties.length > 0) {
+    if (novelties.length > 0 || isFullStage10x(s)) {
       lastNoveltyFrame = endFrame;
     } else {
       const gapFrames = endFrame - lastNoveltyFrame;
@@ -195,7 +205,7 @@ function balanceNoveltyBudget(scenes, fps = 30) {
 
     let novelties = classifySceneNovelty(s);
 
-    if (novelties.length > 0) {
+    if (novelties.length > 0 || isFullStage10x(s)) {
       lastNoveltyFrame = endFrame;
     } else {
       const gapSeconds = Math.round((endFrame - lastNoveltyFrame) / fps);

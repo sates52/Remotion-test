@@ -1,7 +1,8 @@
 import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { TimelineScrubSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * TimelineScrub — Cinecode-inspired "When, in what order" horizontal scrubbing timeline.
@@ -15,9 +16,9 @@ export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: num
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
-  const captionPad = ad?.captions === "minimal" ? 148 : 104;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
 
   const events = spec.events.slice(0, 6);
   const n = Math.max(2, events.length);
@@ -40,32 +41,7 @@ export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: num
     : 0;
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: `64px 96px ${captionPad}px`,
-        boxSizing: "border-box",
-      }}
-    >
-      {(spec.title || spec.subtitle) && (
-        <div style={{ textAlign: "center", marginBottom: 42 }}>
-          {spec.title && (
-            <div style={{ fontFamily: displayFont, fontWeight: 900, fontSize: 50, lineHeight: 1.08, color: palette.accent }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: bodyFont, fontWeight: 500, fontSize: 24, color: palette.muted, marginTop: 8 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
 
       {/* Horizontal Scrubbing Rail + Events */}
       <div style={{ position: "relative", width: "100%", maxWidth: 1560, height: 340, display: "flex", alignItems: "center" }}>
@@ -211,6 +187,6 @@ export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: num
           {spec.callout}
         </div>
       )}
-    </div>
+    </GrammarStage>
   );
 };

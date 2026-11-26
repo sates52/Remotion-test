@@ -1,7 +1,8 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { CohortGridSpec } from "../schema";
-import { DEFAULT_BODY_FONT, DEFAULT_DISPLAY_FONT, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 const PersonGlyph: React.FC<{ color: string; opacity?: number }> = ({ color, opacity = 1 }) => (
   <svg width={52} height={74} viewBox="0 0 52 74" style={{ opacity }}>
@@ -22,9 +23,9 @@ export const CohortGrid: React.FC<{ spec: CohortGridSpec; localFrame?: number; s
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
-  const displayFont = ad?.fontDisplay ?? DEFAULT_DISPLAY_FONT;
-  const bodyFont = ad?.fontBody ?? DEFAULT_BODY_FONT;
-  const captionPad = ad?.captions === "minimal" ? 148 : 104;
+  const fonts = resolveArtFonts(ad);
+  const displayFont = fonts.display;
+  const bodyFont = fonts.body;
 
   const total = Math.max(6, Math.min(40, spec.total ?? 20));
   const leftCount = Math.round(total * (spec.leftGroup.share ?? 0.5));
@@ -48,34 +49,8 @@ export const CohortGrid: React.FC<{ spec: CohortGridSpec; localFrame?: number; s
     : 0;
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: `64px 96px ${captionPad}px`,
-        boxSizing: "border-box",
-      }}
-    >
-      {(spec.title || spec.subtitle) && (
-        <div style={{ textAlign: "center", marginBottom: 38 }}>
-          {spec.title && (
-            <div style={{ fontFamily: displayFont, fontWeight: 900, fontSize: 52, lineHeight: 1.08, color: palette.accent }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: bodyFont, fontWeight: 500, fontSize: 25, color: palette.muted, marginTop: 8 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
-
-      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", gap: 60 + splitP * 90, width: "100%", maxWidth: 1480 }}>
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
+      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", gap: 48 + splitP * 64, width: "100%" }}>
         {/* Left Cohort */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", transform: `translateX(${-splitP * 24}px)` }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 58px)", gap: "18px 18px" }}>
@@ -171,6 +146,6 @@ export const CohortGrid: React.FC<{ spec: CohortGridSpec; localFrame?: number; s
           {spec.callout}
         </div>
       )}
-    </div>
+    </GrammarStage>
   );
 };

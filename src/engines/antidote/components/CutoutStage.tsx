@@ -21,7 +21,7 @@ export const CutoutStage: React.FC<{ spec: CutoutStageSpec; localFrame?: number;
 
   const kb = spec.backdrop.kenBurns ?? "pushIn";
   const bp = interpolate(frame, [0, 480], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const bgScale = kb === "pushIn" ? 1.01 + bp * 0.04 : kb === "pullOut" ? 1.05 - bp * 0.04 : 1.0;
+  const bgScale = kb === "dollyZoom" ? 1.0 + bp * 0.18 : kb === "pushIn" ? 1.01 + bp * 0.04 : kb === "pullOut" ? 1.05 - bp * 0.04 : 1.0;
   const bgTx = kb === "panLeft" ? (0.5 - bp) * 32 : kb === "panRight" ? (bp - 0.5) * 32 : 0;
 
   return (

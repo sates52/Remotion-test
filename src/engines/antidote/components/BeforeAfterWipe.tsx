@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { BeforeAfterWipeSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { StageGrammarOverlay } from "./layoutGrammar";
 
 /**
  * BeforeAfterWipe — Full-Bleed Animated Curtain Contrast Between Two Worlds.
@@ -114,6 +115,7 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
           strokeWidth={6}
         />
       </svg>
+      <StageGrammarOverlay stageMood={stageMood} />
     </div>
   );
 };

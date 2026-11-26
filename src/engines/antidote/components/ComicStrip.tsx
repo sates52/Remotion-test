@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { ComicStripSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 const PanelGlyph: React.FC<{ kind: string; color: string; muted: string }> = ({ kind, color, muted }) => {
   if (kind === "focusBeam") {
@@ -64,38 +65,8 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
   const cols = spec.layout === "triptych" ? "repeat(3, 1fr)" : "repeat(2, 1fr)";
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        padding: "44px 72px 150px",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        gap: 20,
-      }}
-    >
-      {(spec.title || spec.subtitle) && (
-        <div
-          style={{
-            borderLeft: `6px solid ${palette.accent}`,
-            paddingLeft: 20,
-            opacity: headP,
-            transform: `translateX(${(1 - headP) * -18}px)`,
-          }}
-        >
-          {spec.title && (
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 44, color: palette.ink, lineHeight: 1.08 }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: fonts.body, fontWeight: 500, fontSize: 22, color: palette.muted, marginTop: 4 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", gap: 20 }}>
 
       <div
         style={{
@@ -181,6 +152,7 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
           );
         })}
       </div>
-    </div>
+      </div>
+    </GrammarStage>
   );
 };

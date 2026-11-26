@@ -194,8 +194,13 @@ test("quadrant2x2 dataMatrix variant parses cleanly", () => {
   assert.strictEqual(q.quadrants[3].active, true);
 });
 
-test("all 11 stage moods resolve complete art palettes + WCAG light-mood contrast guard + isLightPalette", () => {
-  const moods = ["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"];
+test("all 19 stage moods resolve complete art palettes + WCAG light-mood contrast guard + isLightPalette", () => {
+  const moods = [
+    "obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy",
+    "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio",
+    "swissBauhaus", "monoclePrint", "archivalBroadsheet", "sunlitRiso",
+    "cyberXRay", "bauhausNocturne", "flutedGallery", "chalkboardLecture",
+  ];
   for (const m of moods) {
     const pal = artDir.resolveArtPalette({ mood: m });
     for (const k of ["bg", "surface", "ink", "muted", "accent", "accent2", "danger", "positive"]) {
@@ -227,7 +232,7 @@ test("6 new Antidote 10x devices + style-packs polarity alternation + v2-variety
   assert.strictEqual(s.scenes.length, 6);
 
   const sp = require("./lib/style-packs");
-  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 10);
+  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 19);
   const pDark = sp.STYLE_PACKS.tacticalBlueprint;
   const pNext = sp.pickStylePack({ slug: "essentialism", genre: "productivity", recent: [pDark] });
   assert.strictEqual(pNext.polarity, "light");
@@ -403,9 +408,9 @@ test("v2-variety-lint rejects Single-World collision (characters over bg.image w
   assert.throws(() => assertVariety(clash), /Single-World violation/);
 });
 
-test("antidote-10x-keys covers all 19 devices and isFullStage10x rules", () => {
+test("antidote-10x-keys covers all 26 devices and isFullStage10x rules", () => {
   const keys = require("./lib/antidote-10x-keys");
-  assert.strictEqual(keys.DEVICE_10X_KEYS.length, 19);
+  assert.strictEqual(keys.DEVICE_10X_KEYS.length, 26);
   assert.strictEqual(keys.hasAny10xDevice({ timelineScrub: { title: "X" } }), true);
   assert.strictEqual(keys.isFullStage10x({ timelineScrub: { title: "X" } }), true);
   assert.strictEqual(keys.isFullStage10x({ visualEquation: { layout: "borderless" }, cast: [] }), true);

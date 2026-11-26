@@ -111,6 +111,8 @@ export const transitionType = z.enum([
   "whipLeft", "whipRight", "irisIn", "flash", "slideUp",
   // Antidote 2.0 (motion-doctrine / cut-the-curve velocity-matched seams, opt-in)
   "slideCarryLeft", "slideCarryUp", "zoomPush", "zoomPull", "blurCut",
+  // Antidote 10x Phase 2 (Book-Skin-Bound CPU-Safe Transitions)
+  "pageTurn", "paperTear", "pushThrough", "focusPull", "halftoneCut", "whipPan",
 ]);
 export type TransitionType = z.infer<typeof transitionType>;
 export const transitionSchema = z.object({
@@ -687,7 +689,12 @@ export const bgSchema = z.object({
   // told v5 slice 4: a place drawn as a SCENE (sky + ground) is drawn as itself behind a figure scene too
   own: z.object({ id: z.string(), wide: z.boolean().optional(), viewBox: z.string().optional(), paths: z.array(z.object({ d: z.string(), fill: z.string().optional(), stroke: z.string().optional(), strokeWidth: z.number().optional(), opacity: z.number().optional() })), sky: z.string().optional(), ground: z.string().optional() }).optional(),
   // Antidote 2.0 (opt-in): curated rich canvas mood & bespoke Flux scenic/isometric diorama backdrop
-  stageMood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"]).optional(),
+  stageMood: z.enum([
+    "obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy",
+    "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio",
+    "swissBauhaus", "monoclePrint", "archivalBroadsheet", "sunlitRiso",
+    "cyberXRay", "bauhausNocturne", "flutedGallery", "chalkboardLecture",
+  ]).optional(),
   image: z.object({
     path: z.string(),
     opacity: z.number().min(0).max(1).optional(),
@@ -695,7 +702,7 @@ export const bgSchema = z.object({
     dim: z.number().min(0).max(0.95).optional(),
     groundFog: z.number().min(0).max(1).optional(),
     emptyStage: z.boolean().optional(),
-    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight", "dollyZoom"]).optional(),
   }).optional(),
   // Which act of the director's color script produced this field. Metadata:
   // nothing renders it, but it makes the arc auditable in the config.
@@ -1063,9 +1070,15 @@ export const artDirectionSchema = z.object({
   typography: z.enum(["poppins", "serif", "condensed", "slab"]).optional(),
   annotationStyle: z.enum(["circle", "bracket", "underline", "spotlightMask", "pin"]).optional(),
   nodeShape: z.enum(["circle", "arch", "hex", "tornPaper", "filmStrip"]).optional(),
-  layoutGrammar: z.enum(["centered", "editorialLeft", "cinemaWide", "splitSpine"]).optional(),
+  layoutGrammar: z.enum(["centered", "editorialLeft", "editorialRight", "cinemaWide", "splitSpine", "swissPoster"]).optional(),
+  transitionFamily: z.enum(["paper", "editorial", "blueprint", "print", "cinema", "kinetic"]).optional(),
   captionAlign: z.enum(["center", "left"]).optional(),
-  mood: z.enum(["obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy", "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio"]).optional(),
+  mood: z.enum([
+    "obsidianGrid", "deepViolet", "warmParchment", "crimsonNight", "slateEditorial", "blueprintNavy",
+    "inkScroll", "emeraldNoir", "ivoryBroadsheet", "sageBotanical", "terracottaStudio",
+    "swissBauhaus", "monoclePrint", "archivalBroadsheet", "sunlitRiso",
+    "cyberXRay", "bauhausNocturne", "flutedGallery", "chalkboardLecture",
+  ]).optional(),
   palette: z.object({
     bg: z.string().optional(),
     bgAlt: z.string().optional(),
@@ -1097,7 +1110,7 @@ export type ShotIntentSpec = z.infer<typeof shotIntentSchema>;
 
 export const annotatedSceneSchema = z.object({
   image: z.string(),
-  kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+  kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight", "dollyZoom"]).optional(),
   dim: z.number().min(0).max(0.8).optional(),
   framing: z.enum(["fullBleed", "editorialPrint"]).optional(),
   markerStyle: z.enum(["circle", "bracket", "underline", "spotlightMask", "pin"]).optional(),
@@ -1206,7 +1219,7 @@ export const cutoutStageSchema = z.object({
   backdrop: z.object({
     image: z.string(),
     dim: z.number().min(0).max(0.6).optional(),
-    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight"]).optional(),
+    kenBurns: z.enum(["none", "pushIn", "pullOut", "panLeft", "panRight", "dollyZoom"]).optional(),
   }),
   banner: z.object({ text: z.string(), at: z.number().optional() }).optional(),
   actors: z.array(z.object({
@@ -1412,6 +1425,7 @@ export const beforeAfterWipeSchema = z.object({
 export type BeforeAfterWipeSpec = z.infer<typeof beforeAfterWipeSchema>;
 
 export const spatialJourneySchema = z.object({
+  variant: z.enum(["constellation", "routeMap", "topoExpedition", "worldArc"]).optional(),
   title: z.string().optional(),
   subtitle: z.string().optional(),
   stations: z.array(z.object({
@@ -1432,6 +1446,135 @@ export const chapterInterstitialSchema = z.object({
   at: z.number().optional(),
 });
 export type ChapterInterstitialSpec = z.infer<typeof chapterInterstitialSchema>;
+
+// ── Antidote 10x Phase 2 (7 New CPU-Safe Storytelling Devices) ───────────────
+export const vennMergeSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  circles: z.array(z.object({
+    label: z.string().min(1),
+    sublabel: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).min(2).max(3),
+  intersection: z.object({
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    at: z.number().optional(),
+  }),
+  callout: z.string().optional(),
+  at: z.number().optional(),
+});
+export type VennMergeSpec = z.infer<typeof vennMergeSchema>;
+
+export const explodedViewSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  layers: z.array(z.object({
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    badge: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).min(2).max(6),
+  expandAt: z.number().optional(),
+  callout: z.string().optional(),
+  at: z.number().optional(),
+});
+export type ExplodedViewSpec = z.infer<typeof explodedViewSchema>;
+
+export const gravityPileSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  items: z.array(z.object({
+    label: z.string().min(1),
+    weight: z.number().min(0.5).max(3).optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+    tag: z.string().optional(),
+  })).min(3).max(14),
+  dropZoneLabel: z.string().optional(),
+  callout: z.string().optional(),
+  calloutAt: z.number().optional(),
+  at: z.number().optional(),
+});
+export type GravityPileSpec = z.infer<typeof gravityPileSchema>;
+
+export const crumpleTossSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  myth: z.object({
+    badge: z.string().optional(),
+    headline: z.string().min(1),
+    bullets: z.array(z.string()).max(4).optional(),
+  }),
+  tossAt: z.number().optional(),
+  truth: z.object({
+    badge: z.string().optional(),
+    headline: z.string().min(1),
+    detail: z.string().optional(),
+    tone: v2Tone.optional(),
+  }),
+  at: z.number().optional(),
+});
+export type CrumpleTossSpec = z.infer<typeof crumpleTossSchema>;
+
+export const analyticsFunnelSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  stages: z.array(z.object({
+    label: z.string().min(1),
+    value: z.string().min(1),
+    share: z.number().min(0).max(1),
+    dropNote: z.string().optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  })).min(2).max(6),
+  bottleneckIndex: z.number().int().min(0).max(5).optional(),
+  callout: z.string().optional(),
+  at: z.number().optional(),
+});
+export type AnalyticsFunnelSpec = z.infer<typeof analyticsFunnelSchema>;
+
+export const barRaceSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  epochs: z.array(z.object({
+    label: z.string().min(1),
+    at: z.number().optional(),
+    bars: z.array(z.object({
+      id: z.string().min(1),
+      label: z.string().min(1),
+      value: z.number(),
+      displayValue: z.string().optional(),
+      tone: v2Tone.optional(),
+    })).min(2).max(6),
+  })).min(2).max(6),
+  unit: z.string().optional(),
+  callout: z.string().optional(),
+  at: z.number().optional(),
+});
+export type BarRaceSpec = z.infer<typeof barRaceSchema>;
+
+export const upCloseSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  image: z.string().min(1),
+  zoomTarget: z.object({
+    x: z.number().min(0).max(1),
+    y: z.number().min(0).max(1),
+    scale: z.number().min(1.4).max(3.2).optional(),
+  }),
+  zoomAt: z.number().optional(),
+  lensLabel: z.string().optional(),
+  annotation: z.object({
+    headline: z.string().min(1),
+    detail: z.string().optional(),
+    side: z.enum(["left", "right"]).optional(),
+  }).optional(),
+  at: z.number().optional(),
+});
+export type UpCloseSpec = z.infer<typeof upCloseSchema>;
 
 export const sceneSchema = z.object({
   id: z.string(),
@@ -1455,6 +1598,13 @@ export const sceneSchema = z.object({
   beforeAfterWipe: beforeAfterWipeSchema.optional(),
   spatialJourney: spatialJourneySchema.optional(),
   chapterInterstitial: chapterInterstitialSchema.optional(),
+  vennMerge: vennMergeSchema.optional(),
+  explodedView: explodedViewSchema.optional(),
+  gravityPile: gravityPileSchema.optional(),
+  crumpleToss: crumpleTossSchema.optional(),
+  analyticsFunnel: analyticsFunnelSchema.optional(),
+  barRace: barRaceSchema.optional(),
+  upClose: upCloseSchema.optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),
@@ -1577,6 +1727,7 @@ export const antidoteConfigSchema = z.object({
     /** THE BOOK'S GRAPHIC HAND (2026-11-18, components/skin.tsx, scripts/lib/book-skin.js): how the subtitles are set,
      *  how a name plate is cut, which typeface speaks. Absent: the channel's look, as every earlier film. */
     skin: z.object({ caption: z.string().optional(), plate: z.string().optional(), font: z.string().optional() }).optional(),
+    edition: z.enum(["general", "finance", "health", "law"]).optional(),
     /** the sound-effect layer (AudioEngine: ding / tick / pop / whoosh / thud) renders only when this is true — viewers
      *  heard the effects as "beeps" over the narration (2026-11-23); a film without it is the narration alone */
     sfx: z.boolean().optional(),

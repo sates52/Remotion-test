@@ -19,6 +19,7 @@ const path = require("path");
 // additively; authored fields always win.
 const { deriveVisualIntent } = require("../src/semantic/visualIntent.ts");
 const { buildPersistedVisualIntent } = require("./lib/visual-intent-persist");
+const { isFullStage10x } = require("./lib/antidote-10x-keys");
 
 /**
  * P1.4 PHASE C — merge-only strategy-requirement transport.
@@ -188,7 +189,7 @@ for (const scene of scenes) {
   const location = scene.bg?.set || prov.allowedLocations[0] || "manuscript";
 
   // Derive a basic narrative subject from the scene
-  const subject = characters[0] || motifs[0] || "the argument";
+  const subject = (scene.shotIntent && scene.shotIntent.subject) || characters[0] || motifs[0] || "the argument";
   const relation = narrationText.slice(0, 80).trim() || "philosophical discourse";
   const state = scene.mood || "reflective";
 
@@ -235,14 +236,12 @@ for (const scene of scenes) {
     scene.visualIntent = persistedIntent;
   }
   if (!scene.visualContract || args.force) {
+    const full10x = isFullStage10x(scene);
+    const baseEvidence = { subjects: [subject], relations: [relation], states: [state] };
     scene.visualContract = {
       ...provenanceBase,
-      visualEvidence: copyStrategyRequirement(scene, {
-        subjects: [subject],
-        relations: [relation],
-        states: [state],
-      }),
-      characterIntent: characters.map(id => ({
+      visualEvidence: full10x ? baseEvidence : copyStrategyRequirement(scene, baseEvidence),
+      characterIntent: full10x ? [] : characters.map(id => ({
         identity: id,
         role: id,
         action: "talk",

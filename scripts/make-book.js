@@ -176,6 +176,14 @@ if (ENGINE === "antidote") {
     // 1.35-1.4) Macro Sequence Arcs & Semantic Visual Alignment (Antidote 6.0)
     step(1.35, "Makro Merak Döngüleri (Sequence Arcs)", `node scripts/plan-sequence-arcs.js --slug=${SLUG}`, { optional: true });
     step(1.4, "Semantik Görsel Düzenleme & Üç Katman Kuralı", `node scripts/apply-semantic-arcs.js --slug=${SLUG}`, { optional: true });
+    if (fs.existsSync(path.join(ROOT, "books", SLUG, "prompts.10x.json")) && !args["skip-images"]) {
+      if (MANIFEST?.engineProfile?.minorHarm) {
+        console.log("  ↳ minorHarm: true → storybookVector (prompts.10x.json Flux generation skipped)");
+      } else {
+        step(1.45, "Antidote 10x varlık üretimi (Flux + cutout)",
+          `node scripts/antidote-10x-assets.js --slug=${SLUG} --max-calls=${Number(args["image-max-calls"]) || 45}${args["images-dry-run"] ? " --dry-run" : ""}`);
+      }
+    }
   } else if (!fs.existsSync(path.join(ROOT, ACFG))) {
     console.error(`❌ --skip-plan ama ${ACFG} yok.`); process.exit(1);
   }
@@ -267,6 +275,14 @@ if (ENGINE === "antidote") {
   // Deterministic, no LLM: every cast member keeps one look across the film.
   step(1.8985, "Continuity Gate (one identity = one role = one wardrobe)",
     `node scripts/gate-continuity.js --slug=${SLUG}`);
+  try {
+    const cfg10x = JSON.parse(fs.readFileSync(path.join(ROOT, ACFG), "utf8"));
+    const { hasAny10xDevice } = require("./lib/antidote-10x-keys");
+    if (cfg10x?.meta?.artDirection || (cfg10x?.scenes || []).some(hasAny10xDevice)) {
+      step(1.8988, "Antidote 10x QA Kapısı (Variety + Safe-Zone + Grounding)",
+        `node scripts/qa-antidote-10x.js --slug=${SLUG}`);
+    }
+  } catch {}
   // Mastering is NOT Vox-specific: raw NotebookLM audio sits ~-25 LUFS and
   // YouTube never boosts quiet uploads, so an un-mastered Antidote book plays
   // ~11 dB below every other video too. Runs AFTER the plan so --update-config

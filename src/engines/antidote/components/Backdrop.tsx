@@ -1033,23 +1033,38 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
     const dur = Math.max(1, durationFrames);
     const p = interpolate(frame, [0, dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     const kb = imgSpec?.kenBurns ?? "pushIn";
-    const imgScale = kb === "pushIn" ? 1.02 + p * 0.07 : kb === "pullOut" ? 1.09 - p * 0.07 : kb === "none" ? 1 : 1.06;
+    const imgScale = kb === "dollyZoom" ? 1.0 + p * 0.15 : kb === "pushIn" ? 1.02 + p * 0.07 : kb === "pullOut" ? 1.09 - p * 0.07 : kb === "none" ? 1 : 1.06;
     const imgTx = kb === "panLeft" ? (0.5 - p) * 52 : kb === "panRight" ? (p - 0.5) * 52 : 0;
+    const tex = moodSpec?.texture;
+    const texBgImage =
+      tex === "dots" || tex === "risoSpeckle"
+        ? `radial-gradient(${moodSpec!.gridColor} 1.6px, transparent 1.6px)`
+        : tex === "lines" || tex === "xRayScanline"
+          ? `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px)`
+          : tex === "flutedRib"
+            ? `repeating-linear-gradient(90deg, ${moodSpec!.gridColor} 0px, ${moodSpec!.gridColor} 2px, transparent 2px, transparent ${moodSpec!.gridSize}px)`
+            : tex === "linenFiber"
+              ? `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`
+              : tex === "swissBand"
+                ? `linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`
+                : tex === "halftoneCorner"
+                  ? `radial-gradient(${moodSpec!.gridColor} 2px, transparent 2px)`
+                  : tex === "bauhausBlocks"
+                    ? `linear-gradient(90deg, ${moodSpec!.gridColor} 2px, transparent 2px), linear-gradient(${moodSpec!.gridColor} 2px, transparent 2px)`
+                    : `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`;
+    const texBgSize =
+      tex === "lines" || tex === "xRayScanline"
+        ? `100% ${tex === "xRayScanline" ? 8 : moodSpec?.gridSize}px`
+        : tex === "flutedRib" || tex === "swissBand"
+          ? `${moodSpec?.gridSize}px 100%`
+          : `${moodSpec?.gridSize}px ${moodSpec?.gridSize}px`;
     return (
       <AbsoluteFill style={{ background: moodSpec ? moodSpec.background : "#101319", overflow: "hidden" }}>
         {moodSpec && moodSpec.texture !== "clean" && (
           <AbsoluteFill
             style={{
-              backgroundImage:
-                moodSpec.texture === "dots"
-                  ? `radial-gradient(${moodSpec.gridColor} 1.5px, transparent 1.5px)`
-                  : moodSpec.texture === "lines"
-                    ? `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px)`
-                    : `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`,
-              backgroundSize:
-                moodSpec.texture === "lines"
-                  ? `100% ${moodSpec.gridSize}px`
-                  : `${moodSpec.gridSize}px ${moodSpec.gridSize}px`,
+              backgroundImage: texBgImage,
+              backgroundSize: texBgSize,
               opacity: moodSpec.gridOpacity,
               transform: `translate(${(cam.x * 0.15).toFixed(1)}px, ${(cam.y * 0.15).toFixed(1)}px)`,
             }}
@@ -1077,13 +1092,15 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
             }}
           />
         )}
-        <AbsoluteFill
-          style={{
-            background: moodSpec
-              ? moodSpec.vignette
-              : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
-          }}
-        />
+        {(!moodSpec || moodSpec.vignette !== "none") && (
+          <AbsoluteFill
+            style={{
+              background: moodSpec
+                ? moodSpec.vignette
+                : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
+            }}
+          />
+        )}
       </AbsoluteFill>
     );
   }

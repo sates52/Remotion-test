@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { EditorialSpreadSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { StageGrammarOverlay } from "./layoutGrammar";
 
 /**
  * EditorialSpread — Full-Bleed Asymmetric 2-Column Magazine Spread.
@@ -17,7 +18,7 @@ export const EditorialSpread: React.FC<{ spec: EditorialSpreadSpec; localFrame?:
   const light = isLightPalette(palette);
   const fonts = resolveArtFonts(ad);
 
-  const mediaLeft = (spec.mediaSide ?? "left") === "left";
+  const mediaLeft = spec.mediaSide ? spec.mediaSide === "left" : ad?.layoutGrammar !== "editorialRight";
   const kb = interpolate(frame, [0, 480], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const imgScale = 1.01 + kb * 0.045;
 
@@ -230,6 +231,7 @@ export const EditorialSpread: React.FC<{ spec: EditorialSpreadSpec; localFrame?:
           {mediaPanel}
         </>
       )}
+      <StageGrammarOverlay stageMood={stageMood} />
     </div>
   );
 };
