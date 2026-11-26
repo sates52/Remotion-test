@@ -43,39 +43,45 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
     const renderHalf = (col: typeof left, align: "left" | "right", kb: number) => {
       const accent = toneColor(col.tone, palette);
       const hasTone = col.tone && col.tone !== "neutral";
+      const hasImg = Boolean(col.image);
+      const colAccent = hasTone ? accent : palette.accent;
       return (
-        <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", background: palette.bg }}>
-          {col.image ? (
-            <Img
-              src={staticFile(col.image)}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                transform: `scale(${kb})`,
-                transformOrigin: "center",
-              }}
-            />
-          ) : null}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(180deg, rgba(8,10,15,0.68) 0%, rgba(8,10,15,0.12) 38%, rgba(8,10,15,0.18) 58%, rgba(8,10,15,0.90) 100%)",
-            }}
-          />
+        <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", background: hasImg ? palette.bg : (align === "left" ? palette.bg : palette.bgAlt) }}>
+          {hasImg ? (
+            <>
+              <Img
+                src={staticFile(col.image!)}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transform: `scale(${kb})`,
+                  transformOrigin: "center",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(180deg, rgba(8,10,15,0.68) 0%, rgba(8,10,15,0.12) 38%, rgba(8,10,15,0.18) 58%, rgba(8,10,15,0.90) 100%)",
+                }}
+              />
+            </>
+          ) : (
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 6, background: colAccent }} />
+          )}
           <div
             style={{
               position: "absolute",
               left: 64,
               right: 64,
-              bottom: captionPad + 20,
+              ...(hasImg ? { bottom: captionPad + 20 } : { top: 136, bottom: captionPad + 56, justifyContent: "center" }),
               textAlign: align,
               display: "flex",
               flexDirection: "column",
               alignItems: align === "left" ? "flex-start" : "flex-end",
-              gap: 10,
+              gap: 12,
             }}
           >
             {col.tag && (
@@ -88,8 +94,8 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
                   textTransform: "uppercase",
                   padding: "6px 16px",
                   borderRadius: 6,
-                  background: hasTone ? accent : palette.accent,
-                  color: "#0C0F14",
+                  background: colAccent,
+                  color: "#FFFFFF",
                 }}
               >
                 {col.tag}
@@ -99,29 +105,46 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
               style={{
                 fontFamily: displayFont,
                 fontWeight: 900,
-                fontSize: 48,
+                fontSize: hasImg ? 48 : 52,
                 lineHeight: 1.08,
-                color: "#F8F5EE",
-                textShadow: "0 4px 18px rgba(0,0,0,0.72)",
+                color: hasImg ? "#F8F5EE" : palette.ink,
+                textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.72)" : "none",
               }}
             >
               {col.heading}
             </div>
-            {col.bullets.slice(0, 2).map((b, bi) => (
+            {col.bullets.slice(0, hasImg ? 2 : 3).map((b, bi) => (
               <div
                 key={bi}
                 style={{
                   fontFamily: bodyFont,
                   fontWeight: 600,
-                  fontSize: 25,
+                  fontSize: hasImg ? 25 : 27,
                   lineHeight: 1.28,
-                  color: "rgba(248,245,238,0.88)",
-                  textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+                  color: hasImg ? "rgba(248,245,238,0.88)" : palette.muted,
+                  textShadow: hasImg ? "0 2px 10px rgba(0,0,0,0.8)" : "none",
                 }}
               >
-                {b}
+                {hasImg ? b : `• ${b}`}
               </div>
             ))}
+            {!hasImg && col.highlight && (
+              <div
+                style={{
+                  marginTop: 6,
+                  padding: "8px 16px",
+                  borderRadius: 8,
+                  background: `${colAccent}18`,
+                  border: `1.5px solid ${colAccent}`,
+                  fontFamily: displayFont,
+                  fontWeight: 800,
+                  fontSize: 20,
+                  color: colAccent,
+                }}
+              >
+                {col.highlight}
+              </div>
+            )}
           </div>
         </div>
       );

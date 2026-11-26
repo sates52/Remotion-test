@@ -33,26 +33,32 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
 
   const renderHalf = (side: BeforeAfterWipeSpec["before"], align: "left" | "right") => {
     const col = toneColor(side.tone ?? "accent", palette);
+    const hasImg = Boolean(side.image);
     return (
-      <div style={{ position: "absolute", inset: 0 }}>
-        {side.image && (
-          <Img src={staticFile(side.image)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <div style={{ position: "absolute", inset: 0, background: hasImg ? undefined : (align === "left" ? palette.bg : palette.bgAlt) }}>
+        {hasImg ? (
+          <>
+            <Img src={staticFile(side.image!)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(16,18,22,0.58) 0%, rgba(16,18,22,0.18) 45%, rgba(16,18,22,0.72) 100%)",
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <div style={{ position: "absolute", inset: 0, background: `linear-gradient(135deg, ${col}18 0%, transparent 65%)` }} />
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 8, background: col }} />
+          </>
         )}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            background: align === "left"
-              ? "linear-gradient(180deg, rgba(16,18,22,0.58) 0%, rgba(16,18,22,0.18) 45%, rgba(16,18,22,0.72) 100%)"
-              : "linear-gradient(180deg, rgba(16,18,22,0.58) 0%, rgba(16,18,22,0.18) 45%, rgba(16,18,22,0.72) 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: 64,
-            [align]: 64,
-            maxWidth: 740,
+            top: hasImg ? 64 : 160,
+            [align]: hasImg ? 64 : 84,
+            maxWidth: hasImg ? 740 : 760,
             textAlign: align,
           }}
         >
@@ -76,18 +82,18 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
             style={{
               fontFamily: fonts.display,
               fontWeight: 800,
-              fontSize: 44,
-              color: "#FFFFFF",
+              fontSize: hasImg ? 44 : 50,
+              color: hasImg ? "#FFFFFF" : palette.ink,
               lineHeight: 1.1,
-              textShadow: "0 4px 18px rgba(0,0,0,0.55)",
+              textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.55)" : "none",
             }}
           >
             {side.headline}
           </div>
           {(side.points ?? []).length > 0 && (
-            <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 6 }}>
+            <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
               {(side.points ?? []).map((pt, pi) => (
-                <div key={pi} style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: 22, color: "#F4F4F5", textShadow: "0 2px 10px rgba(0,0,0,0.65)" }}>
+                <div key={pi} style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: hasImg ? 22 : 26, color: hasImg ? "#F4F4F5" : palette.muted, textShadow: hasImg ? "0 2px 10px rgba(0,0,0,0.65)" : "none" }}>
                   • {pt}
                 </div>
               ))}

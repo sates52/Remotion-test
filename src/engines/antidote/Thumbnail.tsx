@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Freeze, Img, staticFile } from "remotion";
 import { z } from "zod";
-import { resolveArtFonts, resolveArtPalette, type ArtDirectionConfig } from "./components/artDirection";
+import { ArtDirectionProvider, resolveArtFonts, resolveArtPalette, type ArtDirectionConfig } from "./components/artDirection";
 import { Everyman } from "./characters/Everyman";
 import { pose } from "./movements";
 import {
@@ -478,9 +478,11 @@ const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) =
       <AbsoluteFill style={{ background: paper }} />
       {scene ? (
         <div style={{ position: "absolute", left: 640 + dx, top: 360 + dy, width: 1920, height: 1080, transform: `translate(-50%, -50%) scale(${S})`, transformOrigin: "center" }}>
-          <Freeze frame={heroFreezeFrame(scene)}>
-            <Scene scene={{ ...scene, texts: [], diagram: undefined, transition: { type: "cut", frames: 0 } } as SceneSpec} cast={cast as CastBible | undefined} />
-          </Freeze>
+          <ArtDirectionProvider value={(props.artDirection ?? null) as ArtDirectionConfig | null}>
+            <Freeze frame={heroFreezeFrame(scene)}>
+              <Scene scene={{ ...scene, texts: [], diagram: undefined, transition: { type: "cut", frames: 0 } } as SceneSpec} cast={cast as CastBible | undefined} />
+            </Freeze>
+          </ArtDirectionProvider>
         </div>
       ) : null}
       <div style={{ position: "absolute", ...panelBox, background: panel, clipPath: panelClip, zIndex: 4, boxShadow: "0 0 60px rgba(0,0,0,0.3)" }} />
@@ -494,58 +496,142 @@ const SceneStill: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) =
   );
 };
 
-const EditorialCover10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, kicker, artDirection }) => {
+const TenxHeroMedia: React.FC<{
+  heroImg?: string;
+  scene?: SceneSpec;
+  cast?: unknown;
+  artDirection?: ArtDirectionConfig | null;
+  scale?: number;
+}> = ({ heroImg, scene, cast, artDirection, scale = 0.67 }) => {
+  const pal = resolveArtPalette(artDirection ?? null);
+  if (heroImg && heroImg.trim()) {
+    return <Img src={staticFile(heroImg)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />;
+  }
+  if (scene) {
+    return (
+      <ArtDirectionProvider value={artDirection ?? null}>
+        <Freeze frame={heroFreezeFrame(scene)}>
+          <div style={{ position: "absolute", left: "50%", top: "50%", width: 1920, height: 1080, transform: `translate(-50%, -50%) scale(${scale})`, transformOrigin: "center" }}>
+            <Scene scene={{ ...scene, transition: { type: "cut", frames: 0 } } as SceneSpec} cast={cast as CastBible | undefined} />
+          </div>
+        </Freeze>
+      </ArtDirectionProvider>
+    );
+  }
+  return (
+    <div style={{ position: "absolute", inset: 0, background: pal.bgAlt }}>
+      <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(${pal.accent}22 2px, transparent 2px)`, backgroundSize: "28px 28px" }} />
+    </div>
+  );
+};
+
+const EditorialCover10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) => {
+  const { title, author, hook, heroImg, kicker, artDirection, g } = props;
   const ad = (artDirection ?? null) as ArtDirectionConfig | null;
   const pal = resolveArtPalette(ad);
   const fonts = resolveArtFonts(ad);
+  const scene = heroOf(props, g);
+  const bottom = g.textPos === "bottom";
+  const hasHook = Boolean(hook && hook.trim());
   return (
-    <AbsoluteFill style={{ background: pal.bg }}>
-      {heroImg && (
-        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: "66%", overflow: "hidden" }}>
-          <Img src={staticFile(heroImg)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(180deg, ${pal.bg} 0%, transparent 32%)` }} />
+    <AbsoluteFill style={{ background: pal.bg, overflow: "hidden" }}>
+      <div style={{ position: "absolute", left: 0, right: 0, ...(bottom ? { top: 0, height: "62%" } : { bottom: 0, height: "64%" }), overflow: "hidden" }}>
+        <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.68} />
+        <div style={{ position: "absolute", inset: 0, background: bottom ? `linear-gradient(0deg, ${pal.bg} 0%, transparent 36%)` : `linear-gradient(180deg, ${pal.bg} 0%, transparent 36%)` }} />
+      </div>
+      <div style={{ position: "absolute", ...(bottom ? { bottom: 38 } : { top: 40 }), left: 68, right: 68, zIndex: 4 }}>
+        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 20, letterSpacing: "0.14em", color: pal.accent, marginBottom: 8 }}>
+          {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
+        </div>
+        {hasHook && (
+          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 92, lineHeight: 0.96, color: pal.ink }}>
+            {hook}
+          </div>
+        )}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const SplitPoster10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) => {
+  const { title, author, hook, heroImg, kicker, artDirection, g } = props;
+  const ad = (artDirection ?? null) as ArtDirectionConfig | null;
+  const pal = resolveArtPalette(ad);
+  const fonts = resolveArtFonts(ad);
+  const scene = heroOf(props, g);
+  const textRight = g.textPos === "right";
+  const hasHook = Boolean(hook && hook.trim());
+  const textCol = (
+    <div style={{ width: "50%", height: "100%", padding: "52px 54px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center", ...(textRight ? { borderLeft: `6px solid ${pal.accent}` } : { borderRight: `6px solid ${pal.accent}` }) }}>
+      <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 19, letterSpacing: "0.14em", color: pal.accent, marginBottom: 14 }}>
+        {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
+      </div>
+      {hasHook && (
+        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 84, lineHeight: 0.98, color: pal.ink }}>
+          {hook}
         </div>
       )}
-      <div style={{ position: "absolute", top: 44, left: 68, right: 68, zIndex: 4 }}>
-        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 22, letterSpacing: "0.14em", color: pal.accent, marginBottom: 10 }}>
-          {kicker || title.toUpperCase()}
-        </div>
-        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
-          {hook}
-        </div>
-      </div>
+    </div>
+  );
+  const mediaCol = (
+    <div style={{ width: "50%", height: "100%", position: "relative", overflow: "hidden", background: pal.bgAlt }}>
+      <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.62} />
+    </div>
+  );
+  return (
+    <AbsoluteFill style={{ background: pal.bg, display: "flex", flexDirection: "row", overflow: "hidden" }}>
+      {textRight ? <>{mediaCol}{textCol}</> : <>{textCol}{mediaCol}</>}
     </AbsoluteFill>
   );
 };
 
-const SplitPoster10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, kicker, artDirection }) => {
+const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) => {
+  const { title, author, hook, heroImg, kicker, artDirection, g } = props;
   const ad = (artDirection ?? null) as ArtDirectionConfig | null;
   const pal = resolveArtPalette(ad);
   const fonts = resolveArtFonts(ad);
+  const scene = heroOf(props, g);
+  const hasHook = Boolean(hook && hook.trim());
+  const textRight = g.textPos === "right";
+  const bottom = g.textPos === "bottom";
   return (
-    <AbsoluteFill style={{ background: pal.bg, display: "flex", flexDirection: "row" }}>
-      <div style={{ width: "52%", height: "100%", padding: "56px 56px", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: `6px solid ${pal.accent}` }}>
-        <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 20, letterSpacing: "0.14em", color: pal.accent, marginBottom: 16 }}>
-          {kicker || title.toUpperCase()}
+    <AbsoluteFill style={{ background: pal.bg, overflow: "hidden", padding: "38px 46px", boxSizing: "border-box", display: "flex", flexDirection: bottom ? "column" : "row", gap: 34, alignItems: "center" }}>
+      {!bottom && !textRight && (
+        <div style={{ width: "40%", display: "flex", flexDirection: "column", justifyContent: "center", gap: 14 }}>
+          <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 18, letterSpacing: "0.14em", color: pal.accent }}>
+            {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
+          </div>
+          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 82, lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
+          <div style={{ width: 96, height: 6, background: pal.accent, borderRadius: 3 }} />
         </div>
-        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 88, lineHeight: 0.98, color: pal.ink }}>
-          {hook}
+      )}
+      <div style={{ flex: 1, width: bottom ? "100%" : undefined, height: bottom ? "64%" : "100%", position: "relative", overflow: "hidden", borderRadius: 18, border: `3px solid ${pal.surfaceBorder}`, boxShadow: "0 20px 50px rgba(0,0,0,0.22)", background: pal.bgAlt }}>
+        <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.46} />
+      </div>
+      {(bottom || textRight) && (
+        <div style={{ width: bottom ? "100%" : "40%", display: "flex", flexDirection: "column", justifyContent: "center", gap: 12 }}>
+          <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 18, letterSpacing: "0.14em", color: pal.accent }}>
+            {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
+          </div>
+          {hasHook && <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: bottom ? 74 : 82, lineHeight: 0.96, color: pal.ink }}>{hook}</div>}
         </div>
-      </div>
-      <div style={{ width: "48%", height: "100%", position: "relative", overflow: "hidden" }}>
-        {heroImg && <Img src={staticFile(heroImg)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
-      </div>
+      )}
     </AbsoluteFill>
   );
 };
 
-const CutoutHero10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, cutoutImg, kicker, artDirection }) => {
+const CutoutHero10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (props) => {
+  const { title, author, hook, heroImg, cutoutImg, kicker, artDirection, g } = props;
   const ad = (artDirection ?? null) as ArtDirectionConfig | null;
   const pal = resolveArtPalette(ad);
   const fonts = resolveArtFonts(ad);
+  const scene = heroOf(props, g);
+  const hasHook = Boolean(hook && hook.trim());
   return (
-    <AbsoluteFill style={{ background: pal.bg }}>
-      {heroImg && <Img src={staticFile(heroImg)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.42 }} />}
+    <AbsoluteFill style={{ background: pal.bg, overflow: "hidden" }}>
+      <div style={{ position: "absolute", inset: 0, opacity: 0.36 }}>
+        <TenxHeroMedia heroImg={heroImg} scene={scene} cast={props.cast} artDirection={ad} scale={0.68} />
+      </div>
       {cutoutImg && (
         <Img
           src={staticFile(cutoutImg)}
@@ -562,11 +648,13 @@ const CutoutHero10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, cut
       )}
       <div style={{ position: "absolute", left: 68, top: 0, bottom: 0, width: 700, display: "flex", flexDirection: "column", justifyContent: "center", zIndex: 4 }}>
         <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 22, letterSpacing: "0.14em", color: pal.accent, marginBottom: 14 }}>
-          {kicker || title.toUpperCase()}
+          {kicker || `${title.toUpperCase()}${author ? ` · ${author.toUpperCase()}` : ""}`}
         </div>
-        <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
-          {hook}
-        </div>
+        {hasHook && (
+          <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 96, lineHeight: 0.96, color: pal.ink }}>
+            {hook}
+          </div>
+        )}
       </div>
     </AbsoluteFill>
   );
@@ -577,10 +665,10 @@ const CutoutHero10x: React.FC<AntidoteThumbProps> = ({ title, hook, heroImg, cut
 export const AntidoteThumbnail: React.FC<AntidoteThumbProps> = (props) => {
   const { paper, ink, slug, layout: layoutOverride, heroImg } = props;
   const g = resolveGrammar(slug ?? "default", "antidote", props.grammar, layoutOverride);
-  if (g.layout === "editorial-cover-10x") return <EditorialCover10x {...props} />;
-  if (g.layout === "split-poster-10x") return <SplitPoster10x {...props} />;
-  if (g.layout === "cutout-hero-10x") return <CutoutHero10x {...props} />;
-  if (g.layout === "diagram-hook-10x") return <SceneStill {...props} g={{ ...g, layout: "scene-still" }} />;
+  if (g.layout === "editorial-cover-10x") return <EditorialCover10x {...props} g={g} />;
+  if (g.layout === "split-poster-10x") return <SplitPoster10x {...props} g={g} />;
+  if (g.layout === "cutout-hero-10x") return <CutoutHero10x {...props} g={g} />;
+  if (g.layout === "diagram-hook-10x") return <DiagramHook10x {...props} g={g} />;
   // scene-still needs a scene; a config-less preview falls back to the poster.
   const layout = g.layout === "scene-still" && !heroOf(props, g) ? "text-poster" : g.layout;
 

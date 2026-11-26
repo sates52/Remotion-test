@@ -1,6 +1,6 @@
 # Antidote 10x — Master Handoff Brief, YPP Guardrails & Remotion Library Catalog
 
-> **Branch / Worktree:** `dev/antidote-v2` @ `C:\Users\savas\Cursor\Remotion\wt-antidote-v2` (Phase 1 merged to `origin/god-mode` on 2026-11-25, operator approved; Phase 2 continues on `dev/antidote-v2` / `origin/god-mode`).
+> **Branch / Worktree:** `dev/antidote-v2` @ `C:\Users\savas\Cursor\Remotion\wt-antidote-v2` (Phase 1, Phase 2 `82db5f1d`, and 10x Thumbnail Production Pipeline merged to `origin/god-mode` on 2026-11-26, operator approved).
 > **Purpose:** Single durable memory file for any fresh development session continuing Antidote 10x, YPP-proofing, and Remotion visual-library upgrades.
 
 ---

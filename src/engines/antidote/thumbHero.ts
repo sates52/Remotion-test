@@ -13,23 +13,47 @@ const STOP = new Set(["the", "a", "an", "and", "or", "of", "to", "in", "is", "ar
 const WIDE_SHOTS = new Set(["medium", "twoShot", "lowAngle", "overShoulder", "diorama", "silhouette"]);
 const LOUD_FACES = new Set(["worried", "shocked", "angry", "sad", "scared", "surprised", "determined", "focused"]);
 
+const TENX_HERO_HIGH = new Set([
+  "annotatedScene", "cutoutStage", "editorialSpread", "beforeAfterWipe", "spatialJourney",
+  "timelineScrub", "comicStrip", "decisionTree", "balanceScale", "stackReveal",
+  "liveInterface", "vennMerge", "explodedView", "barRace", "analyticsFunnel", "upClose",
+]);
+const TENX_HERO_MID = new Set([
+  "visualEquation", "dataMatrix", "comparisonGrid", "statSlam", "cohortGrid",
+  "gravityPile", "crumpleToss", "realAnchor", "kineticManifesto",
+]);
+
+export function tenxDeviceOf(scene: SceneSpec): string | null {
+  const s = scene as Record<string, unknown>;
+  for (const k of TENX_HERO_HIGH) if (s[k] != null) return k;
+  for (const k of TENX_HERO_MID) if (s[k] != null) return k;
+  return null;
+}
+
 const stem = (w: string) => w.toLowerCase().replace(/[^a-z]/g, "").replace(/(ing|ed|es|s)$/, "");
 
-export function heroSceneScore(scene: SceneSpec, index: number, total: number, hookStems: string[]): number {
+export function heroSceneScore(scene: SceneSpec, index: number, total: number, hookStems: string[], prefer10x = false): number {
   const s = scene as SceneSpec & { _narration?: string; concept?: string };
-  if (s.shot === "chapterCard" || s.chapterCard) return -Infinity;
+  if (s.shot === "chapterCard" || s.chapterCard || s.chapterInterstitial) return -Infinity;
   const bodies = (s.characters ?? []).filter((c) => !(c.crowd && c.crowd > 1));
   let score = 0;
-  if (bodies.length >= 1) score += 3;
-  if (bodies.length === 2) score += 1.5;
-  if (bodies.length >= 3) score -= 1;
+  if (prefer10x) {
+    const dev = tenxDeviceOf(scene);
+    if (dev && TENX_HERO_HIGH.has(dev)) score += 12;
+    else if (dev && TENX_HERO_MID.has(dev)) score += 9;
+    else if (bodies.length >= 1) score -= 6;
+  } else {
+    if (bodies.length >= 1) score += 3;
+    if (bodies.length === 2) score += 1.5;
+    if (bodies.length >= 3) score -= 1;
+  }
   // A real location reads as "a place in this story"; abstract/none is wallpaper.
   if (s.bg?.set && s.bg.set !== "none" && s.bg.set !== "abstract") score += 2;
   if ((s.props ?? []).length) score += 1;
   if (s.diagram) score -= 3;
   if (WIDE_SHOTS.has(s.shot as string)) score += 1.5;
   else if (s.shot === "illustration") score += 0.5;
-  if (bodies.some((c) => LOUD_FACES.has(String(c.expression)))) score += 1;
+  if (!prefer10x && bodies.some((c) => LOUD_FACES.has(String(c.expression)))) score += 1;
   const at = index / Math.max(1, total);
   if (at >= 0.1 && at <= 0.65) score += 1; // skip the cold open and the ending (spoilers)
   if (s.durationFrames >= 90) score += 0.5;
@@ -40,20 +64,24 @@ export function heroSceneScore(scene: SceneSpec, index: number, total: number, h
   return score;
 }
 
-/** What a viewer would call "the same picture": same set + same cast. */
-const pictureKey = (s: SceneSpec) =>
-  `${s.bg?.set ?? "none"}|${(s.characters ?? []).map((c) => c.role ?? c.identity ?? "?").sort().join(",")}`;
+/** What a viewer would call "the same picture": same 10x device OR same set + same cast. */
+const pictureKey = (s: SceneSpec) => {
+  const dev = tenxDeviceOf(s);
+  if (dev) return `10x|${dev}`;
+  return `${s.bg?.set ?? "none"}|${(s.characters ?? []).map((c) => c.role ?? c.identity ?? "?").sort().join(",")}`;
+};
 
 /**
- * The top `n` hero scenes, each a DIFFERENT picture (set + cast), best first.
+ * The top `n` hero scenes, each a DIFFERENT picture (10x device OR set + cast), best first.
  * Index 0 is the thumbnail; 1..n-1 feed the Test & Compare variants so the
  * A/B test compares moments, not just typography. `sceneId` pins index 0.
  */
 export function pickHeroScenes(scenes: SceneSpec[] | undefined, hook: string, sceneId?: string, n = 3): SceneSpec[] {
   if (!scenes?.length) return [];
+  const prefer10x = scenes.some((s) => tenxDeviceOf(s) !== null);
   const hookStems = hook.split(/\s+/).map(stem).filter((w) => w.length > 2 && !STOP.has(w));
   const ranked = scenes
-    .map((s, i) => ({ s, sc: heroSceneScore(s, i, scenes.length, hookStems), i }))
+    .map((s, i) => ({ s, sc: heroSceneScore(s, i, scenes.length, hookStems, prefer10x), i }))
     .filter((x) => Number.isFinite(x.sc))
     .sort((a, b) => b.sc - a.sc || a.i - b.i)
     .map((x) => x.s);
@@ -77,5 +105,7 @@ export function pickHeroScene(scenes: SceneSpec[] | undefined, hook: string, sce
 export const THUMB_FREEZE_SPAN = 300;
 
 /** The frame to freeze: late enough that every draw-in and entrance has landed. */
-export const heroFreezeFrame = (scene: SceneSpec): number =>
-  Math.max(0, Math.min(scene.durationFrames - 1, THUMB_FREEZE_SPAN - 1, Math.max(45, Math.round(scene.durationFrames * 0.6))));
+export const heroFreezeFrame = (scene: SceneSpec): number => {
+  const ratio = tenxDeviceOf(scene) ? 0.82 : 0.6;
+  return Math.max(0, Math.min(scene.durationFrames - 1, THUMB_FREEZE_SPAN - 1, Math.max(45, Math.round(scene.durationFrames * ratio))));
+};

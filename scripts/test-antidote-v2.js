@@ -546,4 +546,52 @@ test("authorship fullStage10x lock catches post-plan pollution and restores clea
   assert.strictEqual(ev.status, "PASS");
 });
 
+test("thumbnail-grammar 10x mode picks 3 distinct 10x layouts and never falls back to scene-still/text-poster", () => {
+  const { pickVariants, distance, TENX_LAYOUTS } = require("./lib/thumbnail-grammar");
+  const vs = pickVariants({ slug: "then-she-was-gone", engine: "antidote", history: [], n: 3, is10x: true, hasCutout: false });
+  assert.strictEqual(vs.length, 3);
+  for (const v of vs) {
+    assert.ok(TENX_LAYOUTS.has(v.layout), `expected 10x layout, got ${v.layout}`);
+  }
+  assert.strictEqual(new Set(vs.map((v) => v.layout)).size, 3, "A/B/C should use 3 distinct 10x layouts");
+  for (let i = 0; i < vs.length; i++) {
+    for (let j = i + 1; j < vs.length; j++) {
+      assert.ok(distance(vs[i], vs[j]) >= 5, `variants ${i}/${j} too close`);
+    }
+  }
+});
+
+test("thumbHero.pickHeroScenes prioritizes 10x devices over legacy Everyman scenes", () => {
+  const { pickHeroScenes } = require("../src/engines/antidote/thumbHero.ts");
+  const scenes = [
+    { id: "s0", durationFrames: 180, shot: "twoShot", bg: { set: "kitchen" }, characters: [{ id: "c1", role: "laurel", expression: "worried" }, { id: "c2", role: "floyd", expression: "happy" }] },
+    { id: "s1", durationFrames: 180, shot: "medium", chapterInterstitial: { title: "PART 1" } },
+    { id: "s2", durationFrames: 180, shot: "medium", timelineScrub: { title: "10 YEARS", events: [{ time: "2005", title: "A" }, { time: "2015", title: "B" }] } },
+    { id: "s3", durationFrames: 180, shot: "medium", spatialJourney: { title: "MAP", stations: [{ label: "A" }, { label: "B" }] } },
+    { id: "s4", durationFrames: 180, shot: "medium", beforeAfterWipe: { before: { label: "2005", headline: "A" }, after: { label: "2015", headline: "B" } } },
+  ];
+  const picked = pickHeroScenes(scenes, "NOBODY LOOKED", undefined, 3);
+  assert.strictEqual(picked.length, 3);
+  assert.deepStrictEqual(picked.map((s) => s.id).sort(), ["s2", "s3", "s4"]);
+});
+
+test("compile10xCues clamps out-of-bounds authored at and strikeAt timestamps", () => {
+  const { compile10xCues } = require("./lib/compile-10x-cues");
+  const scene = {
+    id: "scene-45",
+    durationFrames: 213,
+    kineticManifesto: {
+      kicker: "2005 -> 2015",
+      lines: [
+        { text: "TEN YEARS OF WAITING", at: 165 },
+        { text: "ELLIE COMES HOME", at: 205, strikeAt: 245 },
+      ],
+    },
+  };
+  compile10xCues(scene, { durationFrames: 213, fps: 30 });
+  assert.ok(scene.kineticManifesto.lines[0].at <= 154, `expected line 0 at <= 154, got ${scene.kineticManifesto.lines[0].at}`);
+  assert.ok(scene.kineticManifesto.lines[1].at <= 154, `expected line 1 at <= 154, got ${scene.kineticManifesto.lines[1].at}`);
+  assert.ok(scene.kineticManifesto.lines[1].strikeAt <= 189, `expected strikeAt <= 189, got ${scene.kineticManifesto.lines[1].strikeAt}`);
+});
+
 console.log(`\nAll ${passed} Antidote 2.0 tests passed.`);

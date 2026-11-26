@@ -59,16 +59,23 @@ const ARRAY_KEYS = [
 function compile10xCues(scene, ctx = {}) {
   if (!scene || typeof scene !== "object") return scene;
   const dur = Math.max(30, ctx.durationFrames || scene.durationFrames || 180);
+  const maxReveal = Math.max(24, Math.round(dur * 0.72));
+  const maxAction = Math.max(30, dur - 24);
 
   for (const dk of DEVICE_10X_KEYS) {
     const dev = scene[dk];
     if (!dev || typeof dev !== "object") continue;
+
+    if (typeof dev.at === "number" && dev.at > 18) dev.at = 12;
 
     for (const [cueKey, atKey] of TOP_CUE_MAP) {
       if (dev[cueKey] != null) {
         const f = findCueFrame(dev[cueKey], { ...ctx, durationFrames: dur });
         if (f != null && dev[atKey] == null) dev[atKey] = f;
         delete dev[cueKey];
+      }
+      if (typeof dev[atKey] === "number") {
+        dev[atKey] = Math.max(12, Math.min(Math.max(24, dur - 30), dev[atKey]));
       }
     }
 
@@ -99,6 +106,31 @@ function compile10xCues(scene, ctx = {}) {
             item.at = Math.round(12 + (idx * span) / Math.max(1, arr.length - 1));
           }
         });
+      }
+      // Clamp/rescale out-of-bounds authored `at` & `*At` timestamps so scenes never stay blank at 70% frame
+      const atVals = arr.map((it) => (it && typeof it.at === "number" ? it.at : null)).filter((v) => v !== null);
+      if (atVals.length) {
+        const minAt = Math.min(...atVals);
+        const maxAt = Math.max(...atVals);
+        if (minAt > 36 || maxAt > maxReveal) {
+          const targetMax = Math.min(maxAt, maxReveal);
+          for (const item of arr) {
+            if (item && typeof item.at === "number") {
+              item.at = maxAt === minAt
+                ? 12
+                : Math.round(10 + ((item.at - minAt) / (maxAt - minAt)) * Math.max(12, targetMax - 10));
+            }
+          }
+        }
+      }
+      for (const item of arr) {
+        if (!item || typeof item !== "object") continue;
+        const baseAt = typeof item.at === "number" ? item.at : 10;
+        for (const ak of ["strikeAt", "pruneAt", "changeAt"]) {
+          if (typeof item[ak] === "number") {
+            item[ak] = Math.max(Math.min(maxAction, baseAt + 12), Math.min(maxAction, item[ak]));
+          }
+        }
       }
     }
   }

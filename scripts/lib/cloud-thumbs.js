@@ -212,6 +212,10 @@ function thumbBundleFiles({ slug, root = ROOT, bookRoot = root }) {
   if (engine === "antidote") {
     const { resolveFiles } = require("./render-bundle");
     for (const f of resolveFiles(slug, { root: bookRoot }).files) if (f.startsWith("public/") && (!AUDIO_RE.test(f) || f.startsWith("public/sfx/"))) assets.add(f);
+    // Include any existing hero/cutout image for 10x thumbnails if present on disk (optional for scene-backed 10x).
+    for (const rel of heroAssets(thumb)) {
+      if ([path.join(bookRoot, rel), path.join(root, rel)].some((p) => fs.existsSync(p) && fs.statSync(p).isFile())) assets.add(rel);
+    }
   } else assets.add(VOX_BG);
   for (const rel of assets) {
     const abs = [path.join(bookRoot, rel), path.join(root, rel)].find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
@@ -253,11 +257,21 @@ function buildThumbBundle({ slug, root = ROOT, bookRoot = root, quiet = false })
  */
 function ensureGrammar({ slug, root = ROOT, bookRoot = root, log = console.log }) {
   const { thumb } = bookFiles(bookRoot, slug);
-  if (thumb.grammar && thumb.grammar.layout) return null;
-  const cmd = `node scripts/thumbnail-grammar.js --slug=${slug} --write`;
-  if (path.resolve(bookRoot) !== path.resolve(root)) return `no youtube-meta.thumbnail.grammar — run in ${bookRoot}: ${cmd}`;
-  log(`   thumbnail.grammar missing → ${cmd} (deterministic, channel-aware; the standard make-book step 5.4)`);
-  const r = spawnSync(process.execPath, [path.join(root, "scripts", "thumbnail-grammar.js"), `--slug=${slug}`, "--write"], { cwd: root, stdio: "inherit" });
+  const { isAntidote10xBook, TENX_LAYOUTS } = require("./thumbnail-grammar");
+  const is10x = isAntidote10xBook(bookRoot, slug);
+  const hasLayout = !!(thumb.grammar && thumb.grammar.layout);
+  const needs10xUpgrade = hasLayout && is10x && !TENX_LAYOUTS.has(thumb.grammar.layout);
+  if (hasLayout && !needs10xUpgrade) return null;
+  const cmd = `node scripts/thumbnail-grammar.js --slug=${slug} --write${needs10xUpgrade ? " --force" : ""}`;
+  if (path.resolve(bookRoot) !== path.resolve(root)) {
+    return needs10xUpgrade
+      ? `legacy thumbnail.grammar (${thumb.grammar.layout}) on Antidote 10x book — upgrade in ${bookRoot}: ${cmd}`
+      : `no youtube-meta.thumbnail.grammar — run in ${bookRoot}: ${cmd}`;
+  }
+  log(needs10xUpgrade
+    ? `   legacy thumbnail.grammar (${thumb.grammar.layout}) on Antidote 10x book → ${cmd}`
+    : `   thumbnail.grammar missing → ${cmd} (deterministic, channel-aware; the standard make-book step 5.4)`);
+  const r = spawnSync(process.execPath, [path.join(root, "scripts", "thumbnail-grammar.js"), `--slug=${slug}`, "--write", ...(needs10xUpgrade ? ["--force"] : [])], { cwd: root, stdio: "inherit" });
   return r.status === 0 && bookFiles(bookRoot, slug).thumb.grammar ? null : `thumbnail-grammar.js --write failed (exit ${r.status})`;
 }
 

@@ -117,6 +117,9 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
   }
   const hook = String(thumb.hook || "").trim();
   if (!hook) console.warn("  ⚠ youtube-meta.thumbnail.hook is empty — the thumbnails carry no hook");
+  const hasPublicFile = (rel) => typeof rel === "string" && rel.trim() && fs.existsSync(path.join(ROOT, "public", rel.replace(/^public\//, "")));
+  const resolvedHeroImg = hasPublicFile(thumb.image) ? String(thumb.image).replace(/^public\//, "") : "";
+  const resolvedCutoutImg = hasPublicFile(thumb.cut) ? String(thumb.cut).replace(/^public\//, "") : "";
   console.log(`Bundling Thumb-${SLUG} (slim registry)…`);
   const serveUrl = await bundleFor([SLUG]);
   const done = [];
@@ -124,9 +127,12 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
   const checks = [];
   for (const j of jobs) {
     try {
-      // A renders with its stored grammar (no override) so it is what `npx remotion still Thumb-<slug>` gives
-      // with a current registry; B/C override it. The hook is always the meta's current one.
-      const props = { ...(j.letter === "A" || !j.grammar ? {} : { grammar: j.grammar, layout: j.grammar.layout }), ...(hook ? { hook } : {}) };
+      const props = {
+        ...(j.grammar ? { grammar: j.grammar, layout: j.grammar.layout } : {}),
+        heroImg: resolvedHeroImg,
+        ...(resolvedCutoutImg ? { cutoutImg: resolvedCutoutImg } : {}),
+        ...(hook ? { hook } : {}),
+      };
       await renderThumb(serveUrl, SLUG, j.file, props);
       console.log(`  ✓ ${j.letter}  ${path.relative(ROOT, j.file)}  (${describe(j.grammar)})`);
       done.push(j);

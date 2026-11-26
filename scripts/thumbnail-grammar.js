@@ -13,7 +13,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { pickVariants, loadGrammarHistory, publishedSlugs } = require("./lib/thumbnail-grammar");
+const { pickVariants, loadGrammarHistory, publishedSlugs, isAntidote10xBook, hasCutoutAsset, TENX_LAYOUTS } = require("./lib/thumbnail-grammar");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -32,8 +32,17 @@ if (publishedSlugs(ROOT).includes(SLUG)) {
 
 const bookJson = path.join(ROOT, "books", SLUG, "book.json");
 const engine = fs.existsSync(bookJson) && JSON.parse(fs.readFileSync(bookJson, "utf8").replace(/^﻿/, "")).engine === "antidote" ? "antidote" : "vox";
+const is10x = engine === "antidote" && isAntidote10xBook(ROOT, SLUG);
+const metaFile = path.join(ROOT, "books", SLUG, "youtube-meta.json");
+const cfgFile = path.join(ROOT, "books", SLUG, "config.antidote.json");
+const existingThumb = (() => {
+  try { return JSON.parse(fs.readFileSync(metaFile, "utf8").replace(/^﻿/, "")).thumbnail || {}; } catch {}
+  try { return (JSON.parse(fs.readFileSync(cfgFile, "utf8").replace(/^﻿/, "")).meta || {}).thumbnail || {}; } catch {}
+  return {};
+})();
+const hasCutout = hasCutoutAsset(ROOT, SLUG, existingThumb);
 const history = loadGrammarHistory(ROOT, SLUG);
-const variants = pickVariants({ slug: SLUG, engine, history, n: Number(args.variants || 3) });
+const variants = pickVariants({ slug: SLUG, engine, history, n: Number(args.variants || 3), is10x, hasCutout });
 const pick = variants[0];
 
 console.log(`Thumbnail grammar — ${SLUG} (${engine})`);
@@ -47,8 +56,6 @@ variants.forEach((g, i) => console.log(`  ${i ? "  variant " + "ABC"[i] : "→ p
 
 if (!args.write) process.exit(0);
 
-const metaFile = path.join(ROOT, "books", SLUG, "youtube-meta.json");
-const cfgFile = path.join(ROOT, "books", SLUG, "config.antidote.json");
 const target = fs.existsSync(metaFile) ? metaFile : engine === "antidote" && fs.existsSync(cfgFile) ? cfgFile : null;
 if (!target) {
   console.error("✗ no youtube-meta.json (or Antidote config) to write into — run the meta step first.");
@@ -58,8 +65,12 @@ const raw = fs.readFileSync(target, "utf8").replace(/^﻿/, "");
 const doc = JSON.parse(raw);
 const thumb = target === metaFile ? (doc.thumbnail = doc.thumbnail || {}) : ((doc.meta.thumbnail = doc.meta.thumbnail || {}));
 if (thumb.grammar && thumb.grammar.layout && !args.force) {
-  console.log(`  = kept authored grammar (${thumb.grammar.layout}); --force to re-pick.`);
-  process.exit(0);
+  if (is10x && !TENX_LAYOUTS.has(thumb.grammar.layout)) {
+    console.log(`  ↻ upgrading legacy ${thumb.grammar.layout} → Antidote 10x grammar`);
+  } else {
+    console.log(`  = kept authored grammar (${thumb.grammar.layout}); --force to re-pick.`);
+    process.exit(0);
+  }
 }
 const sceneId = thumb.grammar && thumb.grammar.sceneId;
 thumb.grammar = { ...pick, ...(sceneId ? { sceneId } : {}) };
