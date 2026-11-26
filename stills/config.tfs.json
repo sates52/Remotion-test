@@ -1,0 +1,2776 @@
+{
+  "meta": {
+    "slug": "demo-thinking-fast-and-slow",
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 3780,
+    "multiplane": true,
+    "hud": {
+      "enabled": false,
+      "showProgress": false,
+      "showBadge": false
+    },
+    "take": {
+      "note": "Our minds jump to confident stories from the tiny fraction of evidence right in front of us."
+    },
+    "artDirection": {
+      "style": "Swiss International Typographic Style poster art, bold primary red and cobalt geometric blocks on warm cream paper, crisp grid discipline",
+      "stylePack": "swissModernist",
+      "castMode": "illustrated",
+      "polarity": "light",
+      "typography": "condensed",
+      "annotationStyle": "bracket",
+      "nodeShape": "hex",
+      "layoutGrammar": "swissPoster",
+      "transitionFamily": "print",
+      "captionAlign": "left",
+      "mood": "swissBauhaus",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "tfs-1a",
+      "fromFrame": 0,
+      "durationFrames": 630,
+      "shotIntent": {
+        "job": "manifesto",
+        "subject": "WYSIATI golden rule",
+        "action": "kineticManifesto reveals What You See Is All There Is",
+        "payoff": "anchors Kahneman's core rule",
+        "revealFrame": 390
+      },
+      "kineticManifesto": {
+        "kicker": "KAHNEMAN'S GOLDEN RULE",
+        "lines": [
+          {
+            "text": "WHAT YOU SEE",
+            "at": 195
+          },
+          {
+            "text": "IS ALL THERE IS",
+            "emphasis": true,
+            "tone": "accent",
+            "at": 260
+          },
+          {
+            "text": "WYSIATI",
+            "emphasis": true,
+            "tone": "danger",
+            "at": 390
+          },
+          {
+            "text": "NEVER THE FULL PICTURE",
+            "at": 480
+          }
+        ],
+        "divider": "line",
+        "footnote": "Your mind builds coherent stories from incomplete scraps",
+        "footnoteAt": 520
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F5F1E8"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "swissBauhaus"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "tfs-1b",
+      "fromFrame": 630,
+      "durationFrames": 570,
+      "shotIntent": {
+        "job": "framework-map",
+        "subject": "System 1 and System 2",
+        "action": "vennMerge combines System 1 and System 2 into Human Judgment",
+        "payoff": "clarifies two operating modes, not brain lobes",
+        "revealFrame": 440
+      },
+      "vennMerge": {
+        "title": "TWO FICTITIOUS CHARACTERS",
+        "subtitle": "NOT PHYSICAL BRAIN REGIONS — TWO OPERATING MODES",
+        "circles": [
+          {
+            "label": "SYSTEM 1",
+            "sublabel": "Fast & automatic",
+            "tone": "danger",
+            "at": 180
+          },
+          {
+            "label": "SYSTEM 2",
+            "sublabel": "Slow & deliberate",
+            "tone": "positive",
+            "at": 360
+          }
+        ],
+        "intersection": {
+          "label": "HUMAN JUDGMENT",
+          "detail": "Invisible daily errors",
+          "at": 440
+        },
+        "callout": "Mental shorthand — not physical lobes on an fMRI"
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 14
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EFE9DC"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "archivalBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "tfs-2a",
+      "fromFrame": 1200,
+      "durationFrames": 630,
+      "shotIntent": {
+        "job": "annotate-place",
+        "subject": "Halo Effect on stage",
+        "action": "upClose zooms into the smiling presenter before financials appear",
+        "payoff": "shows charisma bias in action",
+        "revealFrame": 210
+      },
+      "upClose": {
+        "title": "THE HALO EFFECT",
+        "subtitle": "DECIDED BEFORE THE FINANCIALS APPEAR",
+        "image": "scenes/p2-book-demos/tfs_stage_presenter.png",
+        "zoomTarget": {
+          "x": 0.38,
+          "y": 0.28,
+          "scale": 2.1
+        },
+        "zoomAt": 210,
+        "lensLabel": "CHARISMA BIAS",
+        "annotation": {
+          "headline": "BRILLIANT SMILE = BRILLIANT PLAN?",
+          "detail": "System 1 decides in seconds before seeing the numbers",
+          "side": "right"
+        }
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "paperTear",
+        "frames": 16
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F5F1E8"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "swissBauhaus"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.01
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "tfs-2b",
+      "fromFrame": 1830,
+      "durationFrames": 600,
+      "shotIntent": {
+        "job": "mechanism-flow",
+        "subject": "paper-thin coherence",
+        "action": "visualEquation links confident speaker to System 1 affect to assumes all good",
+        "payoff": "explains the Halo Effect mechanism",
+        "revealFrame": 420
+      },
+      "visualEquation": {
+        "title": "PAPER-THIN COHERENCE",
+        "nodeShape": "hex",
+        "operator": "arrow",
+        "nodes": [
+          {
+            "label": "CONFIDENT SPEAKER",
+            "sublabel": "Looks good",
+            "tone": "positive"
+          },
+          {
+            "label": "SYSTEM 1 AFFECT",
+            "sublabel": "Positive response",
+            "tone": "accent"
+          },
+          {
+            "label": "ASSUMES ALL GOOD",
+            "sublabel": "Rigid story",
+            "tone": "danger"
+          }
+        ],
+        "footnote": "Good people must do exclusively good things"
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 14
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#FAF7F0"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ivoryBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "tfs-2c",
+      "fromFrame": 2430,
+      "durationFrames": 420,
+      "shotIntent": {
+        "job": "mechanism-flow",
+        "subject": "slick UI on terrible app",
+        "action": "explodedView separates surface UI from broken underlying code",
+        "payoff": "visualizes the app analogy",
+        "revealFrame": 325
+      },
+      "explodedView": {
+        "title": "THE HALO ILLUSION",
+        "subtitle": "SLICK INTERFACE ON A TERRIBLE APP",
+        "layers": [
+          {
+            "label": "SLICK USER INTERFACE",
+            "badge": "SURFACE",
+            "tone": "positive",
+            "at": 30
+          },
+          {
+            "label": "SMOOTH ANIMATIONS",
+            "badge": "ASSUMED",
+            "tone": "accent",
+            "at": 145
+          },
+          {
+            "label": "UNDERLYING CODE",
+            "badge": "UNCHECKED",
+            "tone": "neutral",
+            "at": 245
+          },
+          {
+            "label": "CRASHES IN 5 MIN",
+            "badge": "REALITY",
+            "tone": "danger",
+            "at": 325
+          }
+        ],
+        "expandAt": 130
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "paperTear",
+        "frames": 16
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#F5F1E8"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "swissBauhaus"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    },
+    {
+      "id": "tfs-3a",
+      "fromFrame": 2850,
+      "durationFrames": 930,
+      "shotIntent": {
+        "job": "data-proof",
+        "subject": "Zillow Zestimate anchoring",
+        "action": "barRace shows $500,000 Zestimate dragging valuation up from $200,000",
+        "payoff": "proves anchoring against physical reality",
+        "revealFrame": 690
+      },
+      "barRace": {
+        "title": "THE ZILLOW ANCHOR EFFECT",
+        "subtitle": "HOW THE FIRST NUMBER DRAGS YOUR ESTIMATE UP",
+        "epochs": [
+          {
+            "label": "WITHOUT ZESTIMATE",
+            "at": 30,
+            "bars": [
+              {
+                "id": "reality",
+                "label": "Actual House Value",
+                "value": 200,
+                "displayValue": "$200,000",
+                "tone": "positive"
+              },
+              {
+                "id": "mental",
+                "label": "Unanchored Estimate",
+                "value": 200,
+                "displayValue": "$200,000",
+                "tone": "neutral"
+              }
+            ]
+          },
+          {
+            "label": "ZESTIMATE SHOWN",
+            "at": 210,
+            "bars": [
+              {
+                "id": "anchor",
+                "label": "Zillow Zestimate",
+                "value": 500,
+                "displayValue": "$500,000",
+                "tone": "danger"
+              },
+              {
+                "id": "mental",
+                "label": "Anchored Estimate",
+                "value": 380,
+                "displayValue": "Dragged Up",
+                "tone": "accent"
+              },
+              {
+                "id": "reality",
+                "label": "Rotting Roof & Floors",
+                "value": 200,
+                "displayValue": "$200,000",
+                "tone": "positive"
+              }
+            ]
+          },
+          {
+            "label": "WALK-OUT VERDICT",
+            "at": 690,
+            "bars": [
+              {
+                "id": "anchor",
+                "label": "Zillow Zestimate",
+                "value": 500,
+                "displayValue": "$500,000",
+                "tone": "danger"
+              },
+              {
+                "id": "mental",
+                "label": "Your Valuation",
+                "value": 420,
+                "displayValue": "Pulled Up",
+                "tone": "accent"
+              },
+              {
+                "id": "reality",
+                "label": "Physical Reality",
+                "value": 200,
+                "displayValue": "$200,000",
+                "tone": "positive"
+              }
+            ]
+          }
+        ],
+        "callout": "The first number drags you up regardless of physical reality"
+      },
+      "shot": "insert",
+      "transition": {
+        "type": "halftoneCut",
+        "frames": 14
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#EFE9DC"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "archivalBroadsheet"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": []
+    }
+  ],
+  "captions": [
+    {
+      "text": "we are going to rely on this one golden",
+      "startFrame": 4,
+      "endFrame": 61,
+      "words": [
+        {
+          "w": "we",
+          "s": 4,
+          "e": 13
+        },
+        {
+          "w": "are",
+          "s": 13,
+          "e": 20
+        },
+        {
+          "w": "going",
+          "s": 20,
+          "e": 23
+        },
+        {
+          "w": "to",
+          "s": 23,
+          "e": 26
+        },
+        {
+          "w": "rely",
+          "s": 25,
+          "e": 32
+        },
+        {
+          "w": "on",
+          "s": 32,
+          "e": 37
+        },
+        {
+          "w": "this",
+          "s": 37,
+          "e": 44
+        },
+        {
+          "w": "one",
+          "s": 44,
+          "e": 49
+        },
+        {
+          "w": "golden",
+          "s": 49,
+          "e": 61
+        }
+      ]
+    },
+    {
+      "text": "rule that basically governs this entire deep dive.",
+      "startFrame": 61,
+      "endFrame": 143,
+      "words": [
+        {
+          "w": "rule",
+          "s": 61,
+          "e": 68
+        },
+        {
+          "w": "that",
+          "s": 68,
+          "e": 78
+        },
+        {
+          "w": "basically",
+          "s": 78,
+          "e": 90
+        },
+        {
+          "w": "governs",
+          "s": 90,
+          "e": 102
+        },
+        {
+          "w": "this",
+          "s": 102,
+          "e": 109
+        },
+        {
+          "w": "entire",
+          "s": 109,
+          "e": 119
+        },
+        {
+          "w": "deep",
+          "s": 119,
+          "e": 126
+        },
+        {
+          "w": "dive.",
+          "s": 126,
+          "e": 143
+        }
+      ]
+    },
+    {
+      "text": "The phrase that pays.",
+      "startFrame": 143,
+      "endFrame": 179,
+      "words": [
+        {
+          "w": "The",
+          "s": 143,
+          "e": 148
+        },
+        {
+          "w": "phrase",
+          "s": 148,
+          "e": 157
+        },
+        {
+          "w": "that",
+          "s": 157,
+          "e": 162
+        },
+        {
+          "w": "pays.",
+          "s": 162,
+          "e": 179
+        }
+      ]
+    },
+    {
+      "text": "Exactly. The phrase is what you see",
+      "startFrame": 179,
+      "endFrame": 272,
+      "words": [
+        {
+          "w": "Exactly.",
+          "s": 179,
+          "e": 205
+        },
+        {
+          "w": "The",
+          "s": 205,
+          "e": 212
+        },
+        {
+          "w": "phrase",
+          "s": 212,
+          "e": 239
+        },
+        {
+          "w": "is",
+          "s": 239,
+          "e": 248
+        },
+        {
+          "w": "what",
+          "s": 248,
+          "e": 258
+        },
+        {
+          "w": "you",
+          "s": 258,
+          "e": 263
+        },
+        {
+          "w": "see",
+          "s": 263,
+          "e": 272
+        }
+      ]
+    },
+    {
+      "text": "is all there is.",
+      "startFrame": 272,
+      "endFrame": 311,
+      "words": [
+        {
+          "w": "is",
+          "s": 272,
+          "e": 282
+        },
+        {
+          "w": "all",
+          "s": 282,
+          "e": 292
+        },
+        {
+          "w": "there",
+          "s": 292,
+          "e": 299
+        },
+        {
+          "w": "is.",
+          "s": 299,
+          "e": 311
+        }
+      ]
+    },
+    {
+      "text": "or uh Kahneman abbreviates it as WYSIATI.",
+      "startFrame": 311,
+      "endFrame": 424,
+      "words": [
+        {
+          "w": "or",
+          "s": 311,
+          "e": 325
+        },
+        {
+          "w": "uh",
+          "s": 325,
+          "e": 330
+        },
+        {
+          "w": "Kahneman",
+          "s": 330,
+          "e": 347
+        },
+        {
+          "w": "abbreviates",
+          "s": 347,
+          "e": 364
+        },
+        {
+          "w": "it",
+          "s": 364,
+          "e": 368
+        },
+        {
+          "w": "as",
+          "s": 368,
+          "e": 390
+        },
+        {
+          "w": "WYSIATI.",
+          "s": 390,
+          "e": 424
+        }
+      ]
+    },
+    {
+      "text": "What you see is all there is.",
+      "startFrame": 424,
+      "endFrame": 499,
+      "words": [
+        {
+          "w": "What",
+          "s": 424,
+          "e": 433
+        },
+        {
+          "w": "you",
+          "s": 433,
+          "e": 440
+        },
+        {
+          "w": "see",
+          "s": 440,
+          "e": 460
+        },
+        {
+          "w": "is",
+          "s": 460,
+          "e": 469
+        },
+        {
+          "w": "all",
+          "s": 469,
+          "e": 476
+        },
+        {
+          "w": "there",
+          "s": 476,
+          "e": 481
+        },
+        {
+          "w": "is.",
+          "s": 481,
+          "e": 499
+        }
+      ]
+    },
+    {
+      "text": "We're going to come back to that over and",
+      "startFrame": 524,
+      "endFrame": 568,
+      "words": [
+        {
+          "w": "We're",
+          "s": 524,
+          "e": 532
+        },
+        {
+          "w": "going",
+          "s": 532,
+          "e": 535
+        },
+        {
+          "w": "to",
+          "s": 534,
+          "e": 537
+        },
+        {
+          "w": "come",
+          "s": 536,
+          "e": 541
+        },
+        {
+          "w": "back",
+          "s": 541,
+          "e": 544
+        },
+        {
+          "w": "to",
+          "s": 544,
+          "e": 548
+        },
+        {
+          "w": "that",
+          "s": 548,
+          "e": 556
+        },
+        {
+          "w": "over",
+          "s": 556,
+          "e": 560
+        },
+        {
+          "w": "and",
+          "s": 560,
+          "e": 568
+        }
+      ]
+    },
+    {
+      "text": "over. But first, we really need to set the",
+      "startFrame": 568,
+      "endFrame": 647,
+      "words": [
+        {
+          "w": "over.",
+          "s": 568,
+          "e": 592
+        },
+        {
+          "w": "But",
+          "s": 592,
+          "e": 596
+        },
+        {
+          "w": "first,",
+          "s": 596,
+          "e": 613
+        },
+        {
+          "w": "we",
+          "s": 613,
+          "e": 620
+        },
+        {
+          "w": "really",
+          "s": 620,
+          "e": 628
+        },
+        {
+          "w": "need",
+          "s": 628,
+          "e": 631
+        },
+        {
+          "w": "to",
+          "s": 630,
+          "e": 637
+        },
+        {
+          "w": "set",
+          "s": 637,
+          "e": 642
+        },
+        {
+          "w": "the",
+          "s": 642,
+          "e": 647
+        }
+      ]
+    },
+    {
+      "text": "stage. Yeah. We have to meet the characters, right?",
+      "startFrame": 647,
+      "endFrame": 728,
+      "words": [
+        {
+          "w": "stage.",
+          "s": 647,
+          "e": 659
+        },
+        {
+          "w": "Yeah.",
+          "s": 659,
+          "e": 664
+        },
+        {
+          "w": "We",
+          "s": 664,
+          "e": 668
+        },
+        {
+          "w": "have",
+          "s": 668,
+          "e": 671
+        },
+        {
+          "w": "to",
+          "s": 671,
+          "e": 676
+        },
+        {
+          "w": "meet",
+          "s": 676,
+          "e": 680
+        },
+        {
+          "w": "the",
+          "s": 680,
+          "e": 685
+        },
+        {
+          "w": "characters,",
+          "s": 685,
+          "e": 709
+        },
+        {
+          "w": "right?",
+          "s": 709,
+          "e": 728
+        }
+      ]
+    },
+    {
+      "text": "To understand how we make these invisible errors, you",
+      "startFrame": 728,
+      "endFrame": 812,
+      "words": [
+        {
+          "w": "To",
+          "s": 728,
+          "e": 736
+        },
+        {
+          "w": "understand",
+          "s": 736,
+          "e": 748
+        },
+        {
+          "w": "how",
+          "s": 748,
+          "e": 752
+        },
+        {
+          "w": "we",
+          "s": 752,
+          "e": 757
+        },
+        {
+          "w": "make",
+          "s": 757,
+          "e": 762
+        },
+        {
+          "w": "these",
+          "s": 762,
+          "e": 769
+        },
+        {
+          "w": "invisible",
+          "s": 769,
+          "e": 791
+        },
+        {
+          "w": "errors,",
+          "s": 791,
+          "e": 808
+        },
+        {
+          "w": "you",
+          "s": 808,
+          "e": 812
+        }
+      ]
+    },
+    {
+      "text": "got to meet these two fictitious characters living inside",
+      "startFrame": 812,
+      "endFrame": 901,
+      "words": [
+        {
+          "w": "got",
+          "s": 812,
+          "e": 817
+        },
+        {
+          "w": "to",
+          "s": 817,
+          "e": 820
+        },
+        {
+          "w": "meet",
+          "s": 820,
+          "e": 824
+        },
+        {
+          "w": "these",
+          "s": 824,
+          "e": 834
+        },
+        {
+          "w": "two",
+          "s": 834,
+          "e": 841
+        },
+        {
+          "w": "fictitious",
+          "s": 841,
+          "e": 860
+        },
+        {
+          "w": "characters",
+          "s": 860,
+          "e": 882
+        },
+        {
+          "w": "living",
+          "s": 882,
+          "e": 892
+        },
+        {
+          "w": "inside",
+          "s": 892,
+          "e": 901
+        }
+      ]
+    },
+    {
+      "text": "an ordinary person's head.",
+      "startFrame": 901,
+      "endFrame": 952,
+      "words": [
+        {
+          "w": "an",
+          "s": 901,
+          "e": 911
+        },
+        {
+          "w": "ordinary",
+          "s": 911,
+          "e": 923
+        },
+        {
+          "w": "person's",
+          "s": 923,
+          "e": 935
+        },
+        {
+          "w": "head.",
+          "s": 935,
+          "e": 952
+        }
+      ]
+    },
+    {
+      "text": "Kahneman calls them system one and system",
+      "startFrame": 952,
+      "endFrame": 1043,
+      "words": [
+        {
+          "w": "Kahneman",
+          "s": 952,
+          "e": 968
+        },
+        {
+          "w": "calls",
+          "s": 968,
+          "e": 976
+        },
+        {
+          "w": "them",
+          "s": 976,
+          "e": 997
+        },
+        {
+          "w": "system",
+          "s": 997,
+          "e": 1009
+        },
+        {
+          "w": "one",
+          "s": 1009,
+          "e": 1024
+        },
+        {
+          "w": "and",
+          "s": 1024,
+          "e": 1033
+        },
+        {
+          "w": "system",
+          "s": 1033,
+          "e": 1043
+        }
+      ]
+    },
+    {
+      "text": "two. And it's so crucial to understand right up",
+      "startFrame": 1043,
+      "endFrame": 1117,
+      "words": [
+        {
+          "w": "two.",
+          "s": 1043,
+          "e": 1062
+        },
+        {
+          "w": "And",
+          "s": 1062,
+          "e": 1069
+        },
+        {
+          "w": "it's",
+          "s": 1069,
+          "e": 1076
+        },
+        {
+          "w": "so",
+          "s": 1076,
+          "e": 1081
+        },
+        {
+          "w": "crucial",
+          "s": 1081,
+          "e": 1091
+        },
+        {
+          "w": "to",
+          "s": 1091,
+          "e": 1096
+        },
+        {
+          "w": "understand",
+          "s": 1096,
+          "e": 1105
+        },
+        {
+          "w": "right",
+          "s": 1105,
+          "e": 1112
+        },
+        {
+          "w": "up",
+          "s": 1112,
+          "e": 1117
+        }
+      ]
+    },
+    {
+      "text": "front that these aren't like physical brain regions.",
+      "startFrame": 1117,
+      "endFrame": 1199,
+      "words": [
+        {
+          "w": "front",
+          "s": 1117,
+          "e": 1122
+        },
+        {
+          "w": "that",
+          "s": 1122,
+          "e": 1129
+        },
+        {
+          "w": "these",
+          "s": 1129,
+          "e": 1139
+        },
+        {
+          "w": "aren't",
+          "s": 1139,
+          "e": 1151
+        },
+        {
+          "w": "like",
+          "s": 1151,
+          "e": 1160
+        },
+        {
+          "w": "physical",
+          "s": 1160,
+          "e": 1175
+        },
+        {
+          "w": "brain",
+          "s": 1175,
+          "e": 1182
+        },
+        {
+          "w": "regions.",
+          "s": 1182,
+          "e": 1199
+        }
+      ]
+    },
+    {
+      "text": "Like",
+      "startFrame": 1199,
+      "endFrame": 1200,
+      "words": [
+        {
+          "w": "Like",
+          "s": 1199,
+          "e": 1200
+        }
+      ]
+    },
+    {
+      "text": "The hum of the projector kicks on behind him,",
+      "startFrame": 1207,
+      "endFrame": 1272,
+      "words": [
+        {
+          "w": "The",
+          "s": 1207,
+          "e": 1214
+        },
+        {
+          "w": "hum",
+          "s": 1214,
+          "e": 1222
+        },
+        {
+          "w": "of",
+          "s": 1222,
+          "e": 1225
+        },
+        {
+          "w": "the",
+          "s": 1224,
+          "e": 1227
+        },
+        {
+          "w": "projector",
+          "s": 1226,
+          "e": 1238
+        },
+        {
+          "w": "kicks",
+          "s": 1238,
+          "e": 1246
+        },
+        {
+          "w": "on",
+          "s": 1246,
+          "e": 1250
+        },
+        {
+          "w": "behind",
+          "s": 1250,
+          "e": 1260
+        },
+        {
+          "w": "him,",
+          "s": 1260,
+          "e": 1272
+        }
+      ]
+    },
+    {
+      "text": "he flashes this brilliant smile and starts pitching a",
+      "startFrame": 1272,
+      "endFrame": 1363,
+      "words": [
+        {
+          "w": "he",
+          "s": 1272,
+          "e": 1277
+        },
+        {
+          "w": "flashes",
+          "s": 1277,
+          "e": 1291
+        },
+        {
+          "w": "this",
+          "s": 1291,
+          "e": 1298
+        },
+        {
+          "w": "brilliant",
+          "s": 1298,
+          "e": 1313
+        },
+        {
+          "w": "smile",
+          "s": 1313,
+          "e": 1337
+        },
+        {
+          "w": "and",
+          "s": 1337,
+          "e": 1342
+        },
+        {
+          "w": "starts",
+          "s": 1342,
+          "e": 1349
+        },
+        {
+          "w": "pitching",
+          "s": 1349,
+          "e": 1356
+        },
+        {
+          "w": "a",
+          "s": 1356,
+          "e": 1363
+        }
+      ]
+    },
+    {
+      "text": "new marketing plan. And within seconds, before",
+      "startFrame": 1363,
+      "endFrame": 1457,
+      "words": [
+        {
+          "w": "new",
+          "s": 1363,
+          "e": 1366
+        },
+        {
+          "w": "marketing",
+          "s": 1366,
+          "e": 1378
+        },
+        {
+          "w": "plan.",
+          "s": 1378,
+          "e": 1404
+        },
+        {
+          "w": "And",
+          "s": 1404,
+          "e": 1411
+        },
+        {
+          "w": "within",
+          "s": 1411,
+          "e": 1421
+        },
+        {
+          "w": "seconds,",
+          "s": 1421,
+          "e": 1450
+        },
+        {
+          "w": "before",
+          "s": 1450,
+          "e": 1457
+        }
+      ]
+    },
+    {
+      "text": "he's even laid out the financials, you decide his",
+      "startFrame": 1457,
+      "endFrame": 1536,
+      "words": [
+        {
+          "w": "he's",
+          "s": 1457,
+          "e": 1466
+        },
+        {
+          "w": "even",
+          "s": 1466,
+          "e": 1471
+        },
+        {
+          "w": "laid",
+          "s": 1471,
+          "e": 1478
+        },
+        {
+          "w": "out",
+          "s": 1478,
+          "e": 1483
+        },
+        {
+          "w": "the",
+          "s": 1483,
+          "e": 1488
+        },
+        {
+          "w": "financials,",
+          "s": 1488,
+          "e": 1512
+        },
+        {
+          "w": "you",
+          "s": 1512,
+          "e": 1519
+        },
+        {
+          "w": "decide",
+          "s": 1519,
+          "e": 1529
+        },
+        {
+          "w": "his",
+          "s": 1529,
+          "e": 1536
+        }
+      ]
+    },
+    {
+      "text": "plan is absolutely brilliant.",
+      "startFrame": 1536,
+      "endFrame": 1584,
+      "words": [
+        {
+          "w": "plan",
+          "s": 1536,
+          "e": 1543
+        },
+        {
+          "w": "is",
+          "s": 1543,
+          "e": 1550
+        },
+        {
+          "w": "absolutely",
+          "s": 1550,
+          "e": 1562
+        },
+        {
+          "w": "brilliant.",
+          "s": 1562,
+          "e": 1584
+        }
+      ]
+    },
+    {
+      "text": "You have just fallen victim to the halo The",
+      "startFrame": 1584,
+      "endFrame": 1675,
+      "words": [
+        {
+          "w": "You",
+          "s": 1584,
+          "e": 1591
+        },
+        {
+          "w": "have",
+          "s": 1591,
+          "e": 1596
+        },
+        {
+          "w": "just",
+          "s": 1596,
+          "e": 1601
+        },
+        {
+          "w": "fallen",
+          "s": 1601,
+          "e": 1608
+        },
+        {
+          "w": "victim",
+          "s": 1608,
+          "e": 1618
+        },
+        {
+          "w": "to",
+          "s": 1618,
+          "e": 1625
+        },
+        {
+          "w": "the",
+          "s": 1625,
+          "e": 1634
+        },
+        {
+          "w": "halo",
+          "s": 1634,
+          "e": 1670
+        },
+        {
+          "w": "The",
+          "s": 1670,
+          "e": 1675
+        }
+      ]
+    },
+    {
+      "text": "halo effect. Yeah. This is a masterclass in how",
+      "startFrame": 1675,
+      "endFrame": 1747,
+      "words": [
+        {
+          "w": "halo",
+          "s": 1675,
+          "e": 1687
+        },
+        {
+          "w": "effect.",
+          "s": 1687,
+          "e": 1702
+        },
+        {
+          "w": "Yeah.",
+          "s": 1702,
+          "e": 1706
+        },
+        {
+          "w": "This",
+          "s": 1706,
+          "e": 1711
+        },
+        {
+          "w": "is",
+          "s": 1711,
+          "e": 1714
+        },
+        {
+          "w": "a",
+          "s": 1714,
+          "e": 1721
+        },
+        {
+          "w": "masterclass",
+          "s": 1721,
+          "e": 1735
+        },
+        {
+          "w": "in",
+          "s": 1735,
+          "e": 1742
+        },
+        {
+          "w": "how",
+          "s": 1742,
+          "e": 1747
+        }
+      ]
+    },
+    {
+      "text": "system one operates when it evaluates people.",
+      "startFrame": 1747,
+      "endFrame": 1812,
+      "words": [
+        {
+          "w": "system",
+          "s": 1747,
+          "e": 1757
+        },
+        {
+          "w": "one",
+          "s": 1757,
+          "e": 1764
+        },
+        {
+          "w": "operates",
+          "s": 1764,
+          "e": 1776
+        },
+        {
+          "w": "when",
+          "s": 1776,
+          "e": 1781
+        },
+        {
+          "w": "it",
+          "s": 1781,
+          "e": 1786
+        },
+        {
+          "w": "evaluates",
+          "s": 1786,
+          "e": 1802
+        },
+        {
+          "w": "people.",
+          "s": 1802,
+          "e": 1812
+        }
+      ]
+    },
+    {
+      "text": "We build these incredibly rigid, confident stories",
+      "startFrame": 1812,
+      "endFrame": 1906,
+      "words": [
+        {
+          "w": "We",
+          "s": 1812,
+          "e": 1819
+        },
+        {
+          "w": "build",
+          "s": 1819,
+          "e": 1824
+        },
+        {
+          "w": "these",
+          "s": 1824,
+          "e": 1841
+        },
+        {
+          "w": "incredibly",
+          "s": 1841,
+          "e": 1860
+        },
+        {
+          "w": "rigid,",
+          "s": 1860,
+          "e": 1882
+        },
+        {
+          "w": "confident",
+          "s": 1882,
+          "e": 1896
+        },
+        {
+          "w": "stories",
+          "s": 1896,
+          "e": 1906
+        }
+      ]
+    },
+    {
+      "text": "based on paper thin just because he looks good.",
+      "startFrame": 1906,
+      "endFrame": 2004,
+      "words": [
+        {
+          "w": "based",
+          "s": 1906,
+          "e": 1915
+        },
+        {
+          "w": "on",
+          "s": 1915,
+          "e": 1925
+        },
+        {
+          "w": "paper",
+          "s": 1925,
+          "e": 1937
+        },
+        {
+          "w": "thin",
+          "s": 1937,
+          "e": 1966
+        },
+        {
+          "w": "just",
+          "s": 1966,
+          "e": 1973
+        },
+        {
+          "w": "because",
+          "s": 1973,
+          "e": 1978
+        },
+        {
+          "w": "he",
+          "s": 1978,
+          "e": 1985
+        },
+        {
+          "w": "looks",
+          "s": 1985,
+          "e": 1992
+        },
+        {
+          "w": "good.",
+          "s": 1992,
+          "e": 2004
+        }
+      ]
+    },
+    {
+      "text": "Essentially, yes. Because the speaker is confident and handsome,",
+      "startFrame": 2004,
+      "endFrame": 2105,
+      "words": [
+        {
+          "w": "Essentially,",
+          "s": 2004,
+          "e": 2023
+        },
+        {
+          "w": "yes.",
+          "s": 2023,
+          "e": 2040
+        },
+        {
+          "w": "Because",
+          "s": 2040,
+          "e": 2050
+        },
+        {
+          "w": "the",
+          "s": 2050,
+          "e": 2054
+        },
+        {
+          "w": "speaker",
+          "s": 2054,
+          "e": 2064
+        },
+        {
+          "w": "is",
+          "s": 2064,
+          "e": 2071
+        },
+        {
+          "w": "confident",
+          "s": 2071,
+          "e": 2083
+        },
+        {
+          "w": "and",
+          "s": 2083,
+          "e": 2093
+        },
+        {
+          "w": "handsome,",
+          "s": 2093,
+          "e": 2105
+        }
+      ]
+    },
+    {
+      "text": "system one likes him and has a positive affective",
+      "startFrame": 2105,
+      "endFrame": 2194,
+      "words": [
+        {
+          "w": "system",
+          "s": 2105,
+          "e": 2114
+        },
+        {
+          "w": "one",
+          "s": 2114,
+          "e": 2122
+        },
+        {
+          "w": "likes",
+          "s": 2122,
+          "e": 2129
+        },
+        {
+          "w": "him",
+          "s": 2129,
+          "e": 2136
+        },
+        {
+          "w": "and",
+          "s": 2136,
+          "e": 2141
+        },
+        {
+          "w": "has",
+          "s": 2141,
+          "e": 2144
+        },
+        {
+          "w": "a",
+          "s": 2143,
+          "e": 2158
+        },
+        {
+          "w": "positive",
+          "s": 2158,
+          "e": 2177
+        },
+        {
+          "w": "affective",
+          "s": 2177,
+          "e": 2194
+        }
+      ]
+    },
+    {
+      "text": "response. And because system one demands a coherent world",
+      "startFrame": 2194,
+      "endFrame": 2285,
+      "words": [
+        {
+          "w": "response.",
+          "s": 2194,
+          "e": 2213
+        },
+        {
+          "w": "And",
+          "s": 2213,
+          "e": 2218
+        },
+        {
+          "w": "because",
+          "s": 2218,
+          "e": 2225
+        },
+        {
+          "w": "system",
+          "s": 2225,
+          "e": 2234
+        },
+        {
+          "w": "one",
+          "s": 2234,
+          "e": 2244
+        },
+        {
+          "w": "demands",
+          "s": 2244,
+          "e": 2256
+        },
+        {
+          "w": "a",
+          "s": 2256,
+          "e": 2261
+        },
+        {
+          "w": "coherent",
+          "s": 2261,
+          "e": 2278
+        },
+        {
+          "w": "world",
+          "s": 2278,
+          "e": 2285
+        }
+      ]
+    },
+    {
+      "text": "where good people do exclusively good things, it",
+      "startFrame": 2285,
+      "endFrame": 2381,
+      "words": [
+        {
+          "w": "where",
+          "s": 2285,
+          "e": 2299
+        },
+        {
+          "w": "good",
+          "s": 2299,
+          "e": 2309
+        },
+        {
+          "w": "people",
+          "s": 2309,
+          "e": 2318
+        },
+        {
+          "w": "do",
+          "s": 2318,
+          "e": 2330
+        },
+        {
+          "w": "exclusively",
+          "s": 2330,
+          "e": 2352
+        },
+        {
+          "w": "good",
+          "s": 2352,
+          "e": 2357
+        },
+        {
+          "w": "things,",
+          "s": 2357,
+          "e": 2374
+        },
+        {
+          "w": "it",
+          "s": 2374,
+          "e": 2381
+        }
+      ]
+    },
+    {
+      "text": "automatically assumes everything else about them is good, too.",
+      "startFrame": 2381,
+      "endFrame": 2470,
+      "words": [
+        {
+          "w": "automatically",
+          "s": 2381,
+          "e": 2398
+        },
+        {
+          "w": "assumes",
+          "s": 2398,
+          "e": 2410
+        },
+        {
+          "w": "everything",
+          "s": 2410,
+          "e": 2419
+        },
+        {
+          "w": "else",
+          "s": 2419,
+          "e": 2424
+        },
+        {
+          "w": "about",
+          "s": 2424,
+          "e": 2431
+        },
+        {
+          "w": "them",
+          "s": 2431,
+          "e": 2436
+        },
+        {
+          "w": "is",
+          "s": 2436,
+          "e": 2441
+        },
+        {
+          "w": "good,",
+          "s": 2441,
+          "e": 2446
+        },
+        {
+          "w": "too.",
+          "s": 2446,
+          "e": 2470
+        }
+      ]
+    },
+    {
+      "text": "It's like a slick user interface on a terrible",
+      "startFrame": 2470,
+      "endFrame": 2542,
+      "words": [
+        {
+          "w": "It's",
+          "s": 2470,
+          "e": 2477
+        },
+        {
+          "w": "like",
+          "s": 2477,
+          "e": 2482
+        },
+        {
+          "w": "a",
+          "s": 2482,
+          "e": 2489
+        },
+        {
+          "w": "slick",
+          "s": 2489,
+          "e": 2501
+        },
+        {
+          "w": "user",
+          "s": 2501,
+          "e": 2510
+        },
+        {
+          "w": "interface",
+          "s": 2510,
+          "e": 2520
+        },
+        {
+          "w": "on",
+          "s": 2520,
+          "e": 2527
+        },
+        {
+          "w": "a",
+          "s": 2527,
+          "e": 2532
+        },
+        {
+          "w": "terrible",
+          "s": 2532,
+          "e": 2542
+        }
+      ]
+    },
+    {
+      "text": "app. Oh, that's good.",
+      "startFrame": 2542,
+      "endFrame": 2580,
+      "words": [
+        {
+          "w": "app.",
+          "s": 2542,
+          "e": 2554
+        },
+        {
+          "w": "Oh,",
+          "s": 2554,
+          "e": 2561
+        },
+        {
+          "w": "that's",
+          "s": 2561,
+          "e": 2568
+        },
+        {
+          "w": "good.",
+          "s": 2568,
+          "e": 2580
+        }
+      ]
+    },
+    {
+      "text": "Like the buttons look nice, the animations are smooth.",
+      "startFrame": 2580,
+      "endFrame": 2671,
+      "words": [
+        {
+          "w": "Like",
+          "s": 2580,
+          "e": 2587
+        },
+        {
+          "w": "the",
+          "s": 2587,
+          "e": 2592
+        },
+        {
+          "w": "buttons",
+          "s": 2592,
+          "e": 2602
+        },
+        {
+          "w": "look",
+          "s": 2602,
+          "e": 2606
+        },
+        {
+          "w": "nice,",
+          "s": 2606,
+          "e": 2618
+        },
+        {
+          "w": "the",
+          "s": 2618,
+          "e": 2630
+        },
+        {
+          "w": "animations",
+          "s": 2630,
+          "e": 2647
+        },
+        {
+          "w": "are",
+          "s": 2647,
+          "e": 2654
+        },
+        {
+          "w": "smooth.",
+          "s": 2654,
+          "e": 2671
+        }
+      ]
+    },
+    {
+      "text": "So your brain just assumes the underlying code must",
+      "startFrame": 2671,
+      "endFrame": 2750,
+      "words": [
+        {
+          "w": "So",
+          "s": 2671,
+          "e": 2676
+        },
+        {
+          "w": "your",
+          "s": 2676,
+          "e": 2683
+        },
+        {
+          "w": "brain",
+          "s": 2683,
+          "e": 2690
+        },
+        {
+          "w": "just",
+          "s": 2690,
+          "e": 2698
+        },
+        {
+          "w": "assumes",
+          "s": 2698,
+          "e": 2717
+        },
+        {
+          "w": "the",
+          "s": 2717,
+          "e": 2724
+        },
+        {
+          "w": "underlying",
+          "s": 2724,
+          "e": 2736
+        },
+        {
+          "w": "code",
+          "s": 2736,
+          "e": 2743
+        },
+        {
+          "w": "must",
+          "s": 2743,
+          "e": 2750
+        }
+      ]
+    },
+    {
+      "text": "be flawless, even if the app crashes 5 minutes",
+      "startFrame": 2750,
+      "endFrame": 2818,
+      "words": [
+        {
+          "w": "be",
+          "s": 2750,
+          "e": 2755
+        },
+        {
+          "w": "flawless,",
+          "s": 2755,
+          "e": 2774
+        },
+        {
+          "w": "even",
+          "s": 2774,
+          "e": 2782
+        },
+        {
+          "w": "if",
+          "s": 2782,
+          "e": 2785
+        },
+        {
+          "w": "the",
+          "s": 2784,
+          "e": 2789
+        },
+        {
+          "w": "app",
+          "s": 2789,
+          "e": 2794
+        },
+        {
+          "w": "crashes",
+          "s": 2794,
+          "e": 2806
+        },
+        {
+          "w": "5",
+          "s": 2806,
+          "e": 2813
+        },
+        {
+          "w": "minutes",
+          "s": 2813,
+          "e": 2818
+        }
+      ]
+    },
+    {
+      "text": "later. Exactly.",
+      "startFrame": 2818,
+      "endFrame": 2850,
+      "words": [
+        {
+          "w": "later.",
+          "s": 2818,
+          "e": 2832
+        },
+        {
+          "w": "Exactly.",
+          "s": 2832,
+          "e": 2850
+        }
+      ]
+    },
+    {
+      "text": "It reminds me of looking at real estate on",
+      "startFrame": 2857,
+      "endFrame": 2910,
+      "words": [
+        {
+          "w": "It",
+          "s": 2857,
+          "e": 2864
+        },
+        {
+          "w": "reminds",
+          "s": 2864,
+          "e": 2872
+        },
+        {
+          "w": "me",
+          "s": 2872,
+          "e": 2876
+        },
+        {
+          "w": "of",
+          "s": 2876,
+          "e": 2881
+        },
+        {
+          "w": "looking",
+          "s": 2881,
+          "e": 2886
+        },
+        {
+          "w": "at",
+          "s": 2886,
+          "e": 2893
+        },
+        {
+          "w": "real",
+          "s": 2893,
+          "e": 2898
+        },
+        {
+          "w": "estate",
+          "s": 2898,
+          "e": 2905
+        },
+        {
+          "w": "on",
+          "s": 2905,
+          "e": 2910
+        }
+      ]
+    },
+    {
+      "text": "Zillow. Oh, perfect example.",
+      "startFrame": 2910,
+      "endFrame": 2960,
+      "words": [
+        {
+          "w": "Zillow.",
+          "s": 2910,
+          "e": 2927
+        },
+        {
+          "w": "Oh,",
+          "s": 2927,
+          "e": 2936
+        },
+        {
+          "w": "perfect",
+          "s": 2936,
+          "e": 2946
+        },
+        {
+          "w": "example.",
+          "s": 2946,
+          "e": 2960
+        }
+      ]
+    },
+    {
+      "text": "You look at a house and there's that Zestimate",
+      "startFrame": 2960,
+      "endFrame": 3023,
+      "words": [
+        {
+          "w": "You",
+          "s": 2960,
+          "e": 2965
+        },
+        {
+          "w": "look",
+          "s": 2965,
+          "e": 2970
+        },
+        {
+          "w": "at",
+          "s": 2970,
+          "e": 2973
+        },
+        {
+          "w": "a",
+          "s": 2972,
+          "e": 2977
+        },
+        {
+          "w": "house",
+          "s": 2977,
+          "e": 2980
+        },
+        {
+          "w": "and",
+          "s": 2980,
+          "e": 2987
+        },
+        {
+          "w": "there's",
+          "s": 2987,
+          "e": 2994
+        },
+        {
+          "w": "that",
+          "s": 2994,
+          "e": 3006
+        },
+        {
+          "w": "Zestimate",
+          "s": 3006,
+          "e": 3023
+        }
+      ]
+    },
+    {
+      "text": "right at the top of the page.",
+      "startFrame": 3023,
+      "endFrame": 3066,
+      "words": [
+        {
+          "w": "right",
+          "s": 3023,
+          "e": 3030
+        },
+        {
+          "w": "at",
+          "s": 3030,
+          "e": 3035
+        },
+        {
+          "w": "the",
+          "s": 3035,
+          "e": 3038
+        },
+        {
+          "w": "top",
+          "s": 3037,
+          "e": 3042
+        },
+        {
+          "w": "of",
+          "s": 3042,
+          "e": 3045
+        },
+        {
+          "w": "the",
+          "s": 3044,
+          "e": 3049
+        },
+        {
+          "w": "page.",
+          "s": 3049,
+          "e": 3066
+        }
+      ]
+    },
+    {
+      "text": "Say it says $500,000.",
+      "startFrame": 3066,
+      "endFrame": 3106,
+      "words": [
+        {
+          "w": "Say",
+          "s": 3066,
+          "e": 3073
+        },
+        {
+          "w": "it",
+          "s": 3073,
+          "e": 3078
+        },
+        {
+          "w": "says",
+          "s": 3078,
+          "e": 3088
+        },
+        {
+          "w": "$500,000.",
+          "s": 3088,
+          "e": 3106
+        }
+      ]
+    },
+    {
+      "text": "You walk through the house, the roof is caving",
+      "startFrame": 3138,
+      "endFrame": 3205,
+      "words": [
+        {
+          "w": "You",
+          "s": 3138,
+          "e": 3145
+        },
+        {
+          "w": "walk",
+          "s": 3145,
+          "e": 3152
+        },
+        {
+          "w": "through",
+          "s": 3152,
+          "e": 3157
+        },
+        {
+          "w": "the",
+          "s": 3157,
+          "e": 3162
+        },
+        {
+          "w": "house,",
+          "s": 3162,
+          "e": 3179
+        },
+        {
+          "w": "the",
+          "s": 3179,
+          "e": 3186
+        },
+        {
+          "w": "roof",
+          "s": 3186,
+          "e": 3191
+        },
+        {
+          "w": "is",
+          "s": 3191,
+          "e": 3196
+        },
+        {
+          "w": "caving",
+          "s": 3196,
+          "e": 3205
+        }
+      ]
+    },
+    {
+      "text": "in, the floors are rotting.",
+      "startFrame": 3205,
+      "endFrame": 3246,
+      "words": [
+        {
+          "w": "in,",
+          "s": 3205,
+          "e": 3212
+        },
+        {
+          "w": "the",
+          "s": 3212,
+          "e": 3215
+        },
+        {
+          "w": "floors",
+          "s": 3215,
+          "e": 3222
+        },
+        {
+          "w": "are",
+          "s": 3222,
+          "e": 3227
+        },
+        {
+          "w": "rotting.",
+          "s": 3227,
+          "e": 3246
+        }
+      ]
+    },
+    {
+      "text": "It's a dump. Total dump.",
+      "startFrame": 3246,
+      "endFrame": 3301,
+      "words": [
+        {
+          "w": "It's",
+          "s": 3246,
+          "e": 3251
+        },
+        {
+          "w": "a",
+          "s": 3251,
+          "e": 3256
+        },
+        {
+          "w": "dump.",
+          "s": 3256,
+          "e": 3268
+        },
+        {
+          "w": "Total",
+          "s": 3268,
+          "e": 3277
+        },
+        {
+          "w": "dump.",
+          "s": 3277,
+          "e": 3301
+        }
+      ]
+    },
+    {
+      "text": "But because you saw that 500,000 number first, you",
+      "startFrame": 3301,
+      "endFrame": 3390,
+      "words": [
+        {
+          "w": "But",
+          "s": 3301,
+          "e": 3308
+        },
+        {
+          "w": "because",
+          "s": 3308,
+          "e": 3313
+        },
+        {
+          "w": "you",
+          "s": 3313,
+          "e": 3318
+        },
+        {
+          "w": "saw",
+          "s": 3318,
+          "e": 3323
+        },
+        {
+          "w": "that",
+          "s": 3323,
+          "e": 3332
+        },
+        {
+          "w": "500,000",
+          "s": 3332,
+          "e": 3352
+        },
+        {
+          "w": "number",
+          "s": 3352,
+          "e": 3364
+        },
+        {
+          "w": "first,",
+          "s": 3364,
+          "e": 3385
+        },
+        {
+          "w": "you",
+          "s": 3385,
+          "e": 3390
+        }
+      ]
+    },
+    {
+      "text": "walk out thinking, \"Well, maybe I could If",
+      "startFrame": 3390,
+      "endFrame": 3539,
+      "words": [
+        {
+          "w": "walk",
+          "s": 3390,
+          "e": 3397
+        },
+        {
+          "w": "out",
+          "s": 3397,
+          "e": 3404
+        },
+        {
+          "w": "thinking,",
+          "s": 3404,
+          "e": 3424
+        },
+        {
+          "w": "\"Well,",
+          "s": 3424,
+          "e": 3436
+        },
+        {
+          "w": "maybe",
+          "s": 3436,
+          "e": 3443
+        },
+        {
+          "w": "I",
+          "s": 3443,
+          "e": 3448
+        },
+        {
+          "w": "could",
+          "s": 3448,
+          "e": 3466
+        },
+        {
+          "w": "If",
+          "s": 3532,
+          "e": 3539
+        }
+      ]
+    },
+    {
+      "text": "you had never seen this estimate, you would have",
+      "startFrame": 3539,
+      "endFrame": 3592,
+      "words": [
+        {
+          "w": "you",
+          "s": 3539,
+          "e": 3542
+        },
+        {
+          "w": "had",
+          "s": 3541,
+          "e": 3546
+        },
+        {
+          "w": "never",
+          "s": 3546,
+          "e": 3551
+        },
+        {
+          "w": "seen",
+          "s": 3551,
+          "e": 3558
+        },
+        {
+          "w": "this",
+          "s": 3558,
+          "e": 3565
+        },
+        {
+          "w": "estimate,",
+          "s": 3565,
+          "e": 3580
+        },
+        {
+          "w": "you",
+          "s": 3580,
+          "e": 3584
+        },
+        {
+          "w": "would",
+          "s": 3584,
+          "e": 3589
+        },
+        {
+          "w": "have",
+          "s": 3589,
+          "e": 3592
+        }
+      ]
+    },
+    {
+      "text": "thought the house was worth 200,000.",
+      "startFrame": 3592,
+      "endFrame": 3654,
+      "words": [
+        {
+          "w": "thought",
+          "s": 3592,
+          "e": 3596
+        },
+        {
+          "w": "the",
+          "s": 3596,
+          "e": 3601
+        },
+        {
+          "w": "house",
+          "s": 3601,
+          "e": 3608
+        },
+        {
+          "w": "was",
+          "s": 3608,
+          "e": 3613
+        },
+        {
+          "w": "worth",
+          "s": 3613,
+          "e": 3623
+        },
+        {
+          "w": "200,000.",
+          "s": 3623,
+          "e": 3654
+        }
+      ]
+    },
+    {
+      "text": "The anchor drags you up, regardless of the physical",
+      "startFrame": 3654,
+      "endFrame": 3738,
+      "words": [
+        {
+          "w": "The",
+          "s": 3654,
+          "e": 3661
+        },
+        {
+          "w": "anchor",
+          "s": 3661,
+          "e": 3676
+        },
+        {
+          "w": "drags",
+          "s": 3676,
+          "e": 3685
+        },
+        {
+          "w": "you",
+          "s": 3685,
+          "e": 3692
+        },
+        {
+          "w": "up,",
+          "s": 3692,
+          "e": 3704
+        },
+        {
+          "w": "regardless",
+          "s": 3704,
+          "e": 3716
+        },
+        {
+          "w": "of",
+          "s": 3716,
+          "e": 3721
+        },
+        {
+          "w": "the",
+          "s": 3721,
+          "e": 3728
+        },
+        {
+          "w": "physical",
+          "s": 3728,
+          "e": 3738
+        }
+      ]
+    },
+    {
+      "text": "reality of the house.",
+      "startFrame": 3738,
+      "endFrame": 3780,
+      "words": [
+        {
+          "w": "reality",
+          "s": 3738,
+          "e": 3748
+        },
+        {
+          "w": "of",
+          "s": 3748,
+          "e": 3752
+        },
+        {
+          "w": "the",
+          "s": 3752,
+          "e": 3757
+        },
+        {
+          "w": "house.",
+          "s": 3757,
+          "e": 3780
+        }
+      ]
+    }
+  ]
+}
