@@ -1,0 +1,27 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 3 — P0.2 Render Bugfix Verification (BeforeAfterWipe + spec.at + InlineVisualSlot)",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "jobs": [
+  {
+   "id": "p02-bugfix-check",
+   "config": "configs/p02-bugfix-check.json",
+   "frames": [
+    20,
+    72,
+    140,
+    185
+   ],
+   "strip": true
+  }
+ ],
+ "inputHash": "cbd2762612862620",
+ "files": {
+  "stills/configs/p02-bugfix-check.json": "b8a62db4e0ba3e9553fbf6ab0c41d3850e242a295ed461c6ff3d176da4fc635a"
+ },
+ "builtAt": "2026-11-27T10:55:11.840Z"
+}
