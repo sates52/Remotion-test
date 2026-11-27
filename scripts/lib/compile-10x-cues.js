@@ -51,6 +51,8 @@ const TOP_CUE_MAP = [
   ["breakCue", "breakAt"],
   ["revealLessonCue", "revealLessonAt"],
   ["synthesisCue", "synthesisAt"],
+  ["payoffCue", "payoffAt"],
+  ["changeCue", "changeAt"],
 ];
 
 const ARRAY_KEYS = [
@@ -158,7 +160,7 @@ function ensureMotionPacing(scene, dur) {
   for (const dk of DEVICE_10X_KEYS) {
     const dev = scene[dk];
     if (!dev || typeof dev !== "object") continue;
-    for (const k of ["at", "tossAt", "splitAt", "wipeAt", "zoomAt", "expandAt", "calloutAt", "verdictAt", "footnoteAt", "loopAt"]) {
+    for (const k of ["at", "tossAt", "splitAt", "wipeAt", "zoomAt", "expandAt", "calloutAt", "verdictAt", "footnoteAt", "loopAt", "payoffAt", "changeAt"]) {
       pushAt(dev[k]);
     }
     if (dev.intersection) pushAt(dev.intersection.at);

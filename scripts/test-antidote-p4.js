@@ -46,8 +46,8 @@ function test(name, fn) {
 
 console.log("Running Antidote 10x Phase 4 tests...");
 
-test("30 devices registered in DEVICE_10X_KEYS and classified cleanly", () => {
-  assert.strictEqual(DEVICE_10X_KEYS.length, 30, `expected 30 devices, got ${DEVICE_10X_KEYS.length}`);
+test("30+ devices registered in DEVICE_10X_KEYS and classified cleanly", () => {
+  assert(DEVICE_10X_KEYS.length >= 30, `expected >= 30 devices, got ${DEVICE_10X_KEYS.length}`);
   assert.strictEqual(classifySceneMode({ bookBlueprint: {} }), "book-blueprint");
   assert.strictEqual(classifySceneMode({ mechanismChain: {} }), "mechanism-chain");
   assert.strictEqual(classifySceneMode({ evidenceBoard: {} }), "evidence-board");

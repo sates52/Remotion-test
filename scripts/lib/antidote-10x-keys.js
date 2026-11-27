@@ -36,6 +36,7 @@ const DEVICE_10X_KEYS = [
   "mechanismChain",
   "evidenceBoard",
   "quoteDialogue",
+  "hookPoster",
 ];
 
 const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests", "chapterLabel"];
@@ -72,6 +73,7 @@ const ALWAYS_FULL_STAGE_10X_KEYS = [
   "mechanismChain",
   "evidenceBoard",
   "quoteDialogue",
+  "hookPoster",
 ];
 
 function hasAny10xDevice(obj) {

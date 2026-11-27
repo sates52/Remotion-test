@@ -39,6 +39,7 @@ function classifySceneMode(scene) {
   if (scene.mechanismChain) return "mechanism-chain";
   if (scene.evidenceBoard) return "evidence-board";
   if (scene.quoteDialogue) return "quote-dialogue";
+  if (scene.hookPoster) return "hook-poster";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"

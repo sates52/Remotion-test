@@ -26,7 +26,8 @@ const { ensureSfxAssets } = require("./generate-sfx");
  * @param {number} fps
  * @returns {{ scenes: Array<object>, audioEvents: Array<object>, stats: object }}
  */
-function directAudioEvents(scenes, fps = 30) {
+function directAudioEvents(scenes, fps = 30, opts = {}) {
+  const pack = opts.pack || "synthetic";
   // Ensure the deterministic WAV assets exist in public/sfx
   try {
     ensureSfxAssets();
@@ -48,15 +49,19 @@ function directAudioEvents(scenes, fps = 30) {
     const isPayoff = n.function === "PAYOFF" || s.visualJob === "reveal" || n.promiseRole === "payoff";
     const isContradiction = n.function === "CONTRADICTION" || s.visualJob === "contrast";
     const isTension = n.function === "TENSION";
+    const isFoley = pack === "foley";
 
     const sceneAudio = [];
 
-    // 1. Transition Whoosh
+    // 1. Transition Whoosh / PageTurn / SoftSwish
     if (hasTransition) {
       const transFrames = trans.frames || 10;
       const offset = -Math.floor(transFrames / 2);
+      const tType = isFoley
+        ? (trans.type === "pageTurn" || trans.type === "paperTear" ? "pageTurn" : "softSwish")
+        : "whoosh";
       sceneAudio.push({
-        type: "whoosh",
+        type: tType,
         frameOffset: offset,
         volume: 0.14,
         durationFrames: Math.max(15, transFrames + 5),
@@ -64,7 +69,7 @@ function directAudioEvents(scenes, fps = 30) {
       });
       globalAudioEvents.push({
         frame: Math.max(0, s.fromFrame + offset),
-        type: "whoosh",
+        type: tType,
         volume: 0.14,
         durationFrames: Math.max(15, transFrames + 5),
         reason: `scene_${i}_transition`,
@@ -72,19 +77,20 @@ function directAudioEvents(scenes, fps = 30) {
       whooshCount++;
     }
 
-    // 2. Chapter Card Monumental Thud
+    // 2. Chapter Card Impact
     if (isChapter) {
+      const cType = isFoley ? "bookPlace" : "thud";
       sceneAudio.push({
-        type: "thud",
+        type: cType,
         frameOffset: 0,
-        volume: 0.22,
+        volume: isFoley ? 0.16 : 0.22,
         durationFrames: 25,
         reason: "chapter_card_hit",
       });
       globalAudioEvents.push({
         frame: s.fromFrame,
-        type: "thud",
-        volume: 0.22,
+        type: cType,
+        volume: isFoley ? 0.16 : 0.22,
         durationFrames: 25,
         reason: `chapter_${s.chapterCard?.number || i}_card`,
       });
@@ -234,7 +240,7 @@ function auditAudioDirector(scenes, fps = 30) {
 
     if (isChapter) {
       chapterCount++;
-      if (events.some((e) => e.type === "thud")) chapterCovered++;
+      if (events.some((e) => e.type === "thud" || e.type === "bookPlace")) chapterCovered++;
       else {
         violations.push({
           beatIndex: i,

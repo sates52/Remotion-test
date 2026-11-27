@@ -58,6 +58,7 @@ import { BookBlueprint } from "./BookBlueprint";
 import { MechanismChain } from "./MechanismChain";
 import { EvidenceBoard } from "./EvidenceBoard";
 import { QuoteDialogue } from "./QuoteDialogue";
+import { HookPoster } from "./HookPoster";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -437,9 +438,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
 
   // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
   // Active ONLY when a scene explicitly supplies one of the v2/10x payloads; legacy configs never enter here.
-  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.vennMerge || scene.explodedView || scene.gravityPile || scene.crumpleToss || scene.analyticsFunnel || scene.barRace || scene.upClose || scene.bookBlueprint || scene.mechanismChain || scene.evidenceBoard || scene.quoteDialogue || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.vennMerge || scene.explodedView || scene.gravityPile || scene.crumpleToss || scene.analyticsFunnel || scene.barRace || scene.upClose || scene.bookBlueprint || scene.mechanismChain || scene.evidenceBoard || scene.quoteDialogue || scene.hookPoster || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
     const coCast = scene.characters ?? [];
-    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose && !scene.bookBlueprint && !scene.mechanismChain && !scene.evidenceBoard && !scene.quoteDialogue;
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose && !scene.bookBlueprint && !scene.mechanismChain && !scene.evidenceBoard && !scene.quoteDialogue && !scene.hookPoster;
     const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
@@ -475,6 +476,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         {scene.mechanismChain ? <MechanismChain spec={scene.mechanismChain} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
         {scene.evidenceBoard ? <EvidenceBoard spec={scene.evidenceBoard} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
         {scene.quoteDialogue ? <QuoteDialogue spec={scene.quoteDialogue} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
+        {scene.hookPoster ? <HookPoster spec={scene.hookPoster} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
         {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}

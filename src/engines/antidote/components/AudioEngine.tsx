@@ -20,6 +20,30 @@ import type { AntidoteConfig } from "../schema";
  * - Text/Motif entry (POP): 0.12 (-18 dB)
  * - Micro-ticks (TICK): 0.09 (-21 dB)
  */
+function resolveSfxFile(type: string, idx: number, useFoley: boolean): string {
+  if (type === "pageTurn") return `sfx/foley/book_flip_${(idx % 3) + 1}.wav`;
+  if (type === "bookPlace") return `sfx/foley/book_place_${(idx % 2) + 1}.wav`;
+  if (type === "paperShift") return `sfx/foley/paper_shift_${(idx % 4) + 1}.wav`;
+  if (type === "softSwish") return `sfx/foley/soft_swish_${(idx % 4) + 1}.wav`;
+  if (type === "clothAccent") return "sfx/foley/cloth_accent.wav";
+  if (useFoley) {
+    if (type === "whoosh") return `sfx/foley/soft_swish_${(idx % 4) + 1}.wav`;
+    if (type === "pop") return `sfx/foley/paper_shift_${(idx % 4) + 1}.wav`;
+    if (type === "thud") return idx % 2 === 0 ? "sfx/foley/book_place_1.wav" : "sfx/foley/leather_drop.wav";
+    if (type === "ding") return "sfx/foley/book_open.wav";
+    if (type === "tick") return "sfx/foley/paper_shift_4.wav";
+  }
+  return type === "ding"
+    ? "sfx/ding.wav"
+    : type === "thud"
+    ? "sfx/thud.wav"
+    : type === "pop"
+    ? "sfx/pop.wav"
+    : type === "tick"
+    ? "sfx/tick.wav"
+    : "sfx/whoosh.wav";
+}
+
 export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) => {
   const globalEvents = config.audioEvents ?? [];
   // OPT-IN (operator, 2026-11-23, from viewers' feedback): the dings and ticks land ON the narration — the narration is
@@ -27,22 +51,14 @@ export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) =>
   // (vox/sfx.tsx), this one renders only when the config asks for it: `meta.sfx: true`. A film without it has one
   // continuous narration track and nothing else.
   if (!(config.meta as { sfx?: boolean }).sfx) return null;
+  const useFoley = (config.meta as { sfxPack?: string }).sfxPack !== "synthetic";
 
   return (
     <>
       {/* 1. Explicit Top-Level Audio Events (authored by Audio Director) */}
       {globalEvents.map((evt, idx) => {
         if (evt.type === "silence") return null;
-        const sfxFile =
-          evt.type === "ding"
-            ? "sfx/ding.wav"
-            : evt.type === "thud"
-            ? "sfx/thud.wav"
-            : evt.type === "pop"
-            ? "sfx/pop.wav"
-            : evt.type === "tick"
-            ? "sfx/tick.wav"
-            : "sfx/whoosh.wav";
+        const sfxFile = resolveSfxFile(evt.type, idx, useFoley);
         const duration = evt.durationFrames ?? (evt.type === "ding" ? 36 : evt.type === "thud" ? 24 : 15);
 
         return (
@@ -52,7 +68,7 @@ export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) =>
             durationInFrames={duration}
             name={`sfx-${evt.type}-${idx}`}
           >
-            <Audio src={staticFile(sfxFile)} volume={evt.volume} />
+            <Audio src={staticFile(sfxFile)} volume={Math.min(0.16, evt.volume)} />
           </Sequence>
         );
       })}
@@ -65,16 +81,7 @@ export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) =>
             <React.Fragment key={`sfx-scene-${scene.id}`}>
               {scene.audioEvents.map((evt, evtIdx) => {
                 if (evt.type === "silence") return null;
-                const sfxFile =
-                  evt.type === "ding"
-                    ? "sfx/ding.wav"
-                    : evt.type === "thud"
-                    ? "sfx/thud.wav"
-                    : evt.type === "pop"
-                    ? "sfx/pop.wav"
-                    : evt.type === "tick"
-                    ? "sfx/tick.wav"
-                    : "sfx/whoosh.wav";
+                const sfxFile = resolveSfxFile(evt.type, i + evtIdx, useFoley);
                 const duration = evt.durationFrames ?? (evt.type === "ding" ? 36 : evt.type === "thud" ? 24 : 15);
 
                 return (
@@ -84,7 +91,7 @@ export const AudioEngine: React.FC<{ config: AntidoteConfig }> = ({ config }) =>
                     durationInFrames={duration}
                     name={`sfx-${evt.type}-${scene.id}`}
                   >
-                    <Audio src={staticFile(sfxFile)} volume={evt.volume} />
+                    <Audio src={staticFile(sfxFile)} volume={Math.min(0.16, evt.volume)} />
                   </Sequence>
                 );
               })}

@@ -961,6 +961,10 @@ function prep() {
     const { coldOpenRulesBlock } = require("./lib/cold-open");
     rulesText += coldOpenRulesBlock(book.opening);
   }
+  if (ENGINE === "antidote") {
+    const { eventRelayRulesBlock } = require("./lib/cold-open");
+    rulesText += eventRelayRulesBlock();
+  }
   fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
   fs.writeFileSync(path.join(SB, "policy.json"), JSON.stringify(authoringRunRecord(rulesText), null, 2) + "\n");
   const size = parseInt(args.chunk || "40", 10);

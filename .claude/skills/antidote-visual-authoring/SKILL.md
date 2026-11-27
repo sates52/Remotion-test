@@ -112,3 +112,8 @@ Visual direction for those contracts (hypotheses from the operator's preferred s
   does not see whether the staging fits — look at the staging yourself.
 - After make-book: `node scripts/feature-usage.js --slug=<slug>` shows which of these features the book used.
 - The verdict is the book's sealed blind mute test, never this checklist.
+
+## Event Relay (Before -> Visible Change -> Result Hold)
+
+- Every visual beat must stage a real intra-scene state change (`before_state -> visible_change -> result_hold -> next handoff`).
+- Camera zoom/pan and caption turnover do NOT count as local visual action; follow the limits in `rules.md`.

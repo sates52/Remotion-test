@@ -68,7 +68,8 @@ function analyzeNarrative(config, opts = {}) {
   const errors = [];
   const warnings = [];
   const phaseTitles = new Map();
-  const checks = { safeZone: 0, contrast: 0, overflow: 0, grounding: 0, hygiene: 0, assets: 0 };
+  const checks = { safeZone: 0, contrast: 0, overflow: 0, grounding: 0, hygiene: 0, assets: 0, localMotion: 0, geometry: 0 };
+  const localMotionSummary = { maxColdOpenGap: 0, maxBodyGap: 0, cameraOnlyScenes: 0 };
 
   const ad = config?.meta?.artDirection || {};
   const minimalCap = ad.captions === "minimal";
@@ -161,6 +162,62 @@ function analyzeNarrative(config, opts = {}) {
     if (s.quoteDialogue?.lines?.length > 4) {
       checks.overflow++;
       errors.push(`${s.id}: quoteDialogue has ${s.quoteDialogue.lines.length} lines (max 4)`);
+    }
+    if (s.hookPoster) {
+      checkLen("hookPoster.setup", s.hookPoster.setup, 64);
+      checkLen("hookPoster.payoff", s.hookPoster.payoff, 56);
+      const sdur = s.durationFrames ?? 0;
+      if (sdur > 36 && typeof s.hookPoster.payoffAt === "number" && s.hookPoster.payoffAt >= sdur - 18) {
+        checks.overflow++;
+        warnings.push(`${s.id}: hookPoster.payoffAt (${s.hookPoster.payoffAt}) is too close to scene end (${sdur})`);
+      }
+      if (sdur > 36 && typeof s.hookPoster.changeAt === "number" && s.hookPoster.changeAt >= sdur - 18) {
+        checks.overflow++;
+        warnings.push(`${s.id}: hookPoster.changeAt (${s.hookPoster.changeAt}) is too close to scene end (${sdur})`);
+      }
+    }
+
+    // 3b. Connector & Trace geometry alignment
+    if (s.cutoutStage?.connectors?.length) {
+      const entityIds = new Set([
+        ...(s.cutoutStage.actors ?? []).map((a) => a.id).filter(Boolean),
+        ...(s.cutoutStage.props ?? []).map((p) => p.id).filter(Boolean),
+      ]);
+      if (entityIds.size > 0) {
+        for (const conn of s.cutoutStage.connectors) {
+          const badFrom = typeof conn.from === "string" && !entityIds.has(conn.from);
+          const badTo = typeof conn.to === "string" && !entityIds.has(conn.to);
+          if (badFrom || badTo) {
+            checks.geometry++;
+            errors.push(`${s.id}: cutoutStage connector references unknown target (${conn.from} -> ${conn.to})`);
+          }
+        }
+      }
+    }
+    if (s.annotatedScene?.traces?.length) {
+      for (let ti = 0; ti < s.annotatedScene.traces.length; ti++) {
+        const pts = s.annotatedScene.traces[ti]?.points;
+        if (!Array.isArray(pts) || pts.length < 2) {
+          checks.geometry++;
+          warnings.push(`${s.id}: annotatedScene.traces[${ti}] has fewer than 2 points`);
+          continue;
+        }
+        let len = 0;
+        let outOfBounds = false;
+        for (let pi = 0; pi < pts.length; pi++) {
+          const [px, py] = Array.isArray(pts[pi]) ? pts[pi] : [NaN, NaN];
+          if (!Number.isFinite(px) || !Number.isFinite(py) || px < 0 || px > 1920 || py < 0 || py > 1080) {
+            outOfBounds = true;
+          }
+          if (pi > 0 && Array.isArray(pts[pi - 1])) {
+            len += Math.hypot(px - pts[pi - 1][0], py - pts[pi - 1][1]);
+          }
+        }
+        if (outOfBounds || len < 20) {
+          checks.geometry++;
+          warnings.push(`${s.id}: annotatedScene.traces[${ti}] is out-of-bounds or degenerate (len=${len.toFixed(1)}px)`);
+        }
+      }
     }
 
     // 4. Claim & numeric grounding on data devices
@@ -274,8 +331,24 @@ function analyzeNarrative(config, opts = {}) {
       pushAt(s.evidenceBoard?.revealLessonAt);
       for (const ln of s.quoteDialogue?.lines ?? []) pushAt(ln.at);
       pushAt(s.quoteDialogue?.subtext?.at);
+      pushAt(s.hookPoster?.payoffAt);
+      pushAt(s.hookPoster?.changeAt);
       pushAt(s.kineticManifesto?.footnoteAt);
       pushAt(s.gravityPile?.calloutAt);
+      const localSorted = [...new Set(times)].sort((a, b) => a - b);
+      let maxLocalGap = 0;
+      for (let i = 1; i < localSorted.length; i++) maxLocalGap = Math.max(maxLocalGap, localSorted[i] - localSorted[i - 1]);
+      const isColdOpen = (s.fromFrame ?? 0) < 1500;
+      const localLimit = isColdOpen ? 120 : 180;
+      if (isColdOpen) localMotionSummary.maxColdOpenGap = Math.max(localMotionSummary.maxColdOpenGap, maxLocalGap);
+      else localMotionSummary.maxBodyGap = Math.max(localMotionSummary.maxBodyGap, maxLocalGap);
+      if ((isColdOpen && dur > 150 && maxLocalGap > 120) || (!isColdOpen && dur > 210 && maxLocalGap > 180)) {
+        checks.localMotion++;
+        warnings.push(`${s.id}: ${maxLocalGap}-frame (${(maxLocalGap / 30).toFixed(1)}s) local-action drought (camera/caption excluded; limit ${(localLimit / 30).toFixed(0)}s)`);
+        if (localSorted.length <= 2 && (s.camera?.pulses?.length || 0) > 0) {
+          localMotionSummary.cameraOnlyScenes++;
+        }
+      }
       pushAt(s.camera?.punch?.at);
       for (const p of s.camera?.pulses ?? []) pushAt(p);
       const sorted = [...new Set(times)].sort((a, b) => a - b);
@@ -295,6 +368,8 @@ function analyzeNarrative(config, opts = {}) {
         s.editorialSpread?.image,
         s.upClose?.image,
         s.cutoutStage?.backdrop?.image,
+        s.hookPoster?.beforeImage,
+        s.hookPoster?.afterImage,
         ...(s.cutoutStage?.actors ?? []).map((a) => a.image),
       ].filter(Boolean);
       for (const rel of imgs) {
@@ -307,7 +382,7 @@ function analyzeNarrative(config, opts = {}) {
     }
   }
 
-  return { ok: errors.length === 0, errors, warnings, checks };
+  return { ok: errors.length === 0, errors, warnings, checks, localMotion: localMotionSummary };
 }
 
 function assertNarrativeQuality(config, opts = {}) {

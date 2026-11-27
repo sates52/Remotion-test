@@ -930,7 +930,10 @@ export const narrativeSignalsSchema = z.object({
 export type NarrativeSignalsSpec = z.infer<typeof narrativeSignalsSchema>;
 
 /** Audio Director Layer (God Mode Phase 7): Frame-accurate tactile SFX & selective silence */
-export const audioEventType = z.enum(["pop", "whoosh", "ding", "thud", "silence", "tick"]);
+export const audioEventType = z.enum([
+  "pop", "whoosh", "ding", "thud", "silence", "tick",
+  "pageTurn", "bookPlace", "paperShift", "softSwish", "clothAccent",
+]);
 export const audioEventSchema = z.object({
   type: audioEventType,
   frameOffset: z.number().default(0), // offset relative to scene.fromFrame
@@ -1680,6 +1683,24 @@ export const sceneSchema = z.object({
     }).optional(),
     at: z.number().optional(),
   }).optional(),
+  hookPoster: z.object({
+    kicker: z.string().optional(),
+    setup: z.string().min(1),
+    payoff: z.string().min(1),
+    payoffAt: z.number().optional(),
+    promiseLine: z.string().optional(),
+    beforeImage: z.string().optional(),
+    afterImage: z.string().optional(),
+    beforeLabel: z.string().optional(),
+    beforeDetail: z.string().optional(),
+    afterLabel: z.string().optional(),
+    afterDetail: z.string().optional(),
+    anomalyBadge: z.string().optional(),
+    changeAt: z.number().optional(),
+    revealMode: z.enum(["fade", "wipe", "spotlight"]).optional(),
+    tone: v2Tone.optional(),
+    at: z.number().optional(),
+  }).optional(),
   chapterLabel: z.string().optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
@@ -1807,6 +1828,8 @@ export const antidoteConfigSchema = z.object({
     /** the sound-effect layer (AudioEngine: ding / tick / pop / whoosh / thud) renders only when this is true — viewers
      *  heard the effects as "beeps" over the narration (2026-11-23); a film without it is the narration alone */
     sfx: z.boolean().optional(),
+    /** Optional SFX palette: "foley" (default when sfx=true, organic CC0 paper/book/swish) or "synthetic" (legacy WAVs) */
+    sfxPack: z.enum(["foley", "synthetic"]).optional(),
     /** THE PRODUCER'S NOTE (2026-11-20, src/components/ProducerNote.tsx): the operator's approved sentence about the
      *  book, shown once near the start. Absent: nothing is drawn. */
     take: z.object({ note: z.string() }).optional(),

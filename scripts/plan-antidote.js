@@ -1488,7 +1488,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
         pack10x.castMode === "illustrated" &&
         !(man10x && man10x.engineProfile && man10x.engineProfile.minorHarm) &&
         i % 2 === 0 &&
-        (out.vennMerge || out.explodedView || out.gravityPile || out.analyticsFunnel || out.barRace || out.crumpleToss || out.balanceScale || out.visualEquation || out.dataMatrix || out.decisionTree || out.stackReveal || out.timelineScrub || out.bookBlueprint || out.mechanismChain || out.quoteDialogue || (out.evidenceBoard && !out.evidenceBoard.image))
+        (out.vennMerge || out.explodedView || out.gravityPile || out.analyticsFunnel || out.barRace || out.crumpleToss || out.balanceScale || out.visualEquation || out.dataMatrix || out.decisionTree || out.stackReveal || out.timelineScrub || out.bookBlueprint || out.mechanismChain || out.quoteDialogue || (out.evidenceBoard && !out.evidenceBoard.image) || (out.hookPoster && !out.hookPoster.beforeImage))
       ) {
         const ambientPool = (ART || [])
           .flatMap((b) => [

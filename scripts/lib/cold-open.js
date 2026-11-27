@@ -7,12 +7,12 @@
 
 const HOOK_DEVICE_MAP = {
   scene: {
-    devices: ["annotatedScene(dollyZoom)", "upClose", "cutoutStage"],
+    devices: ["hookPoster", "annotatedScene(dollyZoom)", "upClose", "cutoutStage"],
     transition: "pushThrough",
-    note: "Drop straight into the physical scene on frame 0 with dollyZoom or upClose.",
+    note: "Drop straight into the physical scene on frame 0 with hookPoster or dollyZoom.",
   },
   belief: {
-    devices: ["crumpleToss", "kineticManifesto", "beforeAfterWipe"],
+    devices: ["hookPoster", "crumpleToss", "kineticManifesto", "beforeAfterWipe"],
     transition: "whipPan",
     note: "State the common myth, then visually shatter/toss it on the narrator's turn.",
   },
@@ -22,7 +22,7 @@ const HOOK_DEVICE_MAP = {
     note: "Slam the exact spoken number/cost immediately, then show its scale.",
   },
   ending: {
-    devices: ["upClose", "annotatedScene(dollyZoom)", "timelineScrub"],
+    devices: ["hookPoster", "upClose", "annotatedScene(dollyZoom)", "timelineScrub"],
     transition: "focusPull",
     note: "Open on the final image/decision, then rewind the timeline.",
   },
@@ -32,17 +32,17 @@ const HOOK_DEVICE_MAP = {
     note: "Spotlight the signature object in frame 1 and zoom into its consequence.",
   },
   question: {
-    devices: ["kineticManifesto", "decisionTree", "spatialJourney"],
+    devices: ["hookPoster", "kineticManifesto", "decisionTree", "spatialJourney"],
     transition: "pushThrough",
     note: "Put the urgent question on stage cleanly and branch the stakes.",
   },
   contrast: {
-    devices: ["beforeAfterWipe", "balanceScale", "comparisonGrid"],
+    devices: ["hookPoster", "beforeAfterWipe", "balanceScale", "comparisonGrid"],
     transition: "whipPan",
     note: "Split the two opposing choices side-by-side from second 1.",
   },
   confession: {
-    devices: ["crumpleToss", "editorialSpread", "kineticManifesto"],
+    devices: ["hookPoster", "crumpleToss", "editorialSpread", "kineticManifesto"],
     transition: "focusPull",
     note: "Frame the misreading first, then strike/replace it with the book's scene.",
   },
@@ -56,6 +56,7 @@ function coldOpenRulesBlock(opening) {
     "## Cold-Open Visual Choreography (0:00–0:50s — Synced to Incoming Audio)",
     `- Book opening hook: \`${opening.hook}\` (naming: \`${opening.naming || "early"}\`, promise: \`${opening.promise || "stake"}\`).`,
     `- Keep beats in the first 50s (\`coldOpen: true\`) tight (**6–12s** per visual shift, never a 25s static hold).`,
+    `- For Beat 0 (0:00–0:05), prefer \`hookPoster\`: 2-block semantic hook (\`setup\` -> whole-block \`payoff\` settle) + \`before -> after\` visual anomaly.`,
     `- Preferred 10x opening devices: ${spec.devices.join(", ")}.`,
     `- Direction: ${spec.note}`,
   ].join("\n");
@@ -86,4 +87,15 @@ function applyColdOpenDirection(scene, { index = 0, fromSec = 999, opening = nul
   return scene;
 }
 
-module.exports = { HOOK_DEVICE_MAP, coldOpenRulesBlock, applyColdOpenDirection };
+function eventRelayRulesBlock() {
+  return [
+    "",
+    "## Event Relay (Before -> Visible Change -> Result Hold)",
+    "- Every visual beat must stage a real intra-scene state change: `before_state -> visible_change -> result_hold -> next handoff`.",
+    "- Camera zoom/pan, caption turnover, and background grain/glow alone do NOT count as local visual action.",
+    "- Never slide a background alone to fake character/object action; prefer a motivated hold over idle wobble.",
+    "- Cold Open (< 50s): keep local visual state changes <= 4.0s apart; Body: <= 6.0s apart.",
+  ].join("\n");
+}
+
+module.exports = { HOOK_DEVICE_MAP, coldOpenRulesBlock, applyColdOpenDirection, eventRelayRulesBlock };
