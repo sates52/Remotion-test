@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "slug": "p5-proof",
+    "title": "Phase 5 HookPoster Proof",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "durationInFrames": 360,
+    "sfx": true,
+    "sfxPack": "foley",
+    "hud": {
+      "enabled": false,
+      "showProgress": false,
+      "showBadge": false
+    },
+    "artDirection": {
+      "stylePack": "kraftDossier",
+      "style": "tactile archival kraft-paper collage and sharp crimson-ink editorial illustration on warm ochre cardstock, crisp typographic discipline",
+      "mood": "ochreKraft",
+      "polarity": "chromaticMid",
+      "typography": "condensed",
+      "annotationStyle": "bracket",
+      "nodeShape": "tornPaper",
+      "layoutGrammar": "magazineMasthead",
+      "transitionFamily": "paper",
+      "captionAlign": "left",
+      "captionStyle": "printRule",
+      "surfaceFinish": "paperGrain",
+      "castMode": "illustrated",
+      "captions": "minimal",
+      "hud": "off",
+      "motionDoctrine": true
+    }
+  },
+  "scenes": [
+    {
+      "id": "hook-imageless",
+      "fromFrame": 0,
+      "durationFrames": 180,
+      "chapterLabel": "COLD OPEN · IMAGELESS",
+      "shot": "insert",
+      "transition": {
+        "type": "cut",
+        "frames": 0
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "ochreKraft"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "hookPoster": {
+        "kicker": "COLD OPEN",
+        "setup": "Why do smart teams still miss obvious traps?",
+        "payoff": "They optimize the wrong metric.",
+        "payoffAt": 12,
+        "changeAt": 28,
+        "beforeLabel": "ASSUMPTION",
+        "beforeDetail": "More data means better decisions",
+        "afterLabel": "REALITY",
+        "afterDetail": "Noise drowns out the signal",
+        "anomalyBadge": "METRIC TRAP",
+        "promiseLine": "How to spot the hidden signal in 60 seconds."
+      }
+    },
+    {
+      "id": "hook-image",
+      "fromFrame": 180,
+      "durationFrames": 180,
+      "chapterLabel": "COLD OPEN · IMAGE",
+      "shot": "insert",
+      "transition": {
+        "type": "pageTurn",
+        "frames": 12
+      },
+      "bg": {
+        "type": "flat",
+        "colors": [
+          "#101319"
+        ],
+        "set": "none",
+        "texture": "none",
+        "stageMood": "cobaltBlueprint"
+      },
+      "camera": {
+        "zoom": [
+          1,
+          1.02
+        ],
+        "panX": [
+          0,
+          0
+        ],
+        "panY": [
+          0,
+          0
+        ]
+      },
+      "characters": [],
+      "props": [],
+      "texts": [],
+      "hookPoster": {
+        "kicker": "CASE STUDY",
+        "setup": "What looks like a calm market",
+        "payoff": "Is a silent liquidity trap.",
+        "payoffAt": 12,
+        "changeAt": 28,
+        "beforeImage": "scenes/p2-book-demos/tfs_stage_presenter.png",
+        "anomalyBadge": "LIQUIDITY TRAP",
+        "revealMode": "spotlight"
+      }
+    }
+  ],
+  "captions": []
+}

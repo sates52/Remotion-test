@@ -1,0 +1,48 @@
+{
+ "schema": "stills/1",
+ "name": "cold-open-p5-proof",
+ "composition": "Antidote-lab",
+ "silent": true,
+ "slug": "p5-proof",
+ "previewFrames": 360,
+ "seconds": 12,
+ "extra": [
+  "public/scenes/p2-book-demos/tfs_stage_presenter.png"
+ ],
+ "jobs": [
+  {
+   "id": "hook-imageless__t05",
+   "config": "config.cold-open.json",
+   "frames": [
+    7
+   ]
+  },
+  {
+   "id": "hook-imageless__t75",
+   "config": "config.cold-open.json",
+   "frames": [
+    135
+   ]
+  },
+  {
+   "id": "hook-image__t05",
+   "config": "config.cold-open.json",
+   "frames": [
+    187
+   ]
+  },
+  {
+   "id": "hook-image__t75",
+   "config": "config.cold-open.json",
+   "frames": [
+    315
+   ]
+  }
+ ],
+ "shards": 1,
+ "inputHash": "85e07257087b131e",
+ "files": {
+  "stills/config.cold-open.json": "d46890302ac2ffba81272cb794ecf0a582cbfdbf51fbd3e7ab5765705611141d"
+ },
+ "builtAt": "2026-11-27T06:25:54.768Z"
+}
