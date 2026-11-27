@@ -405,6 +405,14 @@ function groundingReview(b, nar) {
   const missing = [...counts].filter(([w, n]) => n >= 5 && !castTokens.has(w.toLowerCase()) && !places.includes(w.toLowerCase()) && !title.includes(w.toLowerCase()))
     .sort((a, b2) => b2[1] - a[1]).slice(0, 8);
   if (missing.length) out.push(`often named in the narration, in no cast member: ${missing.map(([w, n]) => `${w} ×${n}`).join(", ")} — add the ones who are characters (with a look); places / terms need nothing`);
+  try {
+    const { suggestNameMismatches } = require("./lib/vtt-names");
+    const castNames = Object.values(b.cast || {}).map((c) => c && c.name).filter(Boolean);
+    const mismatches = suggestNameMismatches(text, castNames, { maxDistance: 2, minMentions: 2 }).slice(0, 8);
+    if (mismatches.length) {
+      out.push(`possible ASR name garbles (add to books/${SLUG}/names.json): ${mismatches.map((m) => `"${m.asrToken}" -> "${m.castName}" (×${m.count}, d=${m.distance})`).join(", ")}`);
+    }
+  } catch {}
   return out;
 }
 

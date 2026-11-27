@@ -151,6 +151,9 @@ if (ENGINE === "antidote") {
   const ACFG = rel.antidoteConfig(SLUG);
   const t0a = Date.now();
   step(0, "VTT ön-kontrol", `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`);
+  if (fs.existsSync(path.join(ROOT, "books", SLUG, "names.json"))) {
+    step(0.15, "VTT isim düzeltme (books/<slug>/names.json)", `node scripts/fix-vtt-names.js --slug=${SLUG}`);
+  }
   step(0.8, "Art Director (Ön Yapım, Dünya & Varlık Analizi)",
     `node scripts/preproduce.js --slug=${SLUG} --title=${q(TITLE)} --author=${q(AUTHOR)} --genre=${GENRE} --vtt=${VTT}`);
   // 0.9) READ THE BOOK. One pass over the whole narration -> books/<slug>/story-bible.json
@@ -177,12 +180,13 @@ if (ENGINE === "antidote") {
     step(1.35, "Makro Merak Döngüleri (Sequence Arcs)", `node scripts/plan-sequence-arcs.js --slug=${SLUG}`, { optional: true });
     step(1.4, "Semantik Görsel Düzenleme & Üç Katman Kuralı", `node scripts/apply-semantic-arcs.js --slug=${SLUG}`, { optional: true });
     if (fs.existsSync(path.join(ROOT, "books", SLUG, "prompts.10x.json")) && !args["skip-images"]) {
-      if (MANIFEST?.engineProfile?.minorHarm) {
-        console.log("  ↳ minorHarm: true → storybookVector (prompts.10x.json Flux generation skipped)");
-      } else {
-        step(1.45, "Antidote 10x varlık üretimi (Flux + cutout)",
-          `node scripts/antidote-10x-assets.js --slug=${SLUG} --max-calls=${Number(args["image-max-calls"]) || 45}${args["images-dry-run"] ? " --dry-run" : ""}`);
-      }
+      const isMinorHarm = Boolean(MANIFEST?.engineProfile?.minorHarm);
+      const defaultCap = isMinorHarm ? 25 : 80;
+      const cap = isMinorHarm
+        ? Math.min(25, Number(args["image-max-calls"]) || defaultCap)
+        : Math.min(90, Number(args["image-max-calls"]) || defaultCap);
+      step(1.45, isMinorHarm ? "Antidote 10x sembolik varlık üretimi (minorHarm safe Flux <=25)" : "Antidote 10x varlık üretimi (Flux + cutout)",
+        `node scripts/antidote-10x-assets.js --slug=${SLUG} --max-calls=${cap}${args["images-dry-run"] ? " --dry-run" : ""}`);
     }
   } else if (!fs.existsSync(path.join(ROOT, ACFG))) {
     console.error(`❌ --skip-plan ama ${ACFG} yok.`); process.exit(1);
@@ -304,18 +308,18 @@ if (ENGINE === "antidote") {
   if (!PACK) console.log(`
 ── [4-5.3, 8] YouTube paketi + thumbnail atlandı (--skip-pack)`);
   if (PACK) step(4, "YouTube metadata (CTR + SEO) [Antidote]", `node scripts/plan-antidote-meta.js --slug=${SLUG}`, { optional: true });
-  if (PACK) step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${A_CLEAN_VTT}`, { optional: true });
+  if (PACK) step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${A_CLEAN_VTT} --slug=${SLUG}`, { optional: true });
   // 5) Governed multi-concept thumbnail pipeline. The critic sees the entire
   // channel history so a visually strong but repetitive template cannot win.
   const A_CONCEPTS = `books/${SLUG}/thumbnail-concepts.json`;
   if (PACK) step(5, "Thumbnail art director (5 özgün konsept)", `node scripts/thumbnail-art-director.js --slug=${SLUG}`, { optional: true });
-  // Antidote thumbnails are a frozen frame of the book's own scene (layout
-  // "scene-still"), so the Flux candidates are skipped — they made every Antidote
-  // thumbnail a photo that looked nothing like the film. --flux-thumb opts back in.
-  const A_FLUX = !!args["flux-thumb"];
-  if (PACK && A_FLUX) step(5.1, "Thumbnail aday görselleri (Flux)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
+  // Antidote thumbnails default to the book's own hero scene; `--flux-thumb` or
+  // `book.json: { thumbnailHeroFlux: true }` opts into a book-artLock-matched Flux hero cover.
+  const A_FLUX = !!args["flux-thumb"] || MANIFEST?.thumbnailHeroFlux === true;
+  const A_MINOR_HARM = Boolean(MANIFEST?.engineProfile?.minorHarm);
+  if (PACK && A_FLUX) step(5.1, "Thumbnail aday görselleri (Flux, kitap artLock)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
   if (PACK) step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
-  if (PACK && A_FLUX) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
+  if (PACK && A_FLUX && !A_MINOR_HARM) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });
   // Channel-aware layout/type/position pick — farthest from the last videos. No LLM.
   if (PACK) step(5.4, "Thumbnail grammar (kanal çeşitliliği)", `node scripts/thumbnail-grammar.js --slug=${SLUG} --write`, { optional: true });
   step(7, "Kompozisyon kaydı", `node scripts/gen-books-registry.js`);
@@ -401,6 +405,9 @@ step(
   "VTT ön-kontrol (doğru kitap + tam uzunluk + kopya değil)",
   `node scripts/check-vtt.js --slug=${SLUG} --vtt=${VTT} --audio=${AUDIO} --title=${q(TITLE)} --author=${q(AUTHOR)}`,
 );
+if (fs.existsSync(path.join(ROOT, "books", SLUG, "names.json"))) {
+  step(0.15, "VTT isim düzeltme (books/<slug>/names.json)", `node scripts/fix-vtt-names.js --slug=${SLUG}`);
+}
 
 // 0.5) master the narration (two-pass EBU R128 → -14 LUFS).
 //   Raw NotebookLM audio sits ~-25 LUFS. YouTube only ATTENUATES loud uploads —
@@ -508,7 +515,7 @@ step(4, "YouTube metadata (CTR + SEO)", `node scripts/plan-meta.js ${CFG}`);
 // 4b) clean CC for YouTube upload (raw VTT keeps inline <c> word-timing for the
 //     burned-in karaoke; YouTube's uploader rejects that → emit a clean sibling)
 const CLEAN_VTT = `public/captions/${SLUG}.clean.vtt`;
-step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${CLEAN_VTT}`, { optional: true });
+step(4.1, "Temiz altyazı (YouTube CC)", `node scripts/clean-vtt.js ${VTT} ${CLEAN_VTT} --slug=${SLUG}`, { optional: true });
 
 // 5) Governed five-concept thumbnail system. Art direction is deliberately
 // separated from image generation, scoring and cut-out so agents can inspect

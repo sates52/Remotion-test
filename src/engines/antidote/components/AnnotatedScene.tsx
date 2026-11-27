@@ -62,7 +62,7 @@ const StickerIcon: React.FC<{ kind?: string; color: string }> = ({ kind, color }
 export const AnnotatedScene: React.FC<{ spec: AnnotatedSceneSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const light = isLightPalette(palette);

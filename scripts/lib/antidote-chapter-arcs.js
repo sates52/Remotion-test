@@ -14,6 +14,13 @@ const fs = require("fs");
 const path = require("path");
 const { isFullStage10x } = require("./antidote-10x-keys");
 
+const isProtectedBeat = (s) => !!(
+  s &&
+  (s.told ||
+    isFullStage10x(s) ||
+    (s._authorship && s._authorship.src && s._authorship.src !== "none"))
+);
+
 /**
  * Plans and aligns chapter-level narrative arcs across scenes.
  */
@@ -157,9 +164,8 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       turnScene.narrative.function = "CONTRADICTION";
       turnScene.narrative.escalates = true;
       turnScene.visualJob = "contrast";
-      // Faz 0: an authored beat keeps its composition — the arc may tag it, not re-shoot it.
-      const authoredBeat = turnScene._authorship && turnScene._authorship.src !== "none";
-      if (!authoredBeat && !turnScene.diagram && !["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
+      // Faz 0: an authored / told / full-stage 10x beat keeps its composition — the arc may tag it, not re-shoot it.
+      if (!isProtectedBeat(turnScene) && !turnScene.diagram && !["split", "beforeAfter", "twoShot"].includes(turnScene.shot)) {
         turnScene.shot = "split";
       }
     }
@@ -171,7 +177,7 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
       payoffScene.narrative.function = "PAYOFF";
       payoffScene.narrative.escalates = true;
       payoffScene.visualJob = "reveal";
-      if (!payoffScene.diagram && !payoffScene._noIcon && (!payoffScene.props || payoffScene.props.length === 0)) {
+      if (!isProtectedBeat(payoffScene) && !payoffScene.diagram && !payoffScene._noIcon && (!payoffScene.props || payoffScene.props.length === 0)) {
         payoffScene.props = [
           {
             type: "lightbulb",
@@ -228,7 +234,9 @@ function planChapterArcs(scenes, chapters = [], fps = 30) {
  *   - 1 Memorable payoff (PAYOFF/REVEAL)
  */
 function auditChapterArcs(scenes, chapters = [], fps = 30) {
-  const { chapterArcs } = planChapterArcs(scenes, chapters, fps);
+  // Run chapter boundary discovery on a deep clone so auditing NEVER mutates live scenes.
+  const cloned = JSON.parse(JSON.stringify(scenes || []));
+  const { chapterArcs } = planChapterArcs(cloned, chapters, fps);
   const violations = [];
   const arcReports = [];
 

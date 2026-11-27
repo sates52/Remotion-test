@@ -13,7 +13,7 @@
  */
 const fs = require("fs");
 const path = require("path");
-const { pickVariants, loadGrammarHistory, publishedSlugs, isAntidote10xBook, hasCutoutAsset, TENX_LAYOUTS } = require("./lib/thumbnail-grammar");
+const { pickVariants, loadGrammarHistory, publishedSlugs, isAntidote10xBook, isMinorHarmBook, hasCutoutAsset, TENX_LAYOUTS } = require("./lib/thumbnail-grammar");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -33,6 +33,7 @@ if (publishedSlugs(ROOT).includes(SLUG)) {
 const bookJson = path.join(ROOT, "books", SLUG, "book.json");
 const engine = fs.existsSync(bookJson) && JSON.parse(fs.readFileSync(bookJson, "utf8").replace(/^﻿/, "")).engine === "antidote" ? "antidote" : "vox";
 const is10x = engine === "antidote" && isAntidote10xBook(ROOT, SLUG);
+const minorHarm = is10x && isMinorHarmBook(ROOT, SLUG);
 const metaFile = path.join(ROOT, "books", SLUG, "youtube-meta.json");
 const cfgFile = path.join(ROOT, "books", SLUG, "config.antidote.json");
 const existingThumb = (() => {
@@ -40,9 +41,9 @@ const existingThumb = (() => {
   try { return (JSON.parse(fs.readFileSync(cfgFile, "utf8").replace(/^﻿/, "")).meta || {}).thumbnail || {}; } catch {}
   return {};
 })();
-const hasCutout = hasCutoutAsset(ROOT, SLUG, existingThumb);
+const hasCutout = !minorHarm && hasCutoutAsset(ROOT, SLUG, existingThumb);
 const history = loadGrammarHistory(ROOT, SLUG);
-const variants = pickVariants({ slug: SLUG, engine, history, n: Number(args.variants || 3), is10x, hasCutout });
+const variants = pickVariants({ slug: SLUG, engine, history, n: Number(args.variants || 3), is10x, hasCutout, minorHarm });
 const pick = variants[0];
 
 console.log(`Thumbnail grammar — ${SLUG} (${engine})`);

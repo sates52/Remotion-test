@@ -513,7 +513,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     return (
       <AbsoluteFill style={t.style}>
         <Sequence from={transIn} layout="none" name="told">
-          <ToldStage spec={told} absBase={sceneFlow.base + transIn} speech={sceneFlow.speech} />
+          <ToldStage spec={told} absBase={sceneFlow.base + transIn} speech={sceneFlow.speech} stageMood={bg.stageMood} />
         </Sequence>
         {t.overlay}
       </AbsoluteFill>

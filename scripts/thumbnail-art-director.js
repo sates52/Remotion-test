@@ -24,6 +24,8 @@ const path = require("path");
 const { ARCHETYPES, buildFluxPrompt, LAYOUT_RULES, pickStyle } = require("./lib/thumbnail-concepts");
 const { loadChannelHistory, assessHook } = require("./lib/thumbnail-governance");
 const { usesPropositionWorlds } = require("./lib/visual-intent");
+const { STYLE_PACKS } = require("./lib/style-packs");
+const { validateMinorHarmSafePrompt } = require("./lib/build-10x-prompts");
 const screenText = require("./lib/screen-text");
 
 const ROOT = path.join(__dirname, "..");
@@ -394,28 +396,57 @@ function makeMasteryConcept() {
 
 // ── CORE BUILDER ─────────────────────────────────────────────────────────────
 const usedStyles = new Set(); // no two concepts of the same book share a style
+const bookPack10x = bookJson?.engine === "antidote" && bookJson?.stylePack && STYLE_PACKS[bookJson.stylePack]
+  ? STYLE_PACKS[bookJson.stylePack]
+  : null;
+const isMinorHarmBook = Boolean(bookJson?.minorHarm === true || bookJson?.engineProfile?.minorHarm === true);
+
+function minorHarmSymbolicSubject(angle) {
+  const place = (topPlaces[0] && (topPlaces[0].look || topPlaces[0].name || topPlaces[0].set)) || "quiet empty architectural corridor at twilight";
+  const obj = iconicMotif ? iconicMotif.replace(/([A-Z])/g, " $1").trim().toLowerCase() : "symbolic archival object";
+  const byAngle = {
+    power: `Empty atmospheric ${place}, dramatic chiaroscuro architectural shadows over a solitary symbolic ${obj}, moody stillness`,
+    soul: `Solitary symbolic ${obj} resting on an aged wooden table beside a half-open doorway looking out to rain-slicked dusk light`,
+    scene: `Atmospheric empty ${place} bathed in dramatic directional twilight, symbolic ${obj} placed in sharp foreground focus`,
+    conflict: `Split atmospheric architectural composition contrasting sunlit empty threshold on one side and shadowed rain-soaked corridor on the other, symbolic ${obj} at center`,
+    mystery: `Dramatic symbolic ${obj} isolated on a weathered dark surface with a single beam of warm light slicing across an empty doorway`,
+  };
+  return byAngle[angle] || byAngle.scene;
+}
 
 function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
   const motifMatch = topObjects[idx < topObjects.length ? idx : 0];
   // Style DNA: deterministic per (slug, angle), anti-correlated with recent
   // channel styles so the feed doesn't collapse into one visual language.
+  // For Antidote 10x books, lock thumbnail Flux prompt to the book's own pack.artLock
+  // so covers stay 100% visually native to the film's art style.
   const recentStyles = channelHistory.slice(-12).map((h) => h.style).filter(Boolean);
   const style = pickStyle(angle, SLUG, recentStyles, usedStyles);
   usedStyles.add(style.key);
-  const fluxPrompt = buildFluxPrompt(
-    {
-      angle,
-      layout,
-      visualSubject,
-      lighting: arch.defaultLighting,
-      camera: arch.defaultCamera,
-      defaultLighting: arch.defaultLighting,
-      defaultCamera: arch.defaultCamera,
-      stylePrompt: style.prompt,
-    },
-    bible,
-    bookJson,
-  );
+  let effectiveSubject = visualSubject;
+  if (bookPack10x && isMinorHarmBook) {
+    const check = validateMinorHarmSafePrompt(effectiveSubject, { mode: "scene" });
+    if (!check.ok) effectiveSubject = minorHarmSymbolicSubject(angle);
+  }
+  const stylePrompt = bookPack10x && bookPack10x.artLock
+    ? bookPack10x.artLock
+    : style.prompt;
+  const fluxPrompt = bookPack10x && isMinorHarmBook
+    ? `${effectiveSubject}. ${stylePrompt}. Bold graphic composition with clear negative space on the ${LAYOUT_RULES[layout]?.textSide === "left" ? "left" : "edge"} for headline, no text, no letters, no words.`
+    : buildFluxPrompt(
+      {
+        angle,
+        layout,
+        visualSubject: effectiveSubject,
+        lighting: arch.defaultLighting,
+        camera: arch.defaultCamera,
+        defaultLighting: arch.defaultLighting,
+        defaultCamera: arch.defaultCamera,
+        stylePrompt,
+      },
+      bible,
+      bookJson,
+    );
 
   return {
     conceptId: `${angle}-${String(idx).padStart(2, "0")}`,
@@ -423,13 +454,13 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
     hook,
     evidence: evidenceFor(angle),
     thesis: arch.description,
-    visualSubject,
+    visualSubject: effectiveSubject,
     iconicMotif: motifMatch?.concept || null,
     emotion: arch.defaultEmotion,
     layout,
     camera: arch.defaultCamera,
     lighting: arch.defaultLighting,
-    style: style.key,
+    style: bookPack10x ? `pack:${bookPack10x.id}` : style.key,
     negativeSpace: LAYOUT_RULES[layout]?.textSide === "left" ? "left" : "center",
     fluxPrompt,
     imagePath: `scenes/${SLUG}/thumbnail-concept-${angle}.png`,

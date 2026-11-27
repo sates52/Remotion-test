@@ -1,9 +1,11 @@
 /**
  * style-packs.js — Per-Book Visual Style Packs for Antidote 10x (YPP anti-clustering).
  *
- * 19 packs (18 rotatable: 9 dark, 9 light + `storybookVector` for `minorHarm: true`).
- * Consecutive books alternate polarity (dark <-> light) and rotate layoutGrammar,
- * mood, transitionFamily, typography, annotationStyle, and nodeShape so no two books cluster.
+ * 29 packs (24 illustrated packs across dark / light / chromaticMid polarities +
+ * 5 `minorHarmSafe` multi-polarity `vectorRig` packs across 5 distinct `layoutGrammar`s:
+ * `storybookNoir`, `storybookTwilight`, `storybookBotanical`, `storybookKraft`, `storybookVector`).
+ * Consecutive books alternate polarity and rotate layoutGrammar, mood, transitionFamily,
+ * typography, annotationStyle, and nodeShape so no two books cluster.
  */
 
 const TRANSITION_FAMILIES = {
@@ -151,6 +153,78 @@ const STYLE_PACKS = {
     genreAffinity: ["creativity", "design", "marketing", "innovation"],
     artLock: "bold two-tone risograph screenprint illustration with subtle halftone grain, vibrant coral and gold ink on deep indigo, clean geometric shapes",
   },
+  storybookNoir: {
+    id: "storybookNoir",
+    polarity: "dark",
+    mood: "crimsonNight",
+    secondaryMoods: ["obsidianGrid", "slateEditorial"],
+    typography: "condensed",
+    annotationStyle: "spotlightMask",
+    nodeShape: "filmStrip",
+    layoutGrammar: "filmFrame",
+    transitionFamily: "cinema",
+    captionAlign: "center",
+    captionStyle: "cinemaLower",
+    surfaceFinish: "cinemaGlow",
+    castMode: "vectorRig",
+    minorHarmSafe: true,
+    genreAffinity: ["thriller", "mystery", "suspense", "crime", "drama", "fiction"],
+    artLock: "moody editorial gouache and charcoal ink architectural illustration, deep crimson and midnight indigo chiaroscuro, symbolic empty places and objects only, strictly zero people or figures",
+  },
+  storybookTwilight: {
+    id: "storybookTwilight",
+    polarity: "chromaticMid",
+    mood: "slateDenim",
+    secondaryMoods: ["cobaltBlueprint", "plumVelvet"],
+    typography: "serif",
+    annotationStyle: "bracket",
+    nodeShape: "arch",
+    layoutGrammar: "editorialLeft",
+    transitionFamily: "editorial",
+    captionAlign: "left",
+    captionStyle: "printRule",
+    surfaceFinish: "paperGrain",
+    castMode: "vectorRig",
+    minorHarmSafe: true,
+    genreAffinity: ["literary", "fiction", "memoir", "drama", "biography", "history"],
+    artLock: "twilight editorial ink and slate gouache architectural illustration, atmospheric dusk lighting, symbolic empty places and objects only, strictly zero people or figures",
+  },
+  storybookBotanical: {
+    id: "storybookBotanical",
+    polarity: "chromaticMid",
+    mood: "forestBotanical",
+    secondaryMoods: ["sageBotanical", "emeraldNoir"],
+    typography: "serif",
+    annotationStyle: "underline",
+    nodeShape: "circle",
+    layoutGrammar: "splitSpine",
+    transitionFamily: "paper",
+    captionAlign: "left",
+    captionStyle: "editorialBar",
+    surfaceFinish: "paperGrain",
+    castMode: "vectorRig",
+    minorHarmSafe: true,
+    genreAffinity: ["nature", "coming-of-age", "novel", "fiction", "psychology", "family"],
+    artLock: "deep forest botanical gouache and fine ink editorial illustration, moody foliage and interior architecture, symbolic empty places and objects only, strictly zero people or figures",
+  },
+  storybookKraft: {
+    id: "storybookKraft",
+    polarity: "chromaticMid",
+    mood: "ochreKraft",
+    secondaryMoods: ["terracottaEarth", "warmParchment"],
+    typography: "slab",
+    annotationStyle: "pin",
+    nodeShape: "tornPaper",
+    layoutGrammar: "magazineMasthead",
+    transitionFamily: "print",
+    captionAlign: "left",
+    captionStyle: "kineticPill",
+    surfaceFinish: "editorialHalftone",
+    castMode: "vectorRig",
+    minorHarmSafe: true,
+    genreAffinity: ["journalism", "true-crime", "nonfiction", "history", "social", "memoir"],
+    artLock: "warm ochre kraft paper screenprint and archival ink editorial illustration, crisp risograph texture, symbolic empty places and objects only, strictly zero people or figures",
+  },
   storybookVector: {
     id: "storybookVector",
     polarity: "light",
@@ -159,13 +233,15 @@ const STYLE_PACKS = {
     typography: "slab",
     annotationStyle: "pin",
     nodeShape: "tornPaper",
-    layoutGrammar: "centered",
+    layoutGrammar: "editorialRight",
     transitionFamily: "paper",
     captionAlign: "center",
+    captionStyle: "editorialBar",
+    surfaceFinish: "paperGrain",
     castMode: "vectorRig",
     minorHarmSafe: true,
-    genreAffinity: ["fiction", "novel", "drama", "trauma"],
-    artLock: "",
+    genreAffinity: ["fiction", "novel", "drama", "trauma", "classic"],
+    artLock: "warm archival paper and fine editorial ink gouache illustration, clean storybook composition, symbolic empty places and objects only, strictly zero people or figures",
   },
   swissModernist: {
     id: "swissModernist",
@@ -418,20 +494,19 @@ const STYLE_PACKS = {
 };
 
 function pickStylePack({ slug = "", genre = "", minorHarm = false, recent = [] } = {}) {
-  if (minorHarm) return STYLE_PACKS.storybookVector;
   const win = (Array.isArray(recent) ? recent : [])
     .map((r) => (typeof r === "string" ? STYLE_PACKS[r] : r))
     .filter(Boolean)
     .slice(0, 8);
   const g = String(genre || "").toLowerCase();
 
+  const pool = Object.values(STYLE_PACKS).filter((p) => (minorHarm ? p.minorHarmSafe === true : p.minorHarmSafe !== true));
   let best = null;
-  for (const pack of Object.values(STYLE_PACKS)) {
-    if (pack.id === "storybookVector") continue;
+  for (const pack of pool) {
     if (win[0] && (win[0].id === pack.id || win[0].mood === pack.mood)) continue;
     const prevGrammar = win[0]?.layoutGrammar || "centered";
     const packGrammar = pack.layoutGrammar || "centered";
-    if (win[0] && prevGrammar === packGrammar) continue;
+    if (win[0] && prevGrammar === packGrammar && pool.length > 1) continue;
     let score = 0;
     if (win[0]) {
       if (pack.polarity !== win[0].polarity) score += 40;
@@ -458,7 +533,7 @@ function pickStylePack({ slug = "", genre = "", minorHarm = false, recent = [] }
       best = { pack, score, tie };
     }
   }
-  return best ? best.pack : STYLE_PACKS.midCenturyEditorial;
+  return best ? best.pack : (minorHarm ? STYLE_PACKS.storybookNoir : STYLE_PACKS.midCenturyEditorial);
 }
 
 function toArtDirection(packOrId, overrides = {}) {

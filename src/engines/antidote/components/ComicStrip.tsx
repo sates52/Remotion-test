@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { ComicStripSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 import { GrammarStage } from "./layoutGrammar";
 
 const PanelGlyph: React.FC<{ kind: string; color: string; muted: string }> = ({ kind, color, muted }) => {
@@ -49,7 +50,7 @@ const PanelGlyph: React.FC<{ kind: string; color: string; muted: string }> = ({ 
 export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const light = isLightPalette(palette);
@@ -124,6 +125,8 @@ export const ComicStrip: React.FC<{ spec: ComicStripSpec; localFrame?: number; s
               <div style={{ flex: 1, minHeight: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", margin: "10px 0" }}>
                 {pn.image ? (
                   <Img src={staticFile(pn.image)} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 6 }} />
+                ) : (pn.customSvg || pn.icon) ? (
+                  <InlineVisualSlot customSvg={pn.customSvg} icon={pn.icon} accent={col} ink={palette.ink} size={136} />
                 ) : (
                   <PanelGlyph kind={pn.visual ?? "focusBeam"} color={col} muted={palette.muted} />
                 )}

@@ -289,9 +289,25 @@ function analyzeNarrative(config, opts = {}) {
       }
     }
 
-    // Motion-density drought check (> 240 frames gap) across all 26 devices
+    // ComparisonGrid bullets <-> highlight verbatim-repeat check
+    if (s.comparisonGrid && Array.isArray(s.comparisonGrid.columns)) {
+      for (const col of s.comparisonGrid.columns) {
+        if (!col || !col.highlight || !Array.isArray(col.bullets) || !col.bullets.length) continue;
+        const hlNorm = String(col.highlight).trim().toLowerCase();
+        for (const b of col.bullets) {
+          const bNorm = String(b || "").trim().toLowerCase();
+          if (bNorm && (bNorm === hlNorm || tokenOverlap(col.highlight, b) >= 0.85)) {
+            checks.hygiene++;
+            warnings.push(`${s.id}: comparisonGrid column "${col.heading}" highlight ("${col.highlight}") repeats bullet verbatim`);
+            break;
+          }
+        }
+      }
+    }
+
+    // Motion-density & local-action drought check across all 31 devices, told, CAST & diagrams
     const dur = s.durationFrames ?? 0;
-    if (dur > 260) {
+    if (dur > 150) {
       const times = [0, dur];
       const pushAt = (v) => { if (typeof v === "number" && v >= 0 && v <= dur) times.push(v); };
       for (const p of s.cutoutStage?.props ?? []) pushAt(p.at);
@@ -322,12 +338,20 @@ function analyzeNarrative(config, opts = {}) {
       for (const hp of s.editorialSpread?.highlightPhrases ?? []) pushAt(hp.at);
       for (const ly of s.explodedView?.layers ?? []) pushAt(ly.at);
       for (const ev of s.timelineScrub?.events ?? []) pushAt(ev.at);
-      for (const br of s.decisionTree?.branches ?? []) pushAt(br.at);
+      pushAt(s.timelineScrub?.loopAt);
+      pushAt(s.timelineScrub?.calloutAt);
+      for (const br of s.decisionTree?.branches ?? []) { pushAt(br.at); pushAt(br.pruneAt); }
+      pushAt(s.decisionTree?.calloutAt);
       for (const it of s.stackReveal?.items ?? []) pushAt(it.changeAt);
+      pushAt(s.stackReveal?.calloutAt);
+      pushAt(s.cohortGrid?.splitAt);
+      pushAt(s.cohortGrid?.insetImage?.at);
+      pushAt(s.cohortGrid?.calloutAt);
       for (const pl of s.bookBlueprint?.pillars ?? []) pushAt(pl.at);
       pushAt(s.bookBlueprint?.synthesisAt);
       for (const st of s.mechanismChain?.steps ?? []) pushAt(st.at);
       pushAt(s.mechanismChain?.breakAt);
+      pushAt(s.mechanismChain?.calloutAt);
       pushAt(s.evidenceBoard?.revealLessonAt);
       for (const ln of s.quoteDialogue?.lines ?? []) pushAt(ln.at);
       pushAt(s.quoteDialogue?.subtext?.at);
@@ -335,6 +359,56 @@ function analyzeNarrative(config, opts = {}) {
       pushAt(s.hookPoster?.changeAt);
       pushAt(s.kineticManifesto?.footnoteAt);
       pushAt(s.gravityPile?.calloutAt);
+      // RealAnchor, StatSlam bars, DataMatrix, ComparisonGrid, VisualEquation
+      for (const hp of s.realAnchor?.highlightPhrases ?? []) pushAt(hp.at);
+      pushAt(s.realAnchor?.marginNote?.at);
+      if (Array.isArray(s.statSlam?.bars)) {
+        s.statSlam.bars.forEach((b, bi) => pushAt(b?.at ?? 18 + bi * 14));
+      }
+      pushAt(s.dataMatrix?.drawAt);
+      if (s.comparisonGrid && Array.isArray(s.comparisonGrid.columns) && s.comparisonGrid.columns.length >= 2) {
+        s.comparisonGrid.columns.forEach((col, ci) => {
+          pushAt(4 + ci * 8);
+          (col.bullets ?? []).slice(0, 5).forEach((_, bi) => pushAt(14 + ci * 8 + bi * 5));
+        });
+      }
+      if (s.visualEquation && Array.isArray(s.visualEquation.nodes) && s.visualEquation.nodes.length >= 2) {
+        s.visualEquation.nodes.forEach((_, ni) => pushAt(6 + ni * 9));
+      }
+      // ToldStage keyframes & events
+      if (s.told && typeof s.told === "object") {
+        for (const it of s.told.items ?? []) {
+          pushAt(it?.enter?.at);
+          pushAt(it?.act?.at);
+          pushAt(it?.drawFrom);
+          pushAt(it?.drawTo);
+          for (const k of it?.keys ?? []) pushAt(k?.at);
+        }
+        for (const ev of s.told.events ?? []) pushAt(ev?.at);
+      }
+      // CAST characters, props & callout texts
+      for (const ch of s.characters ?? []) {
+        pushAt(ch?.actionAt);
+        pushAt(ch?.emotionAt);
+        pushAt(ch?.says?.at);
+      }
+      for (const pr of s.props ?? []) {
+        pushAt(pr?.at);
+        pushAt(pr?.motionAt);
+      }
+      for (const tx of s.texts ?? []) pushAt(tx?.at);
+      // Legacy diagrams (refute, mechanism, causal, scorecard, flow)
+      if (s.diagram && typeof s.diagram === "object") {
+        pushAt(s.diagram.at);
+        for (const sub of [s.diagram.refute?.at, s.diagram.mechanism?.at, s.diagram.causal?.at]) {
+          if (sub && typeof sub === "object") {
+            for (const v of Object.values(sub)) {
+              if (typeof v === "number") pushAt(v);
+              else if (Array.isArray(v)) v.forEach(pushAt);
+            }
+          }
+        }
+      }
       const localSorted = [...new Set(times)].sort((a, b) => a - b);
       let maxLocalGap = 0;
       for (let i = 1; i < localSorted.length; i++) maxLocalGap = Math.max(maxLocalGap, localSorted[i] - localSorted[i - 1]);
@@ -354,7 +428,7 @@ function analyzeNarrative(config, opts = {}) {
       const sorted = [...new Set(times)].sort((a, b) => a - b);
       let maxGap = 0;
       for (let i = 1; i < sorted.length; i++) maxGap = Math.max(maxGap, sorted[i] - sorted[i - 1]);
-      if (maxGap > 240) {
+      if (dur > 260 && maxGap > 240) {
         checks.hygiene++;
         warnings.push(`${s.id}: ${maxGap}-frame (${(maxGap / 30).toFixed(1)}s) motion gap exceeds 8s`);
       }

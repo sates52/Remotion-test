@@ -8,6 +8,7 @@ import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
 import { useSkin, plateStyle } from "./skin";
+import { isLightPalette, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
 import { toldState, itemState, backdropOpacity, backdropFit, backdropScene, standsOn, spotsOf, SPOT_REACH, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
@@ -78,8 +79,8 @@ const Glyph: React.FC<{ kind: ToldItem["glyph"] }> = ({ kind }) => {
   }
 };
 
-const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
-  const ink = it.ink ?? "#1E1E22", color = it.color ?? "#D9603C";
+const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string }> = ({ it, frame, defaultInk = "#1E1E22" }) => {
+  const ink = it.ink ?? defaultInk, color = it.color ?? "#D9603C";
   switch (it.kind) {
     case "emblem": {
       const size = it.size ?? 56, lw = textW(it.label ?? "", size);
@@ -140,16 +141,25 @@ const Draw: React.FC<{ it: ToldItem; frame: number }> = ({ it, frame }) => {
 };
 
 /** A name plate: over a person's head, under a thing. Drawn in the stage's own SVG. */
-const Tag: React.FC<{ label: string; size?: number; y: number; fit?: boolean }> = ({ label, size = 38, y, fit = false }) => {
+const Tag: React.FC<{
+  label: string;
+  size?: number;
+  y: number;
+  fit?: boolean;
+  darkPalette?: { surface: string; ink: string; accent: string } | null;
+}> = ({ label, size = 38, y, fit = false, darkPalette = null }) => {
   // THE BOOK'S SKIN (skin.tsx): how a name plate is CUT — its size and place are the stage's, never the skin's
   const { skin, accent } = useSkin();
   const cut = plateStyle(skin, accent);
+  const fill = darkPalette ? darkPalette.surface : cut.fill;
+  const textInk = darkPalette ? darkPalette.ink : cut.ink;
+  const stroke = darkPalette ? darkPalette.accent : cut.stroke;
   // `fit` (a v2 stage): the plate is as wide as its name really is (told.ts plateW); a v1 stage keeps its plate
   const w = fit ? plateW(label, size) : textW(label, size) + 40;
   return (
     <g transform={`translate(0 ${y})`}>
-      <rect x={-w / 2} y={0} width={w} height={size + 22} rx={cut.rx} fill={cut.fill} stroke={cut.stroke} strokeWidth={cut.stroke ? 4 : undefined} />
-      <text x={0} y={size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={cut.ink} letterSpacing={1}>{label}</text>
+      <rect x={-w / 2} y={0} width={w} height={size + 22} rx={cut.rx} fill={fill} stroke={stroke} strokeWidth={stroke ? 4 : undefined} />
+      <text x={0} y={size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={textInk} letterSpacing={1}>{label}</text>
     </g>
   );
 };
@@ -164,8 +174,17 @@ const Tag: React.FC<{ label: string; size?: number; y: number; fit?: boolean }> 
  * to frame — the operator saw the picture tremble. Inside a single SVG there are no layers to get wrong.
  * `absBase` = the film frame of this stage's frame 0, so a figure that talks moves its mouth on the narration.
  */
-export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Speech | null }> = ({ spec, absBase = 0, speech = null }) => {
+export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Speech | null; stageMood?: StageMoodName }> = ({ spec, absBase = 0, speech = null, stageMood }) => {
   const frame = useCurrentFrame();
+  const ad = useArtDirection();
+  const useArt = Boolean(ad || stageMood);
+  const artPal = useArt ? resolveArtPalette(ad, stageMood) : null;
+  const darkStage = artPal ? !isLightPalette(artPal) : false;
+  const stageBg = spec.bg ?? (artPal ? artPal.bg : "#F2F0EA");
+  const gridStroke = artPal ? (darkStage ? "rgba(255,255,255,0.08)" : "rgba(24,24,27,0.10)") : "#E2DFD6";
+  const stageInk = artPal ? artPal.ink : "#1E1E22";
+  const darkTagPal = darkStage && artPal ? { surface: artPal.surface, ink: artPal.ink, accent: artPal.accent } : null;
+
   const cam = toldState({ x: 960, y: 540, s: 1, o: 1, r: 0 }, spec.cam, frame);
   const voice = speech ? voiceAt(speech, absBase + frame) : undefined;
   // told v2 — THE PLACE BEHIND THE STAGE: the book's drawing of where this happens, pale (the things, their names, the
@@ -177,12 +196,12 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
   // told v5 — a backdrop drawn as a SCENE (sky + ground): read only on a v5 stage; the wash otherwise
   const scenes = (spec.v ?? 1) >= 5 ? places.map((p) => ({ ...p, sc: backdropScene(p.b) })).filter((p) => p.sc) : [];
   return (
-    <AbsoluteFill style={{ backgroundColor: spec.bg ?? "#F2F0EA" }}>
+    <AbsoluteFill style={{ backgroundColor: stageBg }}>
       <svg viewBox="0 0 1920 1080" width="100%" height="100%">
         {spec.grid !== false ? (
           <g opacity={0.5 * (1 - placed)}>
-            {Array.from({ length: 17 }, (_, i) => <line key={`v${i}`} x1={i * 120} y1={0} x2={i * 120} y2={1080} stroke="#E2DFD6" strokeWidth={2} />)}
-            {Array.from({ length: 10 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 120} x2={1920} y2={i * 120} stroke="#E2DFD6" strokeWidth={2} />)}
+            {Array.from({ length: 17 }, (_, i) => <line key={`v${i}`} x1={i * 120} y1={0} x2={i * 120} y2={1080} stroke={gridStroke} strokeWidth={2} />)}
+            {Array.from({ length: 10 }, (_, i) => <line key={`h${i}`} x1={0} y1={i * 120} x2={1920} y2={i * 120} stroke={gridStroke} strokeWidth={2} />)}
           </g>
         ) : null}
         {/* the camera looks AT a point (cam.x, cam.y) with a zoom: a push-in on the thing being talked about */}
@@ -192,6 +211,9 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             <g key={`sky-${b.id}`} opacity={o}>
               <rect x={-FAR} y={-FAR} width={1920 + 2 * FAR} height={sc!.groundTop + FAR} fill={sc!.sky} />
               <rect x={-FAR} y={sc!.groundTop} width={1920 + 2 * FAR} height={1080 - sc!.groundTop + FAR} fill={sc!.ground} />
+              {artPal && (
+                <rect x={-FAR} y={-FAR} width={1920 + 2 * FAR} height={1080 + 2 * FAR} fill={artPal.bg} opacity={darkStage ? 0.56 : 0.22} />
+              )}
             </g>
           ))}
           {places.map(({ b, o }) => {
@@ -207,7 +229,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             const asScene = scenes.some((p) => p.b === b); // drawn as itself, not as a wash
             return (
               <g key={`at-${b.id}`} opacity={(asScene ? 1 : BACKDROP_OPACITY) * o} transform={`translate(${fit.x} ${fit.y}) scale(${fit.k})`}>
-                {b.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
+                {b.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : stageInk)} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
               </g>
             );
           })}
@@ -255,7 +277,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
                     // smaller and lighter around its own centre; the full plate stands where a person first appears
                     const recede = (spec.v ?? 1) >= 5 && it.known;
                     const cy = py + (size + 22) / 2;
-                    return recede ? <g opacity={0.72} transform={`translate(0 ${cy}) scale(0.8) translate(0 ${-cy})`}><Tag label={it.label} size={size} y={py} fit={fit} /></g> : <Tag label={it.label} size={size} y={py} fit={fit} />;
+                    return recede ? <g opacity={0.72} transform={`translate(0 ${cy}) scale(0.8) translate(0 ${-cy})`}><Tag label={it.label} size={size} y={py} fit={fit} darkPalette={darkTagPal} /></g> : <Tag label={it.label} size={size} y={py} fit={fit} darkPalette={darkTagPal} />;
                   })() : null}
                 </g>
               );
@@ -266,7 +288,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               return (
                 <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
                   <image href={staticFile(it.image)} x={-w / 2} y={-h / 2} width={w} height={h} preserveAspectRatio="xMidYMid meet" />
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={h / 2 + 8} fit={fit} /> : null}
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={h / 2 + 8} fit={fit} darkPalette={darkTagPal} /> : null}
                 </g>
               );
             }
@@ -277,15 +299,15 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               return (
                 <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
                   <g transform={`translate(${-box / 2} ${-box / 2}) scale(${box / vw} ${box / vh}) translate(${-vx} ${-vy})`}>
-                    {(it.paths || []).map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : it.ink ?? "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
+                    {(it.paths || []).map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : it.ink ?? stageInk)} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
                   </g>
-                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={box / 2 + 6} fit={fit} /> : null}
+                  {it.label ? <Tag label={it.label} size={it.size ?? 38} y={box / 2 + 6} fit={fit} darkPalette={darkTagPal} /> : null}
                 </g>
               );
             }
             return (
               <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
-                <Draw it={it} frame={frame} />
+                <Draw it={it} frame={frame} defaultInk={stageInk} />
               </g>
             );
           })}
@@ -296,7 +318,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
           if (!st || st.o <= 0.001) return null;
           return (
             <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
-              <Draw it={it} frame={frame} />
+              <Draw it={it} frame={frame} defaultInk={stageInk} />
             </g>
           );
         })}

@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { VisualEquationSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 
 /**
  * VisualEquation — Antidote 2.0 explanatory mental-model flow.
@@ -13,7 +14,7 @@ import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type St
 export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: number; stageMood?: StageMoodName; sideInsetLeft?: number }> = ({ spec, localFrame, stageMood, sideInsetLeft = 0 }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);
@@ -221,6 +222,8 @@ export const VisualEquation: React.FC<{ spec: VisualEquationSpec; localFrame?: n
                         objectFit: node.imageFit ?? "cover",
                       }}
                     />
+                  ) : (node.customSvg || node.icon) ? (
+                    <InlineVisualSlot customSvg={node.customSvg} icon={node.icon} accent={accent} ink={palette.ink} size={isBorderless ? 156 : 148} />
                   ) : (
                     <div
                       style={{

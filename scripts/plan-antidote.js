@@ -1333,7 +1333,13 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // restaged (their unmet requirement stays visible); nothing is invented.
     // Runs BEFORE the lock, inside the D ordering contract, so the lock seals
     // the staged representation too. The staging is plan-tagged on the record.
-    const requirement = requirementFor(strategyRecord, CAPABILITY_MAP, out);
+    const rawRequirement = requirementFor(strategyRecord, CAPABILITY_MAP, out);
+    // Operator Decision #3 (2026-11-27): do not attach legacy auto-director `fallback -> closeUp/diorama`
+    // requirements onto explicitly authored art.json scenes (stageRequirement never restages authored scenes,
+    // so attaching fallback created impossible unmet representation requirements). Concrete, absence, state,
+    // and relation requirements remain strictly enforced, and firewall thresholds stay untouched.
+    const isAuthoredArtScene = Boolean(ART && ART[i] && out._authorship && out._authorship.src === "art");
+    const requirement = isAuthoredArtScene && rawRequirement && rawRequirement.kind === "fallback" ? null : rawRequirement;
     const staging = stageRequirement(requirement, { scene: out, isTitle });
     out._visualStrategy = {
       strategy: strategyRecord.strategy,
@@ -1462,22 +1468,45 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       for (const k of PASSTHROUGH_10X_KEYS) {
         if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
       }
+      let coldOpenTransitionApplied = false;
       if (hasAny10xDevice(out)) {
         const beatWords = Array.isArray(s.words) ? s.words : [];
         compile10xCues(out, { words: beatWords, beatStartSec: s.from ?? (out.fromFrame / FPS), durationFrames: out.durationFrames, fps: FPS });
+        // Hydrate optional `icon` visual slots on text-heavy 10x devices from the book's own motifs/entities drawings.
+        try {
+          const ownMap = require("./lib/own-drawings").ownIcons(path.join(__dirname, "..", "books", SLUG));
+          const hydrateSlot = (obj) => {
+            if (!obj || typeof obj !== "object" || obj.customSvg || typeof obj.icon !== "string") return;
+            const hit = ownMap[obj.icon] || ownMap[obj.icon.toLowerCase()];
+            if (hit && hit.customSvg && Array.isArray(hit.customSvg.paths) && hit.customSvg.paths.length) {
+              obj.customSvg = hit.customSvg;
+            }
+          };
+          if (out.beforeAfterWipe) { hydrateSlot(out.beforeAfterWipe.before); hydrateSlot(out.beforeAfterWipe.after); }
+          if (out.comparisonGrid && Array.isArray(out.comparisonGrid.columns)) out.comparisonGrid.columns.forEach(hydrateSlot);
+          if (out.visualEquation && Array.isArray(out.visualEquation.nodes)) out.visualEquation.nodes.forEach(hydrateSlot);
+          if (out.timelineScrub) { hydrateSlot(out.timelineScrub); if (Array.isArray(out.timelineScrub.events)) out.timelineScrub.events.forEach(hydrateSlot); }
+          if (out.evidenceBoard) hydrateSlot(out.evidenceBoard);
+          if (out.comicStrip && Array.isArray(out.comicStrip.panels)) out.comicStrip.panels.forEach(hydrateSlot);
+          if (out.hookPoster) hydrateSlot(out.hookPoster);
+        } catch {}
         if (!A.transitionOverride) {
+          const fromSec = s.from ?? (out.fromFrame / FPS);
           const { applyColdOpenDirection } = require("./lib/cold-open");
           applyColdOpenDirection(out, {
             index: i,
-            fromSec: s.from ?? (out.fromFrame / FPS),
+            fromSec,
             opening: man10x && man10x.opening ? man10x.opening : null,
             pack: pack10x,
             authorContinue,
           });
+          if (fromSec < 50 && i > 0 && !authorContinue) coldOpenTransitionApplied = true;
         }
       }
       if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
-      else if (pack10x && hasAny10xDevice(out)) {
+      else if (pack10x) {
+        // Apply book mood rotation across ALL scenes (CAST, TOLD, and 10x devices) when pack10x is active
+        // so non-10x scenes adopt the book's polarity instead of collapsing back to legacy cream.
         const moods = [pack10x.mood, ...(pack10x.secondaryMoods || [])].filter(Boolean);
         out.bg = { ...(out.bg || {}), stageMood: moods[Math.floor(i / 8) % moods.length] };
       }
@@ -1506,9 +1535,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
               path: ambientPool[i % ambientPool.length],
               ambientCanvas: true,
               emptyStage: true,
-              opacity: 0.22,
-              blur: 7,
-              tintOpacity: 0.72,
+              opacity: 0.36,
+              blur: 5,
+              tintOpacity: 0.52,
               kenBurns: "pushIn",
             },
           };
@@ -1520,7 +1549,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       }
       if (A.transitionOverride) {
         out.transition = { type: A.transitionOverride, frames: 12, color: PAL.red || "#F7C948" };
-      } else if (pack10x && hasAny10xDevice(out) && i > 0 && !authorContinue) {
+      } else if (pack10x && hasAny10xDevice(out) && i > 0 && !authorContinue && !coldOpenTransitionApplied) {
         const fam = TRANSITION_FAMILIES[pack10x.transitionFamily || "editorial"] || TRANSITION_FAMILIES.editorial;
         out.transition = { type: fam[i % fam.length], frames: 12, color: PAL.red || "#F7C948" };
       }

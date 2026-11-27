@@ -2,32 +2,14 @@
 /**
  * fix-vtt-names.js — normalize ASR name misspellings in the RAW VTT, BEFORE planning.
  *
- * Why this exists (and why it is not fix-names.js): the YouTube auto-caption VTT
- * garbles proper nouns ("Flannry O' Conor", "Holga", "Shiflet"). Both planners copy
- * that text verbatim into on-screen emphasis + captions, so the errors ship on
- * screen. `fix-names.js` repairs them AFTERWARDS, but only for Vox — it hard-requires
- * `config.vox.json`, so an Antidote book had no fix at all. Fixing the SOURCE instead
- * is engine-agnostic and needs no retrofit: plan from correct names and every
- * downstream artifact (config, clean.vtt, chapters, meta, thumbnail) is right by
- * construction.
- *
- * Reads the same per-book map as fix-names.js: books/<slug>/names.json
- *   { "garble": "Correct", ... }   (a leading "_comment" key is ignored)
- *   - matched case-insensitively, on word boundaries
- *   - longest keys applied first (so "O' Conor" wins before "Conor")
- *   - a MULTI-WORD key is matched across VTT word-timing tags and MERGED into one
- *     token ("O'</c><00:00:03.6><c> Conor's" -> "O'Connor's"), which is what you want
- *     for a name the ASR split; the merged word keeps the FIRST token's timestamp.
- *
- * YouTube VTTs carry each line twice (a tagged cue + a plain rolling-caption cue),
- * so replacements are applied to the whole file and both forms are covered.
- *
- * Writes <slug>.vtt in place, after saving <slug>.vtt.orig.bak once (first run only).
+ * Reads books/<slug>/names.json via scripts/lib/vtt-names.js.
+ * Preserves all VTT timestamp lines verbatim and saves <slug>.vtt.orig.bak once.
  *
  * Usage: node scripts/fix-vtt-names.js --slug=<slug> [--dry]
  */
 const fs = require("fs");
 const path = require("path");
+const { loadNameMap, applyNamesToRawVtt } = require("./lib/vtt-names");
 
 const ROOT = path.join(__dirname, "..");
 const args = Object.fromEntries(
@@ -43,8 +25,8 @@ if (!SLUG) {
   process.exit(1);
 }
 
-const mapPath = path.join(ROOT, "books", SLUG, "names.json");
-if (!fs.existsSync(mapPath)) {
+const { file: mapPath, pairs } = loadNameMap({ root: ROOT, slug: SLUG });
+if (!mapPath || !fs.existsSync(mapPath)) {
   console.log(`ℹ  books/${SLUG}/names.json yok — VTT isim düzeltmesi atlandı (opsiyonel adım).`);
   process.exit(0);
 }
@@ -54,41 +36,9 @@ if (!fs.existsSync(vttPath)) {
   process.exit(1);
 }
 
-const pairs = Object.entries(JSON.parse(fs.readFileSync(mapPath, "utf8")))
-  .filter(([k]) => k !== "_comment")
-  .sort((a, b) => b[0].length - a[0].length); // longest first
+const raw = fs.readFileSync(vttPath, "utf8");
+const { text: vtt, total, report } = applyNamesToRawVtt(raw, pairs);
 
-const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-// The bridge between two words inside a cue: either plain spaces, or the
-// word-timing tag sandwich YouTube puts between tokens. Matching both is what lets
-// a multi-word key merge a name the ASR split across timestamps.
-//
-// `</c>` is OPTIONAL because the FIRST word of a cue is not wrapped in <c> at all —
-// the cue reads `The<00:00:00.320><c> grandmother</c>…`, so a phrase that starts on
-// that first word has no closing tag to match and would otherwise be missed.
-//
-// HORIZONTAL WHITESPACE ONLY ([ \\t], never \\s). A YouTube cue body is TWO lines: the
-// plain rolling-caption line, then the word-timed line. A key whose first word ends
-// one line and whose second word starts the next is therefore a DIFFERENT pair of
-// tokens, and a \\s bridge matched that line break, swallowed the newline and FUSED the
-// cue's two lines into one — which duplicated the rolling-caption text in the parsed
-// word stream and shifted every downstream beat by one (stolen-focus, 2026-09-26).
-// Such a pair no longer matches: use single-token keys, or hand-edit that one line.
-const SEP = `(?:[ \\t]*(?:<\\/c>)?[ \\t]*<[0-9:.]+>[ \\t]*<c>[ \\t]*|[ \\t]+)`;
-const rxFor = (k) => {
-  const body = k.trim().split(/\s+/).map(esc).join(SEP);
-  return new RegExp(`(^|[^A-Za-z0-9])(${body})(?=[^A-Za-z0-9]|$)`, "gi");
-};
-
-let vtt = fs.readFileSync(vttPath, "utf8");
-const report = [];
-for (const [k, v] of pairs) {
-  let n = 0;
-  vtt = vtt.replace(rxFor(k), (m, pre) => { n++; return pre + v; });
-  report.push([k, v, n]);
-}
-
-const total = report.reduce((s, r) => s + r[2], 0);
 for (const [k, v, n] of report) {
   console.log(`  ${n ? "✓" : "·"} ${String(n).padStart(4)}  ${JSON.stringify(k)} → ${JSON.stringify(v)}`);
 }

@@ -2,25 +2,27 @@ import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { BeforeAfterWipeSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 import { StageGrammarOverlay } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
 
 /**
  * BeforeAfterWipe — Full-Bleed Animated Curtain Contrast Between Two Worlds.
  *
- * When `image` is absent, renders a center-weighted, high-contrast split-poster
- * composition with animated RoughMarks strikethrough/underline so zero void remains.
+ * Starts 100% on `before`, then wipes `after` in cleanly at `wipeAt` (ending at
+ * `endSplit` from the left edge). When `image` is absent, supports optional
+ * `customSvg`/`icon` visual slots alongside animated RoughMarks strikethrough/underline.
  */
 export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);
 
   const wipeAt = spec.wipeAt ?? 36;
   const endSplit = spec.endSplit ?? 0.5;
-  const wp = interpolate(frame - wipeAt, [0, 26], [0, endSplit], {
+  const wp = interpolate(frame - wipeAt, [0, 26], [1, endSplit], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.poly(4)),
@@ -31,9 +33,10 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
   });
 
   const diag = spec.direction === "diagonal";
-  const pct = (wp * 100).toFixed(2);
-  const pctTop = diag ? Math.min(100, wp * 100 + 6).toFixed(2) : pct;
-  const pctBot = diag ? Math.max(0, wp * 100 - 6).toFixed(2) : pct;
+  // Taper diagonal slant to 0 at full-before (wp=1) and full-after (wp=0) so no corner triangle peeks out pre-wipe.
+  const slant = diag ? 6 * Math.min(1, (1 - wp) * 10, wp * 10) : 0;
+  const pctTop = Math.min(100, wp * 100 + slant).toFixed(2);
+  const pctBot = Math.max(0, wp * 100 - slant).toFixed(2);
   const clipAfter = `polygon(${pctTop}% 0%, 100% 0%, 100% 100%, ${pctBot}% 100%)`;
 
   const renderHalf = (side: BeforeAfterWipeSpec["before"], align: "left" | "right", isAfter: boolean) => {
@@ -89,6 +92,11 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
           >
             {side.label}
           </span>
+          {!hasImg && (side.customSvg || side.icon) && (
+            <div style={{ display: "flex", justifyContent: align === "left" ? "flex-start" : "flex-end", marginBottom: 14 }}>
+              <InlineVisualSlot customSvg={side.customSvg} icon={side.icon} accent={col} ink={palette.ink} size={132} />
+            </div>
+          )}
           <div style={{ position: "relative", display: "inline-block" }}>
             <div
               style={{

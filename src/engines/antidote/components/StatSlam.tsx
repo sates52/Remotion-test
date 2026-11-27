@@ -12,7 +12,7 @@ import { GrammarStage } from "./layoutGrammar";
 export const StatSlam: React.FC<{ spec: StatSlamSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);

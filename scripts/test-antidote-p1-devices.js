@@ -99,7 +99,13 @@ test("style-packs.js rotation alternates polarity, mood, and layoutGrammar", () 
     }
     recent.unshift(p);
   }
-  assert.strictEqual(sp.pickStylePack({ slug: "trauma-book", minorHarm: true }).id, "storybookVector");
+  const mh1 = sp.pickStylePack({ slug: "trauma-book-a", genre: "thriller", minorHarm: true });
+  const mh2 = sp.pickStylePack({ slug: "trauma-book-b", genre: "fiction", minorHarm: true, recent: [mh1] });
+  assert.strictEqual(mh1.minorHarmSafe, true);
+  assert.strictEqual(mh1.castMode, "vectorRig");
+  assert.strictEqual(mh2.minorHarmSafe, true);
+  assert.notStrictEqual(mh1.id, mh2.id);
+  assert.notStrictEqual(mh1.layoutGrammar, mh2.layoutGrammar);
 });
 
 console.log(`\nAll ${passed} Antidote 10x Phase 2 (P1) tests passed.`);

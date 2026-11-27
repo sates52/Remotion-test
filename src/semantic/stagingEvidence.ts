@@ -114,6 +114,64 @@ export function isComparisonPropName(type: string): boolean {
 /** The renderer shots that stage a comparison with two visible parties. */
 export const COMPARATIVE_SHOTS = new Set(["split", "twoShot", "beforeAfter"]);
 
+/**
+ * Full-stage / structural Antidote 10x devices that carry multi-element or relational
+ * staging on their own. Single-pole `kineticManifesto` is deliberately EXCLUDED so a
+ * bare text manifesto stays REVIEW under HC3.
+ */
+export const STRUCTURAL_10X_DEVICES = new Set([
+  "beforeAfterWipe",
+  "comparisonGrid",
+  "balanceScale",
+  "vennMerge",
+  "cohortGrid",
+  "decisionTree",
+  "timelineScrub",
+  "mechanismChain",
+  "evidenceBoard",
+  "visualEquation",
+  "dataMatrix",
+  "explodedView",
+  "analyticsFunnel",
+  "barRace",
+  "bookBlueprint",
+  "comicStrip",
+  "spatialJourney",
+  "stackReveal",
+  "liveInterface",
+  "editorialSpread",
+  "annotatedScene",
+  "cutoutStage",
+  "quoteDialogue",
+  "hookPoster",
+  "crumpleToss",
+  "gravityPile",
+  "upClose",
+  "realAnchor",
+  "statSlam",
+]);
+
+/** True when a scene stages a structural Antidote 10x device (excluding single-pole kineticManifesto). */
+export function hasStructural10xDevice(scene: any): boolean {
+  if (!scene || typeof scene !== "object") return false;
+  for (const key of STRUCTURAL_10X_DEVICES) {
+    if (scene[key] != null) return true;
+  }
+  return false;
+}
+
+/** True when a scene carries a Film Flow `told` stage with real structural elements or animated events. */
+export function hasToldStructuralEvent(scene: any): boolean {
+  const t = scene && scene.told;
+  if (!t || typeof t !== "object") return false;
+  const items = Array.isArray(t.items) ? t.items : [];
+  const nonScreen = items.filter((it: any) => it && !it.screen);
+  if (nonScreen.length >= 2) return true;
+  if (nonScreen.some((it: any) => (Array.isArray(it.keys) && it.keys.length > 0) || Boolean(it.act))) return true;
+  if (Array.isArray(t.backdrops) && t.backdrops.length > 0 && nonScreen.length >= 1) return true;
+  return false;
+}
+
 /** Is this prop an authored customSvg with a relation declaration? (exported for tests/gate telemetry) */
 export function sceneHasDeclaredSvg(scene: any, relation: RequiredRelation | "none"): boolean {
   const props = Array.isArray(scene && scene.props) ? scene.props : [];
@@ -392,11 +450,16 @@ export function evaluateSemanticStaging(input: {
     const hasDualSubjects = hasDualActiveSubjects(scene);
     const hasComparisonProp = Array.isArray(scene.props)
       && scene.props.some((p: any) => p && isComparisonPropName(p.type));
+    const hasStructural10x = hasStructural10xDevice(scene);
+    const hasChapterInterstitial = Boolean(scene.chapterInterstitial);
+    const hasToldEvent = hasToldStructuralEvent(scene);
     const mediumSatisfied = satisfiesMedium(scene, medium === "none" ? "two_domain_comparison" : medium, relation);
-    if (!hasDualSubjects && !hasComparisonProp && !declaredSvg) {
+    if (!hasDualSubjects && !hasComparisonProp && !declaredSvg && !hasStructural10x && !hasChapterInterstitial && !hasToldEvent) {
       hardViolations.push(
         "MISSING_STRUCTURAL_EQUIVALENCE: Claim asserts equivalence/analogy, but scene only depicts single domain without structural parallel"
       );
+    } else if ((hasStructural10x || hasChapterInterstitial || hasToldEvent) && !hasDualSubjects && !hasComparisonProp && !declaredSvg) {
+      diagnostics.push(`structural_equivalence:${hasStructural10x ? "10x-device" : hasChapterInterstitial ? "chapter-interstitial" : "told-event"}`);
     } else if (declaredSvg && !hasDualSubjects && !hasComparisonProp) {
       diagnostics.push(`structural_equivalence:declared-svg:${creditRelation}`);
     } else if (mediumSatisfied) {
@@ -412,17 +475,30 @@ export function evaluateSemanticStaging(input: {
 
   // ── Idle-actor wallpaper (historical HC4 predicate, byte-preserved) ─────
   // Fires iff (single passive actor OR an idle character) and NO structural
-  // prop. The customSvg escape lands in the authored-SVG commit (P7 item 4);
-  // widening it here first would regress the 30-case benchmark.
+  // prop. Active 2-person `twoShot` scenes where one actor performs a non-idle
+  // action and the listening/reacting partner holds an intentional non-neutral
+  // expression are exempted (soloIdleTalk, soloPointWalk, twoShotBothIdle, and
+  // neutral-partner twoShot remain REVIEW).
   const forbidIdle = !!(intent && Array.isArray(intent.forbiddenTropes) && intent.forbiddenTropes.includes("static_idle_actor_wallpaper"));
   if (forbidIdle) {
     const chars = Array.isArray(scene.characters) ? scene.characters : [];
     const isSingleActorPassive =
       chars.length === 1 && ["talk", "idle", "walk", "point"].includes(String((chars[0] && chars[0].action) || ""));
     const hasIdleCharacter = chars.some((c) => String((c && c.action) || "") === "idle");
+    const isActiveTwoShotWithExpressivePartner =
+      String(scene.shot || "") === "twoShot" &&
+      chars.length === 2 &&
+      chars.some((c: any) => String((c && c.action) || "") !== "idle") &&
+      chars.every((c: any) => {
+        const act = String((c && c.action) || "");
+        const expr = String((c && c.expression) || "neutral");
+        return act !== "idle" || (expr !== "" && expr !== "neutral");
+      });
     const hasStructuralProp = Array.isArray(scene.props) && scene.props.some((p: any) => p && isStructuralPropName(p.type));
-    if ((isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp && !declaredSvg) {
+    if ((isSingleActorPassive || (hasIdleCharacter && !isActiveTwoShotWithExpressivePartner)) && !hasStructuralProp && !declaredSvg) {
       hardViolations.push("IDLE_ACTOR_WALLPAPER: Complex proposition or psychological claim rendered with idle/talking statue actor");
+    } else if (isActiveTwoShotWithExpressivePartner && hasIdleCharacter && !hasStructuralProp && !declaredSvg) {
+      diagnostics.push("idle_wallpaper_cleared_by:active-twoShot-expressive-partner");
     } else if (declaredSvg && (isSingleActorPassive || hasIdleCharacter) && !hasStructuralProp) {
       diagnostics.push(`idle_wallpaper_cleared_by:declared-svg:${creditRelation}`);
     }

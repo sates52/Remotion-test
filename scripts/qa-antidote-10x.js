@@ -32,13 +32,17 @@ if (!cfgPath || !fs.existsSync(cfgPath)) {
 }
 
 const config = JSON.parse(fs.readFileSync(cfgPath, "utf8").replace(/^\uFEFF/, ""));
+const bookPath = path.join(path.dirname(cfgPath), "book.json");
+const book = fs.existsSync(bookPath)
+  ? JSON.parse(fs.readFileSync(bookPath, "utf8").replace(/^\uFEFF/, ""))
+  : {};
 const assetRoot = args["asset-root"] ? path.resolve(String(args["asset-root"])) : path.join(ROOT, "public");
 
 let varietyOk = true;
 let varietyError = null;
-const variety = analyzeVariety(config);
+const variety = analyzeVariety(config, { book });
 try {
-  assertVariety(config);
+  assertVariety(config, { book });
 } catch (e) {
   varietyOk = false;
   varietyError = e.message;

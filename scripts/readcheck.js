@@ -147,11 +147,27 @@ const TENX_TEXT_KEYS = new Set([
   "kicker", "title", "subtitle", "headline", "subhead", "heading", "label", "sublabel",
   "text", "caption", "footnote", "callout", "highlight", "value", "unit", "time", "step",
   "badge", "leftLabel", "rightLabel", "name", "quote", "author",
+  // Additional visible text fields across all 31 10x devices (P1.4 audit)
+  "detail", "note", "attribution", "thesis", "synthesis", "breakLabel", "escapeOutcome",
+  "caseBadge", "subject", "setup", "finding", "findingHighlight", "lessonHeadline",
+  "lessonDetail", "role", "payoff", "promiseLine", "beforeLabel", "beforeDetail",
+  "afterLabel", "afterDetail", "anomalyBadge", "lensLabel", "dropNote", "displayValue",
+  "dropZoneLabel", "outcome", "verdict", "preview", "loopLabel", "tag", "bullets",
+  "xLabel", "yLabel", "number", "points", "root", "metric", "delta", "status", "glyph",
 ]);
 const TENX_SKIP_KEYS = new Set([
-  "at", "strikeAt", "wipeAt", "pruneAt", "changeAt", "image", "tone", "id", "variant",
-  "layout", "direction", "mediaSide", "x", "y", "scale", "weight", "level", "targetLevel",
-  "emphasis", "winner", "active", "visual", "icon", "count", "day", "points",
+  "at", "strikeAt", "wipeAt", "pruneAt", "changeAt", "tossAt", "splitAt", "zoomAt",
+  "expandAt", "calloutAt", "loopAt", "breakAt", "revealLessonAt", "synthesisAt",
+  "payoffAt", "verdictAt", "footnoteAt", "actionAt", "fadeAt", "drawAt",
+  "quadrantRevealStep", "image", "beforeImage", "afterImage", "path", "backdrop",
+  "customSvg", "beforeCustomSvg", "afterCustomSvg", "paths", "viewBox",
+  "tone", "id", "variant", "layout", "direction", "mediaSide", "kenBurns", "framing",
+  "markerStyle", "revealMode", "nodeShape", "operator", "imageFit", "zoomTarget",
+  "x", "y", "cx", "cy", "rx", "ry", "fromX", "fromY", "labelX", "labelY", "labelPos",
+  "scale", "weight", "level", "targetLevel", "share", "endSplit", "dim", "blur",
+  "opacity", "rot", "width", "height", "dur", "total", "bottleneckIndex", "activeIndex",
+  "emphasis", "winner", "active", "borderless", "flip", "visual", "icon", "count",
+  "day", "color", "enter", "side", "speaker",
 ]);
 
 function describe10xVisible(devKey, spec) {

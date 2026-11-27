@@ -184,7 +184,37 @@ function validateStoryBible(bible, slug) {
  * provable for every book (P3.6) — the same report → enforce path the
  * coherence audit follows. No book slug, character, or world is referenced.
  */
-function segmentGroundingErrors(scene, index) {
+const MOTIF_SYNONYM_STOP = new Set([
+  "the", "and", "for", "with", "that", "this", "from", "into", "over", "under", "about",
+  "reads", "like", "very", "just", "some", "more", "than", "when", "what", "which", "where",
+  "icon", "drawing", "symbol", "object", "thing", "book", "story", "scene", "shown", "shows",
+]);
+
+function motifSynonymGrounded(concept, segment, motifs) {
+  if (!motifs || typeof motifs !== "object" || !segment) return false;
+  const key = String(concept || "").trim();
+  const entry = motifs[key] || motifs[key.toLowerCase()] ||
+    Object.entries(motifs).find(([k]) => k.toLowerCase() === key.toLowerCase())?.[1];
+  if (!entry || typeof entry !== "object") return false;
+  const desc = [entry.title, entry.reads, entry.name].filter((s) => typeof s === "string" && s.trim()).join(" ");
+  if (!desc.trim()) return false;
+  const segLow = segment.toLowerCase();
+  const tokens = desc
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length >= 4 && !MOTIF_SYNONYM_STOP.has(w));
+  for (const tok of tokens) {
+    if (isGrounded(tok, segment)) return true;
+    const stem = tok.replace(/(ing|ed|es|s)$/, "");
+    if (stem.length >= 4 && new RegExp(`\\b${stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[a-z]*\\b`, "i").test(segLow)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function segmentGroundingErrors(scene, index, motifs = {}) {
   const concept = scene?.concept;
   // No visual-subject claim to prove — absence is not an ungrounded visual.
   if (typeof concept !== "string" || !concept.trim()) return [];
@@ -192,6 +222,7 @@ function segmentGroundingErrors(scene, index) {
     .filter((part) => typeof part === "string" && part.length)
     .join("\n");
   if (isGrounded(concept, segment)) return [];
+  if (motifSynonymGrounded(concept, segment, motifs)) return [];
   return [code(
     "VISUAL_NOT_GROUNDED_IN_SEGMENT",
     `visual subject '${concept.trim()}' is not grounded in this segment's narration`,
@@ -224,7 +255,7 @@ function validateScene(scene, index, bible, slug, motifs = {}) {
   // P3.4: audio↔screen coherence for this scene's visual subject — runs before
   // the early return so a provenance-broken scene still reports its grounding
   // row (report-first; never the reason a book fails).
-  errors.push(...segmentGroundingErrors(scene, index));
+  errors.push(...segmentGroundingErrors(scene, index, motifs));
   errors.push(...foreignSubjectErrors(scene, index, bible?.visualProvenance?.worldId || bible?.world?.worldId));
   // Keep checking actual props even when the contract is absent. Otherwise an
   // uncontracted foreign motif would be hidden behind a generic missing-data

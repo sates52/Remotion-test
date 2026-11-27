@@ -236,12 +236,12 @@ for (const scene of scenes) {
     scene.visualIntent = persistedIntent;
   }
   if (!scene.visualContract || args.force) {
-    const full10x = isFullStage10x(scene);
+    const bypassLegacyStrategy = isFullStage10x(scene) || Boolean(scene.told);
     const baseEvidence = { subjects: [subject], relations: [relation], states: [state] };
     scene.visualContract = {
       ...provenanceBase,
-      visualEvidence: full10x ? baseEvidence : copyStrategyRequirement(scene, baseEvidence),
-      characterIntent: full10x ? [] : characters.map(id => ({
+      visualEvidence: bypassLegacyStrategy ? baseEvidence : copyStrategyRequirement(scene, baseEvidence),
+      characterIntent: bypassLegacyStrategy ? [] : characters.map(id => ({
         identity: id,
         role: id,
         action: "talk",

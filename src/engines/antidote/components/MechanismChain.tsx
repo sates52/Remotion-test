@@ -36,7 +36,7 @@ export const MechanismChain: React.FC<{
 }> = ({ spec, localFrame, stageMood, chapterLabel }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const light = isLightPalette(palette);

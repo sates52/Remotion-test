@@ -39,11 +39,11 @@ const DEVICE_10X_KEYS = [
   "hookPoster",
 ];
 
-const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests", "chapterLabel"];
+const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests", "chapterLabel", "thumbnailHero"];
 
 const ALL_10X_KEYS = [...DEVICE_10X_KEYS, ...EXTRA_10X_KEYS];
 
-const PASSTHROUGH_10X_KEYS = [...DEVICE_10X_KEYS, "shotIntent", "depthCarry", "chapterLabel"];
+const PASSTHROUGH_10X_KEYS = [...DEVICE_10X_KEYS, "shotIntent", "depthCarry", "chapterLabel", "thumbnailHero"];
 
 const ALWAYS_FULL_STAGE_10X_KEYS = [
   "annotatedScene",

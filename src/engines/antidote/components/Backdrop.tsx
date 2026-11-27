@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "rem
 import type { BgSpec } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { backdropFit, backdropScene } from "../told";
-import { STAGE_MOODS, useArtDirection } from "./artDirection";
+import { STAGE_MOODS, isLightPalette, useArtDirection } from "./artDirection";
 
 /**
  * Backdrop — the world behind the cast.
@@ -1030,149 +1030,66 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
   const ad = useArtDirection();
   const moodSpec = bg.stageMood ? STAGE_MOODS[bg.stageMood] : null;
   const imgSpec = bg.image;
-  if (moodSpec || imgSpec) {
-    const dur = Math.max(1, durationFrames);
-    const p = interpolate(frame, [0, dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-    const kb = imgSpec?.kenBurns ?? "pushIn";
-    const imgScale = kb === "dollyZoom" ? 1.0 + p * 0.15 : kb === "pushIn" ? 1.02 + p * 0.07 : kb === "pullOut" ? 1.09 - p * 0.07 : kb === "none" ? 1 : 1.06;
-    const imgTx = kb === "panLeft" ? (0.5 - p) * 52 : kb === "panRight" ? (p - 0.5) * 52 : 0;
-    const tex = moodSpec?.texture;
-    const texBgImage =
-      tex === "dots" || tex === "risoSpeckle"
-        ? `radial-gradient(${moodSpec!.gridColor} 1.6px, transparent 1.6px)`
-        : tex === "lines" || tex === "xRayScanline"
-          ? `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px)`
-          : tex === "flutedRib"
-            ? `repeating-linear-gradient(90deg, ${moodSpec!.gridColor} 0px, ${moodSpec!.gridColor} 2px, transparent 2px, transparent ${moodSpec!.gridSize}px)`
-            : tex === "linenFiber"
-              ? `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`
-              : tex === "swissBand"
-                ? `linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`
-                : tex === "halftoneCorner"
-                  ? `radial-gradient(${moodSpec!.gridColor} 2px, transparent 2px)`
-                  : tex === "bauhausBlocks"
-                    ? `linear-gradient(90deg, ${moodSpec!.gridColor} 2px, transparent 2px), linear-gradient(${moodSpec!.gridColor} 2px, transparent 2px)`
-                    : `linear-gradient(${moodSpec!.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec!.gridColor} 1px, transparent 1px)`;
-    const texBgSize =
-      tex === "lines" || tex === "xRayScanline"
-        ? `100% ${tex === "xRayScanline" ? 8 : moodSpec?.gridSize}px`
-        : tex === "flutedRib" || tex === "swissBand"
-          ? `${moodSpec?.gridSize}px 100%`
-          : `${moodSpec?.gridSize}px ${moodSpec?.gridSize}px`;
-    return (
-      <AbsoluteFill style={{ background: moodSpec ? moodSpec.background : "#101319", overflow: "hidden" }}>
-        {moodSpec && moodSpec.texture !== "clean" && (
-          <AbsoluteFill
-            style={{
-              backgroundImage: texBgImage,
-              backgroundSize: texBgSize,
-              opacity: moodSpec.gridOpacity,
-              transform: `translate(${(cam.x * 0.15).toFixed(1)}px, ${(cam.y * 0.15).toFixed(1)}px)`,
-            }}
-          />
-        )}
-        {imgSpec && (
-          <AbsoluteFill
-            style={{
-              opacity: imgSpec.opacity ?? (imgSpec.ambientCanvas ? 0.22 : 1),
-              filter: imgSpec.blur ? `blur(${imgSpec.blur}px)` : imgSpec.ambientCanvas ? "blur(7px)" : undefined,
-              transform: `translate(${(imgTx + cam.x * 0.25).toFixed(1)}px, ${(cam.y * 0.25).toFixed(1)}px) scale(${(imgScale * (1 + (cam.scale - 1) * 0.35)).toFixed(4)})`,
-              transformOrigin: "center",
-            }}
-          >
-            <Img src={staticFile(imgSpec.path)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          </AbsoluteFill>
-        )}
-        {imgSpec?.ambientCanvas && (() => {
-          const rgb = parseColor(moodSpec?.palette.bg ?? "#101319") ?? [16, 19, 25];
-          const tintOp = imgSpec.tintOpacity ?? 0.72;
-          return (
-            <AbsoluteFill
-              style={{
-                backgroundColor: `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${tintOp})`,
-              }}
-            />
-          );
-        })()}
-        {imgSpec && (imgSpec.dim ?? 0) > 0 && (
-          <AbsoluteFill style={{ backgroundColor: `rgba(8, 10, 15, ${imgSpec.dim})` }} />
-        )}
-        {imgSpec && (imgSpec.groundFog ?? 0) > 0 && (
-          <AbsoluteFill
-            style={{
-              background: `linear-gradient(180deg, rgba(8,10,15,0) 52%, rgba(8,10,15,${imgSpec.groundFog}) 100%)`,
-            }}
-          />
-        )}
-        {(!moodSpec || moodSpec.vignette !== "none") && (
-          <AbsoluteFill
-            style={{
-              background: moodSpec
-                ? moodSpec.vignette
-                : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
-            }}
-          />
-        )}
-        {ad?.surfaceFinish === "paperGrain" && (
-          <AbsoluteFill
-            style={{
-              opacity: 0.06,
-              backgroundImage: "radial-gradient(rgba(26,20,14,0.65) 1px, transparent 1px)",
-              backgroundSize: "14px 14px",
-              pointerEvents: "none",
-            }}
-          />
-        )}
-        {ad?.surfaceFinish === "blueprintTech" && (
-          <AbsoluteFill
-            style={{
-              opacity: 0.22,
-              border: "1px solid rgba(255,255,255,0.22)",
-              margin: 18,
-              pointerEvents: "none",
-            }}
-          />
-        )}
-        {ad?.surfaceFinish === "editorialHalftone" && (
-          <AbsoluteFill
-            style={{
-              opacity: 0.12,
-              backgroundImage: "radial-gradient(rgba(255,255,255,0.35) 1.5px, transparent 1.5px)",
-              backgroundSize: "18px 18px",
-              maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 45%)",
-              pointerEvents: "none",
-            }}
-          />
-        )}
-        {ad?.surfaceFinish === "cinemaGlow" && (
-          <AbsoluteFill
-            style={{
-              background: "radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.14) 0%, transparent 58%)",
-              pointerEvents: "none",
-            }}
-          />
-        )}
-      </AbsoluteFill>
-    );
-  }
   const colors = bg.colors && bg.colors.length ? bg.colors : ["#8FC0E8"];
   const base =
     bg.type === "gradient" && colors.length >= 2
       ? `linear-gradient(180deg, ${colors[0]}, ${colors[colors.length - 1]})`
       : colors[0];
-  const ink = bg.accent || shade(colors[colors.length - 1], -0.62);
-  const accent = bg.accent || shade(colors[0], -0.35);
+  const legacyInk = bg.accent || shade(colors[colors.length - 1], -0.62);
+  const legacyAccent = bg.accent || shade(colors[0], -0.35);
   // the book's own place (Film Flow 6) is drawn instead of the shared set — one layer, no ambient drift
   const own = bg.own && bg.own.paths && bg.own.paths.length ? bg.own : null;
   const ownFit = own ? backdropFit(own) : null;
   const ownScene = own ? backdropScene(own) : null; // slice 4: sky + ground, or null for the wash
   const layers = own ? null : SETS[bg.set] || null;
-  const tex = textureStyle(bg.texture, ink);
+
+  // Unified pipeline: when `stageMood` or `bg.image` is active, render mood ground + texture +
+  // optional image + mood-tinted drawn locations (`SETS[bg.set]` / `bg.own`) + vignette + surfaceFinish
+  // instead of returning early and dropping drawn locations. Legacy configs (neither mood nor image)
+  // render byte-identically via the exact legacy ground/texture branch below.
+  const hasUnifiedMood = Boolean(moodSpec || imgSpec);
+  const moodDark = moodSpec ? !isLightPalette(moodSpec.palette) : Boolean(imgSpec);
+  const ink = hasUnifiedMood ? (moodSpec ? moodSpec.palette.ink : "#F4F1EA") : legacyInk;
+  const accent = hasUnifiedMood ? (moodSpec ? moodSpec.palette.accent : "#D97706") : legacyAccent;
+  const dur = Math.max(1, durationFrames);
+  const p = interpolate(frame, [0, dur], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const kb = imgSpec?.kenBurns ?? "pushIn";
+  const imgScale = kb === "dollyZoom" ? 1.0 + p * 0.15 : kb === "pushIn" ? 1.02 + p * 0.07 : kb === "pullOut" ? 1.09 - p * 0.07 : kb === "none" ? 1 : 1.06;
+  const imgTx = kb === "panLeft" ? (0.5 - p) * 52 : kb === "panRight" ? (p - 0.5) * 52 : 0;
+  const moodTex = moodSpec?.texture;
+  const texBgImage = moodSpec
+    ? moodTex === "dots" || moodTex === "risoSpeckle"
+      ? `radial-gradient(${moodSpec.gridColor} 1.6px, transparent 1.6px)`
+      : moodTex === "lines" || moodTex === "xRayScanline"
+        ? `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px)`
+        : moodTex === "flutedRib"
+          ? `repeating-linear-gradient(90deg, ${moodSpec.gridColor} 0px, ${moodSpec.gridColor} 2px, transparent 2px, transparent ${moodSpec.gridSize}px)`
+          : moodTex === "linenFiber"
+            ? `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`
+            : moodTex === "swissBand"
+              ? `linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`
+              : moodTex === "halftoneCorner"
+                ? `radial-gradient(${moodSpec.gridColor} 2px, transparent 2px)`
+                : moodTex === "bauhausBlocks"
+                  ? `linear-gradient(90deg, ${moodSpec.gridColor} 2px, transparent 2px), linear-gradient(${moodSpec.gridColor} 2px, transparent 2px)`
+                  : `linear-gradient(${moodSpec.gridColor} 1px, transparent 1px), linear-gradient(90deg, ${moodSpec.gridColor} 1px, transparent 1px)`
+    : undefined;
+  const texBgSize = moodSpec
+    ? moodTex === "lines" || moodTex === "xRayScanline"
+      ? `100% ${moodTex === "xRayScanline" ? 8 : moodSpec.gridSize}px`
+      : moodTex === "flutedRib" || moodTex === "swissBand"
+        ? `${moodSpec.gridSize}px 100%`
+        : `${moodSpec.gridSize}px ${moodSpec.gridSize}px`
+    : undefined;
+  const legacyTex = !hasUnifiedMood ? textureStyle(bg.texture, ink) : null;
+  const showDrawnLocation = !imgSpec || Boolean(imgSpec.ambientCanvas);
 
   return (
-    <AbsoluteFill>
-      {/* split field: two color halves for the `split` shot */}
-      {bg.split && bg.split.length >= 2 ? (
+    <AbsoluteFill style={{ overflow: "hidden" }}>
+      {/* Ground layer */}
+      {hasUnifiedMood ? (
+        <AbsoluteFill style={{ background: moodSpec ? moodSpec.background : "#101319" }} />
+      ) : bg.split && bg.split.length >= 2 ? (
         <AbsoluteFill>
           <div style={{ position: "absolute", inset: 0, width: "50%", background: bg.split[0] }} />
           <div style={{ position: "absolute", inset: 0, left: "50%", width: "50%", background: bg.split[1] }} />
@@ -1182,18 +1099,60 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
         <AbsoluteFill style={{ background: base }} />
       )}
 
-      {layers ? (
-        <>
-          {/* Depth-of-field: far layer blurs most when the camera zooms in,
-              mid gets light blur, near stays sharp — cinematic rack focus. */}
+      {/* Mood geometric texture */}
+      {moodSpec && moodSpec.texture !== "clean" && (
+        <AbsoluteFill
+          style={{
+            backgroundImage: texBgImage,
+            backgroundSize: texBgSize,
+            opacity: moodSpec.gridOpacity,
+            transform: `translate(${(cam.x * 0.15).toFixed(1)}px, ${(cam.y * 0.15).toFixed(1)}px)`,
+          }}
+        />
+      )}
+
+      {/* Optional photographic / illustrated backdrop or ambient canvas */}
+      {imgSpec && (
+        <AbsoluteFill
+          style={{
+            opacity: imgSpec.opacity ?? (imgSpec.ambientCanvas ? 0.36 : 1),
+            filter: imgSpec.blur ? `blur(${imgSpec.blur}px)` : imgSpec.ambientCanvas ? "blur(5px)" : undefined,
+            transform: `translate(${(imgTx + cam.x * 0.25).toFixed(1)}px, ${(cam.y * 0.25).toFixed(1)}px) scale(${(imgScale * (1 + (cam.scale - 1) * 0.35)).toFixed(4)})`,
+            transformOrigin: "center",
+          }}
+        >
+          <Img src={staticFile(imgSpec.path)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </AbsoluteFill>
+      )}
+      {imgSpec?.ambientCanvas && (() => {
+        const rgb = parseColor(moodSpec?.palette.bg ?? "#101319") ?? [16, 19, 25];
+        const tintOp = imgSpec.tintOpacity ?? 0.52;
+        return (
+          <AbsoluteFill
+            style={{
+              backgroundColor: `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${tintOp})`,
+            }}
+          />
+        );
+      })()}
+      {imgSpec && (imgSpec.dim ?? 0) > 0 && (
+        <AbsoluteFill style={{ backgroundColor: `rgba(8, 10, 15, ${imgSpec.dim})` }} />
+      )}
+      {imgSpec && (imgSpec.groundFog ?? 0) > 0 && (
+        <AbsoluteFill
+          style={{
+            background: `linear-gradient(180deg, rgba(8,10,15,0) 52%, rgba(8,10,15,${imgSpec.groundFog}) 100%)`,
+          }}
+        />
+      )}
+
+      {/* Drawn parallax location (`SETS[bg.set]`): preserved under stageMood with mood-tinted ink/accent */}
+      {showDrawnLocation && layers ? (
+        <AbsoluteFill style={{ opacity: hasUnifiedMood ? (moodDark ? 0.48 : 0.78) : 1, pointerEvents: "none" }}>
           {(() => {
-            const zoomAmt = Math.max(0, cam.scale - 1); // 0 at rest, grows with zoom
-            const farBlur = Math.min(6, zoomAmt * 18);    // up to 6px
-            const midBlur = Math.min(2.5, zoomAmt * 7);   // up to 2.5px
-            // AMBIENT PARALLAX — a camera at rest used to freeze the whole
-            // backdrop. Each depth layer now breathes on its own slow, desynced
-            // cycle, so the set keeps depth even in a locked-off shot. Far layer
-            // moves most (it reads as distance), near layer barely at all.
+            const zoomAmt = Math.max(0, cam.scale - 1);
+            const farBlur = Math.min(6, zoomAmt * 18);
+            const midBlur = Math.min(2.5, zoomAmt * 7);
             const amb = (period: number, phase: number, px: number) =>
               Math.sin((frame / period) * Math.PI * 2 + phase) * px;
             return (
@@ -1210,26 +1169,103 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
               </>
             );
           })()}
-        </>
+        </AbsoluteFill>
       ) : null}
 
-      {own && ownFit ? (
+      {/* Book's own drawn place (`bg.own`): preserved and mood-glazed when stageMood is active */}
+      {showDrawnLocation && own && ownFit ? (
         <Layer dx={cam.x * 0.55} dy={cam.y * 0.55} dz={1 + (cam.scale - 1) * 0.6}>
           {ownScene ? (
             <g>
               <rect x={-SCENE_FAR} y={-SCENE_FAR} width={1920 + 2 * SCENE_FAR} height={ownScene.groundTop + SCENE_FAR} fill={ownScene.sky} />
               <rect x={-SCENE_FAR} y={ownScene.groundTop} width={1920 + 2 * SCENE_FAR} height={1080 - ownScene.groundTop + SCENE_FAR} fill={ownScene.ground} />
+              {moodSpec && (
+                <rect
+                  x={-SCENE_FAR}
+                  y={-SCENE_FAR}
+                  width={1920 + 2 * SCENE_FAR}
+                  height={1080 + 2 * SCENE_FAR}
+                  fill={moodSpec.palette.bg}
+                  opacity={moodDark ? 0.56 : 0.24}
+                />
+              )}
             </g>
           ) : null}
           <g opacity={ownScene ? 1 : OWN_PLACE_OPACITY} transform={`translate(${ownFit.x} ${ownFit.y}) scale(${ownFit.k})`}>
-            {own.paths.map((pa, k) => <path key={k} d={pa.d} fill={pa.fill ?? "none"} stroke={pa.stroke ?? (pa.fill ? "none" : "#1E1E22")} strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)} strokeLinecap="round" strokeLinejoin="round" opacity={pa.opacity ?? 1} />)}
+            {own.paths.map((pa, k) => (
+              <path
+                key={k}
+                d={pa.d}
+                fill={pa.fill ?? "none"}
+                stroke={pa.stroke ?? (pa.fill ? "none" : (hasUnifiedMood && moodDark ? ink : "#1E1E22"))}
+                strokeWidth={pa.strokeWidth ?? (pa.fill ? 0 : 7)}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity={pa.opacity ?? 1}
+              />
+            ))}
           </g>
         </Layer>
       ) : null}
 
-      {tex ? <AbsoluteFill style={tex} /> : null}
-      {/* a soft vignette keeps the eye centered and stops flat fields reading as slides */}
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.16) 100%)" }} />
+      {/* Legacy paper texture */}
+      {legacyTex ? <AbsoluteFill style={legacyTex} /> : null}
+
+      {/* Vignette */}
+      {hasUnifiedMood ? (
+        (!moodSpec || moodSpec.vignette !== "none") && (
+          <AbsoluteFill
+            style={{
+              background: moodSpec
+                ? moodSpec.vignette
+                : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
+            }}
+          />
+        )
+      ) : (
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 46%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.16) 100%)" }} />
+      )}
+
+      {/* Book-level surfaceFinish overlay (10x artDirection) */}
+      {hasUnifiedMood && ad?.surfaceFinish === "paperGrain" && (
+        <AbsoluteFill
+          style={{
+            opacity: 0.06,
+            backgroundImage: "radial-gradient(rgba(26,20,14,0.65) 1px, transparent 1px)",
+            backgroundSize: "14px 14px",
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {hasUnifiedMood && ad?.surfaceFinish === "blueprintTech" && (
+        <AbsoluteFill
+          style={{
+            opacity: 0.22,
+            border: "1px solid rgba(255,255,255,0.22)",
+            margin: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {hasUnifiedMood && ad?.surfaceFinish === "editorialHalftone" && (
+        <AbsoluteFill
+          style={{
+            opacity: 0.12,
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.35) 1.5px, transparent 1.5px)",
+            backgroundSize: "18px 18px",
+            maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 45%)",
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {hasUnifiedMood && ad?.surfaceFinish === "cinemaGlow" && (
+        <AbsoluteFill
+          style={{
+            background: "radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.14) 0%, transparent 58%)",
+            pointerEvents: "none",
+          }}
+        />
+      )}
     </AbsoluteFill>
   );
 };

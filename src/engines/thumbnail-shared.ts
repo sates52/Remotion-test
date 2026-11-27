@@ -23,10 +23,11 @@ export const THUMB_LAYOUTS = [
   "two-subject-vs",   // two cutouts facing each other + divider
   "text-poster",      // NO image — giant hook on torn-paper texture
   "scene-still",      // Antidote: frozen frame of the book's own scene + hook panel
-  "editorial-cover-10x", // Antidote 10x: full-bleed Flux art + top masthead band
-  "split-poster-10x",    // Antidote 10x: 50/50 typographic + artwork split
+  "editorial-cover-10x", // Antidote 10x: full-bleed artwork + editorial masthead band
+  "split-poster-10x",    // Antidote 10x: zero-letterbox typographic + artwork split
   "cutout-hero-10x",     // Antidote 10x: book-specific rembg cutout character + editorial hook
-  "diagram-hook-10x",    // Antidote 10x: frozen 10x diagram scene + contrasting hook column
+  "diagram-hook-10x",    // Antidote 10x: frozen visual scene/diagram card + contrasting hook column
+  "poster-drama-10x",    // Antidote 10x: full-bleed dramatic scene/art + polarity-inverted high-contrast scrim
 ] as const;
 
 export type ThumbLayout = typeof THUMB_LAYOUTS[number];

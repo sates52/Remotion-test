@@ -18,6 +18,7 @@ const { planPromiseLifecycles } = require("./antidote-promise-engine");
 const { balanceNoveltyBudget } = require("./antidote-novelty-budget");
 const { planChapterArcs } = require("./antidote-chapter-arcs");
 const { directAudioEvents } = require("./antidote-audio-director");
+const { isFullStage10x } = require("./antidote-10x-keys");
 
 /**
  * Executes the closed-loop auto-repair workflow on an Antidote config.
@@ -58,9 +59,11 @@ function autoRepairAntidote(config, chapters = [], options = {}) {
     let passRepairs = 0;
 
     // ── STEP 1: Repair Chapter Curiosity Arcs ────────────────────────────────
+    let chaptersRepaired = false;
     if (!preAudit.diagnostics.chaptersPassed) {
       const chRes = planChapterArcs(scenes, chapters, fps);
       scenes = chRes.scenes;
+      chaptersRepaired = true;
       repairs.push({
         pass: passesRun,
         type: "CHAPTER_ARCS",
@@ -133,7 +136,8 @@ function autoRepairAntidote(config, chapters = [], options = {}) {
     }
 
     // ── STEP 6: Repair Audio Soundscape & Selective Silence ──────────────────
-    if (!preAudit.diagnostics.audioPassed || preAudit.subScores.audio < 10) {
+    // Also run after CHAPTER_ARCS because chapter arc tagging can add PAYOFF/CHAPTER roles.
+    if (!preAudit.diagnostics.audioPassed || preAudit.subScores.audio < 10 || chaptersRepaired) {
       const aRes = directAudioEvents(scenes, fps);
       scenes = aRes.scenes;
       currentConfig.audioEvents = aRes.audioEvents;
@@ -182,7 +186,12 @@ function autoRepairAntidote(config, chapters = [], options = {}) {
             targetScene.narrative.escalates = true;
           }
           targetScene.visualJob = "contrast";
-          if (!["split", "beforeAfter"].includes(targetScene.shot)) {
+          const protectedTarget = Boolean(
+            targetScene.told ||
+            isFullStage10x(targetScene) ||
+            (targetScene._authorship && targetScene._authorship.src && targetScene._authorship.src !== "none")
+          );
+          if (!protectedTarget && !["split", "beforeAfter"].includes(targetScene.shot)) {
             targetScene.shot = "split";
           }
           repairs.push({

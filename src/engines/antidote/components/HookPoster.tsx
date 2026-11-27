@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { HookPosterSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 import { StageGrammarOverlay } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
 
@@ -16,7 +17,7 @@ export const HookPoster: React.FC<{
   chapterLabel?: string;
 }> = ({ spec, localFrame, stageMood, chapterLabel }) => {
   const ctxFrame = useCurrentFrame();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);
@@ -113,11 +114,18 @@ export const HookPoster: React.FC<{
               opacity: interpolate(changeP, [0, 1], [1, 0.52]),
             }}
           >
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 15, letterSpacing: "0.14em", color: palette.muted, marginBottom: 8 }}>
-              {spec.beforeLabel ?? "ASSUMPTION"}
-            </div>
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 34, color: palette.ink, lineHeight: 1.15 }}>
-              {spec.beforeDetail ?? "What seems obvious at first glance"}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 18 }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 15, letterSpacing: "0.14em", color: palette.muted, marginBottom: 8 }}>
+                  {spec.beforeLabel ?? "ASSUMPTION"}
+                </div>
+                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 34, color: palette.ink, lineHeight: 1.15 }}>
+                  {spec.beforeDetail ?? "What seems obvious at first glance"}
+                </div>
+              </div>
+              {(spec.beforeCustomSvg || spec.customSvg || spec.icon) && (
+                <InlineVisualSlot customSvg={spec.beforeCustomSvg ?? spec.customSvg} icon={spec.icon} accent={palette.muted} ink={palette.ink} size={112} />
+              )}
             </div>
             <div style={{ marginTop: 8 }}>
               <RoughMarks kind="strike" width={420} height={14} color={accentCol} progress={changeP} seed={spec.setup} />
@@ -135,11 +143,18 @@ export const HookPoster: React.FC<{
               transform: `translateY(${(1 - changeP) * 18}px)`,
             }}
           >
-            <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 16, letterSpacing: "0.14em", color: accentCol, marginBottom: 10 }}>
-              {spec.afterLabel ?? "REALITY"}
-            </div>
-            <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 38, color: palette.ink, lineHeight: 1.14 }}>
-              {spec.afterDetail ?? spec.payoff}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 18 }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 16, letterSpacing: "0.14em", color: accentCol, marginBottom: 10 }}>
+                  {spec.afterLabel ?? "REALITY"}
+                </div>
+                <div style={{ fontFamily: fonts.display, fontWeight: 900, fontSize: 38, color: palette.ink, lineHeight: 1.14 }}>
+                  {spec.afterDetail ?? spec.payoff}
+                </div>
+              </div>
+              {(spec.afterCustomSvg || spec.customSvg || spec.icon) && (
+                <InlineVisualSlot customSvg={spec.afterCustomSvg ?? spec.customSvg} icon={spec.icon} accent={accentCol} ink={palette.ink} size={120} />
+              )}
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot, type InlineCustomSvg } from "./InlineVisualSlot";
 import { GrammarStage } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
 import { FitText } from "./textFit";
@@ -10,6 +11,8 @@ export type EvidenceBoardSpec = {
   subtitle?: string;
   caseBadge?: string;
   image?: string;
+  icon?: string;
+  customSvg?: InlineCustomSvg;
   subject: string;
   setup: string;
   finding: string;
@@ -34,7 +37,7 @@ export const EvidenceBoard: React.FC<{
 }> = ({ spec, localFrame, stageMood, chapterLabel }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const light = isLightPalette(palette);
@@ -69,11 +72,15 @@ export const EvidenceBoard: React.FC<{
           </span>
           <FitText text={spec.subject} maxWidth={560} maxLines={2} baseSize={30} minSize={20} fontFamily={fonts.display} fontWeight={900} color={palette.ink} style={{ marginTop: 6 }} />
 
-          {spec.image && (
+          {spec.image ? (
             <div style={{ marginTop: 14, height: 200, borderRadius: 10, overflow: "hidden", border: `2px solid ${palette.surfaceBorder}` }}>
               <Img src={staticFile(spec.image)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </div>
-          )}
+          ) : (spec.customSvg || spec.icon) ? (
+            <div style={{ marginTop: 14, height: 170, borderRadius: 10, border: `2px solid ${palette.surfaceBorder}`, background: `${col}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <InlineVisualSlot customSvg={spec.customSvg} icon={spec.icon} accent={col} ink={palette.ink} size={140} />
+            </div>
+          ) : null}
 
           <div style={{ fontFamily: fonts.body, fontSize: 19, fontWeight: 500, color: palette.muted, marginTop: 14, lineHeight: 1.4 }}>
             {spec.setup}

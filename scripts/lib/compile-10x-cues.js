@@ -1,8 +1,12 @@
 /**
  * compile-10x-cues.js — Compiles spoken `*Cue` / `cue` phrases on 10x devices
- * into relative frame numbers, strips helper cue keys, and auto-staggers long scenes.
+ * into scene-relative frame numbers, strips helper cue keys, clamps action cues
+ * so animations land cleanly before the 70% frame, warns on unmatched cues,
+ * and auto-staggers long scenes.
  */
 const { DEVICE_10X_KEYS } = require("./antidote-10x-keys");
+
+const FILLER_STOP = new Set(["the", "a", "an", "to", "of", "in", "on", "at", "is", "are", "was", "were", "just", "very", "really", "actually", "so", "that", "and", "or"]);
 
 function normPhrase(s) {
   return String(s || "")
@@ -13,17 +17,33 @@ function normPhrase(s) {
     .trim();
 }
 
+function normLoose(w) {
+  const s = String(w || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  if (s.length <= 3) return s;
+  return s.replace(/(ingly|edly|ation|ment|ness|ing|ies|ied|ed|es|s)$/, (m) => (m === "ies" ? "y" : ""));
+}
+
 function findCueFrame(phrase, { words = [], beatStartSec = 0, durationFrames = 180, fps = 30 } = {}) {
   const target = normPhrase(phrase);
   if (!target || !Array.isArray(words) || !words.length) return null;
   const tWords = target.split(" ").filter(Boolean);
   if (!tWords.length) return null;
 
-  const wNorm = words.map((w) => ({
-    txt: normPhrase(w.w ?? w.word ?? ""),
-    startSec: w.start != null ? Number(w.start) : Number(w.s ?? 0) / fps,
-  }));
+  const wNorm = words.map((w) => {
+    const txt = normPhrase(w.w ?? w.word ?? "");
+    return {
+      txt,
+      loose: normLoose(txt),
+      startSec: w.start != null ? Number(w.start) : Number(w.s ?? 0) / fps,
+    };
+  });
 
+  const clampFrame = (startSec) => {
+    const rel = Math.round((startSec - beatStartSec) * fps);
+    return Math.max(6, Math.min(Math.max(12, durationFrames - 18), rel));
+  };
+
+  // Pass 1: exact normalized contiguous match
   for (let i = 0; i <= wNorm.length - tWords.length; i++) {
     let ok = true;
     for (let j = 0; j < tWords.length; j++) {
@@ -32,11 +52,50 @@ function findCueFrame(phrase, { words = [], beatStartSec = 0, durationFrames = 1
         break;
       }
     }
-    if (ok) {
-      const rel = Math.round((wNorm[i].startSec - beatStartSec) * fps);
-      return Math.max(6, Math.min(Math.max(12, durationFrames - 18), rel));
+    if (ok) return clampFrame(wNorm[i].startSec);
+  }
+
+  // Pass 2: apostrophe-stripped + stem-normalized contiguous match
+  const tLoose = tWords.map(normLoose).filter(Boolean);
+  if (tLoose.length) {
+    for (let i = 0; i <= wNorm.length - tLoose.length; i++) {
+      let ok = true;
+      for (let j = 0; j < tLoose.length; j++) {
+        if (wNorm[i + j].loose !== tLoose[j]) {
+          ok = false;
+          break;
+        }
+      }
+      if (ok) return clampFrame(wNorm[i].startSec);
     }
   }
+
+  // Pass 3: ordered content-word window match (allows up to 3 inserted/ASR-drifted words between anchors)
+  const content = tLoose.filter((w) => w.length > 2 && !FILLER_STOP.has(w));
+  if (content.length >= 2) {
+    for (let i = 0; i < wNorm.length; i++) {
+      if (wNorm[i].loose !== content[0]) continue;
+      let cur = i;
+      let matchedAll = true;
+      for (let k = 1; k < content.length; k++) {
+        let found = -1;
+        const limit = Math.min(wNorm.length - 1, cur + 4);
+        for (let m = cur + 1; m <= limit; m++) {
+          if (wNorm[m].loose === content[k]) {
+            found = m;
+            break;
+          }
+        }
+        if (found < 0) {
+          matchedAll = false;
+          break;
+        }
+        cur = found;
+      }
+      if (matchedAll) return clampFrame(wNorm[i].startSec);
+    }
+  }
+
   return null;
 }
 
@@ -62,11 +121,22 @@ const ARRAY_KEYS = [
   "pillars", "steps",
 ];
 
+function recordUnmatched(ctx, scene, dk, cueKey, phrase) {
+  const msg = `[compile-10x-cues] unmatched ${dk}.${cueKey}="${phrase}" in ${scene.id || "scene"} (spoken words did not match)`;
+  if (Array.isArray(ctx.warnings)) ctx.warnings.push(msg);
+  if (Array.isArray(ctx.unmatchedCues)) ctx.unmatchedCues.push({ sceneId: scene.id || null, device: dk, key: cueKey, phrase });
+  if (!ctx.quiet && Array.isArray(ctx.words) && ctx.words.length > 0) {
+    console.warn(`  ⚠ ${msg}`);
+  }
+}
+
 function compile10xCues(scene, ctx = {}) {
   if (!scene || typeof scene !== "object") return scene;
   const dur = Math.max(30, ctx.durationFrames || scene.durationFrames || 180);
   const maxReveal = Math.max(24, Math.round(dur * 0.72));
   const maxAction = Math.max(30, dur - 24);
+  const maxWipeAt = Math.max(18, Math.round(dur * 0.52));
+  const maxStrikeAt = Math.max(18, Math.round(dur * 0.58));
 
   for (const dk of DEVICE_10X_KEYS) {
     const dev = scene[dk];
@@ -76,12 +146,15 @@ function compile10xCues(scene, ctx = {}) {
 
     for (const [cueKey, atKey] of TOP_CUE_MAP) {
       if (dev[cueKey] != null) {
-        const f = findCueFrame(dev[cueKey], { ...ctx, durationFrames: dur });
+        const rawPhrase = dev[cueKey];
+        const f = findCueFrame(rawPhrase, { ...ctx, durationFrames: dur });
         if (f != null && dev[atKey] == null) dev[atKey] = f;
+        else if (f == null && dev[atKey] == null) recordUnmatched(ctx, scene, dk, cueKey, rawPhrase);
         delete dev[cueKey];
       }
       if (typeof dev[atKey] === "number") {
-        dev[atKey] = Math.max(12, Math.min(Math.max(24, dur - 30), dev[atKey]));
+        const hi = atKey === "wipeAt" ? Math.min(Math.max(24, dur - 30), maxWipeAt) : Math.max(24, dur - 30);
+        dev[atKey] = Math.max(12, Math.min(hi, dev[atKey]));
       }
     }
 
@@ -92,14 +165,18 @@ function compile10xCues(scene, ctx = {}) {
       for (const item of arr) {
         if (!item || typeof item !== "object") continue;
         if (item.cue != null) {
-          const f = findCueFrame(item.cue, { ...ctx, durationFrames: dur });
+          const rawPhrase = item.cue;
+          const f = findCueFrame(rawPhrase, { ...ctx, durationFrames: dur });
           if (f != null && item.at == null) item.at = f;
+          else if (f == null && item.at == null) recordUnmatched(ctx, scene, dk, `${arrKey}[].cue`, rawPhrase);
           delete item.cue;
         }
         for (const [ck, ak] of [["strikeCue", "strikeAt"], ["pruneCue", "pruneAt"], ["changeCue", "changeAt"]]) {
           if (item[ck] != null) {
-            const f = findCueFrame(item[ck], { ...ctx, durationFrames: dur });
+            const rawPhrase = item[ck];
+            const f = findCueFrame(rawPhrase, { ...ctx, durationFrames: dur });
             if (f != null && item[ak] == null) item[ak] = f;
+            else if (f == null && item[ak] == null) recordUnmatched(ctx, scene, dk, `${arrKey}[].${ck}`, rawPhrase);
             delete item[ck];
           }
         }
@@ -134,7 +211,9 @@ function compile10xCues(scene, ctx = {}) {
         const baseAt = typeof item.at === "number" ? item.at : 10;
         for (const ak of ["strikeAt", "pruneAt", "changeAt"]) {
           if (typeof item[ak] === "number") {
-            item[ak] = Math.max(Math.min(maxAction, baseAt + 12), Math.min(maxAction, item[ak]));
+            const cap = ak === "strikeAt" ? Math.min(maxAction, maxStrikeAt) : maxAction;
+            const lo = Math.min(cap, baseAt + 10);
+            item[ak] = Math.max(lo, Math.min(cap, item[ak]));
           }
         }
       }

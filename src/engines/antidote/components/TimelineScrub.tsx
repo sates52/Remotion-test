@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { TimelineScrubSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 import { GrammarStage } from "./layoutGrammar";
 
 /**
@@ -13,7 +14,7 @@ import { GrammarStage } from "./layoutGrammar";
 export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);
@@ -136,6 +137,11 @@ export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: num
                 >
                   {ev.time}
                 </span>
+                {(ev.customSvg || ev.icon) && (
+                  <div style={{ display: "flex", justifyContent: "center", marginBottom: 4 }}>
+                    <InlineVisualSlot customSvg={ev.customSvg} icon={ev.icon} accent={col} ink={palette.ink} size={52} />
+                  </div>
+                )}
                 <div style={{ fontFamily: displayFont, fontWeight: 800, fontSize: 23, lineHeight: 1.15, color: palette.ink }}>
                   {ev.title}
                 </div>

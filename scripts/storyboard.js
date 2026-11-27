@@ -535,10 +535,11 @@ A wrong icon is worse than none.
 ${conceptMotionLine(v)}${CONTINUE_LINE}${ACTION_LINE}${process.env.STORYBOARD_SPEECH === "1" ? SPEECH_LINE : ""}${CLAIM_FIRST_BLOCK}No single shared icon on more than 5% of the beats: an icon used for everything means nothing.
 ${ownIconSection(v)}
 ## Antidote 10x Single-World Devices (opt-in when book.json sets stylePack / artDirection)
-- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`liveInterface\`, \`comicStrip\`, \`beforeAfterWipe\`, \`spatialJourney\`, \`chapterInterstitial\`, \`vennMerge\`, \`explodedView\`, \`gravityPile\`, \`crumpleToss\`, \`analyticsFunnel\`, \`barRace\`, \`upClose\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`. Full-stage 10x beats must use \`cast: []\` (or omit \`cast\`) and \`concept: null\` (no legacy \`diagram\` or \`told\`).
-- 26 Devices by narrative job: \`cutoutStage\` (transparent Flux character/prop theatre over \`emptyStage\`, supports \`kenBurns: "dollyZoom"\`), \`editorialSpread\` (asymmetric magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 dials or \`strata\`), \`liveInterface\` (\`calendarTetris\`/\`notificationFlood\`/\`chatThread\`/\`metricBoard\`), \`comicStrip\` (\`triptych\`/\`quad2x2\`/\`asymmetric3\`), \`beforeAfterWipe\` (\`horizontal\`/\`diagonal\`), \`spatialJourney\` (\`constellation\`/\`routeMap\`/\`topoExpedition\`/\`worldArc\`), \`chapterInterstitial\` (4 chapter openers), \`annotatedScene\` (\`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 split), \`timelineScrub\` (chronological rail + loop), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`fullBleedSplit\`), \`visualEquation\` (\`borderless\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\`, PLUS 7 Phase 2 devices: \`vennMerge\` (2-3 overlapping circles + intersection), \`explodedView\` (2-6 isometric layers expanding on \`expandCue\`), \`gravityPile\` (3-14 rigid-drop items), \`crumpleToss\` (myth crumpled & tossed on \`tossCue\` -> truth), \`analyticsFunnel\` (2-6 stage funnel + bottleneck), \`barRace\` (2-6 epochs overtaking bars), \`upClose\` (optical macro-zoom over image).
-- Optional stage & transition fields: \`stageMood\` (19 moods), \`bgImage\`, \`depthCarry\`, \`transitionOverride\` (\`pageTurn\`, \`paperTear\`, \`pushThrough\`, \`focusPull\`, \`halftoneCut\`, \`whipPan\`), word-anchored cues (\`tossCue\`, \`splitCue\`, \`wipeCue\`, \`zoomCue\`, \`expandCue\`, item \`cue\`), and \`assetRequests: [{ id, prompt, mode: "scene"|"cutout"|"poses2x2" }]\` (max 45 unique Flux assets per book).
-- Variety & YPP rules: \`boxed-card <= 20%\`, \`maxConsecutive <= 2\`, no single mode \`> 35%\`, and every 10x beat declares \`shotIntent: { job, subject, action, payoff }\`.
+- Never mix flat-vector \`characters\` with \`annotatedScene\`, \`cohortGrid\`, \`timelineScrub\`, \`statSlam\`, \`cutoutStage\`, \`editorialSpread\`, \`kineticManifesto\`, \`decisionTree\`, \`balanceScale\`, \`stackReveal\`, \`liveInterface\`, \`comicStrip\`, \`beforeAfterWipe\`, \`spatialJourney\`, \`chapterInterstitial\`, \`vennMerge\`, \`explodedView\`, \`gravityPile\`, \`crumpleToss\`, \`analyticsFunnel\`, \`barRace\`, \`upClose\`, \`bookBlueprint\`, \`mechanismChain\`, \`evidenceBoard\`, \`quoteDialogue\`, \`hookPoster\`, \`comparisonGrid\`, or a \`bgImage\` lacking \`emptyStage: true\`. Full-stage 10x beats must use \`cast: []\` (or omit \`cast\`) and \`concept: null\` (no legacy \`diagram\` or \`told\`).
+- **ADDS anti-text-slide rule (CRITICAL):** NEVER replace a dead solo \`CAST\` beat with a text-only slide (\`kineticManifesto\`, \`quoteDialogue\`, \`stackReveal\`, \`decisionTree\`, imageless \`beforeAfterWipe\`/\`comparisonGrid\`). On story/character beats, upgrade dead solo \`CAST\` to an active \`twoShot\` (both faces + partner action), a drawn \`told\` stage, or a visual/drawn device (\`customSvg\`/\`icon\` slot or image-backed \`hookPoster\`/\`annotatedScene\`/\`editorialSpread\`/\`evidenceBoard\`/\`beforeAfterWipe\`/\`comicStrip\`). Keep \`textHeavy10x <= 25%\` (non-fiction) or \`<= 20%\` (fiction / \`minorHarm\`).
+- 31 Devices by narrative job: \`cutoutStage\` (transparent Flux character/prop theatre over \`emptyStage\`, supports \`kenBurns: "dollyZoom"\` — forbidden on \`minorHarm\`), \`editorialSpread\` (asymmetric magazine spread), \`kineticManifesto\` (typographic pattern interrupt with strike-throughs), \`decisionTree\` (branching choice & pruning tree), \`balanceScale\` (tilting trade-off seesaw), \`stackReveal\` (\`burners\` 2x2 dials or \`strata\`), \`liveInterface\` (\`calendarTetris\`/\`notificationFlood\`/\`chatThread\`/\`metricBoard\`), \`comicStrip\` (\`triptych\`/\`quad2x2\`/\`asymmetric3\`, supports \`image\`/\`customSvg\`/\`icon\`), \`beforeAfterWipe\` (\`horizontal\`/\`diagonal\`, supports \`image\`/\`customSvg\`/\`icon\`), \`spatialJourney\` (\`constellation\`/\`routeMap\`/\`topoExpedition\`/\`worldArc\`), \`chapterInterstitial\` (4 chapter openers), \`annotatedScene\` (\`bracket\`/\`underline\`/\`spotlightMask\`/\`pin\`/\`circle\`), \`cohortGrid\` (50/50 split), \`timelineScrub\` (chronological rail + loop, supports \`customSvg\`/\`icon\`), \`statSlam\` (monumental law/ratio bars), \`comparisonGrid\` (\`fullBleedSplit\`/\`borderless\`, supports \`image\`/\`customSvg\`/\`icon\`), \`visualEquation\` (\`borderless\`, supports \`image\`/\`customSvg\`/\`icon\`), \`dataMatrix\` (\`borderless: true\`), \`realAnchor\`, \`vennMerge\` (2-3 overlapping circles + intersection), \`explodedView\` (2-6 isometric layers expanding on \`expandCue\`), \`gravityPile\` (3-14 rigid-drop items), \`crumpleToss\` (myth crumpled & tossed on \`tossCue\` -> truth), \`analyticsFunnel\` (2-6 stage funnel + bottleneck), \`barRace\` (2-6 epochs overtaking bars), \`upClose\` (optical macro-zoom over image), \`bookBlueprint\` (\`pillarColumns\`/\`radialMindMap\`/\`chapterPath\`), \`mechanismChain\` (\`linearChain\`/\`feedbackLoop\`/\`dominoBreak\`), \`evidenceBoard\` (case evidence -> principle, supports \`image\`/\`customSvg\`/\`icon\`), \`quoteDialogue\` (two-speaker exchange + subtext), \`hookPoster\` (0:00-0:05 cold-open before/after anomaly, supports \`beforeImage\`/\`afterImage\`/\`customSvg\`/\`icon\`).
+- Optional stage, visual-slot & transition fields: \`stageMood\` (25 moods across dark / light / chromaticMid polarities), \`bgImage\`, \`depthCarry\`, \`thumbnailHero: true\` (pin best visual hero scene for the cover), \`transitionOverride\` (\`pageTurn\`, \`paperTear\`, \`pushThrough\`, \`focusPull\`, \`halftoneCut\`, \`whipPan\`), word-anchored cues (\`tossCue\`, \`splitCue\`, \`wipeCue\`, \`zoomCue\`, \`expandCue\`, \`calloutCue\`, \`loopCue\`, \`breakCue\`, \`revealLessonCue\`, \`synthesisCue\`, \`payoffCue\`, \`changeCue\`, plus item \`cue\`, \`strikeCue\`, \`pruneCue\`, \`changeCue\`), and \`assetRequests: [{ id, prompt, mode: "scene"|"cutout"|"poses2x2" }]\` (non-fiction/standard: up to 80–90 duration-scaled Flux assets; \`minorHarm: true\`: max 25 strictly human-free, child-free symbolic place/object editorial illustrations ONLY on \`hookPoster\`/\`annotatedScene\`/\`editorialSpread\`/\`evidenceBoard\`/\`upClose\` — NEVER over Everyman characters).
+- Variety & YPP rules: \`boxed-card <= 20%\`, \`maxConsecutive <= 2\`, no single non-story mode \`> 35%\`, \`live-story <= 65%\` (non-fiction) or \`<= 80%\` (fiction / \`minorHarm\`), \`textHeavy10x <= 25%\` (non-fiction) or \`<= 20%\` (fiction / \`minorHarm\`), and every 10x beat declares \`shotIntent: { job, subject, action, payoff }\`.
 
 ## How staging reads (measured in mute tests)
 ${stagingReadingLines()}
@@ -957,7 +958,7 @@ function prep() {
   v.inputs = bookInputs();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
   let rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
-  if (IS_10X_ILLUSTRATED && book.opening) {
+  if (ENGINE === "antidote" && (BOOK_PACK || book.artDirection) && book.opening) {
     const { coldOpenRulesBlock } = require("./lib/cold-open");
     rulesText += coldOpenRulesBlock(book.opening);
   }
@@ -1448,6 +1449,10 @@ function merge() {
       for (const p of repeats) warnings.push(`${p.beat}: part ${p.n} opens in ${p.place} like part ${partOpens[partOpens.indexOf(p) - 1].n} — open it somewhere else the narration is (a reviewer jumping through the film lands on the same room)`);
       const tally = {}; for (const b of out) { const p = standsAt[b.i] || "none"; tally[p] = (tally[p] || 0) + 1; }
       const top = Object.entries(tally).sort((x, y) => y[1] - x[1]);
+      const topNamedPlace = top.find(([p]) => p !== "none");
+      if (topNamedPlace && out.length >= 10 && topNamedPlace[1] / out.length > 0.40) {
+        warnings.push(`places: "${topNamedPlace[0]}" holds ${Math.round((100 * topNamedPlace[1]) / out.length)}% of beats (>40% topPlaceShare) — vary book locations across chapters so the film does not cluster in one room`);
+      }
       if (PLACE_WORDS.length) {
         console.log(`places (beats, with continuity): ${top.slice(0, 6).map(([p, c]) => `${p} ${Math.round((100 * c) / (out.length || 1))} %`).join(" · ")}${partOpens.length ? ` · parts open in: ${partOpens.map((p) => `${p.n}:${p.place}`).join(" ")}` : ""}`);
         fs.writeFileSync(path.join(SB, "places.json"), JSON.stringify({ note: "Where each beat stands after merge (an unset beat stays where the film was). setPlace: beats whose narration names a place they do not stand in. empty: beats with nobody and nothing of the book. partOpens: where each part of the form opens. Reports only (storyboard.js merge, 2026-11-23).", at: new Date().toISOString(), beats: out.length, byPlace: Object.fromEntries(top), setPlace: placeTodo, empty: emptyBeats, partOpens, partRepeats: repeats.map((p) => p.n) }, null, 2));
@@ -1545,16 +1550,22 @@ function merge() {
       const { STYLE_PACKS, toArtDirection } = require("./lib/style-packs");
       const { analyzeVariety } = require("./lib/v2-variety-lint");
       const pack = book.stylePack && STYLE_PACKS[book.stylePack] ? STYLE_PACKS[book.stylePack] : null;
-      const vStats = analyzeVariety({ meta: { artDirection: pack ? toArtDirection(pack) : {} }, scenes: out });
+      const vStats = analyzeVariety({ meta: { artDirection: pack ? toArtDirection(pack) : {} }, scenes: out }, { book });
       if ((vStats.shares["boxed-card"] || 0) > 0.20) console.warn(`⚠ 10x variety: boxed-card ${(vStats.shares["boxed-card"] * 100).toFixed(1)}% > 20%`);
+      const textLimit = vStats.genreContext && vStats.genreContext.storyMode ? 0.20 : 0.25;
+      if ((vStats.textHeavy10xShare || 0) > textLimit) console.warn(`⚠ 10x variety: textHeavy10x ${(vStats.textHeavy10xShare * 100).toFixed(1)}% > ${(textLimit * 100).toFixed(0)}%`);
       if (vStats.maxConsecutive > 2) console.warn(`⚠ 10x variety: maxConsecutive=${vStats.maxConsecutive} > 2`);
       const promptsPath = path.join(BOOK, "prompts.10x.json");
-      const built = require("./lib/build-10x-prompts").buildPrompts10x({
+      const { buildPrompts10x, computeFluxBudget } = require("./lib/build-10x-prompts");
+      const isMinorHarm = !!(book.engineProfile && book.engineProfile.minorHarm);
+      const durationMin = Math.max(10, Math.round((out.length * 7.5) / 60));
+      const maxCalls = computeFluxBudget({ durationMin, minorHarm: isMinorHarm });
+      const built = buildPrompts10x({
         slug: SLUG,
         beats: out,
         pack,
-        minorHarm: !!(book.engineProfile && book.engineProfile.minorHarm),
-        maxCalls: 45,
+        minorHarm: isMinorHarm,
+        maxCalls,
         publicRoot: path.join(ROOT, "public"),
       });
       if (!built.skipped && built.scenes.length > 0) {

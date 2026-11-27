@@ -4,14 +4,41 @@
  * duplicated "rolling" lines) into a clean, sequential, non-overlapping VTT that
  * YouTube's manual caption uploader accepts ("with timing").
  *
- * Usage: node scripts/clean-vtt.js public/captions/sway.vtt public/captions/sway.clean.vtt
+ * Supports permanent proper-noun name protection via `--slug=<slug>` or `--names=<path>`
+ * (or auto-loads `books/<inferred-slug>/names.json` if present). Only cue text is normalized;
+ * VTT timestamps are never modified by name replacements.
+ *
+ * Usage:
+ *   node scripts/clean-vtt.js public/captions/sway.vtt public/captions/sway.clean.vtt [--slug=sway] [--names=...]
  */
 const fs = require("fs");
-const [inPath, outPath] = process.argv.slice(2);
+const path = require("path");
+const { loadNameMap, applyNamesToText } = require("./lib/vtt-names");
+
+const ROOT = path.join(__dirname, "..");
+const argv = process.argv.slice(2);
+const positional = [];
+const flags = {};
+for (const a of argv) {
+  const m = a.match(/^--([^=]+)=(.*)$/);
+  if (m) flags[m[1]] = m[2];
+  else if (a.startsWith("--")) flags[a.slice(2)] = true;
+  else positional.push(a);
+}
+
+const [inPath, outPath] = positional;
 if (!inPath || !outPath) {
-  console.error("Usage: node scripts/clean-vtt.js <in.vtt> <out.vtt>");
+  console.error("Usage: node scripts/clean-vtt.js <in.vtt> <out.vtt> [--slug=<slug>] [--names=<path>]");
   process.exit(1);
 }
+
+const inferredSlug = flags.slug || path.basename(inPath, ".vtt");
+const { file: namesFile, pairs: namePairs } = loadNameMap({
+  root: ROOT,
+  slug: inferredSlug,
+  namesPath: typeof flags.names === "string" ? flags.names : undefined,
+});
+
 const raw = fs.readFileSync(inPath, "utf8").replace(/\r\n/g, "\n");
 const blocks = raw.split(/\n\n+/);
 const stripTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -20,6 +47,7 @@ const cues = [];
 // ~10 ms "carry" block holds the finished line alone. Joining a block's lines (the old fallback) printed every
 // sentence twice — YouTube showed/rejected it (2026-10-28, TFS). In that format only the NEW line of a block counts.
 const ROLLING = /<\d\d:\d\d:\d\d\.\d+>/.test(raw);
+let nameFixCount = 0;
 for (const b of blocks) {
   const lines = b.split("\n");
   const tl = lines.find((l) => l.includes("-->"));
@@ -33,8 +61,13 @@ for (const b of blocks) {
   const lastLine = payload.filter((l) => l.trim()).slice(-1);
   if (ROLLING && !tagged.length && toSec(m[2]) - toSec(m[1]) < 0.05) continue; // the carry block: nothing new
   const src = tagged.length ? tagged.join(" ") : ROLLING ? lastLine.join(" ") : payload.join(" ");
-  const text = stripTags(src);
+  let text = stripTags(src);
   if (!text) continue;
+  if (namePairs.length) {
+    const fixed = applyNamesToText(text, namePairs);
+    text = fixed.text;
+    nameFixCount += fixed.total;
+  }
   cues.push({ start: m[1], end: m[2], startN: toSec(m[1]), endN: toSec(m[2]), text });
 }
 function toSec(t) {
@@ -67,4 +100,5 @@ clean.forEach((c, i) => {
 fs.writeFileSync(outPath, out);
 const v = require("./lib/vtt-validate").validateUploadVtt(out);
 if (!v.ok) { console.error(`✗ ${outPath} — written, but NOT an upload file:\n  ${v.errors.join("\n  ")}`); process.exit(1); }
-console.log(`✓ ${outPath} — ${clean.length} clean cues (from ${cues.length} raw), upload-valid`);
+const nameNote = namePairs.length ? `, ${nameFixCount} name fix(es) via ${path.basename(namesFile)}` : "";
+console.log(`✓ ${outPath} — ${clean.length} clean cues (from ${cues.length} raw${nameNote}), upload-valid`);

@@ -232,7 +232,7 @@ test("6 new Antidote 10x devices + style-packs polarity alternation + v2-variety
   assert.strictEqual(s.scenes.length, 6);
 
   const sp = require("./lib/style-packs");
-  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 25);
+  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 29);
   const pDark = sp.STYLE_PACKS.tacticalBlueprint;
   const pNext = sp.pickStylePack({ slug: "essentialism", genre: "productivity", recent: [pDark] });
   assert.notStrictEqual(pNext.polarity, "dark");
@@ -293,7 +293,12 @@ test("timelineScrub and statSlam schemas + style-packs.js + castMode illustrated
   assert.strictEqual(s.scenes[1].statSlam.value, "92%");
 
   const sp = require("./lib/style-packs");
-  assert.strictEqual(sp.pickStylePack({ slug: "x", minorHarm: true }).id, "storybookVector");
+  const mh1 = sp.pickStylePack({ slug: "x", minorHarm: true });
+  const mh2 = sp.pickStylePack({ slug: "y", minorHarm: true, recent: [mh1] });
+  assert.strictEqual(mh1.minorHarmSafe, true);
+  assert.strictEqual(mh1.castMode, "vectorRig");
+  assert.strictEqual(mh2.minorHarmSafe, true);
+  assert.notStrictEqual(mh1.id, mh2.id);
   const p1 = sp.pickStylePack({ slug: "book-a", genre: "strategy", recent: [] });
   const p2 = sp.pickStylePack({ slug: "book-b", genre: "strategy", recent: [p1] });
   assert.notStrictEqual(p1.id, p2.id);
@@ -561,18 +566,21 @@ test("thumbnail-grammar 10x mode picks 3 distinct 10x layouts and never falls ba
   }
 });
 
-test("thumbHero.pickHeroScenes prioritizes 10x devices over legacy Everyman scenes", () => {
-  const { pickHeroScenes } = require("../src/engines/antidote/thumbHero.ts");
+test("thumbHero.pickHeroScenes applies 3-tier visual-hero scoring (Tier A & B beat Tier C micro-text slides)", () => {
+  const { pickHeroScenes, focalPointOf } = require("../src/engines/antidote/thumbHero.ts");
   const scenes = [
-    { id: "s0", durationFrames: 180, shot: "twoShot", bg: { set: "kitchen" }, characters: [{ id: "c1", role: "laurel", expression: "worried" }, { id: "c2", role: "floyd", expression: "happy" }] },
+    { id: "s0", durationFrames: 180, shot: "twoShot", bg: { set: "kitchen" }, characters: [{ id: "c1", role: "laurel", expression: "worried", x: 0.35, y: 0.62 }, { id: "c2", role: "floyd", expression: "happy", x: 0.65, y: 0.62 }] },
     { id: "s1", durationFrames: 180, shot: "medium", chapterInterstitial: { title: "PART 1" } },
     { id: "s2", durationFrames: 180, shot: "medium", timelineScrub: { title: "10 YEARS", events: [{ time: "2005", title: "A" }, { time: "2015", title: "B" }] } },
-    { id: "s3", durationFrames: 180, shot: "medium", spatialJourney: { title: "MAP", stations: [{ label: "A" }, { label: "B" }] } },
-    { id: "s4", durationFrames: 180, shot: "medium", beforeAfterWipe: { before: { label: "2005", headline: "A" }, after: { label: "2015", headline: "B" } } },
+    { id: "s3", durationFrames: 180, shot: "medium", hookPoster: { setup: "TEN YEARS GONE", payoff: "A STRANGER LOOKS JUST LIKE HER" } },
+    { id: "s4", durationFrames: 180, shot: "medium", beforeAfterWipe: { before: { label: "2005", headline: "A", image: "scenes/test/a.png" }, after: { label: "2015", headline: "B", image: "scenes/test/b.png" } } },
+    { id: "s5", durationFrames: 180, shot: "medium", kineticManifesto: { lines: [{ text: "ONLY TEXT" }] } },
   ];
   const picked = pickHeroScenes(scenes, "NOBODY LOOKED", undefined, 3);
   assert.strictEqual(picked.length, 3);
-  assert.deepStrictEqual(picked.map((s) => s.id).sort(), ["s2", "s3", "s4"]);
+  assert.deepStrictEqual(picked.map((s) => s.id).sort(), ["s0", "s3", "s4"]);
+  const fp = focalPointOf(scenes[0]);
+  assert.ok(fp.x >= 0.45 && fp.x <= 0.55 && fp.y >= 0.35 && fp.y <= 0.55, `unexpected focalPoint: ${JSON.stringify(fp)}`);
 });
 
 test("compile10xCues clamps out-of-bounds authored at and strikeAt timestamps", () => {

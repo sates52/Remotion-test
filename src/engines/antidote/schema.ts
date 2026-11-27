@@ -971,6 +971,21 @@ export type BeatShot = z.infer<typeof beatShotSchema>;
 
 const v2Tone = z.enum(["neutral", "accent", "danger", "positive"]);
 
+export const inlineCustomSvgSchema = z.union([
+  z.string(),
+  z.object({
+    viewBox: z.string().default("0 0 520 520"),
+    paths: z.array(z.object({
+      d: z.string(),
+      fill: z.string().optional(),
+      stroke: z.string().optional(),
+      strokeWidth: z.number().optional(),
+      opacity: z.number().optional(),
+    })).default([]),
+    title: z.string().optional(),
+  }),
+]);
+
 /** Antidote 2.0 (opt-in): Causal visual equation [Node A] -> [Mechanism B] -> [Outcome C] */
 export const visualEquationSchema = z.object({
   title: z.string().optional(),
@@ -983,6 +998,8 @@ export const visualEquationSchema = z.object({
     sublabel: z.string().optional(),
     badge: z.string().optional(),
     glyph: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     image: z.string().optional(),
     imageFit: z.enum(["cover", "contain"]).optional(),
     tone: v2Tone.optional(),
@@ -1001,6 +1018,8 @@ export const comparisonGridSchema = z.object({
     heading: z.string().min(1),
     tag: z.string().optional(),
     image: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     bullets: z.array(z.string()).default([]),
     highlight: z.string().optional(),
     tone: v2Tone.optional(),
@@ -1191,10 +1210,14 @@ export type CohortGridSpec = z.infer<typeof cohortGridSchema>;
 export const timelineScrubSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
+  icon: z.string().optional(),
+  customSvg: inlineCustomSvgSchema.optional(),
   events: z.array(z.object({
     time: z.string(),
     title: z.string().min(1),
     detail: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     tone: v2Tone.optional(),
     at: z.number().default(0),
   })).min(2).max(6),
@@ -1402,6 +1425,8 @@ export const comicStripSchema = z.object({
     title: z.string().min(1),
     caption: z.string().optional(),
     image: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     visual: z.enum(["focusBeam", "floodArrows", "thinSpread", "buriedCore"]).optional(),
     tone: v2Tone.optional(),
     at: z.number().optional(),
@@ -1417,6 +1442,8 @@ export const beforeAfterWipeSchema = z.object({
   endSplit: z.number().min(0).max(1).optional(),
   before: z.object({
     image: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     label: z.string().min(1),
     headline: z.string().min(1),
     points: z.array(z.string()).optional(),
@@ -1424,6 +1451,8 @@ export const beforeAfterWipeSchema = z.object({
   }),
   after: z.object({
     image: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     label: z.string().min(1),
     headline: z.string().min(1),
     points: z.array(z.string()).optional(),
@@ -1655,6 +1684,8 @@ export const sceneSchema = z.object({
     subtitle: z.string().optional(),
     caseBadge: z.string().optional(),
     image: z.string().optional(),
+    icon: z.string().optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
     subject: z.string().min(1),
     setup: z.string().min(1),
     finding: z.string().min(1),
@@ -1691,6 +1722,10 @@ export const sceneSchema = z.object({
     promiseLine: z.string().optional(),
     beforeImage: z.string().optional(),
     afterImage: z.string().optional(),
+    beforeCustomSvg: inlineCustomSvgSchema.optional(),
+    afterCustomSvg: inlineCustomSvgSchema.optional(),
+    customSvg: inlineCustomSvgSchema.optional(),
+    icon: z.string().optional(),
     beforeLabel: z.string().optional(),
     beforeDetail: z.string().optional(),
     afterLabel: z.string().optional(),
@@ -1702,6 +1737,7 @@ export const sceneSchema = z.object({
     at: z.number().optional(),
   }).optional(),
   chapterLabel: z.string().optional(),
+  thumbnailHero: z.boolean().optional(),
   visualEquation: visualEquationSchema.optional(),
   comparisonGrid: comparisonGridSchema.optional(),
   dataMatrix: dataMatrixSchema.optional(),
@@ -1760,6 +1796,7 @@ export const sceneSchema = z.object({
   hud: sceneHudSchema.optional(),
 });
 export type SceneSpec = z.infer<typeof sceneSchema>;
+export type HookPosterSpec = NonNullable<SceneSpec["hookPoster"]>;
 
 // Word-timed captions (same shape as the Vox pipeline) — drives the subtitle band.
 export const captionWordSchema = z.object({ w: z.string(), s: z.number(), e: z.number() });

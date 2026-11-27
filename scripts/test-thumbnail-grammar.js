@@ -86,5 +86,50 @@ if (pub) {
   check(refused, `thumbnail-grammar.js --write refuses published book (${pub})`);
 }
 
+// 6) Antidote 10x thumbnail pools (minorHarm: false vs true), PosterDrama10x, no CTR_YELLOW, letterbox + 168x94 check
+{
+  const { candidates, TENX_LAYOUTS } = require("./lib/thumbnail-grammar");
+  const cStd = new Set(candidates("antidote", { is10x: true, minorHarm: false, hasCutout: true }).map((c) => c.layout));
+  const cMh = new Set(candidates("antidote", { is10x: true, minorHarm: true, hasCutout: true }).map((c) => c.layout));
+  check(TENX_LAYOUTS.has("poster-drama-10x"), "TENX_LAYOUTS includes poster-drama-10x");
+  check(cStd.has("poster-drama-10x") && cStd.has("diagram-hook-10x") && cStd.has("cutout-hero-10x"), "minorHarm:false 10x pool includes poster-drama-10x, diagram-hook-10x, cutout-hero-10x");
+  check(cMh.has("poster-drama-10x") && cMh.has("split-poster-10x") && cMh.has("editorial-cover-10x") && !cMh.has("cutout-hero-10x") && !cMh.has("diagram-hook-10x"), "minorHarm:true 10x pool isolates poster-drama/split-poster/editorial-cover (no cutout/diagram)");
+  const antThumb = fs.readFileSync(path.join(ROOT, "src", "engines", "antidote", "Thumbnail.tsx"), "utf8");
+  check(!/CTR_YELLOW/.test(antThumb), "Antidote 10x Thumbnail.tsx never references CTR_YELLOW");
+  check(/PosterDrama10x/.test(antThumb) && /coverScale\s*=\s*Math\.max/.test(antThumb), "Antidote Thumbnail.tsx renders PosterDrama10x + zero-letterbox coverScale");
+
+  const { analyzeLetterbox, analyzeBrowse168, W, H, BROWSE_W, BROWSE_H } = require("./lib/thumb-hook-check");
+  // Synthetic 47% right-half letterbox frame (like legacy SplitPoster10x scale=0.35)
+  const lbBuf = Buffer.alloc(W * H, 235);
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W / 2; x++) lbBuf[y * W + x] = (x + y) % 2 === 0 ? 30 : 210;
+    if (y >= 44 && y < 136) {
+      for (let x = W / 2; x < W; x++) lbBuf[y * W + x] = 60 + ((x * 7 + y * 3) % 90);
+    }
+  }
+  const lbRes = analyzeLetterbox(lbBuf, W, H);
+  check(lbRes.warning === true && lbRes.letterboxBlankPct > 40, `letterboxBlankPct catches split-half letterbox (${lbRes.letterboxBlankPct}%)`);
+
+  // Synthetic full-bleed high-contrast frame (0% letterbox)
+  const fullBuf = Buffer.alloc(W * H, 0);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) fullBuf[y * W + x] = (x * 13 + y * 29) % 240;
+  const fullLb = analyzeLetterbox(fullBuf, W, H);
+  check(fullLb.warning === false && fullLb.letterboxBlankPct === 0, `letterboxBlankPct passes zero-letterbox frame (${fullLb.letterboxBlankPct}%)`);
+
+  // Synthetic 168x94 browse contrast + hook check
+  const b1 = Buffer.alloc(BROWSE_W * BROWSE_H, 25);
+  const b2 = Buffer.alloc(BROWSE_W * BROWSE_H, 25);
+  for (let y = 0; y < BROWSE_H; y++) {
+    for (let x = 0; x < BROWSE_W; x++) {
+      const base = x > 84 ? ((x * 5 + y * 11) % 200) + 40 : 22;
+      b1[y * BROWSE_W + x] = base;
+      b2[y * BROWSE_W + x] = base;
+      if (x >= 10 && x <= 74 && y >= 24 && y <= 64 && (x + y) % 2 === 0) b1[y * BROWSE_W + x] = 245;
+    }
+  }
+  const bRes = analyzeBrowse168(b1, b2, BROWSE_W, BROWSE_H);
+  check(bRes.browseOk === true && bRes.hookChanged168Pct > 5, `browse168Check passes high-contrast legible cover (${bRes.detail})`);
+}
+
 console.log(failed ? `\n✗ ${failed} check(s) failed` : "\n✓ thumbnail grammar OK");
 process.exit(failed ? 1 : 0);

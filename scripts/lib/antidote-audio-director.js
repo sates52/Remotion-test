@@ -43,7 +43,7 @@ function directAudioEvents(scenes, fps = 30, opts = {}) {
   for (let i = 0; i < scenes.length; i++) {
     const s = scenes[i];
     const n = s.narrative || {};
-    const isChapter = s.shot === "chapterCard" || Boolean(s.chapterCard);
+    const isChapter = s.shot === "chapterCard" || Boolean(s.chapterCard) || Boolean(s.chapterInterstitial);
     const trans = s.transition;
     const hasTransition = trans && trans.type !== "cut" && trans.frames > 0 && i > 0;
     const isPayoff = n.function === "PAYOFF" || s.visualJob === "reveal" || n.promiseRole === "payoff";
@@ -233,7 +233,7 @@ function auditAudioDirector(scenes, fps = 30) {
   for (let i = 0; i < scenes.length; i++) {
     const s = scenes[i];
     const n = s.narrative || {};
-    const isChapter = s.shot === "chapterCard" || Boolean(s.chapterCard);
+    const isChapter = s.shot === "chapterCard" || Boolean(s.chapterCard) || Boolean(s.chapterInterstitial);
     const isPayoff = n.function === "PAYOFF" || s.visualJob === "reveal" || n.promiseRole === "payoff";
     const hasText = s.texts && s.texts.length > 0;
     const events = s.audioEvents || [];

@@ -30,7 +30,8 @@ export type StageLayout = {
 
 export function resolveStageLayout(ad?: ArtDirectionConfig | null): StageLayout {
   const grammar: LayoutGrammarName = (ad?.layoutGrammar as LayoutGrammarName) || "centered";
-  const capPad = ad?.captions === "minimal" ? 148 : 92;
+  // Calibrated for YouTube caption clearance AND v1 mute-test 24% bottom crop compatibility.
+  const capPad = ad?.captions === "minimal" ? 216 : 160;
 
   switch (grammar) {
     case "editorialLeft":
@@ -50,8 +51,8 @@ export function resolveStageLayout(ad?: ArtDirectionConfig | null): StageLayout 
     case "cinemaWide":
       return {
         grammar,
-        capPad: 132,
-        contentBox: { left: 96, top: 120, width: 1728, height: 816 },
+        capPad: 196,
+        contentBox: { left: 96, top: 120, width: 1728, height: 1080 - 120 - 196 },
         headerBox: { left: 96, top: 30, width: 1360, align: "left" },
       };
     case "magazineMasthead":
@@ -64,8 +65,8 @@ export function resolveStageLayout(ad?: ArtDirectionConfig | null): StageLayout 
     case "filmFrame":
       return {
         grammar,
-        capPad: 156,
-        contentBox: { left: 112, top: 174, width: 1696, height: 730 },
+        capPad: 216,
+        contentBox: { left: 112, top: 174, width: 1696, height: 1080 - 174 - 216 },
         headerBox: { left: 180, top: 64, width: 1560, align: "center" },
       };
     case "diagonalSplit":

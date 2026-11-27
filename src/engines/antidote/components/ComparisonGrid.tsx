@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { ComparisonGridSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { InlineVisualSlot } from "./InlineVisualSlot";
 import { StageGrammarOverlay } from "./layoutGrammar";
 
 /**
@@ -12,7 +13,7 @@ import { StageGrammarOverlay } from "./layoutGrammar";
 export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
+  const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
   const palette = resolveArtPalette(ad, stageMood);
   const fonts = resolveArtFonts(ad);
@@ -84,6 +85,11 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
               gap: 12,
             }}
           >
+            {!hasImg && (col.customSvg || col.icon) && (
+              <div style={{ marginBottom: 8 }}>
+                <InlineVisualSlot customSvg={col.customSvg} icon={col.icon} accent={colAccent} ink={palette.ink} size={140} />
+              </div>
+            )}
             {col.tag && (
               <span
                 style={{
@@ -333,8 +339,8 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
                   )}
                 </div>
 
-                {/* Optional Flux visual */}
-                {col.image && (
+                {/* Optional Flux visual OR book-own customSvg/icon drawing */}
+                {col.image ? (
                   <div
                     style={{
                       width: "100%",
@@ -351,7 +357,23 @@ export const ComparisonGrid: React.FC<{ spec: ComparisonGridSpec; localFrame?: n
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />
                   </div>
-                )}
+                ) : (col.customSvg || col.icon) ? (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: n <= 2 ? 176 : 150,
+                      marginTop: 18,
+                      borderRadius: 16,
+                      background: `${accent}12`,
+                      border: `1.5px solid ${palette.surfaceBorder}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <InlineVisualSlot customSvg={col.customSvg} icon={col.icon} accent={accent} ink={palette.ink} size={n <= 2 ? 140 : 120} />
+                  </div>
+                ) : null}
 
                 {/* Staggered bullet takeaways */}
                 <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>

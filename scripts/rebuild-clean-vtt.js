@@ -9,6 +9,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { loadNameMap, applyNamesToText } = require("./lib/vtt-names");
 
 const slug = process.argv[2];
 if (!slug) {
@@ -51,6 +52,8 @@ function wrap(text) {
   return lines;
 }
 
+const { pairs: namePairs } = loadNameMap({ root: ROOT, slug });
+let nameFixes = 0;
 const out = [];
 for (const c of caps) {
   let s = Math.round(c.startFrame);
@@ -58,8 +61,13 @@ for (const c of caps) {
   if (e <= s) e = s + MIN;
   // Enforce a minimum readable dwell without overlapping the next cue.
   if (e - s < MIN) e = s + MIN;
-  const text = String(c.text).replace(/\s+/g, " ").trim();
+  let text = String(c.text).replace(/\s+/g, " ").trim();
   if (!text) continue;
+  if (namePairs.length) {
+    const fixed = applyNamesToText(text, namePairs);
+    text = fixed.text;
+    nameFixes += fixed.total;
+  }
   out.push({ s, e, lines: wrap(text) });
 }
 

@@ -126,12 +126,15 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
   const hook = String(thumb.hook || "").trim();
   if (!hook) console.warn("  ⚠ youtube-meta.thumbnail.hook is empty — the thumbnails carry no hook");
   const hasPublicFile = (rel) => typeof rel === "string" && rel.trim() && fs.existsSync(path.join(ROOT, "public", rel.replace(/^public\//, "")));
-  const resolvedHeroImg = hasPublicFile(thumb.image) ? String(thumb.image).replace(/^public\//, "") : "";
+  const defaultFluxHero = `scenes/${SLUG}/thumbnail-hero.png`;
+  const resolvedHeroImg = hasPublicFile(thumb.image)
+    ? String(thumb.image).replace(/^public\//, "")
+    : (thumb.heroFlux === true && hasPublicFile(defaultFluxHero) ? defaultFluxHero : "");
   const resolvedCutoutImg = hasPublicFile(thumb.cut) ? String(thumb.cut).replace(/^public\//, "") : "";
   console.log(`Bundling Thumb-${SLUG} (slim registry)…`);
   const serveUrl = await bundleFor([SLUG]);
   const done = [];
-  const { grayOf, hookVisibility } = require("./lib/thumb-hook-check");
+  const { grayOf, hookVisibility, letterboxBlankPct, browse168Check } = require("./lib/thumb-hook-check");
   const checks = [];
   const grammarSig = grammarSigOf(thumb);
   let renderFailed = false;
@@ -149,17 +152,41 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
       console.log(`  ✓ ${j.letter}  ${path.relative(ROOT, j.file)}  (${describe(j.grammar)})`);
       done.push(j);
       const fileSha = sha256File(j.file);
+      const imgGray = grayOf(j.file);
+      const lb = letterboxBlankPct(imgGray);
+      if (lb.warning) {
+        console.warn(`    ⚠ letterboxBlankPct=${lb.letterboxBlankPct}% (> 18% guard — full=${lb.fullFramePct}% L=${lb.leftHalfPct}% R=${lb.rightHalfPct}%)`);
+      }
       if (hook && !args["no-hook-check"]) {
         // the same still without the hook: what the hook adds is what a viewer can read
         const bare = path.join(ROOT, "out", "_thumbpreview", `${SLUG}-${j.letter}-nohook.png`);
         fs.mkdirSync(path.dirname(bare), { recursive: true });
         await renderThumb(serveUrl, SLUG, bare, { ...props, hook: "" });
-        const v = hookVisibility(grayOf(j.file), grayOf(bare));
+        const v = hookVisibility(imgGray, grayOf(bare));
+        const b168 = browse168Check(j.file, bare);
         fs.rmSync(bare, { force: true });
-        checks.push({ letter: j.letter, file: relFile, sha256: fileSha, ...v });
-        console.log(`    ${v.hookVisible ? "✓" : v.hookVisible === false ? "✗" : "?"} hook ${v.hookVisible ? "visible" : v.hookVisible === false ? "NOT VISIBLE" : "unchecked"} — ${v.detail}`);
+        checks.push({
+          letter: j.letter,
+          file: relFile,
+          sha256: fileSha,
+          ...v,
+          letterboxBlankPct: lb.letterboxBlankPct,
+          letterboxWarning: lb.warning,
+          browse168: b168,
+        });
+        console.log(`    ${v.hookVisible ? "✓" : v.hookVisible === false ? "✗" : "?"} hook ${v.hookVisible ? "visible" : v.hookVisible === false ? "NOT VISIBLE" : "unchecked"} — ${v.detail} | lb=${lb.letterboxBlankPct ?? "?"}% | ${b168.detail}`);
       } else {
-        checks.push({ letter: j.letter, file: relFile, sha256: fileSha, hookVisible: hook ? null : true, detail: hook ? "no-hook-check" : "empty-hook" });
+        const b168 = browse168Check(j.file, null);
+        checks.push({
+          letter: j.letter,
+          file: relFile,
+          sha256: fileSha,
+          hookVisible: hook ? null : true,
+          detail: hook ? "no-hook-check" : "empty-hook",
+          letterboxBlankPct: lb.letterboxBlankPct,
+          letterboxWarning: lb.warning,
+          browse168: b168,
+        });
       }
     } catch (e) {
       renderFailed = true;

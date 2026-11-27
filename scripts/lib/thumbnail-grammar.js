@@ -19,11 +19,12 @@ const fs = require("fs");
 const path = require("path");
 
 // Keep in sync with AUTO_LAYOUTS / AUTO_TREATMENTS in thumbnail-shared.ts.
-const TENX_LAYOUTS = new Set(["editorial-cover-10x", "split-poster-10x", "cutout-hero-10x", "diagram-hook-10x"]);
+const TENX_LAYOUTS = new Set(["editorial-cover-10x", "poster-drama-10x", "split-poster-10x", "cutout-hero-10x", "diagram-hook-10x"]);
 const AUTO_LAYOUTS = {
   vox: ["cinematic-bleed", "split-face", "full-bleed", "portrait-right"],
   antidote: ["scene-still", "text-poster"],
-  antidote10x: ["editorial-cover-10x", "split-poster-10x", "diagram-hook-10x"],
+  antidote10x: ["editorial-cover-10x", "poster-drama-10x", "split-poster-10x", "diagram-hook-10x"],
+  antidote10xMinorHarm: ["poster-drama-10x", "split-poster-10x", "editorial-cover-10x"],
 };
 const TEXT_POSITIONS = ["left", "right", "bottom"];
 const TYPE_STYLES = ["block", "editorial", "label"];
@@ -35,6 +36,7 @@ const USES = {
   "cinematic-bleed": { textPos: true, type: true, treatment: true, accent: true },
   "scene-still": { textPos: true, type: true, treatment: false, accent: true },
   "editorial-cover-10x": { textPos: true, type: true, treatment: false, accent: true },
+  "poster-drama-10x": { textPos: true, type: true, treatment: false, accent: true },
   "split-poster-10x": { textPos: true, type: true, treatment: false, accent: true },
   "cutout-hero-10x": { textPos: true, type: true, treatment: false, accent: true },
   "diagram-hook-10x": { textPos: true, type: true, treatment: false, accent: true },
@@ -138,6 +140,14 @@ function isAntidote10xBook(root, slug) {
   }
 }
 
+function isMinorHarmBook(root, slug) {
+  const book = readJson(path.join(root, "books", slug, "book.json"));
+  const cfg = readJson(path.join(root, "books", slug, "config.antidote.json"));
+  if (book && (book.minorHarm === true || (book.profile && book.profile.minorHarm === true))) return true;
+  if (cfg && cfg.meta && cfg.meta.artDirection && cfg.meta.artDirection.castMode === "vectorRig") return true;
+  return false;
+}
+
 function hasCutoutAsset(root, slug, thumb) {
   const raw = thumb && (thumb.cut || thumb.cutoutImg);
   if (typeof raw !== "string" || !raw.trim()) return false;
@@ -148,9 +158,16 @@ function hasCutoutAsset(root, slug, thumb) {
 function candidates(engine, opts = {}) {
   const out = [];
   const use10x = engine === "antidote" && opts.is10x;
-  const layouts = use10x
-    ? (opts.hasCutout ? [...AUTO_LAYOUTS.antidote10x, "cutout-hero-10x"] : AUTO_LAYOUTS.antidote10x)
-    : AUTO_LAYOUTS[engine];
+  let layouts;
+  if (use10x) {
+    if (opts.minorHarm) {
+      layouts = AUTO_LAYOUTS.antidote10xMinorHarm;
+    } else {
+      layouts = opts.hasCutout ? [...AUTO_LAYOUTS.antidote10x, "cutout-hero-10x"] : AUTO_LAYOUTS.antidote10x;
+    }
+  } else {
+    layouts = AUTO_LAYOUTS[engine];
+  }
   const treats = use10x ? TREATMENTS.antidote10x : TREATMENTS[engine];
   for (const layout of layouts)
     for (const textPos of TEXT_POSITIONS)
@@ -192,9 +209,9 @@ function best(cands, slug, scoreFn) {
 // Test & Compare challenger but a weak default at browse size.
 const mainOk = (c) => c.layout !== "text-poster";
 
-function pickGrammar({ slug, engine, history, is10x = false, hasCutout = false }) {
+function pickGrammar({ slug, engine, history, is10x = false, hasCutout = false, minorHarm = false }) {
   const recent = history.slice(-RECENT).map((h) => h.grammar);
-  const top = best(candidates(engine, { is10x, hasCutout }).filter(mainOk), slug, (c) => channelScore(c, recent));
+  const top = best(candidates(engine, { is10x, hasCutout, minorHarm }).filter(mainOk), slug, (c) => channelScore(c, recent));
   return { ...top.g, _score: Math.round(top.score * 100) / 100 };
 }
 
@@ -209,7 +226,7 @@ const MIN_VARIANT_GAP = 5;
  * for distance from them — so the A/B test compares real design choices.
  * Antidote variants also move to the next distinct hero scene (sceneRank).
  */
-function pickVariants({ slug, engine, history, n = 3, is10x = false, hasCutout = false }) {
+function pickVariants({ slug, engine, history, n = 3, is10x = false, hasCutout = false, minorHarm = false }) {
   const recent = history.slice(-RECENT).map((h) => h.grammar);
   const chosen = [];
   const usesDistinctScene = (layout) => layout === "scene-still" || TENX_LAYOUTS.has(layout);
@@ -221,7 +238,7 @@ function pickVariants({ slug, engine, history, n = 3, is10x = false, hasCutout =
   for (let k = 0; k < n; k++) {
     // The gap is measured on DESIGN only; a different scene is a bonus, not a
     // licence to ship the same card twice.
-    const pool = candidates(engine, { is10x, hasCutout }).filter((c) => (k > 0 || mainOk(c)) && chosen.every((v) => distance(c, v) >= MIN_VARIANT_GAP));
+    const pool = candidates(engine, { is10x, hasCutout, minorHarm }).filter((c) => (k > 0 || mainOk(c)) && chosen.every((v) => distance(c, v) >= MIN_VARIANT_GAP));
     if (!pool.length) break;
     const top = best(pool, slug, (c) => channelScore(c, recent) + (chosen.length ? 2 * Math.min(...chosen.map((v) => vdist(c, v))) : 0));
     // next DISTINCT moment for each scene-still / 10x layout (a text poster uses no scene)
@@ -231,4 +248,4 @@ function pickVariants({ slug, engine, history, n = 3, is10x = false, hasCutout =
   return chosen;
 }
 
-module.exports = { pickGrammar, pickVariants, loadGrammarHistory, publishedSlugs, distance, grammarOf, candidates, isAntidote10xBook, hasCutoutAsset, TENX_LAYOUTS };
+module.exports = { pickGrammar, pickVariants, loadGrammarHistory, publishedSlugs, distance, grammarOf, candidates, isAntidote10xBook, isMinorHarmBook, hasCutoutAsset, TENX_LAYOUTS };
