@@ -1,0 +1,48 @@
+{
+ "schema": "stills/1",
+ "name": "DiagramHook10x zero-letterbox verification",
+ "composition": "Thumb-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/scenes/essentialism-10x-pilot/e1_char_overwhelmed.png",
+  "public/scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+  "public/scenes/essentialism-10x-pilot/e1_prop_tetris_stack.png",
+  "public/scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_mentor.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_worker_sheet.png",
+  "public/scenes/essentialism-10x-pilot/e2_cluttered_desk.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_asking.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_calm.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_pointing.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_stressed.png",
+  "public/scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+  "public/scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+  "public/scenes/essentialism-10x-pilot/e3_pharmacy_integrity.png"
+ ],
+ "jobs": [
+  {
+   "id": "nf-c-diagram",
+   "config": "configs/nf-c-diagram.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-c-diagram-nohook",
+   "config": "configs/nf-c-diagram-nohook.json",
+   "frames": [
+    1
+   ]
+  }
+ ],
+ "inputHash": "494cac24f7278b10",
+ "files": {
+  "stills/configs/nf-c-diagram.json": "1fb6f05e24af27faf90b2d17627f0e71527c0a9898e50815f3522fdd9b5e8153",
+  "stills/configs/nf-c-diagram-nohook.json": "bb77be93c09a06340e65d15541cd44ed77da5d4e08ac109c680927be9cfc9ad7"
+ },
+ "builtAt": "2026-11-27T11:04:53.678Z"
+}
