@@ -27,7 +27,7 @@ import { composeRest } from "../endState";
 import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 import { FlowContext } from "../flow";
 import { ToldStage, type ToldSpec } from "./ToldStage";
-import { isLightPalette, resolveArtPalette, useArtDirection } from "./artDirection";
+import { hexLuminance, isLightPalette, resolveArtPalette, useArtDirection } from "./artDirection";
 import { voiceAt } from "../speech";
 import { VisualEquation } from "./VisualEquation";
 import { ComparisonGrid } from "./ComparisonGrid";
@@ -447,12 +447,15 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
     const coCast = scene.characters ?? [];
     const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose && !scene.bookBlueprint && !scene.mechanismChain && !scene.evidenceBoard && !scene.quoteDialogue && !scene.hookPoster;
     const sideInsetLeft = hasCoCast ? 280 : 0;
+    const strip10xPlace = !hasCoCast && Boolean(bg.stageMood);
+    const stageBg = strip10xPlace ? { ...bg, set: "none" as const, own: undefined } : bg;
+    const stagePrevBg = prevBg && strip10xPlace ? { ...prevBg, set: "none" as const, own: undefined } : prevBg;
     return (
       <AbsoluteFill style={t.style}>
-        <Backdrop bg={bg} cam={cam} durationFrames={scene.durationFrames} />
-        {scene.depthCarry && prevBg ? (
+        <Backdrop bg={stageBg} cam={cam} durationFrames={scene.durationFrames} />
+        {scene.depthCarry && stagePrevBg ? (
           <AbsoluteFill style={{ opacity: 0.2, filter: "blur(6px)", pointerEvents: "none" }}>
-            <Backdrop bg={prevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
+            <Backdrop bg={stagePrevBg} cam={{ x: 0, y: 0, scale: 1.03 }} durationFrames={scene.durationFrames} />
           </AbsoluteFill>
         ) : null}
         {scene.annotatedScene ? <AnnotatedScene spec={scene.annotatedScene} localFrame={local} stageMood={bg.stageMood} /> : null}
@@ -802,11 +805,15 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
       ) : null}
       {texts.map((tx, i) => {
         const st = stageText(scene.shot, tx, i);
+        const textColor =
+          darkStageMood && stagePal && tx.style !== "box" && (!tx.color || hexLuminance(tx.color) < 0.26)
+            ? stagePal.ink
+            : tx.color;
         // `at` is authored against the narration, so it shifts with the pre-roll.
         // Copy usually stays on the focal plane (depth 1) so it reads crisp.
         return (
           <AbsoluteFill key={`t${i}`} style={camPlane(tx.depth ?? 1)}>
-            <KineticText spec={{ ...tx, x: st.x, y: st.y, size: st.size, at: (tx.at ?? 0) + transIn }} />
+            <KineticText spec={{ ...tx, color: textColor, x: st.x, y: st.y, size: st.size, at: (tx.at ?? 0) + transIn }} />
           </AbsoluteFill>
         );
       })}

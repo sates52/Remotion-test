@@ -634,7 +634,7 @@ export function contrastInkOn(hex?: string): string {
   return hexLuminance(hex) > 0.52 ? "#111318" : "#FFFFFF";
 }
 
-function hexLuminance(hex?: string): number {
+export function hexLuminance(hex?: string): number {
   if (!hex || typeof hex !== "string") return 0.5;
   const m = hex.trim().replace("#", "");
   const full = m.length === 3 ? m.split("").map((c) => c + c).join("") : m;

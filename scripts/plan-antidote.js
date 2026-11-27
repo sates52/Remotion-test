@@ -1557,6 +1557,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       fullStage10x = isFullStage10x(A);
       if (fullStage10x && out.bg?.stageMood) {
         delete out.bg.set;
+        delete out.bg.own;
       }
       if (A.transitionOverride) {
         out.transition = { type: A.transitionOverride, frames: 12, color: PAL.red || "#F7C948" };

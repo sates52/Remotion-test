@@ -15,7 +15,7 @@ export const HookPoster: React.FC<{
   localFrame?: number;
   stageMood?: StageMoodName;
   chapterLabel?: string;
-}> = ({ spec, localFrame, stageMood, chapterLabel }) => {
+}> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
   const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
@@ -267,7 +267,7 @@ export const HookPoster: React.FC<{
         ) : null}
       </div>
 
-      <StageGrammarOverlay stageMood={stageMood} chapterLabel={chapterLabel} />
+      <StageGrammarOverlay stageMood={stageMood} />
     </div>
   );
 };

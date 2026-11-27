@@ -1179,16 +1179,6 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
             <g>
               <rect x={-SCENE_FAR} y={-SCENE_FAR} width={1920 + 2 * SCENE_FAR} height={ownScene.groundTop + SCENE_FAR} fill={ownScene.sky} />
               <rect x={-SCENE_FAR} y={ownScene.groundTop} width={1920 + 2 * SCENE_FAR} height={1080 - ownScene.groundTop + SCENE_FAR} fill={ownScene.ground} />
-              {moodSpec && (
-                <rect
-                  x={-SCENE_FAR}
-                  y={-SCENE_FAR}
-                  width={1920 + 2 * SCENE_FAR}
-                  height={1080 + 2 * SCENE_FAR}
-                  fill={moodSpec.palette.bg}
-                  opacity={moodDark ? 0.56 : 0.24}
-                />
-              )}
             </g>
           ) : null}
           <g opacity={ownScene ? 1 : OWN_PLACE_OPACITY} transform={`translate(${ownFit.x} ${ownFit.y}) scale(${ownFit.k})`}>
@@ -1205,6 +1195,16 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
               />
             ))}
           </g>
+          {moodSpec ? (
+            <rect
+              x={-SCENE_FAR}
+              y={-SCENE_FAR}
+              width={1920 + 2 * SCENE_FAR}
+              height={1080 + 2 * SCENE_FAR}
+              fill={moodSpec.palette.bg}
+              opacity={moodDark ? (ownScene ? 0.50 : 0.22) : 0.14}
+            />
+          ) : null}
         </Layer>
       ) : null}
 

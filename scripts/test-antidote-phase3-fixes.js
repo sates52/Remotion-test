@@ -548,4 +548,112 @@ test("Review fixes: dark-mood contrast helpers, Thumbnail TS/scrim/chrome fixes,
   }
 });
 
+// ── Review round-3 regressions: dark-mood bg.own glaze order, fullStage10x bg.own/set strip, HookPoster TS fix ──
+test("Review round-3 fixes: Backdrop glaze after own.paths, fullStage10x strips bg.own/set, dark-mood KineticText, HookPoster StageGrammarOverlay", () => {
+  // (a) plan-antidote.js strips BOTH out.bg.set and out.bg.own on fullStage10x && stageMood
+  const planSrc = fs.readFileSync(path.join(ROOT, "scripts/plan-antidote.js"), "utf8");
+  assert.ok(
+    /if\s*\(\s*fullStage10x\s*&&\s*out\.bg\?\.stageMood\s*\)\s*\{[^}]*delete\s+out\.bg\.set;[^}]*delete\s+out\.bg\.own;/.test(planSrc),
+    "plan-antidote.js must delete both out.bg.set and out.bg.own when fullStage10x && out.bg?.stageMood",
+  );
+
+  // (b) Scene.tsx strips set and own on full-stage 10x <Backdrop> (both bg and prevBg) when stageMood is active
+  const sceneSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/Scene.tsx"), "utf8");
+  assert.ok(
+    sceneSrc.includes("const strip10xPlace = !hasCoCast && Boolean(bg.stageMood);") &&
+      sceneSrc.includes('const stageBg = strip10xPlace ? { ...bg, set: "none" as const, own: undefined } : bg;') &&
+      sceneSrc.includes('const stagePrevBg = prevBg && strip10xPlace ? { ...prevBg, set: "none" as const, own: undefined } : prevBg;') &&
+      sceneSrc.includes("<Backdrop bg={stageBg}") &&
+      sceneSrc.includes("<Backdrop bg={stagePrevBg}"),
+    "Scene.tsx must strip set and own from full-stage 10x Backdrop (bg and prevBg) when stageMood is active",
+  );
+  assert.ok(
+    sceneSrc.includes("hexLuminance(tx.color) < 0.26"),
+    "Scene.tsx must adapt dark KineticText ink on dark stageMood so callouts stay legible",
+  );
+
+  // (c) Backdrop.tsx renders the moodSpec atmospheric glaze AFTER own.paths (covering both ownScene & wash)
+  const backdropSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/Backdrop.tsx"), "utf8");
+  const ownStart = backdropSrc.indexOf("{own && ownFit ?");
+  const texStart = backdropSrc.indexOf("{tex ?");
+  assert.ok(ownStart > 0 && texStart > ownStart, "Backdrop.tsx must preserve {own && ownFit ? and {tex ? markers");
+  const ownBlock = backdropSrc.slice(ownStart, texStart);
+  const pathsIdx = ownBlock.indexOf("own.paths.map");
+  const glazeIdx = ownBlock.indexOf("fill={moodSpec.palette.bg}");
+  assert.ok(pathsIdx > 0 && glazeIdx > pathsIdx, "Backdrop.tsx moodSpec glaze <rect> must render AFTER own.paths.map");
+
+  // (d) HookPoster.tsx must NOT pass chapterLabel to StageGrammarOverlay
+  const hookSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/HookPoster.tsx"), "utf8");
+  assert.ok(hookSrc.includes("<StageGrammarOverlay stageMood={stageMood} />"), "HookPoster must call <StageGrammarOverlay stageMood={stageMood} />");
+  assert.ok(!/<StageGrammarOverlay[^>]*chapterLabel/.test(hookSrc), "HookPoster must not pass chapterLabel to StageGrammarOverlay");
+
+  // (e) Runtime behavioral checks: hexLuminance thresholds & Backdrop element ordering (legacy vs dark/light ownScene & wash)
+  const adMod = loadTs("src/engines/antidote/components/artDirection.tsx", true);
+  assert.ok(adMod.hexLuminance("#1E1E22") < 0.26, "dark charcoal ink must be < 0.26");
+  assert.ok(adMod.hexLuminance("#18181B") < 0.26, "near-black ink must be < 0.26");
+  assert.ok(adMod.hexLuminance("#DC2626") >= 0.26, "saturated accent red must stay >= 0.26");
+  assert.ok(adMod.hexLuminance("#EAE7DE") > 0.8, "light paper ink must be > 0.8");
+  assert.strictEqual(adMod.hexLuminance(undefined), 0.5);
+
+  const bdRes = esbuild.buildSync({
+    entryPoints: [path.join(ROOT, "src/engines/antidote/components/Backdrop.tsx")],
+    bundle: true,
+    write: false,
+    platform: "node",
+    format: "cjs",
+    external: ["react", "react/jsx-runtime", "remotion", "@remotion/google-fonts/Poppins"],
+    jsx: "automatic",
+  });
+  const bdMod = { exports: {} };
+  const makeEl = (type, props) => ({ type, props });
+  const rtStub = {
+    AbsoluteFill: "AbsoluteFill",
+    Img: "Img",
+    staticFile: (p) => p,
+    Easing: { out: (f) => f, poly: () => (t) => t },
+    interpolate: () => 0,
+    useCurrentFrame: () => 0,
+    createContext: () => ({ Provider: () => null }),
+    useContext: () => null,
+    loadFont: () => ({ fontFamily: "Poppins" }),
+    jsx: makeEl,
+    jsxs: makeEl,
+    Fragment: "Fragment",
+    default: { createContext: () => ({ Provider: () => null }), useContext: () => null, createElement: makeEl },
+  };
+  new Function("require", "exports", "module", "__filename", "__dirname", bdRes.outputFiles[0].text)(
+    (id) => (id === "remotion" || id === "react" || id === "react/jsx-runtime" || id === "@remotion/google-fonts/Poppins" ? rtStub : require(id)),
+    bdMod.exports,
+    bdMod,
+    path.join(ROOT, "src/engines/antidote/components/Backdrop.tsx"),
+    path.join(ROOT, "src/engines/antidote/components"),
+  );
+  const { Backdrop } = bdMod.exports;
+  const ownSceneBg = { id: "kitchen", wide: true, viewBox: "0 0 1920 760", sky: "#E8E1D6", ground: "#8C7F70", paths: [{ d: "M0 0 H1920 V760 H0 Z", fill: "#FAF7F2" }] };
+  const ownWashBg = { id: "dining", paths: [{ d: "M0 0 H520 V520 H0 Z", fill: "#D6CFC3" }] };
+  const cam = { x: 0, y: 0, scale: 1 };
+  const findOwnLayer = (tree) => (tree.props.children || []).find((c) => c && typeof c.type === "function" && Array.isArray(c.props?.children) && c.props.children.some((x) => x && x.type === "g" && Array.isArray(x.props?.children) && x.props.children.some((p) => p && p.type === "path")));
+
+  const legacyTree = Backdrop({ bg: { type: "flat", colors: ["#EAE7DE"], set: "none", texture: "none", own: ownSceneBg }, cam });
+  const legacyLayer = findOwnLayer(legacyTree);
+  assert.ok(legacyLayer, "legacy Backdrop must render own Layer");
+  assert.strictEqual(legacyLayer.props.children[2], null, "legacy Backdrop without stageMood must render ZERO mood glaze");
+
+  const darkTree = Backdrop({ bg: { type: "flat", colors: ["#EAE7DE"], set: "none", texture: "none", stageMood: "obsidianGrid", own: ownSceneBg }, cam });
+  const darkLayer = findOwnLayer(darkTree);
+  assert.ok(darkLayer && darkLayer.props.children[1].type === "g" && darkLayer.props.children[2].type === "rect", "dark-mood ownScene must render glaze <rect> AFTER own.paths <g>");
+  assert.strictEqual(darkLayer.props.children[2].props.fill, "#101319");
+  assert.strictEqual(darkLayer.props.children[2].props.opacity, 0.5);
+
+  const washTree = Backdrop({ bg: { type: "flat", colors: ["#EAE7DE"], set: "none", texture: "none", stageMood: "obsidianGrid", own: ownWashBg }, cam });
+  const washLayer = findOwnLayer(washTree);
+  assert.ok(washLayer && washLayer.props.children[0] === null && washLayer.props.children[2].type === "rect", "dark-mood wash must render glaze <rect> AFTER own.paths <g>");
+  assert.strictEqual(washLayer.props.children[2].props.opacity, 0.22);
+
+  const lightTree = Backdrop({ bg: { type: "flat", colors: ["#EAE7DE"], set: "none", texture: "none", stageMood: "warmParchment", own: ownSceneBg }, cam });
+  const lightLayer = findOwnLayer(lightTree);
+  assert.strictEqual(lightLayer.props.children[2].props.fill, "#EFE7D6");
+  assert.strictEqual(lightLayer.props.children[2].props.opacity, 0.14);
+});
+
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);
