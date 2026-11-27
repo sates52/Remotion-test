@@ -1,0 +1,128 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 3 — 5-Layout Zero-Letterbox Thumbnail Verification (minorHarm true + false)",
+ "composition": "Thumb-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "extra": [
+  "public/scenes/essentialism-10x-pilot/e1_char_overwhelmed.png",
+  "public/scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+  "public/scenes/essentialism-10x-pilot/e1_prop_tetris_stack.png",
+  "public/scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_mentor.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_worker_sheet.png",
+  "public/scenes/essentialism-10x-pilot/e2_cluttered_desk.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_asking.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_calm.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_pointing.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_stressed.png",
+  "public/scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+  "public/scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+  "public/scenes/essentialism-10x-pilot/e3_pharmacy_integrity.png"
+ ],
+ "jobs": [
+  {
+   "id": "mh-a-poster",
+   "config": "configs/mh-a-poster.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "mh-a-poster-nohook",
+   "config": "configs/mh-a-poster-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "mh-b-split",
+   "config": "configs/mh-b-split.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "mh-b-split-nohook",
+   "config": "configs/mh-b-split-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "mh-c-editorial",
+   "config": "configs/mh-c-editorial.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "mh-c-editorial-nohook",
+   "config": "configs/mh-c-editorial-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-a-editorial",
+   "config": "configs/nf-a-editorial.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-a-editorial-nohook",
+   "config": "configs/nf-a-editorial-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-b-cutout",
+   "config": "configs/nf-b-cutout.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-b-cutout-nohook",
+   "config": "configs/nf-b-cutout-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-c-diagram",
+   "config": "configs/nf-c-diagram.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "nf-c-diagram-nohook",
+   "config": "configs/nf-c-diagram-nohook.json",
+   "frames": [
+    1
+   ]
+  }
+ ],
+ "inputHash": "46c69768df0e8b33",
+ "files": {
+  "stills/configs/mh-a-poster.json": "020f3d8ecc03d450720ab9a9d30f7aa522ac7d054912c926eb3c405496d0d065",
+  "stills/configs/mh-a-poster-nohook.json": "cc4dc15cf65b4bf6d1d11aae70ceee65dc6a7ca62d42f3fafbba5f94f55010c8",
+  "stills/configs/mh-b-split.json": "9265b01f9555991e97d533e468ae192b208beb73e88095a1153983c75a300aa8",
+  "stills/configs/mh-b-split-nohook.json": "805ab19272c29b1ded5b98408f1d08bea40dc59ac0918753e9fadf7185678bbc",
+  "stills/configs/mh-c-editorial.json": "02b4361a9e54715b4a5fe73c836e6ede7b743721b2f9eff1d3445ea159b648af",
+  "stills/configs/mh-c-editorial-nohook.json": "5327e045067453762eeb58b11dc1dca3a8b049100e5f2d0608790c8f28f19ba9",
+  "stills/configs/nf-a-editorial.json": "d36f70064411ec1825ce25ffaa0efd10f2534f319e3417d0762c9130a11ab813",
+  "stills/configs/nf-a-editorial-nohook.json": "1a02acb6e04d652dbd925b9d0d90cc3e1d35f17e2b1816231b7c3c8bb7cff698",
+  "stills/configs/nf-b-cutout.json": "09919d709dc8025c0f03761dc3cf319c0dcc081cbdabef3e8629c150c6375d7f",
+  "stills/configs/nf-b-cutout-nohook.json": "f3696113073e83539339010f3057c12498ec48e6d46addee5ebf9d4f98634d52",
+  "stills/configs/nf-c-diagram.json": "4de6194f05785329359be194d7a6596d0ff6a28707aa138e34bcb06a72406655",
+  "stills/configs/nf-c-diagram-nohook.json": "ea96054c179f68380d986d8e4932c59ed038247803d3823f3433d76422e6376d"
+ },
+ "builtAt": "2026-11-27T10:38:43.877Z"
+}
