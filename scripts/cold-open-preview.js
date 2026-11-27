@@ -4,7 +4,7 @@
  * config for fast audio-synced Cold-Open cloud preview & paired pixel-delta QA.
  *
  * Usage:
- *   node scripts/cold-open-preview.js (--slug=<slug> | --config=<path>) [--seconds=20] [--out=<dir>] [--dry-run]
+ *   node scripts/cold-open-preview.js (--slug=<slug> | --config=<path>) [--seconds=20] [--out=<dir>] [--with-clip] [--dry-run]
  */
 "use strict";
 const fs = require("fs");
@@ -14,7 +14,29 @@ const { analyzeVariety } = require("./lib/v2-variety-lint");
 
 const ROOT = path.resolve(__dirname, "..");
 
-function buildColdOpenSlice(config, { seconds = 20, fps = 30 } = {}) {
+function collectExtraAssets(scenes) {
+  const rels = new Set();
+  const add = (p) => {
+    if (typeof p !== "string" || !p.trim()) return;
+    const clean = p.replace(/\\/g, "/").replace(/^\/+/, "");
+    const repoRel = clean.startsWith("public/") ? clean : `public/${clean}`;
+    if (fs.existsSync(path.join(ROOT, repoRel))) rels.add(repoRel);
+  };
+  for (const s of scenes) {
+    add(s.bg?.image?.path);
+    add(s.hookPoster?.beforeImage);
+    add(s.hookPoster?.afterImage);
+    add(s.annotatedScene?.image);
+    add(s.editorialSpread?.image);
+    add(s.upClose?.image);
+    add(s.evidenceBoard?.image);
+    add(s.cutoutStage?.backdrop?.image);
+    for (const a of s.cutoutStage?.actors ?? []) add(a.image);
+  }
+  return [...rels].sort();
+}
+
+function buildColdOpenSlice(config, { seconds = 20, fps = 30, includeClip = false } = {}) {
   const clampedSec = Math.max(5, Math.min(30, Number(seconds) || 20));
   const targetFrames = Math.round(clampedSec * fps);
   const scenes = Array.isArray(config?.scenes) ? config.scenes : [];
@@ -48,22 +70,31 @@ function buildColdOpenSlice(config, { seconds = 20, fps = 30 } = {}) {
     ...(config.audioEvents ? { audioEvents: slicedAudioEvents } : {}),
   };
 
-  const stills = [];
+  const slug = config?.meta?.slug || "cold-open-preview";
+  const jobs = [];
   for (const s of slicedScenes) {
     const start = s.fromFrame ?? 0;
     const dur = s.durationFrames ?? 180;
-    const t20 = Math.min(previewFrames - 1, start + Math.max(8, Math.round(dur * 0.2)));
+    const t05 = Math.min(previewFrames - 1, start + Math.min(8, Math.max(2, Math.round(dur * 0.04))));
     const t75 = Math.min(previewFrames - 1, start + Math.max(16, Math.round(dur * 0.75)));
-    stills.push({ id: `${s.id}__t20`, frame: t20 });
-    stills.push({ id: `${s.id}__t75`, frame: t75 });
+    jobs.push({ id: `${s.id}__t05`, config: "config.cold-open.json", frames: [t05] });
+    jobs.push({ id: `${s.id}__t75`, config: "config.cold-open.json", frames: [t75] });
+  }
+  if (includeClip) {
+    jobs.push({ id: "cold-open-20s", config: "config.cold-open.json", frames: [], clip: { from: 0, to: previewFrames - 1 } });
   }
 
+  const extra = collectExtraAssets(slicedScenes);
   const manifest = {
-    slug: config?.meta?.slug || "cold-open-preview",
+    schema: "stills/1",
+    name: `cold-open-${slug}`,
+    composition: "Antidote-lab",
+    silent: true,
+    slug,
     previewFrames,
     seconds: Number((previewFrames / fps).toFixed(2)),
-    clips: [{ id: "cold-open-20s", startFrame: 0, endFrame: previewFrames }],
-    stills,
+    ...(extra.length ? { extra } : {}),
+    jobs,
   };
 
   const narrative = analyzeNarrative(slicedConfig);
@@ -87,7 +118,7 @@ if (require.main === module) {
       : null;
 
   if (!cfgPath || !fs.existsSync(cfgPath)) {
-    console.error("usage: node scripts/cold-open-preview.js (--slug=<slug> | --config=<path>) [--seconds=20] [--out=<dir>] [--dry-run]");
+    console.error("usage: node scripts/cold-open-preview.js (--slug=<slug> | --config=<path>) [--seconds=20] [--out=<dir>] [--with-clip] [--dry-run]");
     process.exit(2);
   }
 
@@ -97,6 +128,7 @@ if (require.main === module) {
   const { slicedConfig, manifest, narrative, variety } = buildColdOpenSlice(config, {
     seconds: args.seconds ? Number(args.seconds) : 20,
     fps: config?.meta?.fps || 30,
+    includeClip: Boolean(args["with-clip"]),
   });
 
   if (!args["dry-run"]) {
@@ -105,10 +137,11 @@ if (require.main === module) {
     fs.writeFileSync(path.join(outDir, "stills-manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
   }
 
-  console.log(`Cold-Open Preview: ${slug} (${manifest.seconds}s / ${manifest.previewFrames}f, ${slicedConfig.scenes.length} scenes, ${manifest.stills.length} paired stills)`);
+  const relMan = path.relative(ROOT, path.join(outDir, "stills-manifest.json")).replace(/\\/g, "/");
+  console.log(`Cold-Open Preview: ${slug} (${manifest.seconds}s / ${manifest.previewFrames}f, ${slicedConfig.scenes.length} scenes, ${manifest.jobs.length} jobs)`);
   console.log(`  Narrative: ${narrative.ok ? "PASS" : "FAIL"} (${narrative.errors.length} errors, ${narrative.warnings.length} warnings)`);
   console.log(`  Variety:   ${Object.keys(variety.counts).length} mode(s)`);
-  console.log(`  Next (cloud): node scripts/stills-cloud.js --config=${path.relative(ROOT, path.join(outDir, "config.cold-open.json")).replace(/\\/g, "/")} --manifest=${path.relative(ROOT, path.join(outDir, "stills-manifest.json")).replace(/\\/g, "/")} --out=${path.relative(ROOT, path.join(outDir, "stills")).replace(/\\/g, "/")}`);
+  console.log(`  Next (cloud): node scripts/stills-cloud.js push --tag=cold-open-${slug} --manifest=${relMan}`);
 }
 
 module.exports = { buildColdOpenSlice };

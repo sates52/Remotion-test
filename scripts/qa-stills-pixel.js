@@ -21,6 +21,8 @@ function compareFramePair(bufA, bufB, opts = {}) {
       reason: `dimension mismatch (${a.width}x${a.height} vs ${b.width}x${b.height})`,
     };
   }
+  const chA = a.channels || Math.round(a.data.length / (a.width * a.height)) || 4;
+  const chB = b.channels || Math.round(b.data.length / (b.width * b.height)) || 4;
   const step = opts.step ?? 4;
   const captionTopRatio = opts.captionTopRatio ?? 0.84;
   const minChangedRatio = opts.minChangedRatio ?? 0.015;
@@ -30,10 +32,13 @@ function compareFramePair(bufA, bufB, opts = {}) {
   let diffSum = 0;
   for (let y = 0; y < maxY; y += step) {
     for (let x = 0; x < a.width; x += step) {
-      const idx = (y * a.width + x) * 4;
-      const dr = Math.abs(a.data[idx] - b.data[idx]);
-      const dg = Math.abs(a.data[idx + 1] - b.data[idx + 1]);
-      const db = Math.abs(a.data[idx + 2] - b.data[idx + 2]);
+      const idxA = (y * a.width + x) * chA;
+      const idxB = (y * b.width + x) * chB;
+      const rA = a.data[idxA], gA = chA >= 3 ? a.data[idxA + 1] : rA, bA = chA >= 3 ? a.data[idxA + 2] : rA;
+      const rB = b.data[idxB], gB = chB >= 3 ? b.data[idxB + 1] : rB, bB = chB >= 3 ? b.data[idxB + 2] : rB;
+      const dr = Math.abs(rA - rB);
+      const dg = Math.abs(gA - gB);
+      const db = Math.abs(bA - bB);
       const maxD = Math.max(dr, dg, db);
       if (maxD > 18) changed++;
       diffSum += (dr + dg + db) / 3;
@@ -54,9 +59,10 @@ function findPairs(files) {
   const set = new Set(files);
   const pairs = [];
   for (const f of files) {
+    const m05 = f.match(/^(.+)__t05(?:-f\d+)?\.png$/);
     const m20 = f.match(/^(.+)__t20(?:-f\d+)?\.png$/);
-    if (m20) {
-      const prefix = m20[1];
+    if (m05 || m20) {
+      const prefix = (m05 || m20)[1];
       const b = files.find((x) => x.startsWith(`${prefix}__t75`) && x.endsWith(".png"));
       if (b) pairs.push([f, b]);
     } else if (f.endsWith("_start.png")) {
@@ -98,14 +104,16 @@ if (require.main === module) {
 
   for (const f of files) {
     const buf = fs.readFileSync(path.join(rawDir, f));
-    const { width, height, data: rgba } = decode(buf);
+    const { width, height, channels, data: rgba } = decode(buf);
+    const ch = channels || Math.round(rgba.length / (width * height)) || 4;
     let sum = 0;
     let sumSq = 0;
     let count = 0;
     for (let y = 0; y < height; y += 4) {
       for (let x = 0; x < width; x += 4) {
-        const idx = (y * width + x) * 4;
-        const luma = 0.2126 * rgba[idx] + 0.7152 * rgba[idx + 1] + 0.0722 * rgba[idx + 2];
+        const idx = (y * width + x) * ch;
+        const r = rgba[idx], g = ch >= 3 ? rgba[idx + 1] : r, b = ch >= 3 ? rgba[idx + 2] : r;
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
         sum += luma;
         sumSq += luma * luma;
         count++;

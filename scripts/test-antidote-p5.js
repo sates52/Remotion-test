@@ -157,12 +157,12 @@ test("Paket A: v2-narrative-lint catches dangling cutoutStage connector & degene
 test("Paket A: qa-stills-pixel compareFramePair ignores caption band and detects real stage motion", () => {
   const w = 120, h = 100;
   const makeBuf = (fillFn) => {
-    const data = new Uint8Array(w * h * 4);
+    const data = new Uint8Array(w * h * 3);
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
         const [r, g, b] = fillFn(x, y);
-        const i = (y * w + x) * 4;
-        data[i] = r; data[i + 1] = g; data[i + 2] = b; data[i + 3] = 255;
+        const i = (y * w + x) * 3;
+        data[i] = r; data[i + 1] = g; data[i + 2] = b;
       }
     }
     return encode(w, h, data);
@@ -174,13 +174,15 @@ test("Paket A: qa-stills-pixel compareFramePair ignores caption band and detects
   const rCap = compareFramePair(base, captionOnly);
   assert.strictEqual(rCap.ok, false, "caption-only change must fail stage motion");
   assert.strictEqual(rCap.changedPixelRatio, 0);
+  assert.strictEqual(rCap.meanAbsDiff, 0);
 
   const rStage = compareFramePair(base, stageMoved);
   assert.strictEqual(rStage.ok, true, "upper stage change must pass");
   assert(rStage.changedPixelRatio > 0.2);
+  assert(Number.isFinite(rStage.meanAbsDiff) && rStage.meanAbsDiff > 10);
 });
 
-test("Paket B: cold-open-preview slices <= 30s and emits paired t20/t75 stills manifest", () => {
+test("Paket B: cold-open-preview slices <= 30s and emits stills/1 manifest with paired t05/t75 jobs", () => {
   const { slicedConfig, manifest } = buildColdOpenSlice({
     meta: { slug: "slice-test", fps: 30, durationInFrames: 3600, artDirection: toArtDirection("kraftDossier") },
     scenes: [
@@ -191,10 +193,12 @@ test("Paket B: cold-open-preview slices <= 30s and emits paired t20/t75 stills m
     captions: [{ text: "Hi", startFrame: 0, endFrame: 90 }],
   }, { seconds: 20 });
   assert.strictEqual(slicedConfig.scenes.length, 2);
+  assert.strictEqual(manifest.schema, "stills/1");
   assert.strictEqual(manifest.previewFrames, 600);
-  assert.strictEqual(manifest.stills.length, 4);
-  assert.strictEqual(manifest.stills[0].id, "s1__t20");
-  assert.strictEqual(manifest.stills[1].id, "s1__t75");
+  assert.strictEqual(manifest.jobs.length, 4);
+  assert.strictEqual(manifest.jobs[0].id, "s1__t05");
+  assert.strictEqual(manifest.jobs[1].id, "s1__t75");
+  assert(Array.isArray(manifest.jobs[0].frames) && manifest.jobs[0].frames.length === 1);
 });
 
 test("Paket C: CC0-1.0 foley pack exists with valid SHA-256 & Event Relay rules are wired", () => {
