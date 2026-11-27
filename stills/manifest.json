@@ -1,0 +1,96 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 3 Review — Thumbnail Fixes Verification",
+ "composition": "Thumb-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "extra": [
+  "public/scenes/essentialism-10x-pilot/e1_char_overwhelmed.png",
+  "public/scenes/essentialism-10x-pilot/e1_marble_chisel.png",
+  "public/scenes/essentialism-10x-pilot/e1_prop_tetris_stack.png",
+  "public/scenes/essentialism-10x-pilot/e1_sunlit_desk_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_mentor.png",
+  "public/scenes/essentialism-10x-pilot/e2_char_worker_sheet.png",
+  "public/scenes/essentialism-10x-pilot/e2_cluttered_desk.png",
+  "public/scenes/essentialism-10x-pilot/e2_studio_lounge_stage.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_asking.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_calm.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_pointing.png",
+  "public/scenes/essentialism-10x-pilot/e2_worker_stressed.png",
+  "public/scenes/essentialism-10x-pilot/e3_boardroom_table.png",
+  "public/scenes/essentialism-10x-pilot/e3_living_room_calm.png",
+  "public/scenes/essentialism-10x-pilot/e3_pharmacy_integrity.png"
+ ],
+ "jobs": [
+  {
+   "id": "r2-diag-light-left",
+   "config": "configs/r2-diag-light-left.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-diag-light-left-nohook",
+   "config": "configs/r2-diag-light-left-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-diag-dark-bottom",
+   "config": "configs/r2-diag-dark-bottom.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-diag-dark-bottom-nohook",
+   "config": "configs/r2-diag-dark-bottom-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-diag-dark-right",
+   "config": "configs/r2-diag-dark-right.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-diag-dark-right-nohook",
+   "config": "configs/r2-diag-dark-right-nohook.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-poster-bottom",
+   "config": "configs/r2-poster-bottom.json",
+   "frames": [
+    1
+   ]
+  },
+  {
+   "id": "r2-poster-bottom-nohook",
+   "config": "configs/r2-poster-bottom-nohook.json",
+   "frames": [
+    1
+   ]
+  }
+ ],
+ "inputHash": "4823020c9938b75d",
+ "files": {
+  "stills/configs/r2-diag-light-left.json": "1fb6f05e24af27faf90b2d17627f0e71527c0a9898e50815f3522fdd9b5e8153",
+  "stills/configs/r2-diag-light-left-nohook.json": "bb77be93c09a06340e65d15541cd44ed77da5d4e08ac109c680927be9cfc9ad7",
+  "stills/configs/r2-diag-dark-bottom.json": "d7b919a75ebde618dd7b7446ff5d79fd01b89dc7c53fad481c4a9ac2a14c6ca6",
+  "stills/configs/r2-diag-dark-bottom-nohook.json": "990ea6f285cd393f4cd827d9bf04eb285e9c2e61fd965af55d3303006c8cb45e",
+  "stills/configs/r2-diag-dark-right.json": "403fc93d1d9fd65f9010f8d7585244c3d4ebfd326cffc05f2f3334e12f90c145",
+  "stills/configs/r2-diag-dark-right-nohook.json": "9af5d6f1dbb3e8454b455545d1a7b04009fe1ee4b3197571bff10064e3223c2e",
+  "stills/configs/r2-poster-bottom.json": "86c96de15c327aba5c2f0b25f63ad2f09581c0a5fdb8d57f38927e3b763412c6",
+  "stills/configs/r2-poster-bottom-nohook.json": "b3bc659f92b58c75cb39a66373a1771b617f5d4fd61fe8b7850e5c5ce0e1e502"
+ },
+ "builtAt": "2026-11-27T12:14:26.955Z"
+}
