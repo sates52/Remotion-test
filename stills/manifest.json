@@ -1,0 +1,46 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 3 Round-3 — tswg-noir bg.own glaze & fullStage10x strip verification",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 2,
+ "jobs": [
+  {
+   "id": "tswg-noir",
+   "config": "configs/tswg-noir.json",
+   "frames": [
+    3187,
+    6373,
+    9560,
+    12747,
+    15933,
+    19120,
+    22306,
+    25493,
+    28680,
+    31866,
+    35053,
+    38240,
+    41426,
+    44613,
+    47800,
+    50986,
+    54173,
+    57360,
+    60546,
+    63733,
+    66919,
+    70106,
+    73293,
+    76479
+   ]
+  }
+ ],
+ "inputHash": "0fada4d3a967eaac",
+ "files": {
+  "stills/configs/tswg-noir.json": "d737ce34bd97ccc7979517bc047e02d97a465a96ac9dbda7b5fa95ddf6c84ba4"
+ },
+ "builtAt": "2026-11-27T15:01:58.196Z"
+}
