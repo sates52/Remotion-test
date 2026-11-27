@@ -76,65 +76,70 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
             textAlign: align,
           }}
         >
-          <span
-            style={{
-              display: "inline-block",
-              fontFamily: fonts.display,
-              fontWeight: 900,
-              fontSize: 18,
-              letterSpacing: "0.14em",
-              color: contrastInkOn(col),
-              background: col,
-              padding: "7px 18px",
-              borderRadius: 6,
-              marginBottom: 16,
-            }}
-          >
-            {side.label}
-          </span>
+          <div style={{ marginBottom: 16 }}>
+            <span
+              style={{
+                display: "inline-block",
+                fontFamily: fonts.display,
+                fontWeight: 900,
+                fontSize: 18,
+                letterSpacing: "0.14em",
+                color: contrastInkOn(col),
+                background: col,
+                padding: "7px 18px",
+                borderRadius: 6,
+              }}
+            >
+              {side.label}
+            </span>
+          </div>
           {!hasImg && (side.customSvg || side.icon) && (
             <div style={{ display: "flex", justifyContent: align === "left" ? "flex-start" : "flex-end", marginBottom: 14 }}>
               <InlineVisualSlot customSvg={side.customSvg} icon={side.icon} accent={col} ink={palette.ink} size={132} />
             </div>
           )}
-          <div style={{ position: "relative", display: "inline-block" }}>
-            <div
-              style={{
-                fontFamily: fonts.display,
-                fontWeight: 900,
-                fontSize: hasImg ? 44 : 52,
-                color: hasImg ? "#FFFFFF" : palette.ink,
-                lineHeight: 1.08,
-                textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.55)" : "none",
-              }}
-            >
-              {side.headline}
+          <div>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <div
+                style={{
+                  fontFamily: fonts.display,
+                  fontWeight: 900,
+                  fontSize: hasImg ? 44 : 52,
+                  color: hasImg ? "#FFFFFF" : palette.ink,
+                  lineHeight: 1.08,
+                  textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.55)" : "none",
+                }}
+              >
+                {side.headline}
+              </div>
+              {!hasImg && (
+                isAfter ? (
+                  <div style={{ marginTop: 4 }}>
+                    <RoughMarks
+                      kind="underline"
+                      width={380}
+                      height={16}
+                      color={col}
+                      progress={markP}
+                      seed={side.headline}
+                      style={{ width: "100%", display: "block" }}
+                    />
+                  </div>
+                ) : (
+                  <div style={{ position: "absolute", left: 0, right: 0, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
+                    <RoughMarks
+                      kind="strike"
+                      width={420}
+                      height={18}
+                      color={palette.danger}
+                      progress={markP}
+                      seed={side.headline}
+                      style={{ width: "100%", display: "block" }}
+                    />
+                  </div>
+                )
+              )}
             </div>
-            {!hasImg && (
-              isAfter ? (
-                <div style={{ marginTop: 4 }}>
-                  <RoughMarks
-                    kind="underline"
-                    width={380}
-                    height={16}
-                    color={col}
-                    progress={markP}
-                    seed={side.headline}
-                  />
-                </div>
-              ) : (
-                <div style={{ position: "absolute", left: 0, right: 0, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
-                  <RoughMarks
-                    kind="strike"
-                    width={420}
-                    height={18}
-                    color={palette.danger}
-                    progress={markP}
-                    seed={side.headline}
-                  />
-                </div>
-              )
-            )}
           </div>
           {(side.points ?? []).length > 0 && (
             <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 10 }}>

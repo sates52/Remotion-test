@@ -109,7 +109,7 @@ const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string; tileBg?
       const size = it.size ?? 84, w = textW(it.label ?? "", size);
       return (<g>
         {it.box ? <rect x={-w / 2 - 26} y={-size * 0.82} width={w + 52} height={size * 1.2} rx={10} fill={it.box} /> : null}
-        <text x={0} y={0} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={it.box ? "#fff" : ink} letterSpacing={1}>{it.label}</text>
+        <text x={0} y={0} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={it.box ? contrastInkOn(it.box) : ink} letterSpacing={1}>{it.label}</text>
       </g>);
     }
     case "planet": return (<g><circle r={it.size ?? 300} fill={color} opacity={0.16} /><circle r={(it.size ?? 300) * 0.72} fill={color} opacity={0.14} /><ellipse rx={(it.size ?? 300) * 1.18} ry={(it.size ?? 300) * 0.24} fill="none" stroke={color} strokeWidth={6} opacity={0.4} transform="rotate(-14)" /></g>);
@@ -213,9 +213,6 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             <g key={`sky-${b.id}`} opacity={o}>
               <rect x={-FAR} y={-FAR} width={1920 + 2 * FAR} height={sc!.groundTop + FAR} fill={sc!.sky} />
               <rect x={-FAR} y={sc!.groundTop} width={1920 + 2 * FAR} height={1080 - sc!.groundTop + FAR} fill={sc!.ground} />
-              {artPal && (
-                <rect x={-FAR} y={-FAR} width={1920 + 2 * FAR} height={1080 + 2 * FAR} fill={artPal.bg} opacity={darkStage ? 0.56 : 0.22} />
-              )}
             </g>
           ))}
           {places.map(({ b, o }) => {
@@ -235,6 +232,23 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
               </g>
             );
           })}
+          {/* Atmospheric mood glaze AFTER drawn place paths so dark-mood walls match Backdrop.tsx without daylight glare */}
+          {artPal && (() => {
+            const drawnPlaces = places.filter((p) => !p.b.image);
+            const drawnOp = drawnPlaces.reduce((m, p) => Math.max(m, p.o), 0);
+            if (drawnOp <= 0.001) return null;
+            const hasDrawnScene = scenes.some((p) => !p.b.image);
+            return (
+              <rect
+                x={-FAR}
+                y={-FAR}
+                width={1920 + 2 * FAR}
+                height={1080 + 2 * FAR}
+                fill={artPal.bg}
+                opacity={(darkStage ? (hasDrawnScene ? 0.50 : 0.22) : 0.14) * drawnOp}
+              />
+            );
+          })()}
           {/* v5 + hybrid: a contact shadow under a figure that STANDS on the scene's ground */}
           {(scenes.length || places.some((p) => p.b.groundTop != null)) ? spec.items.filter((it) => it.kind === "figure" && !it.screen).map((it) => {
             const st = itemState(it, frame);

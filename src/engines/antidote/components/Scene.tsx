@@ -280,7 +280,7 @@ const CharacterLayer: React.FC<{
     return (
       <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", left: 0, top: 0, overflow: "visible", pointerEvents: "none" }}>
         {k < 1 ? <path d={`M ${sx} ${sy} Q ${(sx + x) / 2} ${Math.min(sy, y) - 120} ${x} ${y}`} fill="none" stroke="#1E1E22" strokeWidth={4} strokeDasharray="3 12" strokeLinecap="round" opacity={0.45} /> : null}
-        <g transform={`translate(${x} ${y}) scale(${1.2 * scale})`}><HeldProp prop={spec.holds as HandProp} ink="#1E1E22" accent={accent} /></g>
+        <g transform={`translate(${x} ${y}) scale(${1.2 * scale})`}><HeldProp prop={spec.holds as HandProp} ink="#1E1E22" accent={accent ?? "#E23B57"} /></g>
       </svg>
     );
   })() : null;
@@ -654,7 +654,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         const amb = ambient((i * 0.37 + 0.11) % 1, local);
         // The metaphor's arc: what this object DOES over the beat.
         const from = (p.at ?? 0);
-        const arc = arcOf(p.arc, local - from, Math.max(1, scene.durationFrames - from));
+        const arc = arcOf(p.arc as Parameters<typeof arcOf>[0], local - from, Math.max(1, scene.durationFrames - from));
         // Decorative motifs sit back in the set; icon-shot motifs are the hero,
         // so they stay on the focal plane.
         const depth = p.depth ?? (iconShot ? 1 : 0.72);

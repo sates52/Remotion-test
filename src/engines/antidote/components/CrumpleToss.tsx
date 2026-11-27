@@ -1,7 +1,7 @@
 import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { CrumpleTossSpec } from "../schema";
-import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { contrastInkOn, isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 import { GrammarStage } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
 import { FitText } from "./textFit";
@@ -59,22 +59,23 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
           }}
         >
           {spec.truth.badge && (
-            <span
-              style={{
-                display: "inline-block",
-                fontFamily: fonts.display,
-                fontWeight: 900,
-                fontSize: 16,
-                letterSpacing: "0.12em",
-                padding: "5px 16px",
-                borderRadius: 999,
-                background: `${truthCol}22`,
-                color: truthCol,
-                marginBottom: 14,
-              }}
-            >
-              {spec.truth.badge}
-            </span>
+            <div style={{ marginBottom: 14 }}>
+              <span
+                style={{
+                  display: "inline-block",
+                  fontFamily: fonts.display,
+                  fontWeight: 900,
+                  fontSize: 16,
+                  letterSpacing: "0.12em",
+                  padding: "5px 16px",
+                  borderRadius: 999,
+                  background: `${truthCol}22`,
+                  color: truthCol,
+                }}
+              >
+                {spec.truth.badge}
+              </span>
+            </div>
           )}
           <div style={{ position: "relative", display: "inline-block" }}>
             <FitText
@@ -127,7 +128,7 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
                   padding: "4px 14px",
                   borderRadius: 4,
                   background: palette.danger,
-                  color: "#FFFFFF",
+                  color: contrastInkOn(palette.danger),
                   marginBottom: 12,
                 }}
               >

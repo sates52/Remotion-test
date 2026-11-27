@@ -1,7 +1,7 @@
 import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { HookPosterSpec } from "../schema";
-import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { contrastInkOn, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 import { InlineVisualSlot } from "./InlineVisualSlot";
 import { StageGrammarOverlay } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
@@ -169,7 +169,7 @@ export const HookPoster: React.FC<{
             padding: "10px 20px",
             borderRadius: 10,
             background: accentCol,
-            color: "#FFFFFF",
+            color: contrastInkOn(accentCol),
             fontFamily: fonts.display,
             fontWeight: 900,
             fontSize: 20,

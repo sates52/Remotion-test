@@ -656,4 +656,124 @@ test("Review round-3 fixes: Backdrop glaze after own.paths, fullStage10x strips 
   assert.strictEqual(lightLayer.props.children[2].props.opacity, 0.14);
 });
 
+// ── Review round-3 deep audit regressions: ToldStage glaze order, BeforeAfterWipe/CrumpleToss inline-block collision, badge contrast ──
+test("Review round-3 deep audit: ToldStage glaze after b.paths, BeforeAfterWipe & CrumpleToss block badge stacking, HookPoster badge contrast", () => {
+  const makeEl = (type, props, key) => ({ type, props: props || {}, key });
+  const loadComp = (relPath) => {
+    const res = esbuild.buildSync({
+      entryPoints: [path.join(ROOT, relPath)],
+      bundle: true,
+      write: false,
+      platform: "node",
+      format: "cjs",
+      external: ["react", "react/jsx-runtime", "remotion", "@remotion/google-fonts/Poppins"],
+      jsx: "automatic",
+    });
+    const mod = { exports: {} };
+    const stub = {
+      AbsoluteFill: "AbsoluteFill",
+      Img: "Img",
+      staticFile: (p) => p,
+      Easing: { out: (f) => f, poly: () => (t) => t, cubic: (t) => t },
+      interpolate: (_v, _i, out) => out[out.length - 1],
+      useCurrentFrame: () => 60,
+      useVideoConfig: () => ({ fps: 30, width: 1920, height: 1080 }),
+      createContext: () => ({ Provider: () => null }),
+      useContext: () => null,
+      loadFont: () => ({ fontFamily: "Poppins" }),
+      jsx: makeEl,
+      jsxs: makeEl,
+      Fragment: "Fragment",
+      default: { createContext: () => ({ Provider: () => null }), useContext: () => null, createElement: makeEl },
+    };
+    new Function("require", "exports", "module", "__filename", "__dirname", res.outputFiles[0].text)(
+      (id) => (id === "remotion" || id === "react" || id === "react/jsx-runtime" || id === "@remotion/google-fonts/Poppins" ? stub : require(id)),
+      mod.exports,
+      mod,
+      path.join(ROOT, relPath),
+      path.dirname(path.join(ROOT, relPath)),
+    );
+    return mod.exports;
+  };
+
+  // 1. ToldStage runtime JSX tree: glaze MUST render AFTER places.map (b.paths), NEVER inside scenes.map before paths
+  const { ToldStage } = loadComp("src/engines/antidote/components/ToldStage.tsx");
+  const v5SceneBackdrop = { id: "cafe", wide: true, viewBox: "0 0 1920 760", sky: "#E8E1D6", ground: "#8C7F70", paths: [{ d: "M0 0 H1920 V760 H0 Z", fill: "#FAF7F2" }] };
+  const washBackdrop = { id: "dining", paths: [{ d: "M0 0 H520 V520 H0 Z", fill: "#D6CFC3" }] };
+  const imgBackdrop = { id: "photo", image: "scenes/demo/bg.png", dim: 0.4, paths: [] };
+  const camGroupOf = (tree) => {
+    const svg = tree.props.children;
+    const svgKids = Array.isArray(svg.props.children) ? svg.props.children : [svg.props.children];
+    return svgKids.find((el) => el && el.type === "g" && typeof el.props?.transform === "string" && el.props.transform.includes("translate(960 540)"));
+  };
+  const flat = (x) => (Array.isArray(x) ? x.flatMap(flat) : x ? [x] : []);
+
+  // Legacy (no stageMood / no ad): ZERO glaze rect
+  const legacyCam = camGroupOf(ToldStage({ spec: { v: 5, items: [], backdrops: [v5SceneBackdrop] } }));
+  const legacyKids = flat(legacyCam.props.children);
+  assert.strictEqual(legacyKids.some((el) => el.type === "rect" && el.props.width > 1920), false, "legacy ToldStage must not render any mood glaze rect");
+
+  // Dark mood v5 scene: glaze rect AFTER at-cafe paths <g>, NOT inside sky-cafe <g>
+  const darkCam = camGroupOf(ToldStage({ spec: { v: 5, items: [], backdrops: [v5SceneBackdrop] }, stageMood: "slateEditorial" }));
+  const darkKids = flat(darkCam.props.children);
+  const skyIdx = darkKids.findIndex((el) => el.key === "sky-cafe");
+  const pathsIdx = darkKids.findIndex((el) => el.key === "at-cafe");
+  const glazeIdx = darkKids.findIndex((el) => el.type === "rect" && el.props.fill === "#121A26");
+  assert.ok(skyIdx >= 0 && pathsIdx > skyIdx && glazeIdx > pathsIdx, `ToldStage glaze must follow at-cafe paths (sky=${skyIdx}, paths=${pathsIdx}, glaze=${glazeIdx})`);
+  assert.strictEqual(flat(darkKids[skyIdx].props.children).length, 2, "sky-cafe <g> must contain ONLY sky & ground rects (no pre-paths glaze)");
+  assert.strictEqual(darkKids[glazeIdx].props.opacity, 0.5);
+
+  // Dark mood wash: glaze rect AFTER at-dining paths <g> with opacity 0.22
+  const washCam = camGroupOf(ToldStage({ spec: { v: 5, items: [], backdrops: [washBackdrop] }, stageMood: "obsidianGrid" }));
+  const washKids = flat(washCam.props.children);
+  const wPathsIdx = washKids.findIndex((el) => el.key === "at-dining");
+  const wGlazeIdx = washKids.findIndex((el) => el.type === "rect" && el.props.fill === "#101319");
+  assert.ok(wPathsIdx >= 0 && wGlazeIdx > wPathsIdx && washKids[wGlazeIdx].props.opacity === 0.22, "ToldStage dark wash must glaze after paths at 0.22");
+
+  // Light mood v5 scene: glaze rect AFTER paths with opacity 0.14
+  const lightCam = camGroupOf(ToldStage({ spec: { v: 5, items: [], backdrops: [v5SceneBackdrop] }, stageMood: "warmParchment" }));
+  const lightKids = flat(lightCam.props.children);
+  const lGlaze = lightKids.find((el) => el.type === "rect" && el.props.fill === "#EFE7D6");
+  assert.ok(lGlaze && lGlaze.props.opacity === 0.14, "ToldStage light scene must glaze at 0.14");
+
+  // Image backdrop: must NOT add extra artPal.bg glaze rect on top of b.dim
+  const imgCam = camGroupOf(ToldStage({ spec: { v: 5, items: [], backdrops: [imgBackdrop] }, stageMood: "obsidianGrid" }));
+  const imgKids = flat(imgCam.props.children);
+  assert.strictEqual(imgKids.some((el) => el.type === "rect" && el.props.fill === "#101319"), false, "ToldStage image backdrop must not be double-glazed");
+
+  // 2. BeforeAfterWipe runtime JSX tree: label badge & headline MUST sit in separate block wrappers (never adjacent inline-blocks)
+  const { BeforeAfterWipe } = loadComp("src/engines/antidote/components/BeforeAfterWipe.tsx");
+  const bawTree = BeforeAfterWipe({
+    spec: {
+      before: { label: "PUSHED AWAY", headline: "Paul, shut out", points: ["He did not freeze"] },
+      after: { label: "THE LIVING ROOM", headline: "Laurel meets SJ", points: ["The daughter who spoils the show"] },
+    },
+    localFrame: 72,
+    stageMood: "crimsonNight",
+  });
+  const findCards = (node, out = []) => {
+    if (!node || typeof node !== "object") return out;
+    if (Array.isArray(node)) { node.forEach((n) => findCards(n, out)); return out; }
+    if (node.type === "div" && (node.props?.style?.textAlign === "left" || node.props?.style?.textAlign === "right")) out.push(node);
+    if (node.props?.children) findCards(node.props.children, out);
+    return out;
+  };
+  const cards = findCards(bawTree);
+  assert.strictEqual(cards.length, 2, "BeforeAfterWipe must render both before and after cards");
+  for (const card of cards) {
+    const kids = flat(card.props.children);
+    assert.strictEqual(kids[0].type, "div", "BeforeAfterWipe label badge must be wrapped in a block <div>");
+    assert.strictEqual(kids[0].props?.style?.display, undefined, "label wrapper must stay block-level (not inline-block)");
+    assert.strictEqual(kids[1].type, "div", "BeforeAfterWipe headline container must be a block <div>");
+    assert.strictEqual(kids[1].props?.style?.display, undefined, "headline outer wrapper must stay block-level (not inline-block)");
+  }
+
+  // 3. CrumpleToss & HookPoster: block badge stacking + contrastInkOn on filled badges
+  const ctSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/CrumpleToss.tsx"), "utf8");
+  assert.ok(ctSrc.includes("contrastInkOn(palette.danger)"), "CrumpleToss myth badge must use contrastInkOn(palette.danger)");
+  assert.ok(/spec\.truth\.badge && \(\s*<div style=\{\{ marginBottom: 14 \}\}>/.test(ctSrc), "CrumpleToss truth badge must be wrapped in a block <div>");
+  const hpSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/HookPoster.tsx"), "utf8");
+  assert.ok(hpSrc.includes("contrastInkOn(accentCol)"), "HookPoster anomalyBadge must use contrastInkOn(accentCol)");
+});
+
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);
