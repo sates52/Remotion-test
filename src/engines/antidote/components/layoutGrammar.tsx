@@ -16,7 +16,10 @@ export type LayoutGrammarName =
   | "editorialRight"
   | "cinemaWide"
   | "splitSpine"
-  | "swissPoster";
+  | "swissPoster"
+  | "magazineMasthead"
+  | "filmFrame"
+  | "diagonalSplit";
 
 export type StageLayout = {
   grammar: LayoutGrammarName;
@@ -49,7 +52,28 @@ export function resolveStageLayout(ad?: ArtDirectionConfig | null): StageLayout 
         grammar,
         capPad: 132,
         contentBox: { left: 96, top: 120, width: 1728, height: 816 },
-        headerBox: { left: 96, top: 24, width: 1400, align: "left" },
+        headerBox: { left: 96, top: 30, width: 1360, align: "left" },
+      };
+    case "magazineMasthead":
+      return {
+        grammar,
+        capPad,
+        contentBox: { left: 196, top: 174, width: 1644, height: 1080 - 174 - capPad },
+        headerBox: { left: 196, top: 44, width: 1320, align: "left" },
+      };
+    case "filmFrame":
+      return {
+        grammar,
+        capPad: 156,
+        contentBox: { left: 112, top: 174, width: 1696, height: 730 },
+        headerBox: { left: 180, top: 64, width: 1560, align: "center" },
+      };
+    case "diagonalSplit":
+      return {
+        grammar,
+        capPad,
+        contentBox: { left: 96, top: 176, width: 1728, height: 1080 - 176 - capPad },
+        headerBox: { left: 84, top: 48, width: 880, align: "left" },
       };
     case "splitSpine":
       return {
@@ -79,10 +103,11 @@ export const GrammarStage: React.FC<{
   title?: string;
   subtitle?: string;
   kicker?: string;
+  chapterLabel?: string;
   stageMood?: StageMoodName;
   localFrame?: number;
   children: React.ReactNode;
-}> = ({ title, subtitle, kicker, stageMood, localFrame, children }) => {
+}> = ({ title, subtitle, kicker, chapterLabel, stageMood, localFrame, children }) => {
   const ctxFrame = useCurrentFrame();
   const frame = Math.max(0, localFrame ?? ctxFrame);
   const ad = useArtDirection();
@@ -164,6 +189,80 @@ export const GrammarStage: React.FC<{
         />
       );
     }
+    if (g === "magazineMasthead") {
+      return (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: 136,
+              background: light ? palette.ink : palette.bgAlt,
+              borderRight: `5px solid ${palette.accent}`,
+              pointerEvents: "none",
+            }}
+          />
+          {chapterLabel && (
+            <div
+              style={{
+                position: "absolute",
+                left: 68,
+                top: "50%",
+                transform: "translate(-50%, -50%) rotate(-90deg)",
+                whiteSpace: "nowrap",
+                fontFamily: fonts.display,
+                fontWeight: 900,
+                fontSize: 16,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: light ? "#FAF8F5" : palette.accent,
+                pointerEvents: "none",
+              }}
+            >
+              {chapterLabel}
+            </div>
+          )}
+        </>
+      );
+    }
+    if (g === "filmFrame") {
+      return (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              inset: 34,
+              borderRadius: 18,
+              border: `3px solid ${palette.accent}55`,
+              boxShadow: `inset 0 0 0 1px ${palette.surfaceBorder}`,
+              pointerEvents: "none",
+            }}
+          />
+          <div style={{ position: "absolute", left: 52, top: 50, width: 18, height: 18, borderTop: `3px solid ${palette.accent}`, borderLeft: `3px solid ${palette.accent}`, pointerEvents: "none" }} />
+          <div style={{ position: "absolute", right: 52, top: 50, width: 18, height: 18, borderTop: `3px solid ${palette.accent}`, borderRight: `3px solid ${palette.accent}`, pointerEvents: "none" }} />
+        </>
+      );
+    }
+    if (g === "diagonalSplit") {
+      return (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: palette.bgAlt,
+              clipPath: "polygon(54% 0%, 100% 0%, 100% 100%, 34% 100%)",
+              pointerEvents: "none",
+            }}
+          />
+          <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+            <line x1={1037} y1={0} x2={653} y2={1080} stroke={palette.accent} strokeWidth={4} opacity={0.78} />
+          </svg>
+        </>
+      );
+    }
     return null;
   };
 
@@ -176,6 +275,27 @@ export const GrammarStage: React.FC<{
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
       {renderChrome()}
+
+      {chapterLabel && g !== "magazineMasthead" && (
+        <div
+          style={{
+            position: "absolute",
+            right: g === "filmFrame" ? 64 : 64,
+            top: g === "cinemaWide" ? 34 : g === "filmFrame" ? 52 : 44,
+            fontFamily: fonts.display,
+            fontWeight: 800,
+            fontSize: 15,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: g === "cinemaWide" || mastheadDark ? "#F7C948" : palette.accent,
+            opacity: headP * 0.9,
+            zIndex: 5,
+            pointerEvents: "none",
+          }}
+        >
+          {chapterLabel}
+        </div>
+      )}
 
       {hasHeader && (
         <div
@@ -211,7 +331,7 @@ export const GrammarStage: React.FC<{
               text={title}
               maxWidth={layout.headerBox.width}
               maxLines={g === "editorialLeft" || g === "editorialRight" ? 3 : 2}
-              baseSize={g === "cinemaWide" ? 36 : g === "swissPoster" ? 54 : 46}
+              baseSize={g === "cinemaWide" ? 34 : g === "swissPoster" ? 54 : 46}
               minSize={24}
               fontFamily={fonts.display}
               fontWeight={900}
@@ -223,8 +343,8 @@ export const GrammarStage: React.FC<{
               text={subtitle}
               maxWidth={layout.headerBox.width}
               maxLines={2}
-              baseSize={g === "cinemaWide" ? 20 : 23}
-              minSize={16}
+              baseSize={g === "cinemaWide" ? 18 : 23}
+              minSize={15}
               fontFamily={fonts.body}
               fontWeight={500}
               color={subColor}
@@ -334,6 +454,23 @@ export const StageGrammarOverlay: React.FC<{ stageMood?: StageMoodName }> = ({ s
           zIndex: 8,
         }}
       />
+    );
+  }
+  if (g === "magazineMasthead") {
+    return (
+      <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 16, background: palette.accent, pointerEvents: "none", zIndex: 8 }} />
+    );
+  }
+  if (g === "filmFrame") {
+    return (
+      <div style={{ position: "absolute", inset: 26, borderRadius: 16, border: `3px solid ${palette.accent}66`, pointerEvents: "none", zIndex: 8 }} />
+    );
+  }
+  if (g === "diagonalSplit") {
+    return (
+      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 8 }}>
+        <line x1={1037} y1={0} x2={653} y2={1080} stroke={palette.accent} strokeWidth={3} opacity={0.45} />
+      </svg>
     );
   }
   return null;

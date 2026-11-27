@@ -29,12 +29,13 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
     const light = isLightPalette(pal);
     const fonts = resolveArtFonts(ad);
     const g = ad?.layoutGrammar || "centered";
-    const leftAlign = ad?.captionAlign === "left" || g === "editorialLeft" || g === "editorialRight" || g === "splitSpine";
-    const padLeft = g === "editorialLeft" ? 560 : leftAlign ? 88 : 180;
+    const cStyle = ad?.captionStyle || "editorialBar";
+    const leftAlign = cStyle !== "kineticPill" && cStyle !== "cinemaLower" && (ad?.captionAlign === "left" || g === "editorialLeft" || g === "editorialRight" || g === "splitSpine" || g === "magazineMasthead");
+    const padLeft = g === "editorialLeft" ? 560 : g === "magazineMasthead" ? 196 : leftAlign ? 88 : 180;
     const padRight = g === "editorialRight" ? 560 : leftAlign ? 180 : 180;
     const padBottom = g === "cinemaWide" ? 24 : 28;
     const bgGrad =
-      g === "cinemaWide"
+      g === "cinemaWide" || cStyle === "kineticPill" || cStyle === "cinemaLower"
         ? "transparent"
         : light
           ? `linear-gradient(180deg, rgba(250,247,240,0) 0%, ${pal.bg}E0 42%, ${pal.bg}FA 100%)`
@@ -54,7 +55,7 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
           fontSize: g === "cinemaWide" ? 32 : 36,
           lineHeight: 1.26,
           color: g === "cinemaWide" ? "#F8F5EE" : light ? pal.ink : "#F8F5EE",
-          textShadow: g === "cinemaWide" ? "0 2px 10px rgba(0,0,0,0.9)" : light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
+          textShadow: cStyle === "kineticPill" ? "none" : g === "cinemaWide" || cStyle === "cinemaLower" ? "0 2px 10px rgba(0,0,0,0.9)" : light ? "0 1px 10px rgba(255,255,255,0.92)" : "0 2px 12px rgba(0,0,0,0.88)",
           display: "flex",
           justifyContent: leftAlign ? "flex-start" : "center",
           pointerEvents: "none",
@@ -67,8 +68,16 @@ export const CaptionLayer: React.FC<{ captions: CaptionSpec[]; accent?: string }
             flexWrap: "wrap",
             justifyContent: leftAlign ? "flex-start" : "center",
             gap: "0 11px",
-            borderLeft: leftAlign ? `5px solid ${pal.accent}` : undefined,
-            paddingLeft: leftAlign ? 18 : 0,
+            borderLeft: cStyle === "editorialBar" && leftAlign ? `5px solid ${pal.accent}` : undefined,
+            borderTop: cStyle === "printRule" ? `2px solid ${pal.accent}88` : undefined,
+            paddingLeft: cStyle === "editorialBar" && leftAlign ? 18 : cStyle === "kineticPill" ? 24 : 0,
+            paddingRight: cStyle === "kineticPill" ? 24 : 0,
+            paddingTop: cStyle === "printRule" ? 10 : cStyle === "kineticPill" ? 10 : 0,
+            paddingBottom: cStyle === "kineticPill" ? 10 : 0,
+            borderRadius: cStyle === "kineticPill" ? 999 : undefined,
+            background: cStyle === "kineticPill" ? pal.surface : undefined,
+            border: cStyle === "kineticPill" ? `2px solid ${pal.surfaceBorder}` : undefined,
+            boxShadow: cStyle === "kineticPill" ? "0 10px 26px rgba(0,0,0,0.28)" : undefined,
           }}
         >
           {words.map((w, i) => {

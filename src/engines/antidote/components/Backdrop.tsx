@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "rem
 import type { BgSpec } from "../schema";
 import { ANTIDOTE_FONT } from "./KineticText";
 import { backdropFit, backdropScene } from "../told";
-import { STAGE_MOODS } from "./artDirection";
+import { STAGE_MOODS, useArtDirection } from "./artDirection";
 
 /**
  * Backdrop — the world behind the cast.
@@ -1027,6 +1027,7 @@ const SCENE_FAR = 2400;
 
 export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale: number }; durationFrames?: number }> = ({ bg, cam, durationFrames = 180 }) => {
   const frame = useCurrentFrame();
+  const ad = useArtDirection();
   const moodSpec = bg.stageMood ? STAGE_MOODS[bg.stageMood] : null;
   const imgSpec = bg.image;
   if (moodSpec || imgSpec) {
@@ -1073,8 +1074,8 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
         {imgSpec && (
           <AbsoluteFill
             style={{
-              opacity: imgSpec.opacity ?? 1,
-              filter: imgSpec.blur ? `blur(${imgSpec.blur}px)` : undefined,
+              opacity: imgSpec.opacity ?? (imgSpec.ambientCanvas ? 0.22 : 1),
+              filter: imgSpec.blur ? `blur(${imgSpec.blur}px)` : imgSpec.ambientCanvas ? "blur(7px)" : undefined,
               transform: `translate(${(imgTx + cam.x * 0.25).toFixed(1)}px, ${(cam.y * 0.25).toFixed(1)}px) scale(${(imgScale * (1 + (cam.scale - 1) * 0.35)).toFixed(4)})`,
               transformOrigin: "center",
             }}
@@ -1082,6 +1083,17 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
             <Img src={staticFile(imgSpec.path)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </AbsoluteFill>
         )}
+        {imgSpec?.ambientCanvas && (() => {
+          const rgb = parseColor(moodSpec?.palette.bg ?? "#101319") ?? [16, 19, 25];
+          const tintOp = imgSpec.tintOpacity ?? 0.72;
+          return (
+            <AbsoluteFill
+              style={{
+                backgroundColor: `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${tintOp})`,
+              }}
+            />
+          );
+        })()}
         {imgSpec && (imgSpec.dim ?? 0) > 0 && (
           <AbsoluteFill style={{ backgroundColor: `rgba(8, 10, 15, ${imgSpec.dim})` }} />
         )}
@@ -1098,6 +1110,45 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
               background: moodSpec
                 ? moodSpec.vignette
                 : "radial-gradient(ellipse at 50% 48%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.45) 100%)",
+            }}
+          />
+        )}
+        {ad?.surfaceFinish === "paperGrain" && (
+          <AbsoluteFill
+            style={{
+              opacity: 0.06,
+              backgroundImage: "radial-gradient(rgba(26,20,14,0.65) 1px, transparent 1px)",
+              backgroundSize: "14px 14px",
+              pointerEvents: "none",
+            }}
+          />
+        )}
+        {ad?.surfaceFinish === "blueprintTech" && (
+          <AbsoluteFill
+            style={{
+              opacity: 0.22,
+              border: "1px solid rgba(255,255,255,0.22)",
+              margin: 18,
+              pointerEvents: "none",
+            }}
+          />
+        )}
+        {ad?.surfaceFinish === "editorialHalftone" && (
+          <AbsoluteFill
+            style={{
+              opacity: 0.12,
+              backgroundImage: "radial-gradient(rgba(255,255,255,0.35) 1.5px, transparent 1.5px)",
+              backgroundSize: "18px 18px",
+              maskImage: "radial-gradient(circle at 100% 0%, black 0%, transparent 45%)",
+              pointerEvents: "none",
+            }}
+          />
+        )}
+        {ad?.surfaceFinish === "cinemaGlow" && (
+          <AbsoluteFill
+            style={{
+              background: "radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.14) 0%, transparent 58%)",
+              pointerEvents: "none",
             }}
           />
         )}

@@ -2,14 +2,20 @@ import React from "react";
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import type { BalanceScaleSpec } from "../schema";
 import { isLightPalette, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { GrammarStage } from "./layoutGrammar";
 
 /**
  * BalanceScale — Animated Physical Fulcrum & Trade-Off Seesaw.
  *
- * Weights drop onto left/right pans at exact word frames, physically tilting the beam
- * toward the heavier strategic reality.
+ * Wrapped inside <GrammarStage> so it respects all 9 macro layout grammars
+ * (cinemaWide, editorialLeft, magazineMasthead, filmFrame, diagonalSplit, etc.).
  */
-export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
+export const BalanceScale: React.FC<{
+  spec: BalanceScaleSpec;
+  localFrame?: number;
+  stageMood?: StageMoodName;
+  chapterLabel?: string;
+}> = ({ spec, localFrame, stageMood, chapterLabel }) => {
   const ctxFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const frame = Math.max(0, (localFrame ?? ctxFrame) - (spec.at ?? 0));
@@ -18,13 +24,6 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
   const light = isLightPalette(palette);
   const fonts = resolveArtFonts(ad);
 
-  const titleP = interpolate(frame, [0, 14], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.out(Easing.poly(4)),
-  });
-
-  // Compute dynamic spring-smoothed tilt from arrived weights
   let leftMass = 0;
   let rightMass = 0;
   for (const w of spec.leftWeights) {
@@ -39,10 +38,10 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
   const tiltDeg = Math.max(-13, Math.min(13, ((rightMass - leftMass) / total) * 15));
   const rad = (tiltDeg * Math.PI) / 180;
 
-  const cx = 960;
-  const cy = 480;
-  const panDrop = 170;
-  const halfBeam = 420;
+  const cx = 590;
+  const cy = 220;
+  const panDrop = 165;
+  const halfBeam = 340;
   const lx = cx - halfBeam * Math.cos(rad);
   const ly = cy - halfBeam * Math.sin(rad);
   const rx = cx + halfBeam * Math.cos(rad);
@@ -60,7 +59,7 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
         position: "absolute",
         left: px,
         top: py + panDrop,
-        width: 380,
+        width: 340,
         transform: "translate(-50%, -100%)",
         display: "flex",
         flexDirection: "column-reverse",
@@ -70,24 +69,22 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
         pointerEvents: "none",
       }}
     >
-      {/* Pan tray */}
       <div
         style={{
-          width: 340,
+          width: 310,
           height: 14,
           borderRadius: 6,
           background: palette.ink,
           boxShadow: light ? "0 8px 18px rgba(24,24,27,0.18)" : "0 10px 24px rgba(0,0,0,0.5)",
         }}
       />
-      {/* Pan label */}
       <div
         style={{
           position: "absolute",
-          bottom: -44,
+          bottom: -40,
           fontFamily: fonts.display,
           fontWeight: 800,
-          fontSize: 22,
+          fontSize: 21,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           color: palette.muted,
@@ -96,7 +93,6 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
       >
         {label}
       </div>
-      {/* Stacked weight blocks */}
       {weights.map((w, wi) => {
         const dt = frame - (w.at ?? 0);
         if (dt < 0) return null;
@@ -106,18 +102,18 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
           <div
             key={wi}
             style={{
-              width: 310,
-              padding: "14px 18px",
+              width: 290,
+              padding: "12px 16px",
               borderRadius: 8,
               background: palette.surface,
               border: `2.5px solid ${col}`,
               borderLeft: `8px solid ${col}`,
-              transform: `translateY(${(1 - wp) * -90}px)`,
+              transform: `translateY(${(1 - wp) * -75}px)`,
               opacity: Math.min(1, wp * 1.5),
               boxShadow: light ? "0 10px 24px rgba(24,24,27,0.12)" : "0 12px 28px rgba(0,0,0,0.42)",
             }}
           >
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 22, color: palette.ink, lineHeight: 1.15 }}>
+            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 21, color: palette.ink, lineHeight: 1.15 }}>
               {w.label}
             </div>
             {w.sublabel && (
@@ -132,51 +128,21 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
   );
 
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-      {/* Header */}
-      {(spec.title || spec.subtitle) && (
-        <div
-          style={{
-            position: "absolute",
-            top: 46,
-            left: 110,
-            right: 110,
-            textAlign: "center",
-            opacity: titleP,
-            transform: `translateY(${(1 - titleP) * 18}px)`,
-          }}
-        >
-          {spec.title && (
-            <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 50, color: palette.ink, lineHeight: 1.08 }}>
-              {spec.title}
-            </div>
-          )}
-          {spec.subtitle && (
-            <div style={{ fontFamily: fonts.body, fontWeight: 500, fontSize: 24, color: palette.muted, marginTop: 6 }}>
-              {spec.subtitle}
-            </div>
-          )}
-        </div>
-      )}
+    <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame} chapterLabel={chapterLabel}>
+      <div style={{ position: "relative", width: 1180, height: 530 }}>
+        <svg width={1180} height={530} viewBox="0 0 1180 530" style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
+          <polygon points={`${cx - 52},470 ${cx + 52},470 ${cx},235`} fill={palette.ink} opacity={0.85} />
+          <rect x={cx - 130} y={470} width={260} height={14} rx={4} fill={palette.ink} />
+          <line x1={lx} y1={ly} x2={rx} y2={ry} stroke={palette.ink} strokeWidth={10} strokeLinecap="round" />
+          <circle cx={cx} cy={cy} r={16} fill={palette.accent} stroke={palette.ink} strokeWidth={4} />
+          <line x1={lx} y1={ly} x2={lx} y2={ly + panDrop} stroke={palette.muted} strokeWidth={3} />
+          <line x1={rx} y1={ry} x2={rx} y2={ry + panDrop} stroke={palette.muted} strokeWidth={3} />
+        </svg>
 
-      {/* Fulcrum & Beam SVG */}
-      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
-        {/* Base & Pillar */}
-        <polygon points={`${cx - 56},740 ${cx + 56},740 ${cx},495`} fill={palette.ink} opacity={0.85} />
-        <rect x={cx - 140} y={740} width={280} height={14} rx={4} fill={palette.ink} />
-        {/* Beam */}
-        <line x1={lx} y1={ly} x2={rx} y2={ry} stroke={palette.ink} strokeWidth={10} strokeLinecap="round" />
-        {/* Pivot */}
-        <circle cx={cx} cy={cy} r={16} fill={palette.accent} stroke={palette.ink} strokeWidth={4} />
-        {/* Pan Hangers */}
-        <line x1={lx} y1={ly} x2={lx} y2={ly + panDrop} stroke={palette.muted} strokeWidth={3} />
-        <line x1={rx} y1={ry} x2={rx} y2={ry + panDrop} stroke={palette.muted} strokeWidth={3} />
-      </svg>
+        {renderPan(lx, ly, spec.leftLabel, spec.leftWeights, "danger")}
+        {renderPan(rx, ry, spec.rightLabel, spec.rightWeights, "positive")}
+      </div>
 
-      {renderPan(lx, ly, spec.leftLabel, spec.leftWeights, "danger")}
-      {renderPan(rx, ry, spec.rightLabel, spec.rightWeights, "positive")}
-
-      {/* Verdict */}
       {spec.verdict && frame >= (spec.verdictAt ?? 60) && (() => {
         const vp = interpolate(frame - (spec.verdictAt ?? 60), [0, 14], [0, 1], {
           extrapolateLeft: "clamp",
@@ -186,27 +152,24 @@ export const BalanceScale: React.FC<{ spec: BalanceScaleSpec; localFrame?: numbe
         return (
           <div
             style={{
-              position: "absolute",
-              bottom: 146,
-              left: "50%",
-              transform: `translateX(-50%) translateY(${(1 - vp) * 14}px)`,
+              marginTop: 14,
+              transform: `translateY(${(1 - vp) * 14}px)`,
               opacity: vp,
-              padding: "12px 30px",
-              borderRadius: 8,
+              padding: "10px 28px",
+              borderRadius: 999,
               background: palette.surface,
               border: `2px solid ${palette.accent}`,
               fontFamily: fonts.body,
               fontWeight: 700,
-              fontSize: 24,
+              fontSize: 22,
               color: palette.ink,
-              whiteSpace: "nowrap",
-              boxShadow: light ? "0 10px 24px rgba(24,24,27,0.12)" : "0 14px 34px rgba(0,0,0,0.45)",
+              boxShadow: light ? "0 10px 24px rgba(0,0,0,0.08)" : "0 12px 28px rgba(0,0,0,0.4)",
             }}
           >
             {spec.verdict}
           </div>
         );
       })()}
-    </div>
+    </GrammarStage>
   );
 };

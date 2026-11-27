@@ -42,13 +42,13 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
 
   return (
     <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
-      <div style={{ position: "relative", width: 920, height: 460, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "relative", width: 1000, height: 500, display: "flex", alignItems: "center", justifyContent: "center" }}>
         {/* Truth Card Underneath */}
         <div
           style={{
             position: "absolute",
-            width: 860,
-            padding: "40px 48px",
+            width: 940,
+            padding: "46px 54px",
             borderRadius: 16,
             background: palette.surface,
             border: `3px solid ${truthCol}`,
@@ -79,10 +79,10 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
           <div style={{ position: "relative", display: "inline-block" }}>
             <FitText
               text={spec.truth.headline}
-              maxWidth={760}
+              maxWidth={830}
               maxLines={2}
-              baseSize={44}
-              minSize={26}
+              baseSize={48}
+              minSize={28}
               fontFamily={fonts.display}
               fontWeight={900}
               color={palette.ink}
@@ -92,7 +92,7 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
             </div>
           </div>
           {spec.truth.detail && (
-            <div style={{ fontFamily: fonts.body, fontSize: 23, fontWeight: 500, color: palette.muted, marginTop: 14 }}>
+            <div style={{ fontFamily: fonts.body, fontSize: 25, fontWeight: 500, color: palette.muted, marginTop: 14 }}>
               {spec.truth.detail}
             </div>
           )}
@@ -103,8 +103,8 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
           <div
             style={{
               position: "relative",
-              width: 820,
-              padding: "38px 44px",
+              width: 900,
+              padding: "42px 48px",
               borderRadius: 8,
               background: light ? "#FFF8F6" : "#241619",
               border: `3px solid ${palette.danger}`,
@@ -136,10 +136,10 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
             )}
             <FitText
               text={spec.myth.headline}
-              maxWidth={720}
+              maxWidth={790}
               maxLines={2}
-              baseSize={40}
-              minSize={24}
+              baseSize={44}
+              minSize={26}
               fontFamily={fonts.display}
               fontWeight={900}
               color={palette.ink}
@@ -147,7 +147,7 @@ export const CrumpleToss: React.FC<{ spec: CrumpleTossSpec; localFrame?: number;
             {(spec.myth.bullets ?? []).length > 0 && (
               <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 6 }}>
                 {(spec.myth.bullets ?? []).map((b, bi) => (
-                  <div key={bi} style={{ fontFamily: fonts.body, fontSize: 21, color: palette.muted }}>
+                  <div key={bi} style={{ fontFamily: fonts.body, fontSize: 23, color: palette.muted }}>
                     • {b}
                   </div>
                 ))}

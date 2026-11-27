@@ -35,6 +35,10 @@ function classifySceneMode(scene) {
   if (scene.analyticsFunnel) return "analytics-funnel";
   if (scene.barRace) return "bar-race";
   if (scene.upClose) return "up-close";
+  if (scene.bookBlueprint) return "book-blueprint";
+  if (scene.mechanismChain) return "mechanism-chain";
+  if (scene.evidenceBoard) return "evidence-board";
+  if (scene.quoteDialogue) return "quote-dialogue";
   if (scene.comparisonGrid) {
     return scene.comparisonGrid.layout === "fullBleedSplit"
       ? "full-bleed-split"

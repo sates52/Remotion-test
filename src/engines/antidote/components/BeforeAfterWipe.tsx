@@ -3,12 +3,13 @@ import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion"
 import type { BeforeAfterWipeSpec } from "../schema";
 import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 import { StageGrammarOverlay } from "./layoutGrammar";
+import { RoughMarks } from "./RoughMarks";
 
 /**
  * BeforeAfterWipe — Full-Bleed Animated Curtain Contrast Between Two Worlds.
  *
- * Visually transitions from `before` (e.g., Boardroom) to `after` (e.g., Living Room)
- * with a crisp diagonal or vertical wipe divider.
+ * When `image` is absent, renders a center-weighted, high-contrast split-poster
+ * composition with animated RoughMarks strikethrough/underline so zero void remains.
  */
 export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?: number; stageMood?: StageMoodName }> = ({ spec, localFrame, stageMood }) => {
   const ctxFrame = useCurrentFrame();
@@ -24,6 +25,10 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.poly(4)),
   });
+  const markP = interpolate(frame - (wipeAt + 14), [0, 18], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   const diag = spec.direction === "diagonal";
   const pct = (wp * 100).toFixed(2);
@@ -31,7 +36,7 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
   const pctBot = diag ? Math.max(0, wp * 100 - 6).toFixed(2) : pct;
   const clipAfter = `polygon(${pctTop}% 0%, 100% 0%, 100% 100%, ${pctBot}% 100%)`;
 
-  const renderHalf = (side: BeforeAfterWipeSpec["before"], align: "left" | "right") => {
+  const renderHalf = (side: BeforeAfterWipeSpec["before"], align: "left" | "right", isAfter: boolean) => {
     const col = toneColor(side.tone ?? "accent", palette);
     const hasImg = Boolean(side.image);
     return (
@@ -49,16 +54,22 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
           </>
         ) : (
           <>
-            <div style={{ position: "absolute", inset: 0, background: `linear-gradient(135deg, ${col}18 0%, transparent 65%)` }} />
+            <div style={{ position: "absolute", inset: 0, background: `radial-gradient(circle at ${isAfter ? "76%" : "24%"} 48%, ${col}24 0%, transparent 62%)` }} />
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 8, background: col }} />
           </>
         )}
         <div
           style={{
             position: "absolute",
-            top: hasImg ? 64 : 160,
-            [align]: hasImg ? 64 : 84,
-            maxWidth: hasImg ? 740 : 760,
+            top: hasImg ? 64 : "50%",
+            transform: hasImg ? undefined : "translateY(-54%)",
+            [align]: hasImg ? 64 : 110,
+            width: hasImg ? 740 : 680,
+            padding: hasImg ? 0 : "38px 42px",
+            borderRadius: hasImg ? 0 : 18,
+            background: hasImg ? "transparent" : `${palette.surface}EE`,
+            border: hasImg ? "none" : `2.5px solid ${col}66`,
+            boxShadow: hasImg ? "none" : "0 18px 44px rgba(0,0,0,0.28)",
             textAlign: align,
           }}
         >
@@ -66,35 +77,62 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
             style={{
               display: "inline-block",
               fontFamily: fonts.display,
-              fontWeight: 800,
+              fontWeight: 900,
               fontSize: 18,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.14em",
               color: "#FFFFFF",
               background: col,
-              padding: "6px 16px",
-              borderRadius: 4,
-              marginBottom: 14,
+              padding: "7px 18px",
+              borderRadius: 6,
+              marginBottom: 16,
             }}
           >
             {side.label}
           </span>
-          <div
-            style={{
-              fontFamily: fonts.display,
-              fontWeight: 800,
-              fontSize: hasImg ? 44 : 50,
-              color: hasImg ? "#FFFFFF" : palette.ink,
-              lineHeight: 1.1,
-              textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.55)" : "none",
-            }}
-          >
-            {side.headline}
+          <div style={{ position: "relative", display: "inline-block" }}>
+            <div
+              style={{
+                fontFamily: fonts.display,
+                fontWeight: 900,
+                fontSize: hasImg ? 44 : 52,
+                color: hasImg ? "#FFFFFF" : palette.ink,
+                lineHeight: 1.08,
+                textShadow: hasImg ? "0 4px 18px rgba(0,0,0,0.55)" : "none",
+              }}
+            >
+              {side.headline}
+            </div>
+            {!hasImg && (
+              <div style={{ marginTop: 4 }}>
+                <RoughMarks
+                  kind={isAfter ? "underline" : "strike"}
+                  width={380}
+                  height={16}
+                  color={col}
+                  progress={markP}
+                  seed={side.headline}
+                />
+              </div>
+            )}
           </div>
           {(side.points ?? []).length > 0 && (
-            <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 10 }}>
               {(side.points ?? []).map((pt, pi) => (
-                <div key={pi} style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: hasImg ? 22 : 26, color: hasImg ? "#F4F4F5" : palette.muted, textShadow: hasImg ? "0 2px 10px rgba(0,0,0,0.65)" : "none" }}>
-                  • {pt}
+                <div
+                  key={pi}
+                  style={{
+                    fontFamily: fonts.body,
+                    fontWeight: 600,
+                    fontSize: hasImg ? 22 : 25,
+                    color: hasImg ? "#F4F4F5" : palette.ink,
+                    padding: hasImg ? 0 : "10px 16px",
+                    borderRadius: 10,
+                    background: hasImg ? "transparent" : `${col}18`,
+                    borderLeft: hasImg ? "none" : `4px solid ${col}`,
+                    textShadow: hasImg ? "0 2px 10px rgba(0,0,0,0.65)" : "none",
+                  }}
+                >
+                  {pt}
                 </div>
               ))}
             </div>
@@ -106,11 +144,10 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
 
   return (
     <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-      {renderHalf(spec.before, "left")}
+      {renderHalf(spec.before, "left", false)}
       <div style={{ position: "absolute", inset: 0, clipPath: clipAfter }}>
-        {renderHalf(spec.after, "right")}
+        {renderHalf(spec.after, "right", true)}
       </div>
-      {/* Wipe Divider Line */}
       <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
         <line
           x1={(Number(pctTop) / 100) * 1920}

@@ -39,15 +39,15 @@ export const ExplodedView: React.FC<{ spec: ExplodedViewSpec; localFrame?: numbe
 
   return (
     <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
-      <div style={{ position: "relative", width: 1160, height: 600 }}>
-        <svg width={1160} height={600} viewBox="0 0 1160 600" style={{ position: "absolute", inset: 0, overflow: "visible" }}>
+      <div style={{ position: "relative", width: 1200, height: 640 }}>
+        <svg width={1200} height={640} viewBox="0 0 1200 640" style={{ position: "absolute", inset: 0, overflow: "visible" }}>
           <line x1={320} y1={startY - 30} x2={320} y2={startY + totalH + 40} stroke={palette.surfaceBorder} strokeWidth={2.5} strokeDasharray="8 8" />
 
           {layers.map((layer, i) => {
             const cy = startY + i * gap;
             const col = toneColor(layer.tone ?? (i === 0 ? "accent" : "neutral"), palette);
             const ep = spring({ frame: Math.max(0, frame - (layer.at ?? i * 6)), fps, config: { damping: 16, stiffness: 150 } });
-            const isoPts = `${320},${cy - 36} ${500},${cy} ${320},${cy + 36} ${140},${cy}`;
+            const isoPts = `${320},${cy - 42} ${520},${cy} ${320},${cy + 42} ${120},${cy}`;
             return (
               <g key={i} opacity={ep}>
                 <polygon
@@ -59,9 +59,9 @@ export const ExplodedView: React.FC<{ spec: ExplodedViewSpec; localFrame?: numbe
                 />
                 {expandP > 0.15 && (
                   <line
-                    x1={500}
+                    x1={520}
                     y1={cy}
-                    x2={610}
+                    x2={615}
                     y2={cy}
                     stroke={col}
                     strokeWidth={2.5}
@@ -83,26 +83,26 @@ export const ExplodedView: React.FC<{ spec: ExplodedViewSpec; localFrame?: numbe
               key={i}
               style={{
                 position: "absolute",
-                left: 620,
+                left: 625,
                 top: cy,
                 transform: `translateY(-50%) translateX(${(1 - expandP) * -18}px)`,
                 opacity: ep * (0.35 + expandP * 0.65),
                 display: "flex",
                 alignItems: "center",
                 gap: 16,
-                width: 520,
+                width: 550,
               }}
             >
               <div
                 style={{
-                  minWidth: 38,
-                  height: 38,
+                  minWidth: 44,
+                  height: 44,
                   borderRadius: 999,
                   background: col,
                   color: light ? "#FFFFFF" : palette.bg,
                   fontFamily: fonts.display,
                   fontWeight: 900,
-                  fontSize: 18,
+                  fontSize: 20,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -113,16 +113,16 @@ export const ExplodedView: React.FC<{ spec: ExplodedViewSpec; localFrame?: numbe
               <div style={{ flex: 1 }}>
                 <FitText
                   text={layer.label}
-                  maxWidth={460}
+                  maxWidth={490}
                   maxLines={1}
-                  baseSize={26}
-                  minSize={18}
+                  baseSize={30}
+                  minSize={20}
                   fontFamily={fonts.display}
                   fontWeight={800}
                   color={palette.ink}
                 />
                 {layer.detail && (
-                  <div style={{ fontFamily: fonts.body, fontSize: 18, fontWeight: 500, color: palette.muted, marginTop: 2 }}>
+                  <div style={{ fontFamily: fonts.body, fontSize: 20, fontWeight: 500, color: palette.muted, marginTop: 2 }}>
                     {layer.detail}
                   </div>
                 )}

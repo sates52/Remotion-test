@@ -150,6 +150,18 @@ function analyzeNarrative(config, opts = {}) {
       checks.overflow++;
       errors.push(`${s.id}: explodedView has ${s.explodedView.layers.length} layers (max 6)`);
     }
+    if (s.bookBlueprint?.pillars?.length > 5) {
+      checks.overflow++;
+      errors.push(`${s.id}: bookBlueprint has ${s.bookBlueprint.pillars.length} pillars (max 5)`);
+    }
+    if (s.mechanismChain?.steps?.length > 5) {
+      checks.overflow++;
+      errors.push(`${s.id}: mechanismChain has ${s.mechanismChain.steps.length} steps (max 5)`);
+    }
+    if (s.quoteDialogue?.lines?.length > 4) {
+      checks.overflow++;
+      errors.push(`${s.id}: quoteDialogue has ${s.quoteDialogue.lines.length} lines (max 4)`);
+    }
 
     // 4. Claim & numeric grounding on data devices
     const dataTexts = [];
@@ -241,6 +253,31 @@ function analyzeNarrative(config, opts = {}) {
       for (const ep of s.barRace?.epochs ?? []) pushAt(ep.at);
       pushAt(s.upClose?.zoomAt);
       pushAt(s.beforeAfterWipe?.wipeAt);
+      for (const st of s.spatialJourney?.stations ?? []) pushAt(st.at);
+      for (const lw of s.balanceScale?.leftWeights ?? []) pushAt(lw.at);
+      for (const rw of s.balanceScale?.rightWeights ?? []) pushAt(rw.at);
+      pushAt(s.balanceScale?.verdictAt);
+      for (const sp of s.annotatedScene?.spotlights ?? []) pushAt(sp.at);
+      for (const sk of s.annotatedScene?.stickers ?? []) pushAt(sk.at);
+      for (const tr of s.annotatedScene?.traces ?? []) pushAt(tr.at);
+      pushAt(s.annotatedScene?.banner?.at);
+      for (const pt of s.editorialSpread?.points ?? []) pushAt(pt.at);
+      for (const hp of s.editorialSpread?.highlightPhrases ?? []) pushAt(hp.at);
+      for (const ly of s.explodedView?.layers ?? []) pushAt(ly.at);
+      for (const ev of s.timelineScrub?.events ?? []) pushAt(ev.at);
+      for (const br of s.decisionTree?.branches ?? []) pushAt(br.at);
+      for (const it of s.stackReveal?.items ?? []) pushAt(it.changeAt);
+      for (const pl of s.bookBlueprint?.pillars ?? []) pushAt(pl.at);
+      pushAt(s.bookBlueprint?.synthesisAt);
+      for (const st of s.mechanismChain?.steps ?? []) pushAt(st.at);
+      pushAt(s.mechanismChain?.breakAt);
+      pushAt(s.evidenceBoard?.revealLessonAt);
+      for (const ln of s.quoteDialogue?.lines ?? []) pushAt(ln.at);
+      pushAt(s.quoteDialogue?.subtext?.at);
+      pushAt(s.kineticManifesto?.footnoteAt);
+      pushAt(s.gravityPile?.calloutAt);
+      pushAt(s.camera?.punch?.at);
+      for (const p of s.camera?.pulses ?? []) pushAt(p);
       const sorted = [...new Set(times)].sort((a, b) => a - b);
       let maxGap = 0;
       for (let i = 1; i < sorted.length; i++) maxGap = Math.max(maxGap, sorted[i] - sorted[i - 1]);

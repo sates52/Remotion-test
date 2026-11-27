@@ -32,13 +32,17 @@ const DEVICE_10X_KEYS = [
   "analyticsFunnel",
   "barRace",
   "upClose",
+  "bookBlueprint",
+  "mechanismChain",
+  "evidenceBoard",
+  "quoteDialogue",
 ];
 
-const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests"];
+const EXTRA_10X_KEYS = ["shotIntent", "depthCarry", "stageMood", "bgImage", "transitionOverride", "assetRequests", "chapterLabel"];
 
 const ALL_10X_KEYS = [...DEVICE_10X_KEYS, ...EXTRA_10X_KEYS];
 
-const PASSTHROUGH_10X_KEYS = [...DEVICE_10X_KEYS, "shotIntent", "depthCarry"];
+const PASSTHROUGH_10X_KEYS = [...DEVICE_10X_KEYS, "shotIntent", "depthCarry", "chapterLabel"];
 
 const ALWAYS_FULL_STAGE_10X_KEYS = [
   "annotatedScene",
@@ -64,6 +68,10 @@ const ALWAYS_FULL_STAGE_10X_KEYS = [
   "analyticsFunnel",
   "barRace",
   "upClose",
+  "bookBlueprint",
+  "mechanismChain",
+  "evidenceBoard",
+  "quoteDialogue",
 ];
 
 function hasAny10xDevice(obj) {

@@ -232,10 +232,10 @@ test("6 new Antidote 10x devices + style-packs polarity alternation + v2-variety
   assert.strictEqual(s.scenes.length, 6);
 
   const sp = require("./lib/style-packs");
-  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 19);
+  assert.strictEqual(Object.keys(sp.STYLE_PACKS).length, 25);
   const pDark = sp.STYLE_PACKS.tacticalBlueprint;
   const pNext = sp.pickStylePack({ slug: "essentialism", genre: "productivity", recent: [pDark] });
-  assert.strictEqual(pNext.polarity, "light");
+  assert.notStrictEqual(pNext.polarity, "dark");
 
   const { assertVariety } = require("./lib/v2-variety-lint");
   assert.throws(() => assertVariety({
@@ -410,7 +410,7 @@ test("v2-variety-lint rejects Single-World collision (characters over bg.image w
 
 test("antidote-10x-keys covers all 26 devices and isFullStage10x rules", () => {
   const keys = require("./lib/antidote-10x-keys");
-  assert.strictEqual(keys.DEVICE_10X_KEYS.length, 26);
+  assert.strictEqual(keys.DEVICE_10X_KEYS.length, 30);
   assert.strictEqual(keys.hasAny10xDevice({ timelineScrub: { title: "X" } }), true);
   assert.strictEqual(keys.isFullStage10x({ timelineScrub: { title: "X" } }), true);
   assert.strictEqual(keys.isFullStage10x({ visualEquation: { layout: "borderless" }, cast: [] }), true);

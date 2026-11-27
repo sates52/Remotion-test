@@ -21,11 +21,11 @@ export const GravityPile: React.FC<{ spec: GravityPileSpec; localFrame?: number;
   const light = isLightPalette(palette);
 
   const items = spec.items.slice(0, 14);
-  const trayW = 920;
-  const trayH = 440;
+  const trayW = 1140;
+  const trayH = 520;
   const cols = 3;
-  const cellW = 280;
-  const cellH = 66;
+  const cellW = 350;
+  const cellH = 80;
 
   return (
     <GrammarStage title={spec.title} subtitle={spec.subtitle} stageMood={stageMood} localFrame={frame}>
@@ -49,8 +49,8 @@ export const GravityPile: React.FC<{ spec: GravityPileSpec; localFrame?: number;
 
           const colIdx = i % cols;
           const rowIdx = Math.floor(i / cols);
-          const targetX = 36 + colIdx * (cellW + 14) + ((i * 17) % 18) - 9;
-          const targetY = trayH - 22 - (rowIdx + 1) * (cellH + 10);
+          const targetX = 30 + colIdx * (cellW + 15) + ((i * 17) % 18) - 9;
+          const targetY = trayH - 24 - (rowIdx + 1) * (cellH + 12);
           const rot = (((i * 37) % 9) - 4) * 1.1;
 
           const fallDur = 14;
@@ -89,7 +89,7 @@ export const GravityPile: React.FC<{ spec: GravityPileSpec; localFrame?: number;
                 style={{
                   fontFamily: fonts.display,
                   fontWeight: 800,
-                  fontSize: 20,
+                  fontSize: 24,
                   color: palette.ink,
                   whiteSpace: "nowrap",
                   overflow: "hidden",

@@ -299,6 +299,7 @@ function lintTitleSet({ titles, shortTitle, author, titleAngles, narration, corp
     r.angled = r.anchors.length > 0 && (r.counter || r.insight);
     const ph = placeholderIn(t);
     if (ph) errors.push(`PLACEHOLDER #${i + 1}: scaffold/template text "${ph}" in a title — write the real title — "${t}"`);
+    if (/\baudiobooks?\b/i.test(t)) warnings.push(`AUDIOBOOK_IN_TITLE #${i + 1}: avoid "audiobook" in visible titles (use Summary / Explained / Analysis) — "${t}"`);
     if (SENSATIONAL_RE.test(t)) warnings.push(`SENSATIONAL #${i + 1}: clickbait wording ("${t.match(SENSATIONAL_RE)[0]}") — the claim must be what the narration shows — "${t}"`);
     if (len > MAX_LEN) errors.push(`TOO_LONG #${i + 1}: ${len} > ${MAX_LEN} chars — "${t}"`);
     if (r.bookAt < 0) errors.push(`NO_BOOK_TITLE #${i + 1}: every title must carry "${shortTitle}" (the searched entity) — "${t}"`);
@@ -314,6 +315,8 @@ function lintTitleSet({ titles, shortTitle, author, titleAngles, narration, corp
     const p = perTitle[0];
     if (!(p.bookAt >= 0 && p.bookAt <= VISIBLE && p.modifier))
       errors.push(`PRIMARY_NOT_SEARCHABLE: titles[0] must front-load "${shortTitle}" + a search modifier (Summary / Explained / Review / Analysis …) — "${titles[0]}"`);
+    else if (!p.angled)
+      warnings.push(`PRIMARY_LACKS_CTR_ANCHOR: titles[0] is bare search-only — stack a book-specific anchor/curiosity hook after "${shortTitle} Summary/Explained:" for higher Browse CTR`);
   }
   const nAuthor = perTitle.filter((r) => r.author).length;
   if (author && nAuthor < 2) errors.push(`AUTHOR_TOO_RARE: author "${author}" in ${nAuthor} title(s), need ≥ 2`);

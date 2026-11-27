@@ -1465,13 +1465,55 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       if (hasAny10xDevice(out)) {
         const beatWords = Array.isArray(s.words) ? s.words : [];
         compile10xCues(out, { words: beatWords, beatStartSec: s.from ?? (out.fromFrame / FPS), durationFrames: out.durationFrames, fps: FPS });
+        if (!A.transitionOverride) {
+          const { applyColdOpenDirection } = require("./lib/cold-open");
+          applyColdOpenDirection(out, {
+            index: i,
+            fromSec: s.from ?? (out.fromFrame / FPS),
+            opening: man10x && man10x.opening ? man10x.opening : null,
+            pack: pack10x,
+            authorContinue,
+          });
+        }
       }
       if (A.stageMood) out.bg = { ...(out.bg || {}), stageMood: A.stageMood };
       else if (pack10x && hasAny10xDevice(out)) {
         const moods = [pack10x.mood, ...(pack10x.secondaryMoods || [])].filter(Boolean);
         out.bg = { ...(out.bg || {}), stageMood: moods[Math.floor(i / 8) % moods.length] };
       }
-      if (A.bgImage) out.bg = { ...(out.bg || {}), image: A.bgImage };
+      if (A.bgImage) {
+        out.bg = { ...(out.bg || {}), image: A.bgImage };
+      } else if (
+        pack10x &&
+        pack10x.castMode === "illustrated" &&
+        !(man10x && man10x.engineProfile && man10x.engineProfile.minorHarm) &&
+        i % 2 === 0 &&
+        (out.vennMerge || out.explodedView || out.gravityPile || out.analyticsFunnel || out.barRace || out.crumpleToss || out.balanceScale || out.visualEquation || out.dataMatrix || out.decisionTree || out.stackReveal || out.timelineScrub || out.bookBlueprint || out.mechanismChain || out.quoteDialogue || (out.evidenceBoard && !out.evidenceBoard.image))
+      ) {
+        const ambientPool = (ART || [])
+          .flatMap((b) => [
+            b && b.annotatedScene && b.annotatedScene.image,
+            b && b.editorialSpread && b.editorialSpread.image,
+            b && b.upClose && b.upClose.image,
+            b && b.cutoutStage && b.cutoutStage.backdrop && b.cutoutStage.backdrop.image,
+            b && b.bgImage && b.bgImage.path,
+          ])
+          .filter((p) => typeof p === "string" && p.trim() && fs.existsSync(path.join(__dirname, "..", "public", p.replace(/^public\//, ""))));
+        if (ambientPool.length) {
+          out.bg = {
+            ...(out.bg || {}),
+            image: {
+              path: ambientPool[i % ambientPool.length],
+              ambientCanvas: true,
+              emptyStage: true,
+              opacity: 0.22,
+              blur: 7,
+              tintOpacity: 0.72,
+              kenBurns: "pushIn",
+            },
+          };
+        }
+      }
       fullStage10x = isFullStage10x(A);
       if (fullStage10x && out.bg?.stageMood) {
         delete out.bg.set;

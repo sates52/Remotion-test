@@ -956,7 +956,11 @@ function prep() {
   // the book inputs this prep was made from: merge refuses when the bible or own icons changed afterwards
   v.inputs = bookInputs();
   fs.writeFileSync(path.join(SB, "vocab.json"), JSON.stringify(v, null, 2));
-  const rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
+  let rulesText = ENGINE === "vox" ? rulesVox() : rulesAntidote(v);
+  if (IS_10X_ILLUSTRATED && book.opening) {
+    const { coldOpenRulesBlock } = require("./lib/cold-open");
+    rulesText += coldOpenRulesBlock(book.opening);
+  }
   fs.writeFileSync(path.join(SB, "rules.md"), rulesText);
   fs.writeFileSync(path.join(SB, "policy.json"), JSON.stringify(authoringRunRecord(rulesText), null, 2) + "\n");
   const size = parseInt(args.chunk || "40", 10);

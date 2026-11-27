@@ -26,7 +26,13 @@ export type StageMoodName =
   | "cyberXRay"
   | "bauhausNocturne"
   | "flutedGallery"
-  | "chalkboardLecture";
+  | "chalkboardLecture"
+  | "cobaltBlueprint"
+  | "forestBotanical"
+  | "terracottaEarth"
+  | "ochreKraft"
+  | "slateDenim"
+  | "plumVelvet";
 
 export type StageTextureMode =
   | "grid"
@@ -59,13 +65,15 @@ export type ArtDirectionConfig = {
   style?: string;
   stylePack?: string;
   castMode?: "illustrated" | "vectorRig";
-  polarity?: "dark" | "light";
+  polarity?: "dark" | "light" | "chromaticMid";
   typography?: "poppins" | "serif" | "condensed" | "slab";
   annotationStyle?: "circle" | "bracket" | "underline" | "spotlightMask" | "pin";
   nodeShape?: "circle" | "arch" | "hex" | "tornPaper" | "filmStrip";
-  layoutGrammar?: "centered" | "editorialLeft" | "editorialRight" | "cinemaWide" | "splitSpine" | "swissPoster";
+  layoutGrammar?: "centered" | "editorialLeft" | "editorialRight" | "cinemaWide" | "splitSpine" | "swissPoster" | "magazineMasthead" | "filmFrame" | "diagonalSplit";
   transitionFamily?: "paper" | "editorial" | "blueprint" | "print" | "cinema" | "kinetic";
   captionAlign?: "center" | "left";
+  captionStyle?: "editorialBar" | "kineticPill" | "cinemaLower" | "printRule";
+  surfaceFinish?: "studioClean" | "paperGrain" | "blueprintTech" | "editorialHalftone" | "cinemaGlow";
   mood?: StageMoodName;
   palette?: Partial<ArtPalette>;
   fontDisplay?: string;
@@ -458,6 +466,126 @@ export const STAGE_MOODS: Record<
       accent2: "#7DD3FC",
       danger: "#F87171",
       positive: "#4ADE80",
+    },
+  },
+  cobaltBlueprint: {
+    background: "linear-gradient(155deg, #1A4D8A 0%, #17447A 60%, #123763 100%)",
+    gridColor: "rgba(247, 201, 72, 0.12)",
+    gridSize: 72,
+    gridOpacity: 0.5,
+    texture: "blueprintCrosshair",
+    vignette: "none",
+    palette: {
+      bg: "#17447A",
+      bgAlt: "#123763",
+      surface: "rgba(16, 46, 84, 0.92)",
+      surfaceBorder: "rgba(247, 201, 72, 0.28)",
+      ink: "#F8FAFC",
+      muted: "#CBD5E1",
+      accent: "#F7C948",
+      accent2: "#7DD3FC",
+      danger: "#FB7185",
+      positive: "#4ADE80",
+    },
+  },
+  forestBotanical: {
+    background: "linear-gradient(155deg, #225A46 0%, #1D4D3C 60%, #163C2E 100%)",
+    gridColor: "rgba(242, 184, 75, 0.10)",
+    gridSize: 64,
+    gridOpacity: 0.45,
+    texture: "linenFiber",
+    vignette: "none",
+    palette: {
+      bg: "#1D4D3C",
+      bgAlt: "#163C2E",
+      surface: "rgba(21, 56, 43, 0.92)",
+      surfaceBorder: "rgba(242, 184, 75, 0.28)",
+      ink: "#F4F7F2",
+      muted: "#CBE3D8",
+      accent: "#F2B84B",
+      accent2: "#86EFAC",
+      danger: "#FDA4AF",
+      positive: "#4ADE80",
+    },
+  },
+  terracottaEarth: {
+    background: "linear-gradient(155deg, #8F3B29 0%, #7F3323 60%, #68281B 100%)",
+    gridColor: "rgba(253, 224, 71, 0.10)",
+    gridSize: 40,
+    gridOpacity: 0.45,
+    texture: "risoSpeckle",
+    vignette: "none",
+    palette: {
+      bg: "#7F3323",
+      bgAlt: "#68281B",
+      surface: "rgba(96, 36, 24, 0.92)",
+      surfaceBorder: "rgba(253, 224, 71, 0.28)",
+      ink: "#FFF9F2",
+      muted: "#F5D5C8",
+      accent: "#FDE047",
+      accent2: "#FDBA74",
+      danger: "#FCA5A5",
+      positive: "#86EFAC",
+    },
+  },
+  ochreKraft: {
+    background: "linear-gradient(160deg, #D2B280 0%, #C9A673 60%, #BC9660 100%)",
+    gridColor: "rgba(26, 20, 14, 0.10)",
+    gridSize: 48,
+    gridOpacity: 0.42,
+    texture: "halftoneCorner",
+    vignette: "none",
+    palette: {
+      bg: "#C9A673",
+      bgAlt: "#B8935E",
+      surface: "rgba(238, 223, 196, 0.95)",
+      surfaceBorder: "rgba(26, 20, 14, 0.24)",
+      ink: "#1A140E",
+      muted: "#3E3020",
+      accent: "#8B1E24",
+      accent2: "#164E63",
+      danger: "#991B1B",
+      positive: "#14532D",
+    },
+  },
+  slateDenim: {
+    background: "linear-gradient(155deg, #4B6678 0%, #415968 60%, #344856 100%)",
+    gridColor: "rgba(251, 191, 36, 0.10)",
+    gridSize: 72,
+    gridOpacity: 0.45,
+    texture: "swissBand",
+    vignette: "none",
+    palette: {
+      bg: "#415968",
+      bgAlt: "#344856",
+      surface: "rgba(44, 63, 75, 0.92)",
+      surfaceBorder: "rgba(251, 191, 36, 0.28)",
+      ink: "#F8FAFC",
+      muted: "#DCE6EE",
+      accent: "#FBBF24",
+      accent2: "#7DD3FC",
+      danger: "#FDA4AF",
+      positive: "#6EE7B7",
+    },
+  },
+  plumVelvet: {
+    background: "linear-gradient(155deg, #60315B 0%, #52294D 60%, #41203D 100%)",
+    gridColor: "rgba(250, 204, 21, 0.10)",
+    gridSize: 36,
+    gridOpacity: 0.48,
+    texture: "flutedRib",
+    vignette: "none",
+    palette: {
+      bg: "#52294D",
+      bgAlt: "#41203D",
+      surface: "rgba(63, 30, 59, 0.92)",
+      surfaceBorder: "rgba(250, 204, 21, 0.28)",
+      ink: "#FAF5FF",
+      muted: "#E9D5FF",
+      accent: "#FACC15",
+      accent2: "#F9A8D4",
+      danger: "#FDA4AF",
+      positive: "#6EE7B7",
     },
   },
 };

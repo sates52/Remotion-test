@@ -48,12 +48,16 @@ const TOP_CUE_MAP = [
   ["expandCue", "expandAt"],
   ["calloutCue", "calloutAt"],
   ["loopCue", "loopAt"],
+  ["breakCue", "breakAt"],
+  ["revealLessonCue", "revealLessonAt"],
+  ["synthesisCue", "synthesisAt"],
 ];
 
 const ARRAY_KEYS = [
   "events", "lines", "panels", "circles", "layers", "items", "stages",
   "epochs", "stations", "actors", "props", "connectors", "blocks", "channels",
   "branches", "leftWeights", "rightWeights", "spotlights", "stickers", "traces",
+  "pillars", "steps",
 ];
 
 function compile10xCues(scene, ctx = {}) {
@@ -134,7 +138,63 @@ function compile10xCues(scene, ctx = {}) {
       }
     }
   }
+  ensureMotionPacing(scene, dur);
   return scene;
 }
 
-module.exports = { compile10xCues, findCueFrame };
+/**
+ * Ensures no 10x scene holds static for > 7.5s (225 frames) by injecting
+ * gentle midpoint `camera.pulses` into any >225f gap between authored reveals.
+ */
+function ensureMotionPacing(scene, dur) {
+  if (!scene || typeof scene !== "object") return scene;
+  const d = Math.max(30, dur || scene.durationFrames || 180);
+  if (d <= 240) return scene;
+
+  const times = [0, d];
+  const pushAt = (v) => {
+    if (typeof v === "number" && v >= 0 && v <= d) times.push(v);
+  };
+  for (const dk of DEVICE_10X_KEYS) {
+    const dev = scene[dk];
+    if (!dev || typeof dev !== "object") continue;
+    for (const k of ["at", "tossAt", "splitAt", "wipeAt", "zoomAt", "expandAt", "calloutAt", "verdictAt", "footnoteAt", "loopAt"]) {
+      pushAt(dev[k]);
+    }
+    if (dev.intersection) pushAt(dev.intersection.at);
+    if (dev.banner) pushAt(dev.banner.at);
+    for (const arrKey of [...ARRAY_KEYS, "highlightPhrases", "points"]) {
+      const arr = dev[arrKey];
+      if (!Array.isArray(arr)) continue;
+      for (const it of arr) {
+        if (!it || typeof it !== "object") continue;
+        pushAt(it.at);
+        pushAt(it.strikeAt);
+        pushAt(it.pruneAt);
+        pushAt(it.changeAt);
+      }
+    }
+  }
+  if (scene.camera?.punch) pushAt(scene.camera.punch.at);
+  for (const p of scene.camera?.pulses ?? []) pushAt(p);
+
+  const sorted = [...new Set(times)].sort((a, b) => a - b);
+  const injected = [];
+  for (let i = 1; i < sorted.length; i++) {
+    const gap = sorted[i] - sorted[i - 1];
+    if (gap > 225) {
+      const steps = Math.ceil(gap / 200);
+      for (let k = 1; k < steps; k++) {
+        injected.push(Math.round(sorted[i - 1] + (gap * k) / steps));
+      }
+    }
+  }
+  if (injected.length) {
+    const existing = Array.isArray(scene.camera?.pulses) ? scene.camera.pulses : [];
+    const merged = [...new Set([...existing, ...injected])].sort((a, b) => a - b);
+    scene.camera = { ...(scene.camera || { zoom: [1, 1.02], panX: [0, 0], panY: [0, 0] }), pulses: merged };
+  }
+  return scene;
+}
+
+module.exports = { compile10xCues, findCueFrame, ensureMotionPacing };

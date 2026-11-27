@@ -54,6 +54,10 @@ import { CrumpleToss } from "./CrumpleToss";
 import { AnalyticsFunnel } from "./AnalyticsFunnel";
 import { BarRace } from "./BarRace";
 import { UpClose } from "./UpClose";
+import { BookBlueprint } from "./BookBlueprint";
+import { MechanismChain } from "./MechanismChain";
+import { EvidenceBoard } from "./EvidenceBoard";
+import { QuoteDialogue } from "./QuoteDialogue";
 
 // An arc the object already completed in the previous scene is drawn at its end state
 // and composed with the arc it runs in this scene (continuity.ts heldArcs).
@@ -433,9 +437,9 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
 
   // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
   // Active ONLY when a scene explicitly supplies one of the v2/10x payloads; legacy configs never enter here.
-  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.vennMerge || scene.explodedView || scene.gravityPile || scene.crumpleToss || scene.analyticsFunnel || scene.barRace || scene.upClose || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
+  if (scene.annotatedScene || scene.cohortGrid || scene.timelineScrub || scene.statSlam || scene.cutoutStage || scene.editorialSpread || scene.kineticManifesto || scene.decisionTree || scene.balanceScale || scene.stackReveal || scene.liveInterface || scene.comicStrip || scene.beforeAfterWipe || scene.spatialJourney || scene.chapterInterstitial || scene.vennMerge || scene.explodedView || scene.gravityPile || scene.crumpleToss || scene.analyticsFunnel || scene.barRace || scene.upClose || scene.bookBlueprint || scene.mechanismChain || scene.evidenceBoard || scene.quoteDialogue || scene.visualEquation || scene.comparisonGrid || scene.dataMatrix || scene.realAnchor) {
     const coCast = scene.characters ?? [];
-    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose;
+    const hasCoCast = coCast.length > 0 && !scene.comparisonGrid && !scene.annotatedScene && !scene.cohortGrid && !scene.timelineScrub && !scene.statSlam && !scene.cutoutStage && !scene.editorialSpread && !scene.kineticManifesto && !scene.decisionTree && !scene.balanceScale && !scene.stackReveal && !scene.liveInterface && !scene.comicStrip && !scene.beforeAfterWipe && !scene.spatialJourney && !scene.chapterInterstitial && !scene.vennMerge && !scene.explodedView && !scene.gravityPile && !scene.crumpleToss && !scene.analyticsFunnel && !scene.barRace && !scene.upClose && !scene.bookBlueprint && !scene.mechanismChain && !scene.evidenceBoard && !scene.quoteDialogue;
     const sideInsetLeft = hasCoCast ? 280 : 0;
     return (
       <AbsoluteFill style={t.style}>
@@ -453,7 +457,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         {scene.editorialSpread ? <EditorialSpread spec={scene.editorialSpread} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.kineticManifesto ? <KineticManifesto spec={scene.kineticManifesto} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.decisionTree ? <DecisionTree spec={scene.decisionTree} localFrame={local} stageMood={bg.stageMood} /> : null}
-        {scene.balanceScale ? <BalanceScale spec={scene.balanceScale} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.balanceScale ? <BalanceScale spec={scene.balanceScale} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
         {scene.stackReveal ? <StackReveal spec={scene.stackReveal} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.liveInterface ? <LiveInterface spec={scene.liveInterface} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.comicStrip ? <ComicStrip spec={scene.comicStrip} localFrame={local} stageMood={bg.stageMood} /> : null}
@@ -467,6 +471,10 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
         {scene.analyticsFunnel ? <AnalyticsFunnel spec={scene.analyticsFunnel} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.barRace ? <BarRace spec={scene.barRace} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.upClose ? <UpClose spec={scene.upClose} localFrame={local} stageMood={bg.stageMood} /> : null}
+        {scene.bookBlueprint ? <BookBlueprint spec={scene.bookBlueprint} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
+        {scene.mechanismChain ? <MechanismChain spec={scene.mechanismChain} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
+        {scene.evidenceBoard ? <EvidenceBoard spec={scene.evidenceBoard} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
+        {scene.quoteDialogue ? <QuoteDialogue spec={scene.quoteDialogue} localFrame={local} stageMood={bg.stageMood} chapterLabel={scene.chapterLabel} /> : null}
         {scene.visualEquation ? <VisualEquation spec={scene.visualEquation} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
         {scene.comparisonGrid ? <ComparisonGrid spec={scene.comparisonGrid} localFrame={local} stageMood={bg.stageMood} /> : null}
         {scene.dataMatrix ? <DataMatrix spec={scene.dataMatrix} localFrame={local} stageMood={bg.stageMood} sideInsetLeft={sideInsetLeft} /> : null}
