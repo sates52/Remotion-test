@@ -1,0 +1,33 @@
+{
+ "schema": "stills/1",
+ "name": "Antidote 10x Phase 3 Review — Dark-Mood Contrast Verification",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "jobs": [
+  {
+   "id": "r2-visual-check",
+   "config": "configs/r2-visual-check.json",
+   "frames": [
+    20,
+    72,
+    160
+   ]
+  },
+  {
+   "id": "tswg-noir-diag",
+   "config": "configs/tswg-noir.json",
+   "frames": [
+    44613
+   ]
+  }
+ ],
+ "inputHash": "c14310d87930b7c3",
+ "files": {
+  "stills/configs/r2-visual-check.json": "ad306ff81e96faf72e1cb1ce09a8089f5f169477d47d7d422d3d4e41832f0f4a",
+  "stills/configs/tswg-noir.json": "d737ce34bd97ccc7979517bc047e02d97a465a96ac9dbda7b5fa95ddf6c84ba4"
+ },
+ "builtAt": "2026-11-27T12:13:48.286Z"
+}
