@@ -180,7 +180,7 @@ if (ENGINE === "antidote") {
     step(1.35, "Makro Merak Döngüleri (Sequence Arcs)", `node scripts/plan-sequence-arcs.js --slug=${SLUG}`, { optional: true });
     step(1.4, "Semantik Görsel Düzenleme & Üç Katman Kuralı", `node scripts/apply-semantic-arcs.js --slug=${SLUG}`, { optional: true });
     if (fs.existsSync(path.join(ROOT, "books", SLUG, "prompts.10x.json")) && !args["skip-images"]) {
-      const isMinorHarm = Boolean(MANIFEST?.engineProfile?.minorHarm);
+      const isMinorHarm = Boolean(MANIFEST?.minorHarm === true || MANIFEST?.engineProfile?.minorHarm === true || MANIFEST?.profile?.minorHarm === true);
       const defaultCap = isMinorHarm ? 25 : 80;
       const cap = isMinorHarm
         ? Math.min(25, Number(args["image-max-calls"]) || defaultCap)
@@ -316,7 +316,7 @@ if (ENGINE === "antidote") {
   // Antidote thumbnails default to the book's own hero scene; `--flux-thumb` or
   // `book.json: { thumbnailHeroFlux: true }` opts into a book-artLock-matched Flux hero cover.
   const A_FLUX = !!args["flux-thumb"] || MANIFEST?.thumbnailHeroFlux === true;
-  const A_MINOR_HARM = Boolean(MANIFEST?.engineProfile?.minorHarm);
+  const A_MINOR_HARM = Boolean(MANIFEST?.minorHarm === true || MANIFEST?.engineProfile?.minorHarm === true || MANIFEST?.profile?.minorHarm === true);
   if (PACK && A_FLUX) step(5.1, "Thumbnail aday görselleri (Flux, kitap artLock)", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS}`, { optional: true });
   if (PACK) step(5.2, "Thumbnail critic (CTR + özgünlük + vaat güvenliği)", `node scripts/thumbnail-critic.js --slug=${SLUG}`, { optional: true });
   if (PACK && A_FLUX && !A_MINOR_HARM) step(5.3, "Kazanan thumbnail cut-out", `python scripts/gen-thumbnail.py ${A_META} --concepts=${A_CONCEPTS} --winner-only`, { optional: true });

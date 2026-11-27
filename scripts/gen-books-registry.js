@@ -38,12 +38,18 @@ const antidoteBooks = listAntidoteSlugs().map((slug) => {
   const cfgPath = rel.antidoteConfig(slug);
   const metaPath = fs.existsSync(abs.youtubeMeta(slug)) ? rel.youtubeMeta(slug) : null;
   let thumbHeroImg = "";
+  let thumbCutoutImg = "";
   try {
     const meta = metaPath ? JSON.parse(fs.readFileSync(path.join(ROOT, metaPath), "utf8").replace(/^\uFEFF/, "")) : null;
     const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, cfgPath), "utf8").replace(/^\uFEFF/, ""));
     const t = (meta && meta.thumbnail) || (cfg && cfg.meta && cfg.meta.thumbnail) || {};
-    const cand = typeof t.image === "string" && t.image.trim() ? t.image.trim().replace(/^public\//, "") : "";
+    const cand = typeof t.image === "string" && t.image.trim()
+      ? t.image.trim().replace(/^public\//, "")
+      : (t.heroFlux === true ? `scenes/${slug}/thumbnail-hero.png` : "");
     if (cand && fs.existsSync(path.join(ROOT, "public", cand))) thumbHeroImg = cand;
+    const rawCut = t.cut || t.cutoutImg;
+    const cutCand = typeof rawCut === "string" && rawCut.trim() ? rawCut.trim().replace(/^public\//, "") : "";
+    if (cutCand && fs.existsSync(path.join(ROOT, "public", cutCand))) thumbCutoutImg = cutCand;
   } catch {}
   return {
     slug,
@@ -51,6 +57,7 @@ const antidoteBooks = listAntidoteSlugs().map((slug) => {
     metaPath,
     engine: engineOf(slug),
     thumbHeroImg,
+    thumbCutoutImg,
   };
 });
 
@@ -100,7 +107,7 @@ const voxEntries = voxBooks
 const antEntries = antidoteBooks
   .map(
     (b) =>
-      `  {\n    slug: '${b.slug}',\n    engine: '${b.engine}',\n    config: ant_${ident(b.slug)} as any,\n    meta: ${b.metaPath ? `ant_meta_${ident(b.slug)} as any` : "null"},\n    thumbHeroImg: '${b.thumbHeroImg}',\n  },`,
+      `  {\n    slug: '${b.slug}',\n    engine: '${b.engine}',\n    config: ant_${ident(b.slug)} as any,\n    meta: ${b.metaPath ? `ant_meta_${ident(b.slug)} as any` : "null"},\n    thumbHeroImg: '${b.thumbHeroImg}',\n    thumbCutoutImg: '${b.thumbCutoutImg}',\n  },`,
   )
   .join("\n");
 
@@ -124,6 +131,7 @@ export type AntidoteBookEntry = {
   config: any;
   meta?: any | null;
   thumbHeroImg?: string;
+  thumbCutoutImg?: string;
 };
 
 // Per-book palettes (from books/<slug>/book.json). resolvePalette() in voxkit and

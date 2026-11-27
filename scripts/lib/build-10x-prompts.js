@@ -25,11 +25,11 @@ const MINOR_HARM_ALLOWED_DEVICES = new Set([
   "upClose",
 ]);
 
-const FORBIDDEN_HUMAN_RE = /\b(child|children|kid|kids|teen|teenager|girl|girls|boy|boys|minor|minors|infant|baby|babies|toddler|youth|daughter|son|student|schoolgirl|schoolboy|human|humans|person|persons|people|man|men|woman|women|figure|figures|character|characters|actor|actors|portrait|portraits|face|faces|eye|eyes|hand|hands|body|bodies|silhouette|silhouettes|crowd|mother|father|parent|parents|stranger|predator|abductor|victim|detective|officer|suspect|couple|family|pedestrian|bystander|protagonist|narrator|hero|villain|someone|somebody)\b/i;
+const FORBIDDEN_HUMAN_RE = /\b(child|children|child-?sized|kid|kids|teen|teenager|teenaged|preteen|adolescent|juvenile|underage|girl|girls|boy|boys|minor|minors|infant|baby|babies|toddler|youth|orphan|daughter|son|sister|brother|mom|dad|mama|papa|husband|wife|student|schoolgirl|schoolboy|schoolchildren|schoolkid|schoolbag|playground|swing\s+set|crib|cradle|nursery|doll|dollhouse|teddy|small\s+shoes|little\s+shoes|human|humans|person|persons|people|man|men|woman|women|lady|guy|guys|figure|figures|character|characters|actor|actors|portrait|portraits|headshot|selfie|face|faces|eye|eyes|hand|hands|body|bodies|silhouette|silhouettes|crowd|mother|father|parent|parents|teacher|doctor|nurse|policeman|cop|stranger|predator|abductor|kidnapper|abuser|captor|killer|murderer|stalker|victim|detective|officer|suspect|couple|family|pedestrian|bystander|protagonist|narrator|hero|villain|someone|somebody)\b/i;
 
-const FORBIDDEN_HARM_RE = /\b(abuse|abused|abduct|abducted|abduction|kidnap|kidnapped|kidnapping|captive|captivity|cage|chains?|shackles?|blood|bleed|bleeding|gore|wound|bruise|injury|dead|corpse|murder|kill|killing|assault|violence|violent|weapon|gun|knife|rope|tied\s+up|bound|bedroom|bed|mattress|nude|naked|undress|intimate|sexual|trauma|torture|suicide|hanging|scream|screaming|crying|terrified|hostage|prisoner)\b/i;
+const FORBIDDEN_HARM_RE = /\b(abuse|abused|abduct|abducted|abduction|kidnap|kidnapped|kidnapping|captive|captivity|cage|dungeon|chains?|shackles?|handcuffs?|blood|bloody|bleed|bleeding|gore|wound|bruise|bruised|scarred|injury|dead|corpse|coffin|grave|murder|kill|killing|assault|violence|violent|beaten|beating|strangle|choke|stab|weapon|gun|pistol|rifle|bullet|knife|blade|dagger|rope|noose|tied\s+up|bound|bedroom|bed|mattress|nude|naked|undress|intimate|sexual|molest|rape|traffick\w*|trauma|torture|suicide|self-?harm|overdose|hanging|scream|screaming|crying|terrified|hostage|prisoner)\b/i;
 
-const FORBIDDEN_PHOTOREAL_RE = /\b(photoreal|photorealistic|photograph|photographic|hyperrealistic|ultra-?realistic|dslr|85mm|50mm|35mm\s+lens|raw\s+photo|bokeh\s+portrait|candid\s+photo|live-?action)\b/i;
+const FORBIDDEN_PHOTOREAL_RE = /\b(photoreal|photorealistic|photograph|photographic|photo|hyperrealistic|ultra-?realistic|dslr|85mm|50mm|35mm\s+lens|raw\s+photo|bokeh\s+portrait|candid\s+photo|live-?action|film\s+still)\b/i;
 
 function computeFluxBudget({ durationMin = 40, minorHarm = false, maxCalls = null } = {}) {
   if (minorHarm) {
@@ -70,7 +70,10 @@ function conciseArtLock(artLock, { minorHarm = false } = {}) {
     ? (raw.split(",")[0].trim().length <= 140 ? raw.split(",")[0].trim() : raw.slice(0, 140).trim())
     : "editorial gouache and fine-line ink architectural illustration";
   if (minorHarm) {
-    return `${base}, non-photoreal editorial gouache and ink, symbolic empty place or object only`;
+    const safeBase = validateMinorHarmSafePrompt(base, { mode: "scene" }).ok
+      ? base
+      : "editorial gouache and fine-line ink architectural illustration";
+    return `${safeBase}, non-photoreal editorial gouache and ink, uninhabited atmospheric place or still-life object`;
   }
   return base;
 }
@@ -102,11 +105,15 @@ function collectReferencedImages(beats) {
 }
 
 function beatAllowedForMinorHarmFlux(beat, req) {
+  if (req && (req.mode === "cutout" || req.mode === "poses2x2" || req.cutout === true || req.grid)) return false;
   if (req && (req.target === "thumbnail" || req.id === "thumbnail-hero")) return true;
   if (!beat || typeof beat !== "object") return false;
-  // Single-World Law: NEVER place Everyman characters over Flux.
+  // Single-World Law: NEVER place Everyman characters or told stages over Flux.
+  if (beat.told) return false;
   if (Array.isArray(beat.cast) && beat.cast.length > 0) return false;
   if (Array.isArray(beat.characters) && beat.characters.length > 0) return false;
+  if (Array.isArray(beat.who) && beat.who.length > 0) return false;
+  if (Array.isArray(beat.actors) && beat.actors.length > 0) return false;
   for (const dk of MINOR_HARM_ALLOWED_DEVICES) {
     if (beat[dk] != null) return true;
   }

@@ -100,9 +100,18 @@ test("P0.1: thumbHero 3-tier scoring ranks Tier A & Tier B above Tier C, support
   );
   assert.strictEqual(pinned[0].id, "b-told");
 
-  // focalPointOf handles characters, annotatedScene callouts, cutoutStage sides, and empty scene
+  // focalPointOf handles real 1920x1080 pixel coords (characters, annotatedScene spotlights, cutoutStage actors), upClose zoomTarget, and normalized coords
   const fpChar = thumbHero.focalPointOf(scenes[2]);
   assert.ok(Math.abs(fpChar.x - 0.5) < 0.05 && fpChar.y < 0.55);
+  const fpLeftPx = thumbHero.focalPointOf({ characters: [{ id: "1", x: 540, y: 700 }] });
+  assert.ok(fpLeftPx.x >= 0.25 && fpLeftPx.x <= 0.32, `pixel char x=540 must normalize left (~0.28), got ${fpLeftPx.x}`);
+  assert.ok(fpLeftPx.y >= 0.50 && fpLeftPx.y <= 0.58, `pixel char y=700 must normalize upward (~0.55), got ${fpLeftPx.y}`);
+  const fpAnn = thumbHero.focalPointOf({ annotatedScene: { image: "a.png", spotlights: [{ cx: 480, cy: 360 }] } });
+  assert.ok(Math.abs(fpAnn.x - 0.25) < 0.02 && Math.abs(fpAnn.y - 0.333) < 0.02, `annotatedScene spotlights px failed: ${JSON.stringify(fpAnn)}`);
+  const fpCut = thumbHero.focalPointOf({ cutoutStage: { backdrop: { image: "b.png" }, actors: [{ id: "a", image: "c.png", x: 420, y: 620 }] } });
+  assert.ok(fpCut.x >= 0.24 && fpCut.x <= 0.26, `cutoutStage actors px failed: ${JSON.stringify(fpCut)}`);
+  const fpUp = thumbHero.focalPointOf({ upClose: { image: "u.png", zoomTarget: { x: 0.28, y: 0.38 } } });
+  assert.ok(Math.abs(fpUp.x - 0.28) < 0.01 && Math.abs(fpUp.y - 0.38) < 0.01, `upClose zoomTarget failed: ${JSON.stringify(fpUp)}`);
   assert.strictEqual(thumbHero.focalPointOf({ cutoutStage: { side: "left" } }).x, 0.34);
   assert.strictEqual(thumbHero.focalPointOf(null).x, 0.5);
 });
@@ -168,14 +177,24 @@ test("P0.2: v2-variety-lint enforces fiction/minorHarm 80%/20% vs non-fiction 65
     { id: "s8", balanceScale: { leftWeights: [], rightWeights: [] } },
   ];
   const cfgStory = { meta: { artDirection: toArtDirection("storybookNoir") }, scenes: storyScenes, captions: [{ text: "x", startFrame: 0, endFrame: 30 }] };
-  const stats = assertVariety(cfgStory, { book: { kind: "fiction", minorHarm: true } });
+  const stats = assertVariety(cfgStory, { book: { engineProfile: { kind: "fiction", minorHarm: true } } });
   assert.strictEqual(stats.shares["live-story"], 0.75);
+  assert.strictEqual(stats.genreContext.isFiction, true, "must detect book.engineProfile.kind === 'fiction'");
+  assert.strictEqual(stats.genreContext.minorHarm, true, "must detect book.engineProfile.minorHarm === true");
   assert.strictEqual(isTextHeavy10x(storyScenes[6]), false, "beforeAfterWipe with icon slot should NOT count as textHeavy10x");
+
+  // Fiction non-minorHarm book (via real book.json engineProfile.kind) also gets 80%/20% story quota
+  const fictionNonMhStats = assertVariety(
+    { meta: { artDirection: { captions: "off" } }, scenes: storyScenes, captions: [] },
+    { book: { engineProfile: { kind: "fiction", minorHarm: false } } },
+  );
+  assert.strictEqual(fictionNonMhStats.genreContext.storyMode, true);
+  assert.strictEqual(fictionNonMhStats.genreContext.minorHarm, false);
 
   // Same 75% live-story fails non-fiction (<= 65%)
   assert.throws(() => assertVariety(
     { meta: { artDirection: { captions: "off" } }, scenes: storyScenes, captions: [] },
-    { book: { kind: "nonfiction", minorHarm: false } },
+    { book: { engineProfile: { kind: "nonfiction", minorHarm: false } } },
   ), /exceeds 65%/);
 
   // >2 identical shot+place fails even in fiction
@@ -231,18 +250,30 @@ test("Decisions #1 & #2: Flux budgets (80..90 / minorHarm <=25) + deterministic 
   assert.strictEqual(computeFluxBudget({ durationMin: 45, minorHarm: true }), 25);
   assert.strictEqual(computeFluxBudget({ durationMin: 45, minorHarm: true, maxCalls: 80 }), 25);
 
-  // Safe symbolic empty place passes
-  assert.strictEqual(
-    validateMinorHarmSafePrompt("Rain-slicked brick alleyway at twilight, warm amber streetlamp reflecting on wet cobblestones, autumn leaves", { mode: "scene" }).ok,
-    true,
-  );
-  // Rejects child, human, portrait, silhouette, harm, bed, photoreal, cutout/poses2x2
+  // Safe symbolic empty places pass (including inanimate "bedside" without matching "bed")
+  for (const okPrompt of [
+    "Rain-slicked brick alleyway at twilight, warm amber streetlamp reflecting on wet cobblestones, autumn leaves",
+    "Empty bedside table beside rain-streaked window, weathered brass lamp and closed leather notebook",
+  ]) {
+    assert.strictEqual(validateMinorHarmSafePrompt(okPrompt, { mode: "scene" }).ok, true, `must allow safe inanimate prompt: ${okPrompt}`);
+  }
+  // Every minorHarmSafe pack's artLock must itself pass validateMinorHarmSafePrompt (zero forbidden tokens)
+  for (const pack of Object.values(STYLE_PACKS).filter((p) => p.minorHarmSafe)) {
+    const chk = validateMinorHarmSafePrompt(pack.artLock, { mode: "scene" });
+    assert.strictEqual(chk.ok, true, `minorHarmSafe pack "${pack.id}" artLock must pass guard: ${chk.reasons.join("; ")}`);
+  }
+  // Rejects child, human, portrait, silhouette, harm, bed, photoreal, oblique child/harm cues, cutout/poses2x2
   for (const bad of [
     "A lonely girl standing on a rainy street",
     "Silhouette of a man watching from a window",
     "Dark basement cage with heavy chains",
     "Unmade bedroom mattress in dim light",
     "Photorealistic 85mm lens empty park bench",
+    "Abandoned schoolbag left by an empty swing set",
+    "Small shoes resting outside a locked nursery door",
+    "A moody photo of a dimly lit corridor",
+    "Stalker waiting near the rusty handcuffs",
+    "Portrait of a missing sister in winter light",
   ]) {
     assert.strictEqual(validateMinorHarmSafePrompt(bad, { mode: "scene" }).ok, false, `must reject: ${bad}`);
   }
@@ -428,6 +459,93 @@ test("P2: make-prompt.js has single recentStylePacks and layoutGrammar capPad >=
   const lg = loadTs("src/engines/antidote/components/layoutGrammar.tsx", true);
   const layoutMin = lg.resolveStageLayout({ captions: "minimal", layoutGrammar: "filmFrame" });
   assert.ok(layoutMin.capPad >= 200, `expected filmFrame capPad >= 200 for v1 mute crop compatibility, got ${layoutMin.capPad}`);
+});
+
+// ── Review round-2 regressions: dark-mood contrast, real motifs hydration, engineProfile minorHarm, Thumbnail fixes ──
+test("Review fixes: dark-mood contrast helpers, Thumbnail TS/scrim/chrome fixes, engineProfile minorHarm & ownIcons hydration", () => {
+  const adMod = loadTs("src/engines/antidote/components/artDirection.tsx", true);
+  assert.strictEqual(adMod.contrastInkOn("#FDF2F0"), "#111318", "light pill must get dark ink");
+  assert.strictEqual(adMod.contrastInkOn("#170B0E"), "#FFFFFF", "dark pill must get white ink");
+
+  const bawSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/BeforeAfterWipe.tsx"), "utf8");
+  assert.ok(bawSrc.includes("contrastInkOn(col)"), "BeforeAfterWipe badge must use contrastInkOn(col)");
+  const toldSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/ToldStage.tsx"), "utf8");
+  assert.ok(toldSrc.includes("contrastInkOn(ink)") && toldSrc.includes("tileBg"), "ToldStage emblem & tile must stay legible on dark moods");
+  const sceneSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/Scene.tsx"), "utf8");
+  assert.ok(sceneSrc.includes("darkStageMood") && sceneSrc.includes("diagramPaper"), "Scene.tsx must adapt Diagram/Motif ink on dark stageMood");
+
+  const thumbSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/Thumbnail.tsx"), "utf8");
+  assert.ok(!thumbSrc.includes("fonts.mono"), "Thumbnail.tsx must not reference nonexistent fonts.mono");
+  assert.ok(thumbSrc.includes("chromeAccent"), "DiagramHook10x must compute header accent against chromeBg");
+  assert.ok(thumbSrc.includes("Math.min(0.76, baseFp.y + 0.1)"), "PosterDrama10x bottom scrim must pan scene UP (larger fp.y)");
+
+  // plan-antidote.js ownIcons hydration uses direct hit.paths (real motifs.json / entities.json shape)
+  const planSrc = fs.readFileSync(path.join(ROOT, "scripts/plan-antidote.js"), "utf8");
+  assert.ok(planSrc.includes("Array.isArray(hit.paths) && hit.paths.length"), "plan-antidote hydrateSlot must read direct hit.paths from ownIcons()");
+
+  // thumbnail-grammar isMinorHarmBook detects real book.json engineProfile.minorHarm
+  const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), "mh-gram-"));
+  try {
+    fs.mkdirSync(path.join(tmpRoot, "books", "mh-demo"), { recursive: true });
+    fs.writeFileSync(path.join(tmpRoot, "books", "mh-demo", "book.json"), JSON.stringify({ engine: "antidote", engineProfile: { kind: "fiction", minorHarm: true } }));
+    const { isMinorHarmBook } = require("./lib/thumbnail-grammar");
+    assert.strictEqual(isMinorHarmBook(tmpRoot, "mh-demo"), true, "isMinorHarmBook must detect book.engineProfile.minorHarm");
+  } finally {
+    fs.rmSync(tmpRoot, { recursive: true, force: true });
+  }
+
+  // cloud-thumbs heroAssets includes cutoutImg and heroFlux default
+  const CT = require("./lib/cloud-thumbs");
+  const ha = CT.heroAssets({ heroFlux: true, cutoutImg: "scenes/demo/cut.png" }, "demo");
+  assert.ok(ha.includes("public/scenes/demo/thumbnail-hero.png") && ha.includes("public/scenes/demo/cut.png"), `unexpected heroAssets: ${ha}`);
+
+  // End-to-end CLI safety test: thumbnail-art-director.js --dry-run on a hostile minorHarm:true book
+  // (bedroom / missing girl / knife in bible) must STILL produce 5 fluxPrompts passing validateMinorHarmSafePrompt!
+  const slugAd = "_tmp-p3-mh-ad";
+  const tmpBookDir = path.join(ROOT, "books", slugAd);
+  try {
+    fs.mkdirSync(tmpBookDir, { recursive: true });
+    fs.writeFileSync(path.join(tmpBookDir, "book.json"), JSON.stringify({
+      slug: slugAd, title: "Test Mystery", author: "A. Author", genre: "thriller", engine: "antidote",
+      stylePack: "storybookNoir", engineProfile: { kind: "fiction", minorHarm: true },
+    }));
+    fs.writeFileSync(path.join(tmpBookDir, "youtube-meta.json"), JSON.stringify({
+      title: "Test Mystery", author: "A. Author", genre: "thriller",
+      chapters: [{ t: 0, label: "The Locked Door" }], description: "A mystery unfolds.", thumbnail: { hook: "TEN YEARS GONE" },
+    }));
+    fs.writeFileSync(path.join(tmpBookDir, "story-bible.json"), JSON.stringify({
+      world: { era: "2015" },
+      cast: { c1: { name: "Ellie", look: "a teenage girl in a school uniform", mentions: 50 } },
+      places: { p1: { set: "bedroom", look: "a missing girl's dim bedroom with an unmade bed", mentions: 40 } },
+      objects: [{ concept: "schoolgirlKnife", mentions: 30 }],
+    }));
+    const rawOut = execFileSync(process.execPath, [path.join(ROOT, "scripts/thumbnail-art-director.js"), `--slug=${slugAd}`, "--dry-run"], { cwd: ROOT, encoding: "utf8" });
+    const parsed = JSON.parse(rawOut.slice(rawOut.indexOf("{\n")));
+    assert.strictEqual(parsed.concepts.length, 5);
+    for (const c of parsed.concepts) {
+      const chk = validateMinorHarmSafePrompt(c.fluxPrompt, { mode: "scene" });
+      assert.strictEqual(chk.ok, true, `hostile minorHarm art-director concept ${c.conceptId} leaked forbidden token: ${chk.reasons.join("; ")} | prompt=${c.fluxPrompt}`);
+    }
+
+    // antidote-10x-assets.js --dry-run must block a poisoned artLock on minorHarm:true and pass clean storybookNoir
+    fs.writeFileSync(path.join(tmpBookDir, "prompts.10x.json"), JSON.stringify({
+      slug: slugAd, minorHarm: true, artLock: "editorial gouache, strictly zero people or figures", maxCalls: 25,
+      scenes: [{ id: "arch", path: `scenes/${slugAd}/arch.png`, prompt: "Empty ivy-covered stone archway at twilight" }],
+    }));
+    let blockedDirtyLock = false;
+    try {
+      execFileSync(process.execPath, [path.join(ROOT, "scripts/antidote-10x-assets.js"), `--slug=${slugAd}`, "--dry-run"], { cwd: ROOT, stdio: "pipe" });
+    } catch { blockedDirtyLock = true; }
+    assert.strictEqual(blockedDirtyLock, true, "antidote-10x-assets.js must block poisoned minorHarm artLock");
+
+    fs.writeFileSync(path.join(tmpBookDir, "prompts.10x.json"), JSON.stringify({
+      slug: slugAd, minorHarm: true, artLock: STYLE_PACKS.storybookNoir.artLock, maxCalls: 25,
+      scenes: [{ id: "arch", path: `scenes/${slugAd}/arch.png`, prompt: "Empty ivy-covered stone archway at twilight" }],
+    }));
+    execFileSync(process.execPath, [path.join(ROOT, "scripts/antidote-10x-assets.js"), `--slug=${slugAd}`, "--dry-run"], { cwd: ROOT, stdio: "pipe" });
+  } finally {
+    fs.rmSync(tmpBookDir, { recursive: true, force: true });
+  }
 });
 
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);

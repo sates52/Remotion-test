@@ -8,7 +8,7 @@ import { voiceAt, type Speech } from "../speech";
 import { DEFAULT_VARIANT } from "../schema";
 import type { VariantSpec, CharAction, HandProp } from "../schema";
 import { useSkin, plateStyle } from "./skin";
-import { isLightPalette, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
+import { contrastInkOn, isLightPalette, resolveArtPalette, useArtDirection, type StageMoodName } from "./artDirection";
 import { toldState, itemState, backdropOpacity, backdropFit, backdropScene, standsOn, spotsOf, SPOT_REACH, plateW, type ToldItem, type ToldSpec } from "../told";
 
 /** How strongly a place is drawn behind the stage: a quarter — there, and never louder than what stands in it. */
@@ -79,8 +79,9 @@ const Glyph: React.FC<{ kind: ToldItem["glyph"] }> = ({ kind }) => {
   }
 };
 
-const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string }> = ({ it, frame, defaultInk = "#1E1E22" }) => {
+const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string; tileBg?: string }> = ({ it, frame, defaultInk = "#1E1E22", tileBg = "#fff" }) => {
   const ink = it.ink ?? defaultInk, color = it.color ?? "#D9603C";
+  const badgeTextInk = contrastInkOn(ink);
   switch (it.kind) {
     case "emblem": {
       const size = it.size ?? 56, lw = textW(it.label ?? "", size);
@@ -91,7 +92,7 @@ const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string }> = ({ 
         {/* no glyph, or one this engine cannot draw: the first letter of the name */}
         {!it.glyph || !(TOLD_GLYPHS as readonly string[]).includes(it.glyph) ? <text x={0} y={-8} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={96} fill="#fff">{(it.label ?? "?")[0]}</text> : null}
         <rect x={-lw / 2 - 22} y={112} width={lw + 44} height={size + 26} rx={12} fill={ink} />
-        <text x={0} y={112 + size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill="#fff" letterSpacing={1}>{it.label}</text>
+        <text x={0} y={112 + size + 2} textAnchor="middle" fontFamily={FONT} fontWeight={900} fontSize={size} fill={badgeTextInk} letterSpacing={1}>{it.label}</text>
         {it.sub ? <text x={0} y={112 + size + 62} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={30} fill={ink}>{it.sub}</text> : null}
       </g>);
     }
@@ -99,7 +100,7 @@ const Draw: React.FC<{ it: ToldItem; frame: number; defaultInk?: string }> = ({ 
       const size = it.size ?? 40, w = textW(it.label ?? "", size) + 118, h = size + 44; // room for the dot before the name
       return (<g>
         <rect x={-w / 2 + 6} y={-h / 2 + 8} width={w} height={h} rx={h / 2} fill={ink} opacity={0.16} />
-        <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={h / 2} fill="#fff" stroke={color} strokeWidth={7} />
+        <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={h / 2} fill={tileBg} stroke={color} strokeWidth={7} />
         <circle cx={-w / 2 + 34} cy={0} r={11} fill={color} />
         <text x={22} y={size * 0.36} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={size} fill={ink}>{it.label}</text>
       </g>);
@@ -184,6 +185,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
   const gridStroke = artPal ? (darkStage ? "rgba(255,255,255,0.08)" : "rgba(24,24,27,0.10)") : "#E2DFD6";
   const stageInk = artPal ? artPal.ink : "#1E1E22";
   const darkTagPal = darkStage && artPal ? { surface: artPal.surface, ink: artPal.ink, accent: artPal.accent } : null;
+  const tileBg = darkStage && artPal ? artPal.bgAlt : "#fff";
 
   const cam = toldState({ x: 960, y: 540, s: 1, o: 1, r: 0 }, spec.cam, frame);
   const voice = speech ? voiceAt(speech, absBase + frame) : undefined;
@@ -307,7 +309,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
             }
             return (
               <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
-                <Draw it={it} frame={frame} defaultInk={stageInk} />
+                <Draw it={it} frame={frame} defaultInk={stageInk} tileBg={tileBg} />
               </g>
             );
           })}
@@ -318,7 +320,7 @@ export const ToldStage: React.FC<{ spec: ToldSpec; absBase?: number; speech?: Sp
           if (!st || st.o <= 0.001) return null;
           return (
             <g key={it.id} transform={`translate(${st.x} ${st.y}) rotate(${st.r}) scale(${st.s})`} opacity={st.o}>
-              <Draw it={it} frame={frame} defaultInk={stageInk} />
+              <Draw it={it} frame={frame} defaultInk={stageInk} tileBg={tileBg} />
             </g>
           );
         })}

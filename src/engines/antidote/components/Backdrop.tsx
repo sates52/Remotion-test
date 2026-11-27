@@ -1037,8 +1037,9 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
       : colors[0];
   const legacyInk = bg.accent || shade(colors[colors.length - 1], -0.62);
   const legacyAccent = bg.accent || shade(colors[0], -0.35);
+  const showDrawnLocation = !imgSpec || Boolean(imgSpec.ambientCanvas);
   // the book's own place (Film Flow 6) is drawn instead of the shared set — one layer, no ambient drift
-  const own = bg.own && bg.own.paths && bg.own.paths.length ? bg.own : null;
+  const own = showDrawnLocation && bg.own && bg.own.paths && bg.own.paths.length ? bg.own : null;
   const ownFit = own ? backdropFit(own) : null;
   const ownScene = own ? backdropScene(own) : null; // slice 4: sky + ground, or null for the wash
   const layers = own ? null : SETS[bg.set] || null;
@@ -1081,8 +1082,7 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
         ? `${moodSpec.gridSize}px 100%`
         : `${moodSpec.gridSize}px ${moodSpec.gridSize}px`
     : undefined;
-  const legacyTex = !hasUnifiedMood ? textureStyle(bg.texture, ink) : null;
-  const showDrawnLocation = !imgSpec || Boolean(imgSpec.ambientCanvas);
+  const tex = !hasUnifiedMood ? textureStyle(bg.texture, ink) : null;
 
   return (
     <AbsoluteFill style={{ overflow: "hidden" }}>
@@ -1173,7 +1173,7 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
       ) : null}
 
       {/* Book's own drawn place (`bg.own`): preserved and mood-glazed when stageMood is active */}
-      {showDrawnLocation && own && ownFit ? (
+      {own && ownFit ? (
         <Layer dx={cam.x * 0.55} dy={cam.y * 0.55} dz={1 + (cam.scale - 1) * 0.6}>
           {ownScene ? (
             <g>
@@ -1209,7 +1209,7 @@ export const Backdrop: React.FC<{ bg: BgSpec; cam: { x: number; y: number; scale
       ) : null}
 
       {/* Legacy paper texture */}
-      {legacyTex ? <AbsoluteFill style={legacyTex} /> : null}
+      {tex ? <AbsoluteFill style={tex} /> : null}
 
       {/* Vignette */}
       {hasUnifiedMood ? (

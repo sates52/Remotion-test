@@ -629,6 +629,11 @@ export function isLightPalette(palette: ArtPalette): boolean {
   return hexLuminance(palette.bg) > 0.5;
 }
 
+/** High-contrast foreground ink (`#111318` on light fills, `#FFFFFF` on dark fills). */
+export function contrastInkOn(hex?: string): string {
+  return hexLuminance(hex) > 0.52 ? "#111318" : "#FFFFFF";
+}
+
 function hexLuminance(hex?: string): number {
   if (!hex || typeof hex !== "string") return 0.5;
   const m = hex.trim().replace("#", "");

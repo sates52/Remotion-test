@@ -399,11 +399,21 @@ const usedStyles = new Set(); // no two concepts of the same book share a style
 const bookPack10x = bookJson?.engine === "antidote" && bookJson?.stylePack && STYLE_PACKS[bookJson.stylePack]
   ? STYLE_PACKS[bookJson.stylePack]
   : null;
-const isMinorHarmBook = Boolean(bookJson?.minorHarm === true || bookJson?.engineProfile?.minorHarm === true);
+const isMinorHarmBook = Boolean(
+  bookJson?.minorHarm === true ||
+  bookJson?.engineProfile?.minorHarm === true ||
+  bookJson?.profile?.minorHarm === true
+);
 
 function minorHarmSymbolicSubject(angle) {
-  const place = (topPlaces[0] && (topPlaces[0].look || topPlaces[0].name || topPlaces[0].set)) || "quiet empty architectural corridor at twilight";
-  const obj = iconicMotif ? iconicMotif.replace(/([A-Z])/g, " $1").trim().toLowerCase() : "symbolic archival object";
+  const rawPlace = topPlaces[0] && (topPlaces[0].look || topPlaces[0].name || topPlaces[0].set);
+  const place = rawPlace && validateMinorHarmSafePrompt(rawPlace, { mode: "scene" }).ok
+    ? rawPlace
+    : "quiet empty architectural corridor at twilight";
+  const rawObj = iconicMotif ? iconicMotif.replace(/([A-Z])/g, " $1").trim().toLowerCase() : "";
+  const obj = rawObj && validateMinorHarmSafePrompt(rawObj, { mode: "scene" }).ok
+    ? rawObj
+    : "symbolic archival object";
   const byAngle = {
     power: `Empty atmospheric ${place}, dramatic chiaroscuro architectural shadows over a solitary symbolic ${obj}, moody stillness`,
     soul: `Solitary symbolic ${obj} resting on an aged wooden table beside a half-open doorway looking out to rain-slicked dusk light`,
@@ -424,14 +434,20 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
   const style = pickStyle(angle, SLUG, recentStyles, usedStyles);
   usedStyles.add(style.key);
   let effectiveSubject = visualSubject;
-  if (bookPack10x && isMinorHarmBook) {
+  if (isMinorHarmBook) {
     const check = validateMinorHarmSafePrompt(effectiveSubject, { mode: "scene" });
     if (!check.ok) effectiveSubject = minorHarmSymbolicSubject(angle);
+    if (!validateMinorHarmSafePrompt(effectiveSubject, { mode: "scene" }).ok) {
+      effectiveSubject = "Empty atmospheric stone doorway at twilight, solitary weathered compass resting on aged oak table, moody chiaroscuro lighting";
+    }
   }
-  const stylePrompt = bookPack10x && bookPack10x.artLock
+  const safeArtLock = bookPack10x && bookPack10x.artLock && (!isMinorHarmBook || validateMinorHarmSafePrompt(bookPack10x.artLock, { mode: "scene" }).ok)
     ? bookPack10x.artLock
-    : style.prompt;
-  const fluxPrompt = bookPack10x && isMinorHarmBook
+    : "editorial gouache and fine-line ink architectural illustration, atmospheric chiaroscuro lighting";
+  const stylePrompt = bookPack10x && bookPack10x.artLock
+    ? safeArtLock
+    : (isMinorHarmBook ? safeArtLock : style.prompt);
+  let fluxPrompt = isMinorHarmBook
     ? `${effectiveSubject}. ${stylePrompt}. Bold graphic composition with clear negative space on the ${LAYOUT_RULES[layout]?.textSide === "left" ? "left" : "edge"} for headline, no text, no letters, no words.`
     : buildFluxPrompt(
       {
@@ -447,6 +463,9 @@ function buildConcept(angle, hook, visualSubject, layout, arch, idx) {
       bible,
       bookJson,
     );
+  if (isMinorHarmBook && !validateMinorHarmSafePrompt(fluxPrompt, { mode: "scene" }).ok) {
+    fluxPrompt = `Empty atmospheric architectural doorway at twilight with solitary brass compass on weathered oak table. ${safeArtLock}. Clear negative space on the left for headline, no text, no letters, no words.`;
+  }
 
   return {
     conceptId: `${angle}-${String(idx).padStart(2, "0")}`,

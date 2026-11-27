@@ -20,8 +20,9 @@ const STOP = new Set([
   "the", "a", "an", "and", "or", "of", "to", "in", "is", "are", "you", "your",
   "why", "who", "what", "how", "this", "that", "was", "his", "her", "their",
   "its", "it", "be", "not", "no", "vs",
-  "look", "see", "make", "get", "take", "come", "go", "know", "think", "say",
-  "want", "give", "never", "always", "nobody", "everyone",
+  "look", "see", "make", "making", "get", "getting", "take", "taking", "come", "coming",
+  "go", "going", "know", "think", "say", "want", "give", "giving",
+  "never", "always", "nobody", "everyone",
 ]);
 const WIDE_SHOTS = new Set(["medium", "twoShot", "lowAngle", "overShoulder", "diorama", "silhouette"]);
 const LOUD_FACES = new Set(["worried", "shocked", "angry", "sad", "scared", "surprised", "determined", "focused"]);
@@ -205,12 +206,24 @@ export function focalPointOf(scene?: SceneSpec | null): { x: number; y: number }
   if (!scene) return { x: 0.5, y: 0.48 };
   const s = scene as Record<string, unknown>;
   const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+  const normCoord = (v: number, span: number) => (v > 1 ? v / span : v);
 
   if (s.annotatedScene && typeof s.annotatedScene === "object") {
-    const calls = (s.annotatedScene as { callouts?: Array<{ x?: number; y?: number }> }).callouts;
-    if (Array.isArray(calls) && calls.length > 0) {
-      const xs = calls.map((c) => (typeof c.x === "number" ? c.x : 0.5));
-      const ys = calls.map((c) => (typeof c.y === "number" ? c.y : 0.46));
+    const ann = s.annotatedScene as {
+      spotlights?: Array<{ cx?: number; cy?: number }>;
+      callouts?: Array<{ x?: number; y?: number }>;
+    };
+    if (Array.isArray(ann.spotlights) && ann.spotlights.length > 0) {
+      const xs = ann.spotlights.map((c) => (typeof c.cx === "number" ? normCoord(c.cx, 1920) : 0.5));
+      const ys = ann.spotlights.map((c) => (typeof c.cy === "number" ? normCoord(c.cy, 1080) : 0.46));
+      return {
+        x: clamp(xs.reduce((a, b) => a + b, 0) / xs.length, 0.25, 0.75),
+        y: clamp(ys.reduce((a, b) => a + b, 0) / ys.length, 0.25, 0.7),
+      };
+    }
+    if (Array.isArray(ann.callouts) && ann.callouts.length > 0) {
+      const xs = ann.callouts.map((c) => (typeof c.x === "number" ? normCoord(c.x, 1920) : 0.5));
+      const ys = ann.callouts.map((c) => (typeof c.y === "number" ? normCoord(c.y, 1080) : 0.46));
       return {
         x: clamp(xs.reduce((a, b) => a + b, 0) / xs.length, 0.25, 0.75),
         y: clamp(ys.reduce((a, b) => a + b, 0) / ys.length, 0.25, 0.7),
@@ -220,18 +233,37 @@ export function focalPointOf(scene?: SceneSpec | null): { x: number; y: number }
   }
 
   if (s.cutoutStage && typeof s.cutoutStage === "object") {
-    const side = (s.cutoutStage as { side?: string }).side;
-    return { x: side === "left" ? 0.34 : side === "right" ? 0.66 : 0.5, y: 0.44 };
+    const cs = s.cutoutStage as { actors?: Array<{ x?: number; y?: number }>; side?: string };
+    if (Array.isArray(cs.actors) && cs.actors.length > 0) {
+      const xs = cs.actors.map((a) => (typeof a.x === "number" ? normCoord(a.x, 1920) : 0.5));
+      const ys = cs.actors.map((a) => (typeof a.y === "number" ? normCoord(a.y, 1080) : 0.54));
+      return {
+        x: clamp(xs.reduce((a, b) => a + b, 0) / xs.length, 0.24, 0.76),
+        y: clamp(ys.reduce((a, b) => a + b, 0) / ys.length - 0.08, 0.28, 0.64),
+      };
+    }
+    return { x: cs.side === "left" ? 0.34 : cs.side === "right" ? 0.66 : 0.5, y: 0.44 };
   }
 
-  if (s.hookPoster || s.upClose || s.editorialSpread) {
+  if (s.upClose && typeof s.upClose === "object") {
+    const zt = (s.upClose as { zoomTarget?: { x?: number; y?: number } }).zoomTarget;
+    if (zt && typeof zt.x === "number" && typeof zt.y === "number") {
+      return {
+        x: clamp(normCoord(zt.x, 1920), 0.22, 0.78),
+        y: clamp(normCoord(zt.y, 1080), 0.22, 0.76),
+      };
+    }
+    return { x: 0.5, y: 0.46 };
+  }
+
+  if (s.hookPoster || s.editorialSpread) {
     return { x: 0.5, y: 0.46 };
   }
 
   const bodies = (scene.characters ?? []).filter((c) => !(c.crowd && c.crowd > 1));
   if (bodies.length > 0) {
-    const xs = bodies.map((c) => (typeof c.x === "number" ? c.x : 0.5));
-    const ys = bodies.map((c) => (typeof c.y === "number" ? c.y : 0.64));
+    const xs = bodies.map((c) => (typeof c.x === "number" ? normCoord(c.x, 1920) : 0.5));
+    const ys = bodies.map((c) => (typeof c.y === "number" ? normCoord(c.y, 1080) : 0.64));
     const avgX = xs.reduce((a, b) => a + b, 0) / xs.length;
     const avgY = ys.reduce((a, b) => a + b, 0) / ys.length;
     // Characters' anchor y is near feet/lower-torso; shift upward onto faces & upper shoulders.

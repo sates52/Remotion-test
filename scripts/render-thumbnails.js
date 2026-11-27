@@ -130,7 +130,9 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
   const resolvedHeroImg = hasPublicFile(thumb.image)
     ? String(thumb.image).replace(/^public\//, "")
     : (thumb.heroFlux === true && hasPublicFile(defaultFluxHero) ? defaultFluxHero : "");
-  const resolvedCutoutImg = hasPublicFile(thumb.cut) ? String(thumb.cut).replace(/^public\//, "") : "";
+  const rawCut = thumb.cut || thumb.cutoutImg;
+  const resolvedCutoutImg = hasPublicFile(rawCut) ? String(rawCut).replace(/^public\//, "") : "";
+  const isAntidote = Boolean(cfg);
   console.log(`Bundling Thumb-${SLUG} (slim registry)…`);
   const serveUrl = await bundleFor([SLUG]);
   const done = [];
@@ -144,7 +146,7 @@ require("./lib/local-load-guard").guardStills({ what: `render-thumbnails ${SLUG}
     try {
       const props = {
         ...(j.grammar ? { grammar: j.grammar, layout: j.grammar.layout } : {}),
-        heroImg: resolvedHeroImg,
+        ...(resolvedHeroImg || isAntidote ? { heroImg: resolvedHeroImg } : {}),
         ...(resolvedCutoutImg ? { cutoutImg: resolvedCutoutImg } : {}),
         ...(hook ? { hook } : {}),
       };

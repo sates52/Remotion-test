@@ -169,7 +169,7 @@ const STYLE_PACKS = {
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["thriller", "mystery", "suspense", "crime", "drama", "fiction"],
-    artLock: "moody editorial gouache and charcoal ink architectural illustration, deep crimson and midnight indigo chiaroscuro, symbolic empty places and objects only, strictly zero people or figures",
+    artLock: "moody editorial gouache and charcoal ink architectural illustration, deep crimson and midnight indigo chiaroscuro, uninhabited atmospheric places and symbolic still-life objects",
   },
   storybookTwilight: {
     id: "storybookTwilight",
@@ -187,7 +187,7 @@ const STYLE_PACKS = {
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["literary", "fiction", "memoir", "drama", "biography", "history"],
-    artLock: "twilight editorial ink and slate gouache architectural illustration, atmospheric dusk lighting, symbolic empty places and objects only, strictly zero people or figures",
+    artLock: "twilight editorial ink and slate gouache architectural illustration, atmospheric dusk lighting, uninhabited atmospheric places and symbolic still-life objects",
   },
   storybookBotanical: {
     id: "storybookBotanical",
@@ -205,7 +205,7 @@ const STYLE_PACKS = {
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["nature", "coming-of-age", "novel", "fiction", "psychology", "family"],
-    artLock: "deep forest botanical gouache and fine ink editorial illustration, moody foliage and interior architecture, symbolic empty places and objects only, strictly zero people or figures",
+    artLock: "deep forest botanical gouache and fine ink editorial illustration, moody foliage and quiet interior architecture, uninhabited atmospheric places and symbolic still-life objects",
   },
   storybookKraft: {
     id: "storybookKraft",
@@ -223,7 +223,7 @@ const STYLE_PACKS = {
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["journalism", "true-crime", "nonfiction", "history", "social", "memoir"],
-    artLock: "warm ochre kraft paper screenprint and archival ink editorial illustration, crisp risograph texture, symbolic empty places and objects only, strictly zero people or figures",
+    artLock: "warm ochre kraft paper screenprint and archival ink editorial illustration, crisp risograph texture, uninhabited atmospheric places and symbolic still-life objects",
   },
   storybookVector: {
     id: "storybookVector",
@@ -241,7 +241,7 @@ const STYLE_PACKS = {
     castMode: "vectorRig",
     minorHarmSafe: true,
     genreAffinity: ["fiction", "novel", "drama", "trauma", "classic"],
-    artLock: "warm archival paper and fine editorial ink gouache illustration, clean storybook composition, symbolic empty places and objects only, strictly zero people or figures",
+    artLock: "warm archival paper and fine editorial ink gouache illustration, clean storybook architectural composition, uninhabited atmospheric places and symbolic still-life objects",
   },
   swissModernist: {
     id: "swissModernist",

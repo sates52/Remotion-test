@@ -1,7 +1,7 @@
 import React from "react";
 import { Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { BeforeAfterWipeSpec } from "../schema";
-import { resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
+import { contrastInkOn, resolveArtFonts, resolveArtPalette, toneColor, useArtDirection, type StageMoodName } from "./artDirection";
 import { InlineVisualSlot } from "./InlineVisualSlot";
 import { StageGrammarOverlay } from "./layoutGrammar";
 import { RoughMarks } from "./RoughMarks";
@@ -83,7 +83,7 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
               fontWeight: 900,
               fontSize: 18,
               letterSpacing: "0.14em",
-              color: "#FFFFFF",
+              color: contrastInkOn(col),
               background: col,
               padding: "7px 18px",
               borderRadius: 6,
@@ -111,16 +111,29 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
               {side.headline}
             </div>
             {!hasImg && (
-              <div style={{ marginTop: 4 }}>
-                <RoughMarks
-                  kind={isAfter ? "underline" : "strike"}
-                  width={380}
-                  height={16}
-                  color={col}
-                  progress={markP}
-                  seed={side.headline}
-                />
-              </div>
+              isAfter ? (
+                <div style={{ marginTop: 4 }}>
+                  <RoughMarks
+                    kind="underline"
+                    width={380}
+                    height={16}
+                    color={col}
+                    progress={markP}
+                    seed={side.headline}
+                  />
+                </div>
+              ) : (
+                <div style={{ position: "absolute", left: 0, right: 0, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}>
+                  <RoughMarks
+                    kind="strike"
+                    width={420}
+                    height={18}
+                    color={palette.danger}
+                    progress={markP}
+                    seed={side.headline}
+                  />
+                </div>
+              )
             )}
           </div>
           {(side.points ?? []).length > 0 && (
@@ -156,16 +169,18 @@ export const BeforeAfterWipe: React.FC<{ spec: BeforeAfterWipeSpec; localFrame?:
       <div style={{ position: "absolute", inset: 0, clipPath: clipAfter }}>
         {renderHalf(spec.after, "right", true)}
       </div>
-      <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-        <line
-          x1={(Number(pctTop) / 100) * 1920}
-          y1={0}
-          x2={(Number(pctBot) / 100) * 1920}
-          y2={1080}
-          stroke={palette.accent}
-          strokeWidth={6}
-        />
-      </svg>
+      {wp > 0.005 && wp < 0.995 && (
+        <svg width={1920} height={1080} viewBox="0 0 1920 1080" style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <line
+            x1={(Number(pctTop) / 100) * 1920}
+            y1={0}
+            x2={(Number(pctBot) / 100) * 1920}
+            y2={1080}
+            stroke={palette.accent}
+            strokeWidth={6}
+          />
+        </svg>
+      )}
       <StageGrammarOverlay stageMood={stageMood} />
     </div>
   );

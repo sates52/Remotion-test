@@ -62,8 +62,14 @@ function bookFiles(bookRoot, slug) {
 }
 
 /** Hero / cut-out images the meta names (repo paths under public/). */
-function heroAssets(thumb) {
-  return [thumb && thumb.image, thumb && thumb.cut].filter((x) => typeof x === "string" && x).map((x) => `public/${x.replace(/^public\//, "")}`);
+function heroAssets(thumb, slug) {
+  const list = [
+    thumb && thumb.image,
+    thumb && thumb.cut,
+    thumb && thumb.cutoutImg,
+    thumb && thumb.heroFlux === true && !thumb.image && slug ? `scenes/${slug}/thumbnail-hero.png` : null,
+  ];
+  return [...new Set(list.filter((x) => typeof x === "string" && x).map((x) => `public/${x.replace(/^public\//, "")}`))];
 }
 
 /**
@@ -83,7 +89,7 @@ function neededHeroAssets(thumb, engine, slug) {
 function thumbInputHash(bookRoot, slug) {
   const { meta, cfg, book, thumb } = bookFiles(bookRoot, slug);
   const heroes = {};
-  for (const rel of heroAssets(thumb)) { const p = path.join(bookRoot, rel); heroes[rel] = fs.existsSync(p) ? sha256File(p) : null; }
+  for (const rel of heroAssets(thumb, slug)) { const p = path.join(bookRoot, rel); heroes[rel] = fs.existsSync(p) ? sha256File(p) : null; }
   return sha256(canon({ thumbnail: thumb, title: (meta && meta.title) || null, author: (meta && meta.author) || null, cfg, book, heroes })).slice(0, 16);
 }
 
@@ -213,7 +219,7 @@ function thumbBundleFiles({ slug, root = ROOT, bookRoot = root }) {
     const { resolveFiles } = require("./render-bundle");
     for (const f of resolveFiles(slug, { root: bookRoot }).files) if (f.startsWith("public/") && (!AUDIO_RE.test(f) || f.startsWith("public/sfx/"))) assets.add(f);
     // Include any existing hero/cutout image for 10x thumbnails if present on disk (optional for scene-backed 10x).
-    for (const rel of heroAssets(thumb)) {
+    for (const rel of heroAssets(thumb, slug)) {
       if ([path.join(bookRoot, rel), path.join(root, rel)].some((p) => fs.existsSync(p) && fs.statSync(p).isFile())) assets.add(rel);
     }
   } else assets.add(VOX_BG);

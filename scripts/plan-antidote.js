@@ -1459,12 +1459,12 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
     // Antidote 10x (opt-in): pass through authored 10x Single-World payloads from art.json
     // BEFORE _authorship.lock so full-stage 10x scenes seal with cast:[] / concept:null / props:[].
     let fullStage10x = false;
+    const { STYLE_PACKS, TRANSITION_FAMILIES } = require("./lib/style-packs");
+    const man10x = readManifest(SLUG);
+    const pack10x = man10x && man10x.stylePack && STYLE_PACKS[man10x.stylePack] ? STYLE_PACKS[man10x.stylePack] : null;
     if (A) {
       const { PASSTHROUGH_10X_KEYS, isFullStage10x, hasAny10xDevice } = require("./lib/antidote-10x-keys");
-      const { STYLE_PACKS, TRANSITION_FAMILIES } = require("./lib/style-packs");
       const { compile10xCues } = require("./lib/compile-10x-cues");
-      const man10x = readManifest(SLUG);
-      const pack10x = man10x && man10x.stylePack && STYLE_PACKS[man10x.stylePack] ? STYLE_PACKS[man10x.stylePack] : null;
       for (const k of PASSTHROUGH_10X_KEYS) {
         if (hasOwn(A, k) && A[k] != null) out[k] = A[k];
       }
@@ -1472,15 +1472,26 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       if (hasAny10xDevice(out)) {
         const beatWords = Array.isArray(s.words) ? s.words : [];
         compile10xCues(out, { words: beatWords, beatStartSec: s.from ?? (out.fromFrame / FPS), durationFrames: out.durationFrames, fps: FPS });
-        // Hydrate optional `icon` visual slots on text-heavy 10x devices from the book's own motifs/entities drawings.
+        // Hydrate optional `icon` visual slots on text-heavy 10x devices from the book's own motifs.json / entities.json drawings.
+        // ownIcons() returns { [id]: { viewBox, paths, title, ... } } directly on each entry (not nested under .customSvg).
         try {
-          const ownMap = require("./lib/own-drawings").ownIcons(path.join(__dirname, "..", "books", SLUG));
+          if (!global.__antidoteOwnIconsCache || global.__antidoteOwnIconsCache.slug !== SLUG) {
+            global.__antidoteOwnIconsCache = {
+              slug: SLUG,
+              map: require("./lib/own-drawings").ownIcons(path.join(__dirname, "..", "books", SLUG)) || {},
+            };
+          }
+          const ownMap = global.__antidoteOwnIconsCache.map;
           const hydrateSlot = (obj) => {
             if (!obj || typeof obj !== "object" || obj.customSvg || typeof obj.icon !== "string") return;
-            const hit = ownMap[obj.icon] || ownMap[obj.icon.toLowerCase()];
-            if (hit && hit.customSvg && Array.isArray(hit.customSvg.paths) && hit.customSvg.paths.length) {
-              obj.customSvg = hit.customSvg;
-            }
+            const rawKey = obj.icon.trim();
+            const hit = ownMap[rawKey] || ownMap[rawKey.toLowerCase()] ||
+              Object.entries(ownMap).find(([k]) => k.toLowerCase() === rawKey.toLowerCase())?.[1];
+            if (!hit || typeof hit !== "object") return;
+            const svg = Array.isArray(hit.paths) && hit.paths.length
+              ? { viewBox: hit.viewBox || "0 0 520 520", paths: hit.paths, ...(hit.title ? { title: hit.title } : {}) }
+              : (hit.customSvg && Array.isArray(hit.customSvg.paths) && hit.customSvg.paths.length ? hit.customSvg : null);
+            if (svg) obj.customSvg = svg;
           };
           if (out.beforeAfterWipe) { hydrateSlot(out.beforeAfterWipe.before); hydrateSlot(out.beforeAfterWipe.after); }
           if (out.comparisonGrid && Array.isArray(out.comparisonGrid.columns)) out.comparisonGrid.columns.forEach(hydrateSlot);
@@ -1515,7 +1526,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       } else if (
         pack10x &&
         pack10x.castMode === "illustrated" &&
-        !(man10x && man10x.engineProfile && man10x.engineProfile.minorHarm) &&
+        !(man10x && (man10x.minorHarm || man10x.engineProfile?.minorHarm || man10x.profile?.minorHarm)) &&
         i % 2 === 0 &&
         (out.vennMerge || out.explodedView || out.gravityPile || out.analyticsFunnel || out.barRace || out.crumpleToss || out.balanceScale || out.visualEquation || out.dataMatrix || out.decisionTree || out.stackReveal || out.timelineScrub || out.bookBlueprint || out.mechanismChain || out.quoteDialogue || (out.evidenceBoard && !out.evidenceBoard.image) || (out.hookPoster && !out.hookPoster.beforeImage))
       ) {
@@ -1566,6 +1577,9 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           out._authorship.propTypes = [];
         }
       }
+    } else if (pack10x) {
+      const moods = [pack10x.mood, ...(pack10x.secondaryMoods || [])].filter(Boolean);
+      out.bg = { ...(out.bg || {}), stageMood: moods[Math.floor(i / 8) % moods.length] };
     }
     // what EVERY authored beat seals, staged or not (2026-10-20, burn 217/236): its own callout text(s) and
     // that it is a scene, not a chapter card. `planShot` lets --restore undo a card without sealing the

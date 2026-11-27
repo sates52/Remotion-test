@@ -615,10 +615,11 @@ const PosterDrama10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
   const deepGround = isDark(pal.bg) ? shade(pal.bg, -0.35) : shade(pal.ink, -0.25);
   const { base, emph, labelInk } = tenxPanelColors(props, pal, g, deepGround);
   const fontSize = tenxHookSize(hook || "CORE", g.type, bottom ? 1040 : 540, bottom);
-  // Shift subject focal point away from the text scrim side so face/hero stays in the clear half.
+  // Shift subject focal point away from the text scrim side so face/hero stays in the clear half:
+  // TenxHeroMedia pans by `(0.5 - fp) * scaled`, so larger fp.y moves the scene UP (clear of bottom scrim).
   const baseFp = focalPointOf(scene);
   const fp = bottom
-    ? { x: baseFp.x, y: Math.max(0.24, baseFp.y - 0.1) }
+    ? { x: baseFp.x, y: Math.min(0.76, baseFp.y + 0.1) }
     : { x: right ? Math.min(0.72, baseFp.x + 0.1) : Math.max(0.28, baseFp.x - 0.1), y: baseFp.y };
 
   const scrimBg = bottom
@@ -835,12 +836,19 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
   const ground = isDark(pal.bg) ? pal.bg : shade(pal.bg, -0.04);
   const { base, emph, labelInk } = tenxPanelColors(props, pal, g, ground);
   const cardW = bottom ? 1192 : 736;
-  const cardH = bottom ? 412 : 636;
-  const stageH = bottom ? 412 : 476;
+  const cardH = bottom ? 396 : 636;
+  const stageH = bottom ? 396 : 476;
   const textColW = bottom ? 1160 : 440;
   const fontSize = tenxHookSize(hook || "CORE", g.type, textColW, bottom);
   const chromeBg = isDark(pal.bg) ? shade(pal.bg, -0.24) : pal.ink;
   const chromeInk = pickTextColor(chromeBg, pal.ink, "#FFFFFF");
+  const chromeAccent = emphasisColor(
+    [g.accent === "gold" ? (props.gold || pal.accent2) : (props.accent || pal.accent), props.accent || pal.accent, props.gold || pal.accent2, "#F59E0B"],
+    chromeBg,
+    chromeInk,
+    3.5,
+    1.5,
+  );
 
   const textBlock = (
     <div
@@ -870,11 +878,11 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
       style={{
         background: ground,
         overflow: "hidden",
-        padding: "38px 44px",
+        padding: bottom ? "28px 44px" : "38px 44px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: bottom ? "column" : "row",
-        gap: 34,
+        gap: bottom ? 20 : 34,
         alignItems: "center",
       }}
     >
@@ -901,7 +909,7 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
               padding: "0 24px",
               boxSizing: "border-box",
               background: chromeBg,
-              borderBottom: `3px solid ${emph}`,
+              borderBottom: `3px solid ${chromeAccent}`,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -909,12 +917,12 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 12, height: 12, borderRadius: "50%", background: emph }} />
+              <div style={{ width: 12, height: 12, borderRadius: "50%", background: chromeAccent }} />
               <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 18, letterSpacing: "0.14em", color: chromeInk, textTransform: "uppercase" }}>
                 {title.toUpperCase()}
               </div>
             </div>
-            <div style={{ fontFamily: fonts.mono, fontWeight: 700, fontSize: 15, letterSpacing: "0.12em", color: emph, textTransform: "uppercase" }}>
+            <div style={{ fontFamily: '"JetBrains Mono", "Consolas", monospace', fontWeight: 700, fontSize: 15, letterSpacing: "0.12em", color: chromeAccent, textTransform: "uppercase" }}>
               CORE MODEL
             </div>
           </div>
@@ -929,7 +937,7 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
               padding: "0 24px",
               boxSizing: "border-box",
               background: chromeBg,
-              borderTop: `2px solid ${emph}66`,
+              borderTop: `2px solid ${chromeAccent}66`,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -938,7 +946,7 @@ const DiagramHook10x: React.FC<AntidoteThumbProps & { g: ThumbGrammar }> = (prop
             <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 18, color: chromeInk, opacity: 0.92 }}>
               {author ? `Visual Breakdown · ${author}` : "Visual Breakdown"}
             </div>
-            <div style={{ width: 72, height: 5, borderRadius: 3, background: emph }} />
+            <div style={{ width: 72, height: 5, borderRadius: 3, background: chromeAccent }} />
           </div>
         )}
       </div>

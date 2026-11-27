@@ -392,7 +392,7 @@ Make the angle SPECIFIC to this book and non-generic — it should be impossible
   manifest.skin = { caption: SKIN.caption, plate: SKIN.plate, font: SKIN.font, at: (manifest.skin && !args.reskin && !askedSkin && manifest.skin.at) || new Date().toISOString(), by: askedSkin ? "agent" : "book-skin" };
   if (picked.engine === "antidote") {
     const spLib = require("./lib/style-packs");
-    const minorHarm = !!(profile && profile.minorHarm);
+    const minorHarm = Boolean((profile && profile.minorHarm) || (manifest.engineProfile && manifest.engineProfile.minorHarm) || manifest.minorHarm);
     const explicitPack = args["style-pack"] && spLib.STYLE_PACKS[args["style-pack"]] ? spLib.STYLE_PACKS[args["style-pack"]] : null;
     const chosenPack = explicitPack || (manifest.stylePack && spLib.STYLE_PACKS[manifest.stylePack] && !args.reskin ? spLib.STYLE_PACKS[manifest.stylePack] : spLib.pickStylePack({ slug: SLUG, genre: GENRE, minorHarm, recent: recentStylePacks(SLUG) }));
     manifest.stylePack = chosenPack.id;

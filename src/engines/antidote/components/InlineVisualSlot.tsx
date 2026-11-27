@@ -1,6 +1,7 @@
 import React from "react";
 import { Motif } from "../motifs";
 import type { PropSpec } from "../schema";
+import { resolveArtPalette, useArtDirection } from "./artDirection";
 
 export type InlineCustomSvg =
   | string
@@ -29,6 +30,19 @@ export const InlineVisualSlot: React.FC<{
   size?: number;
   style?: React.CSSProperties;
 }> = ({ customSvg, icon, accent, ink, size = 128, style }) => {
+  const ad = useArtDirection();
+  const pal = ad ? resolveArtPalette(ad) : null;
+  const resolveToken = (v: string | undefined, fallback: string) => {
+    if (!v) return fallback;
+    if (v === "none") return "none";
+    if (v === "accent" || v === "red") return accent;
+    if (v === "ink") return ink;
+    if (v === "paper" || v === "bg") return pal?.bg ?? "#FAF7F2";
+    if (v === "surface") return pal?.surface ?? "#FFFFFF";
+    if (v === "muted") return pal?.muted ?? "#8A8A8E";
+    if (v === "gold" || v === "accent2") return pal?.accent2 ?? accent;
+    return v;
+  };
   if (customSvg && typeof customSvg === "object" && Array.isArray(customSvg.paths) && customSvg.paths.length > 0) {
     const viewBox = customSvg.viewBox || "0 0 520 520";
     return (
@@ -45,8 +59,8 @@ export const InlineVisualSlot: React.FC<{
       >
         <svg viewBox={viewBox} width={size} height={size} style={{ overflow: "visible", display: "block" }}>
           {customSvg.paths.map((p, idx) => {
-            const fill = p.fill === "accent" ? accent : p.fill === "ink" ? ink : p.fill || "none";
-            const stroke = p.stroke === "accent" ? accent : p.stroke === "ink" ? ink : p.stroke || ink;
+            const fill = resolveToken(p.fill, "none");
+            const stroke = resolveToken(p.stroke, fill === "none" ? ink : "none");
             const strokeWidth = p.strokeWidth ?? (fill === "none" ? 7 : 0);
             return (
               <path

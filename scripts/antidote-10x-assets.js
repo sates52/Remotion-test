@@ -41,7 +41,8 @@ const P = JSON.parse(fs.readFileSync(promptsFile, "utf8").replace(/^\uFEFF/, "")
 const isMinorHarm = Boolean(
   P.minorHarm === true ||
   book.minorHarm === true ||
-  (book.engineProfile && book.engineProfile.minorHarm === true)
+  (book.engineProfile && book.engineProfile.minorHarm === true) ||
+  (book.profile && book.profile.minorHarm === true)
 );
 const requestedCap = args["max-calls"] != null ? Number(args["max-calls"]) : (P.maxCalls != null ? Number(P.maxCalls) : null);
 const maxCalls = computeFluxBudget({ minorHarm: isMinorHarm, maxCalls: requestedCap });
@@ -55,6 +56,10 @@ if (scenes.length > maxCalls) {
 
 if (isMinorHarm) {
   const violations = [];
+  if (P.artLock) {
+    const lockCheck = validateMinorHarmSafePrompt(P.artLock, { mode: "scene" });
+    if (!lockCheck.ok) violations.push(`artLock: ${lockCheck.reasons.join("; ")}`);
+  }
   for (const s of scenes) {
     const check = validateMinorHarmSafePrompt(s.prompt, s);
     if (!check.ok) violations.push(`${s.id}: ${check.reasons.join("; ")}`);

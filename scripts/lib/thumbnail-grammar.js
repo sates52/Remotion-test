@@ -143,7 +143,7 @@ function isAntidote10xBook(root, slug) {
 function isMinorHarmBook(root, slug) {
   const book = readJson(path.join(root, "books", slug, "book.json"));
   const cfg = readJson(path.join(root, "books", slug, "config.antidote.json"));
-  if (book && (book.minorHarm === true || (book.profile && book.profile.minorHarm === true))) return true;
+  if (book && (book.minorHarm === true || (book.engineProfile && book.engineProfile.minorHarm === true) || (book.profile && book.profile.minorHarm === true))) return true;
   if (cfg && cfg.meta && cfg.meta.artDirection && cfg.meta.artDirection.castMode === "vectorRig") return true;
   return false;
 }

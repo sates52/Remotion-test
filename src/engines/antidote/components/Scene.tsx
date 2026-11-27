@@ -27,6 +27,7 @@ import { composeRest } from "../endState";
 import { SemanticStage, type SemanticCompiled } from "./SemanticStage";
 import { FlowContext } from "../flow";
 import { ToldStage, type ToldSpec } from "./ToldStage";
+import { isLightPalette, resolveArtPalette, useArtDirection } from "./artDirection";
 import { voiceAt } from "../speech";
 import { VisualEquation } from "./VisualEquation";
 import { ComparisonGrid } from "./ComparisonGrid";
@@ -419,9 +420,10 @@ const slotOrdered = (bodies: CharacterSpec[], plan: ScenePlan): CharacterSpec[] 
 };
 
 // ── the scene: backdrop + camera-transformed stage + transition reveal ──────
-export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; singleRelation?: boolean; prevBg?: SceneSpec["bg"] }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, singleRelation = false, prevBg }) => {
+export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBible; multiplane?: boolean; continuity?: ScenePlan; prevBg?: SceneSpec["bg"]; singleRelation?: boolean }> = ({ scene, transIn = 0, cast, multiplane = false, continuity, prevBg, singleRelation = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const ad = useArtDirection();
   const sceneFlow = React.useContext(FlowContext); // a hook: before any early return
   const local = Math.max(0, frame - transIn); // frames since the narration for this scene starts
   // Runtime defaults, not schema defaults: Remotion passes `defaultProps` to the
@@ -432,8 +434,11 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
   const cam = camera(scene.camera ?? { zoom: [1, 1], panX: [0, 0], panY: [0, 0] }, local, scene.durationFrames);
   const t = transitionRender(transition, frame);
   const bg = scene.bg ?? { type: "flat" as const, colors: ["#8FC0E8"], set: "none" as const, texture: "none" as const };
-  const accent = transition.color || bg.accent || "#E23B57";
-  const ink = bg.accent || "#1E1E22";
+  const stagePal = bg.stageMood ? resolveArtPalette(ad, bg.stageMood) : null;
+  const darkStageMood = stagePal ? !isLightPalette(stagePal) : false;
+  const accent = darkStageMood && stagePal ? stagePal.accent : (transition.color || bg.accent || "#E23B57");
+  const ink = darkStageMood && stagePal ? stagePal.ink : (bg.accent || "#1E1E22");
+  const diagramPaper = darkStageMood && stagePal ? stagePal.surface : (typeof bg.colors?.[0] === "string" ? bg.colors[0] : "rgb(246,241,232)");
   const bodies = preset.dropsCast ? [] : scene.characters ?? [];
 
   // Antidote 2.0 / 10x (opt-in) — EXPLANATORY & ANNOTATED VISUAL-THINKING STAGES.
@@ -694,7 +699,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
               spec={scene.diagram}
               accent={accent}
               ink={ink}
-              paper={typeof bg.colors?.[0] === "string" ? bg.colors[0] : "rgb(246,241,232)"}
+              paper={diagramPaper}
               frame={Math.max(0, local - (scene.diagram.at ?? 0))}
               fps={fps}
               durationFrames={scene.durationFrames}
@@ -710,7 +715,7 @@ export const Scene: React.FC<{ scene: SceneSpec; transIn?: number; cast?: CastBi
               spec={scene.diagram}
               accent={accent}
               ink={ink}
-              paper={typeof bg.colors?.[0] === "string" ? bg.colors[0] : "rgb(246,241,232)"}
+              paper={diagramPaper}
               frame={Math.max(0, local - (scene.diagram.at ?? 0))}
               fps={fps}
               durationFrames={scene.durationFrames}

@@ -410,7 +410,7 @@ function groundingReview(b, nar) {
     const castNames = Object.values(b.cast || {}).map((c) => c && c.name).filter(Boolean);
     const mismatches = suggestNameMismatches(text, castNames, { maxDistance: 2, minMentions: 2 }).slice(0, 8);
     if (mismatches.length) {
-      out.push(`possible ASR name garbles (add to books/${SLUG}/names.json): ${mismatches.map((m) => `"${m.asrToken}" -> "${m.castName}" (×${m.count}, d=${m.distance})`).join(", ")}`);
+      out.push(`possible ASR name garbles (add to books/${SLUG || "<slug>"}/names.json): ${mismatches.map((m) => `"${m.asrToken}" -> "${m.castName}" (×${m.count}, d=${m.distance})`).join(", ")}`);
     }
   } catch {}
   return out;

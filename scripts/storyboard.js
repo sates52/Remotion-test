@@ -1084,8 +1084,8 @@ function merge() {
     const { ALL_10X_KEYS } = require("./lib/antidote-10x-keys");
     const KNOWN = new Set(ENGINE === "antidote"
       ? ["i", "concept", "diagram", "callout", "set", "cast", "expression", "action", "holds", "shotOverride", "conceptMotion",
-        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual", "told", "place",
-        ...ALL_10X_KEYS]
+        "conceptMotionCue", "actionCue", "partnerExpression", "partnerAction", "says", "partnerSays", "continue", "stageRelationship", "relationship", "storyboard", "explainedBy", "noVisual",
+        ...ALL_10X_KEYS, "told", "place"]
       : ["i", "design", "storyboard"]);
     const HINT = ENGINE === "antidote" ? { shot: "shotOverride", face: "expression" } : {};
     for (const [i, a] of authored) {
@@ -1557,7 +1557,7 @@ function merge() {
       if (vStats.maxConsecutive > 2) console.warn(`⚠ 10x variety: maxConsecutive=${vStats.maxConsecutive} > 2`);
       const promptsPath = path.join(BOOK, "prompts.10x.json");
       const { buildPrompts10x, computeFluxBudget } = require("./lib/build-10x-prompts");
-      const isMinorHarm = !!(book.engineProfile && book.engineProfile.minorHarm);
+      const isMinorHarm = Boolean(book.minorHarm === true || (book.engineProfile && book.engineProfile.minorHarm === true) || (book.profile && book.profile.minorHarm === true));
       const durationMin = Math.max(10, Math.round((out.length * 7.5) / 60));
       const maxCalls = computeFluxBudget({ durationMin, minorHarm: isMinorHarm });
       const built = buildPrompts10x({
@@ -1568,13 +1568,13 @@ function merge() {
         maxCalls,
         publicRoot: path.join(ROOT, "public"),
       });
+      if (built.warnings.length) built.warnings.forEach((w) => console.warn(`⚠ ${w}`));
       if (!built.skipped && built.scenes.length > 0) {
         const prev = readJSON(promptsPath);
         if (!prev || prev.generatedBy === "storyboard-merge" || args["overwrite-prompts"]) {
-          fs.writeFileSync(promptsPath, JSON.stringify({ generatedBy: built.generatedBy, slug: built.slug, stylePack: built.stylePack, artLock: built.artLock, maxCalls: built.maxCalls, scenes: built.scenes }, null, 2) + "\n");
+          fs.writeFileSync(promptsPath, JSON.stringify({ generatedBy: built.generatedBy, slug: built.slug, stylePack: built.stylePack, artLock: built.artLock, minorHarm: built.minorHarm, maxCalls: built.maxCalls, scenes: built.scenes }, null, 2) + "\n");
           console.log(`✓ books/${SLUG}/prompts.10x.json written (${built.scenes.length}/${built.maxCalls} Flux assets)`);
         }
-        built.warnings.forEach((w) => console.warn(`⚠ ${w}`));
         if (built.missingRefs.length) console.warn(`⚠ 10x missing assetRefs (${built.missingRefs.length}): ${built.missingRefs.slice(0, 5).join(", ")}`);
       }
     }

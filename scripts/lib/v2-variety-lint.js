@@ -116,16 +116,17 @@ function classifySceneMode(scene) {
 function classifyPacingKey(scene, mode, storyMode) {
   if (!storyMode || mode !== "live-story") return mode;
   if (scene.told) return "TOLD";
-  const shot = scene.shot || "medium";
+  const shot = scene.shot || scene.shotOverride || "medium";
   return `CAST:${shot}`;
 }
 
 function resolveGenreContext(config, opts = {}) {
   const book = opts.book || {};
-  const kind = book.kind || book.profile?.kind || config?.meta?.kind || null;
+  const kind = book.kind || book.engineProfile?.kind || book.profile?.kind || config?.meta?.kind || null;
   const minorHarm = Boolean(
     opts.minorHarm === true ||
     book.minorHarm === true ||
+    book.engineProfile?.minorHarm === true ||
     book.profile?.minorHarm === true ||
     config?.meta?.artDirection?.castMode === "vectorRig",
   );
@@ -157,7 +158,7 @@ function analyzeVariety(config, opts = {}) {
     if (isTextHeavy10x(s)) textHeavy10xCount++;
     if (s.continueFromPrev) continuityCount++;
     if (s.shotIntent) intentCount++;
-    const hasChars = Array.isArray(s.characters) && s.characters.length > 0;
+    const hasChars = (Array.isArray(s.characters) && s.characters.length > 0) || (Array.isArray(s.cast) && s.cast.length > 0);
     if ((s.visualEquation || s.dataMatrix || s.realAnchor) && hasChars) {
       coStagedCount++;
     }
@@ -181,7 +182,7 @@ function analyzeVariety(config, opts = {}) {
     if (curRun > maxConsecutive) maxConsecutive = curRun;
 
     const shotPlace = mode === "live-story" && !s.told
-      ? `${s.shot || "medium"}|${s.bg?.set || "none"}`
+      ? `${s.shot || s.shotOverride || "medium"}|${s.bg?.set || s.place || s.set || "none"}`
       : null;
     if (shotPlace && shotPlace === curShotPlace && !s.continueFromPrev) {
       curShotPlaceRun++;
@@ -224,7 +225,7 @@ function assertVariety(config, opts = {}) {
   const errors = [];
   if (stats.total === 0) errors.push("config has 0 scenes");
   for (const s of scenes) {
-    const hasChars = Array.isArray(s.characters) && s.characters.length > 0;
+    const hasChars = (Array.isArray(s.characters) && s.characters.length > 0) || (Array.isArray(s.cast) && s.cast.length > 0);
     if (hasChars && s.bg?.image && s.bg.image.emptyStage !== true) {
       errors.push(`Single-World violation in ${s.id}: characters cannot be placed over bg.image without emptyStage: true`);
     }
