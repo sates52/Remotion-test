@@ -1,0 +1,28 @@
+{
+ "schema": "stills/1",
+ "name": "cast sheet american-psycho",
+ "composition": "Antidote-lab",
+ "entry": "src/index.ts",
+ "silent": true,
+ "gl": "default",
+ "shards": 1,
+ "jobs": [
+  {
+   "id": "cast",
+   "config": "configs/cast.json",
+   "frames": [
+    45,
+    105,
+    165,
+    225,
+    285,
+    345
+   ]
+  }
+ ],
+ "inputHash": "1791e8885c4aab5c",
+ "files": {
+  "stills/configs/cast.json": "b3458ea5208943a1debaa0d55070a5043b3c086c9c134418395e3f11a072cf7f"
+ },
+ "builtAt": "2026-11-27T17:25:27.078Z"
+}
