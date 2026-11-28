@@ -841,4 +841,94 @@ test("15. Hotfix (2026-11-28): sealTold preserves continue/carryState & prompts.
   assert.ok(pySrc.includes('P.get("outDir")'), 'generate-assets.py must use P.get("outDir") with slug fallback');
 });
 
+test("16. mute-test --cloud builds stills/1 manifest with 10x/Vox extra assets, resume, and v2 support", () => {
+  const { spawnSync } = require("child_process");
+  const slug = `zz-mute-cloud-test-${process.pid}`;
+  const bookDir = path.join(ROOT, "books", slug);
+  const muteV1 = path.join(ROOT, "audit", "mute", slug);
+  const muteV2 = path.join(ROOT, "audit", "mute-v2", slug);
+  const pubScenes = path.join(ROOT, "public", "scenes", slug);
+  const pubImages = path.join(ROOT, "public", "images", slug);
+  const env = { ...process.env, PRODUCTION_GUARD: "off", MUTE_TEST_CLOUD_MANIFEST_ONLY: "1" };
+  const runMute = (...argv) => spawnSync(process.execPath, [path.join(ROOT, "scripts/mute-test.js"), ...argv, `--slug=${slug}`], { cwd: ROOT, encoding: "utf8", env });
+
+  try {
+    fs.mkdirSync(bookDir, { recursive: true });
+    fs.mkdirSync(pubScenes, { recursive: true });
+    fs.mkdirSync(pubImages, { recursive: true });
+    fs.writeFileSync(path.join(pubScenes, "hero.png"), "x".repeat(12000));
+    fs.writeFileSync(path.join(pubScenes, "prev.png"), "x".repeat(12000));
+    fs.writeFileSync(path.join(pubImages, "b1.png"), "x".repeat(12000));
+
+    const scenes = Array.from({ length: 12 }, (_, k) => ({
+      id: `scene-${String(k + 1).padStart(2, "0")}`,
+      fromFrame: k * 90,
+      durationFrames: 90,
+      ...(k === 0 ? { bg: { image: { path: `scenes/${slug}/prev.png` } } } : {}),
+      ...(k === 1 ? { depthCarry: true } : {}),
+      ...(k > 1 ? { annotatedScene: { image: `scenes/${slug}/hero.png` } } : {}),
+    }));
+    fs.writeFileSync(path.join(bookDir, "book.json"), JSON.stringify({ slug, engine: "antidote" }));
+    fs.writeFileSync(path.join(bookDir, "config.antidote.json"), JSON.stringify({
+      meta: { fps: 30, audio: "audio/x.m4a" },
+      scenes,
+      captions: [{ startFrame: 0, endFrame: 1080, text: "narration" }],
+    }));
+
+    // 1. Sealed Antidote 10x manifest
+    let r = runMute("prep", "--label=final", "--seal", "--n=10");
+    assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    r = runMute("prep", "--label=final", "--cloud");
+    assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    const manPath = path.join(muteV1, "final", "cloud", "manifest.json");
+    assert.ok(fs.existsSync(manPath), "cloud manifest.json must be written");
+    const man = JSON.parse(fs.readFileSync(manPath, "utf8"));
+    assert.strictEqual(man.schema, "stills/1");
+    assert.strictEqual(man.composition, "Antidote-lab");
+    assert.strictEqual(man.silent, true);
+    assert.ok(man.shards <= 4, `shards must be <= 4, got ${man.shards}`);
+    assert.strictEqual(man.jobs.length, 10, "all 10 sealed frames must be queued");
+    assert.ok(Array.isArray(man.extra) && man.extra.includes(`public/scenes/${slug}/hero.png`), "manifest.extra must include referenced 10x Flux asset");
+
+    // 2. Resume skips already-rendered stills (>10KB)
+    const j0 = man.jobs[0];
+    const stillsSlug = path.join(muteV1, "final", "stills", slug);
+    fs.mkdirSync(stillsSlug, { recursive: true });
+    fs.writeFileSync(path.join(stillsSlug, `${j0.id}-f${j0.frames[0]}.png`), "x".repeat(15000));
+    r = runMute("prep", "--label=final", "--cloud");
+    assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    const manResume = JSON.parse(fs.readFileSync(manPath, "utf8"));
+    assert.strictEqual(manResume.jobs.length, 9, "resume must skip already-rendered frame");
+
+    // 3. --method=v2 --cloud strips captions in cloud/configs/config.json
+    r = runMute("prep", "--label=v2diag", "--method=v2", "--n=2", "--cloud");
+    assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    const v2Cfg = JSON.parse(fs.readFileSync(path.join(muteV2, "v2diag", "cloud", "configs", "config.json"), "utf8"));
+    assert.deepStrictEqual(v2Cfg.captions, [], "v2 cloud config must strip captions");
+
+    // 4. Vox config emits Vox-lab and includes public/images/<slug>/b1.png
+    fs.rmSync(path.join(bookDir, "config.antidote.json"), { force: true });
+    fs.writeFileSync(path.join(bookDir, "book.json"), JSON.stringify({ slug, engine: "vox" }));
+    fs.writeFileSync(path.join(bookDir, "config.vox.json"), JSON.stringify({
+      meta: { fps: 30, audio: "audio/x.m4a", totalFrames: 900 },
+      beats: Array.from({ length: 10 }, (_, k) => ({
+        id: `beat-${k + 1}`,
+        fromFrame: k * 90,
+        durationFrames: 90,
+        images: [`images/${slug}/b1.png`],
+      })),
+      captions: [{ startFrame: 0, endFrame: 900, text: "vox narration" }],
+    }));
+    r = runMute("prep", "--label=voxrun", "--n=4", "--cloud");
+    assert.strictEqual(r.status, 0, r.stderr + r.stdout);
+    const voxMan = JSON.parse(fs.readFileSync(path.join(muteV1, "voxrun", "cloud", "manifest.json"), "utf8"));
+    assert.strictEqual(voxMan.composition, "Vox-lab");
+    assert.ok(Array.isArray(voxMan.extra) && voxMan.extra.includes(`public/images/${slug}/b1.png`), "Vox manifest.extra must include referenced image");
+  } finally {
+    for (const d of [bookDir, muteV1, muteV2, pubScenes, pubImages]) {
+      fs.rmSync(d, { recursive: true, force: true });
+    }
+  }
+});
+
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);

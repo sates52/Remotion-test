@@ -4,7 +4,7 @@
  * the narration from the picture. Gate PASS is not evidence of that (the old WWL
  * config passed every gate and a blind judge found 9/30 frames WRONG).
  *
- *   node scripts/mute-test.js prep  --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>]
+ *   node scripts/mute-test.js prep  --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--cloud] [--shards=N]
  *       stratified sample -> stills -> caption band cropped -> shuffled
  *       -> audit/mute/<slug>/<label>/{mute/img-NN.png, key.json, sample.json, PROMPTS.md}
  *   node scripts/mute-test.js prep  --slug=<slug> --label=final --seal   (draw + seal ids, render nothing)
@@ -56,7 +56,7 @@ const LABEL = args.label || "run1";
 // Measurement unchanged: this only records/guards the code before prep renders.
 if (CMD === "prep" && SLUG) require("./lib/production-guard").productionGuard({ slug: SLUG, step: `mute-test prep ${LABEL}` });
 if (!["prep", "judge", "tally", "map", "supersede"].includes(CMD) || !SLUG) {
-  console.error("Usage: node scripts/mute-test.js prep|judge|tally|map --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--vs=<label>] [--method=v2]\n       node scripts/mute-test.js supersede --slug=<slug> --label=<label> --reason=\"<why>\" [--status=SUPERSEDED|STALE|VOID] [--operator-approved=\"<reason>\"]");
+  console.error("Usage: node scripts/mute-test.js prep|judge|tally|map --slug=<slug> [--label=run1] [--n=30] [--frames-from=<label>] [--seal] [--dry] [--cloud] [--shards=N] [--vs=<label>] [--method=v2]\n       node scripts/mute-test.js supersede --slug=<slug> --label=<label> --reason=\"<why>\" [--status=SUPERSEDED|STALE|VOID] [--operator-approved=\"<reason>\"]");
   process.exit(1);
 }
 // bars live in data/quality-policy.json (operator decisions only); defaults = policy 2026-09-28
@@ -154,6 +154,35 @@ function takePrepLock() {
   fs.writeFileSync(lock, JSON.stringify({ pid: process.pid, at: new Date().toISOString() }));
   process.on("exit", () => { try { if ((readJSON(lock) || {}).pid === process.pid) fs.rmSync(lock, { force: true }); } catch {} });
 }
+function collectCloudExtraAssets(rootDir, config, sampledIds) {
+  const list = Array.isArray(config?.scenes) ? config.scenes : Array.isArray(config?.beats) ? config.beats : [];
+  const targets = [];
+  list.forEach((sc, idx) => {
+    if (!sc || !sampledIds.has(String(sc.id))) return;
+    targets.push(sc);
+    if (sc.depthCarry && idx > 0 && list[idx - 1]) targets.push(list[idx - 1]);
+  });
+  const found = new Set();
+  const assetRx = /^(?:public\/)?((?:scenes|images|assets|cutouts|media)\/[^\s"'<>]+\.(?:png|jpe?g|webp|svg))$/i;
+  const walk = (v) => {
+    if (!v) return;
+    if (typeof v === "string") {
+      const norm = v.trim().replace(/\\/g, "/");
+      const m = norm.match(assetRx);
+      if (m) {
+        const rel = m[1];
+        const abs = path.join(rootDir, "public", rel);
+        if (fs.existsSync(abs) && fs.statSync(abs).isFile()) found.add(`public/${rel}`);
+      }
+      return;
+    }
+    if (Array.isArray(v)) { v.forEach(walk); return; }
+    if (typeof v === "object") Object.values(v).forEach(walk);
+  };
+  targets.forEach(walk);
+  return [...found].sort();
+}
+
 function prep() {
   if (!args.dry && !args.seal) takePrepLock();
   if (V2 && args.seal) { console.error("❌ v2 is a diagnostic: no --seal (the verdict stays v1 until the operator decides otherwise)"); process.exit(1); }
@@ -259,7 +288,62 @@ function prep() {
   if (done) console.log(`resuming: ${done}/${sample.length} stills of this config already rendered — only the rest is rendered`);
   if (process.env.MUTE_TEST_NO_RENDER === "1") { console.log("(test: stopping before the render)"); return; }
   console.log(`rendering ${sample.length} stills${V2 ? " WITHOUT the caption layer (v2)" : ""} (one bundle, several minutes) ...`);
-  execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`, ...(V2 ? ["--no-captions"] : [])], { cwd: ROOT, stdio: "inherit" });
+  if (args.cloud) {
+    const isVox = cfgPath.endsWith("config.vox.json");
+    const composition = isVox ? "Vox-lab" : "Antidote-lab";
+    const dest = path.join(ROOT, stillsRoot, SLUG);
+    fs.mkdirSync(dest, { recursive: true });
+    const allUnits = cfg.scenes || cfg.beats || [];
+    const allJobs = sample.map((s) => {
+      const id = String(allUnits.find((u) => s.frame >= u.fromFrame && s.frame < u.fromFrame + u.durationFrames)?.id || s.id);
+      return { id, sampleId: s.id, frame: s.frame, outFile: path.join(dest, `${id}-f${s.frame}.png`) };
+    });
+    const missingJobs = allJobs.filter((j) => !(fs.existsSync(j.outFile) && fs.statSync(j.outFile).size > 10000));
+    if (missingJobs.length === 0) {
+      console.log(`all ${sample.length} stills already on disk for this config — skipping cloud render`);
+    } else {
+      const CDIR = path.join(OUT, "cloud");
+      fs.rmSync(CDIR, { recursive: true, force: true });
+      fs.mkdirSync(path.join(CDIR, "configs"), { recursive: true });
+      const cloudCfgPath = path.join(CDIR, "configs", "config.json");
+      if (V2) fs.writeFileSync(cloudCfgPath, JSON.stringify({ ...cfg, captions: [] }));
+      else fs.copyFileSync(cfgPath, cloudCfgPath);
+      const sampledIdSet = new Set(missingJobs.flatMap((j) => [j.id, j.sampleId]));
+      const extra = collectCloudExtraAssets(ROOT, cfg, sampledIdSet);
+      const reqShards = Number(args.shards);
+      const shards = Number.isFinite(reqShards) && reqShards >= 1 ? Math.min(20, Math.round(reqShards)) : Math.min(4, missingJobs.length);
+      const manifest = {
+        schema: "stills/1",
+        name: `mute ${SLUG} ${LABEL}${V2 ? " (v2)" : ""}`,
+        composition,
+        entry: "src/index.ts",
+        silent: true,
+        shards,
+        ...(extra.length ? { extra } : {}),
+        jobs: missingJobs.map((j) => ({ id: j.id, config: "configs/config.json", frames: [j.frame] })),
+      };
+      fs.writeFileSync(path.join(CDIR, "manifest.json"), JSON.stringify(manifest, null, 1));
+      if (process.env.MUTE_TEST_CLOUD_MANIFEST_ONLY === "1") {
+        console.log("(test: cloud manifest written, stopping before push)");
+        return;
+      }
+      const tag = `mute-${SLUG}-${LABEL}-${Date.now().toString(36)}`.replace(/[^A-Za-z0-9._-]/g, "-").slice(0, 72);
+      console.log(`rendering ${missingJobs.length} still(s) on GitHub Actions (${composition}, ${shards} shard(s), ${extra.length} extra asset(s), tag ${tag}) ...`);
+      execFileSync(process.execPath, ["scripts/stills-cloud.js", "push", `--manifest=${path.join(CDIR, "manifest.json")}`, `--tag=${tag}`], { cwd: ROOT, stdio: "inherit" });
+      execFileSync(process.execPath, ["scripts/stills-cloud.js", "fetch", `--tag=${tag}`, `--out=${path.join(CDIR, "out")}`, "--wait-min=90"], { cwd: ROOT, stdio: "inherit" });
+      const rawDir = path.join(CDIR, "out", "raw");
+      for (const j of missingJobs) {
+        const src = path.join(rawDir, `${j.id}-f${j.frame}.png`);
+        if (!(fs.existsSync(src) && fs.statSync(src).size > 10000)) {
+          console.error(`❌ cloud still missing or empty: ${path.relative(ROOT, src)}`);
+          process.exit(1);
+        }
+        fs.copyFileSync(src, j.outFile);
+      }
+    }
+  } else {
+    execFileSync(process.execPath, ["scripts/render-sequence-stills.js", `--slug=${SLUG}`, `--frames=${frames}`, `--out=${stillsRoot}`, ...(V2 ? ["--no-captions"] : [])], { cwd: ROOT, stdio: "inherit" });
+  }
   const D = path.join(ROOT, stillsRoot, SLUG);
   const files = fs.readdirSync(D).filter((f) => f.endsWith(".png"));
   const rnd = rng(seedFor(LABEL) ^ 0x5bd1e995);
