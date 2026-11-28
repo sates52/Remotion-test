@@ -144,8 +144,12 @@ function analyzeVariety(config, opts = {}) {
   let maxIdenticalShotPlace = 0;
   let curMode = null;
   let curRun = 0;
+  let curRunIds = [];
+  const consecutiveOffenders = [];
   let curShotPlace = null;
   let curShotPlaceRun = 0;
+  let curShotPlaceIds = [];
+  const shotPlaceOffenders = [];
   let coStagedCount = 0;
   let continuityCount = 0;
   let intentCount = 0;
@@ -175,9 +179,12 @@ function analyzeVariety(config, opts = {}) {
     const pacingKey = classifyPacingKey(s, mode, ctx.storyMode);
     if (pacingKey === curMode && !s.continueFromPrev) {
       curRun++;
+      curRunIds.push(s.id);
     } else {
+      if (curRun > 2) consecutiveOffenders.push({ mode: curMode, count: curRun, fromId: curRunIds[0], toId: curRunIds[curRunIds.length - 1], ids: curRunIds });
       curMode = pacingKey;
       curRun = 1;
+      curRunIds = [s.id];
     }
     if (curRun > maxConsecutive) maxConsecutive = curRun;
 
@@ -186,12 +193,17 @@ function analyzeVariety(config, opts = {}) {
       : null;
     if (shotPlace && shotPlace === curShotPlace && !s.continueFromPrev) {
       curShotPlaceRun++;
+      curShotPlaceIds.push(s.id);
     } else {
+      if (curShotPlaceRun > 2) shotPlaceOffenders.push({ shotPlace: curShotPlace, count: curShotPlaceRun, fromId: curShotPlaceIds[0], toId: curShotPlaceIds[curShotPlaceIds.length - 1], ids: curShotPlaceIds });
       curShotPlace = shotPlace;
       curShotPlaceRun = shotPlace ? 1 : 0;
+      curShotPlaceIds = shotPlace ? [s.id] : [];
     }
     if (curShotPlaceRun > maxIdenticalShotPlace) maxIdenticalShotPlace = curShotPlaceRun;
   }
+  if (curRun > 2) consecutiveOffenders.push({ mode: curMode, count: curRun, fromId: curRunIds[0], toId: curRunIds[curRunIds.length - 1], ids: curRunIds });
+  if (curShotPlaceRun > 2) shotPlaceOffenders.push({ shotPlace: curShotPlace, count: curShotPlaceRun, fromId: curShotPlaceIds[0], toId: curShotPlaceIds[curShotPlaceIds.length - 1], ids: curShotPlaceIds });
 
   const shares = {};
   for (const [k, v] of Object.entries(counts)) {
@@ -208,6 +220,8 @@ function analyzeVariety(config, opts = {}) {
     textHeavy10xShare,
     maxConsecutive,
     maxIdenticalShotPlace,
+    consecutiveOffenders,
+    shotPlaceOffenders,
     coStagedCount,
     continuityCount,
     intentCount,
@@ -254,10 +268,12 @@ function assertVariety(config, opts = {}) {
     errors.push(`textHeavy10x share ${(stats.textHeavy10xShare * 100).toFixed(1)}% exceeds ${(textHeavyLimit * 100).toFixed(0)}% anti-text-slide limit`);
   }
   if (stats.maxConsecutive > 2) {
-    errors.push(`maxConsecutive=${stats.maxConsecutive} exceeds 2 without continueFromPrev`);
+    const detail = (stats.consecutiveOffenders || []).map((o) => `${o.mode}: ${o.fromId}..${o.toId} (${o.count})`).join(", ");
+    errors.push(`maxConsecutive=${stats.maxConsecutive} exceeds 2 without continueFromPrev${detail ? ` (${detail})` : ""}`);
   }
   if (stats.maxIdenticalShotPlace > 2) {
-    errors.push(`maxIdenticalShotPlace=${stats.maxIdenticalShotPlace} exceeds 2 identical shot+place scenes without continueFromPrev`);
+    const detail = (stats.shotPlaceOffenders || []).map((o) => `${o.shotPlace}: ${o.fromId}..${o.toId} (${o.count})`).join(", ");
+    errors.push(`maxIdenticalShotPlace=${stats.maxIdenticalShotPlace} exceeds 2 identical shot+place scenes without continueFromPrev${detail ? ` (${detail})` : ""}`);
   }
   if (config?.meta?.artDirection?.captions === "minimal" && (!Array.isArray(config.captions) || config.captions.length === 0)) {
     errors.push(`artDirection.captions === "minimal" but config.captions is empty`);

@@ -931,4 +931,87 @@ test("16. mute-test --cloud builds stills/1 manifest with 10x/Vox extra assets, 
   }
 });
 
+test("17. Hotfix (2026-11-28): plan-antidote beatStartSec/fromSec seconds, TimelineScrub [a,a] guard, variety offenders", () => {
+  const { compile10xCues } = require("./lib/compile-10x-cues");
+  const { assertVariety } = require("./lib/v2-variety-lint");
+
+  // 1. plan-antidote.js divides by FPS on both beatStartSec and fromSec
+  const planSrc = fs.readFileSync(path.join(ROOT, "scripts/plan-antidote.js"), "utf8");
+  assert.ok(!planSrc.includes("beatStartSec: s.from ?? (out.fromFrame / FPS)"), "plan-antidote must not pass raw s.from frames as beatStartSec");
+  assert.ok(!planSrc.includes("const fromSec = s.from ?? (out.fromFrame / FPS)"), "plan-antidote must not pass raw s.from frames as fromSec");
+  assert.ok(planSrc.includes("beatStartSec: (out.fromFrame ?? s.from ?? 0) / FPS"), "plan-antidote must pass seconds to compile10xCues");
+  assert.ok(planSrc.includes("const fromSec = (out.fromFrame ?? s.from ?? 0) / FPS"), "plan-antidote must pass seconds to applyColdOpenDirection");
+
+  // 2. Late beat cue compilation with real seconds-based beatStartSec
+  const lateScene = {
+    id: "scene-145",
+    durationFrames: 250,
+    timelineScrub: {
+      title: "TIMELINE",
+      events: [
+        { label: "Dates", cue: "dates" },
+        { label: "Alibis", cue: "alibis" },
+        { label: "Locations", cue: "locations" },
+      ],
+    },
+  };
+  compile10xCues(lateScene, {
+    words: [
+      { w: "dates", s: 38960 },
+      { w: "alibis", s: 38990 },
+      { w: "locations", s: 39020 },
+    ],
+    beatStartSec: 38815 / 30,
+    durationFrames: 250,
+    fps: 30,
+    quiet: true,
+  });
+  const evs = lateScene.timelineScrub.events;
+  assert.ok(evs[0].at > 6 && evs[0].at < evs[1].at && evs[1].at < evs[2].at, `expected strictly increasing >6 frames, got ${evs.map((e) => e.at).join(",")}`);
+
+  // 3. Colliding cues on timelineScrub still produce strictly increasing at values
+  const collideScene = {
+    id: "scene-collide",
+    durationFrames: 180,
+    timelineScrub: {
+      title: "COLLIDE",
+      events: [
+        { label: "A", cue: "missing-one" },
+        { label: "B", cue: "missing-two" },
+        { label: "C", cue: "missing-three" },
+      ],
+    },
+  };
+  compile10xCues(collideScene, { words: [{ w: "hello", s: 10 }], beatStartSec: 0, durationFrames: 180, fps: 30, quiet: true });
+  const ce = collideScene.timelineScrub.events;
+  assert.ok(ce[0].at < ce[1].at && ce[1].at < ce[2].at, `colliding timelineScrub events must be strictly increasing, got ${ce.map((e) => e.at).join(",")}`);
+
+  // 4. TimelineScrub.tsx uses [firstAt, effectiveLastAt] (never [firstAt, lastAt])
+  const tsSrc = fs.readFileSync(path.join(ROOT, "src/engines/antidote/components/TimelineScrub.tsx"), "utf8");
+  assert.ok(!tsSrc.includes("interpolate(frame, [firstAt, lastAt]"), "TimelineScrub must not pass [firstAt, lastAt] to interpolate");
+  assert.ok(tsSrc.includes("interpolate(frame, [firstAt, effectiveLastAt]"), "TimelineScrub must use effectiveLastAt = firstAt + span");
+
+  // 5. v2-variety-lint names offending scene IDs and distinguishes TOLD vs CAST:*
+  assert.throws(
+    () => assertVariety({
+      scenes: [
+        { id: "scene-143", fromFrame: 0, durationFrames: 90, told: { v: 5, items: [] } },
+        { id: "scene-144", fromFrame: 90, durationFrames: 90, told: { v: 5, items: [] } },
+        { id: "scene-145", fromFrame: 180, durationFrames: 90, told: { v: 5, items: [] } },
+      ],
+    }, { book: { engineProfile: { kind: "fiction", minorHarm: false } } }),
+    /TOLD: scene-143\.\.scene-145 \(3\)/
+  );
+  const okMix = assertVariety({
+    scenes: [
+      { id: "s1", fromFrame: 0, durationFrames: 90, told: { v: 5, items: [] } },
+      { id: "s2", fromFrame: 90, durationFrames: 90, told: { v: 5, items: [] } },
+      { id: "s3", fromFrame: 180, durationFrames: 90, shot: "illustration", characters: [{ id: "c1" }] },
+      { id: "s4", fromFrame: 270, durationFrames: 90, annotatedScene: { title: "X" } },
+      { id: "s5", fromFrame: 360, durationFrames: 90, beforeAfterWipe: { before: { label: "A", headline: "B" }, after: { label: "C", headline: "D" } } },
+    ],
+  }, { book: { engineProfile: { kind: "fiction", minorHarm: false } } });
+  assert.strictEqual(okMix.maxConsecutive, 2);
+});
+
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);

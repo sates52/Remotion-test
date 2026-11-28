@@ -26,17 +26,18 @@ export const TimelineScrub: React.FC<{ spec: TimelineScrubSpec; localFrame?: num
   const firstAt = events[0]?.at ?? 0;
   const lastAt = events[n - 1]?.at ?? 120;
   const span = Math.max(1, lastAt - firstAt);
-  const railP = interpolate(frame, [firstAt, lastAt], [0, 1], {
+  const effectiveLastAt = firstAt + span;
+  const railP = interpolate(frame, [firstAt, effectiveLastAt], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.inOut(Easing.cubic),
   });
 
-  const loopAt = spec.loopAt ?? lastAt + 24;
+  const loopAt = spec.loopAt ?? effectiveLastAt + 24;
   const loopP = spec.loopLabel && frame >= loopAt
     ? interpolate(frame - loopAt, [0, 22], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.poly(3)) })
     : 0;
-  const calloutAt = spec.calloutAt ?? lastAt + 36;
+  const calloutAt = spec.calloutAt ?? effectiveLastAt + 36;
   const calloutP = spec.callout && frame >= calloutAt
     ? interpolate(frame - calloutAt, [0, 12], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
     : 0;

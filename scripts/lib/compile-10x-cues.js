@@ -206,6 +206,32 @@ function compile10xCues(scene, ctx = {}) {
           }
         }
       }
+      // Guarantee strictly increasing event timestamps for TimelineScrub so Remotion interpolate([firstAt, lastAt]) never sees [a,a].
+      if (dk === "timelineScrub" && arrKey === "events" && arr.length >= 2) {
+        for (let idx = 0; idx < arr.length; idx++) {
+          const item = arr[idx];
+          if (!item || typeof item !== "object") continue;
+          const prevAt = idx > 0 && typeof arr[idx - 1]?.at === "number" ? arr[idx - 1].at : null;
+          if (typeof item.at !== "number") {
+            item.at = prevAt != null ? prevAt + 12 : 12;
+          } else if (prevAt != null && item.at <= prevAt) {
+            item.at = prevAt + 8;
+          }
+        }
+        const lastEv = arr[arr.length - 1];
+        if (lastEv && typeof lastEv.at === "number" && lastEv.at > maxReveal) {
+          const first = arr[0].at;
+          const span = Math.max(1, lastEv.at - first);
+          const avail = Math.max(arr.length * 2, maxReveal - 10);
+          for (let idx = 0; idx < arr.length; idx++) {
+            const item = arr[idx];
+            if (!item || typeof item !== "object") continue;
+            const scaled = Math.round(10 + ((item.at - first) / span) * avail);
+            const prevAt = idx > 0 ? arr[idx - 1].at : 8;
+            item.at = idx === 0 ? scaled : Math.max(prevAt + 2, scaled);
+          }
+        }
+      }
       for (const item of arr) {
         if (!item || typeof item !== "object") continue;
         const baseAt = typeof item.at === "number" ? item.at : 10;

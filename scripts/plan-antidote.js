@@ -1471,7 +1471,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
       let coldOpenTransitionApplied = false;
       if (hasAny10xDevice(out)) {
         const beatWords = Array.isArray(s.words) ? s.words : [];
-        compile10xCues(out, { words: beatWords, beatStartSec: s.from ?? (out.fromFrame / FPS), durationFrames: out.durationFrames, fps: FPS });
+        compile10xCues(out, { words: beatWords, beatStartSec: (out.fromFrame ?? s.from ?? 0) / FPS, durationFrames: out.durationFrames, fps: FPS });
         // Hydrate optional `icon` visual slots on text-heavy 10x devices from the book's own motifs.json / entities.json drawings.
         // ownIcons() returns { [id]: { viewBox, paths, title, ... } } directly on each entry (not nested under .customSvg).
         try {
@@ -1502,7 +1502,7 @@ const { roleIndex, castSlots, lockedCast, isEmptyAuthoredCast, castFreeShot } = 
           if (out.hookPoster) hydrateSlot(out.hookPoster);
         } catch {}
         if (!A.transitionOverride) {
-          const fromSec = s.from ?? (out.fromFrame / FPS);
+          const fromSec = (out.fromFrame ?? s.from ?? 0) / FPS;
           const { applyColdOpenDirection } = require("./lib/cold-open");
           applyColdOpenDirection(out, {
             index: i,
