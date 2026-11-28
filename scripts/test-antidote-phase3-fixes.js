@@ -776,4 +776,69 @@ test("Review round-3 deep audit: ToldStage glaze after b.paths, BeforeAfterWipe 
   assert.ok(hpSrc.includes("contrastInkOn(accentCol)"), "HookPoster anomalyBadge must use contrastInkOn(accentCol)");
 });
 
+test("15. Hotfix (2026-11-28): sealTold preserves continue/carryState & prompts.10x.json emits outDir", () => {
+  const { sealTold } = require("./lib/told-apply");
+  const { stagingDrift, restoreAuthoredStaging } = require("./lib/authorship");
+  const { buildPrompts10x } = require("./lib/build-10x-prompts");
+  const { STYLE_PACKS } = require("./lib/style-packs");
+
+  // 1. sealTold preserves continueFromPrev & carryState in lock and scene
+  const continuedScene = {
+    id: "scene-192",
+    shot: "medium",
+    continueFromPrev: true,
+    carryState: true,
+    transition: { type: "cut", frames: 0 },
+    told: { v: 5, items: [{ kind: "figure", id: "bateman" }] },
+    _authorship: { src: "art", lock: { continue: true, carryState: true } },
+  };
+  const sealed = sealTold(continuedScene);
+  assert.strictEqual(sealed._authorship.lock.continue, true, "sealTold must preserve lock.continue");
+  assert.strictEqual(sealed._authorship.lock.carryState, true, "sealTold must preserve lock.carryState");
+  assert.strictEqual(sealed.continueFromPrev, true, "sealTold must preserve continueFromPrev");
+  assert.strictEqual(sealed.carryState, true, "sealTold must preserve carryState");
+  assert.deepStrictEqual(sealed.transition, { type: "cut", frames: 0 }, "sealTold must keep 0-frame cut transition");
+  assert.deepStrictEqual(stagingDrift(sealed), [], "sealed continued told scene must have zero stagingDrift");
+  const cfg = { scenes: [JSON.parse(JSON.stringify(sealed))] };
+  restoreAuthoredStaging(cfg);
+  assert.strictEqual(cfg.scenes[0].continueFromPrev, true, "restoreAuthoredStaging must keep continueFromPrev");
+  assert.strictEqual(cfg.scenes[0].carryState, true, "restoreAuthoredStaging must keep carryState");
+
+  // 2. Idempotent recovery when continueFromPrev was stripped earlier but previousLock.continue === true
+  const strippedScene = {
+    id: "scene-193",
+    shot: "medium",
+    told: { v: 5, items: [{ kind: "figure", id: "bateman" }] },
+    _authorship: { src: "told", lock: {}, previousLock: { continue: true, carryState: true } },
+  };
+  const recovered = sealTold(strippedScene);
+  assert.strictEqual(recovered._authorship.lock.continue, true, "sealTold must recover lock.continue from previousLock");
+  assert.strictEqual(recovered.continueFromPrev, true, "sealTold must recover continueFromPrev from previousLock");
+  assert.strictEqual(recovered.carryState, true, "sealTold must recover carryState from previousLock");
+
+  // 3. Non-continued scene must NOT gain continue/carryState
+  const plainScene = {
+    id: "scene-10",
+    shot: "medium",
+    told: { v: 5, items: [{ kind: "figure", id: "bateman" }] },
+    _authorship: { src: "art", lock: {} },
+  };
+  const plainSealed = sealTold(plainScene);
+  assert.strictEqual(plainSealed._authorship.lock.continue, undefined, "non-continued scene must not set lock.continue");
+  assert.strictEqual(plainSealed.continueFromPrev, undefined, "non-continued scene must not set continueFromPrev");
+
+  // 4. buildPrompts10x emits outDir: "scenes/<slug>"
+  const p10x = buildPrompts10x({
+    slug: "demo-book",
+    beats: [{ annotatedScene: { image: "scenes/demo-book/a.png" }, assetRequests: [{ id: "a", prompt: "editorial desk" }] }],
+    pack: STYLE_PACKS.editorialNoir,
+  });
+  assert.strictEqual(p10x.outDir, "scenes/demo-book", "buildPrompts10x must emit outDir");
+
+  // 5. generate-assets.py uses P.get("outDir") with slug fallback (no raw P["outDir"])
+  const pySrc = fs.readFileSync(path.join(ROOT, "scripts/antidote-v2-pilot/generate-assets.py"), "utf8");
+  assert.ok(!pySrc.includes('P["outDir"]'), 'generate-assets.py must not use raw P["outDir"]');
+  assert.ok(pySrc.includes('P.get("outDir")'), 'generate-assets.py must use P.get("outDir") with slug fallback');
+});
+
 console.log(`\nAll ${passed} Antidote 10x Phase 3 System Improvement tests passed.`);

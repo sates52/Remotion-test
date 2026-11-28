@@ -16,7 +16,10 @@ prompts_path = args.get("prompts") or os.path.join(HERE, "prompts.json")
 if not os.path.isabs(prompts_path):
     prompts_path = os.path.join(ROOT, prompts_path) if os.path.exists(os.path.join(ROOT, prompts_path)) else os.path.join(HERE, prompts_path)
 P = json.load(open(prompts_path, encoding="utf-8"))
-OUT = os.path.join(ROOT, "public", P["outDir"])
+out_dir = P.get("outDir") or (f"scenes/{P['slug']}" if P.get("slug") else None)
+if not out_dir:
+    raise SystemExit("ERROR: prompts JSON missing 'outDir' (and 'slug')")
+OUT = os.path.join(ROOT, "public", out_dir)
 os.makedirs(OUT, exist_ok=True)
 REP = os.path.join(OUT, "assets.report.json")
 rep = json.load(open(REP, encoding="utf-8")) if os.path.exists(REP) else {"images": {}}

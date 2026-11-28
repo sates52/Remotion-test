@@ -66,6 +66,17 @@ function sealTold(scene) {
     const old = a.src === "told" ? a.previousLock || null : a.lock || null;
     const lock = { planShot: scene.shot, shot: scene.shot, cast: [], concept: scene.concept ?? null, propTypes: [], artTexts: [], told: provenance };
     if (scene.bg && scene.bg.set) lock.set = scene.bg.set;
+    const hasContinue = scene.continueFromPrev === true || Boolean(old && old.continue === true);
+    const hasCarry = scene.carryState === true || Boolean(old && old.carryState === true);
+    if (hasContinue) {
+      lock.continue = true;
+      out.continueFromPrev = true;
+      out.transition = { ...(out.transition || {}), type: "cut", frames: 0 };
+    }
+    if (hasCarry) {
+      lock.carryState = true;
+      out.carryState = true;
+    }
     out._authorship = { ...a, src: "told", lock, previousLock: old };
   }
   if (scene.visualContract) {

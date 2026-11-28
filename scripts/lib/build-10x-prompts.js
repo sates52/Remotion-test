@@ -188,6 +188,7 @@ function buildPrompts10x({ slug, beats, pack, minorHarm = false, maxCalls = null
     skipped: false,
     generatedBy: "storyboard-merge",
     slug,
+    outDir: `scenes/${slug}`,
     stylePack: pack?.id || null,
     artLock: conciseArtLock(pack?.artLock, { minorHarm: isMinorHarm }),
     minorHarm: isMinorHarm,
